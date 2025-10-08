@@ -1,9 +1,9 @@
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
-import type { AppState, Word, Collection } from "./types"
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import type { AppState, Word, Collection } from "./types";
 
 // Generate unique IDs
-export const generateId = () => Math.random().toString(36).substr(2, 9)
+export const generateId = () => Math.random().toString(36).substr(2, 9);
 
 // Seed data
 const seedCollections: Collection[] = [
@@ -19,7 +19,7 @@ const seedCollections: Collection[] = [
     color: "bg-accent",
     createdAt: new Date().toISOString(),
   },
-]
+];
 
 const seedWords: Word[] = [
   {
@@ -52,21 +52,21 @@ const seedWords: Word[] = [
     createdAt: new Date().toISOString(),
     score: 0,
   },
-]
+];
 
 interface AppStore extends AppState {
   // Actions
-  addWord: (word: Omit<Word, "id" | "createdAt">) => void
-  updateWord: (id: string, updates: Partial<Word>) => void
-  deleteWord: (id: string) => void
-  addCollection: (collection: Omit<Collection, "id" | "createdAt">) => void
-  updateCollection: (id: string, updates: Partial<Collection>) => void
-  deleteCollection: (id: string) => void
-  updateSettings: (settings: Partial<AppState["settings"]>) => void
-  resetData: () => void
-  searchWords: (query: string) => Word[]
-  getWordsByCollection: (collectionId: string) => Word[]
-  suggestCollection: (term: string) => Collection | null
+  addWord: (word: Omit<Word, "id" | "createdAt">) => void;
+  updateWord: (id: string, updates: Partial<Word>) => void;
+  deleteWord: (id: string) => void;
+  addCollection: (collection: Omit<Collection, "id" | "createdAt">) => void;
+  updateCollection: (id: string, updates: Partial<Collection>) => void;
+  deleteCollection: (id: string) => void;
+  updateSettings: (settings: Partial<AppState["settings"]>) => void;
+  resetData: () => void;
+  searchWords: (query: string) => Word[];
+  getWordsByCollection: (collectionId: string) => Word[];
+  suggestCollection: (term: string) => Collection | null;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -88,22 +88,24 @@ export const useAppStore = create<AppStore>()(
           ...wordData,
           id: generateId(),
           createdAt: new Date().toISOString(),
-        }
+        };
         set((state) => ({
           words: [...state.words, word],
-        }))
+        }));
       },
 
       updateWord: (id, updates) => {
         set((state) => ({
-          words: state.words.map((word) => (word.id === id ? { ...word, ...updates } : word)),
-        }))
+          words: state.words.map((word) =>
+            word.id === id ? { ...word, ...updates } : word
+          ),
+        }));
       },
 
       deleteWord: (id) => {
         set((state) => ({
           words: state.words.filter((word) => word.id !== id),
-        }))
+        }));
       },
 
       addCollection: (collectionData) => {
@@ -111,31 +113,37 @@ export const useAppStore = create<AppStore>()(
           ...collectionData,
           id: generateId(),
           createdAt: new Date().toISOString(),
-        }
+        };
         set((state) => ({
           collections: [...state.collections, collection],
-        }))
+        }));
       },
 
       updateCollection: (id, updates) => {
         set((state) => ({
           collections: state.collections.map((collection) =>
-            collection.id === id ? { ...collection, ...updates } : collection,
+            collection.id === id ? { ...collection, ...updates } : collection
           ),
-        }))
+        }));
       },
 
       deleteCollection: (id) => {
         set((state) => ({
-          collections: state.collections.filter((collection) => collection.id !== id),
-          words: state.words.map((word) => (word.collectionId === id ? { ...word, collectionId: undefined } : word)),
-        }))
+          collections: state.collections.filter(
+            (collection) => collection.id !== id
+          ),
+          words: state.words.map((word) =>
+            word.collectionId === id
+              ? { ...word, collectionId: undefined }
+              : word
+          ),
+        }));
       },
 
       updateSettings: (newSettings) => {
         set((state) => ({
           settings: { ...state.settings, ...newSettings },
-        }))
+        }));
       },
 
       resetData: () => {
@@ -148,44 +156,67 @@ export const useAppStore = create<AppStore>()(
             theme: "dark",
             language: "en",
           },
-        })
+        });
       },
 
       searchWords: (query) => {
-        const { words } = get()
+        const { words } = get();
         return words.filter(
           (word) =>
             word.term.toLowerCase().includes(query.toLowerCase()) ||
-            word.definition.toLowerCase().includes(query.toLowerCase()),
-        )
+            word.definition.toLowerCase().includes(query.toLowerCase())
+        );
       },
 
       getWordsByCollection: (collectionId) => {
-        const { words } = get()
-        return words.filter((word) => word.collectionId === collectionId)
+        const { words } = get();
+        return words.filter((word) => word.collectionId === collectionId);
       },
 
       suggestCollection: (term) => {
-        const { collections } = get()
-        const termLower = term.toLowerCase()
+        const { collections } = get();
+        const termLower = term.toLowerCase();
 
         // Simple keyword matching
-        const foodKeywords = ["apple", "banana", "food", "fruit", "eat", "drink"]
-        const conversationKeywords = ["hello", "hi", "goodbye", "please", "thank", "sorry"]
+        const foodKeywords = [
+          "apple",
+          "banana",
+          "food",
+          "fruit",
+          "eat",
+          "drink",
+        ];
+        const conversationKeywords = [
+          "hello",
+          "hi",
+          "goodbye",
+          "please",
+          "thank",
+          "sorry",
+        ];
 
         if (foodKeywords.some((keyword) => termLower.includes(keyword))) {
-          return collections.find((c) => c.name.toLowerCase().includes("food")) || null
+          return (
+            collections.find((c) => c.name.toLowerCase().includes("food")) ||
+            null
+          );
         }
 
-        if (conversationKeywords.some((keyword) => termLower.includes(keyword))) {
-          return collections.find((c) => c.name.toLowerCase().includes("conversation")) || null
+        if (
+          conversationKeywords.some((keyword) => termLower.includes(keyword))
+        ) {
+          return (
+            collections.find((c) =>
+              c.name.toLowerCase().includes("conversation")
+            ) || null
+          );
         }
 
-        return null
+        return null;
       },
     }),
     {
       name: "wordflow-storage",
-    },
-  ),
-)
+    }
+  )
+);

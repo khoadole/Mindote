@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Collection {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid                // <-- thêm để làm owner
+  name      String
+  color     String
+  createdAt DateTime @default(now())
+  words     Word[]
+
+  @@index([userId])
+}
+
+model Word {
+  id           String     @id @default(uuid()) @db.Uuid
+  term         String
+  definition   String
+  example      String?
+  phonetic     String?
+  score        Int        @default(0)
+  createdAt    DateTime   @default(now())
+  collectionId String     @db.Uuid
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@index([collectionId, term])
+  @@unique([collectionId, term])     // tránh trùng term trong 1 collection
+}
+
+model Setting {
+  id         String   @id @default(uuid()) @db.Uuid
+  userId     String   @unique @db.Uuid     // mỗi user 1 bản ghi
+  srsEnabled Boolean  @default(false)
+  ttsEnabled Boolean  @default(false)
+  theme      String   @default("dark")
+  createdAt  DateTime @default(now())
+}

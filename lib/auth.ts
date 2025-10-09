@@ -18,14 +18,22 @@ type AuthHookReturn = {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signIn: (email: string, password: string) => ReturnType<
-    typeof supabase.auth.signInWithPassword
-  >;
+  signIn: (
+    email: string,
+    password: string
+  ) => ReturnType<typeof supabase.auth.signInWithPassword>;
   signUp: (
     email: string,
     password: string,
     username?: string
   ) => ReturnType<typeof supabase.auth.signUp>;
+  resetPassword: (
+    email: string,
+    options?: { redirectTo?: string }
+  ) => ReturnType<typeof supabase.auth.resetPasswordForEmail>;
+  updatePassword: (
+    password: string
+  ) => ReturnType<typeof supabase.auth.updateUser>;
   signOut: () => ReturnType<typeof supabase.auth.signOut>;
 };
 
@@ -74,17 +82,33 @@ export function useAuth(): AuthHookReturn {
     []
   );
 
-  const signUp = useCallback<AuthHookReturn["signUp"]>((email, password, username) => {
-    const userMetadata = username ? { username } : undefined;
+  const signUp = useCallback<AuthHookReturn["signUp"]>(
+    (email, password, username) => {
+      const userMetadata = username ? { username } : undefined;
 
-    return supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: userMetadata,
-      },
-    });
-  }, []);
+      return supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: userMetadata,
+        },
+      });
+    },
+    []
+  );
+
+  const resetPassword = useCallback<AuthHookReturn["resetPassword"]>(
+    (email, options) => supabase.auth.resetPasswordForEmail(email, options),
+    []
+  );
+
+  const updatePassword = useCallback<AuthHookReturn["updatePassword"]>(
+    (password) =>
+      supabase.auth.updateUser({
+        password,
+      }),
+    []
+  );
 
   const signOut = useCallback<AuthHookReturn["signOut"]>(
     () => supabase.auth.signOut(),
@@ -97,6 +121,8 @@ export function useAuth(): AuthHookReturn {
     loading,
     signIn,
     signUp,
+    resetPassword,
+    updatePassword,
     signOut,
   };
 }

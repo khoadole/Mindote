@@ -20,7 +20,7 @@ import { BookOpen, Mail, Lock, User, ArrowLeft, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function AuthPage() {
-  const { signIn, signUp, loading: authLoading } = useAuth();
+  const { signIn, signUp, resetPassword, loading: authLoading } = useAuth();
   const { toast } = useToast();
   const router = useRouter();
 
@@ -41,6 +41,7 @@ export default function AuthPage() {
     password: "",
     confirmPassword: "",
   });
+  const [resetEmail, setResetEmail] = useState("");
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,6 +116,46 @@ export default function AuthPage() {
     }
   };
 
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const email = resetEmail.trim();
+    if (!email) {
+      setError("Email is required");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const redirectTo =
+        typeof window !== "undefined"
+          ? `${window.location.origin}/auth/reset`
+          : undefined;
+
+      const { error } = await resetPassword(
+        email,
+        redirectTo ? { redirectTo } : undefined
+      );
+
+      if (error) {
+        setError(error.message);
+      } else {
+        toast({
+          title: "Check your inbox",
+          description: "We just emailed you a password reset link.",
+        });
+        setActiveTab("signin");
+        setResetEmail("");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -169,6 +210,7 @@ export default function AuthPage() {
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="signin">Sign In</TabsTrigger>
                   <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                  {/* <TabsTrigger value="forgot">Forgot Password</TabsTrigger> */}
                 </TabsList>
 
                 {error && (
@@ -219,6 +261,19 @@ export default function AuthPage() {
                           required
                         />
                       </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <Button
+                        type="button"
+                        variant="link"
+                        className="px-0 font-normal"
+                        onClick={() => {
+                          setActiveTab("forgot");
+                          setError("");
+                        }}
+                      >
+                        Forgot password?
+                      </Button>
                     </div>
                     <Button type="submit" className="w-full" disabled={loading}>
                       {loading ? (
@@ -326,6 +381,57 @@ export default function AuthPage() {
                         "Create Account"
                       )}
                     </Button>
+                  </form>
+                </TabsContent>
+
+                {/* Forgot Password Tab */}
+                <TabsContent value="forgot" className="space-y-4">
+                  <form onSubmit={handleResetPassword} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="forgot-email">Email</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="forgot-email"
+                          type="email"
+                          placeholder="Enter your account email"
+                          className="pl-10"
+                          value={resetEmail}
+                          onChange={(e) => setResetEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      We&apos;ll send a secure link to reset your password.
+                    </p>
+                    <div className="space-y-2">
+                      <Button
+                        type="submit"
+                        className="w-full"
+                        disabled={loading}
+                      >
+                        {loading ? (
+                          <>
+                            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                            Sending link...
+                          </>
+                        ) : (
+                          "Send Reset Link"
+                        )}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        className="w-full"
+                        onClick={() => {
+                          setActiveTab("signin");
+                          setError("");
+                        }}
+                      >
+                        Return to Sign In
+                      </Button>
+                    </div>
                   </form>
                 </TabsContent>
               </Tabs>

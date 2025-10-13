@@ -1,23 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Search, User } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { useAppStore } from "@/lib/store"
+import { useState } from "react";
+import { Search, User, LogOut } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useAppStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export function Topbar() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const searchWords = useAppStore((state) => state.searchWords)
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchWords = useAppStore((state) => state.searchWords);
+  const { signOut, user } = useAuth();
+  const router = useRouter();
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
+    setSearchQuery(query);
     if (query.trim()) {
-      const results = searchWords(query)
-      // TODO: Handle search results display
-      console.log("Search results:", results)
+      const results = searchWords(query);
+      console.log("Search results:", results);
     }
-  }
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/");
+    router.refresh();
+  };
 
   return (
     <header className="h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,13 +47,26 @@ export function Topbar() {
             />
           </div>
 
-          <Avatar>
+          {/* ✅ Hiển thị email và nút signout */}
+          <span className="text-sm text-muted-foreground">{user?.email}</span>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleSignOut}
+            className="gap-2"
+          >
+            <LogOut className="h-4 w-4" />
+            Sign out
+          </Button>
+
+          {/* <Avatar>
             <AvatarFallback>
               <User className="h-4 w-4" />
             </AvatarFallback>
-          </Avatar>
+          </Avatar> */}
         </div>
       </div>
     </header>
-  )
+  );
 }

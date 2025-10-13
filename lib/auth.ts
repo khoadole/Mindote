@@ -1,18 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { createClient, type Session, type User } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error(
-    "Missing Supabase environment variables. Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY."
-  );
-}
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { type Session, type User } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/client";
 
 type AuthHookReturn = {
   user: User | null;
@@ -21,20 +11,17 @@ type AuthHookReturn = {
   signIn: (
     email: string,
     password: string
-  ) => ReturnType<typeof supabase.auth.signInWithPassword>;
-  signUp: (
-    email: string,
-    password: string,
-    username?: string
-  ) => ReturnType<typeof supabase.auth.signUp>;
+  ) => Promise<{
+    data: { user: User | null; session: Session | null };
+    error: any;
+  }>;
+  signUp: (email: string, password: string, username?: string) => Promise<any>;
   resetPassword: (
     email: string,
     options?: { redirectTo?: string }
-  ) => ReturnType<typeof supabase.auth.resetPasswordForEmail>;
-  updatePassword: (
-    password: string
-  ) => ReturnType<typeof supabase.auth.updateUser>;
-  signOut: () => ReturnType<typeof supabase.auth.signOut>;
+  ) => Promise<any>;
+  updatePassword: (password: string) => Promise<any>;
+  signOut: () => Promise<any>;
 };
 
 export function useAuth(): AuthHookReturn {
@@ -44,7 +31,9 @@ export function useAuth(): AuthHookReturn {
 
   useEffect(() => {
     let isMounted = true;
+    const supabase = createClient();
 
+    // Get initial session
     supabase.auth.getSession().then(({ data, error }) => {
       if (!isMounted) return;
       if (error) {
@@ -58,6 +47,7 @@ export function useAuth(): AuthHookReturn {
       setLoading(false);
     });
 
+    // Listen for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, nextSession) => {
@@ -73,17 +63,14 @@ export function useAuth(): AuthHookReturn {
     };
   }, []);
 
-  const signIn = useCallback<AuthHookReturn["signIn"]>(
-    (email, password) =>
-      supabase.auth.signInWithPassword({
-        email,
-        password,
-      }),
-    []
-  );
+  const signIn = useCallback(async (email: string, password: string) => {
+    const supabase = createClient();
+    return supabase.auth.signInWithPassword({ email, password });
+  }, []);
 
-  const signUp = useCallback<AuthHookReturn["signUp"]>(
-    (email, password, username) => {
+  const signUp = useCallback(
+    async (email: string, password: string, username?: string) => {
+      const supabase = createClient();
       const userMetadata = username ? { username } : undefined;
 
       return supabase.auth.signUp({
@@ -97,23 +84,23 @@ export function useAuth(): AuthHookReturn {
     []
   );
 
-  const resetPassword = useCallback<AuthHookReturn["resetPassword"]>(
-    (email, options) => supabase.auth.resetPasswordForEmail(email, options),
+  const resetPassword = useCallback(
+    async (email: string, options?: { redirectTo?: string }) => {
+      const supabase = createClient();
+      return supabase.auth.resetPasswordForEmail(email, options);
+    },
     []
   );
 
-  const updatePassword = useCallback<AuthHookReturn["updatePassword"]>(
-    (password) =>
-      supabase.auth.updateUser({
-        password,
-      }),
-    []
-  );
+  const updatePassword = useCallback(async (password: string) => {
+    const supabase = createClient();
+    return supabase.auth.updateUser({ password });
+  }, []);
 
-  const signOut = useCallback<AuthHookReturn["signOut"]>(
-    () => supabase.auth.signOut(),
-    []
-  );
+  const signOut = useCallback(async () => {
+    const supabase = createClient();
+    return supabase.auth.signOut();
+  }, []);
 
   return {
     user,

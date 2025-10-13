@@ -1,32 +1,36 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { useAppContext } from "@/lib/app-provider"
-import { Sidebar } from "@/components/layout/sidebar"
-import { Topbar } from "@/components/layout/topbar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { TranscriptViewer } from "@/components/transcript-viewer"
-import { useToast } from "@/hooks/use-toast"
-import { generateMockTranscript, getVideoTitle, extractVideoId } from "@/lib/mock-transcript"
-import { Youtube, ArrowLeft, Play, FileText, AlertCircle } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAppContext } from "@/lib/app-provider";
+import { Sidebar } from "@/components/layout/sidebar";
+import { Topbar } from "@/components/layout/topbar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { TranscriptViewer } from "@/components/transcript-viewer";
+import { useToast } from "@/hooks/use-toast";
+import {
+  generateMockTranscript,
+  getVideoTitle,
+  extractVideoId,
+} from "@/lib/mock-transcript";
+import { Youtube, ArrowLeft, Play, FileText, AlertCircle } from "lucide-react";
 
 export default function YouTubePage() {
-  const router = useRouter()
-  const { mounted } = useAppContext()
-  const { toast } = useToast()
+  const router = useRouter();
+  const { mounted } = useAppContext();
+  const { toast } = useToast();
 
-  const [url, setUrl] = useState("")
-  const [transcript, setTranscript] = useState("")
-  const [videoTitle, setVideoTitle] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [hasTranscript, setHasTranscript] = useState(false)
+  const [url, setUrl] = useState("");
+  const [transcript, setTranscript] = useState("");
+  const [videoTitle, setVideoTitle] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasTranscript, setHasTranscript] = useState(false);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   const handleGetTranscript = async () => {
@@ -35,45 +39,45 @@ export default function YouTubePage() {
         title: "URL Required",
         description: "Please enter a YouTube URL",
         variant: "destructive",
-      })
-      return
+      });
+      return;
     }
 
-    const videoId = extractVideoId(url)
+    const videoId = extractVideoId(url);
     if (!videoId) {
       toast({
         title: "Invalid URL",
         description: "Please enter a valid YouTube URL",
         variant: "destructive",
-      })
-      return
+      });
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     // Simulate API call delay
     setTimeout(() => {
-      const mockTranscript = generateMockTranscript(url)
-      const title = getVideoTitle(url)
+      const mockTranscript = generateMockTranscript(url);
+      const title = getVideoTitle(url);
 
-      setTranscript(mockTranscript)
-      setVideoTitle(title)
-      setHasTranscript(true)
-      setIsLoading(false)
+      setTranscript(mockTranscript);
+      setVideoTitle(title);
+      setHasTranscript(true);
+      setIsLoading(false);
 
       toast({
         title: "Transcript loaded!",
         description: "You can now select text to save words and sentences.",
-      })
-    }, 1500)
-  }
+      });
+    }, 1500);
+  };
 
   const handleReset = () => {
-    setUrl("")
-    setTranscript("")
-    setVideoTitle("")
-    setHasTranscript(false)
-  }
+    setUrl("");
+    setTranscript("");
+    setVideoTitle("");
+    setHasTranscript(false);
+  };
 
   return (
     <div className="flex h-screen bg-background">
@@ -84,7 +88,11 @@ export default function YouTubePage() {
           <div className="max-w-7xl mx-auto space-y-6">
             {/* Header */}
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => router.push("/dashboard")}
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
@@ -117,7 +125,11 @@ export default function YouTubePage() {
                     </div>
 
                     <div className="flex gap-2">
-                      <Button onClick={handleGetTranscript} disabled={isLoading || !url.trim()} className="flex-1">
+                      <Button
+                        onClick={handleGetTranscript}
+                        disabled={isLoading || !url.trim()}
+                        className="flex-1"
+                      >
                         {isLoading ? (
                           <>
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
@@ -152,7 +164,9 @@ export default function YouTubePage() {
 
                     {/* Example URLs */}
                     <div className="space-y-2">
-                      <p className="text-sm font-medium">Try these example URLs:</p>
+                      <p className="text-sm font-medium">
+                        Try these example URLs:
+                      </p>
                       <div className="space-y-1">
                         {[
                           "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -180,19 +194,24 @@ export default function YouTubePage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Play className="h-5 w-5 text-green-500" />
-                    <span className="text-sm text-muted-foreground">Transcript loaded</span>
+                    <span className="text-sm text-muted-foreground">
+                      Transcript loaded
+                    </span>
                   </div>
                   <Button variant="outline" onClick={handleReset}>
                     Load Different Video
                   </Button>
                 </div>
 
-                <TranscriptViewer transcript={transcript} videoTitle={videoTitle} />
+                <TranscriptViewer
+                  transcript={transcript}
+                  videoTitle={videoTitle}
+                />
               </div>
             )}
           </div>
         </main>
       </div>
     </div>
-  )
+  );
 }

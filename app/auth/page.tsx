@@ -59,7 +59,7 @@ export default function AuthPage() {
           description: "You've been successfully signed in.",
         });
         // Redirect to dashboard after successful login
-        router.push("/");
+        router.push("/dashboard");
       }
     } catch (err) {
       setError("An unexpected error occurred. Please try again.");
@@ -173,14 +173,14 @@ export default function AuthPage() {
       <header className="border-b border-border/40 backdrop-blur-sm bg-background/80">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link
-            href="/landing"
+            href="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
             <ArrowLeft className="h-4 w-4" />
             <BookOpen className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">Mindote</span>
           </Link>
-          <Link href="/landing">
+          <Link href="/">
             <Button variant="ghost">Back to Home</Button>
           </Link>
         </div>

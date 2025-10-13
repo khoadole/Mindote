@@ -1,42 +1,50 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { useAppStore } from "@/lib/store"
-import { useAppContext } from "@/lib/app-provider"
-import { Sidebar } from "@/components/layout/sidebar"
-import { Topbar } from "@/components/layout/topbar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { QuizPlayer } from "@/components/quiz-player"
-import { useToast } from "@/hooks/use-toast"
-import { CheckCircle, Play, ArrowLeft, Target, Edit } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAppStore } from "@/lib/store";
+import { useAppContext } from "@/lib/app-provider";
+import { Sidebar } from "@/components/layout/sidebar";
+import { Topbar } from "@/components/layout/topbar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { QuizPlayer } from "@/components/quiz-player";
+import { useToast } from "@/hooks/use-toast";
+import { CheckCircle, Play, ArrowLeft, Target, Edit } from "lucide-react";
 
 export default function QuizPage() {
-  const router = useRouter()
-  const { mounted } = useAppContext()
-  const { words, collections } = useAppStore()
-  const { toast } = useToast()
+  const router = useRouter();
+  const { mounted } = useAppContext();
+  const { words, collections } = useAppStore();
+  const { toast } = useToast();
 
-  const [selectedScope, setSelectedScope] = useState<string>("all")
-  const [quizMode, setQuizMode] = useState<"multiple-choice" | "fill-blank">("multiple-choice")
-  const [isQuizzing, setIsQuizzing] = useState(false)
+  const [selectedScope, setSelectedScope] = useState<string>("all");
+  const [quizMode, setQuizMode] = useState<"multiple-choice" | "fill-blank">(
+    "multiple-choice"
+  );
+  const [isQuizzing, setIsQuizzing] = useState(false);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   const getQuizWords = () => {
     if (selectedScope === "all") {
-      return words
+      return words;
     }
-    return words.filter((word) => word.collectionId === selectedScope)
-  }
+    return words.filter((word) => word.collectionId === selectedScope);
+  };
 
-  const quizWords = getQuizWords()
+  const quizWords = getQuizWords();
 
   const handleStartQuiz = () => {
     if (quizWords.length < 2) {
@@ -44,24 +52,28 @@ export default function QuizPage() {
         title: "Not enough words",
         description: "You need at least 2 words to start a quiz.",
         variant: "destructive",
-      })
-      return
+      });
+      return;
     }
-    setIsQuizzing(true)
-  }
+    setIsQuizzing(true);
+  };
 
-  const handleQuizComplete = (results: { score: number; total: number; questions: any[] }) => {
-    const percentage = Math.round((results.score / results.total) * 100)
+  const handleQuizComplete = (results: {
+    score: number;
+    total: number;
+    questions: any[];
+  }) => {
+    const percentage = Math.round((results.score / results.total) * 100);
     toast({
       title: "Quiz complete!",
       description: `You scored ${percentage}% (${results.score}/${results.total})`,
-    })
-    setIsQuizzing(false)
-  }
+    });
+    setIsQuizzing(false);
+  };
 
   const handleExit = () => {
-    setIsQuizzing(false)
-  }
+    setIsQuizzing(false);
+  };
 
   if (isQuizzing) {
     return (
@@ -70,11 +82,16 @@ export default function QuizPage() {
         <div className="flex-1 flex flex-col overflow-hidden">
           <Topbar />
           <main className="flex-1 overflow-y-auto p-6">
-            <QuizPlayer words={quizWords} mode={quizMode} onComplete={handleQuizComplete} onExit={handleExit} />
+            <QuizPlayer
+              words={quizWords}
+              mode={quizMode}
+              onComplete={handleQuizComplete}
+              onExit={handleExit}
+            />
           </main>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -86,7 +103,11 @@ export default function QuizPage() {
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Header */}
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => router.push("/dashboard")}
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
@@ -106,9 +127,15 @@ export default function QuizPage() {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="mode">Quiz Mode</Label>
-                      <Tabs value={quizMode} onValueChange={(value) => setQuizMode(value as any)}>
+                      <Tabs
+                        value={quizMode}
+                        onValueChange={(value) => setQuizMode(value as any)}
+                      >
                         <TabsList className="grid w-full grid-cols-2">
-                          <TabsTrigger value="multiple-choice" className="text-xs">
+                          <TabsTrigger
+                            value="multiple-choice"
+                            className="text-xs"
+                          >
                             <Target className="h-3 w-3 mr-1" />
                             MCQ
                           </TabsTrigger>
@@ -122,22 +149,40 @@ export default function QuizPage() {
 
                     <div className="space-y-2">
                       <Label htmlFor="scope">Question Source</Label>
-                      <Select value={selectedScope} onValueChange={setSelectedScope}>
+                      <Select
+                        value={selectedScope}
+                        onValueChange={setSelectedScope}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Select scope" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">All Words ({words.length})</SelectItem>
+                          <SelectItem value="all">
+                            All Words ({words.length})
+                          </SelectItem>
                           {collections.map((collection) => (
-                            <SelectItem key={collection.id} value={collection.id}>
-                              {collection.name} ({words.filter((w) => w.collectionId === collection.id).length})
+                            <SelectItem
+                              key={collection.id}
+                              value={collection.id}
+                            >
+                              {collection.name} (
+                              {
+                                words.filter(
+                                  (w) => w.collectionId === collection.id
+                                ).length
+                              }
+                              )
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
 
-                    <Button onClick={handleStartQuiz} className="w-full" disabled={quizWords.length < 2}>
+                    <Button
+                      onClick={handleStartQuiz}
+                      className="w-full"
+                      disabled={quizWords.length < 2}
+                    >
                       <Play className="h-4 w-4 mr-2" />
                       Start Quiz
                     </Button>
@@ -158,17 +203,30 @@ export default function QuizPage() {
                           <TabsContent value="multiple-choice">
                             <div className="space-y-4">
                               <div className="p-6 border-2 border-dashed border-border rounded-lg">
-                                <h3 className="font-semibold mb-2">Multiple Choice Preview</h3>
+                                <h3 className="font-semibold mb-2">
+                                  Multiple Choice Preview
+                                </h3>
                                 <p className="text-sm text-muted-foreground mb-4">
-                                  You'll see a word and choose the correct definition from 4 options.
+                                  You'll see a word and choose the correct
+                                  definition from 4 options.
                                 </p>
                                 <div className="bg-muted p-4 rounded">
-                                  <h4 className="font-medium mb-2">{quizWords[0]?.term}</h4>
+                                  <h4 className="font-medium mb-2">
+                                    {quizWords[0]?.term}
+                                  </h4>
                                   <div className="space-y-1 text-sm">
-                                    <div className="p-2 bg-background rounded">A. {quizWords[0]?.definition}</div>
-                                    <div className="p-2 bg-background rounded">B. Sample distractor option</div>
-                                    <div className="p-2 bg-background rounded">C. Another distractor option</div>
-                                    <div className="p-2 bg-background rounded">D. Third distractor option</div>
+                                    <div className="p-2 bg-background rounded">
+                                      A. {quizWords[0]?.definition}
+                                    </div>
+                                    <div className="p-2 bg-background rounded">
+                                      B. Sample distractor option
+                                    </div>
+                                    <div className="p-2 bg-background rounded">
+                                      C. Another distractor option
+                                    </div>
+                                    <div className="p-2 bg-background rounded">
+                                      D. Third distractor option
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -178,14 +236,19 @@ export default function QuizPage() {
                           <TabsContent value="fill-blank">
                             <div className="space-y-4">
                               <div className="p-6 border-2 border-dashed border-border rounded-lg">
-                                <h3 className="font-semibold mb-2">Fill in the Blank Preview</h3>
+                                <h3 className="font-semibold mb-2">
+                                  Fill in the Blank Preview
+                                </h3>
                                 <p className="text-sm text-muted-foreground mb-4">
-                                  You'll see a sentence with a missing word and type the correct answer.
+                                  You'll see a sentence with a missing word and
+                                  type the correct answer.
                                 </p>
                                 <div className="bg-muted p-4 rounded">
                                   <p className="mb-2">
-                                    {quizWords[0]?.example?.replace(new RegExp(quizWords[0]?.term, "gi"), "____") ||
-                                      "The word is: ____"}
+                                    {quizWords[0]?.example?.replace(
+                                      new RegExp(quizWords[0]?.term, "gi"),
+                                      "____"
+                                    ) || "The word is: ____"}
                                   </p>
                                   <input
                                     className="w-full p-2 border rounded bg-background"
@@ -200,19 +263,29 @@ export default function QuizPage() {
 
                         <div className="grid grid-cols-3 gap-4 text-center">
                           <div>
-                            <div className="text-2xl font-bold text-primary">{quizWords.length}</div>
-                            <p className="text-sm text-muted-foreground">Questions</p>
+                            <div className="text-2xl font-bold text-primary">
+                              {quizWords.length}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                              Questions
+                            </p>
                           </div>
                           <div>
-                            <div className="text-2xl font-bold text-accent">{Math.ceil(quizWords.length * 1.5)}</div>
-                            <p className="text-sm text-muted-foreground">Est. Minutes</p>
+                            <div className="text-2xl font-bold text-accent">
+                              {Math.ceil(quizWords.length * 1.5)}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                              Est. Minutes
+                            </p>
                           </div>
                           <div>
                             <div className="text-2xl font-bold text-chart-3">
                               {quizMode === "multiple-choice" ? "4" : "1"}
                             </div>
                             <p className="text-sm text-muted-foreground">
-                              {quizMode === "multiple-choice" ? "Options" : "Answer"}
+                              {quizMode === "multiple-choice"
+                                ? "Options"
+                                : "Answer"}
                             </p>
                           </div>
                         </div>
@@ -220,14 +293,19 @@ export default function QuizPage() {
                     ) : (
                       <div className="text-center p-8">
                         <CheckCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                        <h3 className="text-lg font-semibold mb-2">Not Enough Words</h3>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Not Enough Words
+                        </h3>
                         <p className="text-muted-foreground mb-4">
                           You need at least 2 words to start a quiz.
                           {selectedScope === "all"
                             ? " Add more words to your vocabulary."
                             : " This collection needs more words."}
                         </p>
-                        <Button variant="outline" onClick={() => router.push("/collections")}>
+                        <Button
+                          variant="outline"
+                          onClick={() => router.push("/collections")}
+                        >
                           Go to Collections
                         </Button>
                       </div>
@@ -240,5 +318,5 @@ export default function QuizPage() {
         </main>
       </div>
     </div>
-  )
+  );
 }

@@ -159,7 +159,7 @@ export default function SettingsPage() {
 
   return (
     <div className="p-6">
-      <div className="max-w-4xl mx-auto space-y-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="sm" onClick={() => router.push("/")}>

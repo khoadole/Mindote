@@ -216,7 +216,7 @@ export const useAppStore = create<AppStore>()(
       },
     }),
     {
-      name: "wordflow-storage",
+      name: "mindote-storage",
     }
   )
 );

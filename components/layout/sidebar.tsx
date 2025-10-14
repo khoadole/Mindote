@@ -47,9 +47,7 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Header */}
       <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
         {!isCollapsed && (
-          <h1 className="text-xl font-bold text-sidebar-foreground">
-            WordFlow
-          </h1>
+          <h1 className="text-xl font-bold text-sidebar-foreground">Mindote</h1>
         )}
         <Button
           variant="ghost"

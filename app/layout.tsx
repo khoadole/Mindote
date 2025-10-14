@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: "Mindote - English Learning App",
   description:
     "Learn English vocabulary with flashcards, quizzes, and YouTube integration",
+  icons: {
+    icon: {
+      url: "/logo_black_transparent_256x256.png",
+      sizes: "128x128",
+      type: "image/png",
+    },
+  },
 };
 
 export default function RootLayout({

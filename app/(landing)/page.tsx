@@ -77,9 +77,9 @@ export default function LandingPage() {
           <div className="flex items-center space-x-2">
             {/* <BookOpen className="h-8 w-8 text-primary" /> */}
             <img
-              src="/logo_black_transparent.png"
+              src="/logo_black_transparent_256x256.png"
               alt="Mindote Logo"
-              className="h-15 w-15"
+              className="h-12 w-12"
             />
             <h1 className="text-2xl font-bold text-foreground">Mindote</h1>
           </div>
@@ -212,9 +212,9 @@ export default function LandingPage() {
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               {/* <BookOpen className="h-6 w-6 text-primary" /> */}
               <img
-                src="/logo_black_transparent.png"
+                src="/logo_black_transparent_256x256.png"
                 alt="Mindote Logo"
-                className="h-10 w-10"
+                className="h-8 w-8"
               />
               <span className="text-lg font-semibold">Mindote</span>
             </div>

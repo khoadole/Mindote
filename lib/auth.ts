@@ -77,7 +77,11 @@ export function useAuth(): AuthHookReturn {
         email,
         password,
         options: {
-          data: userMetadata,
+          data: {
+            // username: username, // Lưu vào metadata
+            // full_name: username, // Lưu vào display name
+            display_name: username,
+          },
         },
       });
     },

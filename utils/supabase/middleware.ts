@@ -15,12 +15,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            request.cookies.set(name, value)
-          );
-          supabaseResponse = NextResponse.next({
-            request,
-          });
+          // Chỉ set cookies vào response
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
           );
@@ -29,31 +24,48 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
+  // Get user và handle error
   const {
     data: { user },
+    error,
   } = await supabase.auth.getUser();
-  console.log("Supabase User:", user);
+
+  // Log chỉ trong development
+  if (process.env.NODE_ENV === "development") {
+    console.log("Auth check:", { userId: user?.id, error: error?.message });
+  }
+
   const { pathname } = request.nextUrl;
 
-  // Public
+  // Public routes
   const publicRoutes = ["/", "/auth"];
   const isPublicRoute = publicRoutes.some(
-    (route) => pathname === route || pathname.startsWith(route)
+    (route) => pathname === route || pathname.startsWith(`${route}/`)
   );
 
-  // Not logged in
+  // Redirect nếu chưa đăng nhập và không phải public route
   if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
+    // Có thể lưu redirect URL để quay lại sau khi login
+    url.searchParams.set("redirectTo", pathname);
     return NextResponse.redirect(url);
   }
 
-  // Logging in
+  // Redirect nếu đã đăng nhập và đang ở auth/home
   if (user && (pathname.startsWith("/auth") || pathname === "/")) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
   }
+
+  // Security headers
+  supabaseResponse.headers.set("X-Frame-Options", "DENY");
+  supabaseResponse.headers.set("X-Content-Type-Options", "nosniff");
+  supabaseResponse.headers.set(
+    "Referrer-Policy",
+    "strict-origin-when-cross-origin"
+  );
 
   return supabaseResponse;
 }

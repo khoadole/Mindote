@@ -47,8 +47,10 @@ export function Topbar() {
             />
           </div>
 
-          {/* ✅ Hiển thị email và nút signout */}
-          <span className="text-sm text-muted-foreground">{user?.email}</span>
+          {/* Display username and Signout button */}
+          <span className="text-sm text-muted-foreground">
+            {user?.user_metadata?.display_name}
+          </span>
 
           <Button
             variant="ghost"

@@ -15,7 +15,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          // Chỉ set cookies vào response
+          // Only set cookies in response
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
           );
@@ -30,7 +30,7 @@ export async function updateSession(request: NextRequest) {
     error,
   } = await supabase.auth.getUser();
 
-  // Log chỉ trong development
+  // Log only in development
   if (process.env.NODE_ENV === "development") {
     console.log("Auth check:", { userId: user?.id, error: error?.message });
   }
@@ -43,16 +43,16 @@ export async function updateSession(request: NextRequest) {
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   );
 
-  // Redirect nếu chưa đăng nhập và không phải public route
+  // Redirect if not logged in and not a public route
   if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
-    // Có thể lưu redirect URL để quay lại sau khi login
+    // Redirect back to the intended page after login
     url.searchParams.set("redirectTo", pathname);
     return NextResponse.redirect(url);
   }
 
-  // Redirect nếu đã đăng nhập và đang ở auth/home
+  // Redirect if logged in and trying to access auth or home page
   if (user && (pathname.startsWith("/auth") || pathname === "/")) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";

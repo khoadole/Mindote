@@ -18,7 +18,10 @@ import {
   Zap,
   Users,
   Star,
+  Moon,
+  Sun,
 } from "lucide-react";
+import { useTheme } from "@/lib/theme-provider";
 
 const features = [
   {
@@ -60,18 +63,43 @@ const features = [
 ];
 
 export default function LandingPage() {
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Header */}
       <header className="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <BookOpen className="h-8 w-8 text-primary" />
+            {/* <BookOpen className="h-8 w-8 text-primary" /> */}
+            <img
+              src="/logo_black_transparent.png"
+              alt="Mindote Logo"
+              className="h-15 w-15"
+            />
             <h1 className="text-2xl font-bold text-foreground">Mindote</h1>
           </div>
-          <Link href="/auth">
-            <Button>Get Started</Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+            <Link href="/auth">
+              <Button>Get Started</Button>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -182,7 +210,12 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <BookOpen className="h-6 w-6 text-primary" />
+              {/* <BookOpen className="h-6 w-6 text-primary" /> */}
+              <img
+                src="/logo_black_transparent.png"
+                alt="Mindote Logo"
+                className="h-10 w-10"
+              />
               <span className="text-lg font-semibold">Mindote</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">

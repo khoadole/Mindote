@@ -280,7 +280,7 @@ export default function SettingsPage() {
                 <Button
                   onClick={handleImportData}
                   disabled={isImporting}
-                  variant="outline"
+                  variant="ghost"
                   className="w-full bg-transparent"
                 >
                   {isImporting ? (
@@ -311,7 +311,7 @@ export default function SettingsPage() {
                   className="w-full"
                 >
                   <RotateCcw className="h-4 w-4 mr-2" />
-                  Reset Demo Data
+                  Reset Default Data
                 </Button>
               </div>
             </CardContent>

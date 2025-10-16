@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useAppStore } from "@/lib/store";
 import {
   BookOpen,
   Layers,
@@ -13,10 +12,11 @@ import {
   CheckCircle,
   Youtube,
   Settings,
-  Plus,
   Menu,
   X,
+  Sparkles,
 } from "lucide-react";
+import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: BookOpen },
@@ -24,7 +24,6 @@ const navigation = [
   { name: "Flashcards", href: "/flashcards", icon: Cards },
   { name: "Quiz", href: "/quiz", icon: CheckCircle },
   { name: "YouTube Notes", href: "/youtube", icon: Youtube },
-  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 interface SidebarProps {
@@ -33,8 +32,8 @@ interface SidebarProps {
 
 export function Sidebar({ className }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
   const pathname = usePathname();
-  const collections = useAppStore((state) => state.collections);
 
   return (
     <div
@@ -75,7 +74,7 @@ export function Sidebar({ className }: SidebarProps) {
                   "w-full justify-start text-sidebar-foreground",
                   isActive
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                    : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
                   isCollapsed && "px-2"
                 )}
               >
@@ -87,38 +86,44 @@ export function Sidebar({ className }: SidebarProps) {
         })}
       </nav>
 
-      {/* Collections */}
-      {!isCollapsed && (
-        <div className="border-t border-sidebar-border p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-medium text-sidebar-foreground">
-              Collections
-            </h3>
-            <Button size="sm" variant="ghost" className="h-6 w-6 p-0">
-              <Plus className="h-3 w-3" />
-            </Button>
-          </div>
-          <div className="space-y-1">
-            {collections.slice(0, 5).map((collection) => (
-              <Link key={collection.id} href={`/collections/${collection.id}`}>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full justify-start text-xs text-sidebar-foreground hover:bg-sidebar-accent"
-                >
-                  <div
-                    className={cn(
-                      "h-2 w-2 rounded-full mr-2",
-                      collection.color
-                    )}
-                  />
-                  {collection.name}
-                </Button>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Bottom Section */}
+      <div className="border-t border-sidebar-border p-4 space-y-2">
+        {/* Upgrade Plan Button */}
+        <Button
+          variant="default"
+          onClick={() => setIsUpgradeModalOpen(true)}
+          className={cn(
+            "w-full justify-start bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white",
+            isCollapsed && "px-2"
+          )}
+        >
+          <Sparkles className={cn("h-4 w-4", !isCollapsed && "mr-3")} />
+          {!isCollapsed && "Upgrade Plan"}
+        </Button>
+
+        {/* Settings Link */}
+        <Link href="/settings">
+          <Button
+            variant={pathname === "/settings" ? "default" : "ghost"}
+            className={cn(
+              "w-full justify-start text-sidebar-foreground",
+              pathname === "/settings"
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
+              isCollapsed && "px-2"
+            )}
+          >
+            <Settings className={cn("h-4 w-4", !isCollapsed && "mr-3")} />
+            {!isCollapsed && "Settings"}
+          </Button>
+        </Link>
+      </div>
+
+      {/* Upgrade Plan Modal */}
+      <UpgradePlanModal
+        open={isUpgradeModalOpen}
+        onOpenChange={setIsUpgradeModalOpen}
+      />
     </div>
   );
 }

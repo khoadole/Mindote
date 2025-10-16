@@ -122,7 +122,7 @@ export default function SettingsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Appearance Settings */}
           <Card>
             <CardHeader>
@@ -136,9 +136,11 @@ export default function SettingsPage() {
                 <Label htmlFor="theme">Theme</Label>
                 <Select
                   value={theme}
-                  onValueChange={(value: "light" | "dark" | "system") =>
-                    setTheme(value)
-                  }
+                  onValueChange={(value: "light" | "dark" | "system") => {
+                    setTheme(value);
+                    // Save to database
+                    updateSettingsMutation.mutate({ theme: value });
+                  }}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select theme" />
@@ -189,7 +191,7 @@ export default function SettingsPage() {
           </Card>
 
           {/* Learning Settings */}
-          <Card>
+          {/* <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Brain className="h-5 w-5" />
@@ -235,7 +237,7 @@ export default function SettingsPage() {
                 />
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Data Management */}
           <Card>

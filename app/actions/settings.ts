@@ -10,32 +10,31 @@ import { createClient } from "@/lib/supabase/server";
 async function getCurrentUserId(): Promise<string | null> {
   const supabase = await createClient();
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
 
-  if (!session?.user) {
+  if (error || !user) {
     return null;
   }
 
-  const userId = session.user.id;
+  const userId = user.id;
 
   // Ensure user exists in database
   try {
     await prisma.user.upsert({
       where: { id: userId },
       update: {
-        email: session.user.email!,
+        email: user.email!,
         updatedAt: new Date(),
       },
       create: {
         id: userId,
-        email: session.user.email!,
-        username: session.user.user_metadata?.username || null,
+        email: user.email!,
+        username: user.user_metadata?.username || null,
         displayName:
-          session.user.user_metadata?.display_name ||
-          session.user.email?.split("@")[0] ||
-          null,
-        avatarUrl: session.user.user_metadata?.avatar_url || null,
+          user.user_metadata?.display_name || user.email?.split("@")[0] || null,
+        avatarUrl: user.user_metadata?.avatar_url || null,
       },
     });
   } catch (error) {
@@ -70,8 +69,6 @@ export async function getSettingsAction() {
 
     return {
       data: {
-        srsEnabled: settings.srsEnabled,
-        ttsEnabled: settings.ttsEnabled,
         theme: settings.theme,
         language: settings.language,
       },
@@ -87,8 +84,6 @@ export async function getSettingsAction() {
  * Update user settings
  */
 export async function updateSettingsAction(data: {
-  srsEnabled?: boolean;
-  ttsEnabled?: boolean;
   theme?: string;
   language?: string;
 }) {
@@ -111,8 +106,6 @@ export async function updateSettingsAction(data: {
 
     return {
       data: {
-        srsEnabled: settings.srsEnabled,
-        ttsEnabled: settings.ttsEnabled,
         theme: settings.theme,
         language: settings.language,
       },

@@ -55,8 +55,6 @@ model Word {
 model Setting {
   id         String   @id @default(uuid()) @db.Uuid
   userId     String   @unique @db.Uuid @map("user_id")
-  srsEnabled Boolean  @default(false) @map("srs_enabled")
-  ttsEnabled Boolean  @default(false) @map("tts_enabled")
   theme      String   @default("dark")
   language   String   @default("en")
   createdAt  DateTime @default(now()) @map("created_at")

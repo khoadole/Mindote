@@ -32,12 +32,7 @@ export function useUpdateSettings() {
   const { toast } = useToast();
 
   return useMutation({
-    mutationFn: async (data: {
-      srsEnabled?: boolean;
-      ttsEnabled?: boolean;
-      theme?: string;
-      language?: string;
-    }) => {
+    mutationFn: async (data: { theme?: string; language?: string }) => {
       const result = await updateSettingsAction(data);
       if (result.error) {
         throw new Error(result.error);

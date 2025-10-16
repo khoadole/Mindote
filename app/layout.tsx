@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { AppProvider } from "@/lib/app-provider";
 import { ThemeProvider } from "@/lib/theme-provider";
+import { QueryProvider } from "@/lib/query-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
 import "./globals.css";
@@ -62,12 +63,14 @@ export default function RootLayout({
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>
-          <AppProvider>
-            <ThemeProvider>
-              {children}
-              <Toaster />
-            </ThemeProvider>
-          </AppProvider>
+          <QueryProvider>
+            <AppProvider>
+              <ThemeProvider>
+                {children}
+                <Toaster />
+              </ThemeProvider>
+            </AppProvider>
+          </QueryProvider>
         </Suspense>
         <Analytics />
       </body>

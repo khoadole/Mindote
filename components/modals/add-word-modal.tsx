@@ -1,120 +1,94 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useAppStore } from "@/lib/store"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useToast } from "@/hooks/use-toast"
-import { Plus } from "lucide-react"
+import { useState } from "react";
+import { useCreateWord } from "@/hooks/use-words";
+import { useCollections } from "@/hooks/use-collections";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Plus, Loader2 } from "lucide-react";
 
 interface AddWordModalProps {
-  trigger?: React.ReactNode
-  defaultTerm?: string
-  defaultDefinition?: string
-  defaultExample?: string
+  collectionId?: string;
+  trigger?: React.ReactNode;
+  defaultTerm?: string;
+  defaultDefinition?: string;
+  defaultExample?: string;
 }
 
 export function AddWordModal({
+  collectionId,
   trigger,
   defaultTerm = "",
   defaultDefinition = "",
   defaultExample = "",
 }: AddWordModalProps) {
-  const [open, setOpen] = useState(false)
-  const [term, setTerm] = useState(defaultTerm)
-  const [definition, setDefinition] = useState(defaultDefinition)
-  const [example, setExample] = useState(defaultExample)
-  const [phonetic, setPhonetic] = useState("")
-  const [selectedCollection, setSelectedCollection] = useState<string>("")
-  const [suggestedCollection, setSuggestedCollection] = useState<string>("")
+  const [open, setOpen] = useState(false);
+  const [term, setTerm] = useState(defaultTerm);
+  const [definition, setDefinition] = useState(defaultDefinition);
+  const [example, setExample] = useState(defaultExample);
+  const [phonetic, setPhonetic] = useState("");
+  const [selectedCollection, setSelectedCollection] = useState<string>(
+    collectionId || ""
+  );
 
-  const { collections, addWord, addCollection, suggestCollection } = useAppStore()
-  const { toast } = useToast()
-
-  const handleTermChange = (value: string) => {
-    setTerm(value)
-    if (value.trim() && !selectedCollection) {
-      const suggested = suggestCollection(value)
-      if (suggested) {
-        setSuggestedCollection(suggested.id)
-      } else {
-        // Suggest creating a new collection based on the term
-        const words = value.toLowerCase().split(" ")
-        const suggestedName =
-          words.length > 1
-            ? words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
-            : value.charAt(0).toUpperCase() + value.slice(1)
-        setSuggestedCollection(`create:${suggestedName}`)
-      }
-    }
-  }
+  const { data: collections } = useCollections();
+  const createWordMutation = useCreateWord();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!term.trim() || !definition.trim()) {
-      toast({
-        title: "Missing required fields",
-        description: "Please provide both term and definition.",
-        variant: "destructive",
-      })
-      return
+    if (!term.trim() || !definition.trim() || !selectedCollection) {
+      return;
     }
 
-    let collectionId = selectedCollection || suggestedCollection
-
-    // Handle creating new collection
-    if (collectionId.startsWith("create:")) {
-      const newCollectionName = collectionId.replace("create:", "")
-      const colors = ["bg-primary", "bg-accent", "bg-chart-1", "bg-chart-2", "bg-chart-3"]
-      const randomColor = colors[Math.floor(Math.random() * colors.length)]
-
-      addCollection({
-        name: newCollectionName,
-        color: randomColor,
-      })
-
-      // Get the newly created collection
-      const newCollection = collections[collections.length - 1]
-      collectionId = newCollection?.id || ""
-    }
-
-    addWord({
-      term: term.trim(),
-      definition: definition.trim(),
-      example: example.trim() || undefined,
-      phonetic: phonetic.trim() || undefined,
-      collectionId: collectionId || undefined,
-      score: 0,
-    })
-
-    toast({
-      title: "Word added successfully!",
-      description: `"${term}" has been added to your vocabulary.`,
-    })
-
-    // Reset form
-    setTerm("")
-    setDefinition("")
-    setExample("")
-    setPhonetic("")
-    setSelectedCollection("")
-    setSuggestedCollection("")
-    setOpen(false)
-  }
+    createWordMutation.mutate(
+      {
+        collectionId: selectedCollection,
+        term: term.trim(),
+        definition: definition.trim(),
+        example: example.trim() || undefined,
+        phonetic: phonetic.trim() || undefined,
+      },
+      {
+        onSuccess: () => {
+          // Reset form
+          setTerm("");
+          setDefinition("");
+          setExample("");
+          setPhonetic("");
+          if (!collectionId) {
+            setSelectedCollection("");
+          }
+          setOpen(false);
+        },
+      }
+    );
+  };
 
   const defaultTrigger = (
     <Button className="flex items-center gap-2">
       <Plus className="h-4 w-4" />
       Add Word
     </Button>
-  )
+  );
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -129,9 +103,10 @@ export function AddWordModal({
             <Input
               id="term"
               value={term}
-              onChange={(e) => handleTermChange(e.target.value)}
+              onChange={(e) => setTerm(e.target.value)}
               placeholder="Enter the word or phrase"
               required
+              disabled={createWordMutation.isPending}
             />
           </div>
 
@@ -168,48 +143,50 @@ export function AddWordModal({
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="collection">Collection</Label>
-            <Select value={selectedCollection} onValueChange={setSelectedCollection}>
-              <SelectTrigger>
-                <SelectValue
-                  placeholder={
-                    suggestedCollection.startsWith("create:")
-                      ? `Create "${suggestedCollection.replace("create:", "")}"`
-                      : suggestedCollection
-                        ? collections.find((c) => c.id === suggestedCollection)?.name || "Auto-suggested"
-                        : "Select or auto-suggest collection"
-                  }
-                />
-              </SelectTrigger>
-              <SelectContent>
-                {suggestedCollection && !suggestedCollection.startsWith("create:") && (
-                  <SelectItem value={suggestedCollection}>
-                    ✨ {collections.find((c) => c.id === suggestedCollection)?.name} (suggested)
-                  </SelectItem>
-                )}
-                {suggestedCollection.startsWith("create:") && (
-                  <SelectItem value={suggestedCollection}>
-                    ✨ Create "{suggestedCollection.replace("create:", "")}"
-                  </SelectItem>
-                )}
-                {collections.map((collection) => (
-                  <SelectItem key={collection.id} value={collection.id}>
-                    {collection.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+          {!collectionId && (
+            <div className="space-y-2">
+              <Label htmlFor="collection">Collection *</Label>
+              <Select
+                value={selectedCollection}
+                onValueChange={setSelectedCollection}
+                disabled={createWordMutation.isPending}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a collection" />
+                </SelectTrigger>
+                <SelectContent>
+                  {(collections || []).map((collection) => (
+                    <SelectItem key={collection.id} value={collection.id}>
+                      {collection.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
 
           <div className="flex justify-end space-x-2 pt-4">
-            <Button type="button" variant="outline" onClick={() => setOpen(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setOpen(false)}
+              disabled={createWordMutation.isPending}
+            >
               Cancel
             </Button>
-            <Button type="submit">Add Word</Button>
+            <Button type="submit" disabled={createWordMutation.isPending}>
+              {createWordMutation.isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Adding...
+                </>
+              ) : (
+                "Add Word"
+              )}
+            </Button>
           </div>
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

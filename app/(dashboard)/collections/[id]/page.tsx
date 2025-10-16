@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { useAppStore } from "@/lib/store";
+import { useCollection } from "@/hooks/use-collections";
+import { useDeleteCollection } from "@/hooks/use-collections";
+import { useDeleteWord } from "@/hooks/use-words";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +12,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AddWordModal } from "@/components/modals/add-word-modal";
 import { WordCard } from "@/components/word-card";
-import { useToast } from "@/hooks/use-toast";
 import {
   ArrowLeft,
   Edit,
@@ -18,25 +19,32 @@ import {
   Search,
   Candy as Cards,
   CheckCircle,
+  Loader2,
 } from "lucide-react";
 
 export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const {
-    collections,
-    words,
-    getWordsByCollection,
-    deleteCollection,
-    deleteWord,
-  } = useAppStore();
-  const { toast } = useToast();
+  const collectionId = params.id as string;
+
+  const { data: collection, isLoading } = useCollection(collectionId);
+  const deleteCollectionMutation = useDeleteCollection();
+  const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const collectionId = params.id as string;
-  const collection = collections.find((c) => c.id === collectionId);
-  const collectionWords = getWordsByCollection(collectionId);
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading collection...</span>
+        </div>
+      </div>
+    );
+  }
 
+  // Not found state
   if (!collection) {
     return (
       <div className="p-6">
@@ -57,6 +65,7 @@ export default function CollectionDetailPage() {
     );
   }
 
+  const collectionWords = collection.words || [];
   const filteredWords = collectionWords.filter(
     (word) =>
       word.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -69,22 +78,13 @@ export default function CollectionDetailPage() {
         `Are you sure you want to delete "${collection.name}"? This will remove all words from this collection.`
       )
     ) {
-      deleteCollection(collection.id);
-      toast({
-        title: "Collection deleted",
-        description: `"${collection.name}" has been deleted.`,
-      });
-      router.push("/collections");
+      deleteCollectionMutation.mutate(collection.id);
     }
   };
 
   const handleDeleteWord = (wordId: string, wordTerm: string) => {
     if (confirm(`Are you sure you want to delete "${wordTerm}"?`)) {
-      deleteWord(wordId);
-      toast({
-        title: "Word deleted",
-        description: `"${wordTerm}" has been removed.`,
-      });
+      deleteWordMutation.mutate(wordId);
     }
   };
 
@@ -114,9 +114,19 @@ export default function CollectionDetailPage() {
               variant="outline"
               size="sm"
               onClick={handleDeleteCollection}
+              disabled={deleteCollectionMutation.isPending}
             >
-              <Trash2 className="h-4 w-4 mr-2" />
-              Delete
+              {deleteCollectionMutation.isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Deleting...
+                </>
+              ) : (
+                <>
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Delete
+                </>
+              )}
             </Button>
           </div>
         </div>
@@ -142,7 +152,7 @@ export default function CollectionDetailPage() {
             <CheckCircle className="h-4 w-4" />
             Start Quiz
           </Button>
-          <AddWordModal />
+          <AddWordModal collectionId={collectionId} />
         </div>
 
         {/* Content */}
@@ -176,7 +186,7 @@ export default function CollectionDetailPage() {
                       ? "Try adjusting your search terms"
                       : "Add your first word to this collection"}
                   </p>
-                  {!searchQuery && <AddWordModal />}
+                  {!searchQuery && <AddWordModal collectionId={collectionId} />}
                 </CardContent>
               </Card>
             ) : (
@@ -184,7 +194,16 @@ export default function CollectionDetailPage() {
                 {filteredWords.map((word) => (
                   <WordCard
                     key={word.id}
-                    word={word}
+                    word={{
+                      ...word,
+                      example: word.example ?? undefined,
+                      phonetic: word.phonetic ?? undefined,
+                      collection: {
+                        id: collection.id,
+                        name: collection.name,
+                        color: collection.color || "bg-primary",
+                      },
+                    }}
                     onDelete={() => handleDeleteWord(word.id, word.term)}
                   />
                 ))}

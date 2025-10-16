@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAppStore } from "@/lib/store";
+import { useAllWords } from "@/hooks/use-words";
+import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,11 +17,20 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { QuizPlayer } from "@/components/quiz-player";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle, Play, ArrowLeft, Target, Edit } from "lucide-react";
+import {
+  CheckCircle,
+  Play,
+  ArrowLeft,
+  Target,
+  Edit,
+  Loader2,
+} from "lucide-react";
 
 export default function QuizPage() {
   const router = useRouter();
-  const { words, collections } = useAppStore();
+  const { data: words = [], isLoading: wordsLoading } = useAllWords();
+  const { data: collections = [], isLoading: collectionsLoading } =
+    useCollections();
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>("all");
@@ -29,7 +39,10 @@ export default function QuizPage() {
   );
   const [isQuizzing, setIsQuizzing] = useState(false);
 
+  const isLoading = wordsLoading || collectionsLoading;
+
   const getQuizWords = () => {
+    if (!words) return [];
     if (selectedScope === "all") {
       return words;
     }
@@ -67,11 +80,23 @@ export default function QuizPage() {
     setIsQuizzing(false);
   };
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading quiz data...</span>
+        </div>
+      </div>
+    );
+  }
+
   if (isQuizzing) {
     return (
       <div className="p-6">
         <QuizPlayer
-          words={quizWords}
+          words={quizWords as any}
           mode={quizMode}
           onComplete={handleQuizComplete}
           onExit={handleExit}
@@ -137,16 +162,14 @@ export default function QuizPage() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">
-                        All Words ({words.length})
+                        All Words ({words?.length || 0})
                       </SelectItem>
-                      {collections.map((collection) => (
+                      {collections?.map((collection) => (
                         <SelectItem key={collection.id} value={collection.id}>
                           {collection.name} (
-                          {
-                            words.filter(
-                              (w) => w.collectionId === collection.id
-                            ).length
-                          }
+                          {words?.filter(
+                            (w) => w.collectionId === collection.id
+                          ).length || 0}
                           )
                         </SelectItem>
                       ))}

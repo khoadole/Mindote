@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -13,15 +7,33 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model User {
+  id          String       @id @db.Uuid  // Sync với auth.users.id của Supabase
+  email       String       @unique
+  username    String?
+  displayName String?      @map("display_name")
+  avatarUrl   String?      @map("avatar_url")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  
+  collections Collection[]
+  setting     Setting?
+
+  @@index([email])
+  @@map("users")
+}
+
 model Collection {
   id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid                // <-- thêm để làm owner
+  userId    String   @db.Uuid @map("user_id")
   name      String
   color     String
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map("created_at")
   words     Word[]
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@map("collections")
 }
 
 model Word {
@@ -31,19 +43,25 @@ model Word {
   example      String?
   phonetic     String?
   score        Int        @default(0)
-  createdAt    DateTime   @default(now())
-  collectionId String     @db.Uuid
+  createdAt    DateTime   @default(now()) @map("created_at")
+  collectionId String     @db.Uuid @map("collection_id")
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
 
   @@index([collectionId, term])
-  @@unique([collectionId, term])     // tránh trùng term trong 1 collection
+  @@unique([collectionId, term])
+  @@map("words")
 }
 
 model Setting {
   id         String   @id @default(uuid()) @db.Uuid
-  userId     String   @unique @db.Uuid     // mỗi user 1 bản ghi
-  srsEnabled Boolean  @default(false)
-  ttsEnabled Boolean  @default(false)
+  userId     String   @unique @db.Uuid @map("user_id")
+  srsEnabled Boolean  @default(false) @map("srs_enabled")
+  ttsEnabled Boolean  @default(false) @map("tts_enabled")
   theme      String   @default("dark")
-  createdAt  DateTime @default(now())
+  language   String   @default("en")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("settings")
 }

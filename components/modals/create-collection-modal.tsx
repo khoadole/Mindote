@@ -1,15 +1,20 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useAppStore } from "@/lib/store"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useToast } from "@/hooks/use-toast"
-import { Plus } from "lucide-react"
+import { useState } from "react";
+import { useCreateCollection } from "@/hooks/use-collections";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Plus, Loader2 } from "lucide-react";
 
 const colorOptions = [
   { name: "Primary", value: "bg-primary" },
@@ -19,54 +24,51 @@ const colorOptions = [
   { name: "Chart 3", value: "bg-chart-3" },
   { name: "Chart 4", value: "bg-chart-4" },
   { name: "Chart 5", value: "bg-chart-5" },
-]
+];
 
 interface CreateCollectionModalProps {
-  trigger?: React.ReactNode
+  trigger?: React.ReactNode;
 }
 
 export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
-  const [open, setOpen] = useState(false)
-  const [name, setName] = useState("")
-  const [selectedColor, setSelectedColor] = useState("bg-primary")
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [selectedColor, setSelectedColor] = useState("bg-primary");
 
-  const { addCollection } = useAppStore()
-  const { toast } = useToast()
+  const createCollectionMutation = useCreateCollection();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!name.trim()) {
-      toast({
-        title: "Missing collection name",
-        description: "Please provide a name for the collection.",
-        variant: "destructive",
-      })
-      return
+      return;
     }
 
-    addCollection({
-      name: name.trim(),
-      color: selectedColor,
-    })
-
-    toast({
-      title: "Collection created!",
-      description: `"${name}" collection has been created.`,
-    })
-
-    // Reset form
-    setName("")
-    setSelectedColor("bg-primary")
-    setOpen(false)
-  }
+    createCollectionMutation.mutate(
+      {
+        name: name.trim(),
+        color: selectedColor,
+      },
+      {
+        onSuccess: () => {
+          // Reset form
+          setName("");
+          setSelectedColor("bg-primary");
+          setOpen(false);
+        },
+      }
+    );
+  };
 
   const defaultTrigger = (
-    <Button variant="outline" className="flex items-center gap-2 bg-transparent">
+    <Button
+      variant="outline"
+      className="flex items-center gap-2 bg-transparent"
+    >
       <Plus className="h-4 w-4" />
       New Collection
     </Button>
-  )
+  );
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -95,8 +97,12 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
                   key={color.value}
                   type="button"
                   onClick={() => setSelectedColor(color.value)}
-                  className={`h-10 rounded-md border-2 transition-all ${color.value} ${
-                    selectedColor === color.value ? "border-foreground scale-105" : "border-border"
+                  className={`h-10 rounded-md border-2 transition-all ${
+                    color.value
+                  } ${
+                    selectedColor === color.value
+                      ? "border-foreground scale-105"
+                      : "border-border"
                   }`}
                   title={color.name}
                 />
@@ -105,13 +111,27 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
           </div>
 
           <div className="flex justify-end space-x-2 pt-4">
-            <Button type="button" variant="outline" onClick={() => setOpen(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setOpen(false)}
+              disabled={createCollectionMutation.isPending}
+            >
               Cancel
             </Button>
-            <Button type="submit">Create Collection</Button>
+            <Button type="submit" disabled={createCollectionMutation.isPending}>
+              {createCollectionMutation.isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Creating...
+                </>
+              ) : (
+                "Create Collection"
+              )}
+            </Button>
           </div>
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

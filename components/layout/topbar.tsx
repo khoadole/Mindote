@@ -24,9 +24,15 @@ export function Topbar() {
   };
 
   const handleSignOut = async () => {
-    await signOut();
-    router.push("/");
-    router.refresh();
+    try {
+      await signOut();
+      // Router will automatically redirect to "/" after signOut
+      // QueryProvider will clear cache when it detects SIGNED_OUT event
+      router.push("/");
+      router.refresh();
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   };
 
   return (

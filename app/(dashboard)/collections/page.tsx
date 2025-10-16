@@ -2,26 +2,34 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useAppStore } from "@/lib/store";
+import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { AddWordModal } from "@/components/modals/add-word-modal";
 import { CreateCollectionModal } from "@/components/modals/create-collection-modal";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Loader2 } from "lucide-react";
 
 export default function CollectionsPage() {
-  const { collections, words } = useAppStore();
+  const { data: collections, isLoading } = useCollections();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredCollections = collections.filter((collection) =>
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading collections...</span>
+        </div>
+      </div>
+    );
+  }
+
+  const filteredCollections = (collections || []).filter((collection) =>
     collection.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  const getWordCount = (collectionId: string) => {
-    return words.filter((word) => word.collectionId === collectionId).length;
-  };
 
   return (
     <div className="p-6">
@@ -86,7 +94,7 @@ export default function CollectionsPage() {
                         </CardTitle>
                       </div>
                       <Badge variant="secondary">
-                        {getWordCount(collection.id)} words
+                        {collection.wordCount} words
                       </Badge>
                     </div>
                   </CardHeader>

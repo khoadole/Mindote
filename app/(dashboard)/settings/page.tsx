@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAppStore } from "@/lib/store";
+import {
+  useSettings,
+  useUpdateSettings,
+  useUserStats,
+} from "@/hooks/use-settings";
 import { useTheme } from "@/lib/theme-provider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -27,6 +31,7 @@ import {
   Brain,
   Palette,
   Globe,
+  Loader2,
 } from "lucide-react";
 
 // Language options
@@ -45,116 +50,61 @@ const languages = [
 
 export default function SettingsPage() {
   const router = useRouter();
-  const { settings, updateSettings, resetData, words, collections } =
-    useAppStore();
+  const { data: settings, isLoading: settingsLoading } = useSettings();
+  const { data: stats, isLoading: statsLoading } = useUserStats();
+  const updateSettingsMutation = useUpdateSettings();
   const { theme, setTheme } = useTheme();
   const { toast } = useToast();
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
 
+  // Loading state
+  if (settingsLoading || statsLoading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading settings...</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (!settings) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <p className="text-destructive">Failed to load settings</p>
+          <Button onClick={() => window.location.reload()} className="mt-4">
+            Retry
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   const handleExportData = () => {
-    setIsExporting(true);
-
-    try {
-      const exportData = {
-        words,
-        collections,
-        settings,
-        exportedAt: new Date().toISOString(),
-        version: "1.0",
-      };
-
-      const dataStr = JSON.stringify(exportData, null, 2);
-      const dataBlob = new Blob([dataStr], { type: "application/json" });
-      const url = URL.createObjectURL(dataBlob);
-
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `mindote-backup-${
-        new Date().toISOString().split("T")[0]
-      }.json`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      URL.revokeObjectURL(url);
-
-      toast({
-        title: "Data exported successfully!",
-        description: "Your vocabulary data has been downloaded as a JSON file.",
-      });
-    } catch (error) {
-      toast({
-        title: "Export failed",
-        description: "There was an error exporting your data.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsExporting(false);
-    }
+    toast({
+      title: "Coming soon",
+      description:
+        "Export feature will be available soon with database integration.",
+    });
   };
 
   const handleImportData = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".json";
-
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-
-      setIsImporting(true);
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        try {
-          const importData = JSON.parse(e.target?.result as string);
-
-          // Validate the data structure
-          if (
-            !importData.words ||
-            !importData.collections ||
-            !importData.settings
-          ) {
-            throw new Error("Invalid data format");
-          }
-
-          // For demo purposes, we'll merge the data rather than replace
-          // In a real app, you might want to ask the user about merge vs replace
-
-          toast({
-            title: "Data imported successfully!",
-            description: `Imported ${importData.words.length} words and ${importData.collections.length} collections.`,
-          });
-        } catch (error) {
-          toast({
-            title: "Import failed",
-            description: "The file format is invalid or corrupted.",
-            variant: "destructive",
-          });
-        } finally {
-          setIsImporting(false);
-        }
-      };
-
-      reader.readAsText(file);
-    };
-
-    input.click();
+    toast({
+      title: "Coming soon",
+      description:
+        "Import feature will be available soon with database integration.",
+    });
   };
 
   const handleResetData = () => {
-    if (
-      confirm(
-        "Are you sure you want to reset all data? This will delete all your words, collections, and settings. This action cannot be undone."
-      )
-    ) {
-      resetData();
-      toast({
-        title: "Data reset complete",
-        description: "All data has been reset to default values.",
-      });
-    }
+    toast({
+      title: "Coming soon",
+      description: "This feature will be available soon.",
+    });
   };
 
   return (
@@ -213,8 +163,8 @@ export default function SettingsPage() {
                 </Label>
                 <Select
                   value={settings.language}
-                  onValueChange={(value: typeof settings.language) =>
-                    updateSettings({ language: value })
+                  onValueChange={(value: string) =>
+                    updateSettingsMutation.mutate({ language: value })
                   }
                 >
                   <SelectTrigger>
@@ -259,7 +209,7 @@ export default function SettingsPage() {
                   id="srs"
                   checked={settings.srsEnabled}
                   onCheckedChange={(checked) =>
-                    updateSettings({ srsEnabled: checked })
+                    updateSettingsMutation.mutate({ srsEnabled: checked })
                   }
                 />
               </div>
@@ -280,7 +230,7 @@ export default function SettingsPage() {
                   id="tts"
                   checked={settings.ttsEnabled}
                   onCheckedChange={(checked) =>
-                    updateSettings({ ttsEnabled: checked })
+                    updateSettingsMutation.mutate({ ttsEnabled: checked })
                   }
                 />
               </div>
@@ -371,35 +321,38 @@ export default function SettingsPage() {
               <CardTitle>Statistics</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">
-                    {words.length}
+              {stats ? (
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">
+                      {stats.totalWords}
+                    </div>
+                    <p className="text-sm text-muted-foreground">Total Words</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">Total Words</p>
-                </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-accent">
-                    {collections.length}
+                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                    <div className="text-2xl font-bold text-accent">
+                      {stats.totalCollections}
+                    </div>
+                    <p className="text-sm text-muted-foreground">Collections</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">Collections</p>
-                </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-chart-3">
-                    {words.filter((w) => (w.score || 0) > 3).length}
+                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                    <div className="text-2xl font-bold text-chart-3">
+                      {stats.masteredWords}
+                    </div>
+                    <p className="text-sm text-muted-foreground">Mastered</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">Mastered</p>
-                </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-chart-4">
-                    {Math.round(
-                      words.reduce((acc, w) => acc + (w.score || 0), 0) /
-                        Math.max(words.length, 1)
-                    )}
+                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                    <div className="text-2xl font-bold text-chart-4">
+                      {stats.avgScore}
+                    </div>
+                    <p className="text-sm text-muted-foreground">Avg Score</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">Avg Score</p>
                 </div>
-              </div>
+              ) : (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-6 w-6 animate-spin" />
+                </div>
+              )}
             </CardContent>
           </Card>
 

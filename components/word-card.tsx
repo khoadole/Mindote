@@ -1,37 +1,54 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { useAppStore } from "@/lib/store"
-import type { Word } from "@/lib/types"
-import { Edit, Trash2, Volume2 } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import type { Word } from "@/lib/types";
+import { Edit, Trash2, Volume2 } from "lucide-react";
 
 interface WordCardProps {
-  word: Word
-  onEdit?: () => void
-  onDelete?: () => void
+  word: Word & {
+    collection?: {
+      id: string;
+      name: string;
+      color: string;
+    } | null;
+  };
+  onEdit?: () => void;
+  onDelete?: () => void;
 }
 
 export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
-  const [showDetails, setShowDetails] = useState(false)
-  const { collections } = useAppStore()
-
-  const collection = collections.find((c) => c.id === word.collectionId)
+  const [showDetails, setShowDetails] = useState(false);
+  const collection = word.collection;
 
   return (
     <>
-      <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => setShowDetails(true)}>
+      <Card
+        className="cursor-pointer hover:shadow-md transition-shadow"
+        onClick={() => setShowDetails(true)}
+      >
         <CardContent className="p-4">
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="font-semibold text-lg">{word.term}</h3>
-                {word.phonetic && <span className="text-sm text-muted-foreground">{word.phonetic}</span>}
+                {word.phonetic && (
+                  <span className="text-sm text-muted-foreground">
+                    {word.phonetic}
+                  </span>
+                )}
               </div>
-              <p className="text-sm text-muted-foreground line-clamp-2 mb-2">{word.definition}</p>
+              <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+                {word.definition}
+              </p>
               {collection && (
                 <Badge variant="secondary" className="text-xs">
                   {collection.name}
@@ -44,8 +61,8 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   size="sm"
                   variant="ghost"
                   onClick={(e) => {
-                    e.stopPropagation()
-                    onEdit()
+                    e.stopPropagation();
+                    onEdit();
                   }}
                 >
                   <Edit className="h-3 w-3" />
@@ -56,8 +73,8 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   size="sm"
                   variant="ghost"
                   onClick={(e) => {
-                    e.stopPropagation()
-                    onDelete()
+                    e.stopPropagation();
+                    onDelete();
                   }}
                 >
                   <Trash2 className="h-3 w-3" />
@@ -73,7 +90,11 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               {word.term}
-              {word.phonetic && <span className="text-sm font-normal text-muted-foreground">{word.phonetic}</span>}
+              {word.phonetic && (
+                <span className="text-sm font-normal text-muted-foreground">
+                  {word.phonetic}
+                </span>
+              )}
               <Button size="sm" variant="ghost">
                 <Volume2 className="h-4 w-4" />
               </Button>
@@ -117,5 +138,5 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }

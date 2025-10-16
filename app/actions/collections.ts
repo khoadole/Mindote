@@ -1,0 +1,247 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import prisma from "@/lib/prisma";
+import { createClient } from "@/lib/supabase/server";
+
+/**
+ * Get current user ID from session and ensure user exists in database
+ */
+async function getCurrentUserId(): Promise<string | null> {
+  const supabase = await createClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session?.user) {
+    return null;
+  }
+
+  const userId = session.user.id;
+
+  // Ensure user exists in database
+  try {
+    await prisma.user.upsert({
+      where: { id: userId },
+      update: {
+        email: session.user.email!,
+        updatedAt: new Date(),
+      },
+      create: {
+        id: userId,
+        email: session.user.email!,
+        username: session.user.user_metadata?.username || null,
+        displayName:
+          session.user.user_metadata?.display_name ||
+          session.user.email?.split("@")[0] ||
+          null,
+        avatarUrl: session.user.user_metadata?.avatar_url || null,
+      },
+    });
+  } catch (error) {
+    console.error("Error upserting user:", error);
+  }
+
+  return userId;
+}
+
+/**
+ * Get all collections for current user
+ */
+export async function getCollectionsAction() {
+  try {
+    const userId = await getCurrentUserId();
+    if (!userId) {
+      return { error: "Unauthorized", data: null };
+    }
+
+    const collections = await prisma.collection.findMany({
+      where: { userId },
+      include: {
+        words: true,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return {
+      data: collections.map((col) => ({
+        id: col.id,
+        name: col.name,
+        color: col.color,
+        createdAt: col.createdAt.toISOString(),
+        wordCount: col.words.length,
+      })),
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error getting collections:", error);
+    return { error: "Failed to get collections", data: null };
+  }
+}
+
+/**
+ * Get a single collection with words
+ */
+export async function getCollectionAction(collectionId: string) {
+  try {
+    const userId = await getCurrentUserId();
+    if (!userId) {
+      return { error: "Unauthorized", data: null };
+    }
+
+    const collection = await prisma.collection.findFirst({
+      where: {
+        id: collectionId,
+        userId,
+      },
+      include: {
+        words: {
+          orderBy: {
+            createdAt: "desc",
+          },
+        },
+      },
+    });
+
+    if (!collection) {
+      return { error: "Collection not found", data: null };
+    }
+
+    return {
+      data: {
+        id: collection.id,
+        name: collection.name,
+        color: collection.color,
+        createdAt: collection.createdAt.toISOString(),
+        words: collection.words.map((word) => ({
+          id: word.id,
+          term: word.term,
+          definition: word.definition,
+          example: word.example,
+          phonetic: word.phonetic,
+          score: word.score,
+          createdAt: word.createdAt.toISOString(),
+          collectionId: word.collectionId,
+        })),
+      },
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error getting collection:", error);
+    return { error: "Failed to get collection", data: null };
+  }
+}
+
+/**
+ * Create a new collection
+ */
+export async function createCollectionAction(data: {
+  name: string;
+  color: string;
+}) {
+  try {
+    const userId = await getCurrentUserId();
+    if (!userId) {
+      return { error: "Unauthorized", data: null };
+    }
+
+    const collection = await prisma.collection.create({
+      data: {
+        userId,
+        name: data.name,
+        color: data.color,
+      },
+    });
+
+    revalidatePath("/collections");
+
+    return {
+      data: {
+        id: collection.id,
+        name: collection.name,
+        color: collection.color,
+        createdAt: collection.createdAt.toISOString(),
+      },
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error creating collection:", error);
+    return { error: "Failed to create collection", data: null };
+  }
+}
+
+/**
+ * Update a collection
+ */
+export async function updateCollectionAction(
+  collectionId: string,
+  data: {
+    name?: string;
+    color?: string;
+  }
+) {
+  try {
+    const userId = await getCurrentUserId();
+    if (!userId) {
+      return { error: "Unauthorized", data: null };
+    }
+
+    const collection = await prisma.collection.updateMany({
+      where: {
+        id: collectionId,
+        userId,
+      },
+      data,
+    });
+
+    if (collection.count === 0) {
+      return { error: "Collection not found", data: null };
+    }
+
+    revalidatePath("/collections");
+    revalidatePath(`/collections/${collectionId}`);
+
+    return {
+      data: { success: true },
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error updating collection:", error);
+    return { error: "Failed to update collection", data: null };
+  }
+}
+
+/**
+ * Delete a collection
+ */
+export async function deleteCollectionAction(collectionId: string) {
+  try {
+    const userId = await getCurrentUserId();
+    if (!userId) {
+      return { error: "Unauthorized", data: null };
+    }
+
+    const collection = await prisma.collection.deleteMany({
+      where: {
+        id: collectionId,
+        userId,
+      },
+    });
+
+    if (collection.count === 0) {
+      return { error: "Collection not found", data: null };
+    }
+
+    revalidatePath("/collections");
+
+    return {
+      data: { success: true },
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error deleting collection:", error);
+    return { error: "Failed to delete collection", data: null };
+  }
+}

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAppStore } from "@/lib/store";
+import { useAllWords } from "@/hooks/use-words";
+import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,18 +17,23 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { FlashcardPlayer } from "@/components/flashcard-player";
 import { useToast } from "@/hooks/use-toast";
-import { Candy as Cards, Play, ArrowLeft } from "lucide-react";
+import { Candy as Cards, Play, ArrowLeft, Loader2 } from "lucide-react";
 
 export default function FlashcardsPage() {
   const router = useRouter();
-  const { words, collections } = useAppStore();
+  const { data: words = [], isLoading: wordsLoading } = useAllWords();
+  const { data: collections = [], isLoading: collectionsLoading } =
+    useCollections();
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>("all");
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
 
+  const isLoading = wordsLoading || collectionsLoading;
+
   const getStudyWords = () => {
+    if (!words) return [];
     if (selectedScope === "all") {
       return words;
     }
@@ -60,11 +66,23 @@ export default function FlashcardsPage() {
     setIsStudying(false);
   };
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading flashcards...</span>
+        </div>
+      </div>
+    );
+  }
+
   if (isStudying) {
     return (
       <div className="p-6">
         <FlashcardPlayer
-          words={studyWords}
+          words={studyWords as any}
           onComplete={handleStudyComplete}
           onExit={handleExit}
         />
@@ -110,16 +128,14 @@ export default function FlashcardsPage() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">
-                        All Words ({words.length})
+                        All Words ({words?.length || 0})
                       </SelectItem>
-                      {collections.map((collection) => (
+                      {collections?.map((collection) => (
                         <SelectItem key={collection.id} value={collection.id}>
                           {collection.name} (
-                          {
-                            words.filter(
-                              (w) => w.collectionId === collection.id
-                            ).length
-                          }
+                          {words?.filter(
+                            (w) => w.collectionId === collection.id
+                          ).length || 0}
                           )
                         </SelectItem>
                       ))}

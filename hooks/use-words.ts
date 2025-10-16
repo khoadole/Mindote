@@ -24,6 +24,8 @@ export function useAllWords() {
       }
       return result.data;
     },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
   });
 }
 
@@ -41,6 +43,8 @@ export function useWords(collectionId: string) {
       return result.data;
     },
     enabled: !!collectionId,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
   });
 }
 
@@ -193,5 +197,7 @@ export function useSearchWords(query: string) {
       return result.data;
     },
     enabled: query.length > 0,
+    staleTime: 2 * 60 * 1000, // 2 minutes for search
+    gcTime: 5 * 60 * 1000,
   });
 }

@@ -24,6 +24,8 @@ export function useCollections() {
       }
       return result.data;
     },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
   });
 }
 
@@ -41,6 +43,8 @@ export function useCollection(collectionId: string) {
       return result.data;
     },
     enabled: !!collectionId,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
   });
 }
 

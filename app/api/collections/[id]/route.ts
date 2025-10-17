@@ -12,11 +12,11 @@ type Params = {
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: Promise<Params> }
 ) {
   try {
     const userId = await getUserId();
-    const { id } = params;
+    const { id } = await params;
 
     const collection = await prisma.collection.findFirst({
       where: {
@@ -58,11 +58,11 @@ export async function GET(
  */
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: Promise<Params> }
 ) {
   try {
     const userId = await getUserId();
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
 
     const { name, color } = body;
@@ -109,11 +109,11 @@ export async function PATCH(
  */
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: Promise<Params> }
 ) {
   try {
     const userId = await getUserId();
-    const { id } = params;
+    const { id } = await params;
 
     // Verify ownership
     const existingCollection = await prisma.collection.findFirst({

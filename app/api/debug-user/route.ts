@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { createServerSupabaseClient } from "@/lib/server-auth";
 
+// Force dynamic rendering
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     // 1. Get current Supabase user

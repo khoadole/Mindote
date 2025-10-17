@@ -1,21 +1,21 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
 model User {
-  id          String       @id @db.Uuid  // Sync với auth.users.id của Supabase
+  id          String       @id @db.Uuid
   email       String       @unique
   username    String?
   displayName String?      @map("display_name")
   avatarUrl   String?      @map("avatar_url")
   createdAt   DateTime     @default(now()) @map("created_at")
   updatedAt   DateTime     @updatedAt @map("updated_at")
-  
   collections Collection[]
   setting     Setting?
 
@@ -25,12 +25,12 @@ model User {
 
 model Collection {
   id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid @map("user_id")
+  userId    String   @map("user_id") @db.Uuid
   name      String
   color     String
   createdAt DateTime @default(now()) @map("created_at")
-  words     Word[]
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  words     Word[]
 
   @@index([userId])
   @@map("collections")
@@ -44,22 +44,22 @@ model Word {
   phonetic     String?
   score        Int        @default(0)
   createdAt    DateTime   @default(now()) @map("created_at")
-  collectionId String     @db.Uuid @map("collection_id")
+  collectionId String     @map("collection_id") @db.Uuid
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
 
-  @@index([collectionId, term])
   @@unique([collectionId, term])
+  @@index([collectionId, term])
   @@map("words")
 }
 
 model Setting {
-  id         String   @id @default(uuid()) @db.Uuid
-  userId     String   @unique @db.Uuid @map("user_id")
-  theme      String   @default("dark")
-  language   String   @default("en")
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @unique @map("user_id") @db.Uuid
+  theme     String   @default("dark")
+  language  String   @default("en")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("settings")
 }

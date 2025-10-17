@@ -4,11 +4,11 @@ import { getUserId, getUserIdOrNull } from "@/lib/server-auth";
 export async function GET() {
   try {
     console.log("🔍 Testing authentication...");
-    
+
     // Test 1: Check if user is authenticated (strict)
     let userId = null;
     let authError = null;
-    
+
     try {
       userId = await getUserId();
       console.log("✅ getUserId() success:", userId);
@@ -28,22 +28,24 @@ export async function GET() {
         userId: userId,
         userIdOptional: userIdOptional,
         isAuthenticated: !!userId,
-        authError: authError
+        authError: authError,
       },
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
-
   } catch (error) {
     console.error("❌ Auth test failed:", error);
-    
-    return NextResponse.json({
-      status: "error",
-      message: "Authentication test failed",
-      error: {
-        name: error instanceof Error ? error.name : "Unknown",
-        message: error instanceof Error ? error.message : "Unknown error"
+
+    return NextResponse.json(
+      {
+        status: "error",
+        message: "Authentication test failed",
+        error: {
+          name: error instanceof Error ? error.name : "Unknown",
+          message: error instanceof Error ? error.message : "Unknown error",
+        },
+        timestamp: new Date().toISOString(),
       },
-      timestamp: new Date().toISOString()
-    }, { status: 500 });
+      { status: 500 }
+    );
   }
 }

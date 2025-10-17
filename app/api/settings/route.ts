@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
 
+// Force dynamic rendering - prevents build-time errors
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/settings
  * Get settings for authenticated user

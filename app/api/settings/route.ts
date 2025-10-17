@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
 
 // Force dynamic rendering - prevents build-time errors
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 /**
  * GET /api/settings
@@ -24,9 +24,8 @@ export async function GET() {
       settings = await prisma.setting.create({
         data: {
           userId,
-          srsEnabled: false,
-          ttsEnabled: false,
           theme: "dark",
+          language: "en",
         },
       });
     }
@@ -53,22 +52,20 @@ export async function PATCH(request: NextRequest) {
     const userId = await getUserId();
     const body = await request.json();
 
-    const { srsEnabled, ttsEnabled, theme } = body;
+    const { theme, language } = body;
 
     const settings = await prisma.setting.upsert({
       where: {
         userId,
       },
       update: {
-        ...(srsEnabled !== undefined && { srsEnabled }),
-        ...(ttsEnabled !== undefined && { ttsEnabled }),
         ...(theme && { theme }),
+        ...(language && { language }),
       },
       create: {
         userId,
-        srsEnabled: srsEnabled ?? false,
-        ttsEnabled: ttsEnabled ?? false,
         theme: theme ?? "dark",
+        language: language ?? "en",
       },
     });
 

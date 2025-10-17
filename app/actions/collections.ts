@@ -8,9 +8,12 @@ import { getUserId } from "@/lib/server-auth";
  * Get all collections for current user
  */
 export async function getCollectionsAction() {
+  const startTime = Date.now();
   try {
     const userId = await getUserId();
+    console.log(`[getCollections] getUserId took ${Date.now() - startTime}ms`);
 
+    const queryStart = Date.now();
     // ✅ Optimized: Only count words, don't fetch all word data
     const collections = await prisma.collection.findMany({
       where: { userId },
@@ -23,6 +26,8 @@ export async function getCollectionsAction() {
         createdAt: "desc",
       },
     });
+    console.log(`[getCollections] DB query took ${Date.now() - queryStart}ms`);
+    console.log(`[getCollections] Total took ${Date.now() - startTime}ms`);
 
     return {
       data: collections.map((col) => ({

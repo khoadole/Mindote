@@ -72,14 +72,19 @@ export async function updateSettingsAction(data: {
 }
 
 /**
- * Get user statistics
+ * Get user stats (total words, collections, etc.)
  */
 export async function getUserStatsAction() {
+  const startTime = Date.now();
   try {
     const userId = await getUserId();
+    console.log(`[getUserStats] getUserId took ${Date.now() - startTime}ms`);
 
+    const queryStart = Date.now();
+    // Parallel queries for better performance
     const [totalWords, totalCollections, masteredWords, avgScoreResult] =
       await Promise.all([
+        // Total words
         prisma.word.count({
           where: {
             collection: {
@@ -87,42 +92,47 @@ export async function getUserStatsAction() {
             },
           },
         }),
+        // Total collections
         prisma.collection.count({
           where: { userId },
         }),
+        // Mastered words (score >= 80)
         prisma.word.count({
           where: {
             collection: {
               userId,
             },
             score: {
-              gte: 4,
+              gte: 80,
             },
           },
         }),
+        // Average score
         prisma.word.aggregate({
           where: {
             collection: {
               userId,
             },
           },
-          _avg: {
-            score: true,
-          },
+          _avg: { score: true },
         }),
       ]);
+    console.log(`[getUserStats] DB queries took ${Date.now() - queryStart}ms`);
+    console.log(`[getUserStats] Total took ${Date.now() - startTime}ms`);
+
+    const avgScore = avgScoreResult._avg.score || 0;
 
     return {
       data: {
         totalWords,
         totalCollections,
         masteredWords,
-        avgScore: Math.round(avgScoreResult._avg.score || 0),
+        avgScore,
       },
       error: null,
     };
   } catch (error) {
     console.error("Error getting user stats:", error);
-    return { error: "Failed to get statistics", data: null };
+    return { error: "Failed to get user stats", data: null };
   }
 }

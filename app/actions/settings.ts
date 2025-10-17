@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
+import { ensureUserExists } from "@/lib/ensure-user";
 
 /**
  * Get user settings
@@ -10,6 +11,9 @@ import { getUserId } from "@/lib/server-auth";
 export async function getSettingsAction() {
   try {
     const userId = await getUserId();
+    
+    // Ensure user exists in database
+    await ensureUserExists(userId);
 
     let settings = await prisma.setting.findUnique({
       where: { userId },
@@ -46,6 +50,9 @@ export async function updateSettingsAction(data: {
 }) {
   try {
     const userId = await getUserId();
+    
+    // Ensure user exists in database
+    await ensureUserExists(userId);
 
     const settings = await prisma.setting.upsert({
       where: { userId },

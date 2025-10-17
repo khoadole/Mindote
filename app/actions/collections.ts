@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
+import { ensureUserExists } from "@/lib/ensure-user";
 
 /**
  * Get all collections for current user
@@ -108,6 +109,10 @@ export async function createCollectionAction(data: {
 }) {
   try {
     const userId = await getUserId();
+
+    // ✅ FIX: Ensure user exists in database before creating collection
+    // This handles race condition where signup trigger hasn't completed yet
+    await ensureUserExists(userId);
 
     const collection = await prisma.collection.create({
       data: {

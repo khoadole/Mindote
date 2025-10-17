@@ -2,15 +2,34 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
+  // Debug environment variables
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  console.log("Middleware env check:");
+  console.log(
+    "- NEXT_PUBLIC_SUPABASE_URL:",
+    supabaseUrl ? "✓ Present" : "✗ Missing"
+  );
+  console.log(
+    "- NEXT_PUBLIC_SUPABASE_ANON_KEY:",
+    supabaseKey ? "✓ Present" : "✗ Missing"
+  );
+
   // Check if environment variables exist
-  if (
-    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  ) {
-    console.error("Missing Supabase environment variables");
-    return NextResponse.next({
-      request,
-    });
+  if (!supabaseUrl || !supabaseKey) {
+    console.error("Missing Supabase environment variables in middleware");
+    console.error(
+      "All env keys containing SUPABASE:",
+      Object.keys(process.env).filter((k) => k.includes("SUPABASE"))
+    );
+
+    // If env vars missing, just pass through without auth
+    const response = NextResponse.next({ request });
+    response.headers.set("X-Frame-Options", "DENY");
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+    return response;
   }
 
   let supabaseResponse = NextResponse.next({
@@ -18,23 +37,19 @@ export async function updateSession(request: NextRequest) {
   });
 
   try {
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-      {
-        cookies: {
-          getAll() {
-            return request.cookies.getAll();
-          },
-          setAll(cookiesToSet) {
-            // Only set cookies in response
-            cookiesToSet.forEach(({ name, value, options }) =>
-              supabaseResponse.cookies.set(name, value, options)
-            );
-          },
+    const supabase = createServerClient(supabaseUrl, supabaseKey, {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
         },
-      }
-    );
+        setAll(cookiesToSet: any) {
+          // Only set cookies in response
+          cookiesToSet.forEach(({ name, value, options }: any) =>
+            supabaseResponse.cookies.set(name, value, options)
+          );
+        },
+      },
+    });
 
     // Get user và handle error
     const {

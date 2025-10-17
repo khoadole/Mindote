@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useParams, useRouter } from "next/navigation";
 import { useCollection } from "@/hooks/use-collections";
 import { useDeleteCollection } from "@/hooks/use-collections";
@@ -10,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AddWordModal } from "@/components/modals/add-word-modal";
 import { WordCard } from "@/components/word-card";
 import {
   ArrowLeft,
@@ -21,6 +21,15 @@ import {
   CheckCircle,
   Loader2,
 } from "lucide-react";
+
+// ✅ Lazy load AddWordModal
+const AddWordModal = dynamic(
+  () =>
+    import("@/components/modals/add-word-modal").then((mod) => ({
+      default: mod.AddWordModal,
+    })),
+  { ssr: false }
+);
 
 export default function CollectionDetailPage() {
   const params = useParams();

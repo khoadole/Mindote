@@ -49,7 +49,7 @@ export function useWords(collectionId: string) {
 }
 
 /**
- * Hook to create a word
+ * Hook to create a word with optimistic updates
  */
 export function useCreateWord() {
   const queryClient = useQueryClient();
@@ -69,26 +69,96 @@ export function useCreateWord() {
       }
       return result.data;
     },
+    // OPTIMISTIC UPDATE: Update UI immediately before API call
+    onMutate: async (newWord) => {
+      // Cancel outgoing refetches
+      await queryClient.cancelQueries({
+        queryKey: ["words", newWord.collectionId],
+      });
+
+      // Snapshot previous value
+      const previousWords = queryClient.getQueryData([
+        "words",
+        newWord.collectionId,
+      ]);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(
+        ["words", newWord.collectionId],
+        (old: any[] | undefined) => {
+          const optimisticWord = {
+            id: `temp-${Date.now()}`, // Temporary ID
+            term: newWord.term,
+            definition: newWord.definition,
+            example: newWord.example || null,
+            phonetic: newWord.phonetic || null,
+            score: 0,
+            createdAt: new Date().toISOString(),
+            collectionId: newWord.collectionId,
+            _optimistic: true, // Flag for UI indicator
+          };
+          return [optimisticWord, ...(old || [])];
+        }
+      );
+
+      // Return context with snapshot
+      return { previousWords };
+    },
     onSuccess: (_, variables) => {
+      // Only invalidate the specific collection's words and details
       queryClient.invalidateQueries({
         queryKey: ["words", variables.collectionId],
       });
       queryClient.invalidateQueries({
         queryKey: ["collections", variables.collectionId],
       });
-      queryClient.invalidateQueries({ queryKey: ["collections"] });
-      queryClient.invalidateQueries({ queryKey: ["all-words"] });
-      queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+
+      // Invalidate collections list (for word count update)
+      queryClient.invalidateQueries({
+        queryKey: ["collections"],
+        refetchType: "none", // Don't auto-refetch, let it happen on next visit
+      });
+
+      // Invalidate all-words only if currently being used (Quiz/Flashcards)
+      const allWordsQuery = queryClient.getQueryState(["all-words"]);
+      if (allWordsQuery?.dataUpdatedAt) {
+        queryClient.invalidateQueries({
+          queryKey: ["all-words"],
+          refetchType: "none", // Don't auto-refetch
+        });
+      }
+
+      // Debounced stats update - don't refetch immediately
+      queryClient.invalidateQueries({
+        queryKey: ["user-stats"],
+        refetchType: "none", // Mark stale but don't refetch
+      });
+
       toast({
         title: "Word added",
         description: "Your new word has been added successfully.",
       });
     },
-    onError: (error: Error) => {
+    // ROLLBACK: If mutation fails, rollback to previous state
+    onError: (error: Error, variables, context) => {
+      // Restore previous state
+      if (context?.previousWords) {
+        queryClient.setQueryData(
+          ["words", variables.collectionId],
+          context.previousWords
+        );
+      }
+
       toast({
         title: "Failed to add word",
         description: error.message,
         variant: "destructive",
+      });
+    },
+    // Always refetch after error or success
+    onSettled: (_, __, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: ["words", variables.collectionId],
       });
     },
   });
@@ -123,6 +193,7 @@ export function useUpdateWord() {
     },
     onSuccess: (data) => {
       if (data?.collectionId) {
+        // Only invalidate specific collection queries
         queryClient.invalidateQueries({
           queryKey: ["words", data.collectionId],
         });
@@ -130,8 +201,24 @@ export function useUpdateWord() {
           queryKey: ["collections", data.collectionId],
         });
       }
-      queryClient.invalidateQueries({ queryKey: ["all-words"] });
-      queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+
+      // Don't auto-refetch all-words unless currently viewing
+      const allWordsQuery = queryClient.getQueryState(["all-words"]);
+      if (allWordsQuery?.dataUpdatedAt) {
+        queryClient.invalidateQueries({
+          queryKey: ["all-words"],
+          refetchType: "none",
+        });
+      }
+
+      // Stats only update if score changed
+      if (data?.score !== undefined) {
+        queryClient.invalidateQueries({
+          queryKey: ["user-stats"],
+          refetchType: "none",
+        });
+      }
+
       toast({
         title: "Word updated",
         description: "Your word has been updated successfully.",
@@ -163,11 +250,23 @@ export function useDeleteWord() {
       return result.data;
     },
     onSuccess: () => {
-      // Invalidate all relevant queries
-      queryClient.invalidateQueries({ queryKey: ["words"] });
-      queryClient.invalidateQueries({ queryKey: ["collections"] });
-      queryClient.invalidateQueries({ queryKey: ["all-words"] });
-      queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+      // Invalidate all word-related queries but don't auto-refetch
+      queryClient.invalidateQueries({
+        queryKey: ["words"],
+        refetchType: "active", // Only refetch currently mounted queries
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["collections"],
+        refetchType: "active",
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["all-words"],
+        refetchType: "none",
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["user-stats"],
+        refetchType: "none",
+      });
       toast({
         title: "Word deleted",
         description: "Your word has been deleted successfully.",

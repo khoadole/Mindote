@@ -1,10 +1,12 @@
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
+import { cache } from "react";
 
 /**
  * Create Supabase client for Server Components
+ * Cached per request to reuse the same client instance
  */
-export async function createServerSupabaseClient() {
+export const createServerSupabaseClient = cache(async () => {
   const cookieStore = await cookies();
 
   return createServerClient(
@@ -29,13 +31,14 @@ export async function createServerSupabaseClient() {
       },
     }
   );
-}
+});
 
 /**
  * Get authenticated user from Supabase
+ * Cached per request - multiple calls return the same result
  * Returns userId or throws error if not authenticated
  */
-export async function getAuthenticatedUser() {
+export const getAuthenticatedUser = cache(async () => {
   const supabase = await createServerSupabaseClient();
   const {
     data: { user },
@@ -47,12 +50,36 @@ export async function getAuthenticatedUser() {
   }
 
   return user;
-}
+});
 
 /**
- * Get userId from authenticated user
+ * Get userId from authenticated user (throws on error)
+ * Cached per request - optimized for multiple calls
+ * Use this in Server Actions where you want auth to be required
  */
-export async function getUserId(): Promise<string> {
+export const getUserId = cache(async (): Promise<string> => {
   const user = await getAuthenticatedUser();
   return user.id;
-}
+});
+
+/**
+ * Get userId or null if not authenticated
+ * Use this when auth is optional
+ */
+export const getUserIdOrNull = cache(async (): Promise<string | null> => {
+  try {
+    const supabase = await createServerSupabaseClient();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      return null;
+    }
+
+    return user.id;
+  } catch {
+    return null;
+  }
+});

@@ -2,57 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
-import { createClient } from "@/lib/supabase/server";
-
-/**
- * Get current user ID from session and ensure user exists in database
- */
-async function getCurrentUserId(): Promise<string | null> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error || !user) {
-    return null;
-  }
-
-  const userId = user.id;
-
-  // Ensure user exists in database
-  try {
-    await prisma.user.upsert({
-      where: { id: userId },
-      update: {
-        email: user.email!,
-        updatedAt: new Date(),
-      },
-      create: {
-        id: userId,
-        email: user.email!,
-        username: user.user_metadata?.username || null,
-        displayName:
-          user.user_metadata?.display_name || user.email?.split("@")[0] || null,
-        avatarUrl: user.user_metadata?.avatar_url || null,
-      },
-    });
-  } catch (error) {
-    console.error("Error upserting user:", error);
-  }
-
-  return userId;
-}
+import { getUserId } from "@/lib/server-auth";
 
 /**
  * Get user settings
  */
 export async function getSettingsAction() {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     let settings = await prisma.setting.findUnique({
       where: { userId },
@@ -88,10 +45,7 @@ export async function updateSettingsAction(data: {
   language?: string;
 }) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const settings = await prisma.setting.upsert({
       where: { userId },
@@ -122,10 +76,7 @@ export async function updateSettingsAction(data: {
  */
 export async function getUserStatsAction() {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const [totalWords, totalCollections, masteredWords, avgScoreResult] =
       await Promise.all([

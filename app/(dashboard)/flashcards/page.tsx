@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
@@ -15,9 +16,27 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { FlashcardPlayer } from "@/components/flashcard-player";
 import { useToast } from "@/hooks/use-toast";
 import { Candy as Cards, Play, ArrowLeft, Loader2 } from "lucide-react";
+
+// ✅ Lazy load FlashcardPlayer - only load when user starts studying
+const FlashcardPlayer = dynamic(
+  () =>
+    import("@/components/flashcard-player").then((mod) => ({
+      default: mod.FlashcardPlayer,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading flashcard player...</span>
+        </div>
+      </div>
+    ),
+  }
+);
 
 export default function FlashcardsPage() {
   const router = useRouter();

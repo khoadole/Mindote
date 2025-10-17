@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCreateWord } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import {
@@ -23,6 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { CloudSaveIndicator } from "@/components/ui/cloud-save-indicator";
 import { Plus, Loader2 } from "lucide-react";
 
 interface AddWordModalProps {
@@ -48,9 +49,29 @@ export function AddWordModal({
   const [selectedCollection, setSelectedCollection] = useState<string>(
     collectionId || ""
   );
+  const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "error">(
+    "saved"
+  );
+  const [lastSaved, setLastSaved] = useState<Date>();
 
   const { data: collections } = useCollections();
   const createWordMutation = useCreateWord();
+
+  // Track mutation status for cloud save indicator
+  useEffect(() => {
+    if (createWordMutation.isPending) {
+      setSaveStatus("saving");
+    } else if (createWordMutation.isSuccess) {
+      setSaveStatus("saved");
+      setLastSaved(new Date());
+    } else if (createWordMutation.isError) {
+      setSaveStatus("error");
+    }
+  }, [
+    createWordMutation.isPending,
+    createWordMutation.isSuccess,
+    createWordMutation.isError,
+  ]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,7 +116,16 @@ export function AddWordModal({
       <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Add New Word</DialogTitle>
+          <div className="flex items-center justify-between">
+            <DialogTitle>Add New Word</DialogTitle>
+            {createWordMutation.isPending && (
+              <CloudSaveIndicator
+                status={saveStatus}
+                lastSaved={lastSaved}
+                showText={false}
+              />
+            )}
+          </div>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

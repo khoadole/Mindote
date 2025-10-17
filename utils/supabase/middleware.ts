@@ -30,9 +30,9 @@ export async function updateSession(request: NextRequest) {
     error,
   } = await supabase.auth.getUser();
 
-  // Log only in development
-  if (process.env.NODE_ENV === "development") {
-    console.log("Auth check:", { userId: user?.id, error: error?.message });
+  // ✅ Reduced logging - only log on errors or first request
+  if (process.env.NODE_ENV === "development" && error) {
+    console.log("Auth error:", error.message);
   }
 
   const { pathname } = request.nextUrl;

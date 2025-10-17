@@ -2,62 +2,22 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
-import { createClient } from "@/lib/supabase/server";
-
-/**
- * Get current user ID from session and ensure user exists in database
- */
-async function getCurrentUserId(): Promise<string | null> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error || !user) {
-    return null;
-  }
-
-  const userId = user.id;
-
-  // Ensure user exists in database
-  try {
-    await prisma.user.upsert({
-      where: { id: userId },
-      update: {
-        email: user.email!,
-        updatedAt: new Date(),
-      },
-      create: {
-        id: userId,
-        email: user.email!,
-        username: user.user_metadata?.username || null,
-        displayName:
-          user.user_metadata?.display_name || user.email?.split("@")[0] || null,
-        avatarUrl: user.user_metadata?.avatar_url || null,
-      },
-    });
-  } catch (error) {
-    console.error("Error upserting user:", error);
-  }
-
-  return userId;
-}
+import { getUserId } from "@/lib/server-auth";
 
 /**
  * Get all collections for current user
  */
 export async function getCollectionsAction() {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
+    // ✅ Optimized: Only count words, don't fetch all word data
     const collections = await prisma.collection.findMany({
       where: { userId },
       include: {
-        words: true,
+        _count: {
+          select: { words: true },
+        },
       },
       orderBy: {
         createdAt: "desc",
@@ -70,12 +30,16 @@ export async function getCollectionsAction() {
         name: col.name,
         color: col.color,
         createdAt: col.createdAt.toISOString(),
-        wordCount: col.words.length,
+        wordCount: col._count.words,
       })),
       error: null,
     };
   } catch (error) {
     console.error("Error getting collections:", error);
+    // Handle auth errors
+    if (error instanceof Error && error.message === "Unauthorized") {
+      return { error: "Unauthorized", data: null };
+    }
     return { error: "Failed to get collections", data: null };
   }
 }
@@ -85,10 +49,7 @@ export async function getCollectionsAction() {
  */
 export async function getCollectionAction(collectionId: string) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const collection = await prisma.collection.findFirst({
       where: {
@@ -141,10 +102,7 @@ export async function createCollectionAction(data: {
   color: string;
 }) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const collection = await prisma.collection.create({
       data: {
@@ -182,10 +140,7 @@ export async function updateCollectionAction(
   }
 ) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const collection = await prisma.collection.updateMany({
       where: {
@@ -217,10 +172,7 @@ export async function updateCollectionAction(
  */
 export async function deleteCollectionAction(collectionId: string) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const collection = await prisma.collection.deleteMany({
       where: {

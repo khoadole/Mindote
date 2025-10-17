@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
@@ -15,7 +16,6 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { QuizPlayer } from "@/components/quiz-player";
 import { useToast } from "@/hooks/use-toast";
 import {
   CheckCircle,
@@ -25,6 +25,25 @@ import {
   Edit,
   Loader2,
 } from "lucide-react";
+
+// ✅ Lazy load QuizPlayer - only load when user starts quiz
+const QuizPlayer = dynamic(
+  () =>
+    import("@/components/quiz-player").then((mod) => ({
+      default: mod.QuizPlayer,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading quiz player...</span>
+        </div>
+      </div>
+    ),
+  }
+);
 
 export default function QuizPage() {
   const router = useRouter();

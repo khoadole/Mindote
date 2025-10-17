@@ -65,7 +65,13 @@ export function useCreateCollection() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["collections"] });
-      queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+
+      // Don't auto-refetch stats, mark stale only
+      queryClient.invalidateQueries({
+        queryKey: ["user-stats"],
+        refetchType: "none",
+      });
+
       toast({
         title: "Collection created",
         description: "Your new collection has been created successfully.",
@@ -140,7 +146,13 @@ export function useDeleteCollection() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["collections"] });
-      queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+
+      // Don't auto-refetch stats
+      queryClient.invalidateQueries({
+        queryKey: ["user-stats"],
+        refetchType: "none",
+      });
+
       toast({
         title: "Collection deleted",
         description: "Your collection has been deleted successfully.",

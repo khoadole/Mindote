@@ -2,57 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
-import { createClient } from "@/lib/supabase/server";
-
-/**
- * Get current user ID from session and ensure user exists in database
- */
-async function getCurrentUserId(): Promise<string | null> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error || !user) {
-    return null;
-  }
-
-  const userId = user.id;
-
-  // Ensure user exists in database
-  try {
-    await prisma.user.upsert({
-      where: { id: userId },
-      update: {
-        email: user.email!,
-        updatedAt: new Date(),
-      },
-      create: {
-        id: userId,
-        email: user.email!,
-        username: user.user_metadata?.username || null,
-        displayName:
-          user.user_metadata?.display_name || user.email?.split("@")[0] || null,
-        avatarUrl: user.user_metadata?.avatar_url || null,
-      },
-    });
-  } catch (error) {
-    console.error("Error upserting user:", error);
-  }
-
-  return userId;
-}
+import { getUserId } from "@/lib/server-auth";
 
 /**
  * Get all words for a collection
  */
 export async function getWordsAction(collectionId: string) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     // Verify collection belongs to user
     const collection = await prisma.collection.findFirst({
@@ -103,10 +60,7 @@ export async function createWordAction(data: {
   phonetic?: string;
 }) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     // Verify collection belongs to user
     const collection = await prisma.collection.findFirst({
@@ -180,10 +134,7 @@ export async function updateWordAction(
   }
 ) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     // Verify word belongs to user's collection
     const word = await prisma.word.findUnique({
@@ -228,10 +179,7 @@ export async function updateWordAction(
  */
 export async function deleteWordAction(wordId: string) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     // Verify word belongs to user's collection
     const word = await prisma.word.findUnique({
@@ -267,10 +215,7 @@ export async function deleteWordAction(wordId: string) {
  */
 export async function getAllWordsAction() {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const words = await prisma.word.findMany({
       where: {
@@ -312,10 +257,7 @@ export async function getAllWordsAction() {
  */
 export async function searchWordsAction(query: string) {
   try {
-    const userId = await getCurrentUserId();
-    if (!userId) {
-      return { error: "Unauthorized", data: null };
-    }
+    const userId = await getUserId();
 
     const words = await prisma.word.findMany({
       where: {

@@ -1,15 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { AddWordModal } from "@/components/modals/add-word-modal";
-import { CreateCollectionModal } from "@/components/modals/create-collection-modal";
 import { Search, Filter, Loader2 } from "lucide-react";
+
+// ✅ Lazy load modals
+const AddWordModal = dynamic(
+  () =>
+    import("@/components/modals/add-word-modal").then((mod) => ({
+      default: mod.AddWordModal,
+    })),
+  { ssr: false }
+);
+
+const CreateCollectionModal = dynamic(
+  () =>
+    import("@/components/modals/create-collection-modal").then((mod) => ({
+      default: mod.CreateCollectionModal,
+    })),
+  { ssr: false }
+);
 
 export default function CollectionsPage() {
   const { data: collections, isLoading } = useCollections();

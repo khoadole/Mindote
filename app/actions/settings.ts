@@ -11,7 +11,7 @@ import { ensureUserExists } from "@/lib/ensure-user";
 export async function getSettingsAction() {
   try {
     const userId = await getUserId();
-    
+
     // Ensure user exists in database
     await ensureUserExists(userId);
 
@@ -50,7 +50,7 @@ export async function updateSettingsAction(data: {
 }) {
   try {
     const userId = await getUserId();
-    
+
     // Ensure user exists in database
     await ensureUserExists(userId);
 

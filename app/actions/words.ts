@@ -11,15 +11,15 @@ export async function getWordsAction(collectionId: string) {
   try {
     const userId = await getUserId();
 
-    // Verify collection belongs to user
-    const collection = await prisma.collection.findFirst({
+    // ✅ FIX: Use findUnique to avoid prepared statement cache conflicts
+    const collection = await prisma.collection.findUnique({
       where: {
         id: collectionId,
-        userId,
       },
     });
 
-    if (!collection) {
+    // Verify ownership
+    if (!collection || collection.userId !== userId) {
       return { error: "Collection not found", data: null };
     }
 
@@ -62,15 +62,15 @@ export async function createWordAction(data: {
   try {
     const userId = await getUserId();
 
-    // Verify collection belongs to user
-    const collection = await prisma.collection.findFirst({
+    // ✅ FIX: Use findUnique to avoid prepared statement cache conflicts
+    const collection = await prisma.collection.findUnique({
       where: {
         id: data.collectionId,
-        userId,
       },
     });
 
-    if (!collection) {
+    // Verify ownership
+    if (!collection || collection.userId !== userId) {
       return { error: "Collection not found", data: null };
     }
 

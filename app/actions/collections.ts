@@ -57,10 +57,11 @@ export async function getCollectionAction(collectionId: string) {
   try {
     const userId = await getUserId();
 
-    const collection = await prisma.collection.findFirst({
+    // ✅ FIX: Use findUnique instead of findFirst to avoid prepared statement cache issues
+    // findFirst with composite where conditions causes Prisma cache conflicts
+    const collection = await prisma.collection.findUnique({
       where: {
         id: collectionId,
-        userId,
       },
       include: {
         words: {
@@ -71,7 +72,8 @@ export async function getCollectionAction(collectionId: string) {
       },
     });
 
-    if (!collection) {
+    // Verify ownership after fetch
+    if (!collection || collection.userId !== userId) {
       return { error: "Collection not found", data: null };
     }
 

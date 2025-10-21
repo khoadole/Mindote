@@ -80,6 +80,7 @@ export async function updateSettingsAction(data: {
 
 /**
  * Get user stats (total words, collections, etc.)
+ * ✅ Optimized with single aggregation query
  */
 export async function getUserStatsAction() {
   const startTime = Date.now();
@@ -88,53 +89,40 @@ export async function getUserStatsAction() {
     console.log(`[getUserStats] getUserId took ${Date.now() - startTime}ms`);
 
     const queryStart = Date.now();
-    // Parallel queries for better performance
-    const [totalWords, totalCollections, masteredWords, avgScoreResult] =
-      await Promise.all([
-        // Total words
-        prisma.word.count({
-          where: {
-            collection: {
-              userId,
-            },
-          },
-        }),
-        // Total collections
-        prisma.collection.count({
-          where: { userId },
-        }),
-        // Mastered words (score >= 80)
-        prisma.word.count({
-          where: {
-            collection: {
-              userId,
-            },
-            score: {
-              gte: 80,
-            },
-          },
-        }),
-        // Average score
-        prisma.word.aggregate({
-          where: {
-            collection: {
-              userId,
-            },
-          },
-          _avg: { score: true },
-        }),
-      ]);
+    
+    // ✅ Optimization: Use raw SQL for better performance
+    const [statsResult, totalCollections] = await Promise.all([
+      // Single aggregation for all word stats
+      prisma.$queryRaw<Array<{
+        total_words: bigint;
+        mastered_words: bigint;
+        avg_score: number | null;
+      }>>`
+        SELECT 
+          COUNT(*)::bigint as total_words,
+          COUNT(CASE WHEN score >= 80 THEN 1 END)::bigint as mastered_words,
+          AVG(score) as avg_score
+        FROM words w
+        INNER JOIN collections c ON w.collection_id = c.id
+        WHERE c.user_id = ${userId}::uuid
+      `,
+      // Collections count (simple query)
+      prisma.collection.count({
+        where: { userId },
+      }),
+    ]);
+    
     console.log(`[getUserStats] DB queries took ${Date.now() - queryStart}ms`);
     console.log(`[getUserStats] Total took ${Date.now() - startTime}ms`);
 
-    const avgScore = avgScoreResult._avg.score || 0;
-
+    const stats = statsResult[0];
+    
     return {
       data: {
-        totalWords,
+        totalWords: Number(stats?.total_words || 0),
         totalCollections,
-        masteredWords,
-        avgScore,
+        masteredWords: Number(stats?.mastered_words || 0),
+        avgScore: Number(stats?.avg_score || 0),
       },
       error: null,
     };

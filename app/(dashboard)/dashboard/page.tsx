@@ -34,6 +34,7 @@ const CreateCollectionModal = dynamic(
 );
 
 export default function Dashboard() {
+  // ✅ Parallel fetching - tất cả queries chạy đồng thời
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: stats, isLoading: statsLoading } = useUserStats();
 
@@ -46,7 +47,9 @@ export default function Dashboard() {
 
   const recentCollections = (collections || []).slice(0, 5);
 
-  const isLoading = collectionsLoading || statsLoading;
+  // ✅ Hiển thị từng phần khi data có sẵn (không chờ tất cả)
+  const hasCollections = !!collections;
+  const hasStats = !!stats;
 
   return (
     <div className="p-6">
@@ -74,8 +77,8 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        {/* Stats Cards - Show skeleton while loading */}
-        {isLoading ? (
+        {/* Stats Cards - Progressive rendering */}
+        {!hasStats ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <Card key={i}>
@@ -136,13 +139,13 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* Recent Collections - Show skeleton while loading */}
+        {/* Recent Collections - Progressive rendering */}
         <Card>
           <CardHeader>
             <CardTitle>Recent Collections</CardTitle>
           </CardHeader>
           <CardContent>
-            {isLoading ? (
+            {!hasCollections ? (
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (
                   <div

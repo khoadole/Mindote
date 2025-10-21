@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { getUserId, getUserIdOrNull } from "@/lib/server-auth";
 
+// ✅ Prevent this route from being statically generated during build
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     console.log("🔍 Testing authentication...");

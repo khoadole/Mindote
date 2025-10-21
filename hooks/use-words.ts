@@ -128,10 +128,13 @@ export function useCreateWord() {
         });
       }
 
-      // Debounced stats update - don't refetch immediately
-      queryClient.invalidateQueries({
-        queryKey: ["user-stats"],
-        refetchType: "none", // Mark stale but don't refetch
+      // ✅ Optimistic update: Increment totalWords immediately
+      queryClient.setQueryData(["user-stats"], (old: any) => {
+        if (!old) return old;
+        return {
+          ...old,
+          totalWords: (old.totalWords || 0) + 1,
+        };
       });
 
       toast({
@@ -263,10 +266,16 @@ export function useDeleteWord() {
         queryKey: ["all-words"],
         refetchType: "none",
       });
-      queryClient.invalidateQueries({
-        queryKey: ["user-stats"],
-        refetchType: "none",
+
+      // ✅ Optimistic update: Decrement totalWords immediately
+      queryClient.setQueryData(["user-stats"], (old: any) => {
+        if (!old) return old;
+        return {
+          ...old,
+          totalWords: Math.max(0, (old.totalWords || 0) - 1),
+        };
       });
+
       toast({
         title: "Word deleted",
         description: "Your word has been deleted successfully.",

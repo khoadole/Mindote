@@ -72,7 +72,7 @@ export function useUserStats() {
       }
       return result.data;
     },
-    staleTime: 2 * 60 * 1000, // 2 minutes
-    gcTime: 10 * 60 * 1000,
+    staleTime: 10 * 60 * 1000, // 10 minutes - stats updated optimistically
+    gcTime: 30 * 60 * 1000, // 30 minutes
   });
 }

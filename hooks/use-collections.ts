@@ -66,10 +66,13 @@ export function useCreateCollection() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["collections"] });
 
-      // Don't auto-refetch stats, mark stale only
-      queryClient.invalidateQueries({
-        queryKey: ["user-stats"],
-        refetchType: "none",
+      // ✅ Optimistic update: Increment totalCollections immediately
+      queryClient.setQueryData(["user-stats"], (old: any) => {
+        if (!old) return old;
+        return {
+          ...old,
+          totalCollections: (old.totalCollections || 0) + 1,
+        };
       });
 
       toast({
@@ -147,10 +150,13 @@ export function useDeleteCollection() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["collections"] });
 
-      // Don't auto-refetch stats
-      queryClient.invalidateQueries({
-        queryKey: ["user-stats"],
-        refetchType: "none",
+      // ✅ Optimistic update: Decrement totalCollections immediately
+      queryClient.setQueryData(["user-stats"], (old: any) => {
+        if (!old) return old;
+        return {
+          ...old,
+          totalCollections: Math.max(0, (old.totalCollections || 0) - 1),
+        };
       });
 
       toast({

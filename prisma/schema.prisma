@@ -46,9 +46,17 @@ model Word {
   createdAt    DateTime   @default(now()) @map("created_at")
   collectionId String     @map("collection_id") @db.Uuid
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
-
+  
+  // Spaced Repetition System (SRS) fields
+  easeFactor   Float      @default(2.5) @map("ease_factor")     // SM-2 ease factor (quality of memory)
+  interval     Int        @default(0)                           // Days until next review
+  repetitions  Int        @default(0)                           // Number of successful reviews
+  lastReviewed DateTime?  @map("last_reviewed")                // Last review date
+  nextReview   DateTime?  @map("next_review")                  // Next review due date
+  
   @@unique([collectionId, term])
   @@index([collectionId, term])
+  @@index([nextReview])
   @@map("words")
 }
 

@@ -7,6 +7,12 @@ export type Word = {
   createdAt: string
   collectionId?: string
   score?: number
+  // SRS fields
+  easeFactor?: number
+  interval?: number
+  repetitions?: number
+  lastReviewed?: string | null
+  nextReview?: string | null
 }
 
 export type Collection = {

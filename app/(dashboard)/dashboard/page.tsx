@@ -4,8 +4,10 @@ import dynamic from "next/dynamic";
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
+import { useDueCount } from "@/hooks/use-reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import {
   BookOpen,
   Layers,
@@ -13,6 +15,7 @@ import {
   Candy as Cards,
   CheckCircle,
   Loader2,
+  Flame,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,13 +40,13 @@ export default function Dashboard() {
   // ✅ Parallel fetching - tất cả queries chạy đồng thời
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: stats, isLoading: statsLoading } = useUserStats();
+  const { data: dueCount = 0, isLoading: dueLoading } = useDueCount();
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
   const totalWords = stats?.totalWords || 0;
   const totalCollections = stats?.totalCollections || 0;
-  const dueToday = Math.floor(totalWords * 0.3); // Mock calculation
 
   const recentCollections = (collections || []).slice(0, 5);
 
@@ -127,13 +130,27 @@ export default function Dashboard() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Due Today</CardTitle>
-                <CheckCircle className="h-4 w-4 text-muted-foreground" />
+                <Flame className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{dueToday}</div>
-                <p className="text-xs text-muted-foreground">
+                <div className="text-2xl font-bold">{dueCount}</div>
+                <p className="text-xs text-muted-foreground mb-3">
                   Words ready for review
                 </p>
+                {dueCount > 0 && (
+                  <>
+                    <Progress 
+                      value={Math.min((dueCount / totalWords) * 100, 100)} 
+                      className="h-1 mb-2" 
+                    />
+                    <Link href="/flashcards?mode=review">
+                      <Button size="sm" className="w-full" variant="default">
+                        <Flame className="h-3 w-3 mr-1" />
+                        Study Now
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </CardContent>
             </Card>
           </div>

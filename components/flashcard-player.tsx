@@ -8,7 +8,10 @@ import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useAppStore } from "@/lib/store"
 import type { Word } from "@/lib/types"
-import { ChevronLeft, ChevronRight, RotateCcw, Volume2, CheckCircle, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, RotateCcw, Volume2, X, Zap, ThumbsUp } from "lucide-react"
+import { submitBatchReviews } from "@/app/actions/review-batch"
+import { calculateNextReview, type ReviewQuality, type ReviewResult } from "@/lib/srs"
+import { useToast } from "@/hooks/use-toast"
 
 interface FlashcardPlayerProps {
   words: Word[]
@@ -20,9 +23,13 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
   const [results, setResults] = useState<{ correct: number; again: number }>({ correct: 0, again: 0 })
+  const [reviewResults, setReviewResults] = useState<ReviewResult[]>([]) // Store all reviews
   const [showSummary, setShowSummary] = useState(false)
   const [shuffledWords, setShuffledWords] = useState<Word[]>([])
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const { updateWord } = useAppStore()
+  const { toast } = useToast()
 
   useEffect(() => {
     // Shuffle words on mount
@@ -51,23 +58,96 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
     }
   }
 
-  const handleAnswer = (correct: boolean) => {
-    const newResults = {
-      correct: results.correct + (correct ? 1 : 0),
-      again: results.again + (correct ? 0 : 1),
+  const handleAnswer = async (quality: 0 | 3 | 5) => {
+    if (isSubmitting) return
+    
+    setIsSubmitting(true)
+    
+    try {
+      // Calculate SRS data locally (don't save to DB yet)
+      const srsData = calculateNextReview(quality, {
+        easeFactor: currentWord.easeFactor,
+        interval: currentWord.interval,
+        repetitions: currentWord.repetitions,
+        lastReviewed: currentWord.lastReviewed ? new Date(currentWord.lastReviewed) : undefined,
+        nextReview: currentWord.nextReview ? new Date(currentWord.nextReview) : undefined,
+      })
+
+      // Store review result for batch update later
+      const reviewResult: ReviewResult = {
+        wordId: currentWord.id,
+        quality,
+        srsData,
+      }
+      
+      setReviewResults(prev => [...prev, reviewResult])
+
+      // Update results
+      const newResults = {
+        correct: results.correct + (quality > 0 ? 1 : 0),
+        again: results.again + (quality === 0 ? 1 : 0),
+      }
+      setResults(newResults)
+
+      // Show quick feedback (no need to wait for DB)
+      const feedbackMessages = {
+        0: "Review this again soon!",
+        3: "Good job! 👍",
+        5: "Excellent! ⚡",
+      }
+      
+      toast({
+        title: feedbackMessages[quality],
+        duration: 1500, // Short duration
+      })
+
+      handleNext()
+    } catch (error) {
+      console.error("Error processing review:", error)
+      toast({
+        title: "Error",
+        description: "Failed to process review.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
     }
-    setResults(newResults)
-
-    // Update word score
-    const newScore = (currentWord.score || 0) + (correct ? 1 : -1)
-    updateWord(currentWord.id, { score: Math.max(0, newScore) })
-
-    handleNext()
   }
 
-  const handleComplete = () => {
-    onComplete(results)
-    setShowSummary(false)
+  const handleComplete = async () => {
+    // Save all reviews to database in one batch
+    setIsSaving(true)
+    
+    try {
+      const result = await submitBatchReviews(reviewResults)
+      
+      if (!result.success) {
+        toast({
+          title: "Error saving progress",
+          description: "Failed to save your reviews. Please try again.",
+          variant: "destructive",
+        })
+        setIsSaving(false)
+        return
+      }
+
+      toast({
+        title: "Progress saved! ✨",
+        description: `${reviewResults.length} words updated successfully.`,
+      })
+
+      onComplete(results)
+      setShowSummary(false)
+    } catch (error) {
+      console.error("Error saving reviews:", error)
+      toast({
+        title: "Error",
+        description: "Failed to save your progress.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSaving(false)
+    }
   }
 
   return (
@@ -144,13 +224,34 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
 
           {isFlipped && (
             <div className="flex gap-2">
-              <Button variant="destructive" onClick={() => handleAnswer(false)} className="flex items-center gap-2">
+              <Button 
+                variant="destructive" 
+                onClick={() => handleAnswer(0)} 
+                disabled={isSubmitting}
+                className="flex items-center gap-2"
+              >
                 <X className="h-4 w-4" />
                 Again
+                <span className="text-xs opacity-70">now</span>
               </Button>
-              <Button onClick={() => handleAnswer(true)} className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4" />
-                Got it
+              <Button 
+                variant="outline" 
+                onClick={() => handleAnswer(3)} 
+                disabled={isSubmitting}
+                className="flex items-center gap-2"
+              >
+                <ThumbsUp className="h-4 w-4" />
+                Good
+                <span className="text-xs opacity-70">1-3d</span>
+              </Button>
+              <Button 
+                onClick={() => handleAnswer(5)} 
+                disabled={isSubmitting}
+                className="flex items-center gap-2 bg-green-600 hover:bg-green-700"
+              >
+                <Zap className="h-4 w-4" />
+                Easy
+                <span className="text-xs opacity-70">+30%</span>
               </Button>
             </div>
           )}
@@ -197,11 +298,11 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
             </div>
 
             <div className="flex gap-2 pt-4">
-              <Button variant="outline" onClick={onExit} className="flex-1 bg-transparent">
+              <Button variant="outline" onClick={onExit} className="flex-1 bg-transparent" disabled={isSaving}>
                 Done
               </Button>
-              <Button onClick={handleComplete} className="flex-1">
-                Study Again
+              <Button onClick={handleComplete} className="flex-1" disabled={isSaving}>
+                {isSaving ? "Saving..." : "Study Again"}
               </Button>
             </div>
           </div>

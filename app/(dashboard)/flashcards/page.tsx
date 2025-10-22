@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
+import { useDueWords } from "@/hooks/use-reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +18,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Candy as Cards, Play, ArrowLeft, Loader2 } from "lucide-react";
+import { Candy as Cards, Play, ArrowLeft, Loader2, Flame } from "lucide-react";
 
 // ✅ Lazy load FlashcardPlayer - only load when user starts studying
 const FlashcardPlayer = dynamic(
@@ -40,18 +41,34 @@ const FlashcardPlayer = dynamic(
 
 export default function FlashcardsPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const mode = searchParams.get("mode"); // 'review' or null (all words)
+  
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } =
-    useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: dueWords = [], isLoading: dueLoading } = useDueWords();
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>("all");
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
 
-  const isLoading = wordsLoading || collectionsLoading;
+  const isLoading = wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
+
+  // Auto-start if mode=review
+  useEffect(() => {
+    if (mode === "review" && dueWords.length > 0 && !isStudying) {
+      setIsStudying(true);
+    }
+  }, [mode, dueWords, isStudying]);
 
   const getStudyWords = () => {
+    // Review mode - only due words
+    if (mode === "review") {
+      return dueWords;
+    }
+    
+    // Normal mode - filter by scope
     if (!words) return [];
     if (selectedScope === "all") {
       return words;
@@ -123,8 +140,20 @@ export default function FlashcardsPage() {
             Back
           </Button>
           <div className="flex items-center gap-2">
-            <Cards className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold">Flashcards</h1>
+            {mode === "review" ? (
+              <>
+                <Flame className="h-6 w-6 text-orange-500" />
+                <h1 className="text-3xl font-bold">Review Session</h1>
+                <span className="text-sm text-muted-foreground">
+                  ({dueWords.length} due words)
+                </span>
+              </>
+            ) : (
+              <>
+                <Cards className="h-6 w-6 text-primary" />
+                <h1 className="text-3xl font-bold">Flashcards</h1>
+              </>
+            )}
           </div>
         </div>
 
@@ -133,34 +162,38 @@ export default function FlashcardsPage() {
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle>Study Settings</CardTitle>
+                <CardTitle>
+                  {mode === "review" ? "Review Settings" : "Study Settings"}
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="scope">Study Scope</Label>
-                  <Select
-                    value={selectedScope}
-                    onValueChange={setSelectedScope}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select scope" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">
-                        All Words ({words?.length || 0})
-                      </SelectItem>
-                      {collections?.map((collection) => (
-                        <SelectItem key={collection.id} value={collection.id}>
-                          {collection.name} (
-                          {words?.filter(
-                            (w) => w.collectionId === collection.id
-                          ).length || 0}
-                          )
+                {mode !== "review" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="scope">Study Scope</Label>
+                    <Select
+                      value={selectedScope}
+                      onValueChange={setSelectedScope}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select scope" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">
+                          All Words ({words?.length || 0})
                         </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                        {collections?.map((collection) => (
+                          <SelectItem key={collection.id} value={collection.id}>
+                            {collection.name} (
+                            {words?.filter(
+                              (w) => w.collectionId === collection.id
+                            ).length || 0}
+                            )
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
 
                 <div className="flex items-center space-x-2">
                   <Switch
@@ -177,7 +210,7 @@ export default function FlashcardsPage() {
                   disabled={studyWords.length === 0}
                 >
                   <Play className="h-4 w-4 mr-2" />
-                  Start Study Session
+                  {mode === "review" ? "Start Review" : "Start Study Session"}
                 </Button>
               </CardContent>
             </Card>

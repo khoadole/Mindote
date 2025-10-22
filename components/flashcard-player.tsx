@@ -178,6 +178,45 @@ export function FlashcardPlayer({
     }
   };
 
+  const handleDone = async () => {
+    // Save and exit
+    setIsSaving(true);
+
+    try {
+      if (reviewResults.length > 0) {
+        const result = await submitBatchReviews(reviewResults);
+
+        if (!result.success) {
+          toast({
+            title: "Error saving progress",
+            description: "Failed to save your reviews. Please try again.",
+            variant: "destructive",
+          });
+          setIsSaving(false);
+          return;
+        }
+
+        toast({
+          title: "Progress saved! ✨",
+          description: `${reviewResults.length} words updated successfully.`,
+        });
+      }
+
+      // Call onComplete to trigger navigation
+      onComplete(results);
+      setShowSummary(false);
+    } catch (error) {
+      console.error("Error saving reviews:", error);
+      toast({
+        title: "Error",
+        description: "Failed to save your progress.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   return (
     <>
       <div className="max-w-2xl mx-auto space-y-6">
@@ -354,11 +393,11 @@ export function FlashcardPlayer({
             <div className="flex gap-2 pt-4">
               <Button
                 variant="outline"
-                onClick={onExit}
+                onClick={handleDone}
                 className="flex-1 bg-transparent"
                 disabled={isSaving}
               >
-                Done
+                {isSaving ? "Saving..." : "Done"}
               </Button>
               <Button
                 onClick={handleComplete}

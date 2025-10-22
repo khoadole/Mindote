@@ -97,11 +97,22 @@ export default function FlashcardsPage() {
       title: "Study session complete!",
       description: `You got ${results.correct} words right and ${results.again} need more review.`,
     });
-    setIsStudying(false);
+    
+    // If in review mode, go back to dashboard
+    if (mode === "review") {
+      router.push("/dashboard");
+    } else {
+      setIsStudying(false);
+    }
   };
 
   const handleExit = () => {
-    setIsStudying(false);
+    // If in review mode, go back to dashboard
+    if (mode === "review") {
+      router.push("/dashboard");
+    } else {
+      setIsStudying(false);
+    }
   };
 
   // Loading state

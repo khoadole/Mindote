@@ -17,6 +17,8 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
             gcTime: 10 * 60 * 1000,
             // Retry failed requests 1 lần
             retry: 1,
+            // ✅ Refetch khi component mount (fix refresh issue)
+            refetchOnMount: true,
             // Refetch on window focus (useful cho real-time feel)
             refetchOnWindowFocus: false,
           },
@@ -29,6 +31,7 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
   );
 
   const currentUserIdRef = useRef<string | null>(null);
+  const isInitializedRef = useRef(false);
 
   useEffect(() => {
     const supabase = createClient();
@@ -36,6 +39,7 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
     // Get initial user
     supabase.auth.getSession().then(({ data: { session } }) => {
       currentUserIdRef.current = session?.user?.id || null;
+      isInitializedRef.current = true;
     });
 
     // Listen for auth changes
@@ -44,8 +48,12 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
     } = supabase.auth.onAuthStateChange((event, session) => {
       const newUserId = session?.user?.id || null;
 
-      // If user changed (login/logout/switch account), clear all queries
-      if (currentUserIdRef.current !== newUserId) {
+      // ✅ Only clear cache after initialization AND if user actually changed
+      if (
+        isInitializedRef.current &&
+        currentUserIdRef.current !== null &&
+        currentUserIdRef.current !== newUserId
+      ) {
         console.log("User changed, clearing React Query cache");
         queryClient.clear();
         currentUserIdRef.current = newUserId;
@@ -56,6 +64,11 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
         console.log("User signed out, clearing React Query cache");
         queryClient.clear();
         currentUserIdRef.current = null;
+      }
+
+      // ✅ Update ref without clearing on initial auth load
+      if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
+        currentUserIdRef.current = newUserId;
       }
     });
 

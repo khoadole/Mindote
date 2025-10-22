@@ -21,7 +21,7 @@ export function useSettings() {
       }
       return result.data;
     },
-    staleTime: 10 * 60 * 1000, // 10 minutes - settings rarely change
+    staleTime: 10 * 60 * 1000, // 10 minutes
     gcTime: 30 * 60 * 1000, // 30 minutes
   });
 }

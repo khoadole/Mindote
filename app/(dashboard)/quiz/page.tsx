@@ -49,15 +49,20 @@ export default function QuizPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const collectionParam = searchParams.get("collection"); // specific collection ID
-  
+
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } =
+    useCollections();
   const { data: specificCollection } = useCollection(collectionParam || "");
   const { toast } = useToast();
 
-  const [selectedScope, setSelectedScope] = useState<string>(collectionParam || "all");
+  const [selectedScope, setSelectedScope] = useState<string>(
+    collectionParam || "all"
+  );
   const [questionCount, setQuestionCount] = useState<number>(10);
-  const [questionType, setQuestionType] = useState<"multiple-choice" | "fill-blank">("multiple-choice");
+  const [questionType, setQuestionType] = useState<
+    "multiple-choice" | "fill-blank"
+  >("multiple-choice");
   const [isQuizzing, setIsQuizzing] = useState(false);
 
   const isLoading = wordsLoading || collectionsLoading;
@@ -155,10 +160,9 @@ export default function QuizPage() {
           <div className="flex items-center gap-2">
             <CheckCircle className="h-6 w-6 text-primary" />
             <h1 className="text-3xl font-bold">
-              {collectionParam && specificCollection 
+              {collectionParam && specificCollection
                 ? `Quiz: ${specificCollection.name}`
-                : "Quiz"
-              }
+                : "Quiz"}
             </h1>
           </div>
         </div>
@@ -175,7 +179,9 @@ export default function QuizPage() {
                   <Label htmlFor="mode">Quiz Mode</Label>
                   <Tabs
                     value={questionType}
-                    onValueChange={(value) => setQuestionType(value as "multiple-choice" | "fill-blank")}
+                    onValueChange={(value) =>
+                      setQuestionType(value as "multiple-choice" | "fill-blank")
+                    }
                   >
                     <TabsList className="grid w-full grid-cols-2">
                       <TabsTrigger value="multiple-choice" className="text-xs">

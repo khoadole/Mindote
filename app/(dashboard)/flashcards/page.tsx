@@ -46,17 +46,22 @@ export default function FlashcardsPage() {
   const collectionParam = searchParams.get("collection"); // specific collection ID
 
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } =
+    useCollections();
   const { data: specificCollection } = useCollection(collectionParam || "");
   const { data: dueWords = [], isLoading: dueLoading } = useDueWords();
-  const { data: collectionDueWords = [] } = useDueWordsByCollection(collectionParam);
+  const { data: collectionDueWords = [] } =
+    useDueWordsByCollection(collectionParam);
   const { toast } = useToast();
 
-  const [selectedScope, setSelectedScope] = useState<string>(collectionParam || "all");
+  const [selectedScope, setSelectedScope] = useState<string>(
+    collectionParam || "all"
+  );
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
 
-  const isLoading = wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
+  const isLoading =
+    wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
 
   // Set scope based on URL params
   useEffect(() => {
@@ -111,30 +116,30 @@ export default function FlashcardsPage() {
       description: `You got ${results.correct} words right and ${results.again} need more review.`,
     });
 
-  // If in review mode, go back to dashboard or collection
-  if (mode === "review") {
-    if (collectionParam) {
-      router.push(`/collections/${collectionParam}`);
+    // If in review mode, go back to dashboard or collection
+    if (mode === "review") {
+      if (collectionParam) {
+        router.push(`/collections/${collectionParam}`);
+      } else {
+        router.push("/dashboard");
+      }
     } else {
-      router.push("/dashboard");
+      setIsStudying(false);
     }
-  } else {
-    setIsStudying(false);
-  }
-};
+  };
 
-const handleExit = () => {
-  // If in review mode, go back to dashboard or collection
-  if (mode === "review") {
-    if (collectionParam) {
-      router.push(`/collections/${collectionParam}`);
+  const handleExit = () => {
+    // If in review mode, go back to dashboard or collection
+    if (mode === "review") {
+      if (collectionParam) {
+        router.push(`/collections/${collectionParam}`);
+      } else {
+        router.push("/dashboard");
+      }
     } else {
-      router.push("/dashboard");
+      setIsStudying(false);
     }
-  } else {
-    setIsStudying(false);
-  }
-};  // Loading state
+  }; // Loading state
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
@@ -182,23 +187,22 @@ const handleExit = () => {
               <>
                 <Flame className="h-6 w-6 text-orange-500" />
                 <h1 className="text-3xl font-bold">
-                  {collectionParam && specificCollection 
+                  {collectionParam && specificCollection
                     ? `Review: ${specificCollection.name}`
-                    : "Review Session"
-                  }
+                    : "Review Session"}
                 </h1>
                 <span className="text-sm text-muted-foreground">
-                  ({(collectionParam ? collectionDueWords : dueWords).length} due words)
+                  ({(collectionParam ? collectionDueWords : dueWords).length}{" "}
+                  due words)
                 </span>
               </>
             ) : (
               <>
                 <Cards className="h-6 w-6 text-primary" />
                 <h1 className="text-3xl font-bold">
-                  {collectionParam && specificCollection 
+                  {collectionParam && specificCollection
                     ? `Flashcards: ${specificCollection.name}`
-                    : "Flashcards"
-                  }
+                    : "Flashcards"}
                 </h1>
               </>
             )}

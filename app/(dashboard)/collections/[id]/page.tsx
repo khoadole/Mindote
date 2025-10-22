@@ -129,7 +129,7 @@ export default function CollectionDetailPage() {
             <h1 className="text-3xl font-bold">{collection.name}</h1>
           </div>
           <div className="flex items-center gap-2 ml-auto">
-            <RenameCollectionModal 
+            <RenameCollectionModal
               collectionId={collection.id}
               currentName={collection.name}
             />
@@ -158,7 +158,10 @@ export default function CollectionDetailPage() {
         <div className="flex items-center gap-4">
           <Badge variant="secondary">{collectionWords.length} words</Badge>
           {dueWordsCount > 0 && (
-            <Badge variant="outline" className="text-orange-500 border-orange-500">
+            <Badge
+              variant="outline"
+              className="text-orange-500 border-orange-500"
+            >
               <Flame className="h-3 w-3 mr-1" />
               {dueWordsCount} due
             </Badge>
@@ -171,7 +174,7 @@ export default function CollectionDetailPage() {
         {/* Study Actions */}
         <div className="flex gap-4">
           <Link href={`/flashcards?collection=${collectionId}`}>
-            <Button 
+            <Button
               className="flex items-center gap-2"
               disabled={collectionWords.length === 0}
             >
@@ -184,22 +187,25 @@ export default function CollectionDetailPage() {
               )}
             </Button>
           </Link>
-          
+
           {dueWordsCount > 0 && (
             <Link href={`/flashcards?mode=review&collection=${collectionId}`}>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="flex items-center gap-2 bg-orange-50 border-orange-200 hover:bg-orange-100"
               >
                 <Flame className="h-4 w-4 text-orange-500" />
                 Review Due Words
-                <Badge variant="secondary" className="ml-1 bg-orange-500 text-white">
+                <Badge
+                  variant="secondary"
+                  className="ml-1 bg-orange-500 text-white"
+                >
                   {dueWordsCount}
                 </Badge>
               </Button>
             </Link>
           )}
-          
+
           <Link href={`/quiz?collection=${collectionId}`}>
             <Button
               variant="outline"
@@ -215,7 +221,7 @@ export default function CollectionDetailPage() {
               )}
             </Button>
           </Link>
-          
+
           <AddWordModal collectionId={collectionId} />
         </div>
 

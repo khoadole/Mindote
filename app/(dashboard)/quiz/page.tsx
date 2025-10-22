@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAllWords } from "@/hooks/use-words";
-import { useCollections } from "@/hooks/use-collections";
+import { useCollections, useCollection } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,18 +47,27 @@ const QuizPlayer = dynamic(
 
 export default function QuizPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const collectionParam = searchParams.get("collection"); // specific collection ID
+  
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } =
-    useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: specificCollection } = useCollection(collectionParam || "");
   const { toast } = useToast();
 
-  const [selectedScope, setSelectedScope] = useState<string>("all");
-  const [quizMode, setQuizMode] = useState<"multiple-choice" | "fill-blank">(
-    "multiple-choice"
-  );
+  const [selectedScope, setSelectedScope] = useState<string>(collectionParam || "all");
+  const [questionCount, setQuestionCount] = useState<number>(10);
+  const [questionType, setQuestionType] = useState<"multiple-choice" | "fill-blank">("multiple-choice");
   const [isQuizzing, setIsQuizzing] = useState(false);
 
   const isLoading = wordsLoading || collectionsLoading;
+
+  // Set scope based on URL params
+  useEffect(() => {
+    if (collectionParam) {
+      setSelectedScope(collectionParam);
+    }
+  }, [collectionParam]);
 
   const getQuizWords = () => {
     if (!words) return [];
@@ -116,7 +125,7 @@ export default function QuizPage() {
       <div className="p-6">
         <QuizPlayer
           words={quizWords as any}
-          mode={quizMode}
+          mode={questionType}
           onComplete={handleQuizComplete}
           onExit={handleExit}
         />
@@ -132,14 +141,25 @@ export default function QuizPage() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => router.push("/dashboard")}
+            onClick={() => {
+              if (collectionParam) {
+                router.push(`/collections/${collectionParam}`);
+              } else {
+                router.push("/dashboard");
+              }
+            }}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
           </Button>
           <div className="flex items-center gap-2">
             <CheckCircle className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold">Quiz</h1>
+            <h1 className="text-3xl font-bold">
+              {collectionParam && specificCollection 
+                ? `Quiz: ${specificCollection.name}`
+                : "Quiz"
+              }
+            </h1>
           </div>
         </div>
 
@@ -154,8 +174,8 @@ export default function QuizPage() {
                 <div className="space-y-2">
                   <Label htmlFor="mode">Quiz Mode</Label>
                   <Tabs
-                    value={quizMode}
-                    onValueChange={(value) => setQuizMode(value as any)}
+                    value={questionType}
+                    onValueChange={(value) => setQuestionType(value as "multiple-choice" | "fill-blank")}
                   >
                     <TabsList className="grid w-full grid-cols-2">
                       <TabsTrigger value="multiple-choice" className="text-xs">
@@ -217,7 +237,7 @@ export default function QuizPage() {
               <CardContent>
                 {quizWords.length >= 2 ? (
                   <div className="space-y-4">
-                    <Tabs value={quizMode} className="w-full">
+                    <Tabs value={questionType} className="w-full">
                       <TabsContent value="multiple-choice">
                         <div className="space-y-4">
                           <div className="p-6 border-2 border-dashed border-border rounded-lg">
@@ -298,10 +318,10 @@ export default function QuizPage() {
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-chart-3">
-                          {quizMode === "multiple-choice" ? "4" : "1"}
+                          {questionType === "multiple-choice" ? "4" : "1"}
                         </div>
                         <p className="text-sm text-muted-foreground">
-                          {quizMode === "multiple-choice"
+                          {questionType === "multiple-choice"
                             ? "Options"
                             : "Answer"}
                         </p>

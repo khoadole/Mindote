@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAllWords } from "@/hooks/use-words";
-import { useCollections } from "@/hooks/use-collections";
-import { useDueWords } from "@/hooks/use-reviews";
+import { useCollections, useCollection } from "@/hooks/use-collections";
+import { useDueWords, useDueWordsByCollection } from "@/hooks/use-reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,19 +43,27 @@ export default function FlashcardsPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode"); // 'review' or null (all words)
+  const collectionParam = searchParams.get("collection"); // specific collection ID
 
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } =
-    useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: specificCollection } = useCollection(collectionParam || "");
   const { data: dueWords = [], isLoading: dueLoading } = useDueWords();
+  const { data: collectionDueWords = [] } = useDueWordsByCollection(collectionParam);
   const { toast } = useToast();
 
-  const [selectedScope, setSelectedScope] = useState<string>("all");
+  const [selectedScope, setSelectedScope] = useState<string>(collectionParam || "all");
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
 
-  const isLoading =
-    wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
+  const isLoading = wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
+
+  // Set scope based on URL params
+  useEffect(() => {
+    if (collectionParam) {
+      setSelectedScope(collectionParam);
+    }
+  }, [collectionParam]);
 
   // Auto-start if mode=review
   useEffect(() => {
@@ -67,6 +75,11 @@ export default function FlashcardsPage() {
   const getStudyWords = () => {
     // Review mode - only due words
     if (mode === "review") {
+      // If specific collection, get due words for that collection
+      if (collectionParam) {
+        return collectionDueWords;
+      }
+      // Otherwise get all due words
       return dueWords;
     }
 
@@ -98,24 +111,30 @@ export default function FlashcardsPage() {
       description: `You got ${results.correct} words right and ${results.again} need more review.`,
     });
 
-    // If in review mode, go back to dashboard
-    if (mode === "review") {
-      router.push("/dashboard");
+  // If in review mode, go back to dashboard or collection
+  if (mode === "review") {
+    if (collectionParam) {
+      router.push(`/collections/${collectionParam}`);
     } else {
-      setIsStudying(false);
-    }
-  };
-
-  const handleExit = () => {
-    // If in review mode, go back to dashboard
-    if (mode === "review") {
       router.push("/dashboard");
-    } else {
-      setIsStudying(false);
     }
-  };
+  } else {
+    setIsStudying(false);
+  }
+};
 
-  // Loading state
+const handleExit = () => {
+  // If in review mode, go back to dashboard or collection
+  if (mode === "review") {
+    if (collectionParam) {
+      router.push(`/collections/${collectionParam}`);
+    } else {
+      router.push("/dashboard");
+    }
+  } else {
+    setIsStudying(false);
+  }
+};  // Loading state
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
@@ -147,7 +166,13 @@ export default function FlashcardsPage() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => router.push("/dashboard")}
+            onClick={() => {
+              if (collectionParam) {
+                router.push(`/collections/${collectionParam}`);
+              } else {
+                router.push("/dashboard");
+              }
+            }}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -156,15 +181,25 @@ export default function FlashcardsPage() {
             {mode === "review" ? (
               <>
                 <Flame className="h-6 w-6 text-orange-500" />
-                <h1 className="text-3xl font-bold">Review Session</h1>
+                <h1 className="text-3xl font-bold">
+                  {collectionParam && specificCollection 
+                    ? `Review: ${specificCollection.name}`
+                    : "Review Session"
+                  }
+                </h1>
                 <span className="text-sm text-muted-foreground">
-                  ({dueWords.length} due words)
+                  ({(collectionParam ? collectionDueWords : dueWords).length} due words)
                 </span>
               </>
             ) : (
               <>
                 <Cards className="h-6 w-6 text-primary" />
-                <h1 className="text-3xl font-bold">Flashcards</h1>
+                <h1 className="text-3xl font-bold">
+                  {collectionParam && specificCollection 
+                    ? `Flashcards: ${specificCollection.name}`
+                    : "Flashcards"
+                  }
+                </h1>
               </>
             )}
           </div>
@@ -180,7 +215,7 @@ export default function FlashcardsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {mode !== "review" && (
+                {mode !== "review" && !collectionParam && (
                   <div className="space-y-2">
                     <Label htmlFor="scope">Study Scope</Label>
                     <Select

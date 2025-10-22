@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useCollection } from "@/hooks/use-collections";
 import { useDeleteCollection } from "@/hooks/use-collections";
 import { useDeleteWord } from "@/hooks/use-words";
+import { useDueWordsByCollection } from "@/hooks/use-reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,7 +21,9 @@ import {
   Candy as Cards,
   CheckCircle,
   Loader2,
+  Flame,
 } from "lucide-react";
+import Link from "next/link";
 
 // ✅ Lazy load AddWordModal
 const AddWordModal = dynamic(
@@ -31,12 +34,22 @@ const AddWordModal = dynamic(
   { ssr: false }
 );
 
+// ✅ Lazy load RenameCollectionModal
+const RenameCollectionModal = dynamic(
+  () =>
+    import("@/components/modals/rename-collection-modal").then((mod) => ({
+      default: mod.RenameCollectionModal,
+    })),
+  { ssr: false }
+);
+
 export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
   const collectionId = params.id as string;
 
   const { data: collection, isLoading } = useCollection(collectionId);
+  const { data: dueWords = [] } = useDueWordsByCollection(collectionId);
   const deleteCollectionMutation = useDeleteCollection();
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
@@ -75,6 +88,7 @@ export default function CollectionDetailPage() {
   }
 
   const collectionWords = collection.words || [];
+  const dueWordsCount = dueWords.length;
   const filteredWords = collectionWords.filter(
     (word) =>
       word.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -115,10 +129,10 @@ export default function CollectionDetailPage() {
             <h1 className="text-3xl font-bold">{collection.name}</h1>
           </div>
           <div className="flex items-center gap-2 ml-auto">
-            <Button variant="outline" size="sm">
-              <Edit className="h-4 w-4 mr-2" />
-              Rename
-            </Button>
+            <RenameCollectionModal 
+              collectionId={collection.id}
+              currentName={collection.name}
+            />
             <Button
               variant="outline"
               size="sm"
@@ -143,6 +157,12 @@ export default function CollectionDetailPage() {
         {/* Stats */}
         <div className="flex items-center gap-4">
           <Badge variant="secondary">{collectionWords.length} words</Badge>
+          {dueWordsCount > 0 && (
+            <Badge variant="outline" className="text-orange-500 border-orange-500">
+              <Flame className="h-3 w-3 mr-1" />
+              {dueWordsCount} due
+            </Badge>
+          )}
           <span className="text-sm text-muted-foreground">
             Created {new Date(collection.createdAt).toLocaleDateString()}
           </span>
@@ -150,17 +170,52 @@ export default function CollectionDetailPage() {
 
         {/* Study Actions */}
         <div className="flex gap-4">
-          <Button className="flex items-center gap-2">
-            <Cards className="h-4 w-4" />
-            Study with Flashcards
-          </Button>
-          <Button
-            variant="outline"
-            className="flex items-center gap-2 bg-transparent"
-          >
-            <CheckCircle className="h-4 w-4" />
-            Start Quiz
-          </Button>
+          <Link href={`/flashcards?collection=${collectionId}`}>
+            <Button 
+              className="flex items-center gap-2"
+              disabled={collectionWords.length === 0}
+            >
+              <Cards className="h-4 w-4" />
+              Study with Flashcards
+              {collectionWords.length > 0 && (
+                <Badge variant="secondary" className="ml-1 bg-white/20">
+                  {collectionWords.length}
+                </Badge>
+              )}
+            </Button>
+          </Link>
+          
+          {dueWordsCount > 0 && (
+            <Link href={`/flashcards?mode=review&collection=${collectionId}`}>
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2 bg-orange-50 border-orange-200 hover:bg-orange-100"
+              >
+                <Flame className="h-4 w-4 text-orange-500" />
+                Review Due Words
+                <Badge variant="secondary" className="ml-1 bg-orange-500 text-white">
+                  {dueWordsCount}
+                </Badge>
+              </Button>
+            </Link>
+          )}
+          
+          <Link href={`/quiz?collection=${collectionId}`}>
+            <Button
+              variant="outline"
+              className="flex items-center gap-2 bg-transparent"
+              disabled={collectionWords.length === 0}
+            >
+              <CheckCircle className="h-4 w-4" />
+              Start Quiz
+              {collectionWords.length > 0 && (
+                <Badge variant="secondary" className="ml-1">
+                  {collectionWords.length}
+                </Badge>
+              )}
+            </Button>
+          </Link>
+          
           <AddWordModal collectionId={collectionId} />
         </div>
 

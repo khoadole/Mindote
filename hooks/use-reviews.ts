@@ -1,7 +1,11 @@
 "use client";
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getDueWords, getDueCount, getDueWordsByCollection } from "@/app/actions/reviews";
+import {
+  getDueWords,
+  getDueCount,
+  getDueWordsByCollection,
+} from "@/app/actions/reviews";
 
 /**
  * Hook to get all words due for review

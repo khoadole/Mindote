@@ -1,154 +1,182 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { useAppStore } from "@/lib/store"
-import type { Word } from "@/lib/types"
-import { ChevronLeft, ChevronRight, RotateCcw, Volume2, X, Zap, ThumbsUp } from "lucide-react"
-import { submitBatchReviews } from "@/app/actions/review-batch"
-import { calculateNextReview, type ReviewQuality, type ReviewResult } from "@/lib/srs"
-import { useToast } from "@/hooks/use-toast"
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useAppStore } from "@/lib/store";
+import type { Word } from "@/lib/types";
+import {
+  ChevronLeft,
+  ChevronRight,
+  RotateCcw,
+  Volume2,
+  X,
+  Zap,
+  ThumbsUp,
+} from "lucide-react";
+import { submitBatchReviews } from "@/app/actions/review-batch";
+import {
+  calculateNextReview,
+  type ReviewQuality,
+  type ReviewResult,
+} from "@/lib/srs";
+import { useToast } from "@/hooks/use-toast";
 
 interface FlashcardPlayerProps {
-  words: Word[]
-  onComplete: (results: { correct: number; again: number }) => void
-  onExit: () => void
+  words: Word[];
+  onComplete: (results: { correct: number; again: number }) => void;
+  onExit: () => void;
 }
 
-export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isFlipped, setIsFlipped] = useState(false)
-  const [results, setResults] = useState<{ correct: number; again: number }>({ correct: 0, again: 0 })
-  const [reviewResults, setReviewResults] = useState<ReviewResult[]>([]) // Store all reviews
-  const [showSummary, setShowSummary] = useState(false)
-  const [shuffledWords, setShuffledWords] = useState<Word[]>([])
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSaving, setIsSaving] = useState(false)
-  const { updateWord } = useAppStore()
-  const { toast } = useToast()
+export function FlashcardPlayer({
+  words,
+  onComplete,
+  onExit,
+}: FlashcardPlayerProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [results, setResults] = useState<{ correct: number; again: number }>({
+    correct: 0,
+    again: 0,
+  });
+  const [reviewResults, setReviewResults] = useState<ReviewResult[]>([]); // Store all reviews
+  const [showSummary, setShowSummary] = useState(false);
+  const [shuffledWords, setShuffledWords] = useState<Word[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const { updateWord } = useAppStore();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Shuffle words on mount
-    const shuffled = [...words].sort(() => Math.random() - 0.5)
-    setShuffledWords(shuffled)
-  }, [words])
+    const shuffled = [...words].sort(() => Math.random() - 0.5);
+    setShuffledWords(shuffled);
+  }, [words]);
 
-  if (shuffledWords.length === 0) return null
+  if (shuffledWords.length === 0) return null;
 
-  const currentWord = shuffledWords[currentIndex]
-  const progress = ((currentIndex + 1) / shuffledWords.length) * 100
+  const currentWord = shuffledWords[currentIndex];
+  const progress = ((currentIndex + 1) / shuffledWords.length) * 100;
 
   const handleNext = () => {
-    setIsFlipped(false)
+    setIsFlipped(false);
     if (currentIndex < shuffledWords.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex(currentIndex + 1);
     } else {
-      setShowSummary(true)
+      setShowSummary(true);
     }
-  }
+  };
 
   const handlePrevious = () => {
-    setIsFlipped(false)
+    setIsFlipped(false);
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
+      setCurrentIndex(currentIndex - 1);
     }
-  }
+  };
 
   const handleAnswer = async (quality: 0 | 3 | 5) => {
-    if (isSubmitting) return
-    
-    setIsSubmitting(true)
-    
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
     try {
       // Calculate SRS data locally (don't save to DB yet)
       const srsData = calculateNextReview(quality, {
         easeFactor: currentWord.easeFactor,
         interval: currentWord.interval,
         repetitions: currentWord.repetitions,
-        lastReviewed: currentWord.lastReviewed ? new Date(currentWord.lastReviewed) : undefined,
-        nextReview: currentWord.nextReview ? new Date(currentWord.nextReview) : undefined,
-      })
+        lastReviewed: currentWord.lastReviewed
+          ? new Date(currentWord.lastReviewed)
+          : undefined,
+        nextReview: currentWord.nextReview
+          ? new Date(currentWord.nextReview)
+          : undefined,
+      });
 
       // Store review result for batch update later
       const reviewResult: ReviewResult = {
         wordId: currentWord.id,
         quality,
         srsData,
-      }
-      
-      setReviewResults(prev => [...prev, reviewResult])
+      };
+
+      setReviewResults((prev) => [...prev, reviewResult]);
 
       // Update results
       const newResults = {
         correct: results.correct + (quality > 0 ? 1 : 0),
         again: results.again + (quality === 0 ? 1 : 0),
-      }
-      setResults(newResults)
+      };
+      setResults(newResults);
 
       // Show quick feedback (no need to wait for DB)
       const feedbackMessages = {
         0: "Review this again soon!",
         3: "Good job! 👍",
         5: "Excellent! ⚡",
-      }
-      
+      };
+
       toast({
         title: feedbackMessages[quality],
         duration: 1500, // Short duration
-      })
+      });
 
-      handleNext()
+      handleNext();
     } catch (error) {
-      console.error("Error processing review:", error)
+      console.error("Error processing review:", error);
       toast({
         title: "Error",
         description: "Failed to process review.",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleComplete = async () => {
     // Save all reviews to database in one batch
-    setIsSaving(true)
-    
+    setIsSaving(true);
+
     try {
-      const result = await submitBatchReviews(reviewResults)
-      
+      const result = await submitBatchReviews(reviewResults);
+
       if (!result.success) {
         toast({
           title: "Error saving progress",
           description: "Failed to save your reviews. Please try again.",
           variant: "destructive",
-        })
-        setIsSaving(false)
-        return
+        });
+        setIsSaving(false);
+        return;
       }
 
       toast({
         title: "Progress saved! ✨",
         description: `${reviewResults.length} words updated successfully.`,
-      })
+      });
 
-      onComplete(results)
-      setShowSummary(false)
+      onComplete(results);
+      setShowSummary(false);
     } catch (error) {
-      console.error("Error saving reviews:", error)
+      console.error("Error saving reviews:", error);
       toast({
         title: "Error",
         description: "Failed to save your progress.",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSaving(false)
+      setIsSaving(false);
     }
-  }
+  };
 
   return (
     <>
@@ -177,16 +205,22 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
                   <Badge variant="secondary" className="mb-4">
                     Term
                   </Badge>
-                  <h2 className="text-4xl font-bold mb-4">{currentWord.term}</h2>
+                  <h2 className="text-4xl font-bold mb-4">
+                    {currentWord.term}
+                  </h2>
                   {currentWord.phonetic && (
                     <div className="flex items-center justify-center gap-2">
-                      <span className="text-lg text-muted-foreground">{currentWord.phonetic}</span>
+                      <span className="text-lg text-muted-foreground">
+                        {currentWord.phonetic}
+                      </span>
                       <Button size="sm" variant="ghost">
                         <Volume2 className="h-4 w-4" />
                       </Button>
                     </div>
                   )}
-                  <p className="text-muted-foreground mt-8">Click to reveal definition</p>
+                  <p className="text-muted-foreground mt-8">
+                    Click to reveal definition
+                  </p>
                 </div>
               ) : (
                 // Back of card
@@ -194,11 +228,15 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
                   <Badge variant="secondary" className="mb-4">
                     Definition
                   </Badge>
-                  <h3 className="text-2xl font-semibold mb-4">{currentWord.term}</h3>
+                  <h3 className="text-2xl font-semibold mb-4">
+                    {currentWord.term}
+                  </h3>
                   <p className="text-lg mb-4">{currentWord.definition}</p>
                   {currentWord.example && (
                     <div className="border-t pt-4">
-                      <p className="text-sm text-muted-foreground mb-2">Example:</p>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Example:
+                      </p>
                       <p className="italic">"{currentWord.example}"</p>
                     </div>
                   )}
@@ -209,7 +247,11 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
 
           {/* Flip indicator */}
           <div className="absolute top-4 right-4">
-            <Button size="sm" variant="ghost" onClick={() => setIsFlipped(!isFlipped)}>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => setIsFlipped(!isFlipped)}
+            >
               <RotateCcw className="h-4 w-4" />
             </Button>
           </div>
@@ -217,16 +259,20 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
 
         {/* Controls */}
         <div className="flex items-center justify-between">
-          <Button variant="outline" onClick={handlePrevious} disabled={currentIndex === 0}>
+          <Button
+            variant="outline"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+          >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Previous
           </Button>
 
           {isFlipped && (
             <div className="flex gap-2">
-              <Button 
-                variant="destructive" 
-                onClick={() => handleAnswer(0)} 
+              <Button
+                variant="destructive"
+                onClick={() => handleAnswer(0)}
                 disabled={isSubmitting}
                 className="flex items-center gap-2"
               >
@@ -234,9 +280,9 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
                 Again
                 <span className="text-xs opacity-70">now</span>
               </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => handleAnswer(3)} 
+              <Button
+                variant="outline"
+                onClick={() => handleAnswer(3)}
                 disabled={isSubmitting}
                 className="flex items-center gap-2"
               >
@@ -244,8 +290,8 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
                 Good
                 <span className="text-xs opacity-70">1-3d</span>
               </Button>
-              <Button 
-                onClick={() => handleAnswer(5)} 
+              <Button
+                onClick={() => handleAnswer(5)}
                 disabled={isSubmitting}
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-700"
               >
@@ -282,26 +328,43 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
           </DialogHeader>
           <div className="space-y-4">
             <div className="text-center space-y-2">
-              <div className="text-3xl font-bold text-primary">{results.correct}</div>
-              <p className="text-sm text-muted-foreground">Words you got right</p>
+              <div className="text-3xl font-bold text-primary">
+                {results.correct}
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Words you got right
+              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
-                <div className="text-xl font-semibold text-green-500">{results.correct}</div>
+                <div className="text-xl font-semibold text-green-500">
+                  {results.correct}
+                </div>
                 <p className="text-xs text-muted-foreground">Correct</p>
               </div>
               <div>
-                <div className="text-xl font-semibold text-orange-500">{results.again}</div>
+                <div className="text-xl font-semibold text-orange-500">
+                  {results.again}
+                </div>
                 <p className="text-xs text-muted-foreground">Need Review</p>
               </div>
             </div>
 
             <div className="flex gap-2 pt-4">
-              <Button variant="outline" onClick={onExit} className="flex-1 bg-transparent" disabled={isSaving}>
+              <Button
+                variant="outline"
+                onClick={onExit}
+                className="flex-1 bg-transparent"
+                disabled={isSaving}
+              >
                 Done
               </Button>
-              <Button onClick={handleComplete} className="flex-1" disabled={isSaving}>
+              <Button
+                onClick={handleComplete}
+                className="flex-1"
+                disabled={isSaving}
+              >
                 {isSaving ? "Saving..." : "Study Again"}
               </Button>
             </div>
@@ -309,5 +372,5 @@ export function FlashcardPlayer({ words, onComplete, onExit }: FlashcardPlayerPr
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }

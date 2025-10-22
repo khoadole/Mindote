@@ -46,9 +46,7 @@ export async function submitBatchReviews(reviews: ReviewResult[]) {
         if (!word) return prisma.word.findFirst({ where: { id: "invalid" } }); // Skip
 
         const newScore =
-          review.quality === 0
-            ? Math.max(0, word.score - 1)
-            : word.score + 1;
+          review.quality === 0 ? Math.max(0, word.score - 1) : word.score + 1;
 
         return prisma.word.update({
           where: { id: review.wordId },

@@ -43,9 +43,10 @@ export default function FlashcardsPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode"); // 'review' or null (all words)
-  
+
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
-  const { data: collections = [], isLoading: collectionsLoading } = useCollections();
+  const { data: collections = [], isLoading: collectionsLoading } =
+    useCollections();
   const { data: dueWords = [], isLoading: dueLoading } = useDueWords();
   const { toast } = useToast();
 
@@ -53,7 +54,8 @@ export default function FlashcardsPage() {
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
 
-  const isLoading = wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
+  const isLoading =
+    wordsLoading || collectionsLoading || (mode === "review" && dueLoading);
 
   // Auto-start if mode=review
   useEffect(() => {
@@ -67,7 +69,7 @@ export default function FlashcardsPage() {
     if (mode === "review") {
       return dueWords;
     }
-    
+
     // Normal mode - filter by scope
     if (!words) return [];
     if (selectedScope === "all") {

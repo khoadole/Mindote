@@ -1,7 +1,7 @@
 /**
  * Spaced Repetition System (SRS) - SM-2 Algorithm
  * Based on SuperMemo SM-2 algorithm
- * 
+ *
  * Quality responses:
  * - Again (0): Complete blackout
  * - Good (3): Correct response with difficulty
@@ -29,7 +29,7 @@ export function calculateNextReview(
   currentData?: Partial<SRSData>
 ): SRSData {
   const now = new Date();
-  
+
   // Default values for new words
   let easeFactor = currentData?.easeFactor ?? 2.5;
   let interval = currentData?.interval ?? 0;
@@ -100,7 +100,9 @@ export function isDue(nextReview: Date | null | undefined): boolean {
  * @param nextReview - Next review date
  * @returns Days until next review (negative if overdue)
  */
-export function getDaysUntilReview(nextReview: Date | null | undefined): number {
+export function getDaysUntilReview(
+  nextReview: Date | null | undefined
+): number {
   if (!nextReview) return 0;
   const now = new Date();
   const diff = new Date(nextReview).getTime() - now.getTime();

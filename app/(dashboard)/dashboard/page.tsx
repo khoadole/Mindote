@@ -139,9 +139,9 @@ export default function Dashboard() {
                 </p>
                 {dueCount > 0 && (
                   <>
-                    <Progress 
-                      value={Math.min((dueCount / totalWords) * 100, 100)} 
-                      className="h-1 mb-2" 
+                    <Progress
+                      value={Math.min((dueCount / totalWords) * 100, 100)}
+                      className="h-1 mb-2"
                     />
                     <Link href="/flashcards?mode=review">
                       <Button size="sm" className="w-full" variant="default">

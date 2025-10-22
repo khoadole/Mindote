@@ -149,9 +149,9 @@ export function FlashcardPlayer({
     setIsSaving(true);
 
     // Optimistic update - update UI immediately
-    const againCount = reviewResults.filter(r => r.quality === 0).length;
-    const goodCount = reviewResults.filter(r => r.quality > 0).length;
-    
+    const againCount = reviewResults.filter((r) => r.quality === 0).length;
+    const goodCount = reviewResults.filter((r) => r.quality > 0).length;
+
     // Update cache optimistically before API call
     queryClient.setQueryData(["dueCount"], (oldCount: number = 0) => {
       // Subtract good words, add back "again" words
@@ -164,7 +164,7 @@ export function FlashcardPlayer({
       if (!result.success) {
         // Rollback optimistic update on error
         queryClient.invalidateQueries({ queryKey: ["dueCount"] });
-        
+
         toast({
           title: "Error saving progress",
           description: "Failed to save your reviews. Please try again.",
@@ -191,7 +191,7 @@ export function FlashcardPlayer({
     } catch (error) {
       // Rollback optimistic update on error
       queryClient.invalidateQueries({ queryKey: ["dueCount"] });
-      
+
       console.error("Error saving reviews:", error);
       toast({
         title: "Error",
@@ -209,9 +209,9 @@ export function FlashcardPlayer({
 
     if (reviewResults.length > 0) {
       // Optimistic update - update UI immediately
-      const againCount = reviewResults.filter(r => r.quality === 0).length;
-      const goodCount = reviewResults.filter(r => r.quality > 0).length;
-      
+      const againCount = reviewResults.filter((r) => r.quality === 0).length;
+      const goodCount = reviewResults.filter((r) => r.quality > 0).length;
+
       // Update cache optimistically before API call
       queryClient.setQueryData(["dueCount"], (oldCount: number = 0) => {
         // Subtract good words, add back "again" words
@@ -226,7 +226,7 @@ export function FlashcardPlayer({
         if (!result.success) {
           // Rollback optimistic update on error
           queryClient.invalidateQueries({ queryKey: ["dueCount"] });
-          
+
           toast({
             title: "Error saving progress",
             description: "Failed to save your reviews. Please try again.",
@@ -255,7 +255,7 @@ export function FlashcardPlayer({
     } catch (error) {
       // Rollback optimistic update on error
       queryClient.invalidateQueries({ queryKey: ["dueCount"] });
-      
+
       console.error("Error saving reviews:", error);
       toast({
         title: "Error",

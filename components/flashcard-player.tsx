@@ -29,6 +29,7 @@ import {
   type ReviewResult,
 } from "@/lib/srs";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface FlashcardPlayerProps {
   words: Word[];
@@ -54,6 +55,7 @@ export function FlashcardPlayer({
   const [isSaving, setIsSaving] = useState(false);
   const { updateWord } = useAppStore();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     // Shuffle words on mount
@@ -146,10 +148,23 @@ export function FlashcardPlayer({
     // Save all reviews to database in one batch
     setIsSaving(true);
 
+    // Optimistic update - update UI immediately
+    const againCount = reviewResults.filter(r => r.quality === 0).length;
+    const goodCount = reviewResults.filter(r => r.quality > 0).length;
+    
+    // Update cache optimistically before API call
+    queryClient.setQueryData(["dueCount"], (oldCount: number = 0) => {
+      // Subtract good words, add back "again" words
+      return Math.max(0, oldCount - goodCount + againCount);
+    });
+
     try {
       const result = await submitBatchReviews(reviewResults);
 
       if (!result.success) {
+        // Rollback optimistic update on error
+        queryClient.invalidateQueries({ queryKey: ["dueCount"] });
+        
         toast({
           title: "Error saving progress",
           description: "Failed to save your reviews. Please try again.",
@@ -159,6 +174,13 @@ export function FlashcardPlayer({
         return;
       }
 
+      // Invalidate queries to get fresh data from server
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["dueWords"] }),
+        queryClient.invalidateQueries({ queryKey: ["dueCount"] }),
+        queryClient.invalidateQueries({ queryKey: ["words"] }),
+      ]);
+
       toast({
         title: "Progress saved! ✨",
         description: `${reviewResults.length} words updated successfully.`,
@@ -167,6 +189,9 @@ export function FlashcardPlayer({
       onComplete(results);
       setShowSummary(false);
     } catch (error) {
+      // Rollback optimistic update on error
+      queryClient.invalidateQueries({ queryKey: ["dueCount"] });
+      
       console.error("Error saving reviews:", error);
       toast({
         title: "Error",
@@ -182,11 +207,26 @@ export function FlashcardPlayer({
     // Save and exit
     setIsSaving(true);
 
+    if (reviewResults.length > 0) {
+      // Optimistic update - update UI immediately
+      const againCount = reviewResults.filter(r => r.quality === 0).length;
+      const goodCount = reviewResults.filter(r => r.quality > 0).length;
+      
+      // Update cache optimistically before API call
+      queryClient.setQueryData(["dueCount"], (oldCount: number = 0) => {
+        // Subtract good words, add back "again" words
+        return Math.max(0, oldCount - goodCount + againCount);
+      });
+    }
+
     try {
       if (reviewResults.length > 0) {
         const result = await submitBatchReviews(reviewResults);
 
         if (!result.success) {
+          // Rollback optimistic update on error
+          queryClient.invalidateQueries({ queryKey: ["dueCount"] });
+          
           toast({
             title: "Error saving progress",
             description: "Failed to save your reviews. Please try again.",
@@ -195,6 +235,13 @@ export function FlashcardPlayer({
           setIsSaving(false);
           return;
         }
+
+        // Invalidate queries to get fresh data from server
+        await Promise.all([
+          queryClient.invalidateQueries({ queryKey: ["dueWords"] }),
+          queryClient.invalidateQueries({ queryKey: ["dueCount"] }),
+          queryClient.invalidateQueries({ queryKey: ["words"] }),
+        ]);
 
         toast({
           title: "Progress saved! ✨",
@@ -206,6 +253,9 @@ export function FlashcardPlayer({
       onComplete(results);
       setShowSummary(false);
     } catch (error) {
+      // Rollback optimistic update on error
+      queryClient.invalidateQueries({ queryKey: ["dueCount"] });
+      
       console.error("Error saving reviews:", error);
       toast({
         title: "Error",

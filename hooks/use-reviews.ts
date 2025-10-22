@@ -20,7 +20,7 @@ export function useDueWords() {
       }
       return result.words || [];
     },
-    staleTime: 1000 * 60, // 1 minute
+    staleTime: 0, // Always fresh - refetch immediately when invalidated
   });
 }
 
@@ -34,8 +34,8 @@ export function useDueCount() {
       const result = await getDueCount();
       return result.count || 0;
     },
-    staleTime: 1000 * 30, // 30 seconds
-    refetchInterval: 1000 * 60, // Refetch every minute
+    staleTime: 0, // Always fresh - refetch immediately when invalidated
+    refetchInterval: 1000 * 30, // Refetch every 30 seconds as backup
   });
 }
 

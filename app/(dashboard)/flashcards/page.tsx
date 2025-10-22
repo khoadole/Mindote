@@ -97,7 +97,7 @@ export default function FlashcardsPage() {
       title: "Study session complete!",
       description: `You got ${results.correct} words right and ${results.again} need more review.`,
     });
-    
+
     // If in review mode, go back to dashboard
     if (mode === "review") {
       router.push("/dashboard");

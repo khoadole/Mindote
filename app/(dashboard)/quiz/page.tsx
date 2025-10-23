@@ -206,20 +206,29 @@ export default function QuizPage() {
                     value={selectedScope}
                     onValueChange={setSelectedScope}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="truncate">
                       <SelectValue placeholder="Select scope" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">
+                      <SelectItem value="all" className="truncate">
                         All Words ({words?.length || 0})
                       </SelectItem>
                       {collections?.map((collection) => (
-                        <SelectItem key={collection.id} value={collection.id}>
-                          {collection.name} (
-                          {words?.filter(
-                            (w) => w.collectionId === collection.id
-                          ).length || 0}
-                          )
+                        <SelectItem
+                          key={collection.id}
+                          value={collection.id}
+                          className="truncate"
+                        >
+                          <span
+                            className="truncate block"
+                            title={collection.name}
+                          >
+                            {collection.name} (
+                            {words?.filter(
+                              (w) => w.collectionId === collection.id
+                            ).length || 0}
+                            )
+                          </span>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -259,20 +268,20 @@ export default function QuizPage() {
                               definition from 4 options.
                             </p>
                             <div className="bg-muted p-4 rounded">
-                              <h4 className="font-medium mb-2">
+                              <h4 className="font-medium mb-2 break-words">
                                 {quizWords[0]?.term}
                               </h4>
                               <div className="space-y-1 text-sm">
-                                <div className="p-2 bg-background rounded">
+                                <div className="p-2 bg-background rounded break-words">
                                   A. {quizWords[0]?.definition}
                                 </div>
-                                <div className="p-2 bg-background rounded">
+                                <div className="p-2 bg-background rounded break-words">
                                   B. Sample distractor option
                                 </div>
-                                <div className="p-2 bg-background rounded">
+                                <div className="p-2 bg-background rounded break-words">
                                   C. Another distractor option
                                 </div>
-                                <div className="p-2 bg-background rounded">
+                                <div className="p-2 bg-background rounded break-words">
                                   D. Third distractor option
                                 </div>
                               </div>

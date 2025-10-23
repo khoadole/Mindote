@@ -205,23 +205,25 @@ export default function Dashboard() {
                 {recentCollections.map((collection) => (
                   <div
                     key={collection.id}
-                    className="flex items-center justify-between p-4 rounded-lg border"
+                    className="flex items-center justify-between p-4 rounded-lg border gap-3"
                   >
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 flex-1 min-w-0">
                       <div
-                        className={`h-3 w-3 rounded-full ${
+                        className={`h-3 w-3 rounded-full shrink-0 ${
                           collection.color || "bg-primary"
                         }`}
                       />
-                      <div>
-                        <h3 className="font-medium">{collection.name}</h3>
+                      <div className="min-w-0">
+                        <h3 className="font-medium truncate">
+                          {collection.name}
+                        </h3>
                         <p className="text-sm text-muted-foreground">
                           {collection.wordCount || 0} words
                         </p>
                       </div>
                     </div>
                     <Link href={`/collections/${collection.id}`}>
-                      <Button size="sm" variant="outline">
+                      <Button size="sm" variant="outline" className="shrink-0">
                         Study
                       </Button>
                     </Link>

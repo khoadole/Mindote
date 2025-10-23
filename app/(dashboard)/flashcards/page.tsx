@@ -230,7 +230,7 @@ export default function FlashcardsPage() {
                       value={selectedScope}
                       onValueChange={setSelectedScope}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="truncate">
                         <SelectValue placeholder="Select scope" />
                       </SelectTrigger>
                       <SelectContent>
@@ -238,12 +238,21 @@ export default function FlashcardsPage() {
                           All Words ({words?.length || 0})
                         </SelectItem>
                         {collections?.map((collection) => (
-                          <SelectItem key={collection.id} value={collection.id}>
-                            {collection.name} (
-                            {words?.filter(
-                              (w) => w.collectionId === collection.id
-                            ).length || 0}
-                            )
+                          <SelectItem
+                            key={collection.id}
+                            value={collection.id}
+                            className="truncate"
+                          >
+                            <span
+                              className="truncate block"
+                              title={collection.name}
+                            >
+                              {collection.name} (
+                              {words?.filter(
+                                (w) => w.collectionId === collection.id
+                              ).length || 0}
+                              )
+                            </span>
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -293,7 +302,8 @@ export default function FlashcardsPage() {
                         {studyWords.slice(0, 5).map((word) => (
                           <span
                             key={word.id}
-                            className="px-2 py-1 bg-muted rounded text-sm"
+                            className="px-2 py-1 bg-muted rounded text-sm truncate max-w-[150px]"
+                            title={word.term}
                           >
                             {word.term}
                           </span>

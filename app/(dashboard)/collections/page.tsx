@@ -113,18 +113,18 @@ export default function CollectionsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCollections.map((collection) => (
               <Link key={collection.id} href={`/collections/${collection.id}`}>
-                <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer overflow-hidden">
                   <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-between gap-2 min-w-0">
+                      <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
                         <div
-                          className={`h-3 w-3 rounded-full ${collection.color}`}
+                          className={`h-3 w-3 rounded-full shrink-0 ${collection.color}`}
                         />
-                        <CardTitle className="text-lg">
+                        <CardTitle className="text-lg truncate">
                           {collection.name}
                         </CardTitle>
                       </div>
-                      <Badge variant="secondary">
+                      <Badge variant="secondary" className="shrink-0">
                         {collection.wordCount} words
                       </Badge>
                     </div>

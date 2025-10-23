@@ -79,14 +79,20 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Collection Name *</Label>
+            <Label htmlFor="name">Collection Name * (max 80 characters)</Label>
             <Input
               id="name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value.slice(0, 80))}
               placeholder="e.g., Business English"
               required
+              maxLength={80}
+              className="break-all"
+              style={{ wordBreak: "break-all" }}
             />
+            <p className="text-xs text-muted-foreground">
+              {name.length}/80 characters
+            </p>
           </div>
 
           <div className="space-y-2">

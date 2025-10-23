@@ -99,15 +99,21 @@ export function AddWordModal({
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="term">Term *</Label>
+            <Label htmlFor="term">Term * (max 80 characters)</Label>
             <Input
               id="term"
               value={term}
-              onChange={(e) => setTerm(e.target.value)}
+              onChange={(e) => setTerm(e.target.value.slice(0, 80))}
               placeholder="Enter the word or phrase"
               required
               disabled={createWordMutation.isPending}
+              maxLength={80}
+              className="break-all"
+              style={{ wordBreak: "break-all" }}
             />
+            <p className="text-xs text-muted-foreground">
+              {term.length}/80 characters
+            </p>
           </div>
 
           <div className="space-y-2">
@@ -119,6 +125,8 @@ export function AddWordModal({
               placeholder="Enter the definition"
               required
               rows={3}
+              className="resize-none break-all"
+              style={{ wordBreak: "break-all" }}
             />
           </div>
 
@@ -130,17 +138,27 @@ export function AddWordModal({
               onChange={(e) => setExample(e.target.value)}
               placeholder="Enter an example sentence"
               rows={2}
+              className="resize-none break-all"
+              style={{ wordBreak: "break-all" }}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phonetic">Phonetic (optional)</Label>
+            <Label htmlFor="phonetic">
+              Phonetic (optional, max 80 characters)
+            </Label>
             <Input
               id="phonetic"
               value={phonetic}
-              onChange={(e) => setPhonetic(e.target.value)}
+              onChange={(e) => setPhonetic(e.target.value.slice(0, 80))}
               placeholder="e.g., /ˈæpəl/"
+              maxLength={80}
+              className="break-all"
+              style={{ wordBreak: "break-all" }}
             />
+            <p className="text-xs text-muted-foreground">
+              {phonetic.length}/80 characters
+            </p>
           </div>
 
           {!collectionId && (

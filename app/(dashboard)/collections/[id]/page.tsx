@@ -120,20 +120,23 @@ export default function CollectionDetailPage() {
     <div className="p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 min-w-0">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => router.push("/collections")}
+            className="shrink-0"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
           </Button>
-          <div className="flex items-center gap-2">
-            <div className={`h-4 w-4 rounded-full ${collection.color}`} />
-            <h1 className="text-3xl font-bold">{collection.name}</h1>
+          <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
+            <div
+              className={`h-4 w-4 rounded-full shrink-0 ${collection.color}`}
+            />
+            <h1 className="text-3xl font-bold truncate">{collection.name}</h1>
           </div>
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center gap-2 shrink-0">
             <RenameCollectionModal
               collectionId={collection.id}
               currentName={collection.name}

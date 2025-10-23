@@ -290,19 +290,19 @@ export function FlashcardPlayer({
             <CardContent className="flex flex-col items-center justify-center h-[400px] p-8 text-center">
               {!isFlipped ? (
                 // Front of card
-                <div className="space-y-4">
+                <div className="space-y-4 w-full">
                   <Badge variant="secondary" className="mb-4">
                     Term
                   </Badge>
-                  <h2 className="text-4xl font-bold mb-4">
+                  <h2 className="text-4xl font-bold mb-4 break-words px-4">
                     {currentWord.term}
                   </h2>
                   {currentWord.phonetic && (
                     <div className="flex items-center justify-center gap-2">
-                      <span className="text-lg text-muted-foreground">
+                      <span className="text-lg text-muted-foreground break-words">
                         {currentWord.phonetic}
                       </span>
-                      <Button size="sm" variant="ghost">
+                      <Button size="sm" variant="ghost" className="shrink-0">
                         <Volume2 className="h-4 w-4" />
                       </Button>
                     </div>
@@ -313,20 +313,24 @@ export function FlashcardPlayer({
                 </div>
               ) : (
                 // Back of card
-                <div className="space-y-4">
+                <div className="space-y-4 w-full">
                   <Badge variant="secondary" className="mb-4">
                     Definition
                   </Badge>
-                  <h3 className="text-2xl font-semibold mb-4">
+                  <h3 className="text-2xl font-semibold mb-4 break-words px-4">
                     {currentWord.term}
                   </h3>
-                  <p className="text-lg mb-4">{currentWord.definition}</p>
+                  <p className="text-lg mb-4 break-words px-4">
+                    {currentWord.definition}
+                  </p>
                   {currentWord.example && (
-                    <div className="border-t pt-4">
+                    <div className="border-t pt-4 w-full">
                       <p className="text-sm text-muted-foreground mb-2">
                         Example:
                       </p>
-                      <p className="italic">"{currentWord.example}"</p>
+                      <p className="italic break-words px-4">
+                        "{currentWord.example}"
+                      </p>
                     </div>
                   )}
                 </div>

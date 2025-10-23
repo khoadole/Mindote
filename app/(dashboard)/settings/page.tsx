@@ -349,7 +349,7 @@ export default function SettingsPage() {
                   </div>
                   <div className="text-center p-4 bg-muted/50 rounded-lg">
                     <div className="text-2xl font-bold text-chart-4">
-                      {stats.avgScore}
+                      {stats.avgScore.toFixed(1)}
                     </div>
                     <p className="text-sm text-muted-foreground">Avg Score</p>
                   </div>

@@ -83,8 +83,17 @@ export function Sidebar({ className }: SidebarProps) {
                   isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
                 )}
               >
-                <item.icon className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
-                {!isCollapsed && <span className="transition-opacity duration-300">{item.name}</span>}
+                <item.icon
+                  className={cn(
+                    "h-5 w-5 transition-all duration-300",
+                    !isCollapsed && "mr-3"
+                  )}
+                />
+                {!isCollapsed && (
+                  <span className="transition-opacity duration-300">
+                    {item.name}
+                  </span>
+                )}
               </Button>
             </Link>
           );
@@ -102,8 +111,17 @@ export function Sidebar({ className }: SidebarProps) {
             isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
           )}
         >
-          <Sparkles className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
-          {!isCollapsed && <span className="transition-opacity duration-300">Upgrade Plan</span>}
+          <Sparkles
+            className={cn(
+              "h-5 w-5 transition-all duration-300",
+              !isCollapsed && "mr-3"
+            )}
+          />
+          {!isCollapsed && (
+            <span className="transition-opacity duration-300">
+              Upgrade Plan
+            </span>
+          )}
         </Button>
 
         {/* Settings Link */}
@@ -118,8 +136,15 @@ export function Sidebar({ className }: SidebarProps) {
               isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
             )}
           >
-            <Settings className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
-            {!isCollapsed && <span className="transition-opacity duration-300">Settings</span>}
+            <Settings
+              className={cn(
+                "h-5 w-5 transition-all duration-300",
+                !isCollapsed && "mr-3"
+              )}
+            />
+            {!isCollapsed && (
+              <span className="transition-opacity duration-300">Settings</span>
+            )}
           </Button>
         </Link>
       </div>

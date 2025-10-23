@@ -146,7 +146,7 @@ export default function QuizPage() {
     <div className="p-6">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <Button
             variant="ghost"
             size="sm"
@@ -173,8 +173,11 @@ export default function QuizPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Settings */}
-          <div className="lg:col-span-1">
-            <Card>
+          <div
+            className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
+            style={{ animationDelay: "100ms" }}
+          >
+            <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle>Quiz Settings</CardTitle>
               </CardHeader>
@@ -237,7 +240,7 @@ export default function QuizPage() {
 
                 <Button
                   onClick={handleStartQuiz}
-                  className="w-full"
+                  className="w-full hover:scale-105 transition-transform"
                   disabled={quizWords.length < 2}
                 >
                   <Play className="h-4 w-4 mr-2" />
@@ -248,8 +251,11 @@ export default function QuizPage() {
           </div>
 
           {/* Preview */}
-          <div className="lg:col-span-2">
-            <Card>
+          <div
+            className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
+            style={{ animationDelay: "200ms" }}
+          >
+            <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle>Quiz Preview</CardTitle>
               </CardHeader>

@@ -62,8 +62,8 @@ export default function SettingsPage() {
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
-  // Loading state
-  if (settingsLoading || statsLoading) {
+  // Loading state - only wait for settings, stats can load progressively
+  if (settingsLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
         <div className="flex items-center gap-2">
@@ -115,7 +115,7 @@ export default function SettingsPage() {
     <div className="p-6">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -128,7 +128,10 @@ export default function SettingsPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Appearance Settings */}
-          <Card>
+          <Card
+            className="animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
+            style={{ animationDelay: "100ms" }}
+          >
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Palette className="h-5 w-5" />
@@ -244,7 +247,10 @@ export default function SettingsPage() {
           </Card> */}
 
           {/* Data Management */}
-          <Card>
+          <Card
+            className="animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
+            style={{ animationDelay: "200ms" }}
+          >
             <CardHeader>
               <CardTitle>Data Management</CardTitle>
             </CardHeader>
@@ -258,7 +264,7 @@ export default function SettingsPage() {
                 <Button
                   onClick={handleExportData}
                   disabled={isExporting}
-                  className="w-full"
+                  className="w-full hover:scale-105 transition-transform"
                 >
                   {isExporting ? (
                     <>
@@ -285,7 +291,7 @@ export default function SettingsPage() {
                   onClick={handleImportData}
                   disabled={isImporting}
                   variant="ghost"
-                  className="w-full bg-transparent"
+                  className="w-full bg-transparent hover:scale-105 transition-transform"
                 >
                   {isImporting ? (
                     <>
@@ -312,7 +318,7 @@ export default function SettingsPage() {
                 <Button
                   onClick={handleResetData}
                   variant="destructive"
-                  className="w-full"
+                  className="w-full hover:scale-105 transition-transform"
                 >
                   <RotateCcw className="h-4 w-4 mr-2" />
                   Reset Default Data
@@ -322,32 +328,48 @@ export default function SettingsPage() {
           </Card>
 
           {/* Statistics */}
-          <Card>
+          <Card
+            className="animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
+            style={{ animationDelay: "300ms" }}
+          >
             <CardHeader>
               <CardTitle>Statistics</CardTitle>
             </CardHeader>
             <CardContent>
-              {stats ? (
+              {statsLoading ? (
+                /* Skeleton loading state */
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="text-center p-4 bg-muted/50 rounded-lg"
+                    >
+                      <div className="h-8 w-16 bg-muted animate-pulse rounded mx-auto mb-2" />
+                      <div className="h-3 w-20 bg-muted animate-pulse rounded mx-auto" />
+                    </div>
+                  ))}
+                </div>
+              ) : stats ? (
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
                     <div className="text-2xl font-bold text-primary">
                       {stats.totalWords}
                     </div>
                     <p className="text-sm text-muted-foreground">Total Words</p>
                   </div>
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  <div className="text-center p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
                     <div className="text-2xl font-bold text-accent">
                       {stats.totalCollections}
                     </div>
                     <p className="text-sm text-muted-foreground">Collections</p>
                   </div>
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  <div className="text-center p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
                     <div className="text-2xl font-bold text-chart-3">
                       {stats.masteredWords}
                     </div>
                     <p className="text-sm text-muted-foreground">Mastered</p>
                   </div>
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  <div className="text-center p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
                     <div className="text-2xl font-bold text-chart-4">
                       {stats.avgScore.toFixed(1)}
                     </div>
@@ -363,7 +385,10 @@ export default function SettingsPage() {
           </Card>
 
           {/* About */}
-          <Card>
+          <Card
+            className="animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
+            style={{ animationDelay: "400ms" }}
+          >
             <CardHeader>
               <CardTitle>About Mindote</CardTitle>
             </CardHeader>

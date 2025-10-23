@@ -79,7 +79,7 @@ export default function YouTubePage() {
     <div className="p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <Button
             variant="ghost"
             size="sm"
@@ -96,8 +96,11 @@ export default function YouTubePage() {
 
         {!hasTranscript ? (
           /* URL Input */
-          <div className="max-w-2xl mx-auto">
-            <Card>
+          <div
+            className="max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+            style={{ animationDelay: "100ms" }}
+          >
+            <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Youtube className="h-5 w-5 text-red-500" />
@@ -120,7 +123,7 @@ export default function YouTubePage() {
                   <Button
                     onClick={handleGetTranscript}
                     disabled={isLoading || !url.trim()}
-                    className="flex-1"
+                    className="flex-1 hover:scale-105 transition-transform"
                   >
                     {isLoading ? (
                       <>
@@ -180,7 +183,7 @@ export default function YouTubePage() {
           </div>
         ) : (
           /* Transcript Viewer */
-          <div className="space-y-4">
+          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Play className="h-5 w-5 text-green-500" />
@@ -188,7 +191,11 @@ export default function YouTubePage() {
                   Transcript loaded
                 </span>
               </div>
-              <Button variant="outline" onClick={handleReset}>
+              <Button
+                variant="outline"
+                onClick={handleReset}
+                className="hover:scale-105 transition-transform"
+              >
                 Load Different Video
               </Button>
             </div>

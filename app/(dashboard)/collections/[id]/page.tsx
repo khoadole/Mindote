@@ -3,6 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useParams, useRouter } from "next/navigation";
+import { useCollectionKeyboardShortcuts } from "@/lib/collection-keyboard-shortcuts";
 import { useCollection } from "@/hooks/use-collections";
 import { useDeleteCollection } from "@/hooks/use-collections";
 import { useDeleteWord } from "@/hooks/use-words";
@@ -22,6 +23,7 @@ import {
   CheckCircle,
   Loader2,
   Flame,
+  Plus,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -47,6 +49,9 @@ export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
   const collectionId = params.id as string;
+
+  // Enable collection-specific keyboard shortcuts
+  useCollectionKeyboardShortcuts(collectionId);
 
   const { data: collection, isLoading } = useCollection(collectionId);
   const { data: dueWords = [] } = useDueWordsByCollection(collectionId);
@@ -222,7 +227,19 @@ export default function CollectionDetailPage() {
             </Button>
           </Link>
 
-          <AddWordModal collectionId={collectionId} />
+          <AddWordModal
+            collectionId={collectionId}
+            trigger={
+              <Button
+                variant="outline"
+                className="flex items-center gap-2 bg-transparent"
+                data-shortcut="add-word"
+              >
+                <Plus className="h-4 w-4" />
+                Add Word
+              </Button>
+            }
+          />
         </div>
 
         {/* Content */}

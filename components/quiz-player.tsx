@@ -277,7 +277,9 @@ export function QuizPlayer({
                 {!currentQuestion.isCorrect && (
                   <p className="text-sm break-all">
                     The correct answer is:{" "}
-                    <strong className="break-all">{currentQuestion.correctAnswer}</strong>
+                    <strong className="break-all">
+                      {currentQuestion.correctAnswer}
+                    </strong>
                   </p>
                 )}
 

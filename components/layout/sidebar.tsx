@@ -44,7 +44,12 @@ export function Sidebar({ className }: SidebarProps) {
       )}
     >
       {/* Header */}
-      <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
+      <div
+        className={cn(
+          "flex h-16 items-center border-b border-sidebar-border px-4",
+          isCollapsed ? "justify-center" : "justify-between"
+        )}
+      >
         {!isCollapsed && (
           <h1 className="text-xl font-bold text-sidebar-foreground">Mindote</h1>
         )}
@@ -71,15 +76,15 @@ export function Sidebar({ className }: SidebarProps) {
               <Button
                 variant={isActive ? "default" : "ghost"}
                 className={cn(
-                  "w-full justify-start text-sidebar-foreground",
+                  "w-full text-sidebar-foreground transition-all duration-300",
                   isActive
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
                     : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
-                  isCollapsed && "px-2"
+                  isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
                 )}
               >
-                <item.icon className={cn("h-4 w-4", !isCollapsed && "mr-3")} />
-                {!isCollapsed && item.name}
+                <item.icon className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
+                {!isCollapsed && <span className="transition-opacity duration-300">{item.name}</span>}
               </Button>
             </Link>
           );
@@ -93,12 +98,12 @@ export function Sidebar({ className }: SidebarProps) {
           variant="default"
           onClick={() => setIsUpgradeModalOpen(true)}
           className={cn(
-            "w-full justify-start bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white",
-            isCollapsed && "px-2"
+            "w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white transition-all duration-300",
+            isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
           )}
         >
-          <Sparkles className={cn("h-4 w-4", !isCollapsed && "mr-3")} />
-          {!isCollapsed && "Upgrade Plan"}
+          <Sparkles className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
+          {!isCollapsed && <span className="transition-opacity duration-300">Upgrade Plan</span>}
         </Button>
 
         {/* Settings Link */}
@@ -106,15 +111,15 @@ export function Sidebar({ className }: SidebarProps) {
           <Button
             variant={pathname === "/settings" ? "default" : "ghost"}
             className={cn(
-              "w-full justify-start text-sidebar-foreground",
+              "w-full text-sidebar-foreground transition-all duration-300",
               pathname === "/settings"
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
-              isCollapsed && "px-2"
+              isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
             )}
           >
-            <Settings className={cn("h-4 w-4", !isCollapsed && "mr-3")} />
-            {!isCollapsed && "Settings"}
+            <Settings className={cn("h-5 w-5 transition-all duration-300", !isCollapsed && "mr-3")} />
+            {!isCollapsed && <span className="transition-opacity duration-300">Settings</span>}
           </Button>
         </Link>
       </div>

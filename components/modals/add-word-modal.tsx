@@ -99,7 +99,7 @@ export function AddWordModal({
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="term">Term * (max 80 characters)</Label>
+            <Label htmlFor="term">Term</Label>
             <Input
               id="term"
               value={term}
@@ -117,7 +117,7 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="definition">Definition *</Label>
+            <Label htmlFor="definition">Definition</Label>
             <Textarea
               id="definition"
               value={definition}
@@ -144,9 +144,7 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phonetic">
-              Phonetic (optional, max 80 characters)
-            </Label>
+            <Label htmlFor="phonetic">Phonetic</Label>
             <Input
               id="phonetic"
               value={phonetic}
@@ -163,7 +161,7 @@ export function AddWordModal({
 
           {!collectionId && (
             <div className="space-y-2">
-              <Label htmlFor="collection">Collection *</Label>
+              <Label htmlFor="collection">Collection</Label>
               <Select
                 value={selectedCollection}
                 onValueChange={setSelectedCollection}

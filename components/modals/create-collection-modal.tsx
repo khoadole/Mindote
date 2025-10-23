@@ -79,7 +79,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Collection Name * (max 80 characters)</Label>
+            <Label htmlFor="name">Collection Name</Label>
             <Input
               id="name"
               value={name}

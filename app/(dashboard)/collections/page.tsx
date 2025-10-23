@@ -55,7 +55,7 @@ export default function CollectionsPage() {
     <div className="p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">
           <div>
             <h1 className="text-3xl font-bold">Collections</h1>
             <p className="text-muted-foreground">
@@ -80,7 +80,10 @@ export default function CollectionsPage() {
         </div>
 
         {/* Toolbar */}
-        <div className="flex items-center gap-4">
+        <div
+          className="flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+          style={{ animationDelay: "100ms" }}
+        >
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -111,9 +114,15 @@ export default function CollectionsPage() {
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCollections.map((collection) => (
+            {filteredCollections.map((collection, index) => (
               <Link key={collection.id} href={`/collections/${collection.id}`}>
-                <Card className="hover:shadow-md transition-shadow cursor-pointer overflow-hidden">
+                <Card
+                  className="hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden hover:scale-[1.02] animate-in fade-in slide-in-from-bottom-4 fill-mode-both"
+                  style={{
+                    animationDelay: `${200 + index * 50}ms`,
+                    animationDuration: "500ms",
+                  }}
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between gap-2 min-w-0">
                       <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
@@ -138,14 +147,14 @@ export default function CollectionsPage() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="flex-1 bg-transparent"
+                        className="flex-1 bg-transparent hover:scale-105 transition-transform"
                       >
                         Study
                       </Button>
                       <Button
                         size="sm"
                         variant="outline"
-                        className="flex-1 bg-transparent"
+                        className="flex-1 bg-transparent hover:scale-105 transition-transform"
                       >
                         Quiz
                       </Button>

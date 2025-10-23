@@ -120,7 +120,7 @@ export default function CollectionDetailPage() {
     <div className="p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <Button
             variant="ghost"
             size="sm"
@@ -162,7 +162,10 @@ export default function CollectionDetailPage() {
         </div>
 
         {/* Stats */}
-        <div className="flex items-center gap-4">
+        <div
+          className="flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+          style={{ animationDelay: "100ms" }}
+        >
           <Badge variant="secondary">{collectionWords.length} words</Badge>
           {dueWordsCount > 0 && (
             <Badge
@@ -179,10 +182,13 @@ export default function CollectionDetailPage() {
         </div>
 
         {/* Study Actions */}
-        <div className="flex gap-4">
+        <div
+          className="flex gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+          style={{ animationDelay: "200ms" }}
+        >
           <Link href={`/flashcards?collection=${collectionId}`}>
             <Button
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 hover:scale-105 transition-transform"
               disabled={collectionWords.length === 0}
             >
               <Cards className="h-4 w-4" />
@@ -199,7 +205,7 @@ export default function CollectionDetailPage() {
             <Link href={`/flashcards?mode=review&collection=${collectionId}`}>
               <Button
                 variant="outline"
-                className="flex items-center gap-2 bg-orange-50 border-orange-200 hover:bg-orange-100"
+                className="flex items-center gap-2 bg-orange-50 border-orange-200 hover:bg-orange-100 hover:scale-105 transition-transform"
               >
                 <Flame className="h-4 w-4 text-orange-500" />
                 Review Due Words
@@ -216,7 +222,7 @@ export default function CollectionDetailPage() {
           <Link href={`/quiz?collection=${collectionId}`}>
             <Button
               variant="outline"
-              className="flex items-center gap-2 bg-transparent"
+              className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform"
               disabled={collectionWords.length === 0}
             >
               <CheckCircle className="h-4 w-4" />
@@ -234,7 +240,7 @@ export default function CollectionDetailPage() {
             trigger={
               <Button
                 variant="outline"
-                className="flex items-center gap-2 bg-transparent"
+                className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform"
                 data-shortcut="add-word"
               >
                 <Plus className="h-4 w-4" />
@@ -245,7 +251,11 @@ export default function CollectionDetailPage() {
         </div>
 
         {/* Content */}
-        <Tabs defaultValue="words" className="space-y-4">
+        <Tabs
+          defaultValue="words"
+          className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          style={{ animationDelay: "300ms" }}
+        >
           <TabsList>
             <TabsTrigger value="words">Words</TabsTrigger>
             <TabsTrigger value="activity">Activity</TabsTrigger>
@@ -280,21 +290,29 @@ export default function CollectionDetailPage() {
               </Card>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredWords.map((word) => (
-                  <WordCard
+                {filteredWords.map((word, index) => (
+                  <div
                     key={word.id}
-                    word={{
-                      ...word,
-                      example: word.example ?? undefined,
-                      phonetic: word.phonetic ?? undefined,
-                      collection: {
-                        id: collection.id,
-                        name: collection.name,
-                        color: collection.color || "bg-primary",
-                      },
+                    className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
+                    style={{
+                      animationDelay: `${index * 30}ms`,
+                      animationDuration: "400ms",
                     }}
-                    onDelete={() => handleDeleteWord(word.id, word.term)}
-                  />
+                  >
+                    <WordCard
+                      word={{
+                        ...word,
+                        example: word.example ?? undefined,
+                        phonetic: word.phonetic ?? undefined,
+                        collection: {
+                          id: collection.id,
+                          name: collection.name,
+                          color: collection.color || "bg-primary",
+                        },
+                      }}
+                      onDelete={() => handleDeleteWord(word.id, word.term)}
+                    />
+                  </div>
                 ))}
               </div>
             )}

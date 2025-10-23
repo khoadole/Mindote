@@ -32,7 +32,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
   return (
     <>
       <Card
-        className="cursor-pointer hover:shadow-md transition-shadow"
+        className="cursor-pointer hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
         onClick={() => setShowDetails(true)}
       >
         <CardContent className="p-4">

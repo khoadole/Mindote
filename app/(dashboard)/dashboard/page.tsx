@@ -59,6 +59,18 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Quick Actions - Show immediately */}
         <div className="flex flex-wrap gap-4">
+          <AddWordModal
+            trigger={
+              <Button
+                variant="outline"
+                className="flex items-center gap-2 bg-transparent"
+                data-shortcut="add-word"
+              >
+                <Plus className="h-4 w-4" />
+                Add Word
+              </Button>
+            }
+          />
           <CreateCollectionModal />
           <Link href="/flashcards">
             <Button

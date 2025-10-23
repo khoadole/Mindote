@@ -3,12 +3,13 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, Filter, Loader2 } from "lucide-react";
+import { Search, Filter, Loader2, Plus } from "lucide-react";
 
 // ✅ Lazy load modals
 const AddWordModal = dynamic(
@@ -30,6 +31,9 @@ const CreateCollectionModal = dynamic(
 export default function CollectionsPage() {
   const { data: collections, isLoading } = useCollections();
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Enable keyboard shortcuts
+  useKeyboardShortcuts();
 
   // Loading state
   if (isLoading) {
@@ -59,7 +63,18 @@ export default function CollectionsPage() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <AddWordModal />
+            <AddWordModal
+              trigger={
+                <Button
+                  variant="outline"
+                  className="flex items-center gap-2"
+                  data-shortcut="add-word"
+                >
+                  <Plus className="h-4 w-4" />
+                  Add Word
+                </Button>
+              }
+            />
             <CreateCollectionModal />
           </div>
         </div>

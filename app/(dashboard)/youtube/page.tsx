@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +19,9 @@ import { Youtube, ArrowLeft, Play, FileText, AlertCircle } from "lucide-react";
 export default function YouTubePage() {
   const router = useRouter();
   const { toast } = useToast();
+
+  // Enable keyboard shortcuts
+  useKeyboardShortcuts();
 
   const [url, setUrl] = useState("");
   const [transcript, setTranscript] = useState("");

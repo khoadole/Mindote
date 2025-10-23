@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import {
   useSettings,
   useUpdateSettings,
@@ -57,6 +58,9 @@ export default function SettingsPage() {
   const { toast } = useToast();
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
+
+  // Enable keyboard shortcuts
+  useKeyboardShortcuts();
 
   // Loading state
   if (settingsLoading || statsLoading) {

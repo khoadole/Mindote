@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections, useCollection } from "@/hooks/use-collections";
 import { useDueWords, useDueWordsByCollection } from "@/hooks/use-reviews";
@@ -44,6 +45,9 @@ export default function FlashcardsPage() {
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode"); // 'review' or null (all words)
   const collectionParam = searchParams.get("collection"); // specific collection ID
+
+  // Enable keyboard shortcuts
+  useKeyboardShortcuts();
 
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
   const { data: collections = [], isLoading: collectionsLoading } =

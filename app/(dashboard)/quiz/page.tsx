@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections, useCollection } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -49,6 +50,9 @@ export default function QuizPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const collectionParam = searchParams.get("collection"); // specific collection ID
+
+  // Enable keyboard shortcuts
+  useKeyboardShortcuts();
 
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
   const { data: collections = [], isLoading: collectionsLoading } =

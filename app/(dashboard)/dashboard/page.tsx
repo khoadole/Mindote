@@ -58,7 +58,7 @@ export default function Dashboard() {
     <div className="p-6">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Quick Actions - Show immediately */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <AddWordModal
             trigger={
               <Button
@@ -109,7 +109,10 @@ export default function Dashboard() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
+            <Card
+              className="animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "100ms" }}
+            >
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   Total Words
@@ -124,7 +127,10 @@ export default function Dashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card
+              className="animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "200ms" }}
+            >
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   Collections
@@ -139,7 +145,10 @@ export default function Dashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card
+              className="animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "300ms" }}
+            >
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Due Today</CardTitle>
                 <Flame className="h-4 w-4 text-orange-500" />
@@ -169,7 +178,10 @@ export default function Dashboard() {
         )}
 
         {/* Recent Collections - Progressive rendering */}
-        <Card>
+        <Card
+          className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          style={{ animationDelay: "400ms" }}
+        >
           <CardHeader>
             <CardTitle>Recent Collections</CardTitle>
           </CardHeader>
@@ -202,10 +214,14 @@ export default function Dashboard() {
               </div>
             ) : (
               <div className="space-y-4">
-                {recentCollections.map((collection) => (
+                {recentCollections.map((collection, index) => (
                   <div
                     key={collection.id}
-                    className="flex items-center justify-between p-4 rounded-lg border gap-3"
+                    className="flex items-center justify-between p-4 rounded-lg border gap-3 animate-in fade-in slide-in-from-top-4 fill-mode-both"
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      animationDuration: "500ms",
+                    }}
                   >
                     <div className="flex items-center space-x-3 flex-1 min-w-0">
                       <div

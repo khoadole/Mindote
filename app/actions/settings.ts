@@ -92,12 +92,14 @@ export async function getUserStatsAction() {
 
     // ✅ OPTIMIZATION: Single raw SQL query with CTE (Common Table Expression)
     // This avoids multiple JOIN operations and executes in one pass
-    const result = await prisma.$queryRaw<Array<{
-      total_collections: bigint;
-      total_words: bigint;
-      mastered_words: bigint;
-      avg_score: number | null;
-    }>>`
+    const result = await prisma.$queryRaw<
+      Array<{
+        total_collections: bigint;
+        total_words: bigint;
+        mastered_words: bigint;
+        avg_score: number | null;
+      }>
+    >`
       WITH user_collections AS (
         SELECT id FROM collections WHERE user_id = ${userId}::uuid
       )

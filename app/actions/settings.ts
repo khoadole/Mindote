@@ -80,7 +80,7 @@ export async function updateSettingsAction(data: {
 
 /**
  * Get user stats (total words, collections, etc.)
- * ✅ Optimized with single aggregation query
+ * ✅ ULTRA-OPTIMIZED: Single query with CTE - no multiple JOINs
  */
 export async function getUserStatsAction() {
   const startTime = Date.now();
@@ -89,40 +89,41 @@ export async function getUserStatsAction() {
     console.log(`[getUserStats] getUserId took ${Date.now() - startTime}ms`);
 
     const queryStart = Date.now();
-    
-    // ✅ Optimization: Use raw SQL for better performance
-    const [statsResult, totalCollections] = await Promise.all([
-      // Single aggregation for all word stats
-      prisma.$queryRaw<Array<{
-        total_words: bigint;
-        mastered_words: bigint;
-        avg_score: number | null;
-      }>>`
-        SELECT 
-          COUNT(*)::bigint as total_words,
-          COUNT(CASE WHEN score >= 80 THEN 1 END)::bigint as mastered_words,
-          AVG(score) as avg_score
-        FROM words w
-        INNER JOIN collections c ON w.collection_id = c.id
-        WHERE c.user_id = ${userId}::uuid
-      `,
-      // Collections count (simple query)
-      prisma.collection.count({
-        where: { userId },
-      }),
-    ]);
-    
-    console.log(`[getUserStats] DB queries took ${Date.now() - queryStart}ms`);
+
+    // ✅ OPTIMIZATION: Single raw SQL query with CTE (Common Table Expression)
+    // This avoids multiple JOIN operations and executes in one pass
+    const result = await prisma.$queryRaw<Array<{
+      total_collections: bigint;
+      total_words: bigint;
+      mastered_words: bigint;
+      avg_score: number | null;
+    }>>`
+      WITH user_collections AS (
+        SELECT id FROM collections WHERE user_id = ${userId}::uuid
+      )
+      SELECT 
+        (SELECT COUNT(*)::bigint FROM user_collections) as total_collections,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections)) as total_words,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.score >= 80) as mastered_words,
+        (SELECT AVG(score) FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections)) as avg_score
+    `;
+
+    console.log(`[getUserStats] DB query took ${Date.now() - queryStart}ms`);
     console.log(`[getUserStats] Total took ${Date.now() - startTime}ms`);
 
-    const stats = statsResult[0];
-    
+    const stats = result[0] || {
+      total_collections: BigInt(0),
+      total_words: BigInt(0),
+      mastered_words: BigInt(0),
+      avg_score: null,
+    };
+
     return {
       data: {
-        totalWords: Number(stats?.total_words || 0),
-        totalCollections,
-        masteredWords: Number(stats?.mastered_words || 0),
-        avgScore: Number(stats?.avg_score || 0),
+        totalWords: Number(stats.total_words),
+        totalCollections: Number(stats.total_collections),
+        masteredWords: Number(stats.mastered_words),
+        avgScore: Math.round(Number(stats.avg_score) || 0),
       },
       error: null,
     };

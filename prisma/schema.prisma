@@ -56,6 +56,7 @@ model Word {
   
   @@unique([collectionId, term])
   @@index([collectionId, term])
+  @@index([collectionId, score])
   @@index([nextReview])
   @@map("words")
 }

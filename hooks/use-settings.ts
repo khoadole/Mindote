@@ -61,6 +61,7 @@ export function useUpdateSettings() {
 
 /**
  * Hook to get user statistics
+ * ✅ Longer cache time - stats don't need to be real-time
  */
 export function useUserStats() {
   return useQuery({
@@ -72,7 +73,7 @@ export function useUserStats() {
       }
       return result.data;
     },
-    staleTime: 10 * 60 * 1000, // 10 minutes - stats updated optimistically
-    gcTime: 30 * 60 * 1000, // 30 minutes
+    staleTime: 30 * 60 * 1000, // 30 minutes - stats are updated optimistically by mutations
+    gcTime: 60 * 60 * 1000, // 60 minutes
   });
 }

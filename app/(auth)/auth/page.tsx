@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useAuth } from "@/lib/auth";
+import { getAuthErrorMessage } from "@/lib/auth-helpers";
 import { BookOpen, Mail, Lock, User, ArrowLeft, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -58,7 +59,7 @@ export default function AuthPage() {
       const { error } = await signIn(signInData.email, signInData.password);
 
       if (error) {
-        setError(error.message);
+        setError(getAuthErrorMessage(error));
       } else {
         toast({
           title: "Welcome back!",
@@ -99,19 +100,27 @@ export default function AuthPage() {
     }
 
     try {
-      const { error } = await signUp(
+      const { error, data } = await signUp(
         signUpData.email,
         signUpData.password,
         signUpData.username
       );
 
       if (error) {
-        setError(error.message);
+        setError(getAuthErrorMessage(error));
       } else {
-        toast({
-          title: "Account created!",
-          description: "Please check your email to verify your account.",
-        });
+        // Check if email confirmation is required
+        if (data?.user && !data.session) {
+          toast({
+            title: "Account created!",
+            description: "Please check your email to verify your account.",
+          });
+        } else {
+          toast({
+            title: "Account created!",
+            description: "You've been successfully signed up.",
+          });
+        }
         setActiveTab("signin");
         setSignInData({ email: signUpData.email, password: "" });
       }
@@ -146,7 +155,7 @@ export default function AuthPage() {
       );
 
       if (error) {
-        setError(error.message);
+        setError(getAuthErrorMessage(error));
       } else {
         toast({
           title: "Check your inbox",

@@ -297,16 +297,23 @@ export function FlashcardPlayer({
                   <h2 className="text-4xl font-bold mb-4 break-words px-4">
                     {currentWord.term}
                   </h2>
-                  {currentWord.phonetic && (
-                    <div className="flex items-center justify-center gap-2">
-                      <span className="text-lg text-muted-foreground break-words">
-                        {currentWord.phonetic}
-                      </span>
-                      <Button size="sm" variant="ghost" className="shrink-0">
-                        <Volume2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex items-center justify-center gap-3 flex-wrap">
+                    {currentWord.phonetic && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg text-muted-foreground break-words">
+                          {currentWord.phonetic}
+                        </span>
+                        <Button size="sm" variant="ghost" className="shrink-0">
+                          <Volume2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    )}
+                    {currentWord.partOfSpeech && (
+                      <Badge variant="outline" className="text-sm">
+                        {currentWord.partOfSpeech}
+                      </Badge>
+                    )}
+                  </div>
                   <p className="text-muted-foreground mt-8">
                     Click to reveal definition
                   </p>
@@ -317,9 +324,16 @@ export function FlashcardPlayer({
                   <Badge variant="secondary" className="mb-4">
                     Definition
                   </Badge>
-                  <h3 className="text-2xl font-semibold mb-4 break-words px-4">
-                    {currentWord.term}
-                  </h3>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <h3 className="text-2xl font-semibold break-words px-4">
+                      {currentWord.term}
+                    </h3>
+                    {currentWord.partOfSpeech && (
+                      <Badge variant="outline" className="text-sm shrink-0">
+                        {currentWord.partOfSpeech}
+                      </Badge>
+                    )}
+                  </div>
                   <p className="text-lg mb-4 break-words px-4">
                     {currentWord.definition}
                   </p>

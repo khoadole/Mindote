@@ -25,6 +25,18 @@ import {
 } from "@/components/ui/select";
 import { Plus, Loader2 } from "lucide-react";
 
+// Common parts of speech
+const PARTS_OF_SPEECH = [
+  { value: "noun", label: "Noun" },
+  { value: "pronoun", label: "Pronoun" },
+  { value: "verb", label: "Verb" },
+  { value: "adjective", label: "Adjective" },
+  { value: "adverb", label: "Adverb" },
+  { value: "preposition", label: "Preposition" },
+  { value: "conjunction", label: "Conjunction" },
+  { value: "interjection", label: "Interjection" },
+];
+
 interface AddWordModalProps {
   collectionId?: string;
   trigger?: React.ReactNode;
@@ -45,6 +57,7 @@ export function AddWordModal({
   const [definition, setDefinition] = useState(defaultDefinition);
   const [example, setExample] = useState(defaultExample);
   const [phonetic, setPhonetic] = useState("");
+  const [partOfSpeech, setPartOfSpeech] = useState("");
   const [selectedCollection, setSelectedCollection] = useState<string>(
     collectionId || ""
   );
@@ -66,6 +79,7 @@ export function AddWordModal({
         definition: definition.trim(),
         example: example.trim() || undefined,
         phonetic: phonetic.trim() || undefined,
+        partOfSpeech: partOfSpeech.trim() || undefined,
       },
       {
         onSuccess: () => {
@@ -74,6 +88,7 @@ export function AddWordModal({
           setDefinition("");
           setExample("");
           setPhonetic("");
+          setPartOfSpeech("");
           if (!collectionId) {
             setSelectedCollection("");
           }
@@ -157,6 +172,64 @@ export function AddWordModal({
             <p className="text-xs text-muted-foreground">
               {phonetic.length}/80 characters
             </p>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="partOfSpeech">Part of Speech (Optional)</Label>
+            <div className="flex gap-2">
+              <Select
+                value={
+                  PARTS_OF_SPEECH.find((pos) => pos.value === partOfSpeech)
+                    ?.value || "custom"
+                }
+                onValueChange={(value) => {
+                  if (value === "custom") {
+                    setPartOfSpeech("");
+                  } else {
+                    setPartOfSpeech(value);
+                  }
+                }}
+                disabled={createWordMutation.isPending}
+              >
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select type" />
+                </SelectTrigger>
+                <SelectContent>
+                  {PARTS_OF_SPEECH.map((pos) => (
+                    <SelectItem key={pos.value} value={pos.value}>
+                      {pos.label}
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="custom">Custom...</SelectItem>
+                </SelectContent>
+              </Select>
+              <Input
+                id="partOfSpeech"
+                value={
+                  PARTS_OF_SPEECH.find((pos) => pos.value === partOfSpeech)
+                    ? ""
+                    : partOfSpeech
+                }
+                onChange={(e) => setPartOfSpeech(e.target.value.slice(0, 50))}
+                placeholder="Or type custom part of speech"
+                maxLength={50}
+                disabled={
+                  createWordMutation.isPending ||
+                  PARTS_OF_SPEECH.some((pos) => pos.value === partOfSpeech)
+                }
+                className="flex-1"
+              />
+            </div>
+            {partOfSpeech && (
+              <p className="text-xs text-muted-foreground">
+                {PARTS_OF_SPEECH.find((pos) => pos.value === partOfSpeech)
+                  ? `Selected: ${
+                      PARTS_OF_SPEECH.find((pos) => pos.value === partOfSpeech)
+                        ?.label
+                    }`
+                  : `Custom: ${partOfSpeech} (${partOfSpeech.length}/50)`}
+              </p>
+            )}
           </div>
 
           {!collectionId && (

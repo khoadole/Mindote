@@ -42,6 +42,7 @@ model Word {
   definition   String
   example      String?
   phonetic     String?
+  partOfSpeech String?    @map("part_of_speech")               // Parts of speech (noun, verb, etc.)
   score        Int        @default(0)
   createdAt    DateTime   @default(now()) @map("created_at")
   collectionId String     @map("collection_id") @db.Uuid

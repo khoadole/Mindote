@@ -62,6 +62,7 @@ export function useCreateWord() {
       definition: string;
       example?: string;
       phonetic?: string;
+      partOfSpeech?: string;
     }) => {
       const result = await createWordAction(data);
       if (result.error) {
@@ -92,6 +93,7 @@ export function useCreateWord() {
             definition: newWord.definition,
             example: newWord.example || null,
             phonetic: newWord.phonetic || null,
+            partOfSpeech: newWord.partOfSpeech || null,
             score: 0,
             createdAt: new Date().toISOString(),
             collectionId: newWord.collectionId,
@@ -185,6 +187,7 @@ export function useUpdateWord() {
         definition?: string;
         example?: string;
         phonetic?: string;
+        partOfSpeech?: string;
         score?: number;
       };
     }) => {

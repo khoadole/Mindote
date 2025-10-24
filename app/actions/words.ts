@@ -37,6 +37,7 @@ export async function getWordsAction(collectionId: string) {
         definition: word.definition,
         example: word.example,
         phonetic: word.phonetic,
+        partOfSpeech: word.partOfSpeech,
         score: word.score,
         createdAt: word.createdAt.toISOString(),
         collectionId: word.collectionId,
@@ -58,6 +59,7 @@ export async function createWordAction(data: {
   definition: string;
   example?: string;
   phonetic?: string;
+  partOfSpeech?: string;
 }) {
   try {
     const userId = await getUserId();
@@ -95,6 +97,7 @@ export async function createWordAction(data: {
         definition: data.definition,
         example: data.example,
         phonetic: data.phonetic,
+        partOfSpeech: data.partOfSpeech,
       },
     });
 
@@ -108,6 +111,7 @@ export async function createWordAction(data: {
         definition: word.definition,
         example: word.example,
         phonetic: word.phonetic,
+        partOfSpeech: word.partOfSpeech,
         score: word.score,
         createdAt: word.createdAt.toISOString(),
         collectionId: word.collectionId,
@@ -130,6 +134,7 @@ export async function updateWordAction(
     definition?: string;
     example?: string;
     phonetic?: string;
+    partOfSpeech?: string;
     score?: number;
   }
 ) {
@@ -162,6 +167,7 @@ export async function updateWordAction(
         definition: updatedWord.definition,
         example: updatedWord.example,
         phonetic: updatedWord.phonetic,
+        partOfSpeech: updatedWord.partOfSpeech,
         score: updatedWord.score,
         createdAt: updatedWord.createdAt.toISOString(),
         collectionId: updatedWord.collectionId,
@@ -238,6 +244,7 @@ export async function getAllWordsAction() {
         definition: word.definition,
         example: word.example,
         phonetic: word.phonetic,
+        partOfSpeech: word.partOfSpeech,
         score: word.score,
         createdAt: word.createdAt.toISOString(),
         collectionId: word.collectionId,
@@ -295,6 +302,7 @@ export async function searchWordsAction(query: string) {
         definition: word.definition,
         example: word.example,
         phonetic: word.phonetic,
+        partOfSpeech: word.partOfSpeech,
         score: word.score,
         createdAt: word.createdAt.toISOString(),
         collectionId: word.collectionId,

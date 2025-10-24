@@ -150,9 +150,16 @@ export function QuizPlayer({
       return (
         <div className="space-y-4">
           <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold break-all px-4">
-              {currentQuestion.word.term}
-            </h2>
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <h2 className="text-2xl font-bold break-all px-4">
+                {currentQuestion.word.term}
+              </h2>
+              {currentQuestion.word.partOfSpeech && (
+                <Badge variant="outline" className="text-sm shrink-0">
+                  {currentQuestion.word.partOfSpeech}
+                </Badge>
+              )}
+            </div>
             {currentQuestion.word.phonetic && (
               <p className="text-muted-foreground break-all px-4">
                 {currentQuestion.word.phonetic}

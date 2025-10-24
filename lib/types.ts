@@ -4,6 +4,7 @@ export type Word = {
   definition: string;
   example?: string;
   phonetic?: string;
+  partOfSpeech?: string;
   createdAt: string;
   collectionId?: string;
   score?: number;

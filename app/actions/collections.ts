@@ -89,6 +89,7 @@ export async function getCollectionAction(collectionId: string) {
           definition: word.definition,
           example: word.example,
           phonetic: word.phonetic,
+          partOfSpeech: word.partOfSpeech,
           score: word.score,
           createdAt: word.createdAt.toISOString(),
           collectionId: word.collectionId,

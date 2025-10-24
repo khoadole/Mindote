@@ -45,6 +45,11 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                     {word.phonetic}
                   </span>
                 )}
+                {word.partOfSpeech && (
+                  <Badge variant="outline" className="text-xs shrink-0">
+                    {word.partOfSpeech}
+                  </Badge>
+                )}
               </div>
               <p className="text-sm text-muted-foreground line-clamp-2 mb-2 break-words">
                 {word.definition}
@@ -103,6 +108,11 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   {word.phonetic}
                 </span>
               )}
+              {word.partOfSpeech && (
+                <Badge variant="outline" className="text-xs shrink-0">
+                  {word.partOfSpeech}
+                </Badge>
+              )}
               <Button size="sm" variant="ghost" className="shrink-0">
                 <Volume2 className="h-4 w-4" />
               </Button>
@@ -128,6 +138,15 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                 >
                   "{word.example}"
                 </p>
+              </div>
+            )}
+
+            {word.partOfSpeech && (
+              <div>
+                <h4 className="font-medium mb-2">Part of Speech</h4>
+                <Badge variant="outline" className="inline-block">
+                  {word.partOfSpeech}
+                </Badge>
               </div>
             )}
 

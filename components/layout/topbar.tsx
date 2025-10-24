@@ -170,8 +170,15 @@ export function Topbar() {
                     )}
                   >
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-sm truncate">
-                        {word.term}
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium text-sm truncate">
+                          {word.term}
+                        </span>
+                        {word.partOfSpeech && (
+                          <Badge variant="outline" className="text-xs shrink-0">
+                            {word.partOfSpeech}
+                          </Badge>
+                        )}
                       </div>
                       <div className="text-xs text-muted-foreground truncate mt-1">
                         {word.definition}

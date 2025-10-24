@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useAuth } from "@/lib/auth";
-import { cn } from "@/lib/utils";
+import { cn, getUserDisplayName } from "@/lib/utils";
 
 export function Topbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -209,7 +209,7 @@ export function Topbar() {
 
           {/* Display username and Signout button */}
           <span className="text-sm text-muted-foreground">
-            {user?.user_metadata?.display_name}
+            {getUserDisplayName(user)}
           </span>
 
           <Button

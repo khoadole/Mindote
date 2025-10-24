@@ -41,7 +41,7 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
+Google_OAuth.json
 # Vercel / Turbo
 .vercel
 .turbo

@@ -16,6 +16,7 @@ type AuthHookReturn = {
     error: any;
   }>;
   signUp: (email: string, password: string, username?: string) => Promise<any>;
+  signInWithGoogle: (options?: { nonce?: string }) => Promise<any>;
   resetPassword: (
     email: string,
     options?: { redirectTo?: string }
@@ -101,6 +102,27 @@ export function useAuth(): AuthHookReturn {
     return supabase.auth.updateUser({ password });
   }, []);
 
+  const signInWithGoogle = useCallback(async (options?: { nonce?: string }) => {
+    const supabase = createClient();
+
+    const redirectTo =
+      typeof window !== "undefined"
+        ? `${window.location.origin}/auth/callback`
+        : undefined;
+
+    return supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo,
+        queryParams: {
+          access_type: "offline",
+          prompt: "consent",
+        },
+        ...(options?.nonce && { nonce: options.nonce }),
+      },
+    });
+  }, []);
+
   const signOut = useCallback(async () => {
     const supabase = createClient();
     return supabase.auth.signOut();
@@ -112,6 +134,7 @@ export function useAuth(): AuthHookReturn {
     loading,
     signIn,
     signUp,
+    signInWithGoogle,
     resetPassword,
     updatePassword,
     signOut,

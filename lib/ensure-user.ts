@@ -37,16 +37,26 @@ export async function ensureUserExists(userId: string) {
 
   try {
     // Create user in database
+    // For Google OAuth: full_name, avatar_url come from Google profile
+    // For email signup: display_name comes from form input
     const newUser = await prisma.user.create({
       data: {
         id: userId,
         email: authUser.email!,
-        username: authUser.user_metadata?.username || null,
-        displayName:
-          authUser.user_metadata?.display_name ||
+        username:
+          authUser.user_metadata?.username ||
           authUser.email?.split("@")[0] ||
           null,
-        avatarUrl: authUser.user_metadata?.avatar_url || null,
+        displayName:
+          authUser.user_metadata?.display_name ||
+          authUser.user_metadata?.full_name ||
+          authUser.user_metadata?.name ||
+          authUser.email?.split("@")[0] ||
+          null,
+        avatarUrl:
+          authUser.user_metadata?.avatar_url ||
+          authUser.user_metadata?.picture ||
+          null,
       },
     });
 

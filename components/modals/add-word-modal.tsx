@@ -5,6 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import { useCreateWord } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
+import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
   DialogContent,
@@ -23,7 +24,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Plus, Loader2 } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Plus, Loader2, AlertCircle } from "lucide-react";
+import Link from "next/link";
 
 // Common parts of speech
 const PARTS_OF_SPEECH = [
@@ -62,8 +65,26 @@ export function AddWordModal({
     collectionId || ""
   );
 
-  const { data: collections } = useCollections();
+  const { data: collections, isLoading: collectionsLoading } = useCollections();
   const createWordMutation = useCreateWord();
+  const { toast } = useToast();
+
+  // Check if user has any collections
+  const hasCollections = collections && collections.length > 0;
+
+  // Handle dialog open - check for collections first
+  const handleOpenChange = (newOpen: boolean) => {
+    if (newOpen && !collectionId && !hasCollections && !collectionsLoading) {
+      // User is trying to add word but has no collections
+      toast({
+        title: "No Collections Available",
+        description: "Please create a collection first before adding words.",
+        variant: "destructive",
+      });
+      return; // Don't open the dialog
+    }
+    setOpen(newOpen);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,12 +127,30 @@ export function AddWordModal({
   );
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Add New Word</DialogTitle>
         </DialogHeader>
+
+        {/* Warning if no collections available when dialog is open */}
+        {!collectionId && !hasCollections && (
+          <Alert variant="destructive">
+            <AlertCircle className="h-4 w-4" />
+            <AlertDescription>
+              You need to create a collection first.{" "}
+              <Link
+                href="/collections"
+                className="underline font-medium"
+                onClick={() => setOpen(false)}
+              >
+                Go to Collections
+              </Link>
+            </AlertDescription>
+          </Alert>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="term">Term</Label>
@@ -238,10 +277,16 @@ export function AddWordModal({
               <Select
                 value={selectedCollection}
                 onValueChange={setSelectedCollection}
-                disabled={createWordMutation.isPending}
+                disabled={createWordMutation.isPending || !hasCollections}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a collection" />
+                  <SelectValue
+                    placeholder={
+                      !hasCollections
+                        ? "No collections available"
+                        : "Select a collection"
+                    }
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {(collections || []).map((collection) => (
@@ -251,6 +296,11 @@ export function AddWordModal({
                   ))}
                 </SelectContent>
               </Select>
+              {!hasCollections && (
+                <p className="text-xs text-destructive">
+                  Please create a collection first
+                </p>
+              )}
             </div>
           )}
 
@@ -263,7 +313,13 @@ export function AddWordModal({
             >
               Cancel
             </Button>
-            <Button type="submit" disabled={createWordMutation.isPending}>
+            <Button
+              type="submit"
+              disabled={
+                createWordMutation.isPending ||
+                (!collectionId && !hasCollections)
+              }
+            >
               {createWordMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />

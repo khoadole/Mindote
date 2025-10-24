@@ -205,12 +205,21 @@ export default function Dashboard() {
                 ))}
               </div>
             ) : recentCollections.length === 0 ? (
-              <div className="text-center py-8">
-                <p className="text-muted-foreground mb-4">
-                  No collections yet. Create your first collection to get
-                  started!
+              <div className="text-center py-12">
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <Layers className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">
+                  No collections yet
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                  Collections help you organize your vocabulary by topics.
+                  Create your first collection to start adding words!
                 </p>
                 <CreateCollectionModal />
+                <p className="text-xs text-muted-foreground mt-4">
+                  💡 Tip: You need to create a collection before adding words
+                </p>
               </div>
             ) : (
               <div className="space-y-4">

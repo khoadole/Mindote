@@ -10,6 +10,7 @@ export type { ReviewQuality };
 
 /**
  * Get all words due for review
+ * ✅ OPTIMIZED: Use select instead of include to avoid N+1
  */
 export async function getDueWords() {
   try {
@@ -25,7 +26,20 @@ export async function getDueWords() {
           { nextReview: { lte: new Date() } }, // Due words
         ],
       },
-      include: {
+      select: {
+        id: true,
+        term: true,
+        definition: true,
+        example: true,
+        phonetic: true,
+        partOfSpeech: true,
+        score: true,
+        easeFactor: true,
+        interval: true,
+        repetitions: true,
+        lastReviewed: true,
+        nextReview: true,
+        collectionId: true,
         collection: {
           select: {
             id: true,
@@ -129,6 +143,7 @@ export async function submitReview(wordId: string, quality: ReviewQuality) {
 
 /**
  * Get due words by collection
+ * ✅ OPTIMIZED: Use select instead of include
  */
 export async function getDueWordsByCollection(collectionId: string) {
   try {
@@ -145,7 +160,20 @@ export async function getDueWordsByCollection(collectionId: string) {
           { nextReview: { lte: new Date() } }, // Due words
         ],
       },
-      include: {
+      select: {
+        id: true,
+        term: true,
+        definition: true,
+        example: true,
+        phonetic: true,
+        partOfSpeech: true,
+        score: true,
+        easeFactor: true,
+        interval: true,
+        repetitions: true,
+        lastReviewed: true,
+        nextReview: true,
+        collectionId: true,
         collection: {
           select: {
             id: true,

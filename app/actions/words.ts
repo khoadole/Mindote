@@ -218,20 +218,43 @@ export async function deleteWordAction(wordId: string) {
 
 /**
  * Get all words for current user (for Quiz and Flashcards)
+ * ✅ OPTIMIZED: Added pagination and better field selection
  */
-export async function getAllWordsAction() {
+export async function getAllWordsAction(options?: {
+  skip?: number;
+  take?: number;
+  collectionId?: string;
+}) {
   try {
     const userId = await getUserId();
+    const { skip = 0, take = 1000, collectionId } = options || {};
 
     const words = await prisma.word.findMany({
       where: {
         collection: {
           userId,
         },
+        ...(collectionId && { collectionId }),
       },
-      include: {
-        collection: true,
+      select: {
+        id: true,
+        term: true,
+        definition: true,
+        example: true,
+        phonetic: true,
+        partOfSpeech: true,
+        score: true,
+        createdAt: true,
+        collectionId: true,
+        collection: {
+          select: {
+            name: true,
+            color: true,
+          },
+        },
       },
+      skip,
+      take,
       orderBy: {
         createdAt: "desc",
       },
@@ -261,6 +284,7 @@ export async function getAllWordsAction() {
 
 /**
  * Search words across all user's collections
+ * ✅ OPTIMIZED: Better field selection and limit
  */
 export async function searchWordsAction(query: string) {
   try {
@@ -286,8 +310,22 @@ export async function searchWordsAction(query: string) {
           },
         ],
       },
-      include: {
-        collection: true,
+      select: {
+        id: true,
+        term: true,
+        definition: true,
+        example: true,
+        phonetic: true,
+        partOfSpeech: true,
+        score: true,
+        createdAt: true,
+        collectionId: true,
+        collection: {
+          select: {
+            name: true,
+            color: true,
+          },
+        },
       },
       take: 50,
       orderBy: {

@@ -45,6 +45,15 @@ const RenameCollectionModal = dynamic(
   { ssr: false }
 );
 
+// ✅ Lazy load DeleteConfirmationModal
+const DeleteConfirmationModal = dynamic(
+  () =>
+    import("@/components/modals/delete-confirmation-modal").then((mod) => ({
+      default: mod.DeleteConfirmationModal,
+    })),
+  { ssr: false }
+);
+
 export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -58,6 +67,11 @@ export default function CollectionDetailPage() {
   const deleteCollectionMutation = useDeleteCollection();
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
+  
+  // Delete modals state
+  const [deleteCollectionOpen, setDeleteCollectionOpen] = useState(false);
+  const [deleteWordOpen, setDeleteWordOpen] = useState(false);
+  const [wordToDelete, setWordToDelete] = useState<{ id: string; term: string } | null>(null);
 
   // Loading state
   if (isLoading) {
@@ -101,18 +115,25 @@ export default function CollectionDetailPage() {
   );
 
   const handleDeleteCollection = () => {
-    if (
-      confirm(
-        `Are you sure you want to delete "${collection.name}"? This will remove all words from this collection.`
-      )
-    ) {
-      deleteCollectionMutation.mutate(collection.id);
-    }
+    setDeleteCollectionOpen(true);
+  };
+
+  const handleConfirmDeleteCollection = () => {
+    deleteCollectionMutation.mutate(collection.id, {
+      onSuccess: () => {
+        router.push("/collections");
+      },
+    });
   };
 
   const handleDeleteWord = (wordId: string, wordTerm: string) => {
-    if (confirm(`Are you sure you want to delete "${wordTerm}"?`)) {
-      deleteWordMutation.mutate(wordId);
+    setWordToDelete({ id: wordId, term: wordTerm });
+    setDeleteWordOpen(true);
+  };
+
+  const handleConfirmDeleteWord = () => {
+    if (wordToDelete) {
+      deleteWordMutation.mutate(wordToDelete.id);
     }
   };
 
@@ -144,19 +165,9 @@ export default function CollectionDetailPage() {
               variant="outline"
               size="sm"
               onClick={handleDeleteCollection}
-              disabled={deleteCollectionMutation.isPending}
             >
-              {deleteCollectionMutation.isPending ? (
-                <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Deleting...
-                </>
-              ) : (
-                <>
-                  <Trash2 className="h-4 w-4 mr-2" />
-                  Delete
-                </>
-              )}
+              <Trash2 className="h-4 w-4 mr-2" />
+              Delete
             </Button>
           </div>
         </div>
@@ -302,6 +313,7 @@ export default function CollectionDetailPage() {
                     <WordCard
                       word={{
                         ...word,
+                        partOfSpeech: word.partOfSpeech ?? undefined,
                         example: word.example ?? undefined,
                         phonetic: word.phonetic ?? undefined,
                         collection: {
@@ -332,6 +344,31 @@ export default function CollectionDetailPage() {
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Delete Collection Modal */}
+      <DeleteConfirmationModal
+        open={deleteCollectionOpen}
+        onOpenChange={setDeleteCollectionOpen}
+        onConfirm={handleConfirmDeleteCollection}
+        title="Delete Collection"
+        description="This will permanently delete this collection and all its words. This action cannot be undone."
+        itemName={collection.name}
+        isPending={deleteCollectionMutation.isPending}
+      />
+
+      {/* Delete Word Modal */}
+      <DeleteConfirmationModal
+        open={deleteWordOpen}
+        onOpenChange={(open) => {
+          setDeleteWordOpen(open);
+          if (!open) setWordToDelete(null);
+        }}
+        onConfirm={handleConfirmDeleteWord}
+        title="Delete Word"
+        description="Are you sure you want to delete this word? This action cannot be undone."
+        itemName={wordToDelete?.term}
+        isPending={deleteWordMutation.isPending}
+      />
     </div>
   );
 }

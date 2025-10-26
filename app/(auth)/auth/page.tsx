@@ -60,17 +60,18 @@ export default function AuthPage() {
 
       if (error) {
         setError(getAuthErrorMessage(error));
+        setLoading(false);
       } else {
+        // Optimistic UI: Redirect immediately without waiting for toast
+        router.push("/dashboard");
+        // Toast will show briefly before redirect (non-blocking)
         toast({
           title: "Welcome back!",
           description: "You've been successfully signed in.",
         });
-        // Redirect to dashboard after successful login
-        router.push("/dashboard");
       }
     } catch (err) {
       setError("An unexpected error occurred. Please try again.");
-    } finally {
       setLoading(false);
     }
   };

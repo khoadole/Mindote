@@ -115,8 +115,9 @@ export function Topbar() {
 
   const handleSignOut = async () => {
     try {
-      await signOut();
+      // Optimistic UI: Redirect immediately, sign out in background
       router.push("/");
+      signOut(); // Don't await - let it run in background
       router.refresh();
     } catch (error) {
       console.error("Error signing out:", error);

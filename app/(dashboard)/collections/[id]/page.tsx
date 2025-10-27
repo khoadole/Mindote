@@ -67,11 +67,14 @@ export default function CollectionDetailPage() {
   const deleteCollectionMutation = useDeleteCollection();
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   // Delete modals state
   const [deleteCollectionOpen, setDeleteCollectionOpen] = useState(false);
   const [deleteWordOpen, setDeleteWordOpen] = useState(false);
-  const [wordToDelete, setWordToDelete] = useState<{ id: string; term: string } | null>(null);
+  const [wordToDelete, setWordToDelete] = useState<{
+    id: string;
+    term: string;
+  } | null>(null);
 
   // Loading state
   if (isLoading) {

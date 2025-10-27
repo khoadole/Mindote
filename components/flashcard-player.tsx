@@ -18,6 +18,7 @@ import {
   ChevronRight,
   RotateCcw,
   Volume2,
+  VolumeX,
   X,
   Zap,
   ThumbsUp,
@@ -30,6 +31,7 @@ import {
 } from "@/lib/srs";
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
+import { useTextToSpeech } from "@/hooks/use-text-to-speech";
 
 interface FlashcardPlayerProps {
   words: Word[];
@@ -56,6 +58,10 @@ export function FlashcardPlayer({
   const { updateWord } = useAppStore();
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { speak, isSpeaking, stop } = useTextToSpeech({
+    lang: "en-US",
+    rate: 0.9,
+  });
 
   useEffect(() => {
     // Shuffle words on mount
@@ -70,6 +76,7 @@ export function FlashcardPlayer({
 
   const handleNext = () => {
     setIsFlipped(false);
+    stop(); // Stop speaking when moving to next card
     if (currentIndex < shuffledWords.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
@@ -79,6 +86,7 @@ export function FlashcardPlayer({
 
   const handlePrevious = () => {
     setIsFlipped(false);
+    stop(); // Stop speaking when moving to previous card
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
@@ -88,6 +96,9 @@ export function FlashcardPlayer({
     if (isSubmitting) return;
 
     setIsSubmitting(true);
+
+    // Stop speaking when answering
+    stop();
 
     try {
       // Calculate SRS data locally (don't save to DB yet)
@@ -303,8 +314,25 @@ export function FlashcardPlayer({
                         <span className="text-lg text-muted-foreground break-words">
                           {currentWord.phonetic}
                         </span>
-                        <Button size="sm" variant="ghost" className="shrink-0">
-                          <Volume2 className="h-4 w-4" />
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="shrink-0"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (isSpeaking) {
+                              stop();
+                            } else {
+                              speak(currentWord.term);
+                            }
+                          }}
+                          title={isSpeaking ? "Stop speaking" : "Speak word"}
+                        >
+                          {isSpeaking ? (
+                            <VolumeX className="h-4 w-4 text-primary animate-pulse" />
+                          ) : (
+                            <Volume2 className="h-4 w-4" />
+                          )}
                         </Button>
                       </div>
                     )}

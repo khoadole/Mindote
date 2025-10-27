@@ -11,7 +11,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import type { Word } from "@/lib/types";
-import { Edit, Trash2, Volume2 } from "lucide-react";
+import { Edit, Trash2, Volume2, VolumeX } from "lucide-react";
+import { useTextToSpeech } from "@/hooks/use-text-to-speech";
 
 interface WordCardProps {
   word: Word & {
@@ -28,6 +29,20 @@ interface WordCardProps {
 export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
   const [showDetails, setShowDetails] = useState(false);
   const collection = word.collection;
+  const { speak, isSpeaking, stop } = useTextToSpeech({
+    lang: "en-US",
+    rate: 0.9,
+  });
+
+  const handleSpeak = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isSpeaking) {
+      stop();
+    } else {
+      // Only speak the term (vocabulary word)
+      speak(word.term);
+    }
+  };
 
   return (
     <>
@@ -113,8 +128,18 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   {word.partOfSpeech}
                 </Badge>
               )}
-              <Button size="sm" variant="ghost" className="shrink-0">
-                <Volume2 className="h-4 w-4" />
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={handleSpeak}
+                className="shrink-0"
+                title={isSpeaking ? "Stop speaking" : "Speak word"}
+              >
+                {isSpeaking ? (
+                  <VolumeX className="h-4 w-4 text-primary animate-pulse" />
+                ) : (
+                  <Volume2 className="h-4 w-4" />
+                )}
               </Button>
             </DialogTitle>
           </DialogHeader>

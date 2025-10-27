@@ -73,3 +73,17 @@ model Setting {
 
   @@map("settings")
 }
+
+model YouTubeHistory {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  url       String
+  title     String
+  videoId   String   @map("video_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, videoId])  // 1 user không duplicate cùng video
+  @@index([userId, createdAt]) // Query history nhanh
+  @@index([videoId])           // Lookup by videoId
+  @@map("youtube_history")
+}

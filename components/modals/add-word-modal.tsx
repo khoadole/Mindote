@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCreateWord } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useToast } from "@/hooks/use-toast";
@@ -46,6 +46,8 @@ interface AddWordModalProps {
   defaultTerm?: string;
   defaultDefinition?: string;
   defaultExample?: string;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 export function AddWordModal({
@@ -54,11 +56,17 @@ export function AddWordModal({
   defaultTerm = "",
   defaultDefinition = "",
   defaultExample = "",
+  open: controlledOpen,
+  onOpenChange: controlledOnOpenChange,
 }: AddWordModalProps) {
-  const [open, setOpen] = useState(false);
-  const [term, setTerm] = useState(defaultTerm);
-  const [definition, setDefinition] = useState(defaultDefinition);
-  const [example, setExample] = useState(defaultExample);
+  const [internalOpen, setInternalOpen] = useState(false);
+
+  // Use controlled or internal state
+  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
+  const setOpen = controlledOnOpenChange || setInternalOpen;
+  const [term, setTerm] = useState("");
+  const [definition, setDefinition] = useState("");
+  const [example, setExample] = useState("");
   const [phonetic, setPhonetic] = useState("");
   const [partOfSpeech, setPartOfSpeech] = useState("");
   const [selectedCollection, setSelectedCollection] = useState<string>(
@@ -68,6 +76,15 @@ export function AddWordModal({
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const createWordMutation = useCreateWord();
   const { toast } = useToast();
+
+  // Update form fields when defaults change (when modal opens with new data)
+  useEffect(() => {
+    if (open) {
+      setTerm(defaultTerm);
+      setDefinition(defaultDefinition);
+      setExample(defaultExample);
+    }
+  }, [open, defaultTerm, defaultDefinition, defaultExample]);
 
   // Check if user has any collections
   const hasCollections = collections && collections.length > 0;
@@ -128,7 +145,12 @@ export function AddWordModal({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
+      {/* Only render trigger if provided - for controlled modals, no trigger needed */}
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
+      {/* Fallback trigger for uncontrolled usage */}
+      {!trigger && controlledOpen === undefined && (
+        <DialogTrigger asChild>{defaultTrigger}</DialogTrigger>
+      )}
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Add New Word</DialogTitle>

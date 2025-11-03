@@ -4,10 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AddWordModal } from "@/components/modals/add-word-modal";
-import { useAppStore } from "@/lib/store";
-import { useAddWordModal } from "@/hooks/use-add-word-modal";
 import { BookOpen, Plus } from "lucide-react";
+import { AddWordModal } from "@/components/modals/add-word-modal";
 
 interface CapturedItem {
   id: string;
@@ -26,104 +24,128 @@ export function TranscriptViewer({
   transcript,
   videoTitle,
 }: TranscriptViewerProps) {
-  const [selectedText, setSelectedText] = useState("");
-  const [selectionPosition, setSelectionPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
   const [capturedItems, setCapturedItems] = useState<CapturedItem[]>([]);
+  const [selectedText, setSelectedText] = useState("");
+  const [showAddButton, setShowAddButton] = useState(false);
+  const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
+  const [openAddWordModal, setOpenAddWordModal] = useState(false);
   const transcriptRef = useRef<HTMLDivElement>(null);
-  const { words } = useAppStore();
-  const { isOpen, wordData, openModal, closeModal } = useAddWordModal();
-
-  const handleTextSelection = () => {
-    const selection = window.getSelection();
-    if (!selection || selection.rangeCount === 0) {
-      setSelectedText("");
-      setSelectionPosition(null);
-      return;
-    }
-
-    const selectedText = selection.toString().trim();
-    if (!selectedText) {
-      setSelectionPosition(null);
-      return;
-    }
-
-    const range = selection.getRangeAt(0);
-    const rect = range.getBoundingClientRect();
-
-    setSelectedText(selectedText);
-    setSelectionPosition({
-      x: rect.left + rect.width / 2,
-      y: rect.top - 10,
-    });
-  };
-
-  const handleSaveAsWord = () => {
-    const cleanText = selectedText.replace(/[^\w\s]/g, "").toLowerCase();
-    openModal({
-      term: cleanText,
-      definition: "",
-      example: selectedText,
-    });
-    clearSelection();
-  };
-
-  const handleSaveAsSentence = () => {
-    // Find existing words that might match
-    const wordsInSelection = words.filter((word) =>
-      selectedText.toLowerCase().includes(word.term.toLowerCase())
-    );
-
-    if (wordsInSelection.length > 0) {
-      // For demo, use the first matching word
-      const matchingWord = wordsInSelection[0];
-      openModal({
-        term: matchingWord.term,
-        definition: matchingWord.definition,
-        example: selectedText,
-      });
-    } else {
-      // Create a new captured item for later processing
-      const newItem: CapturedItem = {
-        id: Math.random().toString(36).substr(2, 9),
-        type: "sentence",
-        text: selectedText,
-        context: videoTitle,
-        timestamp: new Date().toLocaleTimeString(),
-      };
-      setCapturedItems((prev) => [...prev, newItem]);
-    }
-    clearSelection();
-  };
-
-  const clearSelection = () => {
-    window.getSelection()?.removeAllRanges();
-    setSelectedText("");
-    setSelectionPosition(null);
-  };
 
   const removeCapturedItem = (id: string) => {
     setCapturedItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const updateButtonPosition = () => {
+      const selection = window.getSelection();
+      const text = selection?.toString().trim();
+
       if (
+        text &&
+        text.length > 0 &&
         transcriptRef.current &&
-        !transcriptRef.current.contains(event.target as Node)
+        transcriptRef.current.contains(selection?.anchorNode || null)
       ) {
-        clearSelection();
+        const range = selection?.getRangeAt(0);
+        if (range) {
+          // Clone range để không ảnh hưởng selection gốc
+          const endRange = range.cloneRange();
+          endRange.collapse(false); // Collapse đến end của range (focus point)
+
+          // Lấy rects của collapsed range
+          const rects = endRange.getClientRects();
+          if (rects.length > 0) {
+            const endRect = rects[0]; // Rect đầu (và duy nhất) của collapsed range
+            const containerRect = transcriptRef.current!.getBoundingClientRect();
+            
+            // Tính vị trí tương đối với container (không phải window)
+            setSelectedText(text);
+            setButtonPosition({
+              x: endRect.right - containerRect.left + transcriptRef.current!.scrollLeft,
+              y: endRect.bottom - containerRect.top + transcriptRef.current!.scrollTop,
+            });
+            setShowAddButton(true);
+          }
+        }
+      } else {
+        setShowAddButton(false);
       }
     };
 
+    const handleSelection = () => {
+      updateButtonPosition();
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        showAddButton &&
+        !(e.target as HTMLElement).closest(".add-word-button")
+      ) {
+        setShowAddButton(false);
+      }
+    };
+
+    const handleScroll = () => {
+      // Update button position when scrolling instead of hiding
+      if (showAddButton) {
+        updateButtonPosition();
+      }
+    };
+
+    document.addEventListener("mouseup", handleSelection);
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    
+    // Listen to scroll on the transcript container
+    const transcriptContainer = transcriptRef.current;
+    if (transcriptContainer) {
+      transcriptContainer.addEventListener("scroll", handleScroll);
+    }
+    // Also listen to window scroll
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => {
+      document.removeEventListener("mouseup", handleSelection);
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (transcriptContainer) {
+        transcriptContainer.removeEventListener("scroll", handleScroll);
+      }
+      window.removeEventListener("scroll", handleScroll, true);
+    };
+  }, [showAddButton]);
+
+  const handleAddWord = () => {
+    setOpenAddWordModal(true);
+    setShowAddButton(false);
+  };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+      {/* Add Word Button - Floating at selection end */}
+      {showAddButton && (
+        <Button
+          size="sm"
+          className="add-word-button absolute z-50 shadow-lg animate-in fade-in zoom-in duration-200"
+          style={{
+            left: `${buttonPosition.x}px`,
+            top: `${buttonPosition.y}px`,
+            transform: "translate(4px, 4px)",
+          }}
+          onClick={handleAddWord}
+        >
+          <Plus className="h-3 w-3 mr-1" />
+          Add Word
+        </Button>
+      )}
+
+      {/* Add Word Modal */}
+      <AddWordModal
+        open={openAddWordModal}
+        onOpenChange={setOpenAddWordModal}
+        defaultTerm={selectedText}
+        defaultDefinition=""
+        defaultExample=""
+      />
+
       {/* Transcript */}
       <div className="lg:col-span-2">
         <Card>
@@ -142,7 +164,6 @@ export function TranscriptViewer({
             <div
               ref={transcriptRef}
               className="prose prose-sm max-w-none text-foreground leading-relaxed select-text cursor-text p-4 bg-muted/30 rounded-lg min-h-[400px] relative"
-              onMouseUp={handleTextSelection}
               style={{ userSelect: "text" }}
             >
               {transcript.split("\n").map((paragraph, index) => (
@@ -151,44 +172,6 @@ export function TranscriptViewer({
                 </p>
               ))}
             </div>
-
-            {/* Selection Toolbar */}
-            {selectedText && selectionPosition && (
-              <div
-                className="fixed z-50 bg-popover border border-border rounded-lg shadow-lg p-2 flex gap-1"
-                style={{
-                  left: selectionPosition.x - 100,
-                  top: selectionPosition.y - 60,
-                  transform: "translateX(-50%)",
-                }}
-              >
-                <Button
-                  size="sm"
-                  onClick={handleSaveAsWord}
-                  className="text-xs"
-                >
-                  <Plus className="h-3 w-3 mr-1" />
-                  Save as Word
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={handleSaveAsSentence}
-                  className="text-xs bg-transparent"
-                >
-                  <BookOpen className="h-3 w-3 mr-1" />
-                  Save Sentence
-                </Button>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={clearSelection}
-                  className="text-xs"
-                >
-                  ×
-                </Button>
-              </div>
-            )}
           </CardContent>
         </Card>
       </div>
@@ -240,14 +223,6 @@ export function TranscriptViewer({
           </CardContent>
         </Card>
       </div>
-
-      {/* Add Word Modal */}
-      <AddWordModal
-        trigger={<Button className="hidden">Hidden Trigger</Button>}
-        defaultTerm={wordData.term}
-        defaultDefinition={wordData.definition}
-        defaultExample={wordData.example}
-      />
     </div>
   );
 }

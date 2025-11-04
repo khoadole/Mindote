@@ -337,15 +337,16 @@ export default function QuizPage() {
                             </h3>
                             <p className="text-sm text-muted-foreground mb-4">
                               You'll see a sentence with a missing word and type
-                              the correct answer. Only words with examples are used.
+                              the correct answer. Only words with examples are
+                              used.
                             </p>
                             <div className="bg-muted p-4 rounded">
                               <p className="mb-2 break-words">
-                                {validQuizWords[0]?.example
-                                  ?.replace(
-                                    new RegExp(validQuizWords[0]?.term, "gi"),
-                                    "_____"
-                                  ) || "Example: She picked a shiny red _____ from the tree."}
+                                {validQuizWords[0]?.example?.replace(
+                                  new RegExp(validQuizWords[0]?.term, "gi"),
+                                  "_____"
+                                ) ||
+                                  "Example: She picked a shiny red _____ from the tree."}
                               </p>
                               <input
                                 className="w-full p-2 border rounded bg-background"
@@ -397,7 +398,9 @@ export default function QuizPage() {
                     </h3>
                     <p className="text-muted-foreground mb-4">
                       {questionType === "fill-blank"
-                        ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${validQuizWords.length} valid ${
+                        ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${
+                            validQuizWords.length
+                          } valid ${
                             validQuizWords.length === 1 ? "word" : "words"
                           }.`
                         : `You need at least 2 words to start a quiz.${
@@ -407,14 +410,15 @@ export default function QuizPage() {
                           }`}
                     </p>
                     <div className="flex gap-2 justify-center">
-                      {questionType === "fill-blank" && quizWords.length >= 2 && (
-                        <Button
-                          variant="default"
-                          onClick={() => setQuestionType("multiple-choice")}
-                        >
-                          Switch to Multiple Choice
-                        </Button>
-                      )}
+                      {questionType === "fill-blank" &&
+                        quizWords.length >= 2 && (
+                          <Button
+                            variant="default"
+                            onClick={() => setQuestionType("multiple-choice")}
+                          >
+                            Switch to Multiple Choice
+                          </Button>
+                        )}
                       <Button
                         variant="outline"
                         onClick={() => router.push("/collections")}

@@ -87,15 +87,15 @@ export function QuizPlayer({
         } else {
           // Fill in the blank - only if example contains the term
           const example = word.example?.trim();
-          
+
           // Check if example exists and contains the term (case-insensitive)
           if (!example) {
             return null; // Skip words without examples
           }
-          
+
           const termRegex = new RegExp(`\\b${word.term}\\b`, "gi");
           const hasTermInExample = termRegex.test(example);
-          
+
           if (!hasTermInExample) {
             return null; // Skip if term not found in example
           }
@@ -206,7 +206,7 @@ export function QuizPlayer({
     } else {
       // Fill in the blank
       const sentence = currentQuestion.word.example || "";
-      
+
       // Replace the term with blank using word boundary for exact match
       const termRegex = new RegExp(`\\b${currentQuestion.word.term}\\b`, "gi");
       const maskedSentence = sentence.replace(termRegex, "_____");

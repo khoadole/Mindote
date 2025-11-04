@@ -87,3 +87,16 @@ model YouTubeHistory {
   @@index([videoId])           // Lookup by videoId
   @@map("youtube_history")
 }
+
+model AIUsage {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  date      DateTime @default(now()) @db.Date  // Only store date, not time
+  count     Int      @default(0)               // Number of AI calls on this date
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, date])        // One record per user per day
+  @@index([userId, date])         // Fast lookup for daily quota check
+  @@map("ai_usage")
+}

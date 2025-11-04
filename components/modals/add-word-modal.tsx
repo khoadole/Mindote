@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useCreateWord } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useToast } from "@/hooks/use-toast";
+import { useAIFill } from "@/hooks/use-ai-fill";
 import {
   Dialog,
   DialogContent,
@@ -25,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Plus, Loader2, AlertCircle } from "lucide-react";
+import { Plus, Loader2, AlertCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 // Common parts of speech
@@ -76,6 +77,8 @@ export function AddWordModal({
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const createWordMutation = useCreateWord();
   const { toast } = useToast();
+  const { fillWord, isLoading: isAILoading, usageInfo, fetchUsageInfo } =
+    useAIFill();
 
   // Update form fields when defaults change (when modal opens with new data)
   useEffect(() => {
@@ -83,6 +86,8 @@ export function AddWordModal({
       setTerm(defaultTerm);
       setDefinition(defaultDefinition);
       setExample(defaultExample);
+      // Fetch AI usage info when modal opens
+      fetchUsageInfo();
     }
   }, [open, defaultTerm, defaultDefinition, defaultExample]);
 
@@ -101,6 +106,27 @@ export function AddWordModal({
       return; // Don't open the dialog
     }
     setOpen(newOpen);
+  };
+
+  const handleAIFill = async () => {
+    if (!term.trim()) {
+      toast({
+        title: "Enter a term first",
+        description: "Please enter a word or phrase to use AI Auto-fill",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const result = await fillWord(term);
+    if (result) {
+      // Fill the form with AI generated data
+      setTerm(result.term);
+      setDefinition(result.definition);
+      setExample(result.example);
+      setPhonetic(result.phonetic);
+      setPartOfSpeech(result.partOfSpeech);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -153,7 +179,39 @@ export function AddWordModal({
       )}
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Add New Word</DialogTitle>
+          <div className="flex items-center justify-between">
+            <DialogTitle>Add New Word</DialogTitle>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={handleAIFill}
+              disabled={isAILoading || !term.trim() || createWordMutation.isPending}
+              className="flex items-center gap-2"
+            >
+              {isAILoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Generating...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="h-4 w-4" />
+                  AI Auto-fill
+                  {usageInfo && (
+                    <span className="text-xs opacity-70">
+                      ({usageInfo.remainingUses}/3)
+                    </span>
+                  )}
+                </>
+              )}
+            </Button>
+          </div>
+          {usageInfo && usageInfo.remainingUses === 0 && (
+            <p className="text-xs text-muted-foreground mt-2">
+              You've used all free AI fills today. Upgrade to premium for unlimited access!
+            </p>
+          )}
         </DialogHeader>
 
         {/* Warning if no collections available when dialog is open */}

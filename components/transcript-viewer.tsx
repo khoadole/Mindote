@@ -56,13 +56,20 @@ export function TranscriptViewer({
           const rects = endRange.getClientRects();
           if (rects.length > 0) {
             const endRect = rects[0]; // Rect đầu (và duy nhất) của collapsed range
-            const containerRect = transcriptRef.current!.getBoundingClientRect();
-            
+            const containerRect =
+              transcriptRef.current!.getBoundingClientRect();
+
             // Tính vị trí tương đối với container (không phải window)
             setSelectedText(text);
             setButtonPosition({
-              x: endRect.right - containerRect.left + transcriptRef.current!.scrollLeft,
-              y: endRect.bottom - containerRect.top + transcriptRef.current!.scrollTop,
+              x:
+                endRect.right -
+                containerRect.left +
+                transcriptRef.current!.scrollLeft,
+              y:
+                endRect.bottom -
+                containerRect.top +
+                transcriptRef.current!.scrollTop,
             });
             setShowAddButton(true);
           }
@@ -94,7 +101,7 @@ export function TranscriptViewer({
 
     document.addEventListener("mouseup", handleSelection);
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     // Listen to scroll on the transcript container
     const transcriptContainer = transcriptRef.current;
     if (transcriptContainer) {

@@ -64,34 +64,50 @@ export function QuizPlayer({
 
   const generateQuestions = () => {
     const shuffledWords = [...words].sort(() => Math.random() - 0.5);
-    const generatedQuestions: QuizQuestion[] = shuffledWords.map((word) => {
-      if (mode === "multiple-choice") {
-        // Generate distractors from other words
-        const otherWords = words.filter((w) => w.id !== word.id);
-        const distractors = otherWords
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3)
-          .map((w) => w.definition);
+    const generatedQuestions: QuizQuestion[] = shuffledWords
+      .map((word): QuizQuestion | null => {
+        if (mode === "multiple-choice") {
+          // Generate distractors from other words
+          const otherWords = words.filter((w) => w.id !== word.id);
+          const distractors = otherWords
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3)
+            .map((w) => w.definition);
 
-        const options = [word.definition, ...distractors].sort(
-          () => Math.random() - 0.5
-        );
+          const options = [word.definition, ...distractors].sort(
+            () => Math.random() - 0.5
+          );
 
-        return {
-          word,
-          type: "multiple-choice" as const,
-          options,
-          correctAnswer: word.definition,
-        };
-      } else {
-        // Fill in the blank
-        return {
-          word,
-          type: "fill-blank" as const,
-          correctAnswer: word.term,
-        };
-      }
-    });
+          return {
+            word,
+            type: "multiple-choice" as const,
+            options,
+            correctAnswer: word.definition,
+          };
+        } else {
+          // Fill in the blank - only if example contains the term
+          const example = word.example?.trim();
+          
+          // Check if example exists and contains the term (case-insensitive)
+          if (!example) {
+            return null; // Skip words without examples
+          }
+          
+          const termRegex = new RegExp(`\\b${word.term}\\b`, "gi");
+          const hasTermInExample = termRegex.test(example);
+          
+          if (!hasTermInExample) {
+            return null; // Skip if term not found in example
+          }
+
+          return {
+            word,
+            type: "fill-blank" as const,
+            correctAnswer: word.term,
+          };
+        }
+      })
+      .filter((q): q is QuizQuestion => q !== null); // Remove null questions
 
     setQuestions(generatedQuestions);
   };
@@ -189,17 +205,17 @@ export function QuizPlayer({
       );
     } else {
       // Fill in the blank
-      const sentence = currentQuestion.word.example || `The word is: ____`;
-      const maskedSentence = sentence.replace(
-        new RegExp(currentQuestion.word.term, "gi"),
-        "____"
-      );
+      const sentence = currentQuestion.word.example || "";
+      
+      // Replace the term with blank using word boundary for exact match
+      const termRegex = new RegExp(`\\b${currentQuestion.word.term}\\b`, "gi");
+      const maskedSentence = sentence.replace(termRegex, "_____");
 
       return (
         <div className="space-y-4">
           <div className="text-center space-y-2">
             <p className="text-lg mb-6">Fill in the blank:</p>
-            <div className="text-xl font-medium p-4 bg-muted rounded-lg break-all">
+            <div className="text-xl font-medium p-4 bg-muted rounded-lg break-all whitespace-pre-wrap">
               {maskedSentence}
             </div>
           </div>
@@ -210,6 +226,7 @@ export function QuizPlayer({
               onChange={(e) => setUserAnswer(e.target.value)}
               placeholder="Type your answer..."
               disabled={showFeedback}
+              autoFocus
               onKeyDown={(e) => {
                 if (e.key === "Enter" && userAnswer.trim() && !showFeedback) {
                   handleAnswer(userAnswer);

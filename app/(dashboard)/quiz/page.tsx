@@ -88,14 +88,40 @@ export default function QuizPage() {
 
   const quizWords = getQuizWords();
 
+  // For fill-blank mode, count only words with examples that contain the term
+  const getValidFillBlankWords = () => {
+    return quizWords.filter((word) => {
+      const example = word.example?.trim();
+      if (!example) return false;
+      const termRegex = new RegExp(`\\b${word.term}\\b`, "gi");
+      return termRegex.test(example);
+    });
+  };
+
+  const validQuizWords =
+    questionType === "fill-blank" ? getValidFillBlankWords() : quizWords;
+
   const handleStartQuiz = () => {
-    if (quizWords.length < 2) {
-      toast({
-        title: "Not enough words",
-        description: "You need at least 2 words to start a quiz.",
-        variant: "destructive",
-      });
-      return;
+    if (questionType === "fill-blank") {
+      const validWords = getValidFillBlankWords();
+      if (validWords.length < 2) {
+        toast({
+          title: "Not enough words with examples",
+          description:
+            "Fill-blank mode requires at least 2 words with examples that contain the term. Try adding more example sentences or switch to Multiple Choice mode.",
+          variant: "destructive",
+        });
+        return;
+      }
+    } else {
+      if (quizWords.length < 2) {
+        toast({
+          title: "Not enough words",
+          description: "You need at least 2 words to start a quiz.",
+          variant: "destructive",
+        });
+        return;
+      }
     }
     setIsQuizzing(true);
   };
@@ -133,7 +159,7 @@ export default function QuizPage() {
     return (
       <div className="p-6">
         <QuizPlayer
-          words={quizWords as any}
+          words={validQuizWords as any}
           mode={questionType}
           onComplete={handleQuizComplete}
           onExit={handleExit}
@@ -241,11 +267,18 @@ export default function QuizPage() {
                 <Button
                   onClick={handleStartQuiz}
                   className="w-full hover:scale-105 transition-transform"
-                  disabled={quizWords.length < 2}
+                  disabled={validQuizWords.length < 2}
                 >
                   <Play className="h-4 w-4 mr-2" />
                   Start Quiz
                 </Button>
+                {questionType === "fill-blank" &&
+                  validQuizWords.length < quizWords.length && (
+                    <p className="text-xs text-muted-foreground text-center">
+                      {validQuizWords.length} of {quizWords.length} words have
+                      valid examples
+                    </p>
+                  )}
               </CardContent>
             </Card>
           </div>
@@ -260,7 +293,7 @@ export default function QuizPage() {
                 <CardTitle>Quiz Preview</CardTitle>
               </CardHeader>
               <CardContent>
-                {quizWords.length >= 2 ? (
+                {validQuizWords.length >= 2 ? (
                   <div className="space-y-4">
                     <Tabs value={questionType} className="w-full">
                       <TabsContent value="multiple-choice">
@@ -304,14 +337,15 @@ export default function QuizPage() {
                             </h3>
                             <p className="text-sm text-muted-foreground mb-4">
                               You'll see a sentence with a missing word and type
-                              the correct answer.
+                              the correct answer. Only words with examples are used.
                             </p>
                             <div className="bg-muted p-4 rounded">
-                              <p className="mb-2">
-                                {quizWords[0]?.example?.replace(
-                                  new RegExp(quizWords[0]?.term, "gi"),
-                                  "____"
-                                ) || "The word is: ____"}
+                              <p className="mb-2 break-words">
+                                {validQuizWords[0]?.example
+                                  ?.replace(
+                                    new RegExp(validQuizWords[0]?.term, "gi"),
+                                    "_____"
+                                  ) || "Example: She picked a shiny red _____ from the tree."}
                               </p>
                               <input
                                 className="w-full p-2 border rounded bg-background"
@@ -327,7 +361,7 @@ export default function QuizPage() {
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
                         <div className="text-2xl font-bold text-primary">
-                          {quizWords.length}
+                          {validQuizWords.length}
                         </div>
                         <p className="text-sm text-muted-foreground">
                           Questions
@@ -335,7 +369,7 @@ export default function QuizPage() {
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-accent">
-                          {Math.ceil(quizWords.length * 1.5)}
+                          {Math.ceil(validQuizWords.length * 1.5)}
                         </div>
                         <p className="text-sm text-muted-foreground">
                           Est. Minutes
@@ -357,20 +391,37 @@ export default function QuizPage() {
                   <div className="text-center p-8">
                     <CheckCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                     <h3 className="text-lg font-semibold mb-2">
-                      Not Enough Words
+                      {questionType === "fill-blank"
+                        ? "Not Enough Words with Examples"
+                        : "Not Enough Words"}
                     </h3>
                     <p className="text-muted-foreground mb-4">
-                      You need at least 2 words to start a quiz.
-                      {selectedScope === "all"
-                        ? " Add more words to your vocabulary."
-                        : " This collection needs more words."}
+                      {questionType === "fill-blank"
+                        ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${validQuizWords.length} valid ${
+                            validQuizWords.length === 1 ? "word" : "words"
+                          }.`
+                        : `You need at least 2 words to start a quiz.${
+                            selectedScope === "all"
+                              ? " Add more words to your vocabulary."
+                              : " This collection needs more words."
+                          }`}
                     </p>
-                    <Button
-                      variant="outline"
-                      onClick={() => router.push("/collections")}
-                    >
-                      Go to Collections
-                    </Button>
+                    <div className="flex gap-2 justify-center">
+                      {questionType === "fill-blank" && quizWords.length >= 2 && (
+                        <Button
+                          variant="default"
+                          onClick={() => setQuestionType("multiple-choice")}
+                        >
+                          Switch to Multiple Choice
+                        </Button>
+                      )}
+                      <Button
+                        variant="outline"
+                        onClick={() => router.push("/collections")}
+                      >
+                        Go to Collections
+                      </Button>
+                    </div>
                   </div>
                 )}
               </CardContent>

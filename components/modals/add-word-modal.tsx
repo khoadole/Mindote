@@ -77,8 +77,12 @@ export function AddWordModal({
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const createWordMutation = useCreateWord();
   const { toast } = useToast();
-  const { fillWord, isLoading: isAILoading, usageInfo, fetchUsageInfo } =
-    useAIFill();
+  const {
+    fillWord,
+    isLoading: isAILoading,
+    usageInfo,
+    fetchUsageInfo,
+  } = useAIFill();
 
   // Update form fields when defaults change (when modal opens with new data)
   useEffect(() => {
@@ -186,7 +190,9 @@ export function AddWordModal({
               variant="outline"
               size="sm"
               onClick={handleAIFill}
-              disabled={isAILoading || !term.trim() || createWordMutation.isPending}
+              disabled={
+                isAILoading || !term.trim() || createWordMutation.isPending
+              }
               className="flex items-center gap-2"
             >
               {isAILoading ? (
@@ -209,7 +215,8 @@ export function AddWordModal({
           </div>
           {usageInfo && usageInfo.remainingUses === 0 && (
             <p className="text-xs text-muted-foreground mt-2">
-              You've used all free AI fills today. Upgrade to premium for unlimited access!
+              You've used all free AI fills today. Upgrade to premium for
+              unlimited access!
             </p>
           )}
         </DialogHeader>

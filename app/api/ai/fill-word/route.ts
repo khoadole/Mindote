@@ -29,10 +29,7 @@ export async function POST(request: NextRequest) {
     const { term } = body;
 
     if (!term || typeof term !== "string" || term.trim().length === 0) {
-      return NextResponse.json(
-        { error: "Term is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Term is required" }, { status: 400 });
     }
 
     // Check daily usage quota
@@ -143,7 +140,9 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
       remainingUses,
       message:
         remainingUses > 0
-          ? `${remainingUses} AI fill${remainingUses === 1 ? "" : "s"} remaining today`
+          ? `${remainingUses} AI fill${
+              remainingUses === 1 ? "" : "s"
+            } remaining today`
           : "Last AI fill for today! Upgrade for unlimited access.",
     });
   } catch (error: any) {

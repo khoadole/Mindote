@@ -62,13 +62,15 @@ export default function AuthPage() {
         setError(getAuthErrorMessage(error));
         setLoading(false);
       } else {
-        // Optimistic UI: Redirect immediately without waiting for toast
-        router.push("/dashboard");
-        // Toast will show briefly before redirect (non-blocking)
+        // Show toast and use hard redirect to ensure cookies are loaded
         toast({
           title: "Welcome back!",
           description: "You've been successfully signed in.",
         });
+        // Small delay to let toast show, then hard redirect
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 300);
       }
     } catch (err) {
       setError("An unexpected error occurred. Please try again.");

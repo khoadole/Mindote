@@ -119,10 +119,10 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
 
   const handleSignOut = async () => {
     try {
-      // Optimistic UI: Redirect immediately, sign out in background
-      router.push("/");
-      signOut(); // Don't await - let it run in background
-      router.refresh();
+      // Await sign out before redirecting
+      await signOut();
+      // Hard redirect to clear all cache
+      window.location.href = "/";
     } catch (error) {
       console.error("Error signing out:", error);
     }

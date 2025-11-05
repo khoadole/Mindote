@@ -24,13 +24,24 @@ export async function GET(request: Request) {
       const forwardedHost = request.headers.get("x-forwarded-host");
       const isLocalEnv = process.env.NODE_ENV === "development";
 
+      // Create response with redirect
+      let redirectUrl: string;
       if (isLocalEnv) {
-        return NextResponse.redirect(`${origin}${next}`);
+        redirectUrl = `${origin}${next}`;
       } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${next}`);
+        redirectUrl = `https://${forwardedHost}${next}`;
       } else {
-        return NextResponse.redirect(`${origin}${next}`);
+        redirectUrl = `${origin}${next}`;
       }
+
+      // Add cache control headers to prevent stale cached redirects
+      const response = NextResponse.redirect(redirectUrl);
+      response.headers.set(
+        "Cache-Control",
+        "no-store, no-cache, must-revalidate"
+      );
+      response.headers.set("Pragma", "no-cache");
+      return response;
     }
 
     // If there's an error, log it and redirect to error page

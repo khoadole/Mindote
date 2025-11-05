@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import { useState } from "react";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
 import { GlobalSaveIndicator } from "@/components/global-save-indicator";
@@ -10,8 +11,10 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
   return (
-    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-4 gap-4">
+    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden md:p-4 md:gap-4">
       {/* Animated background gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" />
@@ -25,14 +28,34 @@ export default function DashboardLayout({
         />
       </div>
 
+      {/* Mobile Sidebar Overlay */}
+      {isMobileSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar Container - Bo tròn riêng */}
-      <div className="relative z-10 content-rounded-lg overflow-hidden shadow-2xl">
-        <Sidebar />
+      <div
+        className={`
+          fixed md:relative z-50 md:z-10
+          h-full
+          transition-transform duration-300 ease-in-out
+          md:content-rounded-lg overflow-hidden md:shadow-2xl
+          ${
+            isMobileSidebarOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0"
+          }
+        `}
+      >
+        <Sidebar onMobileClose={() => setIsMobileSidebarOpen(false)} />
       </div>
 
       {/* Main Content Container - Bo tròn riêng */}
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10 content-rounded-lg bg-background/80 backdrop-blur-xl shadow-2xl">
-        <Topbar />
+      <div className="flex-1 flex flex-col overflow-hidden relative z-10 md:content-rounded-lg bg-background md:bg-background/80 md:backdrop-blur-xl md:shadow-2xl">
+        <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
 

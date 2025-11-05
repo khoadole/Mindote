@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Search, User, LogOut, X } from "lucide-react";
+import { Search, User, LogOut, X, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +11,11 @@ import { useCollections } from "@/hooks/use-collections";
 import { useAuth } from "@/lib/auth";
 import { cn, getUserDisplayName } from "@/lib/utils";
 
-export function Topbar() {
+interface TopbarProps {
+  onMobileMenuClick?: () => void;
+}
+
+export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -133,31 +137,41 @@ export function Topbar() {
   };
 
   return (
-    <header className="h-20 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
-      <div className="flex h-full items-center justify-between px-6">
-        <div className="flex items-center space-x-4">
-          <div>
-            <h2 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+    <header className="h-16 md:h-20 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
+      <div className="flex h-full items-center justify-between px-4 md:px-6 gap-2 md:gap-4">
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onMobileMenuClick}
+          className="md:hidden shrink-0 h-10 w-10 p-0 rounded-xl"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+
+        <div className="flex items-center space-x-2 md:space-x-4 min-w-0 flex-1 md:flex-initial">
+          <div className="min-w-0">
+            <h2 className="text-base md:text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent truncate">
               {getGreeting()}, {getUserDisplayName(user)}! 👋
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground hidden sm:block">
               Ready to expand your vocabulary?
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4 shrink-0">
           {/* Search with Dropdown */}
-          <div className="relative" ref={searchRef}>
+          <div className="relative hidden md:block" ref={searchRef}>
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
             <Input
-              placeholder="Search words... (⌘K)"
+              placeholder="Search words... (/)"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
               onKeyDown={handleKeyDown}
               onFocus={() => searchQuery.trim() && setIsOpen(true)}
               className={cn(
-                "w-80 pl-11 pr-10 h-11 rounded-2xl transition-all duration-300",
+                "w-64 lg:w-80 pl-11 pr-10 h-11 rounded-2xl transition-all duration-300",
                 "border-2 border-transparent",
                 "focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10",
                 "bg-muted/50 hover:bg-muted/70"
@@ -229,8 +243,8 @@ export function Topbar() {
           </div>
 
           {/* User section */}
-          <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-2xl bg-muted/50">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-2xl bg-muted/50">
               <User className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium">
                 {getUserDisplayName(user)}
@@ -241,10 +255,10 @@ export function Topbar() {
               variant="ghost"
               size="sm"
               onClick={handleSignOut}
-              className="gap-2 rounded-xl hover:bg-destructive/10 hover:text-destructive transition-colors"
+              className="gap-2 rounded-xl hover:bg-destructive/10 hover:text-destructive transition-colors h-10 px-3"
             >
               <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Sign out</span>
+              <span className="hidden md:inline">Sign out</span>
             </Button>
           </div>
         </div>

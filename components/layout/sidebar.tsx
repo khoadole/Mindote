@@ -50,9 +50,10 @@ const navigation = [
 
 interface SidebarProps {
   className?: string;
+  onMobileClose?: () => void;
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
   const pathname = usePathname();
@@ -123,7 +124,11 @@ export function Sidebar({ className }: SidebarProps) {
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link key={item.name} href={item.href}>
+              <Link 
+                key={item.name} 
+                href={item.href}
+                onClick={() => onMobileClose?.()}
+              >
                 <div
                   className={cn(
                     "group relative transition-all duration-300",

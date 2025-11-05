@@ -62,16 +62,16 @@ export default function Dashboard() {
   const hasStats = !!stats;
 
   return (
-    <div className="p-8 bg-gradient-to-br from-background via-background to-muted/20 min-h-screen">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="p-4 md:p-8 bg-gradient-to-br from-background via-background to-muted/20 min-h-screen">
+      <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
         {/* Hero Section */}
         <div className="animate-in fade-in slide-in-from-top-2 duration-500">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
             <div>
-              <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Your Learning Journey
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-sm md:text-lg">
                 Track your progress and keep learning every day 🚀
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function Dashboard() {
 
         {/* Quick Actions - Show immediately */}
         <div
-          className="flex flex-wrap gap-3 animate-in fade-in slide-in-from-top-2 duration-500"
+          className="flex flex-wrap gap-2 md:gap-3 animate-in fade-in slide-in-from-top-2 duration-500"
           style={{ animationDelay: "100ms" }}
         >
           <AddWordModal

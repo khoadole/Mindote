@@ -124,8 +124,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link 
-                key={item.name} 
+              <Link
+                key={item.name}
                 href={item.href}
                 onClick={() => onMobileClose?.()}
               >

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,15 +16,36 @@ import {
   Menu,
   X,
   Sparkles,
+  ChevronRight,
 } from "lucide-react";
 import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
 
 const navigation = [
-  { name: "Dashboard", href: "/dashboard", icon: BookOpen },
-  { name: "Collections", href: "/collections", icon: Layers },
-  { name: "Flashcards", href: "/flashcards", icon: Cards },
-  { name: "Quiz", href: "/quiz", icon: CheckCircle },
-  { name: "YouTube Notes", href: "/youtube", icon: Youtube },
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: BookOpen,
+    color: "text-purple-400",
+  },
+  {
+    name: "Collections",
+    href: "/collections",
+    icon: Layers,
+    color: "text-blue-400",
+  },
+  {
+    name: "Flashcards",
+    href: "/flashcards",
+    icon: Cards,
+    color: "text-pink-400",
+  },
+  { name: "Quiz", href: "/quiz", icon: CheckCircle, color: "text-green-400" },
+  {
+    name: "YouTube Notes",
+    href: "/youtube",
+    icon: Youtube,
+    color: "text-red-400",
+  },
 ];
 
 interface SidebarProps {
@@ -38,115 +60,191 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div
       className={cn(
-        "flex h-screen flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
-        isCollapsed ? "w-16" : "w-64",
+        "flex h-full flex-col bg-sidebar transition-all duration-300 relative",
+        isCollapsed ? "w-20" : "w-72",
         className
       )}
     >
-      {/* Header */}
-      <div
-        className={cn(
-          "flex h-16 items-center border-b border-sidebar-border px-4",
-          isCollapsed ? "justify-center" : "justify-between"
-        )}
-      >
-        {!isCollapsed && (
-          <h1 className="text-xl font-bold text-sidebar-foreground">Mindote</h1>
-        )}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className="text-sidebar-foreground hover:bg-sidebar-accent"
-        >
-          {isCollapsed ? (
-            <Menu className="h-4 w-4" />
-          ) : (
-            <X className="h-4 w-4" />
-          )}
-        </Button>
-      </div>
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sidebar via-sidebar to-sidebar/95 pointer-events-none" />
 
-      {/* Navigation */}
-      <nav className="flex-1 space-y-1 p-4">
-        {navigation.map((item) => {
-          const isActive = pathname === item.href;
-          return (
-            <Link key={item.name} href={item.href}>
-              <Button
-                variant={isActive ? "default" : "ghost"}
-                className={cn(
-                  "w-full text-sidebar-foreground transition-all duration-300",
-                  isActive
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
-                  isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
-                )}
-              >
-                <item.icon
-                  className={cn(
-                    "h-5 w-5 transition-all duration-300",
-                    !isCollapsed && "mr-3"
-                  )}
-                />
-                {!isCollapsed && (
-                  <span className="transition-opacity duration-300">
-                    {item.name}
-                  </span>
-                )}
-              </Button>
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Bottom Section */}
-      <div className="border-t border-sidebar-border p-4 space-y-2">
-        {/* Upgrade Plan Button */}
-        <Button
-          variant="default"
-          onClick={() => setIsUpgradeModalOpen(true)}
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Header with Logo */}
+        <div
           className={cn(
-            "w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white transition-all duration-300",
-            isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
+            "flex h-20 items-center mb-4",
+            isCollapsed ? "justify-center px-2" : "justify-between px-5"
           )}
         >
-          <Sparkles
-            className={cn(
-              "h-5 w-5 transition-all duration-300",
-              !isCollapsed && "mr-3"
-            )}
-          />
+          {/* Logo Section - Only show when expanded */}
           {!isCollapsed && (
-            <span className="transition-opacity duration-300">
-              Upgrade Plan
-            </span>
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-1.5">
+                <Image
+                  src="/logo_black_transparent.png"
+                  alt="Mindote Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-sidebar-foreground tracking-tight">
+                  Mindote
+                </h1>
+                <p className="text-xs text-sidebar-foreground/60">
+                  Learn smarter
+                </p>
+              </div>
+            </div>
           )}
-        </Button>
 
-        {/* Settings Link */}
-        <Link href="/settings">
+          {/* Toggle Button */}
           <Button
-            variant={pathname === "/settings" ? "default" : "ghost"}
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsCollapsed(!isCollapsed)}
             className={cn(
-              "w-full text-sidebar-foreground transition-all duration-300",
-              pathname === "/settings"
-                ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                : "hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-900 dark:hover:text-purple-100",
-              isCollapsed ? "justify-center h-10 w-10 p-0" : "justify-start"
+              "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-white/10 rounded-xl transition-all",
+              isCollapsed ? "w-10 h-10 p-0" : "shrink-0"
             )}
           >
-            <Settings
+            {isCollapsed ? (
+              <ChevronRight className="h-4 w-4" />
+            ) : (
+              <X className="h-4 w-4" />
+            )}
+          </Button>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 px-3 space-y-2 overflow-y-auto">
+          {navigation.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link key={item.name} href={item.href}>
+                <div
+                  className={cn(
+                    "group relative transition-all duration-300",
+                    isCollapsed ? "flex justify-center" : ""
+                  )}
+                >
+                  {/* Active indicator */}
+                  {isActive && !isCollapsed && (
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-r-full animate-pulse-glow" />
+                  )}
+
+                  <Button
+                    variant="ghost"
+                    className={cn(
+                      "w-full text-sidebar-foreground transition-all duration-300 content-rounded relative overflow-hidden",
+                      isActive
+                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-white shadow-lg shadow-primary/20"
+                        : "hover:bg-white/5 hover:translate-x-1",
+                      isCollapsed
+                        ? "justify-center h-12 w-12 p-0"
+                        : "justify-start h-12 pl-6"
+                    )}
+                  >
+                    {/* Hover glow effect */}
+                    <div
+                      className={cn(
+                        "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                        "bg-gradient-to-r from-primary/10 to-accent/10"
+                      )}
+                    />
+
+                    <item.icon
+                      className={cn(
+                        "h-5 w-5 transition-all duration-300 relative z-10",
+                        isActive
+                          ? item.color
+                          : "text-sidebar-foreground/70 group-hover:text-sidebar-foreground",
+                        !isCollapsed && "mr-3"
+                      )}
+                    />
+                    {!isCollapsed && (
+                      <span
+                        className={cn(
+                          "transition-all duration-300 font-medium relative z-10",
+                          isActive
+                            ? "text-white"
+                            : "text-sidebar-foreground/80 group-hover:text-sidebar-foreground"
+                        )}
+                      >
+                        {item.name}
+                      </span>
+                    )}
+
+                    {/* Active shine effect */}
+                    {isActive && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 animate-shimmer" />
+                    )}
+                  </Button>
+                </div>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Bottom Section */}
+        <div className="p-3 space-y-2 border-t border-white/10">
+          {/* Upgrade Plan Button */}
+          <Button
+            variant="default"
+            onClick={() => setIsUpgradeModalOpen(true)}
+            className={cn(
+              "w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600",
+              "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 content-rounded",
+              "hover:scale-105 hover:shadow-xl hover:shadow-purple-500/40",
+              "animate-pulse-glow",
+              isCollapsed
+                ? "justify-center h-12 w-12 p-0"
+                : "justify-start h-12"
+            )}
+          >
+            <Sparkles
               className={cn(
                 "h-5 w-5 transition-all duration-300",
-                !isCollapsed && "mr-3"
+                !isCollapsed && "mr-2"
               )}
             />
             {!isCollapsed && (
-              <span className="transition-opacity duration-300">Settings</span>
+              <span className="transition-opacity duration-300">
+                Upgrade Pro
+              </span>
             )}
           </Button>
-        </Link>
+
+          {/* Settings Link */}
+          <Link href="/settings">
+            <Button
+              variant="ghost"
+              className={cn(
+                "w-full text-sidebar-foreground transition-all duration-300 content-rounded",
+                pathname === "/settings"
+                  ? "bg-white/10 text-white"
+                  : "hover:bg-white/5 hover:text-white",
+                isCollapsed
+                  ? "justify-center h-12 w-12 p-0"
+                  : "justify-start h-12"
+              )}
+            >
+              <Settings
+                className={cn(
+                  "h-5 w-5 transition-all duration-300",
+                  !isCollapsed && "mr-3"
+                )}
+              />
+              {!isCollapsed && (
+                <span className="transition-opacity duration-300 font-medium">
+                  Settings
+                </span>
+              )}
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Upgrade Plan Modal */}
@@ -157,3 +255,5 @@ export function Sidebar({ className }: SidebarProps) {
     </div>
   );
 }
+
+/* Add shimmer animation to globals.css if not already present */

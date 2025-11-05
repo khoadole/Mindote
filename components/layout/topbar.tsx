@@ -124,29 +124,49 @@ export function Topbar() {
     }
   };
 
+  // Get greeting based on time
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 18) return "Good afternoon";
+    return "Good evening";
+  };
+
   return (
-    <header className="h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="h-20 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
       <div className="flex h-full items-center justify-between px-6">
         <div className="flex items-center space-x-4">
-          <h2 className="text-lg font-semibold">Hi, ready to learn?</h2>
+          <div>
+            <h2 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              {getGreeting()}, {getUserDisplayName(user)}! 👋
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Ready to expand your vocabulary?
+            </p>
+          </div>
         </div>
 
         <div className="flex items-center space-x-4">
           {/* Search with Dropdown */}
           <div className="relative" ref={searchRef}>
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
             <Input
-              placeholder="Search words..."
+              placeholder="Search words... (⌘K)"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
               onKeyDown={handleKeyDown}
               onFocus={() => searchQuery.trim() && setIsOpen(true)}
-              className="w-64 pl-10 pr-8"
+              className={cn(
+                "w-80 pl-11 pr-10 h-11 rounded-2xl transition-all duration-300",
+                "border-2 border-transparent",
+                "focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10",
+                "bg-muted/50 hover:bg-muted/70"
+              )}
             />
             {searchQuery && (
               <button
                 onClick={handleClearSearch}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground z-10"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground z-10 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -156,7 +176,7 @@ export function Topbar() {
             {isOpen && filteredWords.length > 0 && (
               <div
                 ref={dropdownRef}
-                className="absolute top-full mt-2 w-full bg-background border border-border rounded-lg shadow-lg max-h-96 overflow-y-auto z-50"
+                className="absolute top-full mt-3 w-full bg-background/95 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl shadow-primary/10 max-h-96 overflow-y-auto z-50"
               >
                 {filteredWords.slice(0, 10).map((word, index) => (
                   <button
@@ -208,20 +228,25 @@ export function Topbar() {
             )}
           </div>
 
-          {/* Display username and Signout button */}
-          <span className="text-sm text-muted-foreground">
-            {getUserDisplayName(user)}
-          </span>
+          {/* User section */}
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-2xl bg-muted/50">
+              <User className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">
+                {getUserDisplayName(user)}
+              </span>
+            </div>
 
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleSignOut}
-            className="gap-2"
-          >
-            <LogOut className="h-4 w-4" />
-            Sign out
-          </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleSignOut}
+              className="gap-2 rounded-xl hover:bg-destructive/10 hover:text-destructive transition-colors"
+            >
+              <LogOut className="h-4 w-4" />
+              <span className="hidden sm:inline">Sign out</span>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

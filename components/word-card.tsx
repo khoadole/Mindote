@@ -61,9 +61,9 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
         {/* Gradient overlay */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity bg-gradient-to-br from-primary via-accent to-primary pointer-events-none" />
 
-        <CardContent className="p-5 relative">
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex-1 min-w-0">
+        <CardContent className="p-5 relative h-[200px] flex flex-col">
+          <div className="flex items-start justify-between gap-3 flex-1">
+            <div className="flex-1 min-w-0 flex flex-col">
               <div className="flex items-center gap-2 mb-3">
                 <h3 className="font-bold text-xl truncate group-hover:text-primary transition-colors">
                   {word.term}
@@ -82,36 +82,36 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-2 mb-3 flex-wrap">
+              <div className="flex items-center gap-2 mb-3 flex-wrap min-h-[24px]">
                 {word.phonetic && (
                   <Badge
                     variant="outline"
-                    className="text-xs font-mono shrink-0 rounded-lg"
+                    className="text-xs font-mono shrink-0 rounded-lg truncate max-w-[120px]"
                   >
                     {word.phonetic}
                   </Badge>
                 )}
                 {word.partOfSpeech && (
-                  <Badge className="text-xs shrink-0 rounded-lg bg-primary/10 text-primary border-primary/20">
+                  <Badge className="text-xs shrink-0 rounded-lg bg-primary/10 text-primary border-primary/20 truncate max-w-[100px]">
                     {word.partOfSpeech}
                   </Badge>
                 )}
               </div>
 
-              <p className="text-sm text-muted-foreground line-clamp-2 mb-3 break-words leading-relaxed">
+              <p className="text-sm text-muted-foreground line-clamp-3 mb-3 leading-relaxed flex-1">
                 {word.definition}
               </p>
 
               {collection && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mt-auto">
                   <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={`h-2 w-2 rounded-full shrink-0 ${
                       collection.color || "bg-primary"
                     }`}
                   />
                   <Badge
                     variant="secondary"
-                    className="text-xs truncate max-w-full rounded-lg"
+                    className="text-xs rounded-lg truncate max-w-[180px]"
                   >
                     {collection.name}
                   </Badge>

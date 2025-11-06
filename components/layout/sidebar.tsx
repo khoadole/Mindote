@@ -62,6 +62,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
     <div
       className={cn(
         "flex h-full flex-col bg-sidebar transition-all duration-300 relative",
+        "rounded-2xl overflow-hidden",
         isCollapsed ? "w-20" : "w-72",
         className
       )}

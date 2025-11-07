@@ -10,12 +10,18 @@ export type { ReviewQuality };
 
 /**
  * Get all words due for review
- * ✅ OPTIMIZED: Use select instead of include to avoid N+1
+ * ✅ OPTIMIZED: Fixed N+1 query by removing nested collection select
+ * Collection data loaded separately for unique collections only
  */
-export async function getDueWords() {
+export async function getDueWords(options?: {
+  limit?: number;
+  offset?: number;
+}) {
   try {
     const userId = await getUserId();
+    const { limit = 100, offset = 0 } = options || {};
 
+    // Get due words without collection data (single query)
     const words = await prisma.word.findMany({
       where: {
         collection: {
@@ -40,20 +46,46 @@ export async function getDueWords() {
         lastReviewed: true,
         nextReview: true,
         collectionId: true,
-        collection: {
-          select: {
-            id: true,
-            name: true,
-            color: true,
-          },
-        },
       },
       orderBy: {
         nextReview: "asc",
       },
+      take: limit,
+      skip: offset,
     });
 
-    return { success: true, words };
+    // Get unique collection IDs
+    const collectionIds = [...new Set(words.map((w) => w.collectionId))];
+
+    // Batch load collections (single query for all unique collections)
+    const collections = await prisma.collection.findMany({
+      where: {
+        id: { in: collectionIds },
+        userId, // Security: verify ownership
+      },
+      select: {
+        id: true,
+        name: true,
+        color: true,
+      },
+    });
+
+    // Create collection map for O(1) lookup
+    const collectionMap = new Map(
+      collections.map((c) => [c.id, { id: c.id, name: c.name, color: c.color }])
+    );
+
+    // Attach collection data to words
+    const wordsWithCollection = words.map((word) => ({
+      ...word,
+      collection: collectionMap.get(word.collectionId) || {
+        id: word.collectionId,
+        name: "Unknown",
+        color: "#gray",
+      },
+    }));
+
+    return { success: true, words: wordsWithCollection };
   } catch (error) {
     console.error("Error fetching due words:", error);
     return { success: false, error: "Failed to fetch due words" };
@@ -143,12 +175,37 @@ export async function submitReview(wordId: string, quality: ReviewQuality) {
 
 /**
  * Get due words by collection
- * ✅ OPTIMIZED: Use select instead of include
+ * ✅ OPTIMIZED: Fixed N+1 query, added pagination
  */
-export async function getDueWordsByCollection(collectionId: string) {
+export async function getDueWordsByCollection(
+  collectionId: string,
+  options?: {
+    limit?: number;
+    offset?: number;
+  }
+) {
   try {
     const userId = await getUserId();
+    const { limit = 100, offset = 0 } = options || {};
 
+    // Get collection data first (verify ownership)
+    const collection = await prisma.collection.findUnique({
+      where: {
+        id: collectionId,
+        userId,
+      },
+      select: {
+        id: true,
+        name: true,
+        color: true,
+      },
+    });
+
+    if (!collection) {
+      return { success: false, error: "Collection not found" };
+    }
+
+    // Get due words (single query)
     const words = await prisma.word.findMany({
       where: {
         collectionId,
@@ -174,20 +231,21 @@ export async function getDueWordsByCollection(collectionId: string) {
         lastReviewed: true,
         nextReview: true,
         collectionId: true,
-        collection: {
-          select: {
-            id: true,
-            name: true,
-            color: true,
-          },
-        },
       },
       orderBy: {
         nextReview: "asc",
       },
+      take: limit,
+      skip: offset,
     });
 
-    return { success: true, words };
+    // Attach collection data to all words
+    const wordsWithCollection = words.map((word) => ({
+      ...word,
+      collection,
+    }));
+
+    return { success: true, words: wordsWithCollection };
   } catch (error) {
     console.error("Error fetching due words by collection:", error);
     return { success: false, error: "Failed to fetch due words" };

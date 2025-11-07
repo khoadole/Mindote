@@ -35,18 +35,16 @@ export function calculateNextReview(
   let interval = currentData?.interval ?? 0;
   let repetitions = currentData?.repetitions ?? 0;
 
-  // Calculate new ease factor
-  // EF' = EF + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
-  easeFactor = Math.max(
-    1.3,
-    easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-  );
-
-  // Calculate new interval
+  // Calculate new interval FIRST (before updating repetitions)
   if (quality === 0) {
     // Again - reset progress
     repetitions = 0;
     interval = 0;
+    // Reduce ease factor significantly for failed reviews
+    easeFactor = Math.max(
+      1.3,
+      easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
+    );
   } else {
     repetitions += 1;
 
@@ -59,11 +57,14 @@ export function calculateNextReview(
       interval = Math.round(interval * easeFactor);
     }
 
-    // Apply quality modifier
+    // Apply quality modifier for Easy bonus
     if (quality === 5) {
-      // Easy - add bonus days
+      // Easy - add bonus days (apply BEFORE updating ease factor)
       interval = Math.round(interval * 1.3);
+      // Increase ease factor for easy cards
+      easeFactor = easeFactor + 0.1;
     }
+    // Quality 3 (Good) maintains ease factor - no change needed
   }
 
   // Calculate next review date

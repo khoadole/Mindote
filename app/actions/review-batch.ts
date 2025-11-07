@@ -39,7 +39,9 @@ export async function submitBatchReviews(reviews: ReviewResult[]) {
     // Create a map for quick lookup
     const wordMap = new Map(words.map((w) => [w.id, w]));
 
-    // Batch update all words
+    // Batch update all words in a transaction (all-or-nothing)
+    // Note: Prisma array transactions don't support timeout option
+    // For large batches (>50), consider splitting into smaller chunks
     await prisma.$transaction(
       reviews.map((review) => {
         const word = wordMap.get(review.wordId);

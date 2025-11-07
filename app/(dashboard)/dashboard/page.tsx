@@ -146,11 +146,11 @@ export default function Dashboard() {
               iconColor="text-primary"
               gradientClass="gradient-purple"
               delay={200}
-              trend={{
-                value: 12,
-                label: "from last week",
-                isPositive: true,
-              }}
+              // trend={{
+              //   value: 12,
+              //   label: "from last week",
+              //   isPositive: true,
+              // }}
             />
 
             <StatCard

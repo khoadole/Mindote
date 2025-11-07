@@ -190,6 +190,7 @@ export function FlashcardPlayer({
         queryClient.invalidateQueries({ queryKey: ["dueWords"] }),
         queryClient.invalidateQueries({ queryKey: ["dueCount"] }),
         queryClient.invalidateQueries({ queryKey: ["words"] }),
+        queryClient.invalidateQueries({ queryKey: ["user-stats"] }), // Update word stages
       ]);
 
       toast({
@@ -252,6 +253,7 @@ export function FlashcardPlayer({
           queryClient.invalidateQueries({ queryKey: ["dueWords"] }),
           queryClient.invalidateQueries({ queryKey: ["dueCount"] }),
           queryClient.invalidateQueries({ queryKey: ["words"] }),
+          queryClient.invalidateQueries({ queryKey: ["user-stats"] }), // Update word stages
         ]);
 
         toast({

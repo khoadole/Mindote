@@ -23,8 +23,13 @@ import {
   TrendingUp,
   Target,
   Zap,
+  Sparkles,
+  GraduationCap,
+  Award,
+  Trophy,
 } from "lucide-react";
 import Link from "next/link";
+import { WordStageCard } from "@/components/ui/word-stage-card";
 
 // ✅ Lazy load modals - only load when needed
 const AddWordModal = dynamic(
@@ -204,6 +209,79 @@ export default function Dashboard() {
                   )}
                 </CardContent>
               </GradientCard>
+            </div>
+          </div>
+        )}
+
+        {/* Word Progress Stages - Show after stats loaded */}
+        {hasStats && (
+          <div
+            className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+            style={{ animationDelay: "450ms" }}
+          >
+            <div className="mb-4">
+              <h2 className="text-xl font-semibold flex items-center gap-2">
+                <Target className="h-6 w-6 text-primary" />
+                Learning Progress
+              </h2>
+              <p className="text-sm text-muted-foreground mt-1">
+                Track your vocabulary mastery across different stages
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <WordStageCard
+                title="New"
+                count={stats.newWords || 0}
+                total={totalWords}
+                icon={Sparkles}
+                gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
+                iconColor="bg-blue-500"
+                description="Never reviewed • Starting fresh"
+                onClick={() => {
+                  // TODO: Navigate to filtered words view
+                  console.log("Navigate to new words");
+                }}
+              />
+
+              <WordStageCard
+                title="Learning"
+                count={stats.learningWords || 0}
+                total={totalWords}
+                icon={GraduationCap}
+                gradient="bg-gradient-to-br from-yellow-500 to-orange-500"
+                iconColor="bg-yellow-500"
+                description="1-3 reviews • Building foundation"
+                onClick={() => {
+                  console.log("Navigate to learning words");
+                }}
+              />
+
+              <WordStageCard
+                title="Familiar"
+                count={stats.familiarWords || 0}
+                total={totalWords}
+                icon={Award}
+                gradient="bg-gradient-to-br from-green-500 to-emerald-500"
+                iconColor="bg-green-500"
+                description="4-7 reviews • Getting comfortable"
+                onClick={() => {
+                  console.log("Navigate to familiar words");
+                }}
+              />
+
+              <WordStageCard
+                title="Master"
+                count={stats.masterWords || 0}
+                total={totalWords}
+                icon={Trophy}
+                gradient="bg-gradient-to-br from-purple-500 to-pink-500"
+                iconColor="bg-purple-500"
+                description="8+ reviews • Fully mastered"
+                onClick={() => {
+                  console.log("Navigate to master words");
+                }}
+              />
             </div>
           </div>
         )}

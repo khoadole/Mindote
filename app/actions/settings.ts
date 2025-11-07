@@ -98,6 +98,10 @@ export async function getUserStatsAction() {
         total_words: bigint;
         mastered_words: bigint;
         avg_score: number | null;
+        new_words: bigint;
+        learning_words: bigint;
+        familiar_words: bigint;
+        master_words: bigint;
       }>
     >`
       WITH user_collections AS (
@@ -107,7 +111,11 @@ export async function getUserStatsAction() {
         (SELECT COUNT(*)::bigint FROM user_collections) as total_collections,
         (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections)) as total_words,
         (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.score >= 80) as mastered_words,
-        (SELECT AVG(score) FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections)) as avg_score
+        (SELECT AVG(score) FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections)) as avg_score,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.repetitions = 0) as new_words,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.repetitions >= 1 AND w.repetitions <= 3) as learning_words,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.repetitions >= 4 AND w.repetitions <= 7) as familiar_words,
+        (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.repetitions >= 8) as master_words
     `;
 
     console.log(`[getUserStats] DB query took ${Date.now() - queryStart}ms`);
@@ -118,6 +126,10 @@ export async function getUserStatsAction() {
       total_words: BigInt(0),
       mastered_words: BigInt(0),
       avg_score: null,
+      new_words: BigInt(0),
+      learning_words: BigInt(0),
+      familiar_words: BigInt(0),
+      master_words: BigInt(0),
     };
 
     return {
@@ -126,6 +138,11 @@ export async function getUserStatsAction() {
         totalCollections: Number(stats.total_collections),
         masteredWords: Number(stats.mastered_words),
         avgScore: Math.round(Number(stats.avg_score) || 0),
+        // Word stages based on repetitions (SRS progress)
+        newWords: Number(stats.new_words),
+        learningWords: Number(stats.learning_words),
+        familiarWords: Number(stats.familiar_words),
+        masterWords: Number(stats.master_words),
       },
       error: null,
     };

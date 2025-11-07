@@ -257,8 +257,7 @@ export default function CollectionDetailPage() {
                 className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform"
                 data-shortcut="add-word"
               >
-                <Plus className="h-4 w-4" />
-                Add Word
+                <Plus className="h-4 w-4" />✨ Add Word
               </Button>
             }
           />

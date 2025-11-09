@@ -241,7 +241,10 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               {onEdit && (
                 <Button
                   variant="outline"
-                  onClick={onEdit}
+                  onClick={() => {
+                    setShowDetails(false);
+                    onEdit();
+                  }}
                   className="rounded-xl hover:bg-primary/5 hover:border-primary"
                 >
                   <Edit className="h-4 w-4 mr-2" />
@@ -251,7 +254,10 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               {onDelete && (
                 <Button
                   variant="destructive"
-                  onClick={onDelete}
+                  onClick={() => {
+                    setShowDetails(false);
+                    onDelete();
+                  }}
                   className="rounded-xl"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />

@@ -54,6 +54,15 @@ const DeleteConfirmationModal = dynamic(
   { ssr: false }
 );
 
+// ✅ Lazy load EditWordModal
+const EditWordModal = dynamic(
+  () =>
+    import("@/components/modals/edit-word-modal").then((mod) => ({
+      default: mod.EditWordModal,
+    })),
+  { ssr: false }
+);
+
 export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -68,6 +77,9 @@ export default function CollectionDetailPage() {
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Get collection words for type inference
+  const collectionWords = collection?.words || [];
+
   // Delete modals state
   const [deleteCollectionOpen, setDeleteCollectionOpen] = useState(false);
   const [deleteWordOpen, setDeleteWordOpen] = useState(false);
@@ -75,6 +87,12 @@ export default function CollectionDetailPage() {
     id: string;
     term: string;
   } | null>(null);
+
+  // Edit word state
+  const [editWordOpen, setEditWordOpen] = useState(false);
+  const [wordToEdit, setWordToEdit] = useState<
+    (typeof collectionWords)[number] | null
+  >(null);
 
   // Loading state
   if (isLoading) {
@@ -109,7 +127,6 @@ export default function CollectionDetailPage() {
     );
   }
 
-  const collectionWords = collection.words || [];
   const dueWordsCount = dueWords.length;
   const filteredWords = collectionWords.filter(
     (word) =>
@@ -138,6 +155,11 @@ export default function CollectionDetailPage() {
     if (wordToDelete) {
       deleteWordMutation.mutate(wordToDelete.id);
     }
+  };
+
+  const handleEditWord = (word: (typeof collectionWords)[number]) => {
+    setWordToEdit(word);
+    setEditWordOpen(true);
   };
 
   return (
@@ -324,6 +346,7 @@ export default function CollectionDetailPage() {
                           color: collection.color || "bg-primary",
                         },
                       }}
+                      onEdit={() => handleEditWord(word)}
                       onDelete={() => handleDeleteWord(word.id, word.term)}
                     />
                   </div>
@@ -370,6 +393,16 @@ export default function CollectionDetailPage() {
         description="Are you sure you want to delete this word? This action cannot be undone."
         itemName={wordToDelete?.term}
         isPending={deleteWordMutation.isPending}
+      />
+
+      {/* Edit Word Modal */}
+      <EditWordModal
+        word={wordToEdit}
+        open={editWordOpen}
+        onOpenChange={(open) => {
+          setEditWordOpen(open);
+          if (!open) setWordToEdit(null);
+        }}
       />
     </div>
   );

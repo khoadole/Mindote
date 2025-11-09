@@ -1,0 +1,300 @@
+import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
+import { getUserId } from "@/lib/server-auth";
+import prisma from "@/lib/prisma";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const FREE_DAILY_READING_LIMIT = 3;
+
+interface GenerateReadingRequest {
+  collectionId: string;
+  level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+  passageType?: "story" | "article" | "essay" | "news";
+}
+
+interface AIReadingResponse {
+  title: string;
+  content: string;
+  wordsUsed: string[];
+  questions: Array<{
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    explanation: string;
+  }>;
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const userId = await getUserId();
+
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const body: GenerateReadingRequest = await request.json();
+    const { collectionId, level = "B1", passageType = "story" } = body;
+
+    if (!collectionId) {
+      return NextResponse.json(
+        { error: "Collection ID is required" },
+        { status: 400 }
+      );
+    }
+
+    // Check if collection belongs to user
+    const collection = await prisma.collection.findFirst({
+      where: {
+        id: collectionId,
+        userId,
+      },
+      include: {
+        words: {
+          select: {
+            term: true,
+            definition: true,
+          },
+        },
+      },
+    });
+
+    if (!collection) {
+      return NextResponse.json(
+        { error: "Collection not found" },
+        { status: 404 }
+      );
+    }
+
+    if (collection.words.length < 5) {
+      return NextResponse.json(
+        {
+          error: "Collection must have at least 5 words to generate a passage",
+        },
+        { status: 400 }
+      );
+    }
+
+    // Check daily usage quota for reading generation
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const usage = await prisma.aIUsage.findUnique({
+      where: {
+        userId_date: {
+          userId,
+          date: today,
+        },
+      },
+    });
+
+    const currentUsage = usage?.count || 0;
+
+    // For now, share the same quota with word fill (3 per day total)
+    if (currentUsage >= FREE_DAILY_READING_LIMIT) {
+      return NextResponse.json(
+        {
+          error: "Daily limit reached",
+          message: `You've reached your daily limit of ${FREE_DAILY_READING_LIMIT} AI generations. Upgrade to premium for unlimited access!`,
+          remainingUses: 0,
+        },
+        { status: 429 }
+      );
+    }
+
+    // Get word terms for AI prompt
+    const wordTerms = collection.words.map((w) => w.term);
+    const wordList = wordTerms.slice(0, 30).join(", "); // Use max 30 words
+
+    // Generate reading passage with AI
+    const prompt = `Create an engaging ${level} level English reading passage (250-350 words) that naturally incorporates these vocabulary words: ${wordList}.
+
+Requirements:
+- Title: Engaging and relevant to the content
+- Content: Natural, engaging ${passageType} that flows well
+- Use 70-80% of the provided words naturally in context
+- Appropriate difficulty for ${level} CEFR level
+- Make it interesting and educational
+- Include 5 comprehension questions (multiple choice with 4 options each)
+
+Format as JSON:
+{
+  "title": "...",
+  "content": "...",
+  "wordsUsed": ["word1", "word2", ...],
+  "questions": [
+    {
+      "question": "...",
+      "options": ["A. ...", "B. ...", "C. ...", "D. ..."],
+      "correctAnswer": "A",
+      "explanation": "..."
+    }
+  ]
+}`;
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are an expert ESL content creator specializing in creating engaging reading passages for English learners at different proficiency levels.",
+        },
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      temperature: 0.8,
+      max_tokens: 2000,
+      response_format: { type: "json_object" },
+    });
+
+    const responseContent = completion.choices[0]?.message?.content;
+
+    if (!responseContent) {
+      throw new Error("No response from AI");
+    }
+
+    const aiResponse: AIReadingResponse = JSON.parse(responseContent);
+
+    // Validate response structure
+    if (
+      !aiResponse.title ||
+      !aiResponse.content ||
+      !aiResponse.wordsUsed ||
+      !aiResponse.questions ||
+      aiResponse.questions.length !== 5
+    ) {
+      throw new Error("Invalid AI response structure");
+    }
+
+    // Calculate word count and estimated reading time
+    const wordCount = aiResponse.content.split(/\s+/).length;
+    const estimatedTime = Math.ceil(wordCount / 200); // Average reading speed
+
+    // Save passage to database
+    const savedPassage = await prisma.readingPassage.create({
+      data: {
+        userId,
+        collectionId,
+        title: aiResponse.title,
+        content: aiResponse.content,
+        level,
+        wordCount,
+        estimatedTime,
+        wordsUsed: aiResponse.wordsUsed,
+        questions: aiResponse.questions,
+      },
+    });
+
+    // Update usage count
+    await prisma.aIUsage.upsert({
+      where: {
+        userId_date: {
+          userId,
+          date: today,
+        },
+      },
+      update: {
+        count: {
+          increment: 1,
+        },
+      },
+      create: {
+        userId,
+        date: today,
+        count: 1,
+      },
+    });
+
+    const remainingUses = FREE_DAILY_READING_LIMIT - (currentUsage + 1);
+
+    return NextResponse.json({
+      success: true,
+      data: savedPassage,
+      remainingUses,
+      message:
+        remainingUses > 0
+          ? `${remainingUses} reading passage${
+              remainingUses === 1 ? "" : "s"
+            } remaining today`
+          : "Last free reading passage for today! Upgrade for unlimited access.",
+    });
+  } catch (error: any) {
+    console.error("Reading generation error:", error);
+
+    if (error?.status === 401) {
+      return NextResponse.json(
+        { error: "Invalid OpenAI API key" },
+        { status: 500 }
+      );
+    }
+
+    if (error?.status === 429) {
+      return NextResponse.json(
+        { error: "AI service rate limit reached. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        error: "Failed to generate reading passage",
+        message: error.message || "Unknown error occurred",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// GET: Fetch user's reading passages
+export async function GET(request: NextRequest) {
+  try {
+    const userId = await getUserId();
+
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const searchParams = request.nextUrl.searchParams;
+    const collectionId = searchParams.get("collectionId");
+
+    const passages = await prisma.readingPassage.findMany({
+      where: {
+        userId,
+        ...(collectionId ? { collectionId } : {}),
+      },
+      include: {
+        collection: {
+          select: {
+            id: true,
+            name: true,
+            color: true,
+          },
+        },
+        _count: {
+          select: {
+            attempts: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      data: passages,
+    });
+  } catch (error: any) {
+    console.error("Fetch passages error:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch reading passages" },
+      { status: 500 }
+    );
+  }
+}

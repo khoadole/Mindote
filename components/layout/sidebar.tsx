@@ -17,6 +17,7 @@ import {
   X,
   Sparkles,
   ChevronRight,
+  FileText,
 } from "lucide-react";
 import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
 
@@ -41,6 +42,13 @@ const navigation = [
   },
   { name: "Quiz", href: "/quiz", icon: CheckCircle, color: "text-green-400" },
   {
+    name: "Reading",
+    href: "/reading",
+    icon: FileText,
+    color: "text-amber-400",
+    badge: "NEW",
+  },
+  {
     name: "YouTube Notes",
     href: "/youtube",
     icon: Youtube,
@@ -62,7 +70,6 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
     <div
       className={cn(
         "flex h-full flex-col bg-sidebar transition-all duration-300 relative",
-        "rounded-2xl overflow-hidden",
         isCollapsed ? "w-20" : "w-72",
         className
       )}
@@ -173,13 +180,18 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     {!isCollapsed && (
                       <span
                         className={cn(
-                          "transition-all duration-300 font-medium relative z-10",
+                          "transition-all duration-300 font-medium relative z-10 flex items-center gap-2",
                           isActive
                             ? "text-white"
                             : "text-sidebar-foreground/80 group-hover:text-sidebar-foreground"
                         )}
                       >
                         {item.name}
+                        {item.badge && (
+                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r from-primary to-accent rounded text-white">
+                            {item.badge}
+                          </span>
+                        )}
                       </span>
                     )}
 

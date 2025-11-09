@@ -24,13 +24,14 @@ model User {
 }
 
 model Collection {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @map("user_id") @db.Uuid
-  name      String
-  color     String
-  createdAt DateTime @default(now()) @map("created_at")
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  words     Word[]
+  id              String           @id @default(uuid()) @db.Uuid
+  userId          String           @map("user_id") @db.Uuid
+  name            String
+  color           String
+  createdAt       DateTime         @default(now()) @map("created_at")
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  words           Word[]
+  readingPassages ReadingPassage[]
 
   @@index([userId])
   @@map("collections")
@@ -100,4 +101,42 @@ model AIUsage {
   @@unique([userId, date])        // One record per user per day
   @@index([userId, date])         // Fast lookup for daily quota check
   @@map("ai_usage")
+}
+
+model ReadingPassage {
+  id            String   @id @default(uuid()) @db.Uuid
+  userId        String   @map("user_id") @db.Uuid
+  collectionId  String   @map("collection_id") @db.Uuid
+  title         String
+  content       String   @db.Text
+  level         String   // "A1", "A2", "B1", "B2", "C1", "C2"
+  wordCount     Int      @map("word_count")
+  estimatedTime Int      @map("estimated_time") // Reading time in minutes
+  wordsUsed     String[] @map("words_used")     // Array of terms from collection
+  questions     Json                            // Array of comprehension questions
+  createdAt     DateTime @default(now()) @map("created_at")
+  
+  collection    Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  attempts      ReadingAttempt[]
+  
+  @@index([userId, collectionId])
+  @@index([level])
+  @@index([createdAt])
+  @@map("reading_passages")
+}
+
+model ReadingAttempt {
+  id          String   @id @default(uuid()) @db.Uuid
+  userId      String   @map("user_id") @db.Uuid
+  passageId   String   @map("passage_id") @db.Uuid
+  timeSpent   Int      @map("time_spent")    // Seconds
+  score       Int                            // Percentage (0-100)
+  answers     Json                           // User's answers
+  completedAt DateTime @default(now()) @map("completed_at")
+  
+  passage     ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+  
+  @@index([userId, passageId])
+  @@index([userId, completedAt])
+  @@map("reading_attempts")
 }

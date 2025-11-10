@@ -19,6 +19,8 @@ import {
   Layers,
   BookOpen,
   TrendingUp,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 // ✅ Lazy load modals
@@ -41,6 +43,8 @@ const CreateCollectionModal = dynamic(
 export default function CollectionsPage() {
   const { data: collections, isLoading } = useCollections();
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 9;
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
@@ -60,6 +64,18 @@ export default function CollectionsPage() {
   const filteredCollections = (collections || []).filter((collection) =>
     collection.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Pagination
+  const totalPages = Math.ceil(filteredCollections.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedCollections = filteredCollections.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search changes
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="p-8 bg-gradient-to-br from-background via-background to-muted/20 min-h-screen">
@@ -101,7 +117,7 @@ export default function CollectionsPage() {
             <Input
               placeholder="Search collections..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className="pl-11 h-12 rounded-2xl border-2 focus:border-primary/50 bg-card/50"
             />
           </div>
@@ -134,85 +150,139 @@ export default function CollectionsPage() {
             </div>
           </GradientCard>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCollections.map((collection, index) => {
-              const gradients = ["purple", "green", "orange", "pink"] as const;
-              const gradient = gradients[index % gradients.length];
-              const wordCount = collection.wordCount || 0;
-              const masteryPercent = Math.min((wordCount / 50) * 100, 100); // Assume 50 words = 100%
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedCollections.map((collection, index) => {
+                const gradients = [
+                  "purple",
+                  "green",
+                  "orange",
+                  "pink",
+                ] as const;
+                const gradient = gradients[index % gradients.length];
+                const wordCount = collection.wordCount || 0;
+                const masteryPercent = Math.min((wordCount / 50) * 100, 100); // Assume 50 words = 100%
 
-              return (
-                <Link
-                  key={collection.id}
-                  href={`/collections/${collection.id}`}
-                >
-                  <GradientCard
-                    gradient={gradient}
-                    className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full"
+                return (
+                  <Link
+                    key={collection.id}
+                    href={`/collections/${collection.id}`}
                   >
-                    <CardHeader>
-                      <div className="flex items-center justify-between gap-3 mb-3">
-                        <div
-                          className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center ${
-                            collection.color || "bg-primary"
-                          } shadow-lg`}
-                        >
-                          <Layers className="h-7 w-7 text-white" />
+                    <GradientCard
+                      gradient={gradient}
+                      className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full"
+                    >
+                      <CardHeader>
+                        <div className="flex items-center justify-between gap-3 mb-3">
+                          <div
+                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center ${
+                              collection.color || "bg-primary"
+                            } shadow-lg`}
+                          >
+                            <Layers className="h-7 w-7 text-white" />
+                          </div>
+                          <ProgressRing
+                            progress={masteryPercent}
+                            size={56}
+                            strokeWidth={4}
+                            showPercentage={false}
+                          />
                         </div>
-                        <ProgressRing
-                          progress={masteryPercent}
-                          size={56}
-                          strokeWidth={4}
-                          showPercentage={false}
-                        />
-                      </div>
-                      <CardTitle className="text-xl truncate">
-                        {collection.name}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          <BookOpen className="h-4 w-4 text-muted-foreground" />
-                          <span className="text-2xl font-bold">
-                            {wordCount}
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            words
-                          </span>
+                        <CardTitle className="text-xl truncate">
+                          {collection.name}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <BookOpen className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-2xl font-bold">
+                              {wordCount}
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              words
+                            </span>
+                          </div>
+                          <Badge variant="secondary" className="text-xs">
+                            {Math.round(masteryPercent)}% mastered
+                          </Badge>
                         </div>
-                        <Badge variant="secondary" className="text-xs">
-                          {Math.round(masteryPercent)}% mastered
-                        </Badge>
-                      </div>
 
-                      <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1">
-                        <TrendingUp className="h-3 w-3" />
-                        Created{" "}
-                        {new Date(collection.createdAt).toLocaleDateString()}
-                      </p>
+                        <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1">
+                          <TrendingUp className="h-3 w-3" />
+                          Created{" "}
+                          {new Date(collection.createdAt).toLocaleDateString()}
+                        </p>
 
-                      <div className="flex gap-2">
-                        <Button
-                          size="sm"
-                          className="flex-1 rounded-xl bg-gradient-to-r from-primary to-accent shadow-md hover:shadow-lg transition-all hover:scale-105"
-                        >
-                          Study
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1 rounded-xl border-2 hover:border-primary hover:bg-primary/10 transition-all hover:scale-105"
-                        >
-                          Quiz
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </GradientCard>
-                </Link>
-              );
-            })}
-          </div>
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            className="flex-1 rounded-xl bg-gradient-to-r from-primary to-accent shadow-md hover:shadow-lg transition-all hover:scale-105"
+                          >
+                            Study
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 rounded-xl border-2 hover:border-primary hover:bg-primary/10 transition-all hover:scale-105"
+                          >
+                            Quiz
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </GradientCard>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                  }
+                  disabled={currentPage === 1}
+                  className="rounded-xl"
+                >
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Previous
+                </Button>
+
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <Button
+                        key={page}
+                        variant={currentPage === page ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setCurrentPage(page)}
+                        className="rounded-xl min-w-[40px]"
+                      >
+                        {page}
+                      </Button>
+                    )
+                  )}
+                </div>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                  }
+                  disabled={currentPage === totalPages}
+                  className="rounded-xl"
+                >
+                  Next
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

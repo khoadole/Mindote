@@ -247,7 +247,7 @@ export default function SettingsPage() {
           </Card> */}
 
           {/* Data Management */}
-          <Card
+          {/* <Card
             className="animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
             style={{ animationDelay: "200ms" }}
           >
@@ -325,10 +325,10 @@ export default function SettingsPage() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Statistics */}
-          <Card
+          {/* <Card
             className="animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
             style={{ animationDelay: "300ms" }}
           >
@@ -337,7 +337,6 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent>
               {statsLoading ? (
-                /* Skeleton loading state */
                 <div className="grid grid-cols-2 gap-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div
@@ -382,7 +381,7 @@ export default function SettingsPage() {
                 </div>
               )}
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* About */}
           <Card

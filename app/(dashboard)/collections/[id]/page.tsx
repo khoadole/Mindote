@@ -24,6 +24,8 @@ import {
   Loader2,
   Flame,
   Plus,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -76,6 +78,8 @@ export default function CollectionDetailPage() {
   const deleteCollectionMutation = useDeleteCollection();
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 9;
 
   // Get collection words for type inference
   const collectionWords = collection?.words || [];
@@ -133,6 +137,18 @@ export default function CollectionDetailPage() {
       word.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
       word.definition.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Pagination
+  const totalPages = Math.ceil(filteredWords.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedWords = filteredWords.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search changes
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setCurrentPage(1);
+  };
 
   const handleDeleteCollection = () => {
     setDeleteCollectionOpen(true);
@@ -303,7 +319,7 @@ export default function CollectionDetailPage() {
               <Input
                 placeholder="Search words..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
                 className="pl-10"
               />
             </div>
@@ -324,34 +340,85 @@ export default function CollectionDetailPage() {
                 </CardContent>
               </Card>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredWords.map((word, index) => (
-                  <div
-                    key={word.id}
-                    className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
-                    style={{
-                      animationDelay: `${index * 30}ms`,
-                      animationDuration: "400ms",
-                    }}
-                  >
-                    <WordCard
-                      word={{
-                        ...word,
-                        partOfSpeech: word.partOfSpeech ?? undefined,
-                        example: word.example ?? undefined,
-                        phonetic: word.phonetic ?? undefined,
-                        collection: {
-                          id: collection.id,
-                          name: collection.name,
-                          color: collection.color || "bg-primary",
-                        },
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {paginatedWords.map((word, index) => (
+                    <div
+                      key={word.id}
+                      className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
+                      style={{
+                        animationDelay: `${index * 30}ms`,
+                        animationDuration: "400ms",
                       }}
-                      onEdit={() => handleEditWord(word)}
-                      onDelete={() => handleDeleteWord(word.id, word.term)}
-                    />
+                    >
+                      <WordCard
+                        word={{
+                          ...word,
+                          partOfSpeech: word.partOfSpeech ?? undefined,
+                          example: word.example ?? undefined,
+                          phonetic: word.phonetic ?? undefined,
+                          collection: {
+                            id: collection.id,
+                            name: collection.name,
+                            color: collection.color || "bg-primary",
+                          },
+                        }}
+                        onEdit={() => handleEditWord(word)}
+                        onDelete={() => handleDeleteWord(word.id, word.term)}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-8">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.max(prev - 1, 1))
+                      }
+                      disabled={currentPage === 1}
+                      className="rounded-xl"
+                    >
+                      <ChevronLeft className="h-4 w-4 mr-1" />
+                      Previous
+                    </Button>
+
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                        (page) => (
+                          <Button
+                            key={page}
+                            variant={
+                              currentPage === page ? "default" : "outline"
+                            }
+                            size="sm"
+                            onClick={() => setCurrentPage(page)}
+                            className="rounded-xl min-w-[40px]"
+                          >
+                            {page}
+                          </Button>
+                        )
+                      )}
+                    </div>
+
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                      }
+                      disabled={currentPage === totalPages}
+                      className="rounded-xl"
+                    >
+                      Next
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Button>
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             )}
           </TabsContent>
 

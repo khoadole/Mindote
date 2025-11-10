@@ -28,9 +28,9 @@ export function UpgradePlanModal({
 
   const plans = {
     monthly: {
-      price: "$14.99",
+      price: "$9.99",
       period: "per month",
-      total: "$14.99/month",
+      total: "$9.99/month",
       savings: null,
     },
     yearly: {

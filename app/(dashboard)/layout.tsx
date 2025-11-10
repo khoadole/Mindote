@@ -14,7 +14,7 @@ export default function DashboardLayout({
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-6 gap-0 md:gap-6">
+    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
       {/* Animated background gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" />
@@ -42,7 +42,7 @@ export default function DashboardLayout({
           fixed md:relative z-50 md:z-10
           h-full md:h-auto
           transition-transform duration-300 ease-in-out
-          rounded-none md:rounded-3xl overflow-hidden shadow-none md:shadow-2xl
+          rounded-none md:rounded-3xl overflow-hidden shadow-none md:shadow-2xl md:border md:border-border
           ${
             isMobileSidebarOpen
               ? "translate-x-0"
@@ -54,7 +54,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Main Content Container - Bo tròn riêng */}
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background md:bg-background/80 md:backdrop-blur-xl shadow-none md:shadow-2xl">
+      <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background md:bg-background/80 md:backdrop-blur-xl shadow-none md:shadow-2xl md:border md:border-border">
         <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>

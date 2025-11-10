@@ -172,7 +172,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
               onFocus={() => searchQuery.trim() && setIsOpen(true)}
               className={cn(
                 "w-64 lg:w-80 pl-11 pr-10 h-11 rounded-2xl transition-all duration-300",
-                "border-2 border-transparent",
+                "border border-border/40",
                 "focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10",
                 "bg-muted/50 hover:bg-muted/70"
               )}

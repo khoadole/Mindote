@@ -23,6 +23,8 @@ import {
   Clock,
   FileText,
   TrendingUp,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -87,11 +89,22 @@ export default function ReadingPage() {
   const [selectedCollection, setSelectedCollection] = useState<string>("");
   const [level, setLevel] = useState<string>("B1");
   const [passageType, setPassageType] = useState<string>("story");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 4;
 
   const hasCollections = collections && collections.length > 0;
   const selectedCollectionData = collections?.find(
     (c) => c.id === selectedCollection
   );
+
+  // Pagination logic
+  const totalPages = passages ? Math.ceil(passages.length / ITEMS_PER_PAGE) : 0;
+  const paginatedPassages = passages
+    ? passages.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+      )
+    : [];
 
   const handleGenerate = () => {
     if (!selectedCollection) {
@@ -325,7 +338,7 @@ export default function ReadingPage() {
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    {passages.map((passage, index) => (
+                    {paginatedPassages.map((passage, index) => (
                       <Link
                         key={passage.id}
                         href={`/reading/${passage.id}`}
@@ -385,6 +398,54 @@ export default function ReadingPage() {
                         </div>
                       </Link>
                     ))}
+
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                      <div className="flex items-center justify-center gap-2 pt-4 border-t">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() =>
+                            setCurrentPage((p) => Math.max(1, p - 1))
+                          }
+                          disabled={currentPage === 1}
+                          className="rounded-xl"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+
+                        <div className="flex items-center gap-1">
+                          {Array.from(
+                            { length: totalPages },
+                            (_, i) => i + 1
+                          ).map((page) => (
+                            <Button
+                              key={page}
+                              variant={
+                                currentPage === page ? "default" : "outline"
+                              }
+                              size="sm"
+                              onClick={() => setCurrentPage(page)}
+                              className="rounded-xl min-w-[2.5rem]"
+                            >
+                              {page}
+                            </Button>
+                          ))}
+                        </div>
+
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() =>
+                            setCurrentPage((p) => Math.min(totalPages, p + 1))
+                          }
+                          disabled={currentPage === totalPages}
+                          className="rounded-xl"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 )}
               </CardContent>

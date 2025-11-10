@@ -70,7 +70,7 @@ export default function Dashboard() {
     <div className="p-4 md:p-8 bg-gradient-to-br from-background via-background to-muted/20 min-h-screen">
       <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
         {/* Hero Section */}
-        <div className="animate-in fade-in slide-in-from-top-2 duration-500">
+        {/* <div className="animate-in fade-in slide-in-from-top-2 duration-500">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <div>
               <h1 className="text-2xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
@@ -81,7 +81,7 @@ export default function Dashboard() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Quick Actions - Show immediately */}
         <div

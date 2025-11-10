@@ -48,14 +48,14 @@
   --chart-4: oklch(0.68 0.24 340);
   --chart-5: oklch(0.62 0.22 200);
 
-  /* Sidebar - Dark themed even in light mode */
-  --sidebar: oklch(0.13 0.02 265);
-  --sidebar-foreground: oklch(0.96 0 0);
+  /* Sidebar - Light background in light mode */
+  --sidebar: #eeeeee;
+  --sidebar-foreground: oklch(0.15 0.01 265);
   --sidebar-primary: oklch(0.65 0.25 300);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.22 0.02 265);
-  --sidebar-accent-foreground: oklch(0.96 0 0);
-  --sidebar-border: oklch(0.26 0.02 265);
+  --sidebar-accent: oklch(0.92 0 0);
+  --sidebar-accent-foreground: oklch(0.15 0.01 265);
+  --sidebar-border: oklch(0.88 0 0);
   --sidebar-ring: oklch(0.65 0.25 300);
 
   --radius: 1rem;

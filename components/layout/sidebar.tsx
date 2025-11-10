@@ -75,7 +75,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
       )}
     >
       {/* Gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sidebar via-sidebar to-sidebar/95 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sidebar via-sidebar to-sidebar/95 pointer-events-none rounded-r-lg" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
@@ -153,8 +153,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     className={cn(
                       "w-full text-sidebar-foreground transition-all duration-300 content-rounded relative overflow-hidden",
                       isActive
-                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-white shadow-lg shadow-primary/20"
-                        : "hover:bg-white/5 hover:translate-x-1",
+                        ? "bg-gradient-to-r from-primary/20 to-accent/20 dark:text-white text-primary shadow-lg shadow-primary/20"
+                        : "hover:bg-primary/10 dark:hover:bg-white/5 hover:translate-x-1",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
                         : "justify-start h-12 pl-6"
@@ -242,8 +242,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               className={cn(
                 "w-full text-sidebar-foreground transition-all duration-300 content-rounded",
                 pathname === "/settings"
-                  ? "bg-white/10 text-white"
-                  : "hover:bg-white/5 hover:text-white",
+                  ? "bg-primary/20 dark:bg-white/10 text-primary dark:text-white"
+                  : "hover:bg-primary/10 dark:hover:bg-white/5 hover:text-primary dark:hover:text-white",
                 isCollapsed
                   ? "justify-center h-12 w-12 p-0"
                   : "justify-start h-12"

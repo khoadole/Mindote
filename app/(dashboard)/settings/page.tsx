@@ -62,7 +62,8 @@ export default function SettingsPage() {
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
-  // Loading state - only wait for settings, stats can load progressively
+  // ✅ FIX: Show loading only while actually loading settings
+  // Don't block the UI if settings is just disabled (user not logged in)
   if (settingsLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
@@ -74,19 +75,8 @@ export default function SettingsPage() {
     );
   }
 
-  // Error state
-  if (!settings) {
-    return (
-      <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <p className="text-destructive">Failed to load settings</p>
-          <Button onClick={() => window.location.reload()} className="mt-4">
-            Retry
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  // ✅ FIX: Use default settings if not available
+  const currentSettings = settings || { theme: "dark", language: "en" };
 
   const handleExportData = () => {
     toast({
@@ -171,7 +161,7 @@ export default function SettingsPage() {
                   Language
                 </Label>
                 <Select
-                  value={settings.language}
+                  value={currentSettings.language}
                   onValueChange={(value: string) =>
                     updateSettingsMutation.mutate({ language: value })
                   }

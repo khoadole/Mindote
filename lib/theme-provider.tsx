@@ -16,58 +16,106 @@ const ThemeProviderContext = createContext<
 >(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { user } = useAuth();
-  const { data: settings, isLoading } = useSettings();
-  const [theme, setThemeState] = useState<"light" | "dark" | "system">("dark");
+  const { user, loading: authLoading } = useAuth();
+  const { data: settings, isLoading: settingsLoading } = useSettings();
+  const [theme, setThemeState] = useState<"light" | "dark" | "system">(() => {
+    // Initialize from localStorage to prevent flash
+    if (typeof window !== "undefined") {
+      // Check new unified key first
+      let saved = localStorage.getItem("mindote-theme");
 
-  // Sync theme from database settings when user is logged in
-  useEffect(() => {
-    if (user && settings?.theme && !isLoading) {
-      const dbTheme = settings.theme as "light" | "dark" | "system";
-      setThemeState(dbTheme);
+      // Migration: Check old keys if new key doesn't exist
+      if (!saved) {
+        // Try user-specific keys (mindote-theme-{userId})
+        const allKeys = Object.keys(localStorage);
+        const userThemeKey = allKeys.find((key) =>
+          key.startsWith("mindote-theme-")
+        );
+        if (userThemeKey) {
+          saved = localStorage.getItem(userThemeKey);
+        }
 
-      // Save to user-specific localStorage key
-      const storageKey = `mindote-theme-${user.id}`;
-      localStorage.setItem(storageKey, dbTheme);
-    } else if (!user) {
-      // When logged out, use global theme or default
-      const globalTheme = localStorage.getItem("mindote-theme-global");
-      if (globalTheme) {
-        setThemeState(globalTheme as "light" | "dark" | "system");
-      } else {
-        setThemeState("dark");
+        // Try global key
+        if (!saved) {
+          saved = localStorage.getItem("mindote-theme-global");
+        }
+
+        // Try from Zustand store
+        if (!saved) {
+          const zustandData = localStorage.getItem("mindote-storage");
+          if (zustandData) {
+            try {
+              const parsed = JSON.parse(zustandData);
+              saved = parsed.state?.settings?.theme;
+            } catch (e) {}
+          }
+        }
+
+        // Migrate to new key
+        if (saved) {
+          localStorage.setItem("mindote-theme", saved);
+        }
+      }
+
+      if (saved) {
+        return saved as "light" | "dark" | "system";
       }
     }
-  }, [user, settings?.theme, isLoading]);
+    return "dark";
+  });
+
+  // Sync theme from database settings when user is logged in
+  // ✅ FIX: Only sync if user exists AND settings loaded successfully
+  // ✅ OPTIMIZED: Avoid unnecessary updates when theme is already set locally
+  useEffect(() => {
+    // Don't do anything while auth or settings are loading
+    if (authLoading || settingsLoading) {
+      return;
+    }
+
+    // Only sync theme from database if user is logged in AND settings exist
+    if (user && settings?.theme) {
+      const dbTheme = settings.theme as "light" | "dark" | "system";
+      const localTheme = localStorage.getItem("mindote-theme");
+
+      // ✅ SMART SYNC: Only update if DB theme is different from both current state AND localStorage
+      // This prevents unnecessary updates when user just changed theme (it's already in localStorage)
+      if (dbTheme !== theme && dbTheme !== localTheme) {
+        setThemeState(dbTheme);
+        localStorage.setItem("mindote-theme", dbTheme);
+      }
+    }
+  }, [user, settings?.theme, authLoading, settingsLoading, theme]);
 
   const setTheme = (newTheme: "light" | "dark" | "system") => {
     setThemeState(newTheme);
 
-    // Save to localStorage (user-specific or global)
-    if (user) {
-      const storageKey = `mindote-theme-${user.id}`;
-      localStorage.setItem(storageKey, newTheme);
-    } else {
-      localStorage.setItem("mindote-theme-global", newTheme);
-    }
+    // Save to unified localStorage key (same key for all users)
+    localStorage.setItem("mindote-theme", newTheme);
   };
 
   // Apply theme to document
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
 
+    // Determine the actual theme to apply
+    let themeToApply = theme;
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
+      themeToApply = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
-      root.classList.add(systemTheme);
-    } else {
-      root.classList.add(theme);
+    }
+
+    // Only update if different from current to prevent flash
+    const currentTheme = root.classList.contains("dark") ? "dark" : "light";
+    if (currentTheme !== themeToApply) {
+      root.classList.remove("light", "dark");
+      root.classList.add(themeToApply);
     }
   }, [theme]);
 
+  // ✅ FIX: Always render children immediately - don't wait for settings
+  // Theme will be applied from localStorage first, then synced from DB when available
   return (
     <ThemeProviderContext.Provider value={{ theme, setTheme }}>
       {children}

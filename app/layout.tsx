@@ -41,21 +41,18 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  const stored = localStorage.getItem('mindote-storage');
-                  if (stored) {
-                    const { state } = JSON.parse(stored);
-                    const theme = state?.settings?.theme || 'dark';
-                    const root = document.documentElement;
-                    
-                    if (theme === 'system') {
-                      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                      root.classList.add(systemTheme);
-                    } else {
-                      root.classList.add(theme);
-                    }
+                  const root = document.documentElement;
+                  
+                  // Read theme from unified localStorage key
+                  const savedTheme = localStorage.getItem('mindote-theme');
+                  const theme = savedTheme || 'dark'; // Default to dark
+                  
+                  // Apply theme immediately to prevent flash
+                  if (theme === 'system') {
+                    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    root.classList.add(systemTheme);
                   } else {
-                    // Default to dark if no stored preference
-                    root.classList.add('dark');
+                    root.classList.add(theme);
                   }
                 } catch (e) {
                   // Fallback to dark on error

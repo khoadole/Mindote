@@ -82,7 +82,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         {/* Header with Logo */}
         <div
           className={cn(
-            "flex h-20 items-center mb-4",
+            "flex h-20 items-center mb-4 border-b",
             isCollapsed ? "justify-center px-2" : "justify-between px-5"
           )}
         >
@@ -153,7 +153,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     className={cn(
                       "w-full text-sidebar-foreground transition-all duration-300 content-rounded relative overflow-hidden",
                       isActive
-                        ? "bg-gradient-to-r from-primary/20 to-accent/20 dark:text-white text-primary shadow-lg shadow-primary/20"
+                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-black dark:text-white shadow-lg shadow-primary/20"
                         : "hover:bg-primary/10 dark:hover:bg-white/5 hover:translate-x-1",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
@@ -182,7 +182,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                         className={cn(
                           "transition-all duration-300 font-medium relative z-10 flex items-center gap-2",
                           isActive
-                            ? "text-white"
+                            ? "text-black dark:text-white"
                             : "text-sidebar-foreground/80 group-hover:text-sidebar-foreground"
                         )}
                       >

@@ -28,28 +28,26 @@ export function UpgradePlanModal({
 
   const plans = {
     monthly: {
-      price: "$9.99",
+      price: "$6.99",
       period: "per month",
-      total: "$9.99/month",
+      total: "$6.99/month",
       savings: null,
     },
     yearly: {
-      price: "$99.99",
+      price: "$58.99",
       period: "per year",
-      total: "$8.33/month",
-      savings: "Save 17%",
+      total: "$4.92/month",
+      savings: "Save 30%",
     },
   };
 
   const features = [
-    "Unlimited collections",
-    "Unlimited flashcards",
-    "Advanced quiz modes",
-    "YouTube transcript import",
-    "Export to Anki",
-    "Priority support",
-    "AI-powered suggestions",
-    "Offline access",
+    "Unlimited AI word fills",
+    "Unlimited reading generation",
+    "Advanced analytics & insights",
+    "Early access to new features",
+    "No daily AI limits",
+    "All core features included",
   ];
 
   const handleUpgrade = () => {
@@ -67,7 +65,8 @@ export function UpgradePlanModal({
             Upgrade to Premium
           </DialogTitle>
           <DialogDescription>
-            Unlock all features and take your learning to the next level
+            Get unlimited AI features and advanced tools to accelerate your
+            vocabulary learning
           </DialogDescription>
         </DialogHeader>
 
@@ -137,11 +136,6 @@ export function UpgradePlanModal({
             Upgrade Now
           </Button>
         </Card>
-
-        {/* Footer Note */}
-        <p className="text-xs text-center text-muted-foreground">
-          Cancel anytime. 14-day money-back guarantee.
-        </p>
       </DialogContent>
     </Dialog>
   );

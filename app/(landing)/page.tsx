@@ -97,7 +97,7 @@ const faqs = [
   {
     question: "Is Mindote free to use?",
     answer:
-      "Yes! Mindote is completely free. You can create unlimited word collections, use all flashcard and quiz features, and track your progress without any cost.",
+      "Yes! Mindote is completely free. You can create unlimited word collections, use all flashcard and quiz features, track your progress, and get 3 daily AI generations at no cost.",
   },
   {
     question: "What is spaced repetition and why does it work?",

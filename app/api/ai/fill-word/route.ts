@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
+import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -32,31 +33,37 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Term is required" }, { status: 400 });
     }
 
-    // Check daily usage quota
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    // Check if user has active subscription (premium bypass)
+    const isPremium = await hasActiveSubscription();
 
-    const usage = await prisma.aIUsage.findUnique({
-      where: {
-        userId_date: {
-          userId,
-          date: today,
+    // Only check limits for free users
+    if (!isPremium) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const usage = await prisma.aIUsage.findUnique({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
         },
-      },
-    });
+      });
 
-    const currentUsage = usage?.count || 0;
+      const currentUsage = usage?.count || 0;
 
-    // Check if user exceeded free limit (no premium check for now)
-    if (currentUsage >= FREE_DAILY_LIMIT) {
-      return NextResponse.json(
-        {
-          error: "Daily limit reached",
-          message: `You've reached your daily limit of ${FREE_DAILY_LIMIT} AI fills. Upgrade to premium for unlimited access!`,
-          remainingUses: 0,
-        },
-        { status: 429 }
-      );
+      // Check if user exceeded free limit
+      if (currentUsage >= FREE_DAILY_LIMIT) {
+        return NextResponse.json(
+          {
+            error: "Daily limit reached",
+            message: `You've reached your daily limit of ${FREE_DAILY_LIMIT} AI fills. Upgrade to premium for unlimited access!`,
+            remainingUses: 0,
+            isPremium: false,
+          },
+          { status: 429 }
+        );
+      }
     }
 
     // Call OpenAI API with gpt-4o-mini (cheapest and efficient)
@@ -112,38 +119,58 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
       throw new Error("Invalid AI response structure");
     }
 
-    // Update or create usage record
-    await prisma.aIUsage.upsert({
-      where: {
-        userId_date: {
+    // Update usage tracking (only for free users)
+    let remainingUses = -1; // -1 means unlimited for premium
+
+    if (!isPremium) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const usage = await prisma.aIUsage.findUnique({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
+        },
+      });
+
+      const currentUsage = usage?.count || 0;
+
+      await prisma.aIUsage.upsert({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
+        },
+        update: {
+          count: {
+            increment: 1,
+          },
+        },
+        create: {
           userId,
           date: today,
+          count: 1,
         },
-      },
-      update: {
-        count: {
-          increment: 1,
-        },
-      },
-      create: {
-        userId,
-        date: today,
-        count: 1,
-      },
-    });
+      });
 
-    const remainingUses = FREE_DAILY_LIMIT - (currentUsage + 1);
+      remainingUses = FREE_DAILY_LIMIT - (currentUsage + 1);
+    }
 
     return NextResponse.json({
       success: true,
       data: aiResponse,
-      remainingUses,
-      message:
-        remainingUses > 0
-          ? `${remainingUses} AI fill${
-              remainingUses === 1 ? "" : "s"
-            } remaining today`
-          : "Last AI fill for today! Upgrade for unlimited access.",
+      isPremium,
+      remainingUses: isPremium ? -1 : remainingUses,
+      message: isPremium
+        ? "Unlimited AI fills available"
+        : remainingUses > 0
+        ? `${remainingUses} AI fill${
+            remainingUses === 1 ? "" : "s"
+          } remaining today`
+        : "Last AI fill for today! Upgrade for unlimited access.",
     });
   } catch (error: any) {
     console.error("AI Fill Error:", error);
@@ -182,6 +209,20 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    // Check if user is premium
+    const isPremium = await hasActiveSubscription();
+
+    if (isPremium) {
+      return NextResponse.json({
+        isPremium: true,
+        remainingUses: -1, // -1 indicates unlimited
+        totalLimit: -1,
+        used: 0,
+        canUse: true,
+        message: "Unlimited AI fills available",
+      });
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -198,6 +239,7 @@ export async function GET(request: NextRequest) {
     const remainingUses = Math.max(0, FREE_DAILY_LIMIT - currentUsage);
 
     return NextResponse.json({
+      isPremium: false,
       remainingUses,
       totalLimit: FREE_DAILY_LIMIT,
       used: currentUsage,

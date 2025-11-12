@@ -9,15 +9,16 @@ datasource db {
 }
 
 model User {
-  id          String       @id @db.Uuid
-  email       String       @unique
-  username    String?
-  displayName String?      @map("display_name")
-  avatarUrl   String?      @map("avatar_url")
-  createdAt   DateTime     @default(now()) @map("created_at")
-  updatedAt   DateTime     @updatedAt @map("updated_at")
-  collections Collection[]
-  setting     Setting?
+  id            String         @id @db.Uuid
+  email         String         @unique
+  username      String?
+  displayName   String?        @map("display_name")
+  avatarUrl     String?        @map("avatar_url")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  collections   Collection[]
+  setting       Setting?
+  subscriptions Subscription[]
 
   @@index([email])
   @@map("users")
@@ -139,4 +140,72 @@ model ReadingAttempt {
   @@index([userId, passageId])
   @@index([userId, completedAt])
   @@map("reading_attempts")
+}
+
+// ============================================
+// LEMON SQUEEZY BILLING MODELS
+// ============================================
+
+model Plan {
+  id                 String         @id @default(uuid()) @db.Uuid
+  productId          Int            @map("product_id")
+  productName        String?        @map("product_name")
+  variantId          Int            @unique @map("variant_id")
+  name               String
+  description        String?
+  price              String
+  isUsageBased       Boolean        @default(false) @map("is_usage_based")
+  interval           String?        // "month", "year"
+  intervalCount      Int?           @map("interval_count")
+  trialInterval      String?        @map("trial_interval")
+  trialIntervalCount Int?           @map("trial_interval_count")
+  sort               Int?
+  createdAt          DateTime       @default(now()) @map("created_at")
+  updatedAt          DateTime       @updatedAt @map("updated_at")
+  subscriptions      Subscription[]
+
+  @@index([variantId])
+  @@map("plans")
+}
+
+model Subscription {
+  id                 String   @id @default(uuid()) @db.Uuid
+  lemonSqueezyId     String   @unique @map("lemon_squeezy_id") // Subscription ID from Lemon Squeezy
+  orderId            Int      @map("order_id")
+  name               String
+  email              String
+  status             String   // "on_trial", "active", "paused", "past_due", "unpaid", "cancelled", "expired"
+  statusFormatted    String   @map("status_formatted")
+  renewsAt           String?  @map("renews_at")
+  endsAt             String?  @map("ends_at")
+  trialEndsAt        String?  @map("trial_ends_at")
+  price              String
+  isUsageBased       Boolean  @default(false) @map("is_usage_based")
+  isPaused           Boolean  @default(false) @map("is_paused")
+  subscriptionItemId Int?     @map("subscription_item_id")
+  userId             String   @map("user_id") @db.Uuid
+  planId             String   @map("plan_id") @db.Uuid
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan Plan @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([lemonSqueezyId])
+  @@index([status])
+  @@map("subscriptions")
+}
+
+model WebhookEvent {
+  id              String   @id @default(uuid()) @db.Uuid
+  eventName       String   @map("event_name")
+  processed       Boolean  @default(false)
+  body            Json
+  processingError String?  @map("processing_error")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([eventName])
+  @@index([processed])
+  @@map("webhook_events")
 }

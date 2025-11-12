@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
+import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -77,31 +78,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check daily usage quota for reading generation
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    // Check if user has active subscription (premium bypass)
+    const isPremium = await hasActiveSubscription();
 
-    const usage = await prisma.aIUsage.findUnique({
-      where: {
-        userId_date: {
-          userId,
-          date: today,
+    // Only check limits for free users
+    if (!isPremium) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const usage = await prisma.aIUsage.findUnique({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
         },
-      },
-    });
+      });
 
-    const currentUsage = usage?.count || 0;
+      const currentUsage = usage?.count || 0;
 
-    // For now, share the same quota with word fill (3 per day total)
-    if (currentUsage >= FREE_DAILY_READING_LIMIT) {
-      return NextResponse.json(
-        {
-          error: "Daily limit reached",
-          message: `You've reached your daily limit of ${FREE_DAILY_READING_LIMIT} AI generations. Upgrade to premium for unlimited access!`,
-          remainingUses: 0,
-        },
-        { status: 429 }
-      );
+      // For now, share the same quota with word fill (3 per day total)
+      if (currentUsage >= FREE_DAILY_READING_LIMIT) {
+        return NextResponse.json(
+          {
+            error: "Daily limit reached",
+            message: `You've reached your daily limit of ${FREE_DAILY_READING_LIMIT} AI generations. Upgrade to premium for unlimited access!`,
+            remainingUses: 0,
+            isPremium: false,
+          },
+          { status: 429 }
+        );
+      }
     }
 
     // Get word terms for AI prompt
@@ -190,38 +197,58 @@ Format as JSON:
       },
     });
 
-    // Update usage count
-    await prisma.aIUsage.upsert({
-      where: {
-        userId_date: {
+    // Update usage tracking (only for free users)
+    let remainingUses = -1; // -1 means unlimited for premium
+
+    if (!isPremium) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const usage = await prisma.aIUsage.findUnique({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
+        },
+      });
+
+      const currentUsage = usage?.count || 0;
+
+      await prisma.aIUsage.upsert({
+        where: {
+          userId_date: {
+            userId,
+            date: today,
+          },
+        },
+        update: {
+          count: {
+            increment: 1,
+          },
+        },
+        create: {
           userId,
           date: today,
+          count: 1,
         },
-      },
-      update: {
-        count: {
-          increment: 1,
-        },
-      },
-      create: {
-        userId,
-        date: today,
-        count: 1,
-      },
-    });
+      });
 
-    const remainingUses = FREE_DAILY_READING_LIMIT - (currentUsage + 1);
+      remainingUses = FREE_DAILY_READING_LIMIT - (currentUsage + 1);
+    }
 
     return NextResponse.json({
       success: true,
       data: savedPassage,
-      remainingUses,
-      message:
-        remainingUses > 0
-          ? `${remainingUses} reading passage${
-              remainingUses === 1 ? "" : "s"
-            } remaining today`
-          : "Last free reading passage for today! Upgrade for unlimited access.",
+      isPremium,
+      remainingUses: isPremium ? -1 : remainingUses,
+      message: isPremium
+        ? "Unlimited reading passages available"
+        : remainingUses > 0
+        ? `${remainingUses} reading passage${
+            remainingUses === 1 ? "" : "s"
+          } remaining today`
+        : "Last free reading passage for today! Upgrade for unlimited access.",
     });
   } catch (error: any) {
     console.error("Reading generation error:", error);

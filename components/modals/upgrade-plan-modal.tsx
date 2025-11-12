@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getCheckoutURL } from "@/app/actions/lemonsqueezy";
+import { useToast } from "@/hooks/use-toast";
 
 interface UpgradePlanModalProps {
   open: boolean;
@@ -20,22 +22,37 @@ interface UpgradePlanModalProps {
 
 type BillingCycle = "monthly" | "yearly";
 
+// Variant IDs from Lemon Squeezy
+const VARIANT_IDS = {
+  monthly: parseInt(
+    process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_MONTHLY || "1087650"
+  ),
+  yearly: parseInt(
+    process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_YEARLY || "1087727"
+  ),
+};
+
 export function UpgradePlanModal({
   open,
   onOpenChange,
 }: UpgradePlanModalProps) {
   const [selectedCycle, setSelectedCycle] = useState<BillingCycle>("yearly");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const plans = {
     monthly: {
       price: "$10.99",
       period: "per month",
       savings: null,
+      variantId: VARIANT_IDS.monthly,
     },
     yearly: {
       price: "$5.99",
       period: "per month",
       savings: "Save 45%",
+      annualPrice: "$71.88",
+      variantId: VARIANT_IDS.yearly,
     },
   };
 
@@ -48,10 +65,32 @@ export function UpgradePlanModal({
     "All core features included",
   ];
 
-  const handleUpgrade = () => {
-    // TODO: Implement payment flow
-    console.log(`Upgrading to ${selectedCycle} plan`);
-    onOpenChange(false);
+  const handleUpgrade = async () => {
+    try {
+      setIsLoading(true);
+
+      const variantId = plans[selectedCycle].variantId;
+
+      // Get checkout URL from Lemon Squeezy
+      const checkoutUrl = await getCheckoutURL(variantId, false);
+
+      if (!checkoutUrl) {
+        throw new Error("Failed to create checkout URL");
+      }
+
+      // Redirect to Lemon Squeezy checkout
+      window.location.href = checkoutUrl;
+    } catch (error: any) {
+      console.error("Upgrade error:", error);
+      toast({
+        title: "Error",
+        description:
+          error.message ||
+          "Failed to start checkout process. Please try again.",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -110,7 +149,7 @@ export function UpgradePlanModal({
             </div>
             {selectedCycle === "yearly" && (
               <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Billed annually at $71.88
+                Billed annually at {plans.yearly.annualPrice}
               </div>
             )}
           </div>
@@ -128,10 +167,20 @@ export function UpgradePlanModal({
           {/* Upgrade Button */}
           <Button
             onClick={handleUpgrade}
-            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-lg py-6"
+            disabled={isLoading}
+            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Sparkles className="h-5 w-5 mr-2" />
-            Upgrade Now
+            {isLoading ? (
+              <>
+                <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                Processing...
+              </>
+            ) : (
+              <>
+                <Sparkles className="h-5 w-5 mr-2" />
+                Upgrade Now
+              </>
+            )}
           </Button>
         </Card>
       </DialogContent>

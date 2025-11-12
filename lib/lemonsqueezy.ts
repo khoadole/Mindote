@@ -1,0 +1,39 @@
+import { lemonSqueezySetup } from "@lemonsqueezy/lemonsqueezy.js";
+
+/**
+ * Ensures that required environment variables are set and sets up the Lemon
+ * Squeezy JS SDK. Throws an error if any environment variables are missing or
+ * if there's an error setting up the SDK.
+ */
+export function configureLemonSqueezy() {
+  const requiredVars = [
+    "LEMON_SQUEEZY_API_KEY",
+    "LEMON_SQUEEZY_STORE_ID",
+    "LEMON_SQUEEZY_WEBHOOK_SECRET",
+  ];
+
+  const missingVars = requiredVars.filter((varName) => !process.env[varName]);
+
+  if (missingVars.length > 0) {
+    throw new Error(
+      `Missing required LEMON_SQUEEZY env variables: ${missingVars.join(
+        ", "
+      )}. Please, set them in your .env file.`
+    );
+  }
+
+  lemonSqueezySetup({
+    apiKey: process.env.LEMON_SQUEEZY_API_KEY!,
+    onError: (error) => {
+      console.error("Lemon Squeezy API Error:", error);
+      throw new Error(`Lemon Squeezy API error: ${error.message}`);
+    },
+  });
+}
+
+/**
+ * Get the base URL of the application
+ */
+export function getAppURL() {
+  return process.env.NEXT_PUBLIC_APP_URL || "https://mindote.app";
+}

@@ -28,16 +28,14 @@ export function UpgradePlanModal({
 
   const plans = {
     monthly: {
-      price: "$6.99",
+      price: "$10.99",
       period: "per month",
-      total: "$6.99/month",
       savings: null,
     },
     yearly: {
-      price: "$58.99",
-      period: "per year",
-      total: "$4.92/month",
-      savings: "Save 30%",
+      price: "$5.99",
+      period: "per month",
+      savings: "Save 45%",
     },
   };
 
@@ -111,8 +109,8 @@ export function UpgradePlanModal({
               {plans[selectedCycle].period}
             </div>
             {selectedCycle === "yearly" && (
-              <div className="text-sm text-green-600 dark:text-green-400 font-medium mt-1">
-                Billed as {plans[selectedCycle].total}
+              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Billed annually at $71.88
               </div>
             )}
           </div>

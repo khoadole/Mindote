@@ -230,7 +230,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             />
             {!isCollapsed && (
               <span className="transition-opacity duration-300">
-                Upgrade Pro
+                Upgrade Plan
               </span>
             )}
           </Button>

@@ -2,9 +2,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles } from "lucide-react";
-import { useState } from "react";
-import { getCheckoutURL } from "@/app/actions/lemonsqueezy";
+import { Check, Sparkles, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import {
+  getCheckoutURL,
+  getUserSubscriptions,
+} from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
 
@@ -50,7 +53,31 @@ const PLANS = [
 
 export function PricingPlans() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [currentPlanVariantId, setCurrentPlanVariantId] = useState<
+    number | null
+  >(null);
+  const [subscriptionsLoading, setSubscriptionsLoading] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    checkCurrentSubscription();
+  }, []);
+
+  const checkCurrentSubscription = async () => {
+    try {
+      const subscriptions = await getUserSubscriptions();
+      const activeSub = subscriptions.find(
+        (sub: any) => sub.status === "active" || sub.status === "on_trial"
+      );
+      if (activeSub?.plan?.variantId) {
+        setCurrentPlanVariantId(activeSub.plan.variantId);
+      }
+    } catch (error) {
+      console.error("Failed to check subscription:", error);
+    } finally {
+      setSubscriptionsLoading(false);
+    }
+  };
 
   const handleSubscribe = async (planId: string, variantId: number) => {
     try {
@@ -132,14 +159,24 @@ export function PricingPlans() {
 
             <Button
               onClick={() => handleSubscribe(plan.id, plan.variantId)}
-              disabled={loadingPlan === plan.id}
+              disabled={
+                loadingPlan === plan.id ||
+                currentPlanVariantId === plan.variantId
+              }
               className={`w-full ${
-                plan.popular
+                currentPlanVariantId === plan.variantId
+                  ? "bg-green-600 hover:bg-green-700"
+                  : plan.popular
                   ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
                   : ""
               }`}
             >
-              {loadingPlan === plan.id ? (
+              {currentPlanVariantId === plan.variantId ? (
+                <>
+                  <CheckCircle2 className="h-4 w-4 mr-2" />
+                  Current Plan
+                </>
+              ) : loadingPlan === plan.id ? (
                 <>
                   <Sparkles className="h-4 w-4 mr-2 animate-spin" />
                   Processing...

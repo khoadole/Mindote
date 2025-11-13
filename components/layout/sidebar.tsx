@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -18,8 +18,10 @@ import {
   Sparkles,
   ChevronRight,
   FileText,
+  Crown,
 } from "lucide-react";
 import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
+import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
 
 const navigation = [
   {
@@ -64,7 +66,27 @@ interface SidebarProps {
 export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
+  const [hasActiveSubscription, setHasActiveSubscription] = useState(false);
+  const [subscriptionLoading, setSubscriptionLoading] = useState(true);
   const pathname = usePathname();
+
+  useEffect(() => {
+    checkSubscription();
+  }, []);
+
+  const checkSubscription = async () => {
+    try {
+      const subscriptions = await getUserSubscriptions();
+      const active = subscriptions.some(
+        (sub: any) => sub.status === "active" || sub.status === "on_trial"
+      );
+      setHasActiveSubscription(active);
+    } catch (error) {
+      console.error("Failed to check subscription:", error);
+    } finally {
+      setSubscriptionLoading(false);
+    }
+  };
 
   return (
     <div
@@ -208,32 +230,65 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
         {/* Bottom Section */}
         <div className="p-3 space-y-2 border-t border-white/10">
-          {/* Upgrade Plan Button */}
-          <Button
-            variant="default"
-            onClick={() => setIsUpgradeModalOpen(true)}
-            className={cn(
-              "w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600",
-              "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 content-rounded",
-              "hover:scale-105 hover:shadow-xl hover:shadow-purple-500/40",
-              "animate-pulse-glow",
-              isCollapsed
-                ? "justify-center h-12 w-12 p-0"
-                : "justify-start h-12"
-            )}
-          >
-            <Sparkles
-              className={cn(
-                "h-5 w-5 transition-all duration-300",
-                !isCollapsed && "mr-2"
+          {/* Upgrade Plan / Premium Status Button */}
+          {!subscriptionLoading && (
+            <>
+              {hasActiveSubscription ? (
+                <Link href="/billing">
+                  <Button
+                    variant="default"
+                    className={cn(
+                      "w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500",
+                      "hover:from-amber-600 hover:via-yellow-600 hover:to-amber-600",
+                      "text-white font-medium shadow-lg shadow-amber-500/30 transition-all duration-300 content-rounded",
+                      "hover:scale-105 hover:shadow-xl hover:shadow-amber-500/40",
+                      isCollapsed
+                        ? "justify-center h-12 w-12 p-0"
+                        : "justify-start h-12"
+                    )}
+                  >
+                    <Crown
+                      className={cn(
+                        "h-5 w-5 transition-all duration-300",
+                        !isCollapsed && "mr-2"
+                      )}
+                    />
+                    {!isCollapsed && (
+                      <span className="transition-opacity duration-300">
+                        Premium Active
+                      </span>
+                    )}
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  variant="default"
+                  onClick={() => setIsUpgradeModalOpen(true)}
+                  className={cn(
+                    "w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600",
+                    "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 content-rounded",
+                    "hover:scale-105 hover:shadow-xl hover:shadow-purple-500/40",
+                    "animate-pulse-glow",
+                    isCollapsed
+                      ? "justify-center h-12 w-12 p-0"
+                      : "justify-start h-12"
+                  )}
+                >
+                  <Sparkles
+                    className={cn(
+                      "h-5 w-5 transition-all duration-300",
+                      !isCollapsed && "mr-2"
+                    )}
+                  />
+                  {!isCollapsed && (
+                    <span className="transition-opacity duration-300">
+                      Upgrade Plan
+                    </span>
+                  )}
+                </Button>
               )}
-            />
-            {!isCollapsed && (
-              <span className="transition-opacity duration-300">
-                Upgrade Plan
-              </span>
-            )}
-          </Button>
+            </>
+          )}
 
           {/* Settings Link */}
           <Link href="/settings">

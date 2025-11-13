@@ -78,8 +78,14 @@ export function UpgradePlanModal({
         throw new Error("Failed to create checkout URL");
       }
 
-      // Redirect to Lemon Squeezy checkout
-      window.location.href = checkoutUrl;
+      // Close modal before redirecting
+      onOpenChange(false);
+
+      // Small delay to ensure modal closes smoothly
+      setTimeout(() => {
+        // Redirect to Lemon Squeezy checkout
+        window.location.href = checkoutUrl;
+      }, 300);
     } catch (error: any) {
       console.error("Upgrade error:", error);
       toast({

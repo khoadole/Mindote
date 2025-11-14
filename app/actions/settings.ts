@@ -6,6 +6,88 @@ import { getUserId } from "@/lib/server-auth";
 import { ensureUserExists } from "@/lib/ensure-user";
 
 /**
+ * Update user's login streak
+ * Called when user logs in or visits the dashboard
+ */
+export async function updateUserStreakAction() {
+  try {
+    const userId = await getUserId();
+    await ensureUserExists(userId);
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        lastLoginDate: true,
+        currentStreak: true,
+        longestStreak: true,
+      },
+    });
+
+    if (!user) {
+      return { error: "User not found", data: null };
+    }
+
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const lastLogin = user.lastLoginDate
+      ? new Date(
+          user.lastLoginDate.getFullYear(),
+          user.lastLoginDate.getMonth(),
+          user.lastLoginDate.getDate()
+        )
+      : null;
+
+    let newStreak = user.currentStreak || 0;
+    let newLongestStreak = user.longestStreak || 0;
+
+    if (!lastLogin) {
+      // First login ever
+      newStreak = 1;
+    } else {
+      const daysDiff = Math.floor(
+        (today.getTime() - lastLogin.getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      if (daysDiff === 0) {
+        // Same day, no change
+        newStreak = user.currentStreak || 1;
+      } else if (daysDiff === 1) {
+        // Consecutive day, increment streak
+        newStreak = (user.currentStreak || 0) + 1;
+      } else {
+        // Missed a day or more, reset streak
+        newStreak = 1;
+      }
+    }
+
+    // Update longest streak if current is higher
+    if (newStreak > newLongestStreak) {
+      newLongestStreak = newStreak;
+    }
+
+    await prisma.user.update({
+      where: { id: userId },
+      data: {
+        lastLoginDate: now,
+        currentStreak: newStreak,
+        longestStreak: newLongestStreak,
+      },
+    });
+
+    return {
+      data: {
+        currentStreak: newStreak,
+        longestStreak: newLongestStreak,
+      },
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error updating user streak:", error);
+    return { error: "Failed to update streak", data: null };
+  }
+}
+
+/**
  * Get user settings
  */
 export async function getSettingsAction() {
@@ -132,6 +214,16 @@ export async function getUserStatsAction() {
       master_words: BigInt(0),
     };
 
+    // Get user streak data
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        currentStreak: true,
+        longestStreak: true,
+        lastLoginDate: true,
+      },
+    });
+
     return {
       data: {
         totalWords: Number(stats.total_words),
@@ -143,6 +235,10 @@ export async function getUserStatsAction() {
         learningWords: Number(stats.learning_words),
         familiarWords: Number(stats.familiar_words),
         masterWords: Number(stats.master_words),
+        // Streak data
+        currentStreak: user?.currentStreak || 0,
+        longestStreak: user?.longestStreak || 0,
+        lastLoginDate: user?.lastLoginDate,
       },
       error: null,
     };

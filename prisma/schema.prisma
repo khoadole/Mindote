@@ -9,16 +9,19 @@ datasource db {
 }
 
 model User {
-  id            String         @id @db.Uuid
-  email         String         @unique
-  username      String?
-  displayName   String?        @map("display_name")
-  avatarUrl     String?        @map("avatar_url")
-  createdAt     DateTime       @default(now()) @map("created_at")
-  updatedAt     DateTime       @updatedAt @map("updated_at")
-  collections   Collection[]
-  setting       Setting?
-  subscriptions Subscription[]
+  id              String         @id @db.Uuid
+  email           String         @unique
+  username        String?
+  displayName     String?        @map("display_name")
+  avatarUrl       String?        @map("avatar_url")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+  lastLoginDate   DateTime?      @map("last_login_date")
+  currentStreak   Int            @default(0) @map("current_streak")
+  longestStreak   Int            @default(0) @map("longest_streak")
+  collections     Collection[]
+  setting         Setting?
+  subscriptions   Subscription[]
 
   @@index([email])
   @@map("users")

@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AppProvider } from "@/lib/app-provider";
 import { ThemeProvider } from "@/lib/theme-provider";
@@ -9,9 +9,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
 import "./globals.css";
 
-const inter = Inter({
+const openSans = Open_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-open-sans",
   display: "swap",
 });
 
@@ -91,7 +91,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${openSans.variable} font-sans antialiased`}>
         <Suspense fallback={null}>
           <QueryProvider>
             <AppProvider>

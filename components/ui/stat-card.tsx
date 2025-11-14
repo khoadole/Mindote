@@ -61,10 +61,10 @@ export function StatCard({
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Gradient background overlay */}
-      <div className={cn("absolute inset-0 opacity-5", gradientClass)} />
+      <div className={cn("absolute inset-0 opacity-15", gradientClass)} />
 
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 relative">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+        <CardTitle className="text-base font-semibold">{title}</CardTitle>
         <div
           className={cn(
             "h-10 w-10 rounded-full flex items-center justify-center",
@@ -76,13 +76,13 @@ export function StatCard({
       </CardHeader>
 
       <CardContent className="relative">
-        <div className="text-3xl font-bold mb-1 text-gradient-purple">
+        <div className="text-4xl font-bold mb-2 text-gradient-purple">
           {displayValue.toLocaleString()}
         </div>
-        <p className="text-xs text-muted-foreground mb-2">{description}</p>
+        <p className="text-sm text-muted-foreground mb-2">{description}</p>
 
         {trend && (
-          <div className="flex items-center gap-1 text-xs">
+          <div className="flex items-center gap-1 text-sm">
             <span
               className={cn(
                 "font-medium",

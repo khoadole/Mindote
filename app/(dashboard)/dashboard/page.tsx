@@ -330,16 +330,16 @@ export default function Dashboard() {
                   <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center mb-6 animate-float">
                     <Layers className="h-10 w-10 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-2xl font-semibold mb-2">
                     No collections yet
                   </h3>
-                  <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                  <p className="text-base text-muted-foreground mb-8 max-w-md mx-auto">
                     Collections help you organize your vocabulary by topics.
                     Create your first collection to start adding words!
                   </p>
                   <CreateCollectionModal />
                   <div className="mt-6 p-4 bg-primary/5 rounded-2xl max-w-md mx-auto">
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base text-muted-foreground">
                       💡 <strong>Tip:</strong> You need to create a collection
                       before adding words
                     </p>
@@ -368,15 +368,15 @@ export default function Dashboard() {
                             <Layers className="h-6 w-6 text-white" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h3 className="font-semibold text-lg truncate group-hover:text-primary transition-colors">
+                            <h3 className="font-semibold text-xl truncate group-hover:text-primary transition-colors">
                               {collection.name}
                             </h3>
                             <div className="flex items-center gap-3 mt-1">
-                              <p className="text-sm text-muted-foreground flex items-center gap-1">
-                                <BookOpen className="h-3 w-3" />
+                              <p className="text-base text-muted-foreground flex items-center gap-1">
+                                <BookOpen className="h-4 w-4" />
                                 {collection.wordCount || 0} words
                               </p>
-                              <Badge variant="secondary" className="text-xs">
+                              <Badge variant="secondary" className="text-sm">
                                 Active
                               </Badge>
                             </div>

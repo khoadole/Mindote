@@ -34,7 +34,7 @@ export function GradientCard({
     >
       {/* Gradient overlay */}
       <div
-        className={cn("absolute inset-0 opacity-10", gradientClasses[gradient])}
+        className={cn("absolute inset-0 opacity-20", gradientClasses[gradient])}
       />
 
       {/* Content */}

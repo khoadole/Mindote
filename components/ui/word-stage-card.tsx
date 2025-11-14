@@ -38,7 +38,7 @@ export function WordStageCard({
       {/* Gradient Background */}
       <div
         className={cn(
-          "absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity",
+          "absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity",
           gradient
         )}
       />
@@ -56,22 +56,24 @@ export function WordStageCard({
             </div>
           </div>
           <div className="text-right">
-            <div className="text-xs text-muted-foreground font-medium">
+            <div className="text-sm text-muted-foreground font-semibold">
               {percentage}%
             </div>
           </div>
         </div>
 
         <div className="space-y-1">
-          <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
+          <h3 className="text-base font-semibold text-muted-foreground">
+            {title}
+          </h3>
           <div className="flex items-baseline gap-2">
-            <p className="text-2xl md:text-3xl font-bold">{count}</p>
-            <p className="text-sm text-muted-foreground">words</p>
+            <p className="text-3xl md:text-4xl font-bold">{count}</p>
+            <p className="text-base text-muted-foreground">words</p>
           </div>
         </div>
 
         {description && (
-          <p className="text-xs text-muted-foreground mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <p className="text-sm text-muted-foreground mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
             {description}
           </p>
         )}

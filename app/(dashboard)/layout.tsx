@@ -14,13 +14,7 @@ export default function DashboardLayout({
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
-    <div
-      className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-3 gap-0 md:gap-3"
-      style={{
-        // Inline style to ensure immediate background
-        backgroundColor: "var(--background, oklch(0.13 0.02 265))",
-      }}
-    >
+    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
       {/* Animated background gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" />

@@ -91,24 +91,53 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   return (
     <div
       className={cn(
-        "flex h-full flex-col bg-sidebar transition-all duration-300 relative",
+        "flex h-full flex-col transition-all duration-300 relative",
         isCollapsed ? "w-20" : "w-72",
         className
       )}
       style={{
-        // Inline style to ensure immediate background color
-        backgroundColor: "var(--sidebar, oklch(0.1 0.02 265))",
+        // Sử dụng inline style với giá trị cố định cho cả light và dark mode
+        backgroundColor: "oklch(0.9 0.008 265)",
       }}
     >
-      {/* Gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sidebar via-sidebar to-sidebar/95 pointer-events-none rounded-r-lg" />
+      {/* Dark mode background - absolute positioned */}
+      <div
+        className="absolute inset-0 pointer-events-none dark:opacity-100 opacity-0 transition-opacity duration-300"
+        style={{
+          backgroundColor: "oklch(0.1 0.02 265)",
+        }}
+      />
+
+      {/* Gradient overlay for depth - Light mode */}
+      <div
+        className="absolute inset-0 pointer-events-none rounded-r-lg dark:opacity-0 opacity-100 transition-opacity duration-300"
+        style={{
+          background: `linear-gradient(to bottom, 
+            oklch(0.9 0.008 265), 
+            oklch(0.9 0.008 265), 
+            oklch(0.9 0.008 265 / 0.95)
+          )`,
+        }}
+      />
+
+      {/* Gradient overlay for depth - Dark mode */}
+      <div
+        className="absolute inset-0 pointer-events-none rounded-r-lg dark:opacity-100 opacity-0 transition-opacity duration-300"
+        style={{
+          background: `linear-gradient(to bottom, 
+            oklch(0.1 0.02 265), 
+            oklch(0.1 0.02 265), 
+            oklch(0.1 0.02 265 / 0.95)
+          )`,
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Header with Logo */}
         <div
           className={cn(
-            "flex h-20 items-center mb-4 border-b",
+            "flex h-20 items-center mb-4 border-b border-white/10",
             isCollapsed ? "justify-center px-2" : "justify-between px-5"
           )}
         >
@@ -125,10 +154,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-sidebar-foreground tracking-tight">
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
                   Mindote
                 </h1>
-                <p className="text-xs text-sidebar-foreground/60">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   Learn smarter
                 </p>
               </div>
@@ -141,7 +170,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             size="sm"
             onClick={() => setIsCollapsed(!isCollapsed)}
             className={cn(
-              "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-white/10 rounded-xl transition-all",
+              "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/10 dark:hover:bg-white/10 rounded-xl transition-all",
               isCollapsed ? "w-10 h-10 p-0" : "shrink-0"
             )}
           >
@@ -171,16 +200,16 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                 >
                   {/* Active indicator */}
                   {isActive && !isCollapsed && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-r-full animate-pulse-glow" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-r-full animate-pulse" />
                   )}
 
                   <Button
                     variant="ghost"
                     className={cn(
-                      "w-full text-sidebar-foreground transition-all duration-300 content-rounded relative overflow-hidden",
+                      "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
                       isActive
-                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-black dark:text-white shadow-lg shadow-primary/20"
-                        : "hover:bg-primary/10 dark:hover:bg-white/5 hover:translate-x-1",
+                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-gray-900 dark:text-white shadow-lg shadow-primary/20"
+                        : "hover:bg-primary/10 dark:hover:bg-white/5 hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
                         : "justify-start h-12 pl-6"
@@ -197,19 +226,14 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     <item.icon
                       className={cn(
                         "h-5 w-5 transition-all duration-300 relative z-10",
-                        isActive
-                          ? item.color
-                          : "text-sidebar-foreground/70 group-hover:text-sidebar-foreground",
+                        isActive ? item.color : "",
                         !isCollapsed && "mr-3"
                       )}
                     />
                     {!isCollapsed && (
                       <span
                         className={cn(
-                          "transition-all duration-300 font-medium relative z-10 flex items-center gap-2",
-                          isActive
-                            ? "text-black dark:text-white"
-                            : "text-sidebar-foreground/80 group-hover:text-sidebar-foreground"
+                          "transition-all duration-300 font-medium relative z-10 flex items-center gap-2"
                         )}
                       >
                         {item.name}
@@ -244,7 +268,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     className={cn(
                       "w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500",
                       "hover:from-amber-600 hover:via-yellow-600 hover:to-amber-600",
-                      "text-white font-medium shadow-lg shadow-amber-500/30 transition-all duration-300 content-rounded",
+                      "text-white font-medium shadow-lg shadow-amber-500/30 transition-all duration-300 rounded-xl",
                       "hover:scale-105 hover:shadow-xl hover:shadow-amber-500/40",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
@@ -270,9 +294,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   onClick={() => setIsUpgradeModalOpen(true)}
                   className={cn(
                     "w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600",
-                    "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 content-rounded",
+                    "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 rounded-xl",
                     "hover:scale-105 hover:shadow-xl hover:shadow-purple-500/40",
-                    "animate-pulse-glow",
                     isCollapsed
                       ? "justify-center h-12 w-12 p-0"
                       : "justify-start h-12"
@@ -299,10 +322,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             <Button
               variant="ghost"
               className={cn(
-                "w-full text-sidebar-foreground transition-all duration-300 content-rounded",
+                "w-full transition-all duration-300 rounded-xl",
                 pathname === "/settings"
-                  ? "bg-primary/20 dark:bg-white/10 text-primary dark:text-white"
-                  : "hover:bg-primary/10 dark:hover:bg-white/5 hover:text-primary dark:hover:text-white",
+                  ? "bg-primary/20 dark:bg-white/10 text-gray-900 dark:text-white"
+                  : "hover:bg-primary/10 dark:hover:bg-white/5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white",
                 isCollapsed
                   ? "justify-center h-12 w-12 p-0"
                   : "justify-start h-12"
@@ -332,5 +355,3 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
     </div>
   );
 }
-
-/* Add shimmer animation to globals.css if not already present */

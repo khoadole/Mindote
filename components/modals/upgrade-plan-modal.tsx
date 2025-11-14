@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -40,6 +40,20 @@ export function UpgradePlanModal({
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
+  // Reset loading state when modal closes
+  useEffect(() => {
+    if (!open) {
+      setIsLoading(false);
+    }
+  }, [open]);
+
+  // Reset loading state when component unmounts (e.g., user navigates back)
+  useEffect(() => {
+    return () => {
+      setIsLoading(false);
+    };
+  }, []);
+
   const plans = {
     monthly: {
       price: "$10.99",
@@ -71,6 +85,12 @@ export function UpgradePlanModal({
 
       const variantId = plans[selectedCycle].variantId;
 
+      // Show toast notification for better UX
+      toast({
+        title: "Redirecting to checkout...",
+        description: "Please wait while we prepare your checkout session.",
+      });
+
       // Get checkout URL from Lemon Squeezy
       const checkoutUrl = await getCheckoutURL(variantId, false);
 
@@ -78,14 +98,20 @@ export function UpgradePlanModal({
         throw new Error("Failed to create checkout URL");
       }
 
+      // Show success toast before redirecting
+      toast({
+        title: "Checkout ready!",
+        description: "Redirecting you to the payment page...",
+      });
+
       // Close modal before redirecting
       onOpenChange(false);
 
-      // Small delay to ensure modal closes smoothly
+      // Small delay to ensure modal closes smoothly and toast is visible
       setTimeout(() => {
         // Redirect to Lemon Squeezy checkout
         window.location.href = checkoutUrl;
-      }, 300);
+      }, 500);
     } catch (error: any) {
       console.error("Upgrade error:", error);
       toast({

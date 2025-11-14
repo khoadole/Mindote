@@ -36,6 +36,34 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="light dark" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* Critical CSS - Prevent background flash */
+              :root {
+                color-scheme: light dark;
+                --background: oklch(0.94 0.005 265);
+                --sidebar: oklch(0.9 0.008 265);
+              }
+              
+              .dark {
+                color-scheme: dark;
+                --background: oklch(0.13 0.02 265);
+                --sidebar: oklch(0.1 0.02 265);
+              }
+              
+              /* Ensure body and sidebar have immediate background */
+              html, body {
+                background-color: oklch(0.94 0.005 265);
+              }
+              
+              .dark, .dark body {
+                background-color: oklch(0.13 0.02 265);
+              }
+            `,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

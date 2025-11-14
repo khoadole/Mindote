@@ -95,6 +95,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         isCollapsed ? "w-20" : "w-72",
         className
       )}
+      style={{
+        // Inline style to ensure immediate background color
+        backgroundColor: "var(--sidebar, oklch(0.1 0.02 265))",
+      }}
     >
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-sidebar via-sidebar to-sidebar/95 pointer-events-none rounded-r-lg" />

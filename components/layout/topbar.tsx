@@ -137,7 +137,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
   };
 
   return (
-    <header className="h-16 md:h-20 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
+    <header className="h-16 md:h-20 border-b border-border bg-white dark:bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/95 dark:supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
       <div className="flex h-full items-center justify-between px-4 md:px-6 gap-2 md:gap-4">
         {/* Mobile Menu Button */}
         <Button

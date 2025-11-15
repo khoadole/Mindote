@@ -96,8 +96,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         className
       )}
       style={{
-        // Sử dụng inline style với giá trị cố định cho cả light và dark mode
-        backgroundColor: "oklch(0.9 0.008 265)",
+        // Pure white background for light mode
+        backgroundColor: "rgb(255, 255, 255)",
       }}
     >
       {/* Dark mode background - absolute positioned */}
@@ -113,9 +113,9 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         className="absolute inset-0 pointer-events-none rounded-r-lg dark:opacity-0 opacity-100 transition-opacity duration-300"
         style={{
           background: `linear-gradient(to bottom, 
-            oklch(0.9 0.008 265), 
-            oklch(0.9 0.008 265), 
-            oklch(0.9 0.008 265 / 0.95)
+            rgb(255, 255, 255), 
+            rgb(255, 255, 255), 
+            rgba(255, 255, 255, 0.98)
           )`,
         }}
       />
@@ -137,7 +137,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         {/* Header with Logo */}
         <div
           className={cn(
-            "flex h-20 items-center mb-4 border-b border-white/10",
+            "flex h-20 items-center mb-4 border-b border-sidebar-border",
             isCollapsed ? "justify-center px-2" : "justify-between px-5"
           )}
         >

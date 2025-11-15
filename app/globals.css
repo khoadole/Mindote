@@ -4,12 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Base colors - Light Mode - Darker, less bright */
-  --background: oklch(0.94 0.005 265);
+  /* Base colors - Light Mode - Pure White */
+  --background: oklch(1 0 0);
   --foreground: oklch(0.18 0.015 265);
-  --card: oklch(0.96 0.005 265);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.015 265);
-  --popover: oklch(0.96 0.005 265);
+  --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.015 265);
 
   /* Primary - Purple - Darker, more saturated */
@@ -31,9 +31,9 @@
   --accent-foreground: oklch(0.98 0 0);
 
   /* Neutral colors - Less bright */
-  --secondary: oklch(0.92 0.008 265);
+  --secondary: oklch(1 0 0);
   --secondary-foreground: oklch(0.18 0.015 265);
-  --muted: oklch(0.92 0.008 265);
+  --muted: oklch(1 0 0);
   --muted-foreground: oklch(0.48 0.015 265);
   --destructive: oklch(0.52 0.27 27);
   --destructive-foreground: oklch(0.98 0 0);
@@ -48,14 +48,14 @@
   --chart-4: oklch(0.62 0.26 340);
   --chart-5: oklch(0.56 0.24 200);
 
-  /* Sidebar - Darker in light mode */
-  --sidebar: oklch(0.9 0.008 265);
+  /* Sidebar - Pure White in light mode */
+  --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.18 0.015 265);
   --sidebar-primary: oklch(0.58 0.28 300);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.86 0.01 265);
+  --sidebar-accent: oklch(0.96 0.005 265);
   --sidebar-accent-foreground: oklch(0.18 0.015 265);
-  --sidebar-border: oklch(0.82 0.012 265);
+  --sidebar-border: oklch(0.9 0.01 265);
   --sidebar-ring: oklch(0.58 0.28 300);
 
   --radius: 1rem;
@@ -166,7 +166,7 @@
 
   /* Ensure html and body always have background - prevent flash */
   html {
-    background-color: oklch(0.94 0.005 265);
+    background-color: oklch(1 0 0);
     color-scheme: light;
   }
 
@@ -183,7 +183,7 @@
 
   /* Ensure sidebar always has proper background */
   [class*="sidebar"] {
-    background-color: oklch(0.9 0.008 265);
+    background-color: oklch(1 0 0);
   }
 
   .dark [class*="sidebar"] {
@@ -448,9 +448,9 @@
     background-clip: text;
   }
 
-  /* Glass morphism effect - Less transparent in light mode */
+  /* Glass morphism effect - White background in light mode */
   .glass {
-    background: oklch(0.96 0.005 265 / 0.8);
+    background: oklch(1 0 0 / 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }

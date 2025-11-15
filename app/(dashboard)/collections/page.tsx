@@ -78,7 +78,7 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div className="p-8 bg-gradient-to-br from-background via-background to-muted/20 min-h-screen">
+    <div className="p-8 bg-white dark:bg-gradient-to-br dark:from-background dark:via-background dark:to-muted/20 min-h-screen">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">

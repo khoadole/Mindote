@@ -122,9 +122,9 @@ export default function Dashboard() {
   }, [readingPassages, stats]);
 
   return (
-    <div className="p-4 md:p-8 min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
+    <div className="p-4 md:p-8 min-h-screen bg-white dark:bg-gradient-to-br dark:from-background dark:via-background dark:to-primary/5 relative overflow-hidden">
       {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none dark:opacity-[0.03] hidden dark:block">
         <div className="absolute top-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
       </div>

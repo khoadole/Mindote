@@ -168,7 +168,7 @@ export default function FlashcardsPage() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 min-h-screen bg-white dark:bg-background">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">

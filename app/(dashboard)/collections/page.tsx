@@ -163,8 +163,8 @@ export default function CollectionsPage() {
         {filteredCollections.length === 0 ? (
           <GradientCard gradient="purple" hoverable={false}>
             <div className="text-center py-16">
-              <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center mb-6 animate-float">
-                <Layers className="h-10 w-10 text-primary" />
+              <div className="mx-auto w-20 h-20 bg-white/20 dark:bg-gradient-to-br dark:from-primary/20 dark:to-accent/20 rounded-3xl flex items-center justify-center mb-6 animate-float backdrop-blur-sm">
+                <Layers className="h-10 w-10 text-white dark:text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
                 No collections found
@@ -174,7 +174,6 @@ export default function CollectionsPage() {
                   ? "Try adjusting your search terms"
                   : "Create your first collection to get started"}
               </p>
-              <CreateCollectionModal />
             </div>
           </GradientCard>
         ) : (

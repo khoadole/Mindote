@@ -228,6 +228,85 @@
 
 /* Custom Animations & Effects */
 @layer utilities {
+  /* Vibrant gradient backgrounds for light mode - White text friendly */
+  .gradient-purple-vibrant {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c026d3 100%);
+  }
+
+  .dark .gradient-purple-vibrant {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.25 300) 0%,
+      oklch(0.68 0.24 340) 100%
+    );
+  }
+
+  .gradient-green-vibrant {
+    background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+  }
+
+  .dark .gradient-green-vibrant {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.22 160) 0%,
+      oklch(0.62 0.22 200) 100%
+    );
+  }
+
+  .gradient-orange-vibrant {
+    background: linear-gradient(135deg, #f59e0b 0%, #fb923c 50%, #f97316 100%);
+  }
+
+  .dark .gradient-orange-vibrant {
+    background: linear-gradient(
+      135deg,
+      oklch(0.75 0.18 65) 0%,
+      oklch(0.68 0.24 340) 100%
+    );
+  }
+
+  .gradient-pink-vibrant {
+    background: linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #e11d48 100%);
+  }
+
+  .dark .gradient-pink-vibrant {
+    background: linear-gradient(
+      135deg,
+      oklch(0.68 0.24 340) 0%,
+      oklch(0.65 0.25 300) 100%
+    );
+  }
+
+  /* Floating card shadow effect - Light mode only */
+  .card-floating {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .dark .card-floating {
+    box-shadow: 0 12px 24px -8px oklch(0 0 0 / 0.4);
+  }
+
+  /* Pattern overlay - Dots */
+  .pattern-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  /* Pattern overlay - Grid */
+  .pattern-grid {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
   /* Gradient backgrounds - Darker in light mode */
   .gradient-purple {
     background: linear-gradient(
@@ -323,14 +402,15 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Card hover effect */
+  /* Enhanced card hover effect with more float */
   .card-hover {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -8px oklch(0.18 0.015 265 / 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25),
+      0 8px 16px -4px rgba(0, 0, 0, 0.1);
   }
 
   .dark .card-hover:hover {

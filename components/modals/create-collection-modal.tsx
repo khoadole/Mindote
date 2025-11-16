@@ -63,7 +63,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
   const defaultTrigger = (
     <Button
       variant="outline"
-      className="flex items-center gap-2 bg-transparent"
+      className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
     >
       <Plus className="h-4 w-4" />
       New Collection

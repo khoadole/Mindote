@@ -12,10 +12,10 @@ interface GradientCardProps {
 }
 
 const gradientClasses = {
-  purple: "gradient-purple",
-  green: "gradient-green",
-  orange: "gradient-orange",
-  pink: "gradient-pink",
+  purple: "gradient-purple-vibrant",
+  green: "gradient-green-vibrant",
+  orange: "gradient-orange-vibrant",
+  pink: "gradient-pink-vibrant",
 };
 
 export function GradientCard({
@@ -27,23 +27,31 @@ export function GradientCard({
   return (
     <Card
       className={cn(
-        "relative overflow-hidden border-0 shadow-lg content-rounded",
+        "relative overflow-hidden border-0 content-rounded card-floating",
         hoverable && "card-hover cursor-pointer",
         className
       )}
     >
-      {/* Gradient overlay */}
+      {/* Vibrant gradient background for light mode, subtle for dark mode */}
       <div
-        className={cn("absolute inset-0 opacity-20", gradientClasses[gradient])}
+        className={cn(
+          "absolute inset-0 dark:opacity-20",
+          gradientClasses[gradient]
+        )}
       />
 
-      {/* Content */}
-      <div className="relative z-10">{children}</div>
+      {/* Subtle dotted pattern overlay (light mode only) */}
+      <div className="absolute inset-0 opacity-[0.08] dark:opacity-0 pointer-events-none pattern-dots" />
 
-      {/* Shine effect on hover */}
+      {/* Content with white text in light mode */}
+      <div className="relative z-10 text-white dark:text-card-foreground">
+        {children}
+      </div>
+
+      {/* Enhanced shine effect on hover */}
       {hoverable && (
         <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
         </div>
       )}
     </Card>

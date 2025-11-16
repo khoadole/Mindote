@@ -147,6 +147,31 @@ export default function QuizPage() {
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="absolute inset-0 pointer-events-none dark:hidden">
+          {/* Modern mesh gradient - very trendy in 2024/2025 */}
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              background: `
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
+      `,
+            }}
+          />
+
+          {/* Subtle animated orbs */}
+          <div
+            className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "8s" }}
+          />
+          <div
+            className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "7s", animationDelay: "1s" }}
+          />
+        </div>
         <div className="flex items-center gap-2">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading quiz data...</span>
@@ -157,279 +182,324 @@ export default function QuizPage() {
 
   if (isQuizzing) {
     return (
-      <div className="p-6">
-        <QuizPlayer
-          words={validQuizWords as any}
-          mode={questionType}
-          onComplete={handleQuizComplete}
-          onExit={handleExit}
-        />
+      <div className="relative min-h-screen">
+        {/* Minimal gradient background - Light mode only */}
+        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+
+        {/* Subtle floating shapes - Light mode only */}
+        <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
+          <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
+          <div
+            className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
+            style={{ animationDelay: "2s" }}
+          />
+          <div
+            className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
+            style={{ animationDelay: "1s" }}
+          />
+        </div>
+
+        {/* Content - positioned above background */}
+        <div className="relative z-10 p-6">
+          <QuizPlayer
+            words={validQuizWords as any}
+            mode={questionType}
+            onComplete={handleQuizComplete}
+            onExit={handleExit}
+          />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="p-6 min-h-screen bg-white dark:bg-background">
-      <div className="max-w-4xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              if (collectionParam) {
-                router.push(`/collections/${collectionParam}`);
-              } else {
-                router.push("/dashboard");
-              }
-            }}
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
-          </Button>
-          <div className="flex items-center gap-2">
-            <CheckCircle className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold">
-              {collectionParam && specificCollection
-                ? `Quiz: ${specificCollection.name}`
-                : "Quiz"}
-            </h1>
+    <div className="relative min-h-screen">
+      {/* Minimal gradient background - Light mode only */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+
+      {/* Subtle floating shapes - Light mode only */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
+        <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
+        <div
+          className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
+
+      {/* Content - positioned above background */}
+      <div className="relative z-10 p-6 min-h-screen">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Header */}
+          <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                if (collectionParam) {
+                  router.push(`/collections/${collectionParam}`);
+                } else {
+                  router.push("/dashboard");
+                }
+              }}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back
+            </Button>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-6 w-6 text-primary" />
+              <h1 className="text-3xl font-bold">
+                {collectionParam && specificCollection
+                  ? `Quiz: ${specificCollection.name}`
+                  : "Quiz"}
+              </h1>
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Settings */}
-          <div
-            className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
-            style={{ animationDelay: "100ms" }}
-          >
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>Quiz Settings</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="mode">Quiz Mode</Label>
-                  <Tabs
-                    value={questionType}
-                    onValueChange={(value) =>
-                      setQuestionType(value as "multiple-choice" | "fill-blank")
-                    }
-                  >
-                    <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="multiple-choice" className="text-xs">
-                        <Target className="h-3 w-3 mr-1" />
-                        MCQ
-                      </TabsTrigger>
-                      <TabsTrigger value="fill-blank" className="text-xs">
-                        <Edit className="h-3 w-3 mr-1" />
-                        Fill
-                      </TabsTrigger>
-                    </TabsList>
-                  </Tabs>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="scope">Question Source</Label>
-                  <Select
-                    value={selectedScope}
-                    onValueChange={setSelectedScope}
-                  >
-                    <SelectTrigger className="truncate">
-                      <SelectValue placeholder="Select scope" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all" className="truncate">
-                        All Words ({words?.length || 0})
-                      </SelectItem>
-                      {collections?.map((collection) => (
-                        <SelectItem
-                          key={collection.id}
-                          value={collection.id}
-                          className="truncate"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Settings */}
+            <div
+              className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "100ms" }}
+            >
+              <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle>Quiz Settings</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="mode">Quiz Mode</Label>
+                    <Tabs
+                      value={questionType}
+                      onValueChange={(value) =>
+                        setQuestionType(
+                          value as "multiple-choice" | "fill-blank"
+                        )
+                      }
+                    >
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger
+                          value="multiple-choice"
+                          className="text-xs"
                         >
-                          <span
-                            className="truncate block"
-                            title={collection.name}
-                          >
-                            {collection.name} (
-                            {words?.filter(
-                              (w) => w.collectionId === collection.id
-                            ).length || 0}
-                            )
-                          </span>
+                          <Target className="h-3 w-3 mr-1" />
+                          MCQ
+                        </TabsTrigger>
+                        <TabsTrigger value="fill-blank" className="text-xs">
+                          <Edit className="h-3 w-3 mr-1" />
+                          Fill
+                        </TabsTrigger>
+                      </TabsList>
+                    </Tabs>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="scope">Question Source</Label>
+                    <Select
+                      value={selectedScope}
+                      onValueChange={setSelectedScope}
+                    >
+                      <SelectTrigger className="truncate">
+                        <SelectValue placeholder="Select scope" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all" className="truncate">
+                          All Words ({words?.length || 0})
                         </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                        {collections?.map((collection) => (
+                          <SelectItem
+                            key={collection.id}
+                            value={collection.id}
+                            className="truncate"
+                          >
+                            <span
+                              className="truncate block"
+                              title={collection.name}
+                            >
+                              {collection.name} (
+                              {words?.filter(
+                                (w) => w.collectionId === collection.id
+                              ).length || 0}
+                              )
+                            </span>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                <Button
-                  onClick={handleStartQuiz}
-                  className="w-full hover:scale-105 transition-transform"
-                  disabled={validQuizWords.length < 2}
-                >
-                  <Play className="h-4 w-4 mr-2" />
-                  Start Quiz
-                </Button>
-                {questionType === "fill-blank" &&
-                  validQuizWords.length < quizWords.length && (
-                    <p className="text-xs text-muted-foreground text-center">
-                      {validQuizWords.length} of {quizWords.length} words have
-                      valid examples
-                    </p>
-                  )}
-              </CardContent>
-            </Card>
-          </div>
+                  <Button
+                    onClick={handleStartQuiz}
+                    className="w-full bg-gradient-to-r from-green-500 to-teal-500 dark:from-primary dark:to-accent text-white font-bold hover:from-green-600 hover:to-teal-600 dark:hover:from-primary-dark dark:hover:to-accent transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    disabled={validQuizWords.length < 2}
+                  >
+                    <Play className="h-4 w-4 mr-2" />
+                    Start Quiz
+                  </Button>
+                  {questionType === "fill-blank" &&
+                    validQuizWords.length < quizWords.length && (
+                      <p className="text-xs text-muted-foreground text-center">
+                        {validQuizWords.length} of {quizWords.length} words have
+                        valid examples
+                      </p>
+                    )}
+                </CardContent>
+              </Card>
+            </div>
 
-          {/* Preview */}
-          <div
-            className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
-            style={{ animationDelay: "200ms" }}
-          >
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>Quiz Preview</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {validQuizWords.length >= 2 ? (
-                  <div className="space-y-4">
-                    <Tabs value={questionType} className="w-full">
-                      <TabsContent value="multiple-choice">
-                        <div className="space-y-4">
-                          <div className="p-6 border-2 border-dashed border-border rounded-lg">
-                            <h3 className="font-semibold mb-2">
-                              Multiple Choice Preview
-                            </h3>
-                            <p className="text-sm text-muted-foreground mb-4">
-                              You'll see a word and choose the correct
-                              definition from 4 options.
-                            </p>
-                            <div className="bg-muted p-4 rounded">
-                              <h4 className="font-medium mb-2 break-words">
-                                {quizWords[0]?.term}
-                              </h4>
-                              <div className="space-y-1 text-sm">
-                                <div className="p-2 bg-background rounded break-words">
-                                  A. {quizWords[0]?.definition}
-                                </div>
-                                <div className="p-2 bg-background rounded break-words">
-                                  B. Sample distractor option
-                                </div>
-                                <div className="p-2 bg-background rounded break-words">
-                                  C. Another distractor option
-                                </div>
-                                <div className="p-2 bg-background rounded break-words">
-                                  D. Third distractor option
+            {/* Preview */}
+            <div
+              className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "200ms" }}
+            >
+              <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle>Quiz Preview</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {validQuizWords.length >= 2 ? (
+                    <div className="space-y-4">
+                      <Tabs value={questionType} className="w-full">
+                        <TabsContent value="multiple-choice">
+                          <div className="space-y-4">
+                            <div className="p-6 border-2 border-dashed border-border rounded-lg">
+                              <h3 className="font-semibold mb-2">
+                                Multiple Choice Preview
+                              </h3>
+                              <p className="text-sm text-muted-foreground mb-4">
+                                You'll see a word and choose the correct
+                                definition from 4 options.
+                              </p>
+                              <div className="bg-muted p-4 rounded">
+                                <h4 className="font-medium mb-2 break-words">
+                                  {quizWords[0]?.term}
+                                </h4>
+                                <div className="space-y-1 text-sm">
+                                  <div className="p-2 bg-background rounded break-words">
+                                    A. {quizWords[0]?.definition}
+                                  </div>
+                                  <div className="p-2 bg-background rounded break-words">
+                                    B. Sample distractor option
+                                  </div>
+                                  <div className="p-2 bg-background rounded break-words">
+                                    C. Another distractor option
+                                  </div>
+                                  <div className="p-2 bg-background rounded break-words">
+                                    D. Third distractor option
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </TabsContent>
+                        </TabsContent>
 
-                      <TabsContent value="fill-blank">
-                        <div className="space-y-4">
-                          <div className="p-6 border-2 border-dashed border-border rounded-lg">
-                            <h3 className="font-semibold mb-2">
-                              Fill in the Blank Preview
-                            </h3>
-                            <p className="text-sm text-muted-foreground mb-4">
-                              You'll see a sentence with a missing word and type
-                              the correct answer. Only words with examples are
-                              used.
-                            </p>
-                            <div className="bg-muted p-4 rounded">
-                              <p className="mb-2 break-words">
-                                {validQuizWords[0]?.example?.replace(
-                                  new RegExp(validQuizWords[0]?.term, "gi"),
-                                  "_____"
-                                ) ||
-                                  "Example: She picked a shiny red _____ from the tree."}
+                        <TabsContent value="fill-blank">
+                          <div className="space-y-4">
+                            <div className="p-6 border-2 border-dashed border-border rounded-lg">
+                              <h3 className="font-semibold mb-2">
+                                Fill in the Blank Preview
+                              </h3>
+                              <p className="text-sm text-muted-foreground mb-4">
+                                You'll see a sentence with a missing word and
+                                type the correct answer. Only words with
+                                examples are used.
                               </p>
-                              <input
-                                className="w-full p-2 border rounded bg-background"
-                                placeholder="Type your answer..."
-                                disabled
-                              />
+                              <div className="bg-muted p-4 rounded">
+                                <p className="mb-2 break-words">
+                                  {validQuizWords[0]?.example?.replace(
+                                    new RegExp(validQuizWords[0]?.term, "gi"),
+                                    "_____"
+                                  ) ||
+                                    "Example: She picked a shiny red _____ from the tree."}
+                                </p>
+                                <input
+                                  className="w-full p-2 border rounded bg-background"
+                                  placeholder="Type your answer..."
+                                  disabled
+                                />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </TabsContent>
-                    </Tabs>
+                        </TabsContent>
+                      </Tabs>
 
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold text-primary">
-                          {validQuizWords.length}
+                      <div className="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                          <div className="text-2xl font-bold text-primary">
+                            {validQuizWords.length}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Questions
+                          </p>
                         </div>
-                        <p className="text-sm text-muted-foreground">
-                          Questions
-                        </p>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-accent">
-                          {Math.ceil(validQuizWords.length * 1.5)}
+                        <div>
+                          <div className="text-2xl font-bold text-accent">
+                            {Math.ceil(validQuizWords.length * 1.5)}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Est. Minutes
+                          </p>
                         </div>
-                        <p className="text-sm text-muted-foreground">
-                          Est. Minutes
-                        </p>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-chart-3">
-                          {questionType === "multiple-choice" ? "4" : "1"}
+                        <div>
+                          <div className="text-2xl font-bold text-chart-3">
+                            {questionType === "multiple-choice" ? "4" : "1"}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            {questionType === "multiple-choice"
+                              ? "Options"
+                              : "Answer"}
+                          </p>
                         </div>
-                        <p className="text-sm text-muted-foreground">
-                          {questionType === "multiple-choice"
-                            ? "Options"
-                            : "Answer"}
-                        </p>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <div className="text-center p-8">
-                    <CheckCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                    <h3 className="text-lg font-semibold mb-2">
-                      {questionType === "fill-blank"
-                        ? "Not Enough Words with Examples"
-                        : "Not Enough Words"}
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      {questionType === "fill-blank"
-                        ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${
-                            validQuizWords.length
-                          } valid ${
-                            validQuizWords.length === 1 ? "word" : "words"
-                          }.`
-                        : `You need at least 2 words to start a quiz.${
-                            selectedScope === "all"
-                              ? " Add more words to your vocabulary."
-                              : " This collection needs more words."
-                          }`}
-                    </p>
-                    <div className="flex gap-2 justify-center">
-                      {questionType === "fill-blank" &&
-                        quizWords.length >= 2 && (
-                          <Button
-                            variant="default"
-                            onClick={() => setQuestionType("multiple-choice")}
-                          >
-                            Switch to Multiple Choice
-                          </Button>
-                        )}
-                      <Button
-                        variant="outline"
-                        onClick={() => router.push("/collections")}
-                      >
-                        Go to Collections
-                      </Button>
+                  ) : (
+                    <div className="text-center p-8">
+                      <CheckCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                      <h3 className="text-lg font-semibold mb-2">
+                        {questionType === "fill-blank"
+                          ? "Not Enough Words with Examples"
+                          : "Not Enough Words"}
+                      </h3>
+                      <p className="text-muted-foreground mb-4">
+                        {questionType === "fill-blank"
+                          ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${
+                              validQuizWords.length
+                            } valid ${
+                              validQuizWords.length === 1 ? "word" : "words"
+                            }.`
+                          : `You need at least 2 words to start a quiz.${
+                              selectedScope === "all"
+                                ? " Add more words to your vocabulary."
+                                : " This collection needs more words."
+                            }`}
+                      </p>
+                      <div className="flex gap-2 justify-center">
+                        {questionType === "fill-blank" &&
+                          quizWords.length >= 2 && (
+                            <Button
+                              variant="default"
+                              onClick={() => setQuestionType("multiple-choice")}
+                              className="bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-lg"
+                            >
+                              Switch to Multiple Choice
+                            </Button>
+                          )}
+                        <Button
+                          variant="outline"
+                          onClick={() => router.push("/collections")}
+                          className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
+                        >
+                          Go to Collections
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

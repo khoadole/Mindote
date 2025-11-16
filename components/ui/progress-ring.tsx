@@ -18,7 +18,7 @@ export function ProgressRing({
   strokeWidth = 4,
   className,
   showPercentage = true,
-  color = "oklch(0.65 0.25 300)",
+  color = "white",
 }: ProgressRingProps) {
   const [animatedProgress, setAnimatedProgress] = useState(0);
 
@@ -41,7 +41,7 @@ export function ProgressRing({
       )}
     >
       <svg width={size} height={size} className="transform -rotate-90">
-        {/* Background circle */}
+        {/* Background circle - white/20 for light mode, muted for dark */}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -49,7 +49,7 @@ export function ProgressRing({
           stroke="currentColor"
           strokeWidth={strokeWidth}
           fill="none"
-          className="text-muted/30"
+          className="text-white/20 dark:text-muted/30"
         />
         {/* Progress circle */}
         <circle
@@ -62,12 +62,12 @@ export function ProgressRing({
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
-          className="transition-all duration-1000 ease-out"
+          className="transition-all duration-1000 ease-out dark:[stroke:oklch(0.65_0.25_300)]"
           style={{ stroke: color }}
         />
       </svg>
       {showPercentage && (
-        <span className="absolute text-xs font-semibold text-foreground">
+        <span className="absolute text-xs font-semibold text-white dark:text-foreground">
           {Math.round(animatedProgress)}%
         </span>
       )}

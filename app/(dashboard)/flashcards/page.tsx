@@ -147,6 +147,31 @@ export default function FlashcardsPage() {
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="absolute inset-0 pointer-events-none dark:hidden">
+          {/* Modern mesh gradient - very trendy in 2024/2025 */}
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              background: `
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
+      `,
+            }}
+          />
+
+          {/* Subtle animated orbs */}
+          <div
+            className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "8s" }}
+          />
+          <div
+            className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "7s", animationDelay: "1s" }}
+          />
+        </div>
         <div className="flex items-center gap-2">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading flashcards...</span>
@@ -168,200 +193,242 @@ export default function FlashcardsPage() {
   }
 
   return (
-    <div className="p-6 min-h-screen bg-white dark:bg-background">
-      <div className="max-w-4xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              if (collectionParam) {
-                router.push(`/collections/${collectionParam}`);
-              } else {
-                router.push("/dashboard");
-              }
-            }}
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
-          </Button>
-          <div className="flex items-center gap-2">
-            {mode === "review" ? (
-              <>
-                <Flame className="h-6 w-6 text-orange-500" />
-                <h1 className="text-3xl font-bold">
-                  {collectionParam && specificCollection
-                    ? `Review: ${specificCollection.name}`
-                    : "Review Session"}
-                </h1>
-                <span className="text-sm text-muted-foreground">
-                  ({(collectionParam ? collectionDueWords : dueWords).length}{" "}
-                  due words)
-                </span>
-              </>
-            ) : (
-              <>
-                <Cards className="h-6 w-6 text-primary" />
-                <h1 className="text-3xl font-bold">
-                  {collectionParam && specificCollection
-                    ? `Flashcards: ${specificCollection.name}`
-                    : "Flashcards"}
-                </h1>
-              </>
-            )}
-          </div>
-        </div>
+    <div className="relative min-h-screen">
+      {/* Minimal gradient background - Light mode only */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Settings */}
-          <div
-            className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
-            style={{ animationDelay: "100ms" }}
-          >
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>
-                  {mode === "review" ? "Review Settings" : "Study Settings"}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {mode !== "review" && !collectionParam && (
-                  <div className="space-y-2">
-                    <Label htmlFor="scope">Study Scope</Label>
-                    <Select
-                      value={selectedScope}
-                      onValueChange={setSelectedScope}
-                    >
-                      <SelectTrigger className="truncate">
-                        <SelectValue placeholder="Select scope" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">
-                          All Words ({words?.length || 0})
-                        </SelectItem>
-                        {collections?.map((collection) => (
-                          <SelectItem
-                            key={collection.id}
-                            value={collection.id}
-                            className="truncate"
-                          >
-                            <span
-                              className="truncate block"
-                              title={collection.name}
-                            >
-                              {collection.name} (
-                              {words?.filter(
-                                (w) => w.collectionId === collection.id
-                              ).length || 0}
-                              )
-                            </span>
+      {/* Subtle floating shapes - Light mode only */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden">
+        {/* Modern mesh gradient - very trendy in 2024/2025 */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
+      `,
+          }}
+        />
+
+        {/* Subtle animated orbs */}
+        <div
+          className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "8s" }}
+        />
+        <div
+          className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "7s", animationDelay: "1s" }}
+        />
+      </div>
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
+        <div
+          className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
+
+      {/* Content - positioned above background */}
+      <div className="relative z-10 p-6 min-h-screen">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Header */}
+          <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                if (collectionParam) {
+                  router.push(`/collections/${collectionParam}`);
+                } else {
+                  router.push("/dashboard");
+                }
+              }}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back
+            </Button>
+            <div className="flex items-center gap-2">
+              {mode === "review" ? (
+                <>
+                  <Flame className="h-6 w-6 text-orange-500" />
+                  <h1 className="text-3xl font-bold">
+                    {collectionParam && specificCollection
+                      ? `Review: ${specificCollection.name}`
+                      : "Review Session"}
+                  </h1>
+                  <span className="text-sm text-muted-foreground">
+                    ({(collectionParam ? collectionDueWords : dueWords).length}{" "}
+                    due words)
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Cards className="h-6 w-6 text-primary" />
+                  <h1 className="text-3xl font-bold">
+                    {collectionParam && specificCollection
+                      ? `Flashcards: ${specificCollection.name}`
+                      : "Flashcards"}
+                  </h1>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Settings */}
+            <div
+              className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "100ms" }}
+            >
+              <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle>
+                    {mode === "review" ? "Review Settings" : "Study Settings"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {mode !== "review" && !collectionParam && (
+                    <div className="space-y-2">
+                      <Label htmlFor="scope">Study Scope</Label>
+                      <Select
+                        value={selectedScope}
+                        onValueChange={setSelectedScope}
+                      >
+                        <SelectTrigger className="truncate">
+                          <SelectValue placeholder="Select scope" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">
+                            All Words ({words?.length || 0})
                           </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                          {collections?.map((collection) => (
+                            <SelectItem
+                              key={collection.id}
+                              value={collection.id}
+                              className="truncate"
+                            >
+                              <span
+                                className="truncate block"
+                                title={collection.name}
+                              >
+                                {collection.name} (
+                                {words?.filter(
+                                  (w) => w.collectionId === collection.id
+                                ).length || 0}
+                                )
+                              </span>
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  )}
+
+                  <div className="flex items-center space-x-2">
+                    <Switch
+                      id="shuffle"
+                      checked={shuffleEnabled}
+                      onCheckedChange={setShuffleEnabled}
+                    />
+                    <Label htmlFor="shuffle">Shuffle cards</Label>
                   </div>
-                )}
 
-                <div className="flex items-center space-x-2">
-                  <Switch
-                    id="shuffle"
-                    checked={shuffleEnabled}
-                    onCheckedChange={setShuffleEnabled}
-                  />
-                  <Label htmlFor="shuffle">Shuffle cards</Label>
-                </div>
+                  <Button
+                    onClick={handleStartStudy}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-bold hover:from-purple-600 hover:to-pink-600 dark:hover:from-primary-dark dark:hover:to-accent transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    disabled={studyWords.length === 0}
+                  >
+                    <Play className="h-4 w-4 mr-2" />
+                    {mode === "review" ? "Start Review" : "Start Study Session"}
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
 
-                <Button
-                  onClick={handleStartStudy}
-                  className="w-full hover:scale-105 transition-transform"
-                  disabled={studyWords.length === 0}
-                >
-                  <Play className="h-4 w-4 mr-2" />
-                  {mode === "review" ? "Start Review" : "Start Study Session"}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+            {/* Preview */}
+            <div
+              className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "200ms" }}
+            >
+              <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle>Preview</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {studyWords.length > 0 ? (
+                    <div className="space-y-4">
+                      <div className="text-center p-8 border-2 border-dashed border-border rounded-lg">
+                        <Cards className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                        <h3 className="text-lg font-semibold mb-2">
+                          Ready to Study
+                        </h3>
+                        <p className="text-muted-foreground mb-4">
+                          {studyWords.length} cards ready for your study session
+                        </p>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {studyWords.slice(0, 5).map((word) => (
+                            <span
+                              key={word.id}
+                              className="px-2 py-1 bg-muted rounded text-sm truncate max-w-[150px]"
+                              title={word.term}
+                            >
+                              {word.term}
+                            </span>
+                          ))}
+                          {studyWords.length > 5 && (
+                            <span className="px-2 py-1 bg-muted rounded text-sm">
+                              +{studyWords.length - 5} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
 
-          {/* Preview */}
-          <div
-            className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
-            style={{ animationDelay: "200ms" }}
-          >
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>Preview</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {studyWords.length > 0 ? (
-                  <div className="space-y-4">
-                    <div className="text-center p-8 border-2 border-dashed border-border rounded-lg">
+                      <div className="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                          <div className="text-2xl font-bold text-primary">
+                            {studyWords.length}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Total Cards
+                          </p>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-accent">
+                            {Math.ceil(studyWords.length * 2.5)}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Est. Minutes
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center p-8">
                       <Cards className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                       <h3 className="text-lg font-semibold mb-2">
-                        Ready to Study
+                        No Words Available
                       </h3>
                       <p className="text-muted-foreground mb-4">
-                        {studyWords.length} cards ready for your study session
+                        {selectedScope === "all"
+                          ? "Add some words to your vocabulary to start studying"
+                          : "This collection doesn't have any words yet"}
                       </p>
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        {studyWords.slice(0, 5).map((word) => (
-                          <span
-                            key={word.id}
-                            className="px-2 py-1 bg-muted rounded text-sm truncate max-w-[150px]"
-                            title={word.term}
-                          >
-                            {word.term}
-                          </span>
-                        ))}
-                        {studyWords.length > 5 && (
-                          <span className="px-2 py-1 bg-muted rounded text-sm">
-                            +{studyWords.length - 5} more
-                          </span>
-                        )}
-                      </div>
+                      <Button
+                        variant="outline"
+                        onClick={() => router.push("/collections")}
+                        className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
+                      >
+                        Go to Collections
+                      </Button>
                     </div>
-
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold text-primary">
-                          {studyWords.length}
-                        </div>
-                        <p className="text-sm text-muted-foreground">
-                          Total Cards
-                        </p>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-accent">
-                          {Math.ceil(studyWords.length * 2.5)}
-                        </div>
-                        <p className="text-sm text-muted-foreground">
-                          Est. Minutes
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-center p-8">
-                    <Cards className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                    <h3 className="text-lg font-semibold mb-2">
-                      No Words Available
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      {selectedScope === "all"
-                        ? "Add some words to your vocabulary to start studying"
-                        : "This collection doesn't have any words yet"}
-                    </p>
-                    <Button
-                      variant="outline"
-                      onClick={() => router.push("/collections")}
-                    >
-                      Go to Collections
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

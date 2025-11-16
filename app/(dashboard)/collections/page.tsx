@@ -78,14 +78,42 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div className="p-8 bg-white dark:from-background dark:via-background dark:to-muted/20 min-h-screen relative overflow-hidden transition-all duration-300">
-      {/* Animated background decoration */}
-      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
-        <div className="absolute top-32 right-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-200/30 to-indigo-200/30 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-32 left-32 w-[500px] h-[500px] bg-gradient-to-br from-purple-200/30 to-pink-200/30 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-cyan-200/20 to-blue-200/20 dark:from-blue-500/10 dark:to-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+      {/* Enhanced animated background decoration with patterns - Light mode only */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden">
+        {/* Modern mesh gradient - very trendy in 2024/2025 */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
+      `,
+          }}
+        />
+
+        {/* Subtle animated orbs */}
+        <div
+          className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "8s" }}
+        />
+        <div
+          className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "7s", animationDelay: "1s" }}
+        />
       </div>
-      
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
+        <div
+          className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">
         {/* Header */}
         <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">
@@ -103,7 +131,7 @@ export default function CollectionsPage() {
               trigger={
                 <Button
                   variant="outline"
-                  className="flex items-center gap-2 rounded-2xl border-2 hover:border-primary hover:bg-primary/5 transition-all hover:scale-105 shadow-sm"
+                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-purple-600 hover:to-pink-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />✨ Add Word
@@ -182,9 +210,7 @@ export default function CollectionsPage() {
                       <CardHeader>
                         <div className="flex items-center justify-between gap-3 mb-3">
                           <div
-                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center ${
-                              collection.color || "bg-primary"
-                            } shadow-lg`}
+                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center bg-white/20 dark:bg-primary backdrop-blur-sm shadow-lg`}
                           >
                             <Layers className="h-7 w-7 text-white" />
                           </div>
@@ -195,27 +221,30 @@ export default function CollectionsPage() {
                             showPercentage={false}
                           />
                         </div>
-                        <CardTitle className="text-xl truncate">
+                        <CardTitle className="text-xl truncate text-white dark:text-card-foreground">
                           {collection.name}
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
-                            <BookOpen className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-2xl font-bold">
+                            <BookOpen className="h-4 w-4 text-white/90 dark:text-muted-foreground" />
+                            <span className="text-2xl font-bold text-white dark:text-foreground">
                               {wordCount}
                             </span>
-                            <span className="text-sm text-muted-foreground">
+                            <span className="text-sm text-white/80 dark:text-muted-foreground">
                               words
                             </span>
                           </div>
-                          <Badge variant="secondary" className="text-xs">
+                          <Badge
+                            variant="secondary"
+                            className="text-xs bg-white/20 dark:bg-secondary text-white dark:text-secondary-foreground border-white/30 dark:border-border backdrop-blur-sm"
+                          >
                             {Math.round(masteryPercent)}% mastered
                           </Badge>
                         </div>
 
-                        <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1">
+                        <p className="text-xs text-white/70 dark:text-muted-foreground mb-4 flex items-center gap-1">
                           <TrendingUp className="h-3 w-3" />
                           Created{" "}
                           {new Date(collection.createdAt).toLocaleDateString()}
@@ -224,14 +253,14 @@ export default function CollectionsPage() {
                         <div className="flex gap-2">
                           <Button
                             size="sm"
-                            className="flex-1 rounded-xl bg-gradient-to-r from-primary to-accent shadow-md hover:shadow-lg transition-all hover:scale-105"
+                            className="flex-1 rounded-xl bg-white dark:bg-gradient-to-r dark:from-primary dark:to-accent text-purple-700 dark:text-white font-bold shadow-md hover:shadow-xl transition-all hover:scale-110 hover:bg-white border-2 border-white/50"
                           >
                             Study
                           </Button>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="flex-1 rounded-xl border-2 hover:border-primary hover:bg-primary/10 transition-all hover:scale-105"
+                            className="flex-1 rounded-xl border-2 border-white dark:border-border bg-white/10 dark:bg-transparent text-white dark:text-foreground font-semibold hover:bg-white hover:text-purple-700 dark:hover:bg-primary/10 dark:hover:text-white transition-all hover:scale-110 backdrop-blur-sm shadow-md hover:shadow-xl"
                           >
                             Quiz
                           </Button>

@@ -157,14 +157,6 @@ export default function CollectionsPage() {
               className="pl-11 h-12 rounded-2xl border-2 focus:border-primary/50 bg-card/50"
             />
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="rounded-xl h-12 border-2 hover:border-primary hover:bg-primary/5"
-          >
-            <Filter className="h-4 w-4 mr-2" />
-            Filter
-          </Button>
         </div>
 
         {/* Collections Grid */}

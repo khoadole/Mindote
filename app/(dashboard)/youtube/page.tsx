@@ -175,13 +175,13 @@ export default function YouTubePage() {
       <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
       {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
+      {/* <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
         <div
           className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
           style={{ animationDelay: "1s" }}
         />
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* Header */}

@@ -67,7 +67,8 @@ export default function SettingsPage() {
   if (settingsLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="flex items-center gap-2">
+        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+        <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading settings...</span>
         </div>

@@ -282,7 +282,9 @@ export function FlashcardPlayer({
 
   return (
     <>
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+
+      <div className="max-w-2xl mx-auto space-y-6 relative z-10">
         {/* Progress */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm">

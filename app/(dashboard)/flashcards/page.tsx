@@ -31,6 +31,7 @@ const FlashcardPlayer = dynamic(
     ssr: false,
     loading: () => (
       <div className="p-6 flex items-center justify-center min-h-screen">
+        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
         <div className="flex items-center gap-2">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading flashcard player...</span>
@@ -195,11 +196,11 @@ export default function FlashcardsPage() {
   return (
     <div className="relative min-h-screen">
       {/* Minimal gradient background - Light mode only */}
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */}
       <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
       {/* Subtle floating shapes - Light mode only */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden">
-        {/* Modern mesh gradient - very trendy in 2024/2025 */}
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden">
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -213,7 +214,6 @@ export default function FlashcardsPage() {
           }}
         />
 
-        {/* Subtle animated orbs */}
         <div
           className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDuration: "8s" }}
@@ -222,7 +222,7 @@ export default function FlashcardsPage() {
           className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDuration: "7s", animationDelay: "1s" }}
         />
-      </div>
+      </div> */}
       {/* Subtle background decoration */}
       <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />

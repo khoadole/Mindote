@@ -187,14 +187,36 @@ export default function QuizPage() {
         <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
         {/* Subtle floating shapes - Light mode only */}
-        <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
-          <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
+        <div className="absolute inset-0 pointer-events-none dark:hidden">
+          {/* Modern mesh gradient - very trendy in 2024/2025 */}
           <div
-            className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
-            style={{ animationDelay: "2s" }}
+            className="absolute inset-0 opacity-30"
+            style={{
+              background: `
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
+      `,
+            }}
+          />
+
+          {/* Subtle animated orbs */}
+          <div
+            className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "8s" }}
           />
           <div
-            className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
+            className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "7s", animationDelay: "1s" }}
+          />
+        </div>
+        {/* Subtle background decoration */}
+        <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
+          <div
+            className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
             style={{ animationDelay: "1s" }}
           />
         </div>
@@ -218,7 +240,7 @@ export default function QuizPage() {
       <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
       {/* Subtle floating shapes - Light mode only */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
         <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
         <div
           className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
@@ -228,7 +250,7 @@ export default function QuizPage() {
           className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
           style={{ animationDelay: "1s" }}
         />
-      </div>
+      </div> */}
 
       {/* Content - positioned above background */}
       <div className="relative z-10 p-6 min-h-screen">
@@ -333,7 +355,7 @@ export default function QuizPage() {
 
                   <Button
                     onClick={handleStartQuiz}
-                    className="w-full bg-gradient-to-r from-green-500 to-teal-500 dark:from-primary dark:to-accent text-white font-bold hover:from-green-600 hover:to-teal-600 dark:hover:from-primary-dark dark:hover:to-accent transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-bold hover:from-purple-600 hover:to-pink-600 dark:hover:from-primary-dark dark:hover:to-accent transition-all hover:scale-105 shadow-lg hover:shadow-xl"
                     disabled={validQuizWords.length < 2}
                   >
                     <Play className="h-4 w-4 mr-2" />

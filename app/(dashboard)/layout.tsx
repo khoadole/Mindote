@@ -15,18 +15,7 @@ export default function DashboardLayout({
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
-      {/* Animated background gradient */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute top-40 -right-40 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "1s" } as React.CSSProperties}
-        />
-        <div
-          className="absolute -bottom-40 left-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" } as React.CSSProperties}
-        />
-      </div>
+      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
 
       {/* Mobile Sidebar Overlay */}
       {isMobileSidebarOpen && (

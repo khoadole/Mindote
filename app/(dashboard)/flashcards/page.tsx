@@ -148,32 +148,8 @@ export default function FlashcardsPage() {
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="absolute inset-0 pointer-events-none dark:hidden">
-          {/* Modern mesh gradient - very trendy in 2024/2025 */}
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              background: `
-        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
-      `,
-            }}
-          />
-
-          {/* Subtle animated orbs */}
-          <div
-            className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
-            style={{ animationDuration: "8s" }}
-          />
-          <div
-            className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
-            style={{ animationDuration: "7s", animationDelay: "1s" }}
-          />
-        </div>
-        <div className="flex items-center gap-2">
+        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+        <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading flashcards...</span>
         </div>

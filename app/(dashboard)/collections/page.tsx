@@ -78,7 +78,7 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div className="p-8 bg-gradient-to-br from-blue-50/30 via-indigo-50/20 to-purple-50/30 dark:from-background dark:via-background dark:to-muted/20 min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-8 bg-white dark:from-background dark:via-background dark:to-muted/20 min-h-screen relative overflow-hidden transition-all duration-300">
       {/* Animated background decoration */}
       <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
         <div className="absolute top-32 right-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-200/30 to-indigo-200/30 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />

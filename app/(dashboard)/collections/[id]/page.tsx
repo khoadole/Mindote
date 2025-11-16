@@ -179,7 +179,7 @@ export default function CollectionDetailPage() {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-gradient-to-br dark:from-background dark:via-background dark:to-muted/20 min-h-screen">
+        <div className="p-6 bg-white dark:bg-background min-h-screen">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">

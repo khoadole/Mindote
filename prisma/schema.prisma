@@ -42,40 +42,47 @@ model Collection {
 }
 
 model Word {
-  id           String     @id @default(uuid()) @db.Uuid
-  term         String
-  definition   String
-  example      String?
-  phonetic     String?
-  partOfSpeech String?    @map("part_of_speech")               // Parts of speech (noun, verb, etc.)
-  score        Int        @default(0)
-  createdAt    DateTime   @default(now()) @map("created_at")
-  collectionId String     @map("collection_id") @db.Uuid
-  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  id                 String     @id @default(uuid()) @db.Uuid
+  term               String
+  definition         String
+  example            String?
+  phonetic           String?
+  partOfSpeech       String?    @map("part_of_speech")               // Parts of speech (noun, verb, etc.)
+  score              Int        @default(0)
+  createdAt          DateTime   @default(now()) @map("created_at")
+  collectionId       String     @map("collection_id") @db.Uuid
+  collection         Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  
+  // Multi-language support
+  termLanguage       String     @default("en") @map("term_language")       // Language of the term being learned
+  definitionLanguage String     @default("en") @map("definition_language") // Language of the definition
+  exampleLanguage    String     @default("en") @map("example_language")    // Language of the example sentence
   
   // Spaced Repetition System (SRS) fields
-  easeFactor   Float      @default(2.5) @map("ease_factor")     // SM-2 ease factor (quality of memory)
-  interval     Int        @default(0)                           // Days until next review
-  repetitions  Int        @default(0)                           // Number of successful reviews
-  lastReviewed DateTime?  @map("last_reviewed")                // Last review date
-  nextReview   DateTime?  @map("next_review")                  // Next review due date
+  easeFactor         Float      @default(2.5) @map("ease_factor")     // SM-2 ease factor (quality of memory)
+  interval           Int        @default(0)                           // Days until next review
+  repetitions        Int        @default(0)                           // Number of successful reviews
+  lastReviewed       DateTime?  @map("last_reviewed")                // Last review date
+  nextReview         DateTime?  @map("next_review")                  // Next review due date
   
   @@unique([collectionId, term])
   @@index([collectionId, term])
   @@index([collectionId, score])
   @@index([nextReview])
   @@index([collectionId, nextReview])
+  @@index([termLanguage])
   @@map("words")
 }
 
 model Setting {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @unique @map("user_id") @db.Uuid
-  theme     String   @default("dark")
-  language  String   @default("en")
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String   @id @default(uuid()) @db.Uuid
+  userId            String   @unique @map("user_id") @db.Uuid
+  theme             String   @default("dark")
+  language          String   @default("en")
+  learningLanguage  String   @default("en") @map("learning_language")  // Default language for vocabulary learning
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("settings")
 }

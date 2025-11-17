@@ -5,8 +5,10 @@ import type React from "react";
 import { useState, useEffect } from "react";
 import { useCreateWord } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
+import { useSettings } from "@/hooks/use-settings";
 import { useToast } from "@/hooks/use-toast";
 import { useAIFill } from "@/hooks/use-ai-fill";
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
 import {
   Dialog,
   DialogContent,
@@ -74,7 +76,14 @@ export function AddWordModal({
     collectionId || ""
   );
 
+  // Language selections
+  const [termLanguage, setTermLanguage] = useState(DEFAULT_LANGUAGE);
+  const [definitionLanguage, setDefinitionLanguage] =
+    useState(DEFAULT_LANGUAGE);
+  const [exampleLanguage, setExampleLanguage] = useState(DEFAULT_LANGUAGE);
+
   const { data: collections, isLoading: collectionsLoading } = useCollections();
+  const { data: settings } = useSettings();
   const createWordMutation = useCreateWord();
   const { toast } = useToast();
   const {
@@ -90,10 +99,17 @@ export function AddWordModal({
       setTerm(defaultTerm);
       setDefinition(defaultDefinition);
       setExample(defaultExample);
+
+      // Set default languages from user settings
+      const defaultLang = settings?.learningLanguage || DEFAULT_LANGUAGE;
+      setTermLanguage(defaultLang);
+      setDefinitionLanguage(defaultLang);
+      setExampleLanguage(defaultLang);
+
       // Fetch AI usage info when modal opens
       fetchUsageInfo();
     }
-  }, [open, defaultTerm, defaultDefinition, defaultExample]);
+  }, [open, defaultTerm, defaultDefinition, defaultExample, settings]);
 
   // Check if user has any collections
   const hasCollections = collections && collections.length > 0;
@@ -122,7 +138,11 @@ export function AddWordModal({
       return;
     }
 
-    const result = await fillWord(term);
+    const result = await fillWord(term, {
+      termLanguage,
+      definitionLanguage,
+      exampleLanguage,
+    });
     if (result) {
       // Fill the form with AI generated data
       setTerm(result.term);
@@ -148,6 +168,9 @@ export function AddWordModal({
         example: example.trim() || undefined,
         phonetic: phonetic.trim() || undefined,
         partOfSpeech: partOfSpeech.trim() || undefined,
+        termLanguage,
+        definitionLanguage,
+        exampleLanguage,
       },
       {
         onSuccess: () => {
@@ -160,6 +183,11 @@ export function AddWordModal({
           if (!collectionId) {
             setSelectedCollection("");
           }
+          // Reset languages to default
+          const defaultLang = settings?.learningLanguage || DEFAULT_LANGUAGE;
+          setTermLanguage(defaultLang);
+          setDefinitionLanguage(defaultLang);
+          setExampleLanguage(defaultLang);
           setOpen(false);
         },
       }
@@ -259,29 +287,65 @@ export function AddWordModal({
 
           <div className="space-y-2">
             <Label htmlFor="definition">Definition</Label>
-            <Textarea
-              id="definition"
-              value={definition}
-              onChange={(e) => setDefinition(e.target.value)}
-              placeholder="Enter the definition"
-              required
-              rows={3}
-              className="resize-none break-all"
-              style={{ wordBreak: "break-all" }}
-            />
+            <div className="flex gap-2">
+              <Textarea
+                id="definition"
+                value={definition}
+                onChange={(e) => setDefinition(e.target.value)}
+                placeholder="Enter the definition"
+                required
+                rows={3}
+                className="resize-none break-all flex-1"
+                style={{ wordBreak: "break-all" }}
+              />
+              <Select
+                value={definitionLanguage}
+                onValueChange={setDefinitionLanguage}
+                disabled={createWordMutation.isPending}
+              >
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {SUPPORTED_LANGUAGES.map((lang) => (
+                    <SelectItem key={lang.code} value={lang.code}>
+                      {lang.flag} {lang.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="example">Example</Label>
-            <Textarea
-              id="example"
-              value={example}
-              onChange={(e) => setExample(e.target.value)}
-              placeholder="Enter an example sentence"
-              rows={2}
-              className="resize-none break-all"
-              style={{ wordBreak: "break-all" }}
-            />
+            <div className="flex gap-2">
+              <Textarea
+                id="example"
+                value={example}
+                onChange={(e) => setExample(e.target.value)}
+                placeholder="Enter an example sentence"
+                rows={2}
+                className="resize-none break-all flex-1"
+                style={{ wordBreak: "break-all" }}
+              />
+              <Select
+                value={exampleLanguage}
+                onValueChange={setExampleLanguage}
+                disabled={createWordMutation.isPending}
+              >
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {SUPPORTED_LANGUAGES.map((lang) => (
+                    <SelectItem key={lang.code} value={lang.code}>
+                      {lang.flag} {lang.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="space-y-2">

@@ -60,6 +60,9 @@ export async function createWordAction(data: {
   example?: string;
   phonetic?: string;
   partOfSpeech?: string;
+  termLanguage?: string;
+  definitionLanguage?: string;
+  exampleLanguage?: string;
 }) {
   try {
     const userId = await getUserId();
@@ -98,6 +101,9 @@ export async function createWordAction(data: {
         example: data.example,
         phonetic: data.phonetic,
         partOfSpeech: data.partOfSpeech,
+        termLanguage: data.termLanguage || "en",
+        definitionLanguage: data.definitionLanguage || "en",
+        exampleLanguage: data.exampleLanguage || "en",
       },
     });
 
@@ -115,6 +121,9 @@ export async function createWordAction(data: {
         score: word.score,
         createdAt: word.createdAt.toISOString(),
         collectionId: word.collectionId,
+        termLanguage: word.termLanguage,
+        definitionLanguage: word.definitionLanguage,
+        exampleLanguage: word.exampleLanguage,
       },
       error: null,
     };

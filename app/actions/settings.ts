@@ -114,6 +114,7 @@ export async function getSettingsAction() {
       data: {
         theme: settings.theme,
         language: settings.language,
+        learningLanguage: settings.learningLanguage,
       },
       error: null,
     };
@@ -129,6 +130,7 @@ export async function getSettingsAction() {
 export async function updateSettingsAction(data: {
   theme?: string;
   language?: string;
+  learningLanguage?: string;
 }) {
   try {
     const userId = await getUserId();
@@ -151,6 +153,7 @@ export async function updateSettingsAction(data: {
       data: {
         theme: settings.theme,
         language: settings.language,
+        learningLanguage: settings.learningLanguage,
       },
       error: null,
     };

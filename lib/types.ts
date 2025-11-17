@@ -8,6 +8,10 @@ export type Word = {
   createdAt: string;
   collectionId?: string;
   score?: number;
+  // Multi-language fields
+  termLanguage?: string;
+  definitionLanguage?: string;
+  exampleLanguage?: string;
   // SRS fields
   easeFactor?: number;
   interval?: number;
@@ -40,7 +44,19 @@ export type AppState = {
       | "ru"
       | "ja"
       | "ko"
-      | "zh";
+      | "zh"
+      | "vi";
+    learningLanguage?:
+      | "en"
+      | "es"
+      | "fr"
+      | "de"
+      | "it"
+      | "pt"
+      | "ja"
+      | "ko"
+      | "zh"
+      | "vi";
   };
 };
 

@@ -63,6 +63,9 @@ export function useCreateWord() {
       example?: string;
       phonetic?: string;
       partOfSpeech?: string;
+      termLanguage?: string;
+      definitionLanguage?: string;
+      exampleLanguage?: string;
     }) => {
       const result = await createWordAction(data);
       if (result.error) {

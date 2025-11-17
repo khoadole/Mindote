@@ -44,7 +44,14 @@ export function useAIFill() {
     return null;
   };
 
-  const fillWord = async (term: string): Promise<AIFillData | null> => {
+  const fillWord = async (
+    term: string,
+    languages?: {
+      termLanguage?: string;
+      definitionLanguage?: string;
+      exampleLanguage?: string;
+    }
+  ): Promise<AIFillData | null> => {
     if (!term.trim()) {
       toast({
         title: "Error",
@@ -62,7 +69,10 @@ export function useAIFill() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ term: term.trim() }),
+        body: JSON.stringify({
+          term: term.trim(),
+          ...languages,
+        }),
       });
 
       const result = await response.json();

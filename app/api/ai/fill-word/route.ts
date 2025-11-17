@@ -3,6 +3,7 @@ import OpenAI from "openai";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
+import { getLanguageByCode, DEFAULT_LANGUAGE } from "@/lib/languages";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -27,11 +28,21 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { term } = body;
+    const {
+      term,
+      termLanguage = DEFAULT_LANGUAGE,
+      definitionLanguage = DEFAULT_LANGUAGE,
+      exampleLanguage = DEFAULT_LANGUAGE,
+    } = body;
 
     if (!term || typeof term !== "string" || term.trim().length === 0) {
       return NextResponse.json({ error: "Term is required" }, { status: 400 });
     }
+
+    // Get language names for better AI prompts
+    const termLang = getLanguageByCode(termLanguage);
+    const defLang = getLanguageByCode(definitionLanguage);
+    const exampleLang = getLanguageByCode(exampleLanguage);
 
     // Check if user has active subscription (premium bypass)
     const isPremium = await hasActiveSubscription();
@@ -66,25 +77,68 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Get appropriate phonetic format based on term language
+    const getPhoneticInstruction = (langCode: string) => {
+      switch (langCode) {
+        case "zh":
+          return "Pinyin with tone marks (e.g., píngguǒ)";
+        case "ja":
+          return "Hiragana/Katakana reading and Romaji (e.g., りんご / ringo)";
+        case "ko":
+          return "Hangul pronunciation and Romanization (e.g., 사과 / sagwa)";
+        case "vi":
+          return "Vietnamese pronunciation with tone marks (e.g., táo)";
+        case "ru":
+          return "Cyrillic pronunciation guide";
+        case "ar":
+          return "Arabic transliteration";
+        default:
+          return "IPA format (e.g., /ˈæpəl/)";
+      }
+    };
+
+    const phoneticFormat = getPhoneticInstruction(termLanguage);
+
     // Call OpenAI API with gpt-4o-mini (cheapest and efficient)
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: `You are a helpful English language assistant. Given a word, phrase, or idiom, provide:
-1. The term (cleaned up if needed)
-2. A clear, concise definition
-3. A natural example sentence using the term
-4. Phonetic pronunciation (IPA format)
+          content: `You are a helpful multilingual language assistant. Given a word, phrase, or idiom, provide:
+1. The term (cleaned up if needed) in ${termLang?.name || "English"}
+2. A clear, concise definition in ${defLang?.name || "English"}
+3. A natural example sentence in ${
+            exampleLang?.name || "English"
+          } using the term
+4. Phonetic pronunciation for the term in the appropriate format for ${
+            termLang?.name || "English"
+          }
 5. Part of speech (noun, verb, adjective, etc.)
+
+IMPORTANT LANGUAGE INSTRUCTIONS:
+- The TERM should be in ${termLang?.name || "English"}
+- The DEFINITION must be written entirely in ${defLang?.name || "English"}
+- The EXAMPLE sentence must be written entirely in ${
+            exampleLang?.name || "English"
+          }
+- Keep the term in the example sentence even if the example is in a different language
+
+PHONETIC FORMAT FOR ${termLang?.name || "English"}:
+- Use ${phoneticFormat}
+- Examples:
+  * Chinese (中文): 苹果 → píngguǒ
+  * Japanese (日本語): りんご → ringo or りんご
+  * Korean (한국어): 사과 → sagwa
+  * Vietnamese: táo (with tone marks)
+  * English/Spanish/French/German/Italian/Portuguese: IPA format (e.g., /ˈæpəl/)
 
 Respond ONLY with valid JSON in this exact format:
 {
-  "term": "the word/phrase",
-  "definition": "clear definition",
-  "example": "example sentence using the term",
-  "phonetic": "/pronunciation/",
+  "term": "the word/phrase in ${termLang?.name}",
+  "definition": "clear definition in ${defLang?.name}",
+  "example": "example sentence in ${exampleLang?.name} using the term",
+  "phonetic": "pronunciation in appropriate format for ${termLang?.name}",
   "partOfSpeech": "noun|verb|adjective|etc"
 }
 

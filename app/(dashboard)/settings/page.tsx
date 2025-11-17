@@ -419,7 +419,7 @@ export default function SettingsPage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground">
-                  Mindote is an English learning app that helps you build
+                  Mindote is an language learning app that helps you build
                   vocabulary through flashcards, quizzes, and YouTube transcript
                   integration.
                 </p>

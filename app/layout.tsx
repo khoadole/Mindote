@@ -16,9 +16,9 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mindote - English Learning App",
+  title: "Mindote - Language Learning App",
   description:
-    "Learn English vocabulary with flashcards, quizzes, and YouTube integration",
+    "Learn Language vocabulary with flashcards, quizzes, and YouTube integration",
   icons: {
     icon: {
       url: "/logo_black_transparent_256x256.png",

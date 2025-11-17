@@ -141,9 +141,10 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
       {/* Header */}
-      <header className="border-b border-border/40 backdrop-blur-sm bg-background/95 sticky top-0 z-50">
+      <header className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
+        {" "}
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Image

@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCollections } from "@/hooks/use-collections";
 import { useGeneratePassage, useReadingPassages } from "@/hooks/use-reading";
+import {
+  DIFFICULTY_LEVELS,
+  getCefrCode,
+  getDifficultyFromCefr,
+} from "@/lib/difficulty-levels";
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -28,38 +34,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const LEVELS = [
-  {
-    value: "A1",
-    label: "A1 - Beginner",
-    description: "Simple, basic vocabulary",
-  },
-  {
-    value: "A2",
-    label: "A2 - Elementary",
-    description: "Common everyday topics",
-  },
-  {
-    value: "B1",
-    label: "B1 - Intermediate",
-    description: "Familiar topics and ideas",
-  },
-  {
-    value: "B2",
-    label: "B2 - Upper Intermediate",
-    description: "Complex text and abstract topics",
-  },
-  {
-    value: "C1",
-    label: "C1 - Advanced",
-    description: "Demanding, longer texts",
-  },
-  {
-    value: "C2",
-    label: "C2 - Proficient",
-    description: "Very complex academic texts",
-  },
-];
+// Using DIFFICULTY_LEVELS from lib/difficulty-levels.ts
 
 const PASSAGE_TYPES = [
   {
@@ -87,8 +62,9 @@ export default function ReadingPage() {
   const generateMutation = useGeneratePassage();
 
   const [selectedCollection, setSelectedCollection] = useState<string>("");
-  const [level, setLevel] = useState<string>("B1");
+  const [level, setLevel] = useState<string>("Intermediate");
   const [passageType, setPassageType] = useState<string>("story");
+  const [language, setLanguage] = useState<string>(DEFAULT_LANGUAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 4;
 
@@ -113,8 +89,9 @@ export default function ReadingPage() {
 
     generateMutation.mutate({
       collectionId: selectedCollection,
-      level: level as any,
+      level: getCefrCode(level) as any, // Convert difficulty name to CEFR code (A1, B1, etc.)
       passageType: passageType as any,
+      language,
     });
   };
 
@@ -247,7 +224,7 @@ export default function ReadingPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            {LEVELS.map((l) => (
+                            {DIFFICULTY_LEVELS.map((l) => (
                               <SelectItem key={l.value} value={l.value}>
                                 <div>
                                   <div className="font-medium">{l.label}</div>
@@ -285,6 +262,28 @@ export default function ReadingPage() {
                             ))}
                           </SelectContent>
                         </Select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label>Language</Label>
+                        <Select value={language} onValueChange={setLanguage}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {SUPPORTED_LANGUAGES.map((lang) => (
+                              <SelectItem key={lang.code} value={lang.code}>
+                                <div className="flex items-center gap-2">
+                                  <span>{lang.flag}</span>
+                                  <span>{lang.name}</span>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <p className="text-xs text-muted-foreground">
+                          Language for the reading passage content
+                        </p>
                       </div>
 
                       <Button
@@ -401,7 +400,7 @@ export default function ReadingPage() {
                                 </h3>
                                 <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                                   <Badge variant="secondary">
-                                    {passage.level}
+                                    {getDifficultyFromCefr(passage.level)}
                                   </Badge>
                                   <span className="flex items-center gap-1">
                                     <FileText className="h-3 w-3" />

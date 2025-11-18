@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useReadingPassage, useSubmitAttempt } from "@/hooks/use-reading";
+import { getDifficultyFromCefr } from "@/lib/difficulty-levels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -88,12 +89,140 @@ export default function ReadingPassageViewer() {
 
   // Highlight learned words in passage
   const renderContent = () => {
-    const words = passage.content.split(/(\s+)/);
+    const content = passage.content;
+    const vocabWords = passage.wordsUsed.map((w) => w.toLowerCase().trim());
+
+    // Check if content contains CJK characters (Chinese, Japanese, Korean)
+    const hasCJK =
+      /[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]/.test(content);
+
+    if (hasCJK) {
+      // For CJK languages, we need to search for vocabulary words as substrings
+      // since words are not separated by spaces
+      let result: JSX.Element[] = [];
+      let lastIndex = 0;
+      let keyCounter = 0;
+
+      // Create a map to track which positions are already highlighted
+      const highlightedRanges: Array<[number, number]> = [];
+
+      // Sort vocab words by length (longest first) to avoid partial matches
+      const sortedVocab = [...vocabWords].sort((a, b) => b.length - a.length);
+
+      // Find all occurrences of vocabulary words
+      sortedVocab.forEach((vocabWord) => {
+        if (!vocabWord) return;
+
+        let searchIndex = 0;
+        while (true) {
+          const index = content.toLowerCase().indexOf(vocabWord, searchIndex);
+          if (index === -1) break;
+
+          // Check if this range overlaps with existing highlights
+          const overlaps = highlightedRanges.some(
+            ([start, end]) =>
+              (index >= start && index < end) ||
+              (index + vocabWord.length > start &&
+                index + vocabWord.length <= end)
+          );
+
+          if (!overlaps) {
+            highlightedRanges.push([index, index + vocabWord.length]);
+          }
+
+          searchIndex = index + 1;
+        }
+      });
+
+      // Sort ranges by start position
+      highlightedRanges.sort((a, b) => a[0] - b[0]);
+
+      // Build the result with highlighted sections
+      highlightedRanges.forEach(([start, end]) => {
+        // Add non-highlighted text before this range
+        if (start > lastIndex) {
+          result.push(
+            <span key={keyCounter++}>
+              {content.substring(lastIndex, start)}
+            </span>
+          );
+        }
+
+        // Add highlighted text
+        const highlightedText = content.substring(start, end);
+        result.push(
+          <span
+            key={keyCounter++}
+            className="bg-yellow-200 dark:bg-yellow-900/50 px-0.5 rounded cursor-pointer hover:bg-yellow-300 dark:hover:bg-yellow-800 transition-colors"
+            onClick={() => setHighlightedWord(highlightedText)}
+            title="Click to see definition"
+          >
+            {highlightedText}
+          </span>
+        );
+
+        lastIndex = end;
+      });
+
+      // Add remaining text
+      if (lastIndex < content.length) {
+        result.push(
+          <span key={keyCounter++}>{content.substring(lastIndex)}</span>
+        );
+      }
+
+      return result;
+    }
+
+    // For space-separated languages (English, Spanish, etc.)
+    const words = content.split(/(\s+)/);
+
     return words.map((word, idx) => {
-      const cleanWord = word.toLowerCase().replace(/[^\w\s]/g, "");
-      const isLearned = passage.wordsUsed.some(
-        (w) => w.toLowerCase() === cleanWord
-      );
+      // Clean word for comparison
+      const cleanWord = word
+        .toLowerCase()
+        .replace(/[.,!?;:"""''()[\]{}\/\\]/g, "")
+        .trim();
+
+      if (!cleanWord) {
+        return <span key={idx}>{word}</span>;
+      }
+
+      // Check if this word matches vocabulary
+      const isLearned = vocabWords.some((vocabWord) => {
+        // Exact match
+        if (cleanWord === vocabWord) return true;
+
+        // Handle plurals and verb forms (English only)
+        if (
+          cleanWord === vocabWord + "s" ||
+          cleanWord === vocabWord + "es" ||
+          cleanWord === vocabWord + "d" ||
+          cleanWord === vocabWord + "ed" ||
+          cleanWord === vocabWord + "ing"
+        ) {
+          return true;
+        }
+
+        // Reverse check
+        if (
+          vocabWord === cleanWord + "s" ||
+          vocabWord === cleanWord + "es" ||
+          vocabWord === cleanWord + "d" ||
+          vocabWord === cleanWord + "ed" ||
+          vocabWord === cleanWord + "ing"
+        ) {
+          return true;
+        }
+
+        // For multi-word vocabulary terms
+        if (vocabWord.includes(" ")) {
+          const vocabWordsList = vocabWord.split(/\s+/);
+          return vocabWordsList.includes(cleanWord);
+        }
+
+        return false;
+      });
 
       return (
         <span
@@ -160,7 +289,7 @@ export default function ReadingPassageViewer() {
               <div className="space-y-2">
                 <CardTitle className="text-2xl">{passage.title}</CardTitle>
                 <div className="flex flex-wrap gap-2 text-sm">
-                  <Badge>{passage.level}</Badge>
+                  <Badge>{getDifficultyFromCefr(passage.level)}</Badge>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <FileText className="h-4 w-4" />
                     {passage.wordCount} words

@@ -6,6 +6,7 @@ import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
 import { useReadingPassages } from "@/hooks/use-reading";
+import { getDifficultyFromCefr } from "@/lib/difficulty-levels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -455,7 +456,7 @@ export default function Dashboard() {
                               variant="outline"
                               className="text-xs px-1.5 py-0 h-5"
                             >
-                              {passage.level}
+                              {getDifficultyFromCefr(passage.level)}
                             </Badge>
                             <span className="text-xs text-muted-foreground">
                               •

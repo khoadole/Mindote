@@ -1,2 +1,1 @@
--- AlterTable
-ALTER TABLE "collections" ADD COLUMN "emoji" TEXT;
+-- Empty migration (already applied)

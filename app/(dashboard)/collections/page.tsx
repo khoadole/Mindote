@@ -218,6 +218,15 @@ export default function CollectionsPage() {
                           {new Date(collection.createdAt).toLocaleDateString()}
                         </p>
 
+                        {collection.difficultyLevel && (
+                          <Badge
+                            variant="outline"
+                            className="mb-4 bg-white/20 dark:bg-secondary/50 text-white dark:text-secondary-foreground border-white/30 dark:border-border backdrop-blur-sm"
+                          >
+                            {collection.difficultyLevel}
+                          </Badge>
+                        )}
+
                         <div className="flex gap-2">
                           <Button
                             size="sm"

@@ -56,7 +56,11 @@ export function useCreateCollection() {
   const { toast } = useToast();
 
   return useMutation({
-    mutationFn: async (data: { name: string; color: string }) => {
+    mutationFn: async (data: {
+      name: string;
+      color: string;
+      difficultyLevel?: string;
+    }) => {
       const result = await createCollectionAction(data);
       if (result.error) {
         throw new Error(result.error);

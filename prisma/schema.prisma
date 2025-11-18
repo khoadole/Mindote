@@ -9,19 +9,19 @@ datasource db {
 }
 
 model User {
-  id              String         @id @db.Uuid
-  email           String         @unique
-  username        String?
-  displayName     String?        @map("display_name")
-  avatarUrl       String?        @map("avatar_url")
-  createdAt       DateTime       @default(now()) @map("created_at")
-  updatedAt       DateTime       @updatedAt @map("updated_at")
-  lastLoginDate   DateTime?      @map("last_login_date")
-  currentStreak   Int            @default(0) @map("current_streak")
-  longestStreak   Int            @default(0) @map("longest_streak")
-  collections     Collection[]
-  setting         Setting?
-  subscriptions   Subscription[]
+  id            String         @id @db.Uuid
+  email         String         @unique
+  username      String?
+  displayName   String?        @map("display_name")
+  avatarUrl     String?        @map("avatar_url")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  currentStreak Int            @default(0) @map("current_streak")
+  lastLoginDate DateTime?      @map("last_login_date")
+  longestStreak Int            @default(0) @map("longest_streak")
+  collections   Collection[]
+  setting       Setting?
+  subscriptions Subscription[]
 
   @@index([email])
   @@map("users")
@@ -32,10 +32,11 @@ model Collection {
   userId          String           @map("user_id") @db.Uuid
   name            String
   color           String
+  difficultyLevel String?          @map("difficulty_level")
   createdAt       DateTime         @default(now()) @map("created_at")
   user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  words           Word[]
   readingPassages ReadingPassage[]
+  words           Word[]
 
   @@index([userId])
   @@map("collections")
@@ -47,24 +48,20 @@ model Word {
   definition         String
   example            String?
   phonetic           String?
-  partOfSpeech       String?    @map("part_of_speech")               // Parts of speech (noun, verb, etc.)
   score              Int        @default(0)
   createdAt          DateTime   @default(now()) @map("created_at")
   collectionId       String     @map("collection_id") @db.Uuid
+  easeFactor         Float      @default(2.5) @map("ease_factor")
+  interval           Int        @default(0)
+  lastReviewed       DateTime?  @map("last_reviewed")
+  nextReview         DateTime?  @map("next_review")
+  partOfSpeech       String?    @map("part_of_speech")
+  repetitions        Int        @default(0)
+  definitionLanguage String     @default("en") @map("definition_language")
+  exampleLanguage    String     @default("en") @map("example_language")
+  termLanguage       String     @default("en") @map("term_language")
   collection         Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
-  
-  // Multi-language support
-  termLanguage       String     @default("en") @map("term_language")       // Language of the term being learned
-  definitionLanguage String     @default("en") @map("definition_language") // Language of the definition
-  exampleLanguage    String     @default("en") @map("example_language")    // Language of the example sentence
-  
-  // Spaced Repetition System (SRS) fields
-  easeFactor         Float      @default(2.5) @map("ease_factor")     // SM-2 ease factor (quality of memory)
-  interval           Int        @default(0)                           // Days until next review
-  repetitions        Int        @default(0)                           // Number of successful reviews
-  lastReviewed       DateTime?  @map("last_reviewed")                // Last review date
-  nextReview         DateTime?  @map("next_review")                  // Next review due date
-  
+
   @@unique([collectionId, term])
   @@index([collectionId, term])
   @@index([collectionId, score])
@@ -75,14 +72,14 @@ model Word {
 }
 
 model Setting {
-  id                String   @id @default(uuid()) @db.Uuid
-  userId            String   @unique @map("user_id") @db.Uuid
-  theme             String   @default("dark")
-  language          String   @default("en")
-  learningLanguage  String   @default("en") @map("learning_language")  // Default language for vocabulary learning
-  createdAt         DateTime @default(now()) @map("created_at")
-  updatedAt         DateTime @updatedAt @map("updated_at")
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id               String   @id @default(uuid()) @db.Uuid
+  userId           String   @unique @map("user_id") @db.Uuid
+  theme            String   @default("dark")
+  language         String   @default("en")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+  learningLanguage String   @default("en") @map("learning_language")
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("settings")
 }
@@ -95,41 +92,40 @@ model YouTubeHistory {
   videoId   String   @map("video_id")
   createdAt DateTime @default(now()) @map("created_at")
 
-  @@unique([userId, videoId])  // 1 user không duplicate cùng video
-  @@index([userId, createdAt]) // Query history nhanh
-  @@index([videoId])           // Lookup by videoId
+  @@unique([userId, videoId])
+  @@index([userId, createdAt])
+  @@index([videoId])
   @@map("youtube_history")
 }
 
 model AIUsage {
   id        String   @id @default(uuid()) @db.Uuid
   userId    String   @map("user_id") @db.Uuid
-  date      DateTime @default(now()) @db.Date  // Only store date, not time
-  count     Int      @default(0)               // Number of AI calls on this date
+  date      DateTime @default(now()) @db.Date
+  count     Int      @default(0)
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  @@unique([userId, date])        // One record per user per day
-  @@index([userId, date])         // Fast lookup for daily quota check
+  @@unique([userId, date])
+  @@index([userId, date])
   @@map("ai_usage")
 }
 
 model ReadingPassage {
-  id            String   @id @default(uuid()) @db.Uuid
-  userId        String   @map("user_id") @db.Uuid
-  collectionId  String   @map("collection_id") @db.Uuid
+  id            String           @id @default(uuid()) @db.Uuid
+  userId        String           @map("user_id") @db.Uuid
+  collectionId  String           @map("collection_id") @db.Uuid
   title         String
-  content       String   @db.Text
-  level         String   // "A1", "A2", "B1", "B2", "C1", "C2"
-  wordCount     Int      @map("word_count")
-  estimatedTime Int      @map("estimated_time") // Reading time in minutes
-  wordsUsed     String[] @map("words_used")     // Array of terms from collection
-  questions     Json                            // Array of comprehension questions
-  createdAt     DateTime @default(now()) @map("created_at")
-  
-  collection    Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  content       String
+  level         String
+  wordCount     Int              @map("word_count")
+  estimatedTime Int              @map("estimated_time")
+  wordsUsed     String[]         @map("words_used")
+  questions     Json
+  createdAt     DateTime         @default(now()) @map("created_at")
   attempts      ReadingAttempt[]
-  
+  collection    Collection       @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
   @@index([userId, collectionId])
   @@index([level])
   @@index([createdAt])
@@ -137,24 +133,19 @@ model ReadingPassage {
 }
 
 model ReadingAttempt {
-  id          String   @id @default(uuid()) @db.Uuid
-  userId      String   @map("user_id") @db.Uuid
-  passageId   String   @map("passage_id") @db.Uuid
-  timeSpent   Int      @map("time_spent")    // Seconds
-  score       Int                            // Percentage (0-100)
-  answers     Json                           // User's answers
-  completedAt DateTime @default(now()) @map("completed_at")
-  
+  id          String         @id @default(uuid()) @db.Uuid
+  userId      String         @map("user_id") @db.Uuid
+  passageId   String         @map("passage_id") @db.Uuid
+  timeSpent   Int            @map("time_spent")
+  score       Int
+  answers     Json
+  completedAt DateTime       @default(now()) @map("completed_at")
   passage     ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
-  
+
   @@index([userId, passageId])
   @@index([userId, completedAt])
   @@map("reading_attempts")
 }
-
-// ============================================
-// LEMON SQUEEZY BILLING MODELS
-// ============================================
 
 model Plan {
   id                 String         @id @default(uuid()) @db.Uuid
@@ -165,7 +156,7 @@ model Plan {
   description        String?
   price              String
   isUsageBased       Boolean        @default(false) @map("is_usage_based")
-  interval           String?        // "month", "year"
+  interval           String?
   intervalCount      Int?           @map("interval_count")
   trialInterval      String?        @map("trial_interval")
   trialIntervalCount Int?           @map("trial_interval_count")
@@ -180,11 +171,11 @@ model Plan {
 
 model Subscription {
   id                 String   @id @default(uuid()) @db.Uuid
-  lemonSqueezyId     String   @unique @map("lemon_squeezy_id") // Subscription ID from Lemon Squeezy
+  lemonSqueezyId     String   @unique @map("lemon_squeezy_id")
   orderId            Int      @map("order_id")
   name               String
   email              String
-  status             String   // "on_trial", "active", "paused", "past_due", "unpaid", "cancelled", "expired"
+  status             String
   statusFormatted    String   @map("status_formatted")
   renewsAt           String?  @map("renews_at")
   endsAt             String?  @map("ends_at")
@@ -197,9 +188,8 @@ model Subscription {
   planId             String   @map("plan_id") @db.Uuid
   createdAt          DateTime @default(now()) @map("created_at")
   updatedAt          DateTime @updatedAt @map("updated_at")
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  plan Plan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  plan               Plan     @relation(fields: [planId], references: [id], onDelete: Cascade)
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([lemonSqueezyId])

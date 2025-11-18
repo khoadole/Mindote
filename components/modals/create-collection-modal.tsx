@@ -14,7 +14,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Plus, Loader2 } from "lucide-react";
+import { DIFFICULTY_LEVELS } from "@/lib/difficulty-levels";
 
 const colorOptions = [
   { name: "Primary", value: "bg-primary" },
@@ -34,6 +42,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [selectedColor, setSelectedColor] = useState("bg-primary");
+  const [difficultyLevel, setDifficultyLevel] = useState<string>("");
 
   const createCollectionMutation = useCreateCollection();
 
@@ -48,12 +57,14 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
       {
         name: name.trim(),
         color: selectedColor,
+        difficultyLevel: difficultyLevel || undefined,
       },
       {
         onSuccess: () => {
           // Reset form
           setName("");
           setSelectedColor("bg-primary");
+          setDifficultyLevel("");
           setOpen(false);
         },
       }
@@ -114,6 +125,30 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
                 />
               ))}
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="difficulty">Difficulty Level (Optional)</Label>
+            <Select value={difficultyLevel} onValueChange={setDifficultyLevel}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select difficulty level" />
+              </SelectTrigger>
+              <SelectContent>
+                {DIFFICULTY_LEVELS.map((level) => (
+                  <SelectItem key={level.value} value={level.value}>
+                    <div>
+                      <div className="font-medium">{level.label}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {level.description}
+                      </div>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground">
+              Helps organize your collections by learning level
+            </p>
           </div>
 
           <div className="flex justify-end space-x-2 pt-4">

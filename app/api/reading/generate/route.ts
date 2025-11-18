@@ -14,6 +14,7 @@ interface GenerateReadingRequest {
   collectionId: string;
   level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   passageType?: "story" | "article" | "essay" | "news";
+  language?: string;
 }
 
 interface AIReadingResponse {
@@ -37,7 +38,12 @@ export async function POST(request: NextRequest) {
     }
 
     const body: GenerateReadingRequest = await request.json();
-    const { collectionId, level = "B1", passageType = "story" } = body;
+    const {
+      collectionId,
+      level = "B1",
+      passageType = "story",
+      language = "en",
+    } = body;
 
     if (!collectionId) {
       return NextResponse.json(
@@ -115,16 +121,31 @@ export async function POST(request: NextRequest) {
     const wordTerms = collection.words.map((w) => w.term);
     const wordList = wordTerms.slice(0, 30).join(", "); // Use max 30 words
 
+    // Get language name for better AI understanding
+    const languageNames: Record<string, string> = {
+      en: "English",
+      es: "Spanish",
+      fr: "French",
+      de: "German",
+      it: "Italian",
+      pt: "Portuguese",
+      ja: "Japanese",
+      ko: "Korean",
+      zh: "Chinese",
+      vi: "Vietnamese",
+    };
+    const languageName = languageNames[language] || "English";
+
     // Generate reading passage with AI
-    const prompt = `Create an engaging ${level} level English reading passage (250-350 words) that naturally incorporates these vocabulary words: ${wordList}.
+    const prompt = `Create an engaging ${level} level ${languageName} reading passage (250-350 words) that naturally incorporates these vocabulary words: ${wordList}.
 
 Requirements:
 - Title: Engaging and relevant to the content
-- Content: Natural, engaging ${passageType} that flows well
+- Content: Natural, engaging ${passageType} that flows well in ${languageName}
 - Use 70-80% of the provided words naturally in context
 - Appropriate difficulty for ${level} CEFR level
 - Make it interesting and educational
-- Include 5 comprehension questions (multiple choice with 4 options each)
+- Include 5 comprehension questions in ${languageName} (multiple choice with 4 options each)
 
 Format as JSON:
 {
@@ -147,7 +168,7 @@ Format as JSON:
         {
           role: "system",
           content:
-            "You are an expert ESL content creator specializing in creating engaging reading passages for English learners at different proficiency levels.",
+            "You are an expert multilingual content creator specializing in creating engaging reading passages for language learners at different proficiency levels. You can create content in multiple languages while maintaining appropriate difficulty levels.",
         },
         {
           role: "user",

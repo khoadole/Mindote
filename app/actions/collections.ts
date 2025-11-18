@@ -35,6 +35,7 @@ export async function getCollectionsAction() {
         id: col.id,
         name: col.name,
         color: col.color,
+        difficultyLevel: col.difficultyLevel,
         createdAt: col.createdAt.toISOString(),
         wordCount: col._count.words,
       })),
@@ -82,6 +83,7 @@ export async function getCollectionAction(collectionId: string) {
         id: collection.id,
         name: collection.name,
         color: collection.color,
+        difficultyLevel: collection.difficultyLevel,
         createdAt: collection.createdAt.toISOString(),
         words: collection.words.map((word) => ({
           id: word.id,
@@ -109,6 +111,7 @@ export async function getCollectionAction(collectionId: string) {
 export async function createCollectionAction(data: {
   name: string;
   color: string;
+  difficultyLevel?: string;
 }) {
   try {
     const userId = await getUserId();
@@ -122,6 +125,7 @@ export async function createCollectionAction(data: {
         userId,
         name: data.name,
         color: data.color,
+        difficultyLevel: data.difficultyLevel,
       },
     });
 
@@ -132,6 +136,7 @@ export async function createCollectionAction(data: {
         id: collection.id,
         name: collection.name,
         color: collection.color,
+        difficultyLevel: collection.difficultyLevel,
         createdAt: collection.createdAt.toISOString(),
       },
       error: null,

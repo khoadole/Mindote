@@ -25,6 +25,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { useTheme } from "@/lib/theme-provider";
+import { useTranslation } from "@/lib/i18n-provider";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -123,6 +124,7 @@ const faqs = [
 
 export default function LandingPage() {
   const { theme, setTheme } = useTheme();
+  const { t } = useTranslation();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   // Scroll animations for different sections
@@ -171,7 +173,7 @@ export default function LandingPage() {
               )}
             </Button>
             <Link href="/auth">
-              <Button className="rounded-full px-6">Get Started</Button>
+              <Button className="rounded-full px-6">{t("landing.getStarted")}</Button>
             </Link>
           </div>
         </div>
@@ -182,17 +184,17 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4 animate-fade-in-down">
             <Sparkles className="h-4 w-4" />
-            <span>AI-Powered Vocabulary Learning</span>
+            <span>{t("landing.aiPowered")}</span>
           </div>
 
           <h2
             className="text-5xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Master English Vocabulary
+            {t("landing.heroTitle")}
             <br />
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              The Smart Way
+              {t("landing.heroSubtitle")}
             </span>
           </h2>
 
@@ -200,9 +202,7 @@ export default function LandingPage() {
             className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
           >
-            Learn systematically with flashcards, quizzes, and immersive
-            reading. Build lasting vocabulary with proven spaced repetition
-            techniques.
+            {t("landing.heroDescription")}
           </p>
 
           <div
@@ -214,7 +214,7 @@ export default function LandingPage() {
                 size="lg"
                 className="px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
               >
-                Start Learning
+                {t("landing.startLearning")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -237,21 +237,21 @@ export default function LandingPage() {
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 10K+
               </div>
-              <div className="text-sm text-muted-foreground">Words Learned</div>
+              <div className="text-sm text-muted-foreground">{t("landing.wordsLearned")}</div>
             </div>
             <div className="text-center space-y-1">
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 500+
               </div>
               <div className="text-sm text-muted-foreground">
-                Active Learners
+                {t("landing.activeLearners")}
               </div>
             </div>
             <div className="text-center space-y-1">
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 95%
               </div>
-              <div className="text-sm text-muted-foreground">Success Rate</div>
+              <div className="text-sm text-muted-foreground">{t("landing.successRate")}</div>
             </div>
           </div>
         </div>

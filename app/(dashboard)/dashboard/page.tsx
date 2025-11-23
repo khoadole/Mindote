@@ -35,6 +35,7 @@ import Link from "next/link";
 import { useEffect, useMemo } from "react";
 import { updateUserStreakAction } from "@/app/actions/settings";
 import { WordStageCard } from "@/components/ui/word-stage-card";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // ✅ Lazy load modals - only load when needed
 const AddWordModal = dynamic(
@@ -54,6 +55,7 @@ const CreateCollectionModal = dynamic(
 );
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   // ✅ Parallel fetching - tất cả queries chạy đồng thời
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: stats, isLoading: statsLoading } = useUserStats();
@@ -140,10 +142,10 @@ export default function Dashboard() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold mb-1">
-              Learn Through Context 🎯
+              {t("dashboard.title")}
             </h1>
             <p className="text-sm md:text-base text-muted-foreground">
-              Master vocabulary by creating and reading personalized passages
+              {t("dashboard.subtitle")}
             </p>
           </div>
 
@@ -164,11 +166,11 @@ export default function Dashboard() {
             <div>
               <div className="text-sm font-semibold text-orange-900 dark:text-orange-100">
                 {currentStreak > 0
-                  ? `${currentStreak} Day Streak`
-                  : "Start Today"}
+                  ? t("dashboard.dayStreak", { count: currentStreak })
+                  : t("dashboard.startToday")}
               </div>
               <p className="text-xs text-muted-foreground">
-                {currentStreak > 0 ? "Keep going!" : "Begin your journey"}
+                {currentStreak > 0 ? t("dashboard.keepGoing") : t("dashboard.beginJourney")}
               </p>
             </div>
           </div>
@@ -212,46 +214,30 @@ export default function Dashboard() {
                   </div>
 
                   <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                    CREATE
-                    <br />
-                    READING PASSAGE
+                    {t("dashboard.createReadingPassage")}
                   </h2>
 
-                  <p className="text-white/90 text-base leading-relaxed">
-                    {passageMetrics.wordsReadyForPassages > 0 ? (
-                      <>
-                        You have{" "}
-                        <strong>{passageMetrics.wordsReadyForPassages}</strong>{" "}
-                        {passageMetrics.wordsReadyForPassages === 1
-                          ? "word"
-                          : "words"}{" "}
-                        ready to use in a new passage!
-                      </>
-                    ) : (
-                      <>
-                        Learn some words first, then create personalized reading
-                        passages
-                      </>
-                    )}
-                  </p>
+                  <p className="text-white/90 text-base leading-relaxed"
+                    dangerouslySetInnerHTML={{
+                      __html: passageMetrics.wordsReadyForPassages > 0
+                        ? t("dashboard.wordsReady", { count: passageMetrics.wordsReadyForPassages })
+                        : t("dashboard.learnWordsFirst")
+                    }}
+                  />
 
                   {/* Mini Stats */}
-                  <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
-                      <FileText className="h-4 w-4" />
-                      <span>
-                        <strong>{passageMetrics.totalPassages}</strong> passages
-                        created
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
-                      <CheckCircle2 className="h-4 w-4" />
-                      <span>
-                        <strong>{passageMetrics.completedPassages}</strong>{" "}
-                        completed
-                      </span>
-                    </div>
-                  </div>
+                  <div className="flex flex-wrap gap-4 text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                        <div class="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
+                          ${t("dashboard.passagesCreated", { count: passageMetrics.totalPassages })}
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
+                          ${t("dashboard.completed", { count: passageMetrics.completedPassages })}
+                        </div>
+                      `
+                    }}
+                  />
 
                   <Button
                     size="lg"

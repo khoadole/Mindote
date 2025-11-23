@@ -10,12 +10,14 @@ import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useAuth } from "@/lib/auth";
 import { cn, getUserDisplayName } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface TopbarProps {
   onMobileMenuClick?: () => void;
 }
 
 export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -131,9 +133,9 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
   // Get greeting based on time
   const getGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return "Good morning";
-    if (hour < 18) return "Good afternoon";
-    return "Good evening";
+    if (hour < 12) return t("topbar.goodMorning");
+    if (hour < 18) return t("topbar.goodAfternoon");
+    return t("topbar.goodEvening");
   };
 
   return (
@@ -155,7 +157,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
               {getGreeting()}, {getUserDisplayName(user)}! 👋
             </h2>
             <p className="text-xs md:text-sm text-muted-foreground hidden sm:block">
-              Ready to expand your vocabulary?
+              {t("topbar.subtitle")}
             </p>
           </div>
         </div>
@@ -165,7 +167,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
           <div className="relative hidden md:block" ref={searchRef}>
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground z-10" />
             <Input
-              placeholder="Search words... (/)"
+              placeholder={t("topbar.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -236,7 +238,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
             {isOpen && searchQuery.trim() && filteredWords.length === 0 && (
               <div className="absolute top-full mt-2 w-full bg-background border border-border rounded-lg shadow-lg p-4 z-50">
                 <p className="text-sm text-muted-foreground text-center">
-                  No words found matching "{searchQuery}"
+                  {t("topbar.noResults", { query: searchQuery })}
                 </p>
               </div>
             )}
@@ -258,7 +260,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
               className="gap-2 rounded-xl hover:bg-destructive/10 hover:text-destructive transition-colors h-10 px-3"
             >
               <LogOut className="h-4 w-4" />
-              <span className="hidden md:inline">Sign out</span>
+              <span className="hidden md:inline">{t("topbar.signOut")}</span>
             </Button>
           </div>
         </div>

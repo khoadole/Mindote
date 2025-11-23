@@ -17,6 +17,7 @@ import {
   clearYouTubeHistoryAction,
 } from "@/app/actions/youtube-history";
 import { Youtube, ArrowLeft, Play, FileText, AlertCircle } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 export default function YouTubePage() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function YouTubePage() {
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
+  const { t } = useTranslation();
   const [url, setUrl] = useState("");
   const [transcript, setTranscript] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
@@ -65,8 +67,8 @@ export default function YouTubePage() {
   const handleGetTranscript = async () => {
     if (!url.trim()) {
       toast({
-        title: "URL Required",
-        description: "Please enter a YouTube URL",
+        title: t("youtube.urlRequired"),
+        description: t("youtube.enterYouTubeUrl"),
         variant: "destructive",
       });
       return;
@@ -75,8 +77,8 @@ export default function YouTubePage() {
     const vidId = extractVideoId(url);
     if (!vidId) {
       toast({
-        title: "Invalid URL",
-        description: "Please enter a valid YouTube URL",
+        title: t("youtube.invalidUrl"),
+        description: t("youtube.enterValidUrl"),
         variant: "destructive",
       });
       return;
@@ -115,13 +117,13 @@ export default function YouTubePage() {
       await loadHistory();
 
       toast({
-        title: "Transcript loaded!",
-        description: "You can now select text to save words and sentences.",
+        title: t("youtube.transcriptLoaded"),
+        description: t("youtube.selectTextToSave"),
       });
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "Failed to fetch transcript",
+        title: t("toast.error"),
+        description: error.message || t("youtube.failedToFetchTranscript"),
         variant: "destructive",
       });
     } finally {

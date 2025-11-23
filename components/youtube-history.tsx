@@ -14,6 +14,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { History, Trash2, Clock, ExternalLink, X } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface YouTubeHistoryItem {
   id: string;
@@ -37,14 +38,15 @@ export function YouTubeHistory({
   onClearAll,
 }: YouTubeHistoryProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   if (history.length === 0) {
     return (
       <div className="text-center py-4 px-2">
         <History className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-        <p className="text-sm text-muted-foreground">No history yet</p>
+        <p className="text-sm text-muted-foreground">{t("youtube.noHistoryYet")}</p>
         <p className="text-xs text-muted-foreground mt-1">
-          Videos you've watched will appear here
+          {t("youtube.videosWillAppear")}
         </p>
       </div>
     );
@@ -56,7 +58,7 @@ export function YouTubeHistory({
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg flex items-center gap-2">
             <History className="h-5 w-5" />
-            Recent Videos
+            {t("youtube.recentVideos")}
             <Badge variant="secondary" className="ml-1">
               {history.length}
             </Badge>
@@ -74,7 +76,7 @@ export function YouTubeHistory({
                   className="text-destructive"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
-                  Clear All History
+                  {t("youtube.clearAllHistory")}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

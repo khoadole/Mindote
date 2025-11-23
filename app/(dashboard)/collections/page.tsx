@@ -22,6 +22,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // ✅ Lazy load modals
 const AddWordModal = dynamic(
@@ -41,6 +42,7 @@ const CreateCollectionModal = dynamic(
 );
 
 export default function CollectionsPage() {
+  const { t } = useTranslation();
   const { data: collections, isLoading } = useCollections();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,7 +98,7 @@ export default function CollectionsPage() {
         <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">
           <div>
             <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Collections
+              {t("collections.title")}
             </h1>
             <p className="text-muted-foreground text-lg flex items-center gap-2">
               <Layers className="h-5 w-5 text-primary" />

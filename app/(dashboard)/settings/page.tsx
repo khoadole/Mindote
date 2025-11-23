@@ -9,6 +9,8 @@ import {
   useUserStats,
 } from "@/hooks/use-settings";
 import { useTheme } from "@/lib/theme-provider";
+import { useTranslation } from "@/lib/i18n-provider";
+import { SUPPORTED_LANGUAGES } from "@/lib/languages";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -35,26 +37,13 @@ import {
   Loader2,
 } from "lucide-react";
 
-// Language options
-const languages = [
-  { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "es", name: "Español", flag: "🇪🇸" },
-  { code: "fr", name: "Français", flag: "🇫🇷" },
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-  { code: "it", name: "Italiano", flag: "🇮🇹" },
-  { code: "pt", name: "Português", flag: "🇵🇹" },
-  { code: "ru", name: "Русский", flag: "🇷🇺" },
-  { code: "ja", name: "日本語", flag: "🇯🇵" },
-  { code: "ko", name: "한국어", flag: "🇰🇷" },
-  { code: "zh", name: "中文", flag: "🇨🇳" },
-];
-
 export default function SettingsPage() {
   const router = useRouter();
   const { data: settings, isLoading: settingsLoading } = useSettings();
   const { data: stats, isLoading: statsLoading } = useUserStats();
   const updateSettingsMutation = useUpdateSettings();
   const { theme, setTheme } = useTheme();
+  const { t, setLanguage } = useTranslation();
   const { toast } = useToast();
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
@@ -70,7 +59,7 @@ export default function SettingsPage() {
         <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading settings...</span>
+          <span>{t("settings.loadingSettings")}</span>
         </div>
       </div>
     );
@@ -81,24 +70,22 @@ export default function SettingsPage() {
 
   const handleExportData = () => {
     toast({
-      title: "Coming soon",
-      description:
-        "Export feature will be available soon with database integration.",
+      title: t("settings.comingSoon"),
+      description: t("settings.exportFeatureComingSoon"),
     });
   };
 
   const handleImportData = () => {
     toast({
-      title: "Coming soon",
-      description:
-        "Import feature will be available soon with database integration.",
+      title: t("settings.comingSoon"),
+      description: t("settings.importFeatureComingSoon"),
     });
   };
 
   const handleResetData = () => {
     toast({
-      title: "Coming soon",
-      description: "This feature will be available soon.",
+      title: t("settings.comingSoon"),
+      description: t("settings.featureComingSoon"),
     });
   };
 
@@ -143,11 +130,11 @@ export default function SettingsPage() {
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
+            {t("common.back")}
           </Button>
           <div className="flex items-center gap-2">
             <Settings className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold">Settings</h1>
+            <h1 className="text-3xl font-bold">{t("settings.title")}</h1>
           </div>
         </div>
 
@@ -160,12 +147,12 @@ export default function SettingsPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Palette className="h-5 w-5" />
-                Appearance
+                {t("settings.appearance")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="theme">Theme</Label>
+                <Label htmlFor="theme">{t("settings.theme")}</Label>
                 <Select
                   value={theme}
                   onValueChange={(value: "light" | "dark" | "system") => {
@@ -175,16 +162,16 @@ export default function SettingsPage() {
                   }}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select theme" />
+                    <SelectValue placeholder={t("settings.selectTheme")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
+                    <SelectItem value="light">{t("settings.light")}</SelectItem>
+                    <SelectItem value="dark">{t("settings.dark")}</SelectItem>
+                    <SelectItem value="system">{t("settings.system")}</SelectItem>
                   </SelectContent>
                 </Select>
                 <p className="text-sm text-muted-foreground">
-                  Choose your preferred color scheme
+                  {t("settings.themeDescription")}
                 </p>
               </div>
 
@@ -193,30 +180,30 @@ export default function SettingsPage() {
               <div className="space-y-2">
                 <Label htmlFor="language" className="flex items-center gap-2">
                   <Globe className="h-4 w-4" />
-                  Language
+                  {t("settings.language")}
                 </Label>
                 <Select
                   value={currentSettings.language}
-                  onValueChange={(value: string) =>
-                    updateSettingsMutation.mutate({ language: value })
-                  }
+                  onValueChange={(value: string) => {
+                    setLanguage(value);
+                  }}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select language" />
+                    <SelectValue placeholder={t("settings.selectLanguage")} />
                   </SelectTrigger>
                   <SelectContent>
-                    {languages.map((lang) => (
+                    {SUPPORTED_LANGUAGES.map((lang) => (
                       <SelectItem key={lang.code} value={lang.code}>
                         <span className="flex items-center gap-2">
                           <span>{lang.flag}</span>
-                          <span>{lang.name}</span>
+                          <span>{lang.nativeName}</span>
                         </span>
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
                 <p className="text-sm text-muted-foreground">
-                  Select your preferred interface language
+                  {t("settings.languageDescription")}
                 </p>
               </div>
             </CardContent>
@@ -408,29 +395,26 @@ export default function SettingsPage() {
             </CardContent>
           </Card> */}
 
-          {/* About */}
           <Card
             className="animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both hover:shadow-md transition-shadow"
             style={{ animationDelay: "400ms" }}
           >
             <CardHeader>
-              <CardTitle>About Mindote</CardTitle>
+              <CardTitle>{t("settings.about")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground">
-                  Mindote is an language learning app that helps you build
-                  vocabulary through flashcards, quizzes, and YouTube transcript
-                  integration.
+                  {t("settings.aboutDescription")}
                 </p>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="font-medium">Version:</span>
+                  <span className="font-medium">{t("settings.version")}</span>
                   <span className="text-muted-foreground">1.0.0</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="font-medium">Storage:</span>
+                  <span className="font-medium">{t("settings.storage")}</span>
                   <span className="text-muted-foreground">
-                    Local Browser Storage
+                    {t("settings.localBrowserStorage")}
                   </span>
                 </div>
               </div>
@@ -438,22 +422,22 @@ export default function SettingsPage() {
               <Separator />
 
               <div className="space-y-2">
-                <h4 className="font-medium">Keyboard Shortcuts</h4>
+                <h4 className="font-medium">{t("settings.keyboardShortcuts")}</h4>
                 <div className="space-y-1 text-sm text-muted-foreground">
                   <div className="flex justify-between">
-                    <span>Add Word</span>
+                    <span>{t("settings.addWord")}</span>
                     <kbd className="px-2 py-1 bg-muted rounded text-xs">A</kbd>
                   </div>
                   <div className="flex justify-between">
-                    <span>Flashcards</span>
+                    <span>{t("settings.flashcards")}</span>
                     <kbd className="px-2 py-1 bg-muted rounded text-xs">F</kbd>
                   </div>
                   <div className="flex justify-between">
-                    <span>Quiz</span>
+                    <span>{t("settings.quiz")}</span>
                     <kbd className="px-2 py-1 bg-muted rounded text-xs">Q</kbd>
                   </div>
                   <div className="flex justify-between">
-                    <span>Search</span>
+                    <span>{t("common.search")}</span>
                     <kbd className="px-2 py-1 bg-muted rounded text-xs">/</kbd>
                   </div>
                 </div>

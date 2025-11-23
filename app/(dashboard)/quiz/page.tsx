@@ -26,6 +26,7 @@ import {
   Edit,
   Loader2,
 } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // ✅ Lazy load QuizPlayer - only load when user starts quiz
 const QuizPlayer = dynamic(
@@ -35,18 +36,22 @@ const QuizPlayer = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="flex items-center gap-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading quiz player...</span>
+    loading: () => {
+      const { t } = useTranslation();
+      return (
+        <div className="p-6 flex items-center justify-center min-h-screen">
+          <div className="flex items-center gap-2">
+            <Loader2 className="h-6 w-6 animate-spin" />
+            <span>{t("common.loading")}</span>
+          </div>
         </div>
-      </div>
-    ),
+      );
+    },
   }
 );
 
 export default function QuizPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
   const collectionParam = searchParams.get("collection"); // specific collection ID
@@ -106,9 +111,8 @@ export default function QuizPage() {
       const validWords = getValidFillBlankWords();
       if (validWords.length < 2) {
         toast({
-          title: "Not enough words with examples",
-          description:
-            "Fill-blank mode requires at least 2 words with examples that contain the term. Try adding more example sentences or switch to Multiple Choice mode.",
+          title: t("quiz.notEnoughWordsWithExamples"),
+          description: t("quiz.fillBlankRequirement"),
           variant: "destructive",
         });
         return;
@@ -116,8 +120,8 @@ export default function QuizPage() {
     } else {
       if (quizWords.length < 2) {
         toast({
-          title: "Not enough words",
-          description: "You need at least 2 words to start a quiz.",
+          title: t("quiz.notEnoughWords"),
+          description: t("quiz.needAtLeastTwoWords"),
           variant: "destructive",
         });
         return;
@@ -133,8 +137,8 @@ export default function QuizPage() {
   }) => {
     const percentage = Math.round((results.score / results.total) * 100);
     toast({
-      title: "Quiz complete!",
-      description: `You scored ${percentage}% (${results.score}/${results.total})`,
+      title: t("quiz.quizComplete"),
+      description: t("quiz.scoreResult", { percentage, score: results.score, total: results.total }),
     });
     setIsQuizzing(false);
   };
@@ -150,7 +154,7 @@ export default function QuizPage() {
         <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading quiz data...</span>
+          <span>{t("common.loading")}</span>
         </div>
       </div>
     );
@@ -197,14 +201,14 @@ export default function QuizPage() {
               }}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+              {t("common.back")}
             </Button>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-primary" />
               <h1 className="text-3xl font-bold">
                 {collectionParam && specificCollection
-                  ? `Quiz: ${specificCollection.name}`
-                  : "Quiz"}
+                  ? t("quiz.quizWithCollection", { name: specificCollection.name })
+                  : t("quiz.title")}
               </h1>
             </div>
           </div>
@@ -217,11 +221,11 @@ export default function QuizPage() {
             >
               <Card className="hover:shadow-md transition-shadow">
                 <CardHeader>
-                  <CardTitle>Quiz Settings</CardTitle>
+                  <CardTitle>{t("quiz.quizSettings")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="mode">Quiz Mode</Label>
+                    <Label htmlFor="mode">{t("quiz.quizMode")}</Label>
                     <Tabs
                       value={questionType}
                       onValueChange={(value) =>
@@ -247,17 +251,17 @@ export default function QuizPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="scope">Question Source</Label>
+                    <Label htmlFor="scope">{t("quiz.questionSource")}</Label>
                     <Select
                       value={selectedScope}
                       onValueChange={setSelectedScope}
                     >
                       <SelectTrigger className="truncate">
-                        <SelectValue placeholder="Select scope" />
+                        <SelectValue placeholder={t("flashcards.selectScope")} />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all" className="truncate">
-                          All Words ({words?.length || 0})
+                          {t("flashcards.allWords")} ({words?.length || 0})
                         </SelectItem>
                         {collections?.map((collection) => (
                           <SelectItem
@@ -287,13 +291,12 @@ export default function QuizPage() {
                     disabled={validQuizWords.length < 2}
                   >
                     <Play className="h-4 w-4 mr-2" />
-                    Start Quiz
+                    {t("quiz.startQuiz")}
                   </Button>
                   {questionType === "fill-blank" &&
                     validQuizWords.length < quizWords.length && (
                       <p className="text-xs text-muted-foreground text-center">
-                        {validQuizWords.length} of {quizWords.length} words have
-                        valid examples
+                        {validQuizWords.length} / {quizWords.length} {t("quiz.words")}
                       </p>
                     )}
                 </CardContent>
@@ -307,7 +310,7 @@ export default function QuizPage() {
             >
               <Card className="hover:shadow-md transition-shadow">
                 <CardHeader>
-                  <CardTitle>Quiz Preview</CardTitle>
+                  <CardTitle>{t("quiz.quizPreview")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {validQuizWords.length >= 2 ? (
@@ -317,11 +320,10 @@ export default function QuizPage() {
                           <div className="space-y-4">
                             <div className="p-6 border-2 border-dashed border-border rounded-lg">
                               <h3 className="font-semibold mb-2">
-                                Multiple Choice Preview
+                                {t("quiz.quizPreview")}
                               </h3>
                               <p className="text-sm text-muted-foreground mb-4">
-                                You'll see a word and choose the correct
-                                definition from 4 options.
+                                {t("quiz.fillBlankDescription")}
                               </p>
                               <div className="bg-muted p-4 rounded">
                                 <h4 className="font-medium mb-2 break-words">
@@ -350,12 +352,10 @@ export default function QuizPage() {
                           <div className="space-y-4">
                             <div className="p-6 border-2 border-dashed border-border rounded-lg">
                               <h3 className="font-semibold mb-2">
-                                Fill in the Blank Preview
+                                {t("quiz.fillBlankPreview")}
                               </h3>
                               <p className="text-sm text-muted-foreground mb-4">
-                                You'll see a sentence with a missing word and
-                                type the correct answer. Only words with
-                                examples are used.
+                                {t("quiz.fillBlankDescription")}
                               </p>
                               <div className="bg-muted p-4 rounded">
                                 <p className="mb-2 break-words">
@@ -367,7 +367,7 @@ export default function QuizPage() {
                                 </p>
                                 <input
                                   className="w-full p-2 border rounded bg-background"
-                                  placeholder="Type your answer..."
+                                  placeholder={t("quiz.typeYourAnswer")}
                                   disabled
                                 />
                               </div>
@@ -382,7 +382,7 @@ export default function QuizPage() {
                             {validQuizWords.length}
                           </div>
                           <p className="text-sm text-muted-foreground">
-                            Questions
+                            {t("quiz.questions")}
                           </p>
                         </div>
                         <div>
@@ -390,7 +390,7 @@ export default function QuizPage() {
                             {Math.ceil(validQuizWords.length * 1.5)}
                           </div>
                           <p className="text-sm text-muted-foreground">
-                            Est. Minutes
+                            {t("quiz.estMinutes")}
                           </p>
                         </div>
                         <div>
@@ -399,8 +399,8 @@ export default function QuizPage() {
                           </div>
                           <p className="text-sm text-muted-foreground">
                             {questionType === "multiple-choice"
-                              ? "Options"
-                              : "Answer"}
+                              ? t("quiz.options")
+                              : t("quiz.answer")}
                           </p>
                         </div>
                       </div>
@@ -410,20 +410,19 @@ export default function QuizPage() {
                       <CheckCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                       <h3 className="text-lg font-semibold mb-2">
                         {questionType === "fill-blank"
-                          ? "Not Enough Words with Examples"
-                          : "Not Enough Words"}
+                          ? t("quiz.notEnoughWordsWithExamples")
+                          : t("quiz.notEnoughWords")}
                       </h3>
                       <p className="text-muted-foreground mb-4">
                         {questionType === "fill-blank"
-                          ? `Fill-blank mode requires at least 2 words with examples that contain the term. Currently: ${
-                              validQuizWords.length
-                            } valid ${
-                              validQuizWords.length === 1 ? "word" : "words"
-                            }.`
-                          : `You need at least 2 words to start a quiz.${
+                          ? t("quiz.currentlyValid", {
+                              count: validQuizWords.length,
+                              word: validQuizWords.length === 1 ? t("quiz.word") : t("quiz.words")
+                            })
+                          : `${t("quiz.needAtLeastTwoWords")} ${
                               selectedScope === "all"
-                                ? " Add more words to your vocabulary."
-                                : " This collection needs more words."
+                                ? t("quiz.addMoreWords")
+                                : t("quiz.collectionNeedsMoreWords")
                             }`}
                       </p>
                       <div className="flex gap-2 justify-center">
@@ -434,7 +433,7 @@ export default function QuizPage() {
                               onClick={() => setQuestionType("multiple-choice")}
                               className="bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-lg"
                             >
-                              Switch to Multiple Choice
+                              {t("quiz.switchToMultipleChoice")}
                             </Button>
                           )}
                         <Button
@@ -442,7 +441,7 @@ export default function QuizPage() {
                           onClick={() => router.push("/collections")}
                           className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
                         >
-                          Go to Collections
+                          {t("quiz.goToCollections")}
                         </Button>
                       </div>
                     </div>

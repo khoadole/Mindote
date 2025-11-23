@@ -33,6 +33,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // Using DIFFICULTY_LEVELS from lib/difficulty-levels.ts
 
@@ -56,6 +57,7 @@ const PASSAGE_TYPES = [
 ];
 
 export default function ReadingPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: passages, isLoading: passagesLoading } = useReadingPassages();
@@ -146,11 +148,11 @@ export default function ReadingPage() {
               onClick={() => router.push("/dashboard")}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+              {t("common.back")}
             </Button>
             <div className="flex items-center gap-2">
               <BookOpen className="h-6 w-6 text-primary" />
-              <h1 className="text-3xl font-bold">Reading Practice</h1>
+              <h1 className="text-3xl font-bold">{t("reading.title")}</h1>
             </div>
           </div>
 

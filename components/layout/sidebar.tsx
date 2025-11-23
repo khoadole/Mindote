@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
+import { useTranslation } from "@/lib/i18n-provider";
 
 const navigation = [
   {
@@ -64,6 +65,7 @@ interface SidebarProps {
 }
 
 export function Sidebar({ className, onMobileClose }: SidebarProps) {
+  const { t } = useTranslation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
   const [hasActiveSubscription, setHasActiveSubscription] = useState(false);
@@ -158,7 +160,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   Mindote
                 </h1>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
-                  Learn smarter
+                  {t("sidebar.tagline")}
                 </p>
               </div>
             </div>
@@ -236,10 +238,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                           "transition-all duration-300 font-medium relative z-10 flex items-center gap-2"
                         )}
                       >
-                        {item.name}
+                        {t(`sidebar.${item.name.toLowerCase().replace(/ /g, "")}`)}  
                         {item.badge && (
                           <span className="px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r from-primary to-accent rounded text-white">
-                            {item.badge}
+                            {t("sidebar.new")}
                           </span>
                         )}
                       </span>
@@ -283,7 +285,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     />
                     {!isCollapsed && (
                       <span className="transition-opacity duration-300">
-                        Premium Active
+                        {t("sidebar.premiumActive")}
                       </span>
                     )}
                   </Button>
@@ -309,7 +311,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   />
                   {!isCollapsed && (
                     <span className="transition-opacity duration-300">
-                      Upgrade Plan
+                      {t("sidebar.upgradePlan")}
                     </span>
                   )}
                 </Button>
@@ -339,7 +341,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               />
               {!isCollapsed && (
                 <span className="transition-opacity duration-300 font-medium">
-                  Settings
+                  {t("sidebar.settings")}
                 </span>
               )}
             </Button>

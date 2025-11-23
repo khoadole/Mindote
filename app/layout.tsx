@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { AppProvider } from "@/lib/app-provider";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { QueryProvider } from "@/lib/query-provider";
+import { TranslationProvider } from "@/lib/i18n-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
 import "./globals.css";
@@ -96,8 +97,10 @@ export default function RootLayout({
           <QueryProvider>
             <AppProvider>
               <ThemeProvider>
-                {children}
-                <Toaster />
+                <TranslationProvider>
+                  {children}
+                  <Toaster />
+                </TranslationProvider>
               </ThemeProvider>
             </AppProvider>
           </QueryProvider>

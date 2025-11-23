@@ -20,6 +20,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Candy as Cards, Play, ArrowLeft, Loader2, Flame } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // ✅ Lazy load FlashcardPlayer - only load when user starts studying
 const FlashcardPlayer = dynamic(
@@ -29,15 +30,18 @@ const FlashcardPlayer = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
-        <div className="flex items-center gap-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading flashcard player...</span>
+    loading: () => {
+      const { t } = useTranslation();
+      return (
+        <div className="p-6 flex items-center justify-center min-h-screen">
+          <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+          <div className="flex items-center gap-2">
+            <Loader2 className="h-6 w-6 animate-spin" />
+            <span>{t("flashcards.loadingFlashcardPlayer")}</span>
+          </div>
         </div>
-      </div>
-    ),
+      );
+    },
   }
 );
 
@@ -50,6 +54,7 @@ export default function FlashcardsPage() {
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
+  const { t } = useTranslation();
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
   const { data: collections = [], isLoading: collectionsLoading } =
     useCollections();
@@ -106,8 +111,8 @@ export default function FlashcardsPage() {
   const handleStartStudy = () => {
     if (studyWords.length === 0) {
       toast({
-        title: "No words to study",
-        description: "Please add some words or select a different collection.",
+        title: t("flashcards.noWordsToStudy"),
+        description: t("flashcards.addWordsOrSelectCollection"),
         variant: "destructive",
       });
       return;
@@ -117,8 +122,8 @@ export default function FlashcardsPage() {
 
   const handleStudyComplete = (results: { correct: number; again: number }) => {
     toast({
-      title: "Study session complete!",
-      description: `You got ${results.correct} words right and ${results.again} need more review.`,
+      title: t("flashcards.sessionComplete"),
+      description: t("flashcards.sessionResults", { correct: results.correct, again: results.again }),
     });
 
     // If in review mode, go back to dashboard or collection
@@ -144,14 +149,16 @@ export default function FlashcardsPage() {
     } else {
       setIsStudying(false);
     }
-  }; // Loading state
+  };
+
+  // Loading state
   if (isLoading) {
     return (
       <div className="p-6 flex items-center justify-center min-h-screen">
         <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading flashcards...</span>
+          <span>{t("flashcards.loadingFlashcards")}</span>
         </div>
       </div>
     );
@@ -225,7 +232,7 @@ export default function FlashcardsPage() {
               }}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+              {t("common.back")}
             </Button>
             <div className="flex items-center gap-2">
               {mode === "review" ? (
@@ -233,12 +240,12 @@ export default function FlashcardsPage() {
                   <Flame className="h-6 w-6 text-orange-500" />
                   <h1 className="text-3xl font-bold">
                     {collectionParam && specificCollection
-                      ? `Review: ${specificCollection.name}`
-                      : "Review Session"}
+                      ? `${t("flashcards.startReview")}: ${specificCollection.name}`
+                      : t("flashcards.reviewSession")}
                   </h1>
                   <span className="text-sm text-muted-foreground">
                     ({(collectionParam ? collectionDueWords : dueWords).length}{" "}
-                    due words)
+                    {t("flashcards.dueWords")})
                   </span>
                 </>
               ) : (
@@ -246,8 +253,8 @@ export default function FlashcardsPage() {
                   <Cards className="h-6 w-6 text-primary" />
                   <h1 className="text-3xl font-bold">
                     {collectionParam && specificCollection
-                      ? `Flashcards: ${specificCollection.name}`
-                      : "Flashcards"}
+                      ? `${t("flashcards.title")}: ${specificCollection.name}`
+                      : t("flashcards.title")}
                   </h1>
                 </>
               )}
@@ -263,23 +270,23 @@ export default function FlashcardsPage() {
               <Card className="hover:shadow-md transition-shadow">
                 <CardHeader>
                   <CardTitle>
-                    {mode === "review" ? "Review Settings" : "Study Settings"}
+                    {mode === "review" ? t("flashcards.reviewSettings") : t("flashcards.studySettings")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {mode !== "review" && !collectionParam && (
                     <div className="space-y-2">
-                      <Label htmlFor="scope">Study Scope</Label>
+                      <Label htmlFor="scope">{t("flashcards.studyScope")}</Label>
                       <Select
                         value={selectedScope}
                         onValueChange={setSelectedScope}
                       >
                         <SelectTrigger className="truncate">
-                          <SelectValue placeholder="Select scope" />
+                          <SelectValue placeholder={t("flashcards.selectScope")} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">
-                            All Words ({words?.length || 0})
+                            {t("flashcards.allWords")} ({words?.length || 0})
                           </SelectItem>
                           {collections?.map((collection) => (
                             <SelectItem
@@ -310,7 +317,7 @@ export default function FlashcardsPage() {
                       checked={shuffleEnabled}
                       onCheckedChange={setShuffleEnabled}
                     />
-                    <Label htmlFor="shuffle">Shuffle cards</Label>
+                    <Label htmlFor="shuffle">{t("flashcards.shuffleCards")}</Label>
                   </div>
 
                   <Button
@@ -319,7 +326,7 @@ export default function FlashcardsPage() {
                     disabled={studyWords.length === 0}
                   >
                     <Play className="h-4 w-4 mr-2" />
-                    {mode === "review" ? "Start Review" : "Start Study Session"}
+                    {mode === "review" ? t("flashcards.startReview") : t("flashcards.startStudySession")}
                   </Button>
                 </CardContent>
               </Card>
@@ -332,7 +339,7 @@ export default function FlashcardsPage() {
             >
               <Card className="hover:shadow-md transition-shadow">
                 <CardHeader>
-                  <CardTitle>Preview</CardTitle>
+                  <CardTitle>{t("flashcards.preview")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {studyWords.length > 0 ? (
@@ -340,10 +347,10 @@ export default function FlashcardsPage() {
                       <div className="text-center p-8 border-2 border-dashed border-border rounded-lg">
                         <Cards className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                         <h3 className="text-lg font-semibold mb-2">
-                          Ready to Study
+                          {t("flashcards.readyToStudy")}
                         </h3>
                         <p className="text-muted-foreground mb-4">
-                          {studyWords.length} cards ready for your study session
+                          {t("flashcards.cardsReady", { count: studyWords.length })}
                         </p>
                         <div className="flex flex-wrap gap-2 justify-center">
                           {studyWords.slice(0, 5).map((word) => (
@@ -357,7 +364,7 @@ export default function FlashcardsPage() {
                           ))}
                           {studyWords.length > 5 && (
                             <span className="px-2 py-1 bg-muted rounded text-sm">
-                              +{studyWords.length - 5} more
+                              +{studyWords.length - 5} {t("flashcards.more")}
                             </span>
                           )}
                         </div>
@@ -369,7 +376,7 @@ export default function FlashcardsPage() {
                             {studyWords.length}
                           </div>
                           <p className="text-sm text-muted-foreground">
-                            Total Cards
+                            {t("flashcards.totalCards")}
                           </p>
                         </div>
                         <div>
@@ -377,7 +384,7 @@ export default function FlashcardsPage() {
                             {Math.ceil(studyWords.length * 2.5)}
                           </div>
                           <p className="text-sm text-muted-foreground">
-                            Est. Minutes
+                            {t("flashcards.estMinutes")}
                           </p>
                         </div>
                       </div>
@@ -386,19 +393,19 @@ export default function FlashcardsPage() {
                     <div className="text-center p-8">
                       <Cards className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                       <h3 className="text-lg font-semibold mb-2">
-                        No Words Available
+                        {t("flashcards.noWordsAvailable")}
                       </h3>
                       <p className="text-muted-foreground mb-4">
                         {selectedScope === "all"
-                          ? "Add some words to your vocabulary to start studying"
-                          : "This collection doesn't have any words yet"}
+                          ? t("flashcards.addWordsToStart")
+                          : t("flashcards.collectionNoWords")}
                       </p>
                       <Button
                         variant="outline"
                         onClick={() => router.push("/collections")}
                         className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
                       >
-                        Go to Collections
+                        {t("flashcards.goToCollections")}
                       </Button>
                     </div>
                   )}

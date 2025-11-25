@@ -73,7 +73,7 @@
     "keepGoing": "Tiếp tục phấn đấu!",
     "beginJourney": "Bắt đầu hành trình",
     "createReadingPassage": "TẠO\nĐOẠN VĂN LUYỆN ĐỌC",
-    "wordsReady": "Bạn có <strong>{{count}}</strong> {{count, plural, one {từ} other {từ}}} sẵn sàng để sử dụng trong đoạn văn mới!",
+    "wordsReady": "Bạn có <strong>{{count}}</strong> từ sẵn sàng để sử dụng trong đoạn văn mới!",
     "learnWordsFirst": "Học một số từ trước, sau đó tạo đoạn văn luyện đọc cá nhân hóa",
     "passagesCreated": "<strong>{{count}}</strong> đoạn văn đã tạo",
     "completed": "<strong>{{count}}</strong> đã hoàn thành",
@@ -96,14 +96,19 @@
     "createPassage": "Tạo đoạn văn",
     "quickRevision": "ÔN TẬP NHANH",
     "allCaughtUp": "Đã làm xong hết! 🎉",
-    "wordsToReview": "{{count, plural, one {từ} other {từ}}} cần ôn tập",
+    "wordsToReview": "{{count}} từ cần ôn tập",
     "startFlashcards": "Bắt đầu thẻ ghi nhớ",
     "reinforceWords": "Củng cố từ vựng trước khi sử dụng trong đoạn văn",
     "yourCollections": "Bộ sưu tập của bạn",
     "noCollectionsYet": "Chưa có bộ sưu tập nào",
     "createFirstCollection": "Tạo bộ sưu tập đầu tiên để sắp xếp từ vựng theo chủ đề",
     "active": "Đang hoạt động",
-    "done": "Hoàn thành"
+    "done": "Hoàn thành",
+    "vocabularyMasteryJourney": "Hành trình làm chủ từ vựng",
+    "wordsInPassages": "{{count}} từ đã sử dụng trong đoạn văn",
+    "yourLearningPath": "Lộ trình học tập của bạn",
+    "viewAll": "Xem tất cả",
+    "word": "từ"
   },
   "landing": {
     "aiPowered": "Học từ vựng với AI",
@@ -170,6 +175,18 @@
   },
   "collections": {
     "title": "Bộ sưu tập",
+    "subtitle": "Sắp xếp từ vựng theo chủ đề",
+    "addWord": "Thêm từ",
+    "newCollection": "Bộ sưu tập mới",
+    "searchCollections": "Tìm kiếm bộ sưu tập...",
+    "createNewCollection": "Tạo bộ sưu tập mới",
+    "collectionNamePlaceholder": "ví dụ: Tiếng Anh kinh doanh",
+    "charactersLabel": "{{count}}/80 ký tự",
+    "colorLabel": "Màu sắc",
+    "difficultyLevelLabel": "Cấp độ khó (Tùy chọn)",
+    "difficultyLevelPlaceholder": "Chọn cấp độ khó",
+    "creating": "Đang tạo...",
+    "create": "Tạo",
     "createCollection": "Tạo bộ sưu tập",
     "editCollection": "Chỉnh sửa bộ sưu tập",
     "deleteCollection": "Xóa bộ sưu tập",
@@ -178,7 +195,114 @@
     "color": "Màu sắc",
     "words": "{{count}} từ",
     "noCollections": "Chưa có bộ sưu tập nào",
-    "createFirstCollection": "Tạo bộ sưu tập đầu tiên"
+    "createFirstCollection": "Tạo bộ sưu tập đầu tiên",
+    "wordsLabel": "từ",
+    "mastered": "đã làm chủ",
+    "created": "Đã tạo",
+    "study": "Học",
+    "quiz": "Trắc nghiệm",
+    "delete": "Xóa",
+    "due": "cần ôn",
+    "studyWithFlashcards": "Học với thẻ ghi nhớ",
+    "reviewDueWords": "Ôn tập từ cần học",
+    "startQuiz": "Bắt đầu trắc nghiệm",
+    "wordsTab": "Từ vựng",
+    "activityTab": "Hoạt động",
+    "searchWords": "Tìm kiếm từ...",
+    "noWordsFound": "Không tìm thấy từ nào",
+    "noWordsYet": "Chưa có từ nào",
+    "clearSearch": "Xóa tìm kiếm hoặc thêm từ mới vào bộ sưu tập.",
+    "startAdding": "Bắt đầu thêm từ để xây dựng bộ sưu tập từ vựng của bạn.",
+    "rename": "Đổi tên",
+    "renameCollection": "Đổi tên bộ sưu tập",
+    "collectionNameLabel": "Tên bộ sưu tập",
+    "enterCollectionName": "Nhập tên bộ sưu tập",
+    "charactersCount": "{{count}}/80 ký tự",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "saving": "Đang lưu...",
+    "loadingCollections": "Đang tải danh sách bộ sưu tập...",
+    "loadingCollection": "Đang tải bộ sưu tập...",
+    "noCollectionsFound": "Không tìm thấy bộ sưu tập nào",
+    "tryAdjustingSearch": "Thử điều chỉnh các từ khóa tìm kiếm",
+    "createFirstCollectionPrompt": "Tạo bộ sưu tập đầu tiên để bắt đầu",
+    "collectionNotFound": "Không tìm thấy bộ sưu tập",
+    "collectionNotFoundDescription": "Bộ sưu tập bạn tìm kiếm không tồn tại.",
+    "backToCollections": "Trở về Bộ sưu tập",
+    "back": "Trở về",
+    "helpsOrganize": "Giúp sắp xếp các bộ sưu tập theo cấp độ học",
+    "deleteWord": "Xóa từ",
+    "deleteCollectionConfirmation": "Hành động này sẽ xóa vĩnh viễn bộ sưu tập và tất cả các từ trong đó. Không thể hoàn tác.",
+    "deleteWordConfirmation": "Bạn có chắc chắn muốn xóa từ này không? Không thể hoàn tác.",
+    "activityTrackingComingSoon": "Tính năng theo dõi hoạt động sắp ra mắt...",
+    "previous": "Trước",
+    "next": "Tiếp"
+  },
+  "word": {
+    "definition": "Định nghĩa",
+    "example": "Ví dụ",
+    "collection": "Bộ sưu tập",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa"
+  },
+  "flashcardPlayer": {
+    "cardOf": "Thẻ {{current}} / {{total}}",
+    "complete": "Hoàn thành {{percent}}%",
+    "term": "Thuật ngữ",
+    "definition": "Định nghĩa",
+    "clickToReveal": "Nhấp để hiển thị định nghĩa",
+    "example": "Ví dụ:",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "again": "Lại",
+    "now": "ngay",
+    "good": "Tốt",
+    "timeDays": "1-3 ngày",
+    "oneToDays": "1-3n",
+    "easy": "Dễ",
+    "easyBonus": "+30%",
+    "plusThirtyPercent": "+30%",
+    "exitStudySession": "Thoát phiên học",
+    "studySessionComplete": "Hoàn thành phiên học!",
+    "wordsCorrect": "Số từ bạn đã đúng",
+    "wordsAgain": "Từ cần ôn lại",
+    "done": "Xong",
+    "continueStudying": "Tiếp tục học",
+    "feedbackAgain": "Ôn lại sớm nhé!",
+    "feedbackGood": "Tốt lắm! 👍",
+    "feedbackEasy": "Xuất sắc! ⚡",
+    "errorProcessingReview": "Không thể xử lý bài ôn.",
+    "errorSavingProgress": "Không thể lưu kết quả ôn tập. Vui lòng thử lại.",
+    "errorTitle": "Lỗi",
+    "errorSavingProgressDesc": "Không thể lưu tiến trình của bạn.",
+    "progressSaved": "Đã lưu tiến trình! ✨",
+    "wordsUpdated": "{{count}} từ đã được cập nhật thành công.",
+    "stopSpeaking": "Dừng phát",
+    "speakWord": "Phát âm từ"
+  },
+  "quizPlayer": {
+    "questionOf": "Câu hỏi {{current}} / {{total}}",
+    "complete": "Hoàn thành {{percent}}%",
+    "quizQuestion": "Câu hỏi trắc nghiệm",
+    "multipleChoice": "Trắc nghiệm nhiều lựa chọn",
+    "fillInTheBlank": "Điền vào chỗ trống",
+    "whatDoesThisWordMean": "Từ này có nghĩa là gì?",
+    "fillInTheBlank2": "Điền vào chỗ trống:",
+    "typeYourAnswer": "Nhập câu trả lời...",
+    "submitAnswer": "Gửi câu trả lời",
+    "exitQuiz": "Thoát trắc nghiệm",
+    "correct": "Đúng!",
+    "incorrect": "Sai",
+    "correctAnswerIs": "Câu trả lời đúng là:",
+    "definition": "Định nghĩa:",
+    "nextQuestion": "Câu tiếp theo",
+    "finishQuiz": "Hoàn thành trắc nghiệm",
+    "quizComplete": "Hoàn thành trắc nghiệm!",
+    "outOfCorrect": "{{score}} / {{total}} câu đúng",
+    "correctLabel": "Đúng",
+    "incorrectLabel": "Sai",
+    "done": "Xong",
+    "retry": "Thử lại"
   },
   "flashcards": {
     "title": "Thẻ ghi nhớ",
@@ -250,13 +374,81 @@
   },
   "reading": {
     "title": "Luyện đọc",
-    "passages": "Đoạn văn",
+    "passages": "Đoản văn",
     "createPassage": "Tạo đoạn văn",
     "difficulty": "Độ khó",
-    "estimatedTime": "Thời gian ước tính",
+    "estimatedTime": "Thời gian dự kiến",
     "minutes": "{{count}} phút",
     "startReading": "Bắt đầu đọc",
-    "completed": "Đã hoàn thành"
+    "completed": "Hoàn thành",
+    "generatePassage": "Tạo đoạn văn",
+    "selectCollection": "Chọn bộ sưu tập",
+    "chooseCollection": "Chọn một bộ sưu tập",
+    "words": "từ",
+    "wordCount": "{{count}} từ",
+    "needCollectionFirst": "Bạn cần tạo một bộ sưu tập có từ trước",
+    "needAtLeastWords": "Bộ sưu tập này cần ít nhất {{count}} từ để tạo đoạn văn",
+    "difficultyLevel": "Mức độ khó",
+    "passageType": "Loại đoạn văn",
+    "passageTypes": {
+      "story": {
+        "label": "Truyện",
+        "description": "Câu chuyện có nhân vật và cốt truyện"
+      },
+      "article": {
+        "label": "Bài viết",
+        "description": "Phong cách tin tức hoặc tạp chí thông tin"
+      },
+      "essay": {
+        "label": "Bài luận",
+        "description": "Bài viết biểu thị quan điểm hoặc lập luận"
+      },
+      "news": {
+        "label": "Tin tức",
+        "description": "Sự kiện hiện tại và sự thật"
+      }
+    },
+    "difficultyLevels": {
+      "beginner": {
+        "label": "Mới bắt đầu",
+        "description": "Từ vựng đơn giản, cơ bản"
+      },
+      "elementary": {
+        "label": "Sơ cấp",
+        "description": "Chủ đề hàng ngày thông dụng"
+      },
+      "intermediate": {
+        "label": "Trung cấp",
+        "description": "Chủ đề và ý tưởng quen thuộc"
+      },
+      "upperintermediate": {
+        "label": "Trung cấp cao",
+        "description": "Văn bản phức tạp và chủ đề truu tượng"
+      },
+      "advanced": {
+        "label": "Nâng cao",
+        "description": "Văn bản dài và khó"
+      },
+      "proficient": {
+        "label": "Thành thạo",
+        "description": "Văn bản học thuật rất phức tạp"
+      }
+    },
+    "language": "Ngôn ngữ",
+    "languageDescription": "Ngôn ngữ cho nội dung đoạn văn đọc",
+    "generating": "Đang tạo...",
+    "aiWillCreate": "AI sẽ tạo đoạn văn sử dụng từ vựng của bạn",
+    "howItWorks": "Cách hoạt động",
+    "chooseCollectionStep": "📚 1. Chọn bộ sưu tập có ít nhất {{count}} từ",
+    "selectDifficultyStep": "🎯 2. Chọn mức độ khó (A1-C2)",
+    "aiGeneratesStep": "✨ 3. AI tạo đoạn văn sử dụng từ của bạn",
+    "readAnswerStep": "📖 4. Đọc và trả lời câu hỏi hiểu bài",
+    "trackProgressStep": "🎉 5. Theo dõi tiến độ và cải thiện!",
+    "yourPassages": "Đoạn văn đọc của bạn",
+    "noPassagesYet": "Chưa có đoạn văn đọc",
+    "generateFirst": "Tạo đoạn văn đọc đầu tiên để bắt đầu luyện tập!",
+    "read": "Đọc →",
+    "attempts": "{{count}} lần thử{{plural}}"
   },
   "youtube": {
     "title": "Ghi chú YouTube",
@@ -271,7 +463,28 @@
     "loadTranscript": "Tải phụ đề",
     "extractWords": "Trích xuất từ",
     "noTranscript": "Không có phụ đề",
-    "addToCollection": "Thêm vào bộ sưu tập"
+    "addToCollection": "Thêm vào bộ sưu tập",
+    "getVideoTranscript": "Lấy phụ đề video",
+    "youtubeUrl": "URL YouTube",
+    "getTranscript": "Lấy phụ đề",
+    "gettingTranscript": "Đang lấy phụ đề...",
+    "howItWorks": "Cách hoạt động:",
+    "pasteAnyUrl": "• Dán bất kỳ URL YouTube nào (≤ 60 phút)",
+    "getTranscriptAuto": "• Lấy phụ đề video tự động",
+    "selectTextToSaveWords": "• Chọn văn bản để lưu từ hoặc câu",
+    "buildVocabulary": "• Xây dựng từ vựng từ nội dung thực",
+    "tryExamples": "Thử các URL mẫu:",
+    "transcriptLoadedMsg": "Đã tải phụ đề",
+    "loadDifferentVideo": "Tải video khác",
+    "recentVideos": "Video gần đây",
+    "noHistoryYet": "Chưa có lịch sử",
+    "videosWillAppear": "Video bạn đã xem sẽ xuất hiện ở đây",
+    "clearAllHistory": "Xóa toàn bộ lịch sử",
+    "deleted": "Đã xóa",
+    "videoRemoved": "Đã xóa video khỏi lịch sử",
+    "historyCleared": "Đã xóa lịch sử",
+    "allVideosRemoved": "Tất cả video đã được xóa khỏi lịch sử",
+    "confirmClearHistory": "Bạn có chắc muốn xóa toàn bộ lịch sử? Hành động này không thể hoàn tác."
   },
   "toast": {
     "success": "Thành công",
@@ -282,5 +495,92 @@
     "deleted": "Đã xóa thành công",
     "updated": "Đã cập nhật thành công",
     "created": "Đã tạo thành công"
+  },
+  "components": {
+    "addWordModal": {
+      "noCollections": "Vui lòng tạo bộ sưu tập trước",
+      "enterTermFirst": "Vui lòng nhập từ trước",
+      "partsOfSpeech": {
+        "noun": "Danh từ",
+        "pronoun": "Đại từ",
+        "verb": "Động từ",
+        "adjective": "Tính từ",
+        "adverb": "Trạng từ",
+        "preposition": "Giới từ",
+        "conjunction": "Liên từ",
+        "interjection": "Thán từ"
+      }
+    },
+    "flashcardPlayer": {
+      "error": "Lỗi",
+      "failedToProcess": "Không thể xử lý bài kiểm tra.",
+      "errorSavingProgress": "Lỗi khi lưu tiến trình",
+      "failedToSaveReviews": "Không thể lưu bài kiểm tra của bạn. Vui lòng thử lại.",
+      "failedToSaveProgress": "Không thể lưu tiến trình của bạn.",
+      "progressSaved": "Đã lưu tiến trình! ✨"
+    },
+    "billing": {
+      "error": "Lỗi",
+      "success": "Thành công",
+      "failedToOpenPortal": "Không thể mở cổng thông tin khách hàng",
+      "subscriptionCancelled": "Đã hủy gói đăng ký thành công",
+      "failedToCancel": "Không thể hủy gói đăng ký",
+      "subscriptionResumed": "Đã khôi phục gói đăng ký thành công",
+      "subscriptionPaused": "Đã tạm dừng gói đăng ký thành công",
+      "failedToUpdate": "Không thể cập nhật gói đăng ký",
+      "failedToCheckout": "Không thể bắt đầu thanh toán. Vui lòng thử lại."
+    }
+  },
+  "hooks": {
+    "aiFill": {
+      "error": "Lỗi",
+      "enterTermFirst": "Vui lòng nhập từ trước",
+      "dailyLimitReached": "Đã đạt giới hạn hàng ngày",
+      "limitMessage": "Bạn đã sử dụng hết lượt AI miễn phí hôm nay. Nâng cấp lên premium để sử dụng không giới hạn!",
+      "failedToGenerate": "Không thể tạo nội dung AI",
+      "autoFillComplete": "✨ Tự động điền AI hoàn tất",
+      "failedToConnect": "Không thể kết nối với dịch vụ AI. Vui lòng thử lại."
+    },
+    "collections": {
+      "collectionCreated": "Đã tạo bộ sưu tập",
+      "collectionCreatedDesc": "Bộ sưu tập mới của bạn đã được tạo thành công.",
+      "failedToCreate": "Không thể tạo bộ sưu tập",
+      "collectionUpdated": "Đã cập nhật bộ sưu tập",
+      "collectionUpdatedDesc": "Bộ sưu tập của bạn đã được cập nhật thành công.",
+      "failedToUpdate": "Không thể cập nhật bộ sưu tập",
+      "collectionDeleted": "Đã xóa bộ sưu tập",
+      "collectionDeletedDesc": "Bộ sưu tập của bạn đã được xóa thành công.",
+      "failedToDelete": "Không thể xóa bộ sưu tập"
+    },
+    "reading": {
+      "passageGenerated": "✨ Đã tạo đoạn văn!",
+      "passageReady": "Đoạn văn đọc của bạn đã sẵn sàng.",
+      "error": "Lỗi",
+      "failedToGenerate": "Không thể tạo đoạn văn đọc. Vui lòng thử lại.",
+      "greatJob": "🎉 Xuất sắc!",
+      "goodWork": "👍 Làm tốt lắm!",
+      "keepPracticing": "💪 Tiếp tục luyện tập!",
+      "scoredPercent": "Bạn đạt {{score}}% trong đoạn văn đọc này.",
+      "failedToSubmit": "Không thể gửi câu trả lời của bạn."
+    },
+    "words": {
+      "wordAdded": "Đã thêm từ",
+      "wordAddedDesc": "Từ mới của bạn đã được thêm thành công.",
+      "failedToAdd": "Không thể thêm từ",
+      "wordUpdated": "Đã cập nhật từ",
+      "wordUpdatedDesc": "Từ của bạn đã được cập nhật thành công.",
+      "failedToUpdate": "Không thể cập nhật từ",
+      "wordDeleted": "Đã xóa từ",
+      "wordDeletedDesc": "Từ của bạn đã được xóa thành công.",
+      "failedToDelete": "Không thể xóa từ"
+    },
+    "textToSpeech": {
+      "notSupported": "Không được hỗ trợ",
+      "browserNotSupported": "Trình duyệt của bạn không hỗ trợ chuyển văn bản thành giọng nói",
+      "noText": "Không có văn bản",
+      "provideText": "Vui lòng cung cấp văn bản để đọc",
+      "speechError": "Lỗi giọng nói",
+      "errorOccurred": "Đã xảy ra lỗi khi đọc"
+    }
   }
 }

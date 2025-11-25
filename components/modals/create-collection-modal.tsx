@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { useCreateCollection } from "@/hooks/use-collections";
+import { useTranslation } from "@/lib/i18n-provider";
 import {
   Dialog,
   DialogContent,
@@ -39,6 +40,7 @@ interface CreateCollectionModalProps {
 }
 
 export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [selectedColor, setSelectedColor] = useState("bg-primary");
@@ -77,7 +79,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
       className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
     >
       <Plus className="h-4 w-4" />
-      New Collection
+      {t("collections.newCollection")}
     </Button>
   );
 
@@ -86,28 +88,28 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
       <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
-          <DialogTitle>Create New Collection</DialogTitle>
+          <DialogTitle>{t("collections.createNewCollection")}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Collection Name</Label>
+            <Label htmlFor="name">{t("collections.collectionNameLabel")}</Label>
             <Input
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value.slice(0, 80))}
-              placeholder="e.g., Business English"
+              placeholder={t("collections.collectionNamePlaceholder")}
               required
               maxLength={80}
               className="break-all"
               style={{ wordBreak: "break-all" }}
             />
             <p className="text-xs text-muted-foreground">
-              {name.length}/80 characters
+              {t("collections.charactersLabel", { count: name.length })}
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label>Color</Label>
+            <Label>{t("collections.colorLabel")}</Label>
             <div className="grid grid-cols-4 gap-2">
               {colorOptions.map((color) => (
                 <button
@@ -128,10 +130,10 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="difficulty">Difficulty Level (Optional)</Label>
+            <Label htmlFor="difficulty">{t("collections.difficultyLevelLabel")}</Label>
             <Select value={difficultyLevel} onValueChange={setDifficultyLevel}>
               <SelectTrigger>
-                <SelectValue placeholder="Select difficulty level" />
+                <SelectValue placeholder={t("collections.difficultyLevelPlaceholder")} />
               </SelectTrigger>
               <SelectContent>
                 {DIFFICULTY_LEVELS.map((level) => (
@@ -147,7 +149,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
               </SelectContent>
             </Select>
             <p className="text-xs text-muted-foreground">
-              Helps organize your collections by learning level
+              {t("collections.helpsOrganize")}
             </p>
           </div>
 
@@ -158,16 +160,16 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
               onClick={() => setOpen(false)}
               disabled={createCollectionMutation.isPending}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
             <Button type="submit" disabled={createCollectionMutation.isPending}>
               {createCollectionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Creating...
+                      {t("collections.creating")}
                 </>
               ) : (
-                "Create Collection"
+                t("collections.createCollection")
               )}
             </Button>
           </div>

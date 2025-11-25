@@ -32,6 +32,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTextToSpeech } from "@/hooks/use-text-to-speech";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface FlashcardPlayerProps {
   words: Word[];
@@ -44,6 +45,7 @@ export function FlashcardPlayer({
   onComplete,
   onExit,
 }: FlashcardPlayerProps) {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [results, setResults] = useState<{ correct: number; again: number }>({
@@ -132,22 +134,22 @@ export function FlashcardPlayer({
 
       // Show quick feedback (no need to wait for DB)
       const feedbackMessages = {
-        0: "Review this again soon!",
-        3: "Good job! 👍",
-        5: "Excellent! ⚡",
+        0: t("flashcardPlayer.feedbackAgain"),
+        3: t("flashcardPlayer.feedbackGood"),
+        5: t("flashcardPlayer.feedbackEasy"),
       };
 
       toast({
         title: feedbackMessages[quality],
-        duration: 1500, // Short duration
+        duration: 1500,
       });
 
       handleNext();
     } catch (error) {
       console.error("Error processing review:", error);
       toast({
-        title: "Error",
-        description: "Failed to process review.",
+        title: t("flashcardPlayer.errorTitle"),
+        description: t("flashcardPlayer.errorProcessingReview"),
         variant: "destructive",
       });
     } finally {
@@ -177,8 +179,8 @@ export function FlashcardPlayer({
         queryClient.invalidateQueries({ queryKey: ["dueCount"] });
 
         toast({
-          title: "Error saving progress",
-          description: "Failed to save your reviews. Please try again.",
+          title: t("flashcardPlayer.errorTitle"),
+          description: t("flashcardPlayer.errorSavingProgress"),
           variant: "destructive",
         });
         setIsSaving(false);
@@ -194,8 +196,8 @@ export function FlashcardPlayer({
       ]);
 
       toast({
-        title: "Progress saved! ✨",
-        description: `${reviewResults.length} words updated successfully.`,
+        title: t("flashcardPlayer.progressSaved"),
+        description: t("flashcardPlayer.wordsUpdated", { count: reviewResults.length }),
       });
 
       onComplete(results);
@@ -206,8 +208,8 @@ export function FlashcardPlayer({
 
       console.error("Error saving reviews:", error);
       toast({
-        title: "Error",
-        description: "Failed to save your progress.",
+        title: t("flashcardPlayer.errorTitle"),
+        description: t("flashcardPlayer.errorSavingProgressDesc"),
         variant: "destructive",
       });
     } finally {
@@ -240,8 +242,8 @@ export function FlashcardPlayer({
           queryClient.invalidateQueries({ queryKey: ["dueCount"] });
 
           toast({
-            title: "Error saving progress",
-            description: "Failed to save your reviews. Please try again.",
+            title: t("flashcardPlayer.errorTitle"),
+            description: t("flashcardPlayer.errorSavingProgress"),
             variant: "destructive",
           });
           setIsSaving(false);
@@ -257,8 +259,8 @@ export function FlashcardPlayer({
         ]);
 
         toast({
-          title: "Progress saved! ✨",
-          description: `${reviewResults.length} words updated successfully.`,
+          title: t("flashcardPlayer.progressSaved"),
+          description: t("flashcardPlayer.wordsUpdated", { count: reviewResults.length }),
         });
       }
 
@@ -271,8 +273,8 @@ export function FlashcardPlayer({
 
       console.error("Error saving reviews:", error);
       toast({
-        title: "Error",
-        description: "Failed to save your progress.",
+        title: t("flashcardPlayer.errorTitle"),
+        description: t("flashcardPlayer.errorSavingProgressDesc"),
         variant: "destructive",
       });
     } finally {
@@ -289,9 +291,9 @@ export function FlashcardPlayer({
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>
-              Card {currentIndex + 1} of {shuffledWords.length}
+              {t("flashcardPlayer.cardOf", { current: currentIndex + 1, total: shuffledWords.length })}
             </span>
-            <span>{Math.round(progress)}% complete</span>
+            <span>{t("flashcardPlayer.complete", { percent: Math.round(progress) })}</span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
@@ -307,7 +309,7 @@ export function FlashcardPlayer({
                 // Front of card
                 <div className="space-y-4 w-full">
                   <Badge variant="secondary" className="mb-4">
-                    Term
+                    {t("flashcardPlayer.term")}
                   </Badge>
                   <h2 className="text-4xl font-bold mb-4 break-words px-4">
                     {currentWord.term}
@@ -330,7 +332,7 @@ export function FlashcardPlayer({
                               speak(currentWord.term);
                             }
                           }}
-                          title={isSpeaking ? "Stop speaking" : "Speak word"}
+                          title={isSpeaking ? t("flashcardPlayer.stopSpeaking") : t("flashcardPlayer.speakWord")}
                         >
                           {isSpeaking ? (
                             <VolumeX className="h-4 w-4 text-primary animate-pulse" />
@@ -347,14 +349,14 @@ export function FlashcardPlayer({
                     )}
                   </div>
                   <p className="text-muted-foreground mt-8">
-                    Click to reveal definition
+                    {t("flashcardPlayer.clickToReveal")}
                   </p>
                 </div>
               ) : (
                 // Back of card
                 <div className="space-y-4 w-full">
                   <Badge variant="secondary" className="mb-4">
-                    Definition
+                    {t("flashcardPlayer.definition")}
                   </Badge>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <h3 className="text-2xl font-semibold break-words px-4">
@@ -372,7 +374,7 @@ export function FlashcardPlayer({
                   {currentWord.example && (
                     <div className="border-t pt-4 w-full">
                       <p className="text-sm text-muted-foreground mb-2">
-                        Example:
+                        {t("flashcardPlayer.example")}
                       </p>
                       <p className="italic break-words px-4">
                         "{currentWord.example}"
@@ -404,7 +406,7 @@ export function FlashcardPlayer({
             disabled={currentIndex === 0}
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
-            Previous
+            {t("flashcardPlayer.previous")}
           </Button>
 
           {isFlipped && (
@@ -416,8 +418,8 @@ export function FlashcardPlayer({
                 className="flex items-center gap-2"
               >
                 <X className="h-4 w-4" />
-                Again
-                <span className="text-xs opacity-70">now</span>
+                {t("flashcardPlayer.again")}
+                <span className="text-xs opacity-70">{t("flashcardPlayer.now")}</span>
               </Button>
               <Button
                 variant="outline"
@@ -426,8 +428,8 @@ export function FlashcardPlayer({
                 className="flex items-center gap-2"
               >
                 <ThumbsUp className="h-4 w-4" />
-                Good
-                <span className="text-xs opacity-70">1-3d</span>
+                {t("flashcardPlayer.good")}
+                <span className="text-xs opacity-70">{t("flashcardPlayer.oneToDays")}</span>
               </Button>
               <Button
                 onClick={() => handleAnswer(5)}
@@ -435,8 +437,8 @@ export function FlashcardPlayer({
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-700"
               >
                 <Zap className="h-4 w-4" />
-                Easy
-                <span className="text-xs opacity-70">+30%</span>
+                {t("flashcardPlayer.easy")}
+                <span className="text-xs opacity-70">{t("flashcardPlayer.plusThirtyPercent")}</span>
               </Button>
             </div>
           )}
@@ -446,7 +448,7 @@ export function FlashcardPlayer({
             onClick={handleNext}
             disabled={currentIndex === shuffledWords.length - 1 && !isFlipped}
           >
-            Next
+            {t("flashcardPlayer.next")}
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>
@@ -454,7 +456,7 @@ export function FlashcardPlayer({
         {/* Exit button */}
         <div className="text-center">
           <Button variant="ghost" onClick={onExit}>
-            Exit Study Session
+            {t("flashcardPlayer.exitStudySession")}
           </Button>
         </div>
       </div>

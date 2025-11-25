@@ -19,8 +19,10 @@ import {
   Loader2,
   BookOpen,
 } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 export default function ReadingPassageViewer() {
+  const { t } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const passageId = params?.id as string;
@@ -289,7 +291,17 @@ export default function ReadingPassageViewer() {
               <div className="space-y-2">
                 <CardTitle className="text-2xl">{passage.title}</CardTitle>
                 <div className="flex flex-wrap gap-2 text-sm">
-                  <Badge>{getDifficultyFromCefr(passage.level)}</Badge>
+                  <Badge>
+                    {(() => {
+                      const difficultyName = getDifficultyFromCefr(
+                        passage.level
+                      );
+                      const key = difficultyName
+                        .toLowerCase()
+                        .replace(/\s+/g, "");
+                      return t(`reading.difficultyLevels.${key}.label`);
+                    })()}
+                  </Badge>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <FileText className="h-4 w-4" />
                     {passage.wordCount} words

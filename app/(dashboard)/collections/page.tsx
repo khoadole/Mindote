@@ -58,7 +58,7 @@ export default function CollectionsPage() {
         <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading collections...</span>
+          <span>{t("collections.loadingCollections")}</span>
         </div>
       </div>
     );
@@ -102,7 +102,7 @@ export default function CollectionsPage() {
             </h1>
             <p className="text-muted-foreground text-lg flex items-center gap-2">
               <Layers className="h-5 w-5 text-primary" />
-              Organize your vocabulary by topics
+              {t("collections.subtitle")}
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function CollectionsPage() {
                   className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-purple-600 hover:to-pink-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
                   data-shortcut="add-word"
                 >
-                  <Plus className="h-4 w-4" />✨ Add Word
+                  <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
                 </Button>
               }
             />
@@ -129,7 +129,7 @@ export default function CollectionsPage() {
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Search collections..."
+              placeholder={t("collections.searchCollections")}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               className="pl-11 h-12 rounded-2xl border-2 focus:border-primary/50 bg-card/50"
@@ -145,12 +145,12 @@ export default function CollectionsPage() {
                 <Layers className="h-10 w-10 text-white dark:text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
-                No collections found
+                {t("collections.noCollectionsFound")}
               </h3>
               <p className="text-muted-foreground mb-8">
                 {searchQuery
-                  ? "Try adjusting your search terms"
-                  : "Create your first collection to get started"}
+                  ? t("collections.tryAdjustingSearch")
+                  : t("collections.createFirstCollectionPrompt")}
               </p>
             </div>
           </GradientCard>
@@ -203,20 +203,20 @@ export default function CollectionsPage() {
                               {wordCount}
                             </span>
                             <span className="text-sm text-white/80 dark:text-muted-foreground">
-                              words
+                              {t("collections.wordsLabel")}
                             </span>
                           </div>
                           <Badge
                             variant="secondary"
                             className="text-xs bg-white/20 dark:bg-secondary text-white dark:text-secondary-foreground border-white/30 dark:border-border backdrop-blur-sm"
                           >
-                            {Math.round(masteryPercent)}% mastered
+                            {Math.round(masteryPercent)}% {t("collections.mastered")}
                           </Badge>
                         </div>
 
                         <p className="text-xs text-white/70 dark:text-muted-foreground mb-4 flex items-center gap-1">
                           <TrendingUp className="h-3 w-3" />
-                          Created{" "}
+                          {t("collections.created")}{" "}
                           {new Date(collection.createdAt).toLocaleDateString()}
                         </p>
 
@@ -234,14 +234,14 @@ export default function CollectionsPage() {
                             size="sm"
                             className="flex-1 rounded-xl bg-white dark:bg-gradient-to-r dark:from-primary dark:to-accent text-purple-700 dark:text-white font-bold shadow-md hover:shadow-xl transition-all hover:scale-110 hover:bg-white border-2 border-white/50"
                           >
-                            Study
+                            {t("collections.study")}
                           </Button>
                           <Button
                             size="sm"
                             variant="outline"
                             className="flex-1 rounded-xl border-2 border-white dark:border-border bg-white/10 dark:bg-transparent text-white dark:text-foreground font-semibold hover:bg-white hover:text-purple-700 dark:hover:bg-primary/10 dark:hover:text-white transition-all hover:scale-110 backdrop-blur-sm shadow-md hover:shadow-xl"
                           >
-                            Quiz
+                            {t("collections.quiz")}
                           </Button>
                         </div>
                       </CardContent>
@@ -264,7 +264,7 @@ export default function CollectionsPage() {
                   className="rounded-xl"
                 >
                   <ChevronLeft className="h-4 w-4 mr-1" />
-                  Previous
+                  {t("collections.previous")}
                 </Button>
 
                 <div className="flex items-center gap-1">
@@ -292,7 +292,7 @@ export default function CollectionsPage() {
                   disabled={currentPage === totalPages}
                   className="rounded-xl"
                 >
-                  Next
+                  {t("collections.next")}
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               </div>

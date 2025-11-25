@@ -28,6 +28,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "@/lib/i18n-provider";
 
 // ✅ Lazy load AddWordModal
 const AddWordModal = dynamic(
@@ -69,6 +70,7 @@ export default function CollectionDetailPage() {
   const params = useParams();
   const router = useRouter();
   const collectionId = params.id as string;
+  const { t } = useTranslation();
 
   // Enable collection-specific keyboard shortcuts
   useCollectionKeyboardShortcuts(collectionId);
@@ -104,7 +106,7 @@ export default function CollectionDetailPage() {
       <div className="p-6 flex items-center justify-center min-h-screen">
         <div className="flex items-center gap-2">
           <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading collection...</span>
+          <span>{t("collections.loadingCollection")}</span>
         </div>
       </div>
     );
@@ -117,12 +119,12 @@ export default function CollectionDetailPage() {
         <div className="max-w-7xl mx-auto">
           <Card className="text-center py-12">
             <CardContent>
-              <h3 className="text-lg font-medium mb-2">Collection not found</h3>
+              <h3 className="text-lg font-medium mb-2">{t("collections.collectionNotFound")}</h3>
               <p className="text-muted-foreground mb-4">
-                The collection you're looking for doesn't exist.
+                {t("collections.collectionNotFoundDescription")}
               </p>
               <Button onClick={() => router.push("/collections")}>
-                Back to Collections
+                {t("collections.backToCollections")}
               </Button>
             </CardContent>
           </Card>
@@ -189,7 +191,7 @@ export default function CollectionDetailPage() {
             onClick={() => router.push("/collections")}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
+            {t("collections.back")}
           </Button>
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <div
@@ -208,7 +210,7 @@ export default function CollectionDetailPage() {
               onClick={handleDeleteCollection}
             >
               <Trash2 className="h-4 w-4 mr-2" />
-              Delete
+              {t("collections.delete")}
             </Button>
           </div>
         </div>
@@ -218,18 +220,18 @@ export default function CollectionDetailPage() {
           className="flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
           style={{ animationDelay: "100ms" }}
         >
-          <Badge variant="secondary">{collectionWords.length} words</Badge>
+          <Badge variant="secondary">{collectionWords.length} {t("collections.wordsLabel")}</Badge>
           {dueWordsCount > 0 && (
             <Badge
               variant="outline"
               className="text-orange-500 border-orange-500"
             >
               <Flame className="h-3 w-3 mr-1" />
-              {dueWordsCount} due
+              {dueWordsCount} {t("collections.due")}
             </Badge>
           )}
           <span className="text-sm text-muted-foreground">
-            Created {new Date(collection.createdAt).toLocaleDateString()}
+            {t("collections.created")} {new Date(collection.createdAt).toLocaleDateString()}
           </span>
         </div>
 
@@ -244,7 +246,7 @@ export default function CollectionDetailPage() {
               disabled={collectionWords.length === 0}
             >
               <Cards className="h-4 w-4" />
-              Study with Flashcards
+              {t("collections.studyWithFlashcards")}
               {collectionWords.length > 0 && (
                 <Badge variant="secondary" className="ml-1 bg-white/20">
                   {collectionWords.length}
@@ -260,7 +262,7 @@ export default function CollectionDetailPage() {
                 className="flex items-center gap-2 bg-orange-50 border-orange-200 hover:bg-orange-100 hover:scale-105 transition-transform"
               >
                 <Flame className="h-4 w-4 text-orange-500" />
-                Review Due Words
+                {t("collections.reviewDueWords")}
                 <Badge
                   variant="secondary"
                   className="ml-1 bg-orange-500 text-white"
@@ -278,7 +280,7 @@ export default function CollectionDetailPage() {
               disabled={collectionWords.length === 0}
             >
               <CheckCircle className="h-4 w-4" />
-              Start Quiz
+              {t("collections.startQuiz")}
               {collectionWords.length > 0 && (
                 <Badge variant="secondary" className="ml-1">
                   {collectionWords.length}
@@ -295,7 +297,7 @@ export default function CollectionDetailPage() {
                 className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform"
                 data-shortcut="add-word"
               >
-                <Plus className="h-4 w-4" />✨ Add Word
+                <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
               </Button>
             }
           />
@@ -308,8 +310,8 @@ export default function CollectionDetailPage() {
           style={{ animationDelay: "300ms" }}
         >
           <TabsList>
-            <TabsTrigger value="words">Words</TabsTrigger>
-            <TabsTrigger value="activity">Activity</TabsTrigger>
+            <TabsTrigger value="words">{t("collections.wordsTab")}</TabsTrigger>
+            <TabsTrigger value="activity">{t("collections.activityTab")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="words" className="space-y-4">
@@ -317,7 +319,7 @@ export default function CollectionDetailPage() {
             <div className="relative max-w-sm">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search words..."
+                placeholder={t("collections.searchWords")}
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="pl-10"
@@ -329,12 +331,12 @@ export default function CollectionDetailPage() {
               <Card className="text-center py-12">
                 <CardContent>
                   <h3 className="text-lg font-medium mb-2">
-                    {searchQuery ? "No words found" : "No words yet"}
+                    {searchQuery ? t("collections.noWordsFound") : t("collections.noWordsYet")}
                   </h3>
                   <p className="text-muted-foreground mb-4">
                     {searchQuery
-                      ? "Try adjusting your search terms"
-                      : "Add your first word to this collection"}
+                      ? t("collections.clearSearch")
+                      : t("collections.startAdding")}
                   </p>
                   {!searchQuery && <AddWordModal collectionId={collectionId} />}
                 </CardContent>
@@ -383,7 +385,7 @@ export default function CollectionDetailPage() {
                       className="rounded-xl"
                     >
                       <ChevronLeft className="h-4 w-4 mr-1" />
-                      Previous
+                      {t("collections.previous")}
                     </Button>
 
                     <div className="flex items-center gap-1">
@@ -413,7 +415,7 @@ export default function CollectionDetailPage() {
                       disabled={currentPage === totalPages}
                       className="rounded-xl"
                     >
-                      Next
+                      {t("collections.next")}
                       <ChevronRight className="h-4 w-4 ml-1" />
                     </Button>
                   </div>
@@ -425,11 +427,11 @@ export default function CollectionDetailPage() {
           <TabsContent value="activity">
             <Card>
               <CardHeader>
-                <CardTitle>Activity</CardTitle>
+                <CardTitle>{t("collections.activityTab")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Activity tracking coming soon...
+                  {t("collections.activityTrackingComingSoon")}
                 </p>
               </CardContent>
             </Card>
@@ -442,8 +444,8 @@ export default function CollectionDetailPage() {
         open={deleteCollectionOpen}
         onOpenChange={setDeleteCollectionOpen}
         onConfirm={handleConfirmDeleteCollection}
-        title="Delete Collection"
-        description="This will permanently delete this collection and all its words. This action cannot be undone."
+        title={t("collections.deleteCollection")}
+        description={t("collections.deleteCollectionConfirmation")}
         itemName={collection.name}
         isPending={deleteCollectionMutation.isPending}
       />
@@ -456,8 +458,8 @@ export default function CollectionDetailPage() {
           if (!open) setWordToDelete(null);
         }}
         onConfirm={handleConfirmDeleteWord}
-        title="Delete Word"
-        description="Are you sure you want to delete this word? This action cannot be undone."
+        title={t("collections.deleteWord")}
+        description={t("collections.deleteWordConfirmation")}
         itemName={wordToDelete?.term}
         isPending={deleteWordMutation.isPending}
       />

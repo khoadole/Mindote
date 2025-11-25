@@ -210,7 +210,7 @@ export default function Dashboard() {
                 <div className="flex-1 text-white space-y-4">
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-2">
                     <Sparkles className="h-4 w-4" />
-                    Your Learning Path
+                    {t("dashboard.yourLearningPath")}
                   </div>
 
                   <h2 className="text-3xl md:text-4xl font-bold leading-tight">
@@ -250,12 +250,12 @@ export default function Dashboard() {
                   >
                     {totalWords >= 5 ? (
                       <Link href="/reading" className="flex items-center gap-2">
-                        CREATE NEW PASSAGE
+                        {t("dashboard.createNewPassage")}
                         <Rocket className="h-5 w-5" />
                       </Link>
                     ) : (
                       <span className="flex items-center gap-2">
-                        ADD 5 WORDS TO START
+                        {t("dashboard.addWordsToStart")}
                         <Rocket className="h-5 w-5" />
                       </span>
                     )}
@@ -285,13 +285,13 @@ export default function Dashboard() {
                   <div className="flex items-center gap-2">
                     <Brain className="h-5 w-5 text-primary" />
                     <h3 className="text-lg font-semibold">
-                      Vocabulary Mastery Journey
+                      {t("dashboard.vocabularyMasteryJourney")}
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     {passageMetrics.wordsInPassages > 0 && (
                       <span className="text-primary font-semibold">
-                        {passageMetrics.wordsInPassages} words used in passages
+                        {t("dashboard.wordsInPassages", { count: passageMetrics.wordsInPassages })}
                       </span>
                     )}
                   </p>
@@ -299,52 +299,52 @@ export default function Dashboard() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <WordStageCard
-                    title="New"
+                    title={t("dashboard.new")}
                     count={stats?.newWords || 0}
                     total={totalWords}
                     icon={Sparkles}
                     gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
                     iconColor="bg-blue-500"
-                    description="Just added • Learn these first"
+                    description={t("dashboard.newDescription")}
                     onClick={() => {
                       console.log("Navigate to new words");
                     }}
                   />
 
                   <WordStageCard
-                    title="Learning"
+                    title={t("dashboard.learning")}
                     count={stats?.learningWords || 0}
                     total={totalWords}
                     icon={GraduationCap}
                     gradient="bg-gradient-to-br from-yellow-500 to-orange-500"
                     iconColor="bg-yellow-500"
-                    description="1-3 reviews • Keep practicing"
+                    description={t("dashboard.learningDescription")}
                     onClick={() => {
                       console.log("Navigate to learning words");
                     }}
                   />
 
                   <WordStageCard
-                    title="Familiar"
+                    title={t("dashboard.familiar")}
                     count={stats?.familiarWords || 0}
                     total={totalWords}
                     icon={Award}
                     gradient="bg-gradient-to-br from-green-500 to-emerald-500"
                     iconColor="bg-green-500"
-                    description="4-7 reviews • Ready for passages!"
+                    description={t("dashboard.familiarDescription")}
                     onClick={() => {
                       console.log("Navigate to familiar words");
                     }}
                   />
 
                   <WordStageCard
-                    title="Master"
+                    title={t("dashboard.master")}
                     count={stats?.masterWords || 0}
                     total={totalWords}
                     icon={Trophy}
                     gradient="bg-gradient-to-br from-purple-500 to-pink-500"
                     iconColor="bg-purple-500"
-                    description="8+ reviews • Perfect for passages!"
+                    description={t("dashboard.masterDescription")}
                     onClick={() => {
                       console.log("Navigate to master words");
                     }}
@@ -376,11 +376,11 @@ export default function Dashboard() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold flex items-center gap-2">
                   <BookOpenCheck className="h-4 w-4 text-primary" />
-                  Your Passages
+                  {t("dashboard.yourPassages")}
                 </h3>
                 <Link href="/reading">
                   <Button variant="ghost" size="sm" className="h-8 text-xs">
-                    View All
+                    {t("dashboard.viewAll")}
                     <ArrowRight className="h-3 w-3 ml-1" />
                   </Button>
                 </Link>
@@ -391,7 +391,7 @@ export default function Dashboard() {
                 <div className="mb-4 p-3 bg-white/50 dark:bg-white/5 rounded-xl space-y-2">
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">
-                      Completion Rate
+                      {t("dashboard.completionRate")}
                     </span>
                     <span className="font-bold text-primary">
                       {passageMetrics.completionRate}%
@@ -457,7 +457,7 @@ export default function Dashboard() {
                                 </span>
                                 <span className="text-xs text-green-500 flex items-center gap-1">
                                   <CheckCircle2 className="h-3 w-3" />
-                                  Done
+                                  {t("dashboard.done")}
                                 </span>
                               </>
                             )}
@@ -473,15 +473,15 @@ export default function Dashboard() {
                       <BookOpenCheck className="w-8 h-8 text-primary/50" />
                     </div>
                     <p className="text-sm font-medium text-muted-foreground mb-2">
-                      No passages yet
+                      {t("dashboard.noPassagesYet")}
                     </p>
                     <p className="text-xs text-muted-foreground mb-4">
-                      Create your first AI-powered reading passage
+                      {t("dashboard.createFirstPassage")}
                     </p>
                     <Link href="/reading">
                       <Button size="sm" variant="default">
                         <Sparkles className="h-3 w-3 mr-1" />
-                        Create Passage
+                        {t("dashboard.createPassage")}
                       </Button>
                     </Link>
                   </div>
@@ -496,7 +496,7 @@ export default function Dashboard() {
             >
               <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-100 mb-4 flex items-center gap-2">
                 <Zap className="h-4 w-4" />
-                QUICK REVISION
+                {t("dashboard.quickRevision")}
               </h3>
 
               <div className="space-y-3">
@@ -510,8 +510,8 @@ export default function Dashboard() {
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
                         {dueCount === 0
-                          ? "All caught up! 🎉"
-                          : `${dueCount === 1 ? "word" : "words"} to review`}
+                          ? t("dashboard.allCaughtUp")
+                          : t("dashboard.wordsToReview", { count: dueCount })}
                       </p>
                     </>
                   )}
@@ -529,18 +529,18 @@ export default function Dashboard() {
                       className="flex items-center gap-2"
                     >
                       <Cards className="h-4 w-4" />
-                      Start Flashcards
+                      {t("dashboard.startFlashcards")}
                     </Link>
                   ) : (
                     <span className="flex items-center gap-2">
                       <Cards className="h-4 w-4" />
-                      Start Flashcards
+                      {t("dashboard.startFlashcards")}
                     </span>
                   )}
                 </Button>
 
                 <p className="text-xs text-center text-muted-foreground">
-                  Reinforce words before using them in passages
+                  {t("dashboard.reinforceWords")}
                 </p>
               </div>
             </div>
@@ -591,7 +591,7 @@ export default function Dashboard() {
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Layers className="h-5 w-5 text-primary" />
-                Your Collections
+                {t("dashboard.yourCollections")}
               </CardTitle>
               <Link href="/collections">
                 <Button
@@ -599,7 +599,7 @@ export default function Dashboard() {
                   size="sm"
                   className="rounded-xl hover:bg-primary/10"
                 >
-                  View all →
+                  {t("common.viewAll")} →
                 </Button>
               </Link>
             </CardHeader>
@@ -628,11 +628,10 @@ export default function Dashboard() {
                     <Layers className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">
-                    No collections yet
+                    {t("dashboard.noCollectionsYet")}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                    Create your first collection to organize vocabulary by
-                    topics
+                    {t("dashboard.createFirstCollection")}
                   </p>
                   <CreateCollectionModal />
                 </div>
@@ -661,7 +660,7 @@ export default function Dashboard() {
                               {collection.wordCount || 0}
                             </p>
                             <Badge variant="secondary" className="text-xs">
-                              Active
+                              {t("dashboard.active")}
                             </Badge>
                           </div>
                         </div>

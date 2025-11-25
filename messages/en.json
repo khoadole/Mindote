@@ -96,14 +96,142 @@
     "createPassage": "Create Passage",
     "quickRevision": "QUICK REVISION",
     "allCaughtUp": "All caught up! 🎉",
-    "wordsToReview": "{{count, plural, one {word} other {words}}} to review",
+    "wordsToReview": "{{count}} {{count, plural, one {word} other {words}}} to review",
     "startFlashcards": "Start Flashcards",
     "reinforceWords": "Reinforce words before using them in passages",
     "yourCollections": "Your Collections",
     "noCollectionsYet": "No collections yet",
     "createFirstCollection": "Create your first collection to organize vocabulary by topics",
     "active": "Active",
-    "done": "Done"
+    "done": "Done",
+    "vocabularyMasteryJourney": "Vocabulary Mastery Journey",
+    "wordsInPassages": "{{count}} words used in passages",
+    "yourLearningPath": "Your Learning Path",
+    "viewAll": "View all",
+    "word": "word"
+  },
+  "collections": {
+    "title": "Collections",
+    "subtitle": "Organize your vocabulary by topics",
+    "addWord": "Add Word",
+    "newCollection": "New Collection",
+    "searchCollections": "Search collections...",
+    "createNewCollection": "Create New Collection",
+    "collectionNamePlaceholder": "e.g., Business English",
+    "charactersLabel": "{{count}}/80 characters",
+    "colorLabel": "Color",
+    "difficultyLevelLabel": "Difficulty Level (Optional)",
+    "difficultyLevelPlaceholder": "Select difficulty level",
+    "creating": "Creating...",
+    "create": "Create",
+    "wordsLabel": "words",
+    "mastered": "mastered",
+    "created": "Created",
+    "study": "Study",
+    "quiz": "Quiz",
+    "delete": "Delete",
+    "due": "due",
+    "studyWithFlashcards": "Study with Flashcards",
+    "reviewDueWords": "Review Due Words",
+    "startQuiz": "Start Quiz",
+    "wordsTab": "Words",
+    "activityTab": "Activity",
+    "searchWords": "Search words...",
+    "noWordsFound": "No words found",
+    "noWordsYet": "No words yet",
+    "clearSearch": "Clear your search or add new words to this collection.",
+    "startAdding": "Start adding words to build your vocabulary collection.",
+    "rename": "Rename",
+    "renameCollection": "Rename Collection",
+    "collectionNameLabel": "Collection Name",
+    "enterCollectionName": "Enter collection name",
+    "charactersCount": "{{count}}/80 characters",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving...",
+    "loadingCollections": "Loading collections...",
+    "loadingCollection": "Loading collection...",
+    "noCollectionsFound": "No collections found",
+    "tryAdjustingSearch": "Try adjusting your search terms",
+    "createFirstCollectionPrompt": "Create your first collection to get started",
+    "collectionNotFound": "Collection not found",
+    "collectionNotFoundDescription": "The collection you're looking for doesn't exist.",
+    "backToCollections": "Back to Collections",
+    "back": "Back",
+    "helpsOrganize": "Helps organize your collections by learning level",
+    "deleteWord": "Delete Word",
+    "deleteCollectionConfirmation": "This will permanently delete this collection and all its words. This action cannot be undone.",
+    "deleteWordConfirmation": "Are you sure you want to delete this word? This action cannot be undone.",
+    "activityTrackingComingSoon": "Activity tracking coming soon...",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "word": {
+    "definition": "Definition",
+    "example": "Example",
+    "collection": "Collection",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "flashcardPlayer": {
+    "cardOf": "Card {{current}} of {{total}}",
+    "complete": "{{percent}}% complete",
+    "term": "Term",
+    "definition": "Definition",
+    "clickToReveal": "Click to reveal definition",
+    "example": "Example:",
+    "previous": "Previous",
+    "next": "Next",
+    "again": "Again",
+    "now": "now",
+    "good": "Good",
+    "oneToDays": "1-3d",
+    "easy": "Easy",
+    "plusThirtyPercent": "+30%",
+    "exitStudySession": "Exit Study Session",
+    "feedbackAgain": "Review this again soon!",
+    "feedbackGood": "Good job! 👍",
+    "feedbackEasy": "Excellent! ⚡",
+    "errorProcessingReview": "Failed to process review.",
+    "errorSavingProgress": "Failed to save your reviews. Please try again.",
+    "errorTitle": "Error",
+    "errorSavingProgressDesc": "Failed to save your progress.",
+    "progressSaved": "Progress saved! ✨",
+    "wordsUpdated": "{{count}} words updated successfully.",
+    "sessionComplete": "Study Session Complete!",
+    "wordsGotRight": "Words you got right",
+    "correct": "Correct",
+    "needReview": "Need Review",
+    "saving": "Saving...",
+    "done": "Done",
+    "studyAgain": "Study Again",
+    "stopSpeaking": "Stop speaking",
+    "speakWord": "Speak word",
+    "continueStudying": "Continue Studying"
+  },
+  "quizPlayer": {
+    "questionOf": "Question {{current}} of {{total}}",
+    "complete": "{{percent}}% complete",
+    "quizQuestion": "Quiz Question",
+    "multipleChoice": "Multiple Choice",
+    "fillInBlank": "Fill in the Blank",
+    "whatDoesWordMean": "What does this word mean?",
+    "fillInBlankPrompt": "Fill in the blank:",
+    "typeYourAnswer": "Type your answer...",
+    "submitAnswer": "Submit Answer",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "correctAnswerIs": "The correct answer is:",
+    "definition": "Definition:",
+    "nextQuestion": "Next Question",
+    "finishQuiz": "Finish Quiz",
+    "exitQuiz": "Exit Quiz",
+    "quizComplete": "Quiz Complete!",
+    "outOfCorrect": "{{score}} out of {{total}} correct",
+    "correctLabel": "Correct",
+    "incorrectLabel": "Incorrect",
+    "done": "Done",
+    "retry": "Retry"
   },
   "landing": {
     "aiPowered": "AI-Powered Vocabulary Learning",
@@ -167,18 +295,6 @@
     "resetPassword": "Reset Password",
     "sendResetLink": "Send Reset Link",
     "backToSignIn": "Back to Sign In"
-  },
-  "collections": {
-    "title": "Collections",
-    "createCollection": "Create Collection",
-    "editCollection": "Edit Collection",
-    "deleteCollection": "Delete Collection",
-    "collectionName": "Collection Name",
-    "description": "Description",
-    "color": "Color",
-    "words": "{{count}} words",
-    "noCollections": "No collections yet",
-    "createFirstCollection": "Create your first collection"
   },
   "flashcards": {
     "title": "Flashcards",
@@ -288,10 +404,55 @@
     "selectCollection": "Select Collection",
     "chooseCollection": "Choose a collection",
     "words": "words",
+    "wordCount": "{{count}} words",
     "needCollectionFirst": "You need to create a collection with words first",
     "needAtLeastWords": "This collection needs at least {{count}} words to generate a passage",
     "difficultyLevel": "Difficulty Level",
     "passageType": "Passage Type",
+    "passageTypes": {
+      "story": {
+        "label": "Story",
+        "description": "Narrative with characters and plot"
+      },
+      "article": {
+        "label": "Article",
+        "description": "Informative news or magazine style"
+      },
+      "essay": {
+        "label": "Essay",
+        "description": "Opinion or argumentative piece"
+      },
+      "news": {
+        "label": "News",
+        "description": "Current events and facts"
+      }
+    },
+    "difficultyLevels": {
+      "beginner": {
+        "label": "Beginner",
+        "description": "Simple, basic vocabulary"
+      },
+      "elementary": {
+        "label": "Elementary",
+        "description": "Common everyday topics"
+      },
+      "intermediate": {
+        "label": "Intermediate",
+        "description": "Familiar topics and ideas"
+      },
+      "upperIntermediate": {
+        "label": "Upper Intermediate",
+        "description": "Complex text and abstract topics"
+      },
+      "advanced": {
+        "label": "Advanced",
+        "description": "Demanding, longer texts"
+      },
+      "proficient": {
+        "label": "Proficient",
+        "description": "Very complex academic texts"
+      }
+    },
     "language": "Language",
     "languageDescription": "Language for the reading passage content",
     "generating": "Generating...",
@@ -353,5 +514,130 @@
     "deleted": "Deleted successfully",
     "updated": "Updated successfully",
     "created": "Created successfully"
+  },
+  "components": {
+    "addWordModal": {
+      "noCollections": "Please create a collection first",
+      "enterTermFirst": "Please enter a term first",
+      "partsOfSpeech": {
+        "noun": "Noun",
+        "pronoun": "Pronoun",
+        "verb": "Verb",
+        "adjective": "Adjective",
+        "adverb": "Adverb",
+        "preposition": "Preposition",
+        "conjunction": "Conjunction",
+        "interjection": "Interjection"
+      }
+    },
+    "flashcardPlayer": {
+      "error": "Error",
+      "failedToProcess": "Failed to process review.",
+      "errorSavingProgress": "Error saving progress",
+      "failedToSaveReviews": "Failed to save your reviews. Please try again.",
+      "failedToSaveProgress": "Failed to save your progress.",
+      "progressSaved": "Progress saved! ✨"
+    },
+    "billing": {
+      "error": "Error",
+      "success": "Success",
+      "failedToOpenPortal": "Failed to open customer portal",
+      "subscriptionCancelled": "Subscription cancelled successfully",
+      "failedToCancel": "Failed to cancel subscription",
+      "subscriptionResumed": "Subscription resumed successfully",
+      "subscriptionPaused": "Subscription paused successfully",
+      "failedToUpdate": "Failed to update subscription",
+      "failedToCheckout": "Failed to start checkout. Please try again."
+    }
+  },
+  "hooks": {
+    "aiFill": {
+      "error": "Error",
+      "enterTermFirst": "Please enter a term first",
+      "dailyLimitReached": "Daily Limit Reached",
+      "limitMessage": "You've used all your free AI fills for today. Upgrade to premium for unlimited access!",
+      "failedToGenerate": "Failed to generate AI content",
+      "autoFillComplete": "✨ AI Auto-fill Complete",
+      "failedToConnect": "Failed to connect to AI service. Please try again."
+    },
+    "collections": {
+      "collectionCreated": "Collection created",
+      "collectionCreatedDesc": "Your new collection has been created successfully.",
+      "failedToCreate": "Failed to create collection",
+      "collectionUpdated": "Collection updated",
+      "collectionUpdatedDesc": "Your collection has been updated successfully.",
+      "failedToUpdate": "Failed to update collection",
+      "collectionDeleted": "Collection deleted",
+      "collectionDeletedDesc": "Your collection has been deleted successfully.",
+      "failedToDelete": "Failed to delete collection"
+    },
+    "reading": {
+      "passageGenerated": "✨ Passage Generated!",
+      "passageReady": "Your reading passage is ready.",
+      "error": "Error",
+      "failedToGenerate": "Failed to generate reading passage. Please try again.",
+      "greatJob": "🎉 Great Job!",
+      "goodWork": "👍 Good Work!",
+      "keepPracticing": "💪 Keep Practicing!",
+      "scoredPercent": "You scored {{score}}% on this reading passage.",
+      "failedToSubmit": "Failed to submit your answers."
+    },
+    "words": {
+      "wordAdded": "Word added",
+      "wordAddedDesc": "Your new word has been added successfully.",
+      "failedToAdd": "Failed to add word",
+      "wordUpdated": "Word updated",
+      "wordUpdatedDesc": "Your word has been updated successfully.",
+      "failedToUpdate": "Failed to update word",
+      "wordDeleted": "Word deleted",
+      "wordDeletedDesc": "Your word has been deleted successfully.",
+      "failedToDelete": "Failed to delete word"
+    },
+    "textToSpeech": {
+      "notSupported": "Not Supported",
+      "browserNotSupported": "Your browser doesn't support text-to-speech",
+      "noText": "No Text",
+      "provideText": "Please provide text to speak",
+      "speechError": "Speech Error",
+      "errorOccurred": "An error occurred while speaking"
+    }
+  },
+  "components": {
+    "addWordModal": {
+      "noCollections": "No Collections Available",
+      "noCollectionsDesc": "Please create a collection first before adding words.",
+      "enterTermFirst": "Enter a term first",
+      "enterTermDesc": "Please enter a word or phrase to use AI Auto-fill",
+      "partsOfSpeech": {
+        "noun": "Noun",
+        "pronoun": "Pronoun",
+        "verb": "Verb",
+        "adjective": "Adjective",
+        "adverb": "Adverb",
+        "preposition": "Preposition",
+        "conjunction": "Conjunction",
+        "interjection": "Interjection"
+      }
+    },
+    "flashcardPlayer": {
+      "error": "Error",
+      "failedToProcess": "Failed to process review.",
+      "errorSavingProgress": "Error saving progress",
+      "failedToSaveReviews": "Failed to save your reviews. Please try again.",
+      "progressSaved": "Progress saved! ✨",
+      "failedToSaveProgress": "Failed to save your progress."
+    },
+    "billing": {
+      "error": "Error",
+      "redirectingToCheckout": "Redirecting to checkout...",
+      "preparingCheckout": "Please wait while we prepare your checkout session.",
+      "checkoutReady": "Checkout ready!",
+      "redirectingToPayment": "Redirecting you to the payment page...",
+      "failedToOpenPortal": "Failed to open customer portal",
+      "success": "Success",
+      "subscriptionCancelled": "Subscription cancelled successfully",
+      "subscriptionResumed": "Subscription resumed successfully",
+      "subscriptionPaused": "Subscription paused successfully"
+    }
   }
 }

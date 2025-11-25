@@ -21,6 +21,7 @@ import {
   Layers,
 } from "lucide-react";
 import { useTextToSpeech } from "@/hooks/use-text-to-speech";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface WordCardProps {
   word: Word & {
@@ -35,6 +36,7 @@ interface WordCardProps {
 }
 
 export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
+  const { t } = useTranslation();
   const [showDetails, setShowDetails] = useState(false);
   const collection = word.collection;
   const { speak, isSpeaking, stop } = useTextToSpeech({
@@ -196,7 +198,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
             <div className="p-4 rounded-2xl bg-muted/50">
               <h4 className="font-semibold mb-2 flex items-center gap-2 text-primary">
                 <BookOpen className="h-4 w-4" />
-                Definition
+                {t("word.definition")}
               </h4>
               <p
                 className="text-foreground leading-relaxed break-all"
@@ -210,7 +212,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-primary/10">
                 <h4 className="font-semibold mb-2 flex items-center gap-2 text-accent">
                   <MessageSquare className="h-4 w-4" />
-                  Example
+                  {t("word.example")}
                 </h4>
                 <p
                   className="text-foreground italic leading-relaxed break-all"
@@ -231,7 +233,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   <Layers className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Collection</p>
+                  <p className="text-xs text-muted-foreground">{t("word.collection")}</p>
                   <p className="font-medium">{collection.name}</p>
                 </div>
               </div>
@@ -248,7 +250,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   className="rounded-xl hover:bg-primary/5 hover:border-primary"
                 >
                   <Edit className="h-4 w-4 mr-2" />
-                  Edit
+                  {t("word.edit")}
                 </Button>
               )}
               {onDelete && (
@@ -261,7 +263,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                   className="rounded-xl"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
-                  Delete
+                  {t("word.delete")}
                 </Button>
               )}
             </div>

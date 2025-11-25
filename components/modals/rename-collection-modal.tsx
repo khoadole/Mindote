@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useUpdateCollection } from "@/hooks/use-collections";
+import { useTranslation } from "@/lib/i18n-provider";
 import {
   Dialog,
   DialogContent,
@@ -25,6 +26,7 @@ export function RenameCollectionModal({
   currentName,
   trigger,
 }: RenameCollectionModalProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState(currentName);
   const updateCollectionMutation = useUpdateCollection();
@@ -52,7 +54,7 @@ export function RenameCollectionModal({
   const defaultTrigger = (
     <Button variant="outline" size="sm">
       <Edit className="h-4 w-4 mr-2" />
-      Rename
+      {t("collections.rename")}
     </Button>
   );
 
@@ -61,16 +63,16 @@ export function RenameCollectionModal({
       <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
-          <DialogTitle>Rename Collection</DialogTitle>
+          <DialogTitle>{t("collections.renameCollection")}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Collection Name</Label>
+            <Label htmlFor="name">{t("collections.collectionNameLabel")}</Label>
             <Input
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value.slice(0, 80))}
-              placeholder="Enter collection name"
+              placeholder={t("collections.enterCollectionName")}
               required
               disabled={updateCollectionMutation.isPending}
               autoFocus
@@ -79,7 +81,7 @@ export function RenameCollectionModal({
               style={{ wordBreak: "break-all" }}
             />
             <p className="text-xs text-muted-foreground">
-              {name.length}/80 characters
+              {t("collections.charactersCount", { count: name.length })}
             </p>
           </div>
 
@@ -90,16 +92,16 @@ export function RenameCollectionModal({
               onClick={() => setOpen(false)}
               disabled={updateCollectionMutation.isPending}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
             <Button type="submit" disabled={updateCollectionMutation.isPending}>
               {updateCollectionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Saving...
+                  {t("collections.saving")}
                 </>
               ) : (
-                "Save"
+                t("common.save")
               )}
             </Button>
           </div>

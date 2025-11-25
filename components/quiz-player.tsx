@@ -15,6 +15,7 @@ import {
 import { useAppStore } from "@/lib/store";
 import type { Word } from "@/lib/types";
 import { CheckCircle, X, RotateCcw } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface QuizQuestion {
   word: Word;
@@ -42,6 +43,7 @@ export function QuizPlayer({
   onComplete,
   onExit,
 }: QuizPlayerProps) {
+  const { t } = useTranslation();
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
@@ -183,7 +185,7 @@ export function QuizPlayer({
             )}
           </div>
 
-          <p className="text-center text-lg mb-6">What does this word mean?</p>
+          <p className="text-center text-lg mb-6">{t("quizPlayer.whatDoesWordMean")}</p>
 
           <div className="space-y-2">
             {currentQuestion.options?.map((option, index) => (
@@ -214,7 +216,7 @@ export function QuizPlayer({
       return (
         <div className="space-y-4">
           <div className="text-center space-y-2">
-            <p className="text-lg mb-6">Fill in the blank:</p>
+            <p className="text-lg mb-6">{t("quizPlayer.fillInBlankPrompt")}</p>
             <div className="text-xl font-medium p-4 bg-muted rounded-lg break-all whitespace-pre-wrap">
               {maskedSentence}
             </div>
@@ -224,7 +226,7 @@ export function QuizPlayer({
             <Input
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
-              placeholder="Type your answer..."
+              placeholder={t("quizPlayer.typeYourAnswer")}
               disabled={showFeedback}
               autoFocus
               onKeyDown={(e) => {
@@ -240,7 +242,7 @@ export function QuizPlayer({
                 disabled={!userAnswer.trim()}
                 className="w-full"
               >
-                Submit Answer
+                {t("quizPlayer.submitAnswer")}
               </Button>
             )}
           </div>
@@ -274,9 +276,9 @@ export function QuizPlayer({
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>
-              Question {currentIndex + 1} of {questions.length}
+              {t("quizPlayer.questionOf", { current: currentIndex + 1, total: questions.length })}
             </span>
-            <span>{Math.round(progress)}% complete</span>
+            <span>{t("quizPlayer.complete", { percent: Math.round(progress) })}</span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
@@ -285,11 +287,11 @@ export function QuizPlayer({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <span>Quiz Question</span>
+              <span>{t("quizPlayer.quizQuestion")}</span>
               <Badge variant="secondary">
                 {mode === "multiple-choice"
-                  ? "Multiple Choice"
-                  : "Fill in the Blank"}
+                  ? t("quizPlayer.multipleChoice")
+                  : t("quizPlayer.fillInBlank")}
               </Badge>
             </CardTitle>
           </CardHeader>
@@ -312,13 +314,13 @@ export function QuizPlayer({
                     <X className="h-5 w-5 text-red-600" />
                   )}
                   <span className="font-semibold">
-                    {currentQuestion.isCorrect ? "Correct!" : "Incorrect"}
+                    {currentQuestion.isCorrect ? t("quizPlayer.correct") : t("quizPlayer.incorrect")}
                   </span>
                 </div>
 
                 {!currentQuestion.isCorrect && (
                   <p className="text-sm break-all">
-                    The correct answer is:{" "}
+                    {t("quizPlayer.correctAnswerIs")}{" "}
                     <strong className="break-all">
                       {currentQuestion.correctAnswer}
                     </strong>
@@ -326,7 +328,7 @@ export function QuizPlayer({
                 )}
 
                 <div className="mt-3">
-                  <p className="text-sm font-medium">Definition:</p>
+                  <p className="text-sm font-medium">{t("quizPlayer.definition")}</p>
                   <p className="text-sm text-muted-foreground break-all">
                     {currentQuestion.word.definition}
                   </p>
@@ -334,8 +336,8 @@ export function QuizPlayer({
 
                 <Button onClick={handleNext} className="mt-4">
                   {currentIndex < questions.length - 1
-                    ? "Next Question"
-                    : "Finish Quiz"}
+                    ? t("quizPlayer.nextQuestion")
+                    : t("quizPlayer.finishQuiz")}
                 </Button>
               </div>
             )}
@@ -345,7 +347,7 @@ export function QuizPlayer({
         {/* Exit button */}
         <div className="text-center">
           <Button variant="ghost" onClick={onExit}>
-            Exit Quiz
+            {t("quizPlayer.exitQuiz")}
           </Button>
         </div>
       </div>
@@ -354,7 +356,7 @@ export function QuizPlayer({
       <Dialog open={showSummary} onOpenChange={setShowSummary}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Quiz Complete!</DialogTitle>
+            <DialogTitle>{t("quizPlayer.quizComplete")}</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <div className="text-center space-y-2">
@@ -362,7 +364,7 @@ export function QuizPlayer({
                 {Math.round((results.score / results.total) * 100)}%
               </div>
               <p className="text-muted-foreground">
-                {results.score} out of {results.total} correct
+                {t("quizPlayer.outOfCorrect", { score: results.score, total: results.total })}
               </p>
             </div>
 
@@ -371,13 +373,13 @@ export function QuizPlayer({
                 <div className="text-xl font-semibold text-green-500">
                   {results.score}
                 </div>
-                <p className="text-xs text-muted-foreground">Correct</p>
+                <p className="text-xs text-muted-foreground">{t("quizPlayer.correctLabel")}</p>
               </div>
               <div>
                 <div className="text-xl font-semibold text-red-500">
                   {results.total - results.score}
                 </div>
-                <p className="text-xs text-muted-foreground">Incorrect</p>
+                <p className="text-xs text-muted-foreground">{t("quizPlayer.incorrectLabel")}</p>
               </div>
             </div>
 
@@ -387,7 +389,7 @@ export function QuizPlayer({
                 onClick={onExit}
                 className="flex-1 bg-transparent"
               >
-                Done
+                {t("quizPlayer.done")}
               </Button>
               <Button
                 onClick={() => {
@@ -398,7 +400,7 @@ export function QuizPlayer({
                 className="flex-1"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Retry
+                {t("quizPlayer.retry")}
               </Button>
             </div>
           </div>

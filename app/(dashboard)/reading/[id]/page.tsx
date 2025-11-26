@@ -48,7 +48,7 @@ export default function ReadingPassageViewer() {
       <div className="p-6 flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p className="text-muted-foreground">Loading passage...</p>
+          <p className="text-muted-foreground">{t("reading.loadingPassage")}</p>
         </div>
       </div>
     );
@@ -60,12 +60,12 @@ export default function ReadingPassageViewer() {
       <div className="p-6 flex items-center justify-center min-h-screen">
         <div className="text-center">
           <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-          <h2 className="text-xl font-semibold mb-2">Passage not found</h2>
+          <h2 className="text-xl font-semibold mb-2">{t("reading.passageNotFound")}</h2>
           <p className="text-muted-foreground mb-4">
-            This reading passage doesn't exist or has been deleted.
+            {t("reading.passageNotFoundDesc")}
           </p>
           <Button onClick={() => router.push("/reading")}>
-            Back to Reading
+            {t("reading.backToReading")}
           </Button>
         </div>
       </div>
@@ -157,7 +157,7 @@ export default function ReadingPassageViewer() {
             key={keyCounter++}
             className="bg-yellow-200 dark:bg-yellow-900/50 px-0.5 rounded cursor-pointer hover:bg-yellow-300 dark:hover:bg-yellow-800 transition-colors"
             onClick={() => setHighlightedWord(highlightedText)}
-            title="Click to see definition"
+            title={t("reading.clickToSeeDefinition")}
           >
             {highlightedText}
           </span>
@@ -235,7 +235,7 @@ export default function ReadingPassageViewer() {
               : ""
           }
           onClick={() => isLearned && setHighlightedWord(cleanWord)}
-          title={isLearned ? "Click to see definition" : ""}
+          title={isLearned ? t("reading.clickToSeeDefinition") : ""}
         >
           {word}
         </span>
@@ -278,7 +278,7 @@ export default function ReadingPassageViewer() {
               onClick={() => router.push("/reading")}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Reading
+              {t("reading.backToReading")}
             </Button>
           </div>
 
@@ -304,15 +304,15 @@ export default function ReadingPassageViewer() {
                   </Badge>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <FileText className="h-4 w-4" />
-                    {passage.wordCount} words
+                    {passage.wordCount} {t("reading.words")}
                   </span>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <Clock className="h-4 w-4" />
-                    {passage.estimatedTime} min read
+                    {passage.estimatedTime} {t("reading.minRead")}
                   </span>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <BookOpen className="h-4 w-4" />
-                    {passage.wordsUsed.length} vocabulary words
+                    {passage.wordsUsed.length} {t("reading.vocabularyWords")}
                   </span>
                 </div>
               </div>
@@ -324,8 +324,7 @@ export default function ReadingPassageViewer() {
 
               <Alert className="mt-6">
                 <AlertDescription className="text-sm">
-                  💡 <strong>Tip:</strong> Highlighted words are from your
-                  vocabulary collection.
+                  💡 <strong>{t("reading.tipLabel")}</strong> {t("reading.highlightedTip")}
                 </AlertDescription>
               </Alert>
             </CardContent>
@@ -337,7 +336,7 @@ export default function ReadingPassageViewer() {
             style={{ animationDelay: "200ms" }}
           >
             <CardHeader>
-              <CardTitle>Comprehension Questions</CardTitle>
+              <CardTitle>{t("reading.comprehensionQuestions")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {passage.questions.map((q, idx) => (
@@ -403,9 +402,9 @@ export default function ReadingPassageViewer() {
                   </RadioGroup>
 
                   {submitted && (
-                    <Alert className="mt-3 ml-6">
+                    <Alert className="mt-3">
                       <AlertDescription className="text-sm">
-                        <strong>Explanation:</strong> {q.explanation}
+                        <strong>{t("reading.explanation")}</strong> {q.explanation}
                       </AlertDescription>
                     </Alert>
                   )}
@@ -422,12 +421,12 @@ export default function ReadingPassageViewer() {
                   {submitMutation.isPending ? (
                     <>
                       <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      Submitting...
+                      {t("reading.submitting")}
                     </>
                   ) : (
                     <>
                       <CheckCircle className="h-4 w-4 mr-2" />
-                      Submit Answers
+                      {t("reading.submitAnswers")}
                       {!allAnswered &&
                         ` (${Object.keys(answers).length}/${
                           passage.questions.length
@@ -444,17 +443,17 @@ export default function ReadingPassageViewer() {
                         : correctAnswers >= 3
                         ? "👍"
                         : "💪"}{" "}
-                      Score: {correctAnswers}/{passage.questions.length} (
+                      {t("reading.score")} {correctAnswers}/{passage.questions.length} (
                       {Math.round(
                         (correctAnswers / passage.questions.length) * 100
                       )}
                       %)
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {correctAnswers === 5 && "Perfect score! Excellent work!"}
-                      {correctAnswers === 4 && "Great job! Almost perfect!"}
-                      {correctAnswers === 3 && "Good work! Keep practicing!"}
-                      {correctAnswers < 3 && "Keep studying, you'll improve!"}
+                      {correctAnswers === 5 && t("reading.perfectScore")}
+                      {correctAnswers === 4 && t("reading.greatJob")}
+                      {correctAnswers === 3 && t("reading.goodWork")}
+                      {correctAnswers < 3 && t("reading.keepStudying")}
                     </p>
                   </AlertDescription>
                 </Alert>
@@ -467,7 +466,7 @@ export default function ReadingPassageViewer() {
                     variant="outline"
                     className="flex-1"
                   >
-                    Back to Reading
+                    {t("reading.backToReading")}
                   </Button>
                   <Button
                     onClick={() => {
@@ -477,7 +476,7 @@ export default function ReadingPassageViewer() {
                     }}
                     className="flex-1"
                   >
-                    Try Again
+                    {t("reading.tryAgain")}
                   </Button>
                 </div>
               )}

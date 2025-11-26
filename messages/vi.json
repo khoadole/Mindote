@@ -108,7 +108,8 @@
     "wordsInPassages": "{{count}} từ đã sử dụng trong đoạn văn",
     "yourLearningPath": "Lộ trình học tập của bạn",
     "viewAll": "Xem tất cả",
-    "word": "từ"
+    "word": "từ",
+    "words": "từ"
   },
   "landing": {
     "aiPowered": "Học từ vựng với AI",
@@ -448,7 +449,26 @@
     "noPassagesYet": "Chưa có đoạn văn đọc",
     "generateFirst": "Tạo đoạn văn đọc đầu tiên để bắt đầu luyện tập!",
     "read": "Đọc →",
-    "attempts": "{{count}} lần thử{{plural}}"
+    "attempts": "{{count}} lần thử{{plural}}",
+    "loadingPassage": "Đang tải đoạn văn...",
+    "passageNotFound": "Không tìm thấy đoạn văn",
+    "passageNotFoundDesc": "Đoạn văn luyện đọc này không tồn tại hoặc đã bị xóa.",
+    "backToReading": "Quay lại Luyện đọc",
+    "minRead": "phút đọc",
+    "vocabularyWords": "từ vựng",
+    "highlightedTip": "Các từ được đánh dấu là từ bộ sưu tập từ vựng của bạn.",
+    "tipLabel": "Mẹo:",
+    "clickToSeeDefinition": "Nhấp để xem định nghĩa",
+    "comprehensionQuestions": "Câu hỏi hiểu bài",
+    "submitting": "Đang gửi...",
+    "submitAnswers": "Nộp bài",
+    "score": "Điểm:",
+    "perfectScore": "Điểm tuyệt đối! Xuất sắc!",
+    "greatJob": "Làm tốt lắm! Gần như hoàn hảo!",
+    "goodWork": "Làm tốt! Tiếp tục luyện tập!",
+    "keepStudying": "Tiếp tục học, bạn sẽ tiến bộ!",
+    "tryAgain": "Thử lại",
+    "explanation": "Giải thích:"
   },
   "youtube": {
     "title": "Ghi chú YouTube",
@@ -482,6 +502,11 @@
     "clearAllHistory": "Xóa toàn bộ lịch sử",
     "deleted": "Đã xóa",
     "videoRemoved": "Đã xóa video khỏi lịch sử",
+    "clearHistoryConfirm": "Bạn có chắc chắn muốn xóa toàn bộ lịch sử? Hành động này không thể hoàn tác.",
+    "addWord": "Thêm từ",
+    "transcript": "Phụ đề",
+    "capturedItems": "Mục đã lưu",
+    "selectTextToCapture": "Chọn văn bản từ phụ đề để lưu từ và câu",
     "historyCleared": "Đã xóa lịch sử",
     "allVideosRemoved": "Tất cả video đã được xóa khỏi lịch sử",
     "confirmClearHistory": "Bạn có chắc muốn xóa toàn bộ lịch sử? Hành động này không thể hoàn tác."

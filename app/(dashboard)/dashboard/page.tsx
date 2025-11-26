@@ -442,7 +442,11 @@ export default function Dashboard() {
                               variant="outline"
                               className="text-xs px-1.5 py-0 h-5"
                             >
-                              {getDifficultyFromCefr(passage.level)}
+                              {(() => {
+                                const difficultyName = getDifficultyFromCefr(passage.level);
+                                const key = difficultyName.toLowerCase().replace(/\s+/g, "");
+                                return t(`reading.difficultyLevels.${key}.label`);
+                              })()}
                             </Badge>
                             <span className="text-xs text-muted-foreground">
                               •

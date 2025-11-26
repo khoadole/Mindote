@@ -149,8 +149,8 @@ export default function YouTubePage() {
     if (result.success) {
       await loadHistory();
       toast({
-        title: "Deleted",
-        description: "Video removed from history",
+        title: t("youtube.deleted"),
+        description: t("youtube.videoRemoved"),
       });
     }
   };
@@ -158,15 +158,15 @@ export default function YouTubePage() {
   const handleClearHistory = async () => {
     if (
       confirm(
-        "Are you sure you want to clear all history? This action cannot be undone."
+        t("youtube.clearHistoryConfirm")
       )
     ) {
       const result = await clearYouTubeHistoryAction();
       if (result.success) {
         await loadHistory();
         toast({
-          title: "History cleared",
-          description: "All videos have been removed from history",
+          title: t("youtube.historyCleared"),
+          description: t("youtube.allVideosRemoved"),
         });
       }
     }
@@ -184,11 +184,11 @@ export default function YouTubePage() {
             onClick={() => router.push("/dashboard")}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
+            {t("common.back")}
           </Button>
           <div className="flex items-center gap-2">
             <Youtube className="h-6 w-6 text-red-500" />
-            <h1 className="text-3xl font-bold">YouTube Notes</h1>
+            <h1 className="text-3xl font-bold">{t("youtube.title")}</h1>
           </div>
         </div>
 
@@ -203,12 +203,12 @@ export default function YouTubePage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Youtube className="h-5 w-5 text-red-500" />
-                    Get Video Transcript
+                    {t("youtube.getVideoTranscript")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="youtube-url">YouTube URL</Label>
+                    <Label htmlFor="youtube-url">{t("youtube.youtubeUrl")}</Label>
                     <Input
                       id="youtube-url"
                       value={url}
@@ -232,12 +232,12 @@ export default function YouTubePage() {
                       {isLoading ? (
                         <>
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                          Getting Transcript...
+                          {t("youtube.gettingTranscript")}
                         </>
                       ) : (
                         <>
                           <FileText className="h-4 w-4 mr-2" />
-                          Get Transcript
+                          {t("youtube.getTranscript")}
                         </>
                       )}
                     </Button>
@@ -249,12 +249,12 @@ export default function YouTubePage() {
                       <div className="flex items-start gap-3">
                         <AlertCircle className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                         <div className="space-y-2 text-sm">
-                          <p className="font-medium">How it works:</p>
+                          <p className="font-medium">{t("youtube.howItWorks")}</p>
                           <ul className="space-y-1 text-muted-foreground">
-                            <li>• Paste any YouTube URL (≤ 60 minutes)</li>
-                            <li>• Get the video transcript automatically</li>
-                            <li>• Select text to save words or sentences</li>
-                            <li>• Build your vocabulary from real content</li>
+                            <li>{t("youtube.pasteAnyUrl")}</li>
+                            <li>{t("youtube.getTranscriptAuto")}</li>
+                            <li>{t("youtube.selectTextToSaveWords")}</li>
+                            <li>{t("youtube.buildVocabulary")}</li>
                           </ul>
                         </div>
                       </div>
@@ -264,7 +264,7 @@ export default function YouTubePage() {
                   {/* Example URLs */}
                   <div className="space-y-2">
                     <p className="text-sm font-medium">
-                      Try these example URLs:
+                      {t("youtube.tryExamples")}
                     </p>
                     <div className="space-y-1">
                       {[
@@ -308,7 +308,7 @@ export default function YouTubePage() {
               <div className="flex items-center gap-2">
                 <Play className="h-5 w-5 text-green-500" />
                 <span className="text-sm text-muted-foreground">
-                  Transcript loaded
+                  {t("youtube.transcriptLoadedMsg")}
                 </span>
               </div>
               <Button
@@ -316,7 +316,7 @@ export default function YouTubePage() {
                 onClick={handleReset}
                 className="hover:scale-105 transition-transform"
               >
-                Load Different Video
+                {t("youtube.loadDifferentVideo")}
               </Button>
             </div>
 

@@ -166,7 +166,7 @@ export default function ReadingPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Sparkles className="h-5 w-5 text-primary" />
-                    Generate Passage
+                    {t("reading.generatePassage")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -174,22 +174,22 @@ export default function ReadingPage() {
                     <div className="text-center py-8">
                       <BookOpen className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                       <p className="text-sm text-muted-foreground mb-4">
-                        You need to create a collection with words first
+                        {t("reading.needCollectionFirst")}
                       </p>
                       <Button onClick={() => router.push("/collections")}>
-                        Go to Collections
+                        {t("collections.goToCollections")}
                       </Button>
                     </div>
                   ) : (
                     <>
                       <div className="space-y-2">
-                        <Label>Select Collection</Label>
+                        <Label>{t("reading.selectCollection")}</Label>
                         <Select
                           value={selectedCollection}
                           onValueChange={setSelectedCollection}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Choose a collection" />
+                            <SelectValue placeholder={t("reading.chooseCollection")} />
                           </SelectTrigger>
                           <SelectContent>
                             {collections.map((collection) => (
@@ -203,7 +203,7 @@ export default function ReadingPage() {
                                   />
                                   <span>{collection.name}</span>
                                   <span className="text-muted-foreground">
-                                    ({collection.wordCount || 0} words)
+                                    ({collection.wordCount || 0} {t("reading.words")})
                                   </span>
                                 </div>
                               </SelectItem>
@@ -213,35 +213,39 @@ export default function ReadingPage() {
                         {selectedCollectionData &&
                           (selectedCollectionData.wordCount || 0) < 5 && (
                             <p className="text-sm text-destructive">
-                              This collection needs at least 5 words to generate
-                              a passage
+                              {t("reading.needAtLeastWords", { count: 5 })}
                             </p>
                           )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label>Difficulty Level</Label>
+                        <Label>{t("reading.difficultyLevel")}</Label>
                         <Select value={level} onValueChange={setLevel}>
                           <SelectTrigger>
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            {DIFFICULTY_LEVELS.map((l) => (
+                          {DIFFICULTY_LEVELS.map((l) => {
+                            const key = l.value.toLowerCase().replace(/\s+/g, "");
+                            return (
                               <SelectItem key={l.value} value={l.value}>
                                 <div>
-                                  <div className="font-medium">{l.label}</div>
+                                  <div className="font-medium">
+                                    {t(`reading.difficultyLevels.${key}.label`)}
+                                  </div>
                                   <div className="text-xs text-muted-foreground">
-                                    {l.description}
+                                    {t(`reading.difficultyLevels.${key}.description`)}
                                   </div>
                                 </div>
                               </SelectItem>
-                            ))}
+                            );
+                          })}
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div className="space-y-2">
-                        <Label>Passage Type</Label>
+                        <Label>{t("reading.passageType")}</Label>
                         <Select
                           value={passageType}
                           onValueChange={setPassageType}
@@ -254,10 +258,10 @@ export default function ReadingPage() {
                               <SelectItem key={type.value} value={type.value}>
                                 <div>
                                   <div className="font-medium">
-                                    {type.label}
+                                    {t(`reading.passageTypes.${type.value}.label`)}
                                   </div>
                                   <div className="text-xs text-muted-foreground">
-                                    {type.description}
+                                    {t(`reading.passageTypes.${type.value}.description`)}
                                   </div>
                                 </div>
                               </SelectItem>
@@ -267,7 +271,7 @@ export default function ReadingPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label>Language</Label>
+                        <Label>{t("reading.language")}</Label>
                         <Select value={language} onValueChange={setLanguage}>
                           <SelectTrigger>
                             <SelectValue />
@@ -284,7 +288,7 @@ export default function ReadingPage() {
                           </SelectContent>
                         </Select>
                         <p className="text-xs text-muted-foreground">
-                          Language for the reading passage content
+                          {t("reading.languageDescription")}
                         </p>
                       </div>
 
@@ -300,18 +304,18 @@ export default function ReadingPage() {
                         {generateMutation.isPending ? (
                           <>
                             <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                            Generating...
+                            {t("reading.generating")}
                           </>
                         ) : (
                           <>
                             <Sparkles className="h-4 w-4 mr-2" />
-                            Generate Passage
+                            {t("reading.generatePassage")}
                           </>
                         )}
                       </Button>
 
                       <p className="text-xs text-muted-foreground text-center">
-                        AI will create a passage using your vocabulary words
+                        {t("reading.aiWillCreate")}
                       </p>
                     </>
                   )}
@@ -321,25 +325,23 @@ export default function ReadingPage() {
               {/* Info Card */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-base">How it works</CardTitle>
+                  <CardTitle className="text-base">{t("reading.howItWorks")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    📚 <strong>1. Choose a collection</strong> with at least 5
-                    words
+                    {t("reading.chooseCollectionStep", { count: 5 })}
                   </p>
                   <p>
-                    🎯 <strong>2. Select difficulty</strong> level (A1-C2)
+                    {t("reading.selectDifficultyStep")}
                   </p>
                   <p>
-                    ✨ <strong>3. AI generates</strong> a passage using your
-                    words
+                    {t("reading.aiGeneratesStep")}
                   </p>
                   <p>
-                    📖 <strong>4. Read & answer</strong> comprehension questions
+                    {t("reading.readAnswerStep")}
                   </p>
                   <p>
-                    🎉 <strong>5. Track your progress</strong> and improve!
+                    {t("reading.trackProgressStep")}
                   </p>
                 </CardContent>
               </Card>
@@ -354,7 +356,7 @@ export default function ReadingPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <FileText className="h-5 w-5" />
-                    Your Reading Passages
+                    {t("reading.yourPassages")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -374,10 +376,10 @@ export default function ReadingPage() {
                     <div className="text-center py-16">
                       <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
                       <h3 className="text-lg font-semibold mb-2">
-                        No reading passages yet
+                        {t("reading.noPassagesYet")}
                       </h3>
                       <p className="text-muted-foreground mb-6">
-                        Generate your first reading passage to start practicing!
+                        {t("reading.generateFirst")}
                       </p>
                     </div>
                   ) : (
@@ -402,11 +404,15 @@ export default function ReadingPage() {
                                 </h3>
                                 <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                                   <Badge variant="secondary">
-                                    {getDifficultyFromCefr(passage.level)}
+                                    {(() => {
+                                      const difficultyName = getDifficultyFromCefr(passage.level);
+                                      const key = difficultyName.toLowerCase().replace(/\s+/g, "");
+                                      return t(`reading.difficultyLevels.${key}.label`);
+                                    })()}
                                   </Badge>
                                   <span className="flex items-center gap-1">
                                     <FileText className="h-3 w-3" />
-                                    {passage.wordCount} words
+                                    {passage.wordCount} {t("reading.words")}
                                   </span>
                                   <span className="flex items-center gap-1">
                                     <Clock className="h-3 w-3" />
@@ -416,8 +422,7 @@ export default function ReadingPage() {
                                     passage._count.attempts > 0 && (
                                       <span className="flex items-center gap-1">
                                         <TrendingUp className="h-3 w-3" />
-                                        {passage._count.attempts} attempt
-                                        {passage._count.attempts > 1 ? "s" : ""}
+                                        {passage._count.attempts} {t("reading.attempts", { count: passage._count.attempts })}
                                       </span>
                                     )}
                                 </div>
@@ -436,7 +441,7 @@ export default function ReadingPage() {
                                 size="sm"
                                 className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
                               >
-                                Read →
+                                {t("reading.read")}
                               </Button>
                             </div>
                           </div>

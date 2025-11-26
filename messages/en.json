@@ -108,7 +108,8 @@
     "wordsInPassages": "{{count}} words used in passages",
     "yourLearningPath": "Your Learning Path",
     "viewAll": "View all",
-    "word": "word"
+    "word": "word",
+    "words": "words"
   },
   "collections": {
     "title": "Collections",
@@ -467,7 +468,26 @@
     "noPassagesYet": "No reading passages yet",
     "generateFirst": "Generate your first reading passage to start practicing!",
     "read": "Read →",
-    "attempts": "{{count}} attempt{{plural}}"
+    "attempts": "{{count}} attempt{{plural}}",
+    "loadingPassage": "Loading passage...",
+    "passageNotFound": "Passage not found",
+    "passageNotFoundDesc": "This reading passage doesn't exist or has been deleted.",
+    "backToReading": "Back to Reading",
+    "minRead": "min read",
+    "vocabularyWords": "vocabulary words",
+    "highlightedTip": "Highlighted words are from your vocabulary collection.",
+    "tipLabel": "Tip:",
+    "clickToSeeDefinition": "Click to see definition",
+    "comprehensionQuestions": "Comprehension Questions",
+    "submitting": "Submitting...",
+    "submitAnswers": "Submit Answers",
+    "score": "Score:",
+    "perfectScore": "Perfect score! Excellent work!",
+    "greatJob": "Great job! Almost perfect!",
+    "goodWork": "Good work! Keep practicing!",
+    "keepStudying": "Keep studying, you'll improve!",
+    "tryAgain": "Try Again",
+    "explanation": "Explanation:"
   },
   "youtube": {
     "title": "YouTube Notes",
@@ -501,9 +521,13 @@
     "clearAllHistory": "Clear All History",
     "deleted": "Deleted",
     "videoRemoved": "Video removed from history",
+    "clearHistoryConfirm": "Are you sure you want to clear all history? This action cannot be undone.",
     "historyCleared": "History cleared",
     "allVideosRemoved": "All videos have been removed from history",
-    "confirmClearHistory": "Are you sure you want to clear all history? This action cannot be undone."
+    "addWord": "Add Word",
+    "transcript": "Transcript",
+    "capturedItems": "Captured Items",
+    "selectTextToCapture": "Select text from the transcript to capture words and sentences"
   },
   "toast": {
     "success": "Success",

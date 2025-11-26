@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Plus } from "lucide-react";
 import { AddWordModal } from "@/components/modals/add-word-modal";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface CapturedItem {
   id: string;
@@ -24,6 +25,7 @@ export function TranscriptViewer({
   transcript,
   videoTitle,
 }: TranscriptViewerProps) {
+  const { t } = useTranslation();
   const [capturedItems, setCapturedItems] = useState<CapturedItem[]>([]);
   const [selectedText, setSelectedText] = useState("");
   const [showAddButton, setShowAddButton] = useState(false);
@@ -140,7 +142,7 @@ export function TranscriptViewer({
           onClick={handleAddWord}
         >
           <Plus className="h-3 w-3 mr-1" />
-          Add Word
+          {t("youtube.addWord")}
         </Button>
       )}
 
@@ -159,7 +161,7 @@ export function TranscriptViewer({
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <BookOpen className="h-5 w-5" />
-              Transcript
+              {t("youtube.transcript")}
               {videoTitle && (
                 <Badge variant="secondary" className="ml-2">
                   {videoTitle}
@@ -187,14 +189,14 @@ export function TranscriptViewer({
       <div className="lg:col-span-1">
         <Card>
           <CardHeader>
-            <CardTitle>Captured Items</CardTitle>
+            <CardTitle>{t("youtube.capturedItems")}</CardTitle>
           </CardHeader>
           <CardContent>
             {capturedItems.length === 0 ? (
               <div className="text-center py-8">
                 <BookOpen className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">
-                  Select text from the transcript to capture words and sentences
+                  {t("youtube.selectTextToCapture")}
                 </p>
               </div>
             ) : (

@@ -174,7 +174,8 @@ export default function YouTubePage() {
 
   return (
     <div className="p-6 min-h-screen bg-white dark:bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+      {/* Minimal gradient background - Light mode only - REMOVED for pure white */}
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */}
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* Header */}
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">

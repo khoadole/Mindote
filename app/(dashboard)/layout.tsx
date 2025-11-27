@@ -14,8 +14,7 @@ export default function DashboardLayout({
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+    <div className="flex h-screen bg-background overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
 
       {/* Mobile Sidebar Overlay */}
       {isMobileSidebarOpen && (

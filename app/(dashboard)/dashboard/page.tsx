@@ -126,28 +126,19 @@ export default function Dashboard() {
 
   return (
     <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
-
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-      </div>
+      
 
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* Welcome Header with Streak */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold mb-1">
+          {/* <div> */}
+            {/* <h1 className="text-2xl md:text-3xl font-bold mb-1 text-[#6365EF] dark:text-[#7C7EF5]">
               {t("dashboard.title")}
-            </h1>
-            <p className="text-sm md:text-base text-muted-foreground">
+            </h1> */}
+            {/* <p className="text-sm md:text-base text-muted-foreground">
               {t("dashboard.subtitle")}
-            </p>
-          </div>
+            </p> */}
+          {/* </div> */}
 
           {/* Daily Streak Badge - Compact */}
           <div className="flex items-center gap-3 bg-gradient-to-r from-orange-50 to-pink-50 dark:from-orange-950/30 dark:to-pink-950/30 border-2 border-orange-200/50 dark:border-orange-800/30 rounded-2xl px-6 py-3">
@@ -182,28 +173,23 @@ export default function Dashboard() {
           <div className="lg:col-span-2 space-y-6">
             {/* 🎯 HERO CARD: Create Reading Passage - PRIMARY CTA */}
             <div
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-400 via-orange-500 to-pink-500 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group"
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 to-indigo-600 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group"
               style={{ animationDelay: "100ms" }}
             >
-              {/* Background decoration */}
+              {/* Background decoration - Grid Pattern */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-
-              {/* Floating emoji decorations */}
-              <div className="absolute top-8 right-12 text-4xl animate-float opacity-80">
-                📖
-              </div>
-              <div
-                className="absolute top-20 right-32 text-3xl animate-float opacity-60"
-                style={{ animationDelay: "1s" }}
-              >
-                ✨
-              </div>
-              <div
-                className="absolute bottom-12 right-20 text-2xl animate-float opacity-70"
-                style={{ animationDelay: "0.5s" }}
-              >
-                🎯
-              </div>
+              
+              {/* Decorative floating circles */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-300/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "1s" }} />
+              
+              {/* Geometric shapes */}
+              <div className="absolute top-10 right-10 w-20 h-20 border-2 border-white/10 rounded-2xl rotate-12 animate-float opacity-40" />
+              <div className="absolute bottom-16 right-32 w-16 h-16 border-2 border-white/10 rounded-full animate-float opacity-30" style={{ animationDelay: "0.5s" }} />
+              <div className="absolute top-1/2 right-20 w-12 h-12 border-2 border-white/10 rounded-lg -rotate-12 animate-float opacity-25" style={{ animationDelay: "1.5s" }} />
+              
+              {/* Dot pattern accent */}
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-60" />
 
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Text Content */}
@@ -241,7 +227,7 @@ export default function Dashboard() {
 
                   <Button
                     size="lg"
-                    className="bg-white text-orange-600 hover:bg-white/90 font-bold text-lg px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 group-hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-white text-indigo-600 hover:bg-white/90 font-bold text-lg px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 group-hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
                     asChild={
                       passageMetrics.wordsReadyForPassages >= 5 ||
                       totalWords >= 5
@@ -260,17 +246,6 @@ export default function Dashboard() {
                       </span>
                     )}
                   </Button>
-                </div>
-
-                {/* Illustration - Dynamic character */}
-                <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative animate-bounce-subtle">
-                      <div className="text-[8rem] leading-none transform -rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                        📚
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -495,10 +470,10 @@ export default function Dashboard() {
 
             {/* Secondary: Revision Card */}
             <div
-              className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-2 border-purple-200/50 dark:border-purple-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
+              className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-2 border-indigo-200/50 dark:border-indigo-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
               style={{ animationDelay: "250ms" }}
             >
-              <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-100 mb-4 flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center gap-2">
                 <Zap className="h-4 w-4" />
                 {t("dashboard.quickRevision")}
               </h3>
@@ -509,7 +484,7 @@ export default function Dashboard() {
                     <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
                   ) : (
                     <>
-                      <div className="text-4xl font-bold text-purple-900 dark:text-purple-100">
+                      <div className="text-4xl font-bold text-indigo-900 dark:text-indigo-100">
                         {dueCount}
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -522,7 +497,7 @@ export default function Dashboard() {
                 </div>
 
                 <Button
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-xl disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-semibold rounded-xl disabled:opacity-50"
                   size="sm"
                   asChild={dueCount > 0}
                   disabled={dueCount === 0}

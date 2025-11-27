@@ -54,8 +54,7 @@ export default function CollectionsPage() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>{t("collections.loadingCollections")}</span>
@@ -82,22 +81,23 @@ export default function CollectionsPage() {
 
   return (
     <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+      {/* Minimal gradient background - Light mode only - REMOVED for pure white */}
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */}
 
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
+      {/* Subtle background decoration - REMOVED for pure white */}
+      {/* <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
         <div
           className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
           style={{ animationDelay: "1s" }}
         />
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">
         {/* Header */}
         <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">
           <div>
-            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
               {t("collections.title")}
             </h1>
             <p className="text-muted-foreground text-lg flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function CollectionsPage() {
               trigger={
                 <Button
                   variant="outline"
-                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-purple-600 hover:to-pink-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
+                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6] border-transparent text-white hover:text-white transition-all hover:scale-105 shadow-lg font-semibold"
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
@@ -232,14 +232,14 @@ export default function CollectionsPage() {
                         <div className="flex gap-2">
                           <Button
                             size="sm"
-                            className="flex-1 rounded-xl bg-white dark:bg-gradient-to-r dark:from-primary dark:to-accent text-purple-700 dark:text-white font-bold shadow-md hover:shadow-xl transition-all hover:scale-110 hover:bg-white border-2 border-white/50"
+                            className="flex-1 rounded-xl bg-white text-[#6365EF] font-bold shadow-md hover:shadow-xl transition-all hover:scale-110 hover:bg-white/95 border-2 border-white/50"
                           >
                             {t("collections.study")}
                           </Button>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="flex-1 rounded-xl border-2 border-white dark:border-border bg-white/10 dark:bg-transparent text-white dark:text-foreground font-semibold hover:bg-white hover:text-purple-700 dark:hover:bg-primary/10 dark:hover:text-white transition-all hover:scale-110 backdrop-blur-sm shadow-md hover:shadow-xl"
+                            className="flex-1 rounded-xl border-2 border-white bg-white/10 text-white font-semibold hover:bg-white hover:text-[#6365EF] transition-all hover:scale-110 backdrop-blur-sm shadow-md hover:shadow-xl"
                           >
                             {t("collections.quiz")}
                           </Button>

@@ -45,7 +45,7 @@ export default function ReadingPassageViewer() {
   // Show loading while fetching passages
   if (isLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen">
+      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
           <p className="text-muted-foreground">{t("reading.loadingPassage")}</p>
@@ -57,7 +57,7 @@ export default function ReadingPassageViewer() {
   // Show error if passage not found after loading
   if (!passage) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen">
+      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="text-center">
           <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
           <h2 className="text-xl font-semibold mb-2">{t("reading.passageNotFound")}</h2>
@@ -250,12 +250,12 @@ export default function ReadingPassageViewer() {
   const allAnswered = Object.keys(answers).length === passage.questions.length;
 
   return (
-    <div className="relative min-h-screen">
-      {/* Minimal gradient background - Light mode only */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+      {/* Minimal gradient background - Light mode only - REMOVED for pure white */ }
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */ }
 
-      {/* Subtle floating shapes - Light mode only */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
+      {/* Subtle floating shapes - Light mode only - REMOVED for pure white */ }
+      {/* <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
         <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
         <div
           className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
@@ -265,7 +265,7 @@ export default function ReadingPassageViewer() {
           className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
           style={{ animationDelay: "1s" }}
         />
-      </div>
+      </div> */ }
 
       {/* Content - positioned above background */}
       <div className="relative z-10 p-6">

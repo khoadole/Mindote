@@ -66,7 +66,7 @@
     "featureComingSoon": "Tính năng này sẽ có sớm."
   },
   "dashboard": {
-    "title": "Học qua ngữ cảnh 🎯",
+    "title": "Chào buổi sáng, {name}!",
     "subtitle": "Làm chủ từ vựng bằng cách tạo và đọc đoạn văn cá nhân hóa",
     "dayStreak": "Chuỗi {{count}} ngày",
     "startToday": "Bắt đầu hôm nay",

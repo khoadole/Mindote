@@ -143,9 +143,11 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Background Gradient - REMOVED for pure white */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" /> */}
       {/* Header */}
-      <header className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
+      <header className="bg-background border-b border-border/40">
         {" "}
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -451,32 +453,22 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
-        <div className="container mx-auto px-4 py-20 text-center">
-          <div
-            ref={ctaRef.ref}
-            className={`max-w-3xl mx-auto space-y-8 scroll-animate ${
-              ctaRef.isVisible ? "animate-scale-in" : ""
-            }`}
-          >
-            <h3 className="text-4xl font-bold text-foreground">
-              Ready to Transform Your Vocabulary?
-            </h3>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Join thousands of learners who have already improved their English
-              vocabulary with Mindote. Start your journey today—it's completely
-              free!
-            </p>
-            <Link href="/auth">
-              <Button
-                size="lg"
-                className="px-10 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
-              >
-                Create Your Free Account
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
+      <section className="py-20 px-4 relative overflow-hidden">
+        {/* <div className="absolute inset-0 bg-primary/5" /> - REMOVED for pure white */}
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Learning?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            Join thousands of students who are already learning smarter with
+            Mindote.
+          </p>
+          <Link href="/auth">
+            <Button size="lg" className="text-lg px-8 h-12 rounded-full">
+              Start Learning Now
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 

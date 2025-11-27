@@ -283,10 +283,8 @@ export function FlashcardPlayer({
   };
 
   return (
-    <>
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
-
-      <div className="max-w-2xl mx-auto space-y-6 relative z-10">
+    <div className="fixed inset-0 bg-white dark:bg-background overflow-auto flex items-center justify-center">
+      <div className="p-8 w-full max-w-2xl space-y-6 relative z-10">
         {/* Progress */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
@@ -404,6 +402,7 @@ export function FlashcardPlayer({
             variant="outline"
             onClick={handlePrevious}
             disabled={currentIndex === 0}
+            className="hover:bg-indigo-50 dark:hover:bg-indigo-950/20"
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
             {t("flashcardPlayer.previous")}
@@ -425,7 +424,7 @@ export function FlashcardPlayer({
                 variant="outline"
                 onClick={() => handleAnswer(3)}
                 disabled={isSubmitting}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 bg-[#6365EF] hover:bg-[#5254E0] text-white"
               >
                 <ThumbsUp className="h-4 w-4" />
                 {t("flashcardPlayer.good")}
@@ -434,7 +433,7 @@ export function FlashcardPlayer({
               <Button
                 onClick={() => handleAnswer(5)}
                 disabled={isSubmitting}
-                className="flex items-center gap-2 bg-green-600 hover:bg-green-700"
+                className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white"
               >
                 <Zap className="h-4 w-4" />
                 {t("flashcardPlayer.easy")}
@@ -446,6 +445,7 @@ export function FlashcardPlayer({
           <Button
             variant="outline"
             onClick={handleNext}
+            className="hover:bg-indigo-50 dark:hover:bg-indigo-950/20"
             disabled={currentIndex === shuffledWords.length - 1 && !isFlipped}
           >
             {t("flashcardPlayer.next")}
@@ -455,7 +455,7 @@ export function FlashcardPlayer({
 
         {/* Exit button */}
         <div className="text-center">
-          <Button variant="ghost" onClick={onExit}>
+          <Button variant="ghost" onClick={onExit} className="hover:bg-indigo-50 dark:hover:bg-indigo-950/20">
             {t("flashcardPlayer.exitStudySession")}
           </Button>
         </div>
@@ -512,6 +512,6 @@ export function FlashcardPlayer({
           </div>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 }

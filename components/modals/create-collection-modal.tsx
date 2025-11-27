@@ -76,7 +76,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
   const defaultTrigger = (
     <Button
       variant="outline"
-      className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm font-semibold"
+      className="flex items-center gap-2 rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all hover:scale-105 font-semibold"
     >
       <Plus className="h-4 w-4" />
       {t("collections.newCollection")}

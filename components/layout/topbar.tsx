@@ -153,8 +153,8 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
 
         <div className="flex items-center space-x-2 md:space-x-4 min-w-0 flex-1 md:flex-initial">
           <div className="min-w-0">
-            <h2 className="text-base md:text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent truncate">
-              {getGreeting()}, {getUserDisplayName(user)}! 👋
+            <h2 className="text-base md:text-xl font-bold text-[#6365EF] dark:text-[#7C7EF5] truncate">
+              {getGreeting()}, {getUserDisplayName(user)}!
             </h2>
             <p className="text-xs md:text-sm text-muted-foreground hidden sm:block">
               {t("topbar.subtitle")}

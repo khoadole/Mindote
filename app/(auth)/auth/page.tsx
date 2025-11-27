@@ -209,7 +209,7 @@ export default function AuthPage() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-background">
         <div className="flex items-center space-x-2">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>Loading...</span>
@@ -219,10 +219,10 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Header */}
-      <header className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-y border-border/40">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity"

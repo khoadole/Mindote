@@ -252,24 +252,7 @@ export function QuizPlayer({
   };
 
   return (
-    <div className="relative min-h-screen">
-      {/* Minimal gradient background - Light mode only */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
-
-      {/* Subtle floating shapes - Light mode only */}
-      {/* <div className="absolute inset-0 pointer-events-none dark:hidden overflow-hidden opacity-40">
-        <div className="absolute top-[10%] right-[15%] w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl animate-float" />
-        <div
-          className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-2xl animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="absolute top-[50%] left-[50%] w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full blur-2xl animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-      </div> */}
-      <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
-
+    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
       {/* Content - positioned above background */}
       <div className="relative z-10 max-w-2xl mx-auto space-y-6 py-8">
         {/* Progress */}

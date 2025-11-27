@@ -200,18 +200,15 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     isCollapsed ? "flex justify-center" : ""
                   )}
                 >
-                  {/* Active indicator */}
-                  {isActive && !isCollapsed && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-r-full animate-pulse" />
-                  )}
+                  {/* Active indicator removed - user request */}
 
                   <Button
                     variant="ghost"
                     className={cn(
                       "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
                       isActive
-                        ? "bg-gradient-to-r from-primary/20 to-accent/20 text-gray-900 dark:text-white shadow-lg shadow-primary/20"
-                        : "hover:bg-primary/10 dark:hover:bg-white/5 hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white",
+                        ? "bg-[#6365EF] text-white shadow-lg shadow-[#6365EF]/30 hover:bg-[#6365EF] hover:text-white dark:hover:bg-[#6365EF] dark:hover:text-white"
+                        : "hover:bg-indigo-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
                         : "justify-start h-12 pl-6"
@@ -221,14 +218,14 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     <div
                       className={cn(
                         "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-                        "bg-gradient-to-r from-primary/10 to-accent/10"
+                        "bg-[#6365EF]/10"
                       )}
                     />
 
                     <item.icon
                       className={cn(
                         "h-5 w-5 transition-all duration-300 relative z-10",
-                        isActive ? item.color : "",
+                        isActive ? "text-white" : item.color,
                         !isCollapsed && "mr-3"
                       )}
                     />
@@ -240,7 +237,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                       >
                         {t(`sidebar.${item.name.toLowerCase().replace(/ /g, "")}`)}  
                         {item.badge && (
-                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r from-primary to-accent rounded text-white">
+                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
                             {t("sidebar.new")}
                           </span>
                         )}
@@ -295,9 +292,9 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   variant="default"
                   onClick={() => setIsUpgradeModalOpen(true)}
                   className={cn(
-                    "w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600",
-                    "text-white font-medium shadow-lg shadow-purple-500/30 transition-all duration-300 rounded-xl",
-                    "hover:scale-105 hover:shadow-xl hover:shadow-purple-500/40",
+                    "w-full bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6]",
+                    "text-white font-medium shadow-lg shadow-[#6365EF]/30 transition-all duration-300 rounded-xl",
+                    "hover:scale-105 hover:shadow-xl hover:shadow-[#6365EF]/40",
                     isCollapsed
                       ? "justify-center h-12 w-12 p-0"
                       : "justify-start h-12"
@@ -326,8 +323,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               className={cn(
                 "w-full transition-all duration-300 rounded-xl",
                 pathname === "/settings"
-                  ? "bg-primary/20 dark:bg-white/10 text-gray-900 dark:text-white"
-                  : "hover:bg-primary/10 dark:hover:bg-white/5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white",
+                  ? "bg-[#6365EF] text-white shadow-lg shadow-[#6365EF]/30 hover:bg-[#6365EF] hover:text-white dark:hover:bg-[#6365EF] dark:hover:text-white"
+                  : "hover:bg-indigo-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
                 isCollapsed
                   ? "justify-center h-12 w-12 p-0"
                   : "justify-start h-12"

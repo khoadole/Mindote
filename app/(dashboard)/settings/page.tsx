@@ -55,8 +55,7 @@ export default function SettingsPage() {
   // Don't block the UI if settings is just disabled (user not logged in)
   if (settingsLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen">
-        <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" />
+      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>{t("settings.loadingSettings")}</span>
@@ -90,41 +89,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-6 min-h-screen bg-white dark:bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none dark:hidden">
-        {/* Modern mesh gradient - very trendy in 2024/2025 */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            background: `
-        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%)
-      `,
-          }}
-        />
-
-        {/* Subtle animated orbs */}
-        <div
-          className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: "8s" }}
-        />
-        <div
-          className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: "7s", animationDelay: "1s" }}
-        />
-      </div>
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.03] pointer-events-none">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-pink-200/20 dark:from-primary dark:to-primary rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-blue-200/20 dark:from-accent dark:to-accent rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-      </div>
-
+    <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
       <div className="max-w-6xl mx-auto space-y-6 relative z-10">
         {/* Header */}
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">

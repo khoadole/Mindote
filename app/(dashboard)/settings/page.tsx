@@ -10,6 +10,7 @@ import {
 } from "@/hooks/use-settings";
 import { useTheme } from "@/lib/theme-provider";
 import { useTranslation } from "@/lib/i18n-provider";
+import { useAuth } from "@/lib/auth";
 import { SUPPORTED_LANGUAGES } from "@/lib/languages";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ import {
   Palette,
   Globe,
   Loader2,
+  LogOut,
 } from "lucide-react";
 
 export default function SettingsPage() {
@@ -44,6 +46,7 @@ export default function SettingsPage() {
   const updateSettingsMutation = useUpdateSettings();
   const { theme, setTheme } = useTheme();
   const { t, setLanguage } = useTranslation();
+  const { signOut } = useAuth();
   const { toast } = useToast();
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
@@ -86,6 +89,17 @@ export default function SettingsPage() {
       title: t("settings.comingSoon"),
       description: t("settings.featureComingSoon"),
     });
+  };
+
+  const handleSignOut = async () => {
+    try {
+      // Await sign out before redirecting
+      await signOut();
+      // Hard redirect to clear all cache
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   };
 
   return (
@@ -406,6 +420,19 @@ export default function SettingsPage() {
                     <kbd className="px-2 py-1 bg-muted rounded text-xs">/</kbd>
                   </div>
                 </div>
+              </div>
+
+              <Separator />
+
+              <div className="space-y-2">
+                <Button
+                  onClick={handleSignOut}
+                  variant="destructive"
+                  className="w-full gap-2 hover:scale-105 transition-transform"
+                >
+                  <LogOut className="h-4 w-4" />
+                  {t("topbar.signOut")}
+                </Button>
               </div>
             </CardContent>
           </Card>

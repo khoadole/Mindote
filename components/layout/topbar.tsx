@@ -2,12 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Search, User, LogOut, X, Menu } from "lucide-react";
+import { Search, User, X, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
+import { useUserStats } from "@/hooks/use-settings";
 import { useAuth } from "@/lib/auth";
 import { cn, getUserDisplayName } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n-provider";
@@ -28,6 +29,8 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
 
   const { data: words = [] } = useAllWords();
   const { data: collections = [] } = useCollections();
+  const { data: stats } = useUserStats();
+  const currentStreak = stats?.currentStreak || 0;
 
   // Filter words based on search query
   const filteredWords = searchQuery.trim()
@@ -117,17 +120,6 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
     setSearchQuery("");
     setIsOpen(false);
     setSelectedIndex(-1);
-  };
-
-  const handleSignOut = async () => {
-    try {
-      // Await sign out before redirecting
-      await signOut();
-      // Hard redirect to clear all cache
-      window.location.href = "/";
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
   };
 
   // Get greeting based on time
@@ -243,6 +235,16 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
               </div>
             )}
           </div>
+          
+          {/* Streak Badge */}
+          <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200/50 dark:border-orange-800/30 text-orange-600 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors">
+            <span className="text-lg leading-none">🔥</span>
+            <span className="font-bold text-sm">
+              {currentStreak > 0
+                ? t("dashboard.dayStreak", { count: currentStreak })
+                : t("dashboard.startToday")}
+            </span>
+          </div>
 
           {/* User section */}
           <div className="flex items-center gap-2 md:gap-3">
@@ -252,16 +254,6 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                 {getUserDisplayName(user)}
               </span>
             </div>
-
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleSignOut}
-              className="gap-2 rounded-xl hover:bg-destructive/10 hover:text-destructive transition-colors h-10 px-3"
-            >
-              <LogOut className="h-4 w-4" />
-              <span className="hidden md:inline">{t("topbar.signOut")}</span>
-            </Button>
           </div>
         </div>
       </div>

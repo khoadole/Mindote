@@ -129,43 +129,7 @@ export default function Dashboard() {
       
 
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-        {/* Welcome Header with Streak */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          {/* <div> */}
-            {/* <h1 className="text-2xl md:text-3xl font-bold mb-1 text-[#6365EF] dark:text-[#7C7EF5]">
-              {t("dashboard.title")}
-            </h1> */}
-            {/* <p className="text-sm md:text-base text-muted-foreground">
-              {t("dashboard.subtitle")}
-            </p> */}
-          {/* </div> */}
 
-          {/* Daily Streak Badge - Compact */}
-          <div className="flex items-center gap-3 bg-gradient-to-r from-orange-50 to-pink-50 dark:from-orange-950/30 dark:to-pink-950/30 border-2 border-orange-200/50 dark:border-orange-800/30 rounded-2xl px-6 py-3">
-            <div className="relative">
-              {currentStreak > 0 ? (
-                <>
-                  <div className="text-3xl">🔥</div>
-                  <div className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                    {currentStreak}
-                  </div>
-                </>
-              ) : (
-                <div className="text-3xl opacity-50">💤</div>
-              )}
-            </div>
-            <div>
-              <div className="text-sm font-semibold text-orange-900 dark:text-orange-100">
-                {currentStreak > 0
-                  ? t("dashboard.dayStreak", { count: currentStreak })
-                  : t("dashboard.startToday")}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {currentStreak > 0 ? t("dashboard.keepGoing") : t("dashboard.beginJourney")}
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Main Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

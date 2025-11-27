@@ -179,14 +179,12 @@ export default function Dashboard() {
               {/* Background decoration - Grid Pattern */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
               
+              {/* Large decorative yellow circle in top-right corner */}
+              <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-25" style={{ backgroundColor: "#FFD93D" }} />
+              
               {/* Decorative floating circles */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-300/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "1s" }} />
-              
-              {/* Geometric shapes */}
-              <div className="absolute top-10 right-10 w-20 h-20 border-2 border-white/10 rounded-2xl rotate-12 animate-float opacity-40" />
-              <div className="absolute bottom-16 right-32 w-16 h-16 border-2 border-white/10 rounded-full animate-float opacity-30" style={{ animationDelay: "0.5s" }} />
-              <div className="absolute top-1/2 right-20 w-12 h-12 border-2 border-white/10 rounded-lg -rotate-12 animate-float opacity-25" style={{ animationDelay: "1.5s" }} />
               
               {/* Dot pattern accent */}
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-60" />
@@ -194,12 +192,12 @@ export default function Dashboard() {
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Text Content */}
                 <div className="flex-1 text-white space-y-4">
-                  <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-2">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-2 text-white" style={{ backgroundColor: "#383a42" }}>
                     <Sparkles className="h-4 w-4" />
                     {t("dashboard.yourLearningPath")}
                   </div>
 
-                  <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold leading-tight text-white">
                     {t("dashboard.createReadingPassage")}
                   </h2>
 
@@ -212,13 +210,13 @@ export default function Dashboard() {
                   />
 
                   {/* Mini Stats */}
-                  <div className="flex flex-wrap gap-4 text-sm"
+                  <div className="flex flex-wrap gap-4 text-sm text-white"
                     dangerouslySetInnerHTML={{
                       __html: `
-                        <div class="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl" style="background-color: #383a42">
                           ${t("dashboard.passagesCreated", { count: passageMetrics.totalPassages })}
                         </div>
-                        <div class="flex items-center gap-2 bg-white/15 backdrop-blur-sm px-3 py-2 rounded-xl">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl" style="background-color: #383a42">
                           ${t("dashboard.completed", { count: passageMetrics.completedPassages })}
                         </div>
                       `
@@ -227,7 +225,8 @@ export default function Dashboard() {
 
                   <Button
                     size="lg"
-                    className="bg-white text-indigo-600 hover:bg-white/90 font-bold text-lg px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 group-hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="font-bold text-lg px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 group-hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed text-gray-900"
+                    style={{ backgroundColor: "#FFD93D" }}
                     asChild={
                       passageMetrics.wordsReadyForPassages >= 5 ||
                       totalWords >= 5
@@ -278,8 +277,8 @@ export default function Dashboard() {
                     count={stats?.newWords || 0}
                     total={totalWords}
                     icon={Sparkles}
-                    gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
-                    iconColor="bg-blue-500"
+                    gradient="bg-[#86EFAC]"
+                    iconColor="bg-[#86EFAC]"
                     description={t("dashboard.newDescription")}
                     onClick={() => {
                       console.log("Navigate to new words");
@@ -291,8 +290,8 @@ export default function Dashboard() {
                     count={stats?.learningWords || 0}
                     total={totalWords}
                     icon={GraduationCap}
-                    gradient="bg-gradient-to-br from-yellow-500 to-orange-500"
-                    iconColor="bg-yellow-500"
+                    gradient="bg-[#FCD34D]"
+                    iconColor="bg-[#FCD34D]"
                     description={t("dashboard.learningDescription")}
                     onClick={() => {
                       console.log("Navigate to learning words");
@@ -304,8 +303,8 @@ export default function Dashboard() {
                     count={stats?.familiarWords || 0}
                     total={totalWords}
                     icon={Award}
-                    gradient="bg-gradient-to-br from-green-500 to-emerald-500"
-                    iconColor="bg-green-500"
+                    gradient="bg-[#FF9F7C]"
+                    iconColor="bg-[#FF9F7C]"
                     description={t("dashboard.familiarDescription")}
                     onClick={() => {
                       console.log("Navigate to familiar words");
@@ -317,8 +316,8 @@ export default function Dashboard() {
                     count={stats?.masterWords || 0}
                     total={totalWords}
                     icon={Trophy}
-                    gradient="bg-gradient-to-br from-purple-500 to-pink-500"
-                    iconColor="bg-purple-500"
+                    gradient="bg-[#C4B5FD]"
+                    iconColor="bg-[#C4B5FD]"
                     description={t("dashboard.masterDescription")}
                     onClick={() => {
                       console.log("Navigate to master words");

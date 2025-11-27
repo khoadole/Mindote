@@ -26,62 +26,63 @@ export function WordStageCard({
   description,
 }: WordStageCardProps) {
   const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+  
+  // Extract hex color from gradient/iconColor prop
+  const hexColor = gradient.match(/#[0-9A-Fa-f]{6}/)?.[0] || iconColor.match(/#[0-9A-Fa-f]{6}/)?.[0];
+  
+  const backgroundColor = hexColor || '#E5E5E5';
 
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer border-2 hover:border-primary/50 aspect-square",
+        "group relative overflow-hidden transition-all duration-300 cursor-pointer border-0 aspect-square",
         onClick && "hover:scale-105"
       )}
       onClick={onClick}
+      style={{ 
+        backgroundColor,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      }}
     >
-      {/* Gradient Background */}
-      <div
-        className={cn(
-          "absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity",
-          gradient
-        )}
-      />
-
       <CardContent className="relative p-4 h-full flex flex-col justify-between">
         {/* Header with Icon */}
         <div className="flex items-center justify-between">
           <div
-            className={cn(
-              "p-2 rounded-xl transition-transform group-hover:scale-110",
-              iconColor
-            )}
+            className="p-2.5 rounded-full transition-transform group-hover:scale-110"
+            style={{ backgroundColor: hexColor }}
           >
-            <Icon className="h-5 w-5 text-white" />
+            <Icon className="h-6 w-6 text-gray-900" strokeWidth={2} />
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-sm font-semibold text-muted-foreground">{title}</h3>
+        <h3 className="text-base font-semibold text-gray-700">{title}</h3>
 
         {/* Word Count */}
         <div>
           <div className="flex items-baseline gap-1.5">
-            <p className="text-3xl font-bold">{count}</p>
-            <p className="text-xs text-muted-foreground">words</p>
+            <p className="text-4xl font-bold text-gray-900">{count}</p>
+            <p className="text-xs text-gray-600">words</p>
           </div>
         </div>
 
         {/* Description - Only show on hover, keep card size */}
-        <div className="h-8 overflow-hidden">
-          {description && (
-            <p className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
-              {description}
-            </p>
-          )}
-        </div>
+        <div className="flex flex-col gap-0.5">
+          <div className="h-8 overflow-hidden">
+            {description && (
+              <p className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                {description}
+              </p>
+            )}
+          </div>
 
-        {/* Progress Bar */}
-        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-          <div
-            className={cn("h-full transition-all duration-500", gradient)}
-            style={{ width: `${percentage}%` }}
-          />
+          {/* Progress Bar */}
+          <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full transition-all duration-500 bg-gray-800"
+              style={{ width: `${percentage}%` }}
+            />
+          </div>
         </div>
       </CardContent>
     </Card>

@@ -26,13 +26,13 @@ import { Plus, Loader2 } from "lucide-react";
 import { DIFFICULTY_LEVELS } from "@/lib/difficulty-levels";
 
 const colorOptions = [
-  { name: "Primary", value: "bg-primary" },
-  { name: "Accent", value: "bg-accent" },
-  { name: "Chart 1", value: "bg-chart-1" },
-  { name: "Chart 2", value: "bg-chart-2" },
-  { name: "Chart 3", value: "bg-chart-3" },
-  { name: "Chart 4", value: "bg-chart-4" },
-  { name: "Chart 5", value: "bg-chart-5" },
+  { name: "Mint Green", value: "#10B981" }, // Emerald 500
+  { name: "Sunny Yellow", value: "#F59E0B" }, // Amber 500
+  { name: "Coral Peach", value: "#F97316" }, // Orange 500
+  { name: "Lavender", value: "#8B5CF6" }, // Violet 500
+  { name: "Sky Blue", value: "#3B82F6" }, // Blue 500
+  { name: "Soft Pink", value: "#EC4899" }, // Pink 500
+  { name: "Lime Green", value: "#84CC16" }, // Lime 500
 ];
 
 interface CreateCollectionModalProps {
@@ -43,7 +43,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const [selectedColor, setSelectedColor] = useState("bg-primary");
+  const [selectedColor, setSelectedColor] = useState(colorOptions[0].value);
   const [difficultyLevel, setDifficultyLevel] = useState<string>("");
 
   const createCollectionMutation = useCreateCollection();
@@ -110,19 +110,18 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
 
           <div className="space-y-2">
             <Label>{t("collections.colorLabel")}</Label>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-7 gap-2">
               {colorOptions.map((color) => (
                 <button
                   key={color.value}
                   type="button"
                   onClick={() => setSelectedColor(color.value)}
-                  className={`h-10 rounded-md border-2 transition-all ${
-                    color.value
-                  } ${
+                  className={`h-8 w-8 rounded-full border-2 transition-all ${
                     selectedColor === color.value
-                      ? "border-foreground scale-105"
-                      : "border-border"
+                      ? "border-foreground scale-110 ring-2 ring-offset-2 ring-offset-background ring-foreground/20"
+                      : "border-transparent hover:scale-105"
                   }`}
+                  style={{ backgroundColor: color.value }}
                   title={color.name}
                 />
               ))}

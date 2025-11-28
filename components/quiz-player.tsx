@@ -240,7 +240,7 @@ export function QuizPlayer({
               <Button
                 onClick={() => handleAnswer(userAnswer)}
                 disabled={!userAnswer.trim()}
-                className="w-full"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
               >
                 {t("quizPlayer.submitAnswer")}
               </Button>
@@ -317,7 +317,7 @@ export function QuizPlayer({
                   </p>
                 </div>
 
-                <Button onClick={handleNext} className="mt-4">
+                <Button onClick={handleNext} className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
                   {currentIndex < questions.length - 1
                     ? t("quizPlayer.nextQuestion")
                     : t("quizPlayer.finishQuiz")}
@@ -329,7 +329,7 @@ export function QuizPlayer({
 
         {/* Exit button */}
         <div className="text-center">
-          <Button variant="ghost" onClick={onExit}>
+          <Button variant="ghost" onClick={onExit} className="bg-destructive/10 hover:bg-destructive/20 text-destructive rounded-full">
             {t("quizPlayer.exitQuiz")}
           </Button>
         </div>
@@ -380,7 +380,7 @@ export function QuizPlayer({
                   setCurrentIndex(0);
                   setShowSummary(false);
                 }}
-                className="flex-1"
+                className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
                 {t("quizPlayer.retry")}

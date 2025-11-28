@@ -195,7 +195,10 @@ export default function CollectionDetailPage() {
           </Button>
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <div
-              className={`h-4 w-4 rounded-full shrink-0 ${collection.color}`}
+              className={`h-4 w-4 rounded-full shrink-0 ${
+                !collection.color?.startsWith("#") ? collection.color : ""
+              }`}
+              style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
             />
             <h1 className="text-3xl font-bold truncate">{collection.name}</h1>
           </div>
@@ -203,11 +206,13 @@ export default function CollectionDetailPage() {
             <RenameCollectionModal
               collectionId={collection.id}
               currentName={collection.name}
+              currentColor={collection.color}
             />
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               onClick={handleDeleteCollection}
+              className="bg-destructive/10 hover:bg-destructive/20 text-destructive dark:bg-destructive/20 dark:hover:bg-destructive/30 rounded-full border-0"
             >
               <Trash2 className="h-4 w-4 mr-2" />
               {t("collections.delete")}
@@ -293,8 +298,8 @@ export default function CollectionDetailPage() {
             collectionId={collectionId}
             trigger={
               <Button
-                variant="outline"
-                className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform"
+                variant="default"
+                className="flex items-center gap-2 rounded-full hover:scale-105 transition-transform"
                 data-shortcut="add-word"
               >
                 <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
@@ -376,13 +381,13 @@ export default function CollectionDetailPage() {
                 {totalPages > 1 && (
                   <div className="flex items-center justify-center gap-2 mt-8">
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
                       onClick={() =>
                         setCurrentPage((prev) => Math.max(prev - 1, 1))
                       }
                       disabled={currentPage === 1}
-                      className="rounded-xl"
+                      className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
                     >
                       <ChevronLeft className="h-4 w-4 mr-1" />
                       {t("collections.previous")}
@@ -394,11 +399,11 @@ export default function CollectionDetailPage() {
                           <Button
                             key={page}
                             variant={
-                              currentPage === page ? "default" : "outline"
+                              currentPage === page ? "default" : "ghost"
                             }
                             size="sm"
                             onClick={() => setCurrentPage(page)}
-                            className="rounded-xl min-w-[40px]"
+                            className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
                           >
                             {page}
                           </Button>
@@ -407,13 +412,13 @@ export default function CollectionDetailPage() {
                     </div>
 
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
                       onClick={() =>
                         setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                       }
                       disabled={currentPage === totalPages}
-                      className="rounded-xl"
+                      className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
                     >
                       {t("collections.next")}
                       <ChevronRight className="h-4 w-4 ml-1" />

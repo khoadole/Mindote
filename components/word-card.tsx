@@ -108,8 +108,9 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                 <div className="flex items-center gap-2 mt-auto">
                   <div
                     className={`h-2 w-2 rounded-full shrink-0 ${
-                      collection.color || "bg-primary"
+                      !collection.color?.startsWith("#") ? (collection.color || "bg-primary") : ""
                     }`}
+                    style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
                   />
                   <Badge
                     variant="secondary"
@@ -227,8 +228,9 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               <div className="flex items-center gap-2 p-3 rounded-xl bg-card">
                 <div
                   className={`h-8 w-8 rounded-lg ${
-                    collection.color || "bg-primary"
+                    !collection.color?.startsWith("#") ? (collection.color || "bg-primary") : ""
                   } flex items-center justify-center`}
+                  style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
                 >
                   <Layers className="h-4 w-4 text-white" />
                 </div>

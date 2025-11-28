@@ -541,8 +541,32 @@
   },
   "components": {
     "addWordModal": {
-      "noCollections": "Please create a collection first",
-      "enterTermFirst": "Please enter a term first",
+      "title": "Add New Word",
+      "aiAutoFill": "AI Auto-fill",
+      "generating": "Generating...",
+      "dailyLimitReached": "You've used all free AI fills today. Upgrade to premium for unlimited access!",
+      "term": "Term",
+      "termPlaceholder": "Enter the word or phrase",
+      "definition": "Definition",
+      "definitionPlaceholder": "Enter the definition",
+      "example": "Example",
+      "examplePlaceholder": "Enter an example sentence",
+      "phonetic": "Phonetic",
+      "partOfSpeech": "Part of Speech (Optional)",
+      "selectType": "Select type",
+      "custom": "Custom...",
+      "customPlaceholder": "Or type custom part of speech",
+      "collection": "Collection",
+      "selectCollection": "Select a collection",
+      "noCollectionsAvailable": "No Collections Available",
+      "noCollectionsDesc": "Please create a collection first before adding words.",
+      "pleaseCreateCollection": "Please create a collection first",
+      "goToCollections": "Go to Collections",
+      "cancel": "Cancel",
+      "adding": "Adding...",
+      "addWord": "Add Word",
+      "enterTermFirst": "Enter a term first",
+      "enterTermDesc": "Please enter a word or phrase to use AI Auto-fill",
       "partsOfSpeech": {
         "noun": "Noun",
         "pronoun": "Pronoun",
@@ -571,7 +595,11 @@
       "subscriptionResumed": "Subscription resumed successfully",
       "subscriptionPaused": "Subscription paused successfully",
       "failedToUpdate": "Failed to update subscription",
-      "failedToCheckout": "Failed to start checkout. Please try again."
+      "failedToCheckout": "Failed to start checkout. Please try again.",
+      "redirectingToCheckout": "Redirecting to checkout...",
+      "preparingCheckout": "Please wait while we prepare your checkout session.",
+      "checkoutReady": "Checkout ready!",
+      "redirectingToPayment": "Redirecting you to the payment page..."
     }
   },
   "hooks": {
@@ -625,43 +653,6 @@
       "speechError": "Speech Error",
       "errorOccurred": "An error occurred while speaking"
     }
-  },
-  "components": {
-    "addWordModal": {
-      "noCollections": "No Collections Available",
-      "noCollectionsDesc": "Please create a collection first before adding words.",
-      "enterTermFirst": "Enter a term first",
-      "enterTermDesc": "Please enter a word or phrase to use AI Auto-fill",
-      "partsOfSpeech": {
-        "noun": "Noun",
-        "pronoun": "Pronoun",
-        "verb": "Verb",
-        "adjective": "Adjective",
-        "adverb": "Adverb",
-        "preposition": "Preposition",
-        "conjunction": "Conjunction",
-        "interjection": "Interjection"
-      }
-    },
-    "flashcardPlayer": {
-      "error": "Error",
-      "failedToProcess": "Failed to process review.",
-      "errorSavingProgress": "Error saving progress",
-      "failedToSaveReviews": "Failed to save your reviews. Please try again.",
-      "progressSaved": "Progress saved! ✨",
-      "failedToSaveProgress": "Failed to save your progress."
-    },
-    "billing": {
-      "error": "Error",
-      "redirectingToCheckout": "Redirecting to checkout...",
-      "preparingCheckout": "Please wait while we prepare your checkout session.",
-      "checkoutReady": "Checkout ready!",
-      "redirectingToPayment": "Redirecting you to the payment page...",
-      "failedToOpenPortal": "Failed to open customer portal",
-      "success": "Success",
-      "subscriptionCancelled": "Subscription cancelled successfully",
-      "subscriptionResumed": "Subscription resumed successfully",
-      "subscriptionPaused": "Subscription paused successfully"
-    }
   }
+
 }

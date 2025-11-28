@@ -15,33 +15,55 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Edit, Loader2 } from "lucide-react";
 
+const colorOptions = [
+  { name: "Mint Green", value: "#10B981" }, // Emerald 500
+  { name: "Sunny Yellow", value: "#F59E0B" }, // Amber 500
+  { name: "Coral Peach", value: "#F97316" }, // Orange 500
+  { name: "Lavender", value: "#8B5CF6" }, // Violet 500
+  { name: "Sky Blue", value: "#3B82F6" }, // Blue 500
+  { name: "Soft Pink", value: "#EC4899" }, // Pink 500
+  { name: "Lime Green", value: "#84CC16" }, // Lime 500
+];
+
 interface RenameCollectionModalProps {
   collectionId: string;
   currentName: string;
+  currentColor?: string;
   trigger?: React.ReactNode;
 }
 
 export function RenameCollectionModal({
   collectionId,
   currentName,
+  currentColor,
   trigger,
 }: RenameCollectionModalProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState(currentName);
+  const [selectedColor, setSelectedColor] = useState(currentColor || colorOptions[0].value);
   const updateCollectionMutation = useUpdateCollection();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim() || name.trim() === currentName) {
+    if (!name.trim()) {
+      return;
+    }
+
+    // Check if anything changed
+    if (name.trim() === currentName && selectedColor === currentColor) {
+      setOpen(false);
       return;
     }
 
     updateCollectionMutation.mutate(
       {
         collectionId,
-        data: { name: name.trim() },
+        data: { 
+          name: name.trim(),
+          color: selectedColor
+        },
       },
       {
         onSuccess: () => {
@@ -52,7 +74,11 @@ export function RenameCollectionModal({
   };
 
   const defaultTrigger = (
-    <Button variant="outline" size="sm">
+    <Button
+      variant="ghost"
+      size="sm"
+      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full border-0"
+    >
       <Edit className="h-4 w-4 mr-2" />
       {t("collections.rename")}
     </Button>
@@ -63,7 +89,7 @@ export function RenameCollectionModal({
       <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
-          <DialogTitle>{t("collections.renameCollection")}</DialogTitle>
+          <DialogTitle>{t("collections.editCollection")}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -85,6 +111,26 @@ export function RenameCollectionModal({
             </p>
           </div>
 
+          <div className="space-y-2">
+            <Label>{t("collections.colorLabel")}</Label>
+            <div className="grid grid-cols-7 gap-2">
+              {colorOptions.map((color) => (
+                <button
+                  key={color.value}
+                  type="button"
+                  onClick={() => setSelectedColor(color.value)}
+                  className={`h-8 w-8 rounded-full border-2 transition-all ${
+                    selectedColor === color.value
+                      ? "border-foreground scale-110 ring-2 ring-offset-2 ring-offset-background ring-foreground/20"
+                      : "border-transparent hover:scale-105"
+                  }`}
+                  style={{ backgroundColor: color.value }}
+                  title={color.name}
+                />
+              ))}
+            </div>
+          </div>
+
           <div className="flex justify-end space-x-2 pt-4">
             <Button
               type="button"
@@ -98,7 +144,7 @@ export function RenameCollectionModal({
               {updateCollectionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  {t("collections.saving")}
+                  {t("common.saving")}
                 </>
               ) : (
                 t("common.save")

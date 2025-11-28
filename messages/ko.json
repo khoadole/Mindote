@@ -514,5 +514,45 @@
     "deleted": "삭제되었습니다",
     "updated": "업데이트되었습니다",
     "created": "생성되었습니다"
+  },
+  "components": {
+    "addWordModal": {
+      "title": "Add New Word",
+      "aiAutoFill": "AI Auto-fill",
+      "generating": "Generating...",
+      "dailyLimitReached": "You've used all free AI fills today. Upgrade to premium for unlimited access!",
+      "term": "Term",
+      "termPlaceholder": "Enter the word or phrase",
+      "definition": "Definition",
+      "definitionPlaceholder": "Enter the definition",
+      "example": "Example",
+      "examplePlaceholder": "Enter an example sentence",
+      "phonetic": "Phonetic",
+      "partOfSpeech": "Part of Speech (Optional)",
+      "selectType": "Select type",
+      "custom": "Custom...",
+      "customPlaceholder": "Or type custom part of speech",
+      "collection": "Collection",
+      "selectCollection": "Select a collection",
+      "noCollectionsAvailable": "No Collections Available",
+      "noCollectionsDesc": "Please create a collection first before adding words.",
+      "pleaseCreateCollection": "Please create a collection first",
+      "goToCollections": "Go to Collections",
+      "cancel": "Cancel",
+      "adding": "Adding...",
+      "addWord": "Add Word",
+      "enterTermFirst": "Enter a term first",
+      "enterTermDesc": "Please enter a word or phrase to use AI Auto-fill",
+      "partsOfSpeech": {
+        "noun": "Noun",
+        "pronoun": "Pronoun",
+        "verb": "Verb",
+        "adjective": "Adjective",
+        "adverb": "Adverb",
+        "preposition": "Preposition",
+        "conjunction": "Conjunction",
+        "interjection": "Interjection"
+      }
+    }
   }
 }

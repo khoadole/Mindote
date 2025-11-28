@@ -529,7 +529,7 @@ export default function Dashboard() {
           className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
           style={{ animationDelay: "350ms" }}
         >
-          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
+          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-indigo-200/50 dark:border-indigo-800/30">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Layers className="h-5 w-5 text-primary" />
@@ -579,36 +579,43 @@ export default function Dashboard() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {recentCollections.map((collection, index) => (
-                    <Link
-                      key={collection.id}
-                      href={`/collections/${collection.id}`}
-                    >
-                      <div className="group flex items-center gap-3 p-4 rounded-xl border-2 border-transparent hover:border-primary/30 bg-gradient-to-br from-card to-muted/20 hover:to-primary/5 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg">
-                        <div
-                          className={`h-12 w-12 rounded-xl shrink-0 flex items-center justify-center ${
-                            collection.color || "bg-primary"
-                          } shadow-md group-hover:scale-110 transition-transform`}
+                  {recentCollections.map((collection, index) => {
+                    const isHex = collection.color?.startsWith("#");
+                    const color = collection.color || "#6365EF";
+                    
+                    return (
+                      <Link
+                        key={collection.id}
+                        href={`/collections/${collection.id}`}
+                      >
+                        <div 
+                          className={`group flex items-center gap-3 p-4 rounded-xl border-0 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg ${!isHex ? `${color} bg-opacity-20` : ''}`}
+                          style={isHex ? { backgroundColor: `${color}33` } : undefined}
                         >
-                          <Layers className="h-6 w-6 text-white" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="font-semibold text-base truncate group-hover:text-primary transition-colors">
-                            {collection.name}
-                          </h3>
-                          <div className="flex items-center gap-2 mt-1">
-                            <p className="text-sm text-muted-foreground flex items-center gap-1">
-                              <BookOpen className="h-3.5 w-3.5" />
-                              {collection.wordCount || 0}
-                            </p>
-                            <Badge variant="secondary" className="text-xs">
-                              {t("dashboard.active")}
-                            </Badge>
+                          <div
+                            className={`h-12 w-12 rounded-xl shrink-0 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform ${!isHex ? color : ''}`}
+                            style={isHex ? { backgroundColor: color } : undefined}
+                          >
+                            <Layers className="h-6 w-6 text-white" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-semibold text-base truncate group-hover:text-primary transition-colors">
+                              {collection.name}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1">
+                                <BookOpen className="h-3.5 w-3.5" />
+                                {collection.wordCount || 0}
+                              </p>
+                              <Badge variant="secondary" className="text-xs bg-white/50 hover:bg-white/80">
+                                {t("dashboard.active")}
+                              </Badge>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </CardContent>

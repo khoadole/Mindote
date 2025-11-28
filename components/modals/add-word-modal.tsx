@@ -9,6 +9,7 @@ import { useSettings } from "@/hooks/use-settings";
 import { useToast } from "@/hooks/use-toast";
 import { useAIFill } from "@/hooks/use-ai-fill";
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
+import { useTranslation } from "@/lib/i18n-provider";
 import {
   Dialog,
   DialogContent,
@@ -32,16 +33,8 @@ import { Plus, Loader2, AlertCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 // Common parts of speech
-const PARTS_OF_SPEECH = [
-  { value: "noun", label: "Noun" },
-  { value: "pronoun", label: "Pronoun" },
-  { value: "verb", label: "Verb" },
-  { value: "adjective", label: "Adjective" },
-  { value: "adverb", label: "Adverb" },
-  { value: "preposition", label: "Preposition" },
-  { value: "conjunction", label: "Conjunction" },
-  { value: "interjection", label: "Interjection" },
-];
+// Common parts of speech
+// Moved inside component for translation
 
 interface AddWordModalProps {
   collectionId?: string;
@@ -86,12 +79,24 @@ export function AddWordModal({
   const { data: settings } = useSettings();
   const createWordMutation = useCreateWord();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const {
     fillWord,
     isLoading: isAILoading,
     usageInfo,
     fetchUsageInfo,
   } = useAIFill();
+
+  const PARTS_OF_SPEECH = [
+    { value: "noun", label: t("components.addWordModal.partsOfSpeech.noun") },
+    { value: "pronoun", label: t("components.addWordModal.partsOfSpeech.pronoun") },
+    { value: "verb", label: t("components.addWordModal.partsOfSpeech.verb") },
+    { value: "adjective", label: t("components.addWordModal.partsOfSpeech.adjective") },
+    { value: "adverb", label: t("components.addWordModal.partsOfSpeech.adverb") },
+    { value: "preposition", label: t("components.addWordModal.partsOfSpeech.preposition") },
+    { value: "conjunction", label: t("components.addWordModal.partsOfSpeech.conjunction") },
+    { value: "interjection", label: t("components.addWordModal.partsOfSpeech.interjection") },
+  ];
 
   // Update form fields when defaults change (when modal opens with new data)
   useEffect(() => {
@@ -118,9 +123,10 @@ export function AddWordModal({
   const handleOpenChange = (newOpen: boolean) => {
     if (newOpen && !collectionId && !hasCollections && !collectionsLoading) {
       // User is trying to add word but has no collections
+      // User is trying to add word but has no collections
       toast({
-        title: "No Collections Available",
-        description: "Please create a collection first before adding words.",
+        title: t("components.addWordModal.noCollectionsAvailable"),
+        description: t("components.addWordModal.noCollectionsDesc"),
         variant: "destructive",
       });
       return; // Don't open the dialog
@@ -131,8 +137,8 @@ export function AddWordModal({
   const handleAIFill = async () => {
     if (!term.trim()) {
       toast({
-        title: "Enter a term first",
-        description: "Please enter a word or phrase to use AI Auto-fill",
+        title: t("components.addWordModal.enterTermFirst"),
+        description: t("components.addWordModal.enterTermDesc"),
         variant: "destructive",
       });
       return;
@@ -197,7 +203,7 @@ export function AddWordModal({
   const defaultTrigger = (
     <Button className="flex items-center gap-2">
       <Plus className="h-4 w-4" />
-      Add Word
+      {t("components.addWordModal.addWord")}
     </Button>
   );
 
@@ -212,7 +218,7 @@ export function AddWordModal({
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle>Add New Word</DialogTitle>
+            <DialogTitle>{t("components.addWordModal.title")}</DialogTitle>
             <Button
               type="button"
               variant="outline"
@@ -226,12 +232,12 @@ export function AddWordModal({
               {isAILoading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Generating...
+                  {t("components.addWordModal.generating")}
                 </>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4" />
-                  AI Auto-fill
+                  {t("components.addWordModal.aiAutoFill")}
                   {usageInfo && (
                     <span className="text-xs opacity-70">
                       ({usageInfo.remainingUses}/3)
@@ -243,8 +249,7 @@ export function AddWordModal({
           </div>
           {usageInfo && usageInfo.remainingUses === 0 && (
             <p className="text-xs text-muted-foreground mt-2">
-              You've used all free AI fills today. Upgrade to premium for
-              unlimited access!
+              {t("components.addWordModal.dailyLimitReached")}
             </p>
           )}
         </DialogHeader>
@@ -254,13 +259,13 @@ export function AddWordModal({
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
-              You need to create a collection first.{" "}
+              {t("components.addWordModal.pleaseCreateCollection")}{" "}
               <Link
                 href="/collections"
                 className="underline font-medium"
                 onClick={() => setOpen(false)}
               >
-                Go to Collections
+                {t("components.addWordModal.goToCollections")}
               </Link>
             </AlertDescription>
           </Alert>
@@ -268,12 +273,12 @@ export function AddWordModal({
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="term">Term</Label>
+            <Label htmlFor="term">{t("components.addWordModal.term")}</Label>
             <Input
               id="term"
               value={term}
               onChange={(e) => setTerm(e.target.value.slice(0, 80))}
-              placeholder="Enter the word or phrase"
+              placeholder={t("components.addWordModal.termPlaceholder")}
               required
               disabled={createWordMutation.isPending}
               maxLength={80}
@@ -286,13 +291,13 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="definition">Definition</Label>
+            <Label htmlFor="definition">{t("components.addWordModal.definition")}</Label>
             <div className="flex gap-2">
               <Textarea
                 id="definition"
                 value={definition}
                 onChange={(e) => setDefinition(e.target.value)}
-                placeholder="Enter the definition"
+                placeholder={t("components.addWordModal.definitionPlaceholder")}
                 required
                 rows={3}
                 className="resize-none break-all flex-1"
@@ -318,13 +323,13 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="example">Example</Label>
+            <Label htmlFor="example">{t("components.addWordModal.example")}</Label>
             <div className="flex gap-2">
               <Textarea
                 id="example"
                 value={example}
                 onChange={(e) => setExample(e.target.value)}
-                placeholder="Enter an example sentence"
+                placeholder={t("components.addWordModal.examplePlaceholder")}
                 rows={2}
                 className="resize-none break-all flex-1"
                 style={{ wordBreak: "break-all" }}
@@ -349,7 +354,7 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phonetic">Phonetic</Label>
+            <Label htmlFor="phonetic">{t("components.addWordModal.phonetic")}</Label>
             <Input
               id="phonetic"
               value={phonetic}
@@ -365,7 +370,7 @@ export function AddWordModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="partOfSpeech">Part of Speech (Optional)</Label>
+            <Label htmlFor="partOfSpeech">{t("components.addWordModal.partOfSpeech")}</Label>
             <div className="flex gap-2">
               <Select
                 value={
@@ -382,7 +387,7 @@ export function AddWordModal({
                 disabled={createWordMutation.isPending}
               >
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select type" />
+                  <SelectValue placeholder={t("components.addWordModal.selectType")} />
                 </SelectTrigger>
                 <SelectContent>
                   {PARTS_OF_SPEECH.map((pos) => (
@@ -390,7 +395,7 @@ export function AddWordModal({
                       {pos.label}
                     </SelectItem>
                   ))}
-                  <SelectItem value="custom">Custom...</SelectItem>
+                  <SelectItem value="custom">{t("components.addWordModal.custom")}</SelectItem>
                 </SelectContent>
               </Select>
               <Input
@@ -401,7 +406,7 @@ export function AddWordModal({
                     : partOfSpeech
                 }
                 onChange={(e) => setPartOfSpeech(e.target.value.slice(0, 50))}
-                placeholder="Or type custom part of speech"
+                placeholder={t("components.addWordModal.customPlaceholder")}
                 maxLength={50}
                 disabled={
                   createWordMutation.isPending ||
@@ -424,7 +429,7 @@ export function AddWordModal({
 
           {!collectionId && (
             <div className="space-y-2">
-              <Label htmlFor="collection">Collection</Label>
+              <Label htmlFor="collection">{t("components.addWordModal.collection")}</Label>
               <Select
                 value={selectedCollection}
                 onValueChange={setSelectedCollection}
@@ -434,8 +439,8 @@ export function AddWordModal({
                   <SelectValue
                     placeholder={
                       !hasCollections
-                        ? "No collections available"
-                        : "Select a collection"
+                        ? t("components.addWordModal.noCollectionsAvailable")
+                        : t("components.addWordModal.selectCollection")
                     }
                   />
                 </SelectTrigger>
@@ -449,7 +454,7 @@ export function AddWordModal({
               </Select>
               {!hasCollections && (
                 <p className="text-xs text-destructive">
-                  Please create a collection first
+                  {t("components.addWordModal.pleaseCreateCollection")}
                 </p>
               )}
             </div>
@@ -462,7 +467,7 @@ export function AddWordModal({
               onClick={() => setOpen(false)}
               disabled={createWordMutation.isPending}
             >
-              Cancel
+              {t("components.addWordModal.cancel")}
             </Button>
             <Button
               type="submit"
@@ -474,10 +479,10 @@ export function AddWordModal({
               {createWordMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Adding...
+                  {t("components.addWordModal.adding")}
                 </>
               ) : (
-                "Add Word"
+                t("components.addWordModal.addWord")
               )}
             </Button>
           </div>

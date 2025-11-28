@@ -227,12 +227,15 @@ export default function QuizPage() {
                       <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger
                           value="multiple-choice"
-                          className="text-xs"
+                          className="text-xs data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
                         >
                           <Target className="h-3 w-3 mr-1" />
                           MCQ
                         </TabsTrigger>
-                        <TabsTrigger value="fill-blank" className="text-xs">
+                        <TabsTrigger
+                          value="fill-blank"
+                          className="text-xs data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
+                        >
                           <Edit className="h-3 w-3 mr-1" />
                           Fill
                         </TabsTrigger>
@@ -277,7 +280,7 @@ export default function QuizPage() {
 
                   <Button
                     onClick={handleStartQuiz}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-bold hover:from-purple-600 hover:to-pink-600 dark:hover:from-primary-dark dark:hover:to-accent transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-xl"
                     disabled={validQuizWords.length < 2}
                   >
                     <Play className="h-4 w-4 mr-2" />
@@ -421,7 +424,7 @@ export default function QuizPage() {
                             <Button
                               variant="default"
                               onClick={() => setQuestionType("multiple-choice")}
-                              className="bg-gradient-to-r from-purple-500 to-pink-500 dark:from-primary dark:to-accent text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-lg"
+                              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-all hover:scale-105 shadow-lg"
                             >
                               {t("quiz.switchToMultipleChoice")}
                             </Button>
@@ -429,7 +432,7 @@ export default function QuizPage() {
                         <Button
                           variant="outline"
                           onClick={() => router.push("/collections")}
-                          className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
+                          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-all hover:scale-105 shadow-lg border-0"
                         >
                           {t("quiz.goToCollections")}
                         </Button>

@@ -74,11 +74,11 @@
   --popover: oklch(0.16 0.02 265);
   --popover-foreground: oklch(0.96 0 0);
 
-  /* Primary - Purple (lighter in dark) */
-  --primary: oklch(0.72 0.25 300);
+  /* Primary - Indigo (lighter in dark) */
+  --primary: oklch(0.72 0.25 275);
   --primary-foreground: oklch(0.13 0.02 265);
-  --primary-light: oklch(0.82 0.2 300);
-  --primary-dark: oklch(0.62 0.28 300);
+  --primary-light: oklch(0.82 0.2 275);
+  --primary-dark: oklch(0.62 0.28 275);
 
   /* Success - Green */
   --success: oklch(0.72 0.22 160);

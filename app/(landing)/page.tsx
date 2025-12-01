@@ -47,7 +47,7 @@ const highlightFeatures = [
     image: "/flashcard_content.png",
     icon: Brain,
     color: "from-purple-500/10 to-pink-500/10",
-    iconColor: "text-purple-500",
+    iconColor: "text-indigo-500",
   },
   {
     title: "Immersive Reading",

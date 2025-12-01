@@ -29,7 +29,7 @@ const navigation = [
     name: "Dashboard",
     href: "/dashboard",
     icon: BookOpen,
-    color: "text-purple-400",
+    color: "text-indigo-400",
   },
   {
     name: "Collections",

@@ -196,7 +196,7 @@ export default function FlashcardsPage() {
         />
 
         <div
-          className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-3xl animate-pulse"
+          className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-indigo-300/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDuration: "8s" }}
         />
         <div

@@ -32,13 +32,14 @@ model Collection {
   userId          String           @map("user_id") @db.Uuid
   name            String
   color           String
-  difficultyLevel String?          @map("difficulty_level")
   createdAt       DateTime         @default(now()) @map("created_at")
+  difficultyLevel String?          @map("difficulty_level")
   user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   readingPassages ReadingPassage[]
   words           Word[]
 
   @@index([userId])
+  @@index([createdAt], map: "idx_collections_created_at_brin", type: Brin)
   @@map("collections")
 }
 
@@ -60,6 +61,7 @@ model Word {
   definitionLanguage String     @default("en") @map("definition_language")
   exampleLanguage    String     @default("en") @map("example_language")
   termLanguage       String     @default("en") @map("term_language")
+  updatedAt          DateTime   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
   collection         Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
 
   @@unique([collectionId, term])
@@ -68,6 +70,9 @@ model Word {
   @@index([nextReview])
   @@index([collectionId, nextReview])
   @@index([termLanguage])
+  @@index([createdAt], map: "idx_words_created_at_brin", type: Brin)
+  @@index([definition(ops: raw("gin_trgm_ops"))], map: "idx_words_definition_gin", type: Gin)
+  @@index([term(ops: raw("gin_trgm_ops"))], map: "idx_words_term_gin", type: Gin)
   @@map("words")
 }
 
@@ -95,6 +100,7 @@ model YouTubeHistory {
   @@unique([userId, videoId])
   @@index([userId, createdAt])
   @@index([videoId])
+  @@index([createdAt], map: "idx_youtube_history_created_at_brin", type: Brin)
   @@map("youtube_history")
 }
 
@@ -123,12 +129,16 @@ model ReadingPassage {
   wordsUsed     String[]         @map("words_used")
   questions     Json
   createdAt     DateTime         @default(now()) @map("created_at")
+  updatedAt     DateTime         @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
   attempts      ReadingAttempt[]
   collection    Collection       @relation(fields: [collectionId], references: [id], onDelete: Cascade)
 
   @@index([userId, collectionId])
   @@index([level])
   @@index([createdAt])
+  @@index([content(ops: raw("gin_trgm_ops"))], map: "idx_reading_passages_content_gin", type: Gin)
+  @@index([createdAt], map: "idx_reading_passages_created_at_brin", type: Brin)
+  @@index([title(ops: raw("gin_trgm_ops"))], map: "idx_reading_passages_title_gin", type: Gin)
   @@map("reading_passages")
 }
 
@@ -144,6 +154,7 @@ model ReadingAttempt {
 
   @@index([userId, passageId])
   @@index([userId, completedAt])
+  @@index([completedAt], map: "idx_reading_attempts_completed_at_brin", type: Brin)
   @@map("reading_attempts")
 }
 

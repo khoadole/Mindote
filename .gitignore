@@ -54,3 +54,8 @@ Google_OAuth.json
 
 # Docs
 *.md
+
+# Backups (keep .gitkeep)
+backups/*.sql
+backups/*.sql.gz
+!backups/.gitkeep

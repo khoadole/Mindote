@@ -110,8 +110,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         }}
       />
 
-      {/* Gradient overlay for depth - Light mode */}
-      <div
+      {/* Gradient overlay for depth - Light mode - REMOVED for pure white */}
+      {/* <div
         className="absolute inset-0 pointer-events-none rounded-r-lg dark:opacity-0 opacity-100 transition-opacity duration-300"
         style={{
           background: `linear-gradient(to bottom, 
@@ -120,7 +120,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             rgba(255, 255, 255, 0.98)
           )`,
         }}
-      />
+      /> */}
 
       {/* Gradient overlay for depth - Dark mode */}
       <div

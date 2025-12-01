@@ -23,6 +23,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getDifficultyLabelKey } from "@/lib/difficulty-levels";
 
 // ✅ Lazy load modals
 const AddWordModal = dynamic(
@@ -187,9 +188,9 @@ export default function CollectionsPage() {
                           {collection.difficultyLevel && (
                             <Badge
                               variant="secondary"
-                              className="bg-white/90 hover:bg-white text-foreground shadow-sm backdrop-blur-sm border-0"
+                              className="bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md border-0 font-semibold"
                             >
-                              {collection.difficultyLevel}
+                              {t(getDifficultyLabelKey(collection.difficultyLevel))}
                             </Badge>
                           )}
                         </div>
@@ -213,7 +214,7 @@ export default function CollectionsPage() {
                           </div>
                           <Badge
                             variant="secondary"
-                            className="text-xs bg-white/90 hover:bg-white text-foreground shadow-sm backdrop-blur-sm"
+                            className="text-xs bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md font-semibold border-0"
                           >
                             {Math.round(masteryPercent)}% {t("collections.mastered")}
                           </Badge>

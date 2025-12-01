@@ -236,7 +236,33 @@
     "deleteWordConfirmation": "Tem certeza de que deseja excluir esta palavra? Esta ação não pode ser desfeita.",
     "activityTrackingComingSoon": "Rastreamento de atividades em breve...",
     "previous": "Anterior",
-    "next": "Próximo"
+    "next": "Próximo",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "Iniciante",
+        "description": "Vocabulário simples e básico"
+      },
+      "elementary": {
+        "label": "Elementar",
+        "description": "Tópicos cotidianos comuns"
+      },
+      "intermediate": {
+        "label": "Intermediário",
+        "description": "Tópicos e ideias familiares"
+      },
+      "upperIntermediate": {
+        "label": "Intermediário Superior",
+        "description": "Textos complexos e tópicos abstratos"
+      },
+      "advanced": {
+        "label": "Avançado",
+        "description": "Textos mais longos e exigentes"
+      },
+      "proficient": {
+        "label": "Proficiente",
+        "description": "Textos acadêmicos muito complexos"
+      }
+    }
   },
   "word": {
     "definition": "Definição",

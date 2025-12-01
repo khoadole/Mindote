@@ -6,39 +6,39 @@
 export const DIFFICULTY_LEVELS = [
   {
     value: "Beginner",
-    label: "Beginner",
+    labelKey: "collections.difficultyLevels.beginner.label",
     cefrCode: "A1",
-    description: "Simple, basic vocabulary",
+    descriptionKey: "collections.difficultyLevels.beginner.description",
   },
   {
     value: "Elementary",
-    label: "Elementary",
+    labelKey: "collections.difficultyLevels.elementary.label",
     cefrCode: "A2",
-    description: "Common everyday topics",
+    descriptionKey: "collections.difficultyLevels.elementary.description",
   },
   {
     value: "Intermediate",
-    label: "Intermediate",
+    labelKey: "collections.difficultyLevels.intermediate.label",
     cefrCode: "B1",
-    description: "Familiar topics and ideas",
+    descriptionKey: "collections.difficultyLevels.intermediate.description",
   },
   {
     value: "Upper Intermediate",
-    label: "Upper Intermediate",
+    labelKey: "collections.difficultyLevels.upperIntermediate.label",
     cefrCode: "B2",
-    description: "Complex text and abstract topics",
+    descriptionKey: "collections.difficultyLevels.upperIntermediate.description",
   },
   {
     value: "Advanced",
-    label: "Advanced",
+    labelKey: "collections.difficultyLevels.advanced.label",
     cefrCode: "C1",
-    description: "Demanding, longer texts",
+    descriptionKey: "collections.difficultyLevels.advanced.description",
   },
   {
     value: "Proficient",
-    label: "Proficient",
+    labelKey: "collections.difficultyLevels.proficient.label",
     cefrCode: "C2",
-    description: "Very complex academic texts",
+    descriptionKey: "collections.difficultyLevels.proficient.description",
   },
 ] as const;
 
@@ -54,4 +54,10 @@ export function getCefrCode(difficultyLevel: string): string {
 export function getDifficultyFromCefr(cefrCode: string): string {
   const level = DIFFICULTY_LEVELS.find((l) => l.cefrCode === cefrCode);
   return level?.value || "Intermediate";
+}
+
+// Helper function to get label key from difficulty level value
+export function getDifficultyLabelKey(difficultyLevel: string): string {
+  const level = DIFFICULTY_LEVELS.find((l) => l.value === difficultyLevel);
+  return level?.labelKey || "collections.difficultyLevels.intermediate.label";
 }

@@ -237,7 +237,33 @@
     "deleteWordConfirmation": "Bạn có chắc chắn muốn xóa từ này không? Không thể hoàn tác.",
     "activityTrackingComingSoon": "Tính năng theo dõi hoạt động sắp ra mắt...",
     "previous": "Trước",
-    "next": "Tiếp"
+    "next": "Tiếp",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "Mới bắt đầu",
+        "description": "Từ vựng đơn giản, cơ bản"
+      },
+      "elementary": {
+        "label": "Sơ cấp",
+        "description": "Chủ đề hàng ngày thông dụng"
+      },
+      "intermediate": {
+        "label": "Trung cấp",
+        "description": "Chủ đề và ý tưởng quen thuộc"
+      },
+      "upperIntermediate": {
+        "label": "Trung cấp cao",
+        "description": "Văn bản phức tạp và chủ đề trừu tượng"
+      },
+      "advanced": {
+        "label": "Nâng cao",
+        "description": "Văn bản dài và khó"
+      },
+      "proficient": {
+        "label": "Thành thạo",
+        "description": "Văn bản học thuật rất phức tạp"
+      }
+    }
   },
   "word": {
     "definition": "Định nghĩa",

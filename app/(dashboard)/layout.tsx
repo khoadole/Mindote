@@ -42,7 +42,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Main Content Container - Bo tròn riêng */}
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background md:bg-background/80 md:backdrop-blur-xl shadow-none md:shadow-2xl md:border md:border-border">
+      <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background shadow-none md:shadow-2xl md:border md:border-border">
         <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>

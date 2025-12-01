@@ -124,6 +124,7 @@
     "difficultyLevelPlaceholder": "難易度を選択",
     "creating": "作成中...",
     "create": "作成",
+    "createCollection": "コレクション作成",
     "wordsLabel": "単語",
     "words": "単語",
     "mastered": "マスターした",
@@ -165,7 +166,33 @@
     "deleteWordConfirmation": "この単語を削除してもよろしいですか？この操作は元に戻せません。",
     "activityTrackingComingSoon": "アクティビティ追跡機能は近日公開...",
     "previous": "前へ",
-    "next": "次へ"
+    "next": "次へ",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "初級",
+        "description": "シンプルで基本的な語彙"
+      },
+      "elementary": {
+        "label": "初級中級",
+        "description": "日常的な話題"
+      },
+      "intermediate": {
+        "label": "中級",
+        "description": "馴染みのある話題とアイデア"
+      },
+      "upperIntermediate": {
+        "label": "中級上級",
+        "description": "複雑なテキストと抽象的な話題"
+      },
+      "advanced": {
+        "label": "上級",
+        "description": "難しく長いテキスト"
+      },
+      "proficient": {
+        "label": "熟達",
+        "description": "非常に複雑な学術的テキスト"
+      }
+    }
   },
   "word": {
     "definition": "定義",

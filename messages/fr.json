@@ -124,6 +124,7 @@
     "difficultyLevelPlaceholder": "Sélectionner le niveau de difficulté",
     "creating": "Création...",
     "create": "Créer",
+    "createCollection": "Créer une collection",
     "wordsLabel": "mots",
     "mastered": "maîtrisé",
     "created": "Créé",
@@ -164,7 +165,33 @@
     "deleteWordConfirmation": "Êtes-vous sûr de vouloir supprimer ce mot? Cette action ne peut pas être annulée.",
     "activityTrackingComingSoon": "Suivi de l'activité bientôt disponible...",
     "previous": "Précédent",
-    "next": "Suivant"
+    "next": "Suivant",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "Débutant",
+        "description": "Vocabulaire simple et de base"
+      },
+      "elementary": {
+        "label": "Élémentaire",
+        "description": "Sujets quotidiens courants"
+      },
+      "intermediate": {
+        "label": "Intermédiaire",
+        "description": "Sujets et idées familiers"
+      },
+      "upperIntermediate": {
+        "label": "Intermédiaire Supérieur",
+        "description": "Textes complexes et sujets abstraits"
+      },
+      "advanced": {
+        "label": "Avancé",
+        "description": "Textes plus longs et exigeants"
+      },
+      "proficient": {
+        "label": "Compétent",
+        "description": "Textes académiques très complexes"
+      }
+    }
   },
   "word": {
     "definition": "Définition",

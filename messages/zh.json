@@ -236,7 +236,33 @@
     "deleteWordConfirmation": "您确定要删除此单词吗？此操作无法撤销。",
     "activityTrackingComingSoon": "活动跟踪功能即将推出...",
     "previous": "上一页",
-    "next": "下一页"
+    "next": "下一页",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "初学者",
+        "description": "简单的基本词汇"
+      },
+      "elementary": {
+        "label": "初级",
+        "description": "常见的日常话题"
+      },
+      "intermediate": {
+        "label": "中级",
+        "description": "熟悉的主题和概念"
+      },
+      "upperIntermediate": {
+        "label": "中高级",
+        "description": "复杂文本和抽象主题"
+      },
+      "advanced": {
+        "label": "高级",
+        "description": "要求高的较长文本"
+      },
+      "proficient": {
+        "label": "精通",
+        "description": "非常复杂的学术文本"
+      }
+    }
   },
   "word": {
     "definition": "定义",

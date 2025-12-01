@@ -236,7 +236,33 @@
     "deleteWordConfirmation": "이 단어를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
     "activityTrackingComingSoon": "활동 추적 기능 공개 예정...",
     "previous": "이전",
-    "next": "다음"
+    "next": "다음",
+    "difficultyLevels": {
+      "beginner": {
+        "label": "초급",
+        "description": "간단하고 기본적인 어휘"
+      },
+      "elementary": {
+        "label": "기초",
+        "description": "일상적인 주제"
+      },
+      "intermediate": {
+        "label": "중급",
+        "description": "친숙한 주제와 아이디어"
+      },
+      "upperIntermediate": {
+        "label": "중고급",
+        "description": "복잡한 텍스트와 추상적인 주제"
+      },
+      "advanced": {
+        "label": "고급",
+        "description": "긴 텍스트와 높은 난이도"
+      },
+      "proficient": {
+        "label": "전문가",
+        "description": "매우 복잡한 학술 텍스트"
+      }
+    }
   },
   "word": {
     "definition": "정의",

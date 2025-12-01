@@ -138,9 +138,9 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
                 {DIFFICULTY_LEVELS.map((level) => (
                   <SelectItem key={level.value} value={level.value}>
                     <div>
-                      <div className="font-medium">{level.label}</div>
+                      <div className="font-medium">{t(level.labelKey)}</div>
                       <div className="text-xs text-muted-foreground">
-                        {level.description}
+                        {t(level.descriptionKey)}
                       </div>
                     </div>
                   </SelectItem>

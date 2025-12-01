@@ -554,13 +554,13 @@ export default function Dashboard() {
                       className="flex items-center justify-between p-4 rounded-xl border bg-card/50"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="h-3 w-3 rounded-full bg-muted animate-pulse" />
+                        <div className="h-3 w-3 rounded-full bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse" />
                         <div className="space-y-2">
-                          <div className="h-4 w-32 bg-muted animate-pulse rounded" />
-                          <div className="h-3 w-20 bg-muted animate-pulse rounded" />
+                          <div className="h-4 w-32 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded" />
+                          <div className="h-3 w-20 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded" />
                         </div>
                       </div>
-                      <div className="h-8 w-16 bg-muted animate-pulse rounded-xl" />
+                      <div className="h-8 w-16 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded-xl" />
                     </div>
                   ))}
                 </div>

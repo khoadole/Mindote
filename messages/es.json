@@ -108,7 +108,8 @@
     "wordsInPassages": "{{count}} palabras usadas en pasajes",
     "yourLearningPath": "Tu camino de aprendizaje",
     "viewAll": "Ver todo",
-    "word": "palabra"
+    "word": "palabra",
+    "words": "palabras"
   },
   "collections": {
     "title": "Colecciones",

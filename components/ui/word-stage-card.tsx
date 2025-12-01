@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface WordStageCardProps {
   title: string;
@@ -25,6 +26,7 @@ export function WordStageCard({
   onClick,
   description,
 }: WordStageCardProps) {
+  const { t } = useTranslation();
   const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
   
   // Extract hex color from gradient/iconColor prop
@@ -62,7 +64,7 @@ export function WordStageCard({
         <div>
           <div className="flex items-baseline gap-1.5">
             <p className="text-4xl font-bold text-gray-900">{count}</p>
-            <p className="text-xs text-gray-600">words</p>
+            <p className="text-xs text-gray-600">{t("dashboard.words")}</p>
           </div>
         </div>
 

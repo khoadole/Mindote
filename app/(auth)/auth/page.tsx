@@ -507,7 +507,7 @@ export default function AuthPage() {
                 </div>
                 <Button
                   variant="outline"
-                  className="w-full mt-4 bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-accent dark:text-foreground"
+                  className="w-full mt-4 bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-primary/10 dark:hover:text-primary dark:text-foreground"
                   onClick={handleGoogleSignIn}
                   disabled={loading}
                 >

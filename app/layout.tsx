@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Learn Language vocabulary with flashcards, quizzes, and YouTube integration",
   icons: {
     icon: {
-      url: "/logo_black_transparent_256x256.png",
+      url: "/mindote_rmbg.png",
       sizes: "128x128",
       type: "image/png",
     },

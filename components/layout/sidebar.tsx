@@ -139,19 +139,19 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         {/* Header with Logo */}
         <div
           className={cn(
-            "flex h-20 items-center mb-4 border-b border-sidebar-border",
+            "flex h-auto py-4 items-center mb-4 border-b border-sidebar-border",
             isCollapsed ? "justify-center px-2" : "justify-between px-5"
           )}
         >
           {/* Logo Section - Only show when expanded */}
           {!isCollapsed && (
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-1.5">
+              <div className="relative w-[50px] h-[50px] rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-1.5">
                 <Image
-                  src="/logo_black_transparent.png"
+                  src="/mindote_rmbg.png"
                   alt="Mindote Logo"
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                   className="w-full h-full object-contain"
                 />
               </div>

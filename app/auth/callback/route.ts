@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
 import { ensureUserExists } from "@/lib/ensure-user";
 
 export async function GET(request: Request) {
@@ -8,7 +9,26 @@ export async function GET(request: Request) {
   const next = searchParams.get("next") ?? "/dashboard";
 
   if (code) {
-    const supabase = await createClient();
+    const cookieStore = await cookies();
+
+    // Create Supabase client with cookie handling
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll() {
+            return cookieStore.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              cookieStore.set(name, value, options);
+            });
+          },
+        },
+      }
+    );
+
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error && data.user) {
@@ -34,8 +54,21 @@ export async function GET(request: Request) {
         redirectUrl = `${origin}${next}`;
       }
 
-      // Add cache control headers to prevent stale cached redirects
+      // Create redirect response
       const response = NextResponse.redirect(redirectUrl);
+
+      // Copy all cookies from cookieStore to response
+      // This ensures the session cookies are properly set
+      cookieStore.getAll().forEach((cookie) => {
+        response.cookies.set(cookie.name, cookie.value, {
+          path: "/",
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
+        });
+      });
+
+      // Add cache control headers to prevent stale cached redirects
       response.headers.set(
         "Cache-Control",
         "no-store, no-cache, must-revalidate"

@@ -212,7 +212,7 @@ export async function getCheckoutURL(variantId: number, embed = false) {
       },
       productOptions: {
         enabledVariants: [variantId],
-        redirectUrl: `${getAppURL()}/dashboard/billing/`,
+        redirectUrl: `${getAppURL()}/billing`,
         receiptButtonText: "Go to Dashboard",
         receiptThankYouNote: "Thank you for subscribing to Mindote Premium!",
       },
@@ -314,6 +314,9 @@ export async function processWebhookEvent(webhookEventId: string) {
                 update: updateData,
                 create: updateData,
               });
+              console.log(
+                `✅ Subscription ${updateData.lemonSqueezyId} saved for user ${userId}`
+              );
             } catch (error) {
               processingError = `Failed to upsert Subscription #${updateData.lemonSqueezyId} to the database.`;
               console.error(error);
@@ -332,6 +335,9 @@ export async function processWebhookEvent(webhookEventId: string) {
       processingError: processingError || null,
     },
   });
+
+  // Revalidate billing page to show updated subscription
+  revalidatePath("/billing");
 }
 
 /**
@@ -384,7 +390,7 @@ export async function cancelSubscription(subscriptionId: string) {
     );
   }
 
-  revalidatePath("/dashboard/billing");
+  revalidatePath("/billing");
 
   return cancelledSub;
 }
@@ -437,7 +443,7 @@ export async function pauseSubscription(subscriptionId: string) {
     );
   }
 
-  revalidatePath("/dashboard/billing");
+  revalidatePath("/billing");
 
   return pausedSub;
 }
@@ -489,7 +495,7 @@ export async function unpauseSubscription(subscriptionId: string) {
     );
   }
 
-  revalidatePath("/dashboard/billing");
+  revalidatePath("/billing");
 
   return unpausedSub;
 }
@@ -565,7 +571,7 @@ export async function changePlan(currentPlanId: string, newPlanId: string) {
     );
   }
 
-  revalidatePath("/dashboard/billing");
+  revalidatePath("/billing");
 
   return updatedSub;
 }

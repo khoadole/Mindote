@@ -14,7 +14,7 @@ export async function POST() {
   try {
     console.log("🔄 Starting plan sync from Lemon Squeezy...");
     await syncPlans();
-    
+
     // Get updated plans
     const plans = await prisma.plan.findMany();
     console.log(`✅ Plan sync completed. ${plans.length} plans synced.`);
@@ -47,7 +47,7 @@ export async function POST() {
 export async function GET() {
   try {
     const plans = await prisma.plan.findMany();
-    
+
     return NextResponse.json({
       message: "Sync Plans Endpoint",
       currentPlans: plans.map((p) => ({

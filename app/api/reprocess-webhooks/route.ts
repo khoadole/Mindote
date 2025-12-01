@@ -25,7 +25,9 @@ export async function POST() {
       orderBy: { createdAt: "asc" },
     });
 
-    console.log(`🔄 Found ${failedWebhooks.length} failed webhooks to reprocess`);
+    console.log(
+      `🔄 Found ${failedWebhooks.length} failed webhooks to reprocess`
+    );
 
     const results = [];
 

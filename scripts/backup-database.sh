@@ -34,11 +34,14 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Load environment variables
+# Load environment variables (handle special characters in values)
+# Only load DATABASE_URL and DIRECT_URL
 if [ -f "${PROJECT_ROOT}/.env" ]; then
-    export $(cat "${PROJECT_ROOT}/.env" | grep -v '^#' | xargs)
+    DATABASE_URL=$(grep -E "^DATABASE_URL=" "${PROJECT_ROOT}/.env" | cut -d '=' -f2- | tr -d '"' | tr -d "'")
+    DIRECT_URL=$(grep -E "^DIRECT_URL=" "${PROJECT_ROOT}/.env" | cut -d '=' -f2- | tr -d '"' | tr -d "'")
 elif [ -f "${PROJECT_ROOT}/.env.local" ]; then
-    export $(cat "${PROJECT_ROOT}/.env.local" | grep -v '^#' | xargs)
+    DATABASE_URL=$(grep -E "^DATABASE_URL=" "${PROJECT_ROOT}/.env.local" | cut -d '=' -f2- | tr -d '"' | tr -d "'")
+    DIRECT_URL=$(grep -E "^DIRECT_URL=" "${PROJECT_ROOT}/.env.local" | cut -d '=' -f2- | tr -d '"' | tr -d "'")
 fi
 
 # Check if DATABASE_URL is set

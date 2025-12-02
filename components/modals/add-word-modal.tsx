@@ -240,7 +240,9 @@ export function AddWordModal({
                   {t("components.addWordModal.aiAutoFill")}
                   {usageInfo && (
                     <span className="text-xs opacity-70">
-                      ({usageInfo.remainingUses}/3)
+                      {usageInfo.remainingUses < 0
+                        ? "(unlimited)"
+                        : `(${usageInfo.remainingUses}/3)`}
                     </span>
                   )}
                 </>

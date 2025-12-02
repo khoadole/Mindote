@@ -21,11 +21,8 @@ export const metadata: Metadata = {
   description:
     "Learn Language vocabulary with flashcards, quizzes, and YouTube integration",
   icons: {
-    icon: {
-      url: "/mindote_rmbg.png",
-      sizes: "128x128",
-      type: "image/png",
-    },
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
 };
 

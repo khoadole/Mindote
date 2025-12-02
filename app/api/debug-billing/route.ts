@@ -77,3 +77,33 @@ export async function GET() {
     );
   }
 }
+
+/**
+ * POST /api/debug-billing
+ *
+ * Trigger plan sync
+ */
+export async function POST() {
+  try {
+    const userId = await getUserId();
+
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { syncPlans } = await import("@/app/actions/lemonsqueezy");
+    const plans = await syncPlans();
+
+    return NextResponse.json({
+      success: true,
+      message: "Plans synced successfully",
+      plans,
+    });
+  } catch (error: any) {
+    console.error("Sync plans error:", error);
+    return NextResponse.json(
+      { error: error.message || "Internal error" },
+      { status: 500 }
+    );
+  }
+}

@@ -4,7 +4,6 @@ import type React from "react";
 import { useState } from "react";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
-import { GlobalSaveIndicator } from "@/components/global-save-indicator";
 
 export default function DashboardLayout({
   children,
@@ -47,8 +46,6 @@ export default function DashboardLayout({
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
 
-      {/* Global cloud save indicator - bottom right */}
-      <GlobalSaveIndicator />
     </div>
   );
 }

@@ -607,9 +607,6 @@ export default function Dashboard() {
                                 <BookOpen className="h-3.5 w-3.5" />
                                 {collection.wordCount || 0}
                               </p>
-                              <Badge variant="secondary" className="text-xs bg-white/50 hover:bg-white/80">
-                                {t("dashboard.active")}
-                              </Badge>
                             </div>
                           </div>
                         </div>

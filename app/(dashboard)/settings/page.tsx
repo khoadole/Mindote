@@ -390,12 +390,6 @@ export default function SettingsPage() {
                   <span className="font-medium">{t("settings.version")}</span>
                   <span className="text-muted-foreground">1.0.0</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <span className="font-medium">{t("settings.storage")}</span>
-                  <span className="text-muted-foreground">
-                    {t("settings.localBrowserStorage")}
-                  </span>
-                </div>
               </div>
 
               <Separator />

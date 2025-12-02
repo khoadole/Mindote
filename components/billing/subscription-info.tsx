@@ -230,7 +230,7 @@ export function SubscriptionInfo() {
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                   {subscription.plan.productName || "Premium Plan"}
                 </span>
-                <Badge variant="default" className="bg-green-500">
+                <Badge variant="default" className="bg-green-600 dark:bg-green-500">
                   Active
                 </Badge>
               </CardTitle>
@@ -302,7 +302,7 @@ export function SubscriptionInfo() {
                         : "outline"
                     }
                     className={
-                      subscription.status === "active" ? "bg-green-500" : ""
+                      subscription.status === "active" ? "bg-green-600 dark:bg-green-500" : ""
                     }
                   >
                     {subscription.statusFormatted}

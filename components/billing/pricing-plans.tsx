@@ -42,7 +42,6 @@ const PLANS = [
     popular: true,
     features: [
       "Everything in Monthly",
-      "2 months free (yearly billing)",
       "Priority support",
       "Early access to beta features",
       "Exclusive community access",

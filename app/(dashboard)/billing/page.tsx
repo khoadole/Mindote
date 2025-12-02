@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export default function BillingPage() {
   return (
-    <div className="container max-w-6xl mx-auto py-8 px-4">
+    <div className="container max-w-6xl mx-auto py-8 px-4 bg-white dark:bg-background min-h-screen">
       <div className="space-y-8">
         {/* Header */}
         <div>

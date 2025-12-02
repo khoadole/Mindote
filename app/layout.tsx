@@ -41,7 +41,7 @@ export default function RootLayout({
               /* Critical CSS - Prevent background flash */
               :root {
                 color-scheme: light dark;
-                --background: oklch(0.94 0.005 265);
+                --background: oklch(1 0 0);
                 --sidebar: oklch(0.9 0.008 265);
               }
               
@@ -53,7 +53,7 @@ export default function RootLayout({
               
               /* Ensure body and sidebar have immediate background */
               html, body {
-                background-color: oklch(0.94 0.005 265);
+                background-color: oklch(1 0 0);
               }
               
               .dark, .dark body {

@@ -564,7 +564,7 @@ export default function Dashboard() {
                 </div>
               ) : recentCollections.length === 0 ? (
                 <div className="text-center py-12">
-                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-4">
                     <Layers className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">

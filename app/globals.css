@@ -234,14 +234,14 @@
 @layer utilities {
   /* Vibrant gradient backgrounds for light mode - White text friendly */
   .gradient-purple-vibrant {
-    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c026d3 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
   }
 
   .dark .gradient-purple-vibrant {
     background: linear-gradient(
       135deg,
-      oklch(0.65 0.25 300) 0%,
-      oklch(0.68 0.24 340) 100%
+      oklch(0.60 0.24 275) 0%,
+      oklch(0.72 0.25 275) 100%
     );
   }
 

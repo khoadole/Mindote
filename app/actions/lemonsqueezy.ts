@@ -518,7 +518,7 @@ export async function getSubscriptionURLs(subscriptionId: string) {
 /**
  * Change subscription plan
  */
-export async function changePlan(currentPlanId: string, newPlanId: string) {
+export async function changePlan(subscriptionId: string, newVariantId: number) {
   configureLemonSqueezy();
 
   const userId = await getUserId();
@@ -530,30 +530,32 @@ export async function changePlan(currentPlanId: string, newPlanId: string) {
   // Get user subscription
   const subscription = await prisma.subscription.findFirst({
     where: {
-      planId: currentPlanId,
+      lemonSqueezyId: subscriptionId,
       userId,
     },
   });
 
   if (!subscription) {
-    throw new Error(
-      `No subscription with plan id #${currentPlanId} was found.`
-    );
+    throw new Error(`Subscription #${subscriptionId} not found.`);
   }
 
   // Get the new plan details
-  const newPlan = await prisma.plan.findUnique({
-    where: { id: newPlanId },
+  const newPlan = await prisma.plan.findFirst({
+    where: { variantId: newVariantId },
   });
 
   if (!newPlan) {
-    throw new Error(`Plan #${newPlanId} not found.`);
+    throw new Error(`Plan with variantId #${newVariantId} not found.`);
   }
 
   // Update subscription in Lemon Squeezy
   const updatedSub = await updateSubscription(subscription.lemonSqueezyId, {
     variantId: newPlan.variantId,
   });
+
+  if (updatedSub.error) {
+    throw new Error(updatedSub.error.message);
+  }
 
   // Update database
   try {
@@ -563,6 +565,8 @@ export async function changePlan(currentPlanId: string, newPlanId: string) {
         planId: newPlan.id,
         price: newPlan.price,
         endsAt: updatedSub.data?.data.attributes.ends_at ?? subscription.endsAt,
+        renewsAt:
+          updatedSub.data?.data.attributes.renews_at ?? subscription.renewsAt,
       },
     });
   } catch (error) {

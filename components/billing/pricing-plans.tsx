@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import {
   getCheckoutURL,
   getUserSubscriptions,
+  changePlan,
 } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
@@ -55,6 +56,7 @@ export function PricingPlans() {
   const [currentPlanVariantId, setCurrentPlanVariantId] = useState<
     number | null
   >(null);
+  const [activeSubscription, setActiveSubscription] = useState<any | null>(null);
   const [subscriptionsLoading, setSubscriptionsLoading] = useState(true);
   const { toast } = useToast();
 
@@ -70,6 +72,7 @@ export function PricingPlans() {
       );
       if (activeSub?.plan?.variantId) {
         setCurrentPlanVariantId(activeSub.plan.variantId);
+        setActiveSubscription(activeSub);
       }
     } catch (error) {
       console.error("Failed to check subscription:", error);
@@ -82,21 +85,40 @@ export function PricingPlans() {
     try {
       setLoadingPlan(planId);
 
-      const checkoutUrl = await getCheckoutURL(variantId, false);
+      // Check if user already has an active subscription
+      if (activeSubscription && activeSubscription.lemonSqueezyId) {
+        // If switching to the same plan, do nothing (should be disabled anyway)
+        if (currentPlanVariantId === variantId) return;
 
-      if (!checkoutUrl) {
-        throw new Error("Failed to create checkout URL");
+        // Call changePlan for upgrade/downgrade
+        await changePlan(activeSubscription.lemonSqueezyId, variantId);
+        
+        toast({
+          title: "Success",
+          description: "Your plan has been updated successfully.",
+        });
+        
+        // Refresh subscription state
+        await checkCurrentSubscription();
+      } else {
+        // New subscription
+        const checkoutUrl = await getCheckoutURL(variantId, false);
+
+        if (!checkoutUrl) {
+          throw new Error("Failed to create checkout URL");
+        }
+
+        window.location.href = checkoutUrl;
       }
-
-      window.location.href = checkoutUrl;
     } catch (error: any) {
-      console.error("Checkout error:", error);
+      console.error("Subscription error:", error);
       toast({
         title: "Error",
         description:
-          error.message || "Failed to start checkout. Please try again.",
+          error.message || "Failed to process subscription. Please try again.",
         variant: "destructive",
       });
+    } finally {
       setLoadingPlan(null);
     }
   };

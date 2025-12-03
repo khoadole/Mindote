@@ -57,17 +57,10 @@ export async function GET(request: Request) {
       // Create redirect response
       const response = NextResponse.redirect(redirectUrl);
 
-      // Copy all cookies from cookieStore to response
-      // This ensures the session cookies are properly set
-      cookieStore.getAll().forEach((cookie) => {
-        response.cookies.set(cookie.name, cookie.value, {
-          path: "/",
-          httpOnly: true,
-          secure: process.env.NODE_ENV === "production",
-          sameSite: "lax",
-        });
-      });
-
+      // ✅ FIX: Don't manually copy cookies with httpOnly=true
+      // Supabase SSR already handles cookies correctly with proper flags
+      // Manual copying with httpOnly prevents client-side session detection
+      
       // Add cache control headers to prevent stale cached redirects
       response.headers.set(
         "Cache-Control",

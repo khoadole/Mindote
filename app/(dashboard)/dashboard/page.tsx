@@ -214,8 +214,7 @@ export default function Dashboard() {
             </div>
 
             {/* Contextual Learning Progress - Shows connection between vocab and passages */}
-            {hasStats && (
-              <div
+            <div
                 className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
                 style={{ animationDelay: "200ms" }}
               >
@@ -301,7 +300,6 @@ export default function Dashboard() {
                   </p>
                 </div> */}
               </div>
-            )}
           </div>
 
           {/* Right Column - Secondary Actions & Stats */}

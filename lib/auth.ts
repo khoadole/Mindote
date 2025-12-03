@@ -34,14 +34,29 @@ export function useAuth(): AuthHookReturn {
     let isMounted = true;
     const supabase = createClient();
 
+    console.log('[useAuth] 🔄 Initializing auth hook');
+
     // Get initial session
     supabase.auth.getSession().then(({ data, error }) => {
       if (!isMounted) return;
+      
+      console.log('[useAuth] 📊 getSession result:', { 
+        hasSession: !!data.session, 
+        hasUser: !!data.session?.user,
+        userId: data.session?.user?.id,
+        error: error?.message 
+      });
+
       if (error) {
-        console.error("Failed to fetch auth session", error);
+        console.error("[useAuth] ❌ Failed to fetch auth session", error);
         setUser(null);
         setSession(null);
       } else {
+        console.log('[useAuth] ✅ Session loaded:', {
+          userId: data.session?.user?.id,
+          email: data.session?.user?.email,
+          provider: data.session?.user?.app_metadata?.provider
+        });
         setUser(data.session?.user ?? null);
         setSession(data.session ?? null);
       }
@@ -53,6 +68,13 @@ export function useAuth(): AuthHookReturn {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       if (!isMounted) return;
+      
+      console.log('[useAuth] 🔔 Auth state changed:', {
+        event: _event,
+        hasSession: !!nextSession,
+        userId: nextSession?.user?.id
+      });
+      
       setUser(nextSession?.user ?? null);
       setSession(nextSession ?? null);
       setLoading(false);

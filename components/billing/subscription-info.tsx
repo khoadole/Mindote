@@ -173,15 +173,35 @@ export function SubscriptionInfo() {
     );
   }
 
-  const activeSubscriptions = subscriptions.filter(
-    (sub) => sub.status === "active" || sub.status === "on_trial"
-  );
-  
-  const scheduledSubscriptions = subscriptions.filter(
-    (sub) => sub.status === "scheduled"
-  );
+  // Filter active subscriptions (including cancelled but not yet expired)
+  const now = new Date();
+  const allActiveSubscriptions = subscriptions.filter((sub) => {
+    if (sub.status === "active" || sub.status === "on_trial") {
+      return true;
+    }
+    // Include cancelled subscriptions that haven't expired yet
+    if (sub.status === "cancelled" && sub.endsAt) {
+      return new Date(sub.endsAt) > now;
+    }
+    return false;
+  });
 
-  if (activeSubscriptions.length === 0 && scheduledSubscriptions.length === 0) {
+  // Sort by renewal/end date (earliest first = current subscription)
+  const sortedSubs = [...allActiveSubscriptions].sort((a, b) => {
+    const dateA = new Date(a.renewsAt || a.endsAt || a.startsAt || 0);
+    const dateB = new Date(b.renewsAt || b.endsAt || b.startsAt || 0);
+    return dateA.getTime() - dateB.getTime();
+  });
+
+  // Current = first (earliest renewal), Scheduled = second
+  const currentSubscription = sortedSubs[0] || null;
+  const scheduledSubscription = sortedSubs[1] || null;
+
+  // For UI rendering - arrays for mapping
+  const activeSubscriptions = currentSubscription ? [currentSubscription] : [];
+  const scheduledSubscriptions = scheduledSubscription ? [scheduledSubscription] : [];
+
+  if (!currentSubscription && !scheduledSubscription) {
     return (
       <Card>
         <CardHeader>

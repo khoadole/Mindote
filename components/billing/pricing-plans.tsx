@@ -69,25 +69,36 @@ export function PricingPlans() {
   const checkCurrentSubscription = async () => {
     try {
       const subscriptions = await getUserSubscriptions();
-      const activeSub = subscriptions.find(
-        (sub: any) => sub.status === "active" || sub.status === "on_trial"
-      );
-      if (activeSub?.plan?.variantId) {
-        setCurrentPlanVariantId(activeSub.plan.variantId);
-        setActiveSubscription(activeSub);
+      
+      // Filter active subscriptions (including cancelled but not yet expired)
+      const now = new Date();
+      const activeSubscriptions = subscriptions.filter((sub: any) => {
+        if (sub.status === "active" || sub.status === "on_trial") {
+          return true;
+        }
+        // Include cancelled subscriptions that haven't expired yet
+        if (sub.status === "cancelled" && sub.endsAt) {
+          return new Date(sub.endsAt) > now;
+        }
+        return false;
+      });
+      
+      // Sort by renewal/end date (earliest first = current subscription)
+      const sortedSubs = [...activeSubscriptions].sort((a: any, b: any) => {
+        const dateA = new Date(a.renewsAt || a.endsAt || a.startsAt || 0);
+        const dateB = new Date(b.renewsAt || b.endsAt || b.startsAt || 0);
+        return dateA.getTime() - dateB.getTime();
+      });
+      
+      // First = current (earliest renewal/end date)
+      if (sortedSubs[0]?.plan?.variantId) {
+        setCurrentPlanVariantId(sortedSubs[0].plan.variantId);
+        setActiveSubscription(sortedSubs[0]);
       }
       
-      // Check for scheduled subscriptions
-      const scheduledSub = subscriptions.find(
-        (sub: any) => sub.status === "scheduled"
-      );
-      if (scheduledSub?.plan?.variantId) {
-        setScheduledPlanVariantId(scheduledSub.plan.variantId);
-        // If no active sub, treat scheduled as current for some UI contexts if needed,
-        // but primarily we want to know it's scheduled.
-        if (!activeSub) {
-           setActiveSubscription(scheduledSub);
-        }
+      // Second = scheduled (later renewal)
+      if (sortedSubs[1]?.plan?.variantId) {
+        setScheduledPlanVariantId(sortedSubs[1].plan.variantId);
       }
     } catch (error) {
       console.error("Failed to check subscription:", error);

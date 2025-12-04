@@ -252,96 +252,96 @@ export async function processWebhookEvent(webhookEventId: string) {
   }
 
   let processingError = "";
-  const eventBody = webhookEvent.body as any;
+  try {
+    const eventBody = webhookEvent.body as any;
 
-  if (!webhookHasMeta(eventBody)) {
-    processingError = "Event body is missing the 'meta' property.";
-  } else if (webhookHasData(eventBody)) {
-    if (eventBody.meta.event_name.startsWith("subscription_")) {
-      // Save subscription events
-      const attributes = eventBody.data.attributes;
-      const variantId = attributes.variant_id as string;
+    if (!webhookHasMeta(eventBody)) {
+      processingError = "Event body is missing the 'meta' property.";
+    } else if (webhookHasData(eventBody)) {
+      if (eventBody.meta.event_name.startsWith("subscription_")) {
+        // Save subscription events
+        const attributes = eventBody.data.attributes;
+        const variantId = attributes.variant_id as string;
 
-      // Get the plan from the database
-      const plan = await prisma.plan.findFirst({
-        where: { variantId: parseInt(variantId, 10) },
-      });
+        // Get the plan from the database
+        const plan = await prisma.plan.findFirst({
+          where: { variantId: parseInt(variantId, 10) },
+        });
 
-      if (!plan) {
-        processingError = `Plan with variantId ${variantId} not found.`;
-      } else {
-        // Get the price data from Lemon Squeezy
-        const priceId = attributes.first_subscription_item.price_id;
-        const priceData = await getPrice(priceId);
-
-        if (priceData.error) {
-          processingError = `Failed to get the price data for subscription ${eventBody.data.id}.`;
+        if (!plan) {
+          processingError = `Plan with variantId ${variantId} not found.`;
         } else {
-          const isUsageBased =
-            attributes.first_subscription_item.is_usage_based;
-          const price = isUsageBased
-            ? priceData.data?.data.attributes.unit_price_decimal
-            : priceData.data?.data.attributes.unit_price;
+          // Get the price data from Lemon Squeezy
+          const priceId = attributes.first_subscription_item.price_id;
+          const priceData = await getPrice(priceId);
 
-          const userId = eventBody.meta.custom_data?.user_id;
-
-          if (!userId) {
-            processingError = "No user_id in custom_data.";
+          if (priceData.error) {
+            processingError = `Failed to get the price data for subscription ${eventBody.data.id}.`;
           } else {
-            // Check if user already has an active subscription
-            const existingActiveSubscription = await prisma.subscription.findFirst({
-              where: {
-                userId: userId,
-                status: {
-                  in: ["active", "on_trial"],
+            const isUsageBased =
+              attributes.first_subscription_item.is_usage_based;
+            const price = isUsageBased
+              ? priceData.data?.data.attributes.unit_price_decimal
+              : priceData.data?.data.attributes.unit_price;
+
+            const userId = eventBody.meta.custom_data?.user_id;
+
+            if (!userId) {
+              processingError = "No user_id in custom_data.";
+            } else {
+              // Check if user already has an active subscription
+              const existingActiveSubscription = await prisma.subscription.findFirst({
+                where: {
+                  userId: userId,
+                  status: {
+                    in: ["active", "on_trial"],
+                  },
                 },
-              },
-              orderBy: {
-                createdAt: "desc",
-              },
-            });
+                orderBy: {
+                  createdAt: "desc",
+                },
+              });
 
-            // Determine status and startsAt for subscription stacking
-            let subscriptionStatus = attributes.status as string;
-            let startsAt: string | null = null;
+              // Determine status and startsAt for subscription stacking
+              let subscriptionStatus = attributes.status as string;
+              let startsAt: string | null = null;
 
-            // If creating a new subscription and user already has an active one, schedule it
-            if (
-              eventBody.meta.event_name === "subscription_created" &&
-              existingActiveSubscription &&
-              existingActiveSubscription.lemonSqueezyId !== eventBody.data.id
-            ) {
-              subscriptionStatus = "scheduled";
-              startsAt = existingActiveSubscription.endsAt || existingActiveSubscription.renewsAt;
-              console.log(
-                `📅 Scheduling subscription ${eventBody.data.id} to start at ${startsAt}`
-              );
-            }
+              // If creating a new subscription and user already has an active one, schedule it
+              if (
+                eventBody.meta.event_name === "subscription_created" &&
+                existingActiveSubscription &&
+                existingActiveSubscription.lemonSqueezyId !== eventBody.data.id
+              ) {
+                subscriptionStatus = "scheduled";
+                startsAt = existingActiveSubscription.endsAt || existingActiveSubscription.renewsAt;
+                console.log(
+                  `📅 Scheduling subscription ${eventBody.data.id} to start at ${startsAt}`
+                );
+              }
 
-            const updateData = {
-              lemonSqueezyId: eventBody.data.id,
-              orderId: attributes.order_id as number,
-              name: attributes.user_name as string,
-              email: attributes.user_email as string,
-              status: subscriptionStatus,
-              statusFormatted: subscriptionStatus === "scheduled" 
-                ? "Scheduled" 
-                : (attributes.status_formatted as string),
-              startsAt: startsAt,
-              renewsAt: attributes.renews_at as string | null,
-              endsAt: attributes.ends_at as string | null,
-              trialEndsAt: attributes.trial_ends_at as string | null,
-              price: price?.toString() ?? "",
-              isPaused: attributes.pause !== null,
-              subscriptionItemId: attributes.first_subscription_item.id,
-              isUsageBased:
-                attributes.first_subscription_item.is_usage_based ?? false,
-              userId: userId,
-              planId: plan.id,
-            };
+              const updateData = {
+                lemonSqueezyId: eventBody.data.id,
+                orderId: attributes.order_id as number,
+                name: attributes.user_name as string,
+                email: attributes.user_email as string,
+                status: subscriptionStatus,
+                statusFormatted: subscriptionStatus === "scheduled" 
+                  ? "Scheduled" 
+                  : (attributes.status_formatted as string),
+                startsAt: startsAt,
+                renewsAt: attributes.renews_at as string | null,
+                endsAt: attributes.ends_at as string | null,
+                trialEndsAt: attributes.trial_ends_at as string | null,
+                price: price?.toString() ?? "",
+                isPaused: attributes.pause !== null,
+                subscriptionItemId: attributes.first_subscription_item.id,
+                isUsageBased:
+                  attributes.first_subscription_item.is_usage_based ?? false,
+                userId: userId,
+                planId: plan.id,
+              };
 
-            // Create or update subscription in the database
-            try {
+              // Create or update subscription in the database
               await prisma.subscription.upsert({
                 where: { lemonSqueezyId: updateData.lemonSqueezyId },
                 update: updateData,
@@ -350,14 +350,14 @@ export async function processWebhookEvent(webhookEventId: string) {
               console.log(
                 `✅ Subscription ${updateData.lemonSqueezyId} saved for user ${userId}`
               );
-            } catch (error) {
-              processingError = `Failed to upsert Subscription #${updateData.lemonSqueezyId} to the database.`;
-              console.error(error);
             }
           }
         }
       }
     }
+  } catch (error: any) {
+    processingError = error.message || "Unknown error during processing";
+    console.error("Error processing webhook:", error);
   }
 
   // Update the webhook event in the database

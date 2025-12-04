@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Sparkles, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
-  getCheckoutURL,
+  createOrUpdateSubscription,
   getUserSubscriptions,
 } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
@@ -55,6 +55,9 @@ export function PricingPlans() {
   const [currentPlanVariantId, setCurrentPlanVariantId] = useState<
     number | null
   >(null);
+  const [scheduledPlanVariantId, setScheduledPlanVariantId] = useState<
+    number | null
+  >(null);
   const [activeSubscription, setActiveSubscription] = useState<any | null>(null);
   const [subscriptionsLoading, setSubscriptionsLoading] = useState(true);
   const { toast } = useToast();
@@ -74,13 +77,17 @@ export function PricingPlans() {
         setActiveSubscription(activeSub);
       }
       
-      // Also check for scheduled subscriptions to show badge
+      // Check for scheduled subscriptions
       const scheduledSub = subscriptions.find(
         (sub: any) => sub.status === "scheduled"
       );
-      if (!activeSub && scheduledSub?.plan?.variantId) {
-        setCurrentPlanVariantId(scheduledSub.plan.variantId);
-        setActiveSubscription(scheduledSub);
+      if (scheduledSub?.plan?.variantId) {
+        setScheduledPlanVariantId(scheduledSub.plan.variantId);
+        // If no active sub, treat scheduled as current for some UI contexts if needed,
+        // but primarily we want to know it's scheduled.
+        if (!activeSub) {
+           setActiveSubscription(scheduledSub);
+        }
       }
     } catch (error) {
       console.error("Failed to check subscription:", error);
@@ -93,18 +100,24 @@ export function PricingPlans() {
     try {
       setLoadingPlan(planId);
 
-      // If trying to subscribe to current plan, do nothing
-      if (currentPlanVariantId === variantId) return;
+      // If trying to subscribe to current or scheduled plan, do nothing
+      if (currentPlanVariantId === variantId || scheduledPlanVariantId === variantId) return;
 
-      // Always redirect to checkout for proper payment processing
-      // This supports both new subscriptions and plan changes/stacking
-      const checkoutUrl = await getCheckoutURL(variantId, false);
+      const result = await createOrUpdateSubscription(variantId, false);
 
-      if (!checkoutUrl) {
-        throw new Error("Failed to create checkout URL");
+      if (result.type === "url" && result.url) {
+        window.location.href = result.url;
+      } else if (result.type === "success") {
+        toast({
+          title: "Success",
+          description: result.message,
+        });
+        // Refresh subscriptions and reload to show updated state
+        await checkCurrentSubscription();
+        window.location.reload();
+      } else {
+        throw new Error("Failed to process subscription");
       }
-
-      window.location.href = checkoutUrl;
     } catch (error: any) {
       console.error("Subscription error:", error);
       toast({
@@ -177,11 +190,14 @@ export function PricingPlans() {
               onClick={() => handleSubscribe(plan.id, plan.variantId)}
               disabled={
                 loadingPlan === plan.id ||
-                currentPlanVariantId === plan.variantId
+                currentPlanVariantId === plan.variantId ||
+                scheduledPlanVariantId === plan.variantId
               }
               className={`w-full ${
                 currentPlanVariantId === plan.variantId
                   ? "bg-green-600 hover:bg-green-700"
+                  : scheduledPlanVariantId === plan.variantId
+                  ? "bg-blue-600 hover:bg-blue-700"
                   : plan.popular
                   ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
                   : ""
@@ -191,6 +207,11 @@ export function PricingPlans() {
                 <>
                   <CheckCircle2 className="h-4 w-4 mr-2" />
                   Current Plan
+                </>
+              ) : scheduledPlanVariantId === plan.variantId ? (
+                <>
+                  <CheckCircle2 className="h-4 w-4 mr-2" />
+                  Scheduled
                 </>
               ) : loadingPlan === plan.id ? (
                 <>

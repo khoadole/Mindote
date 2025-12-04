@@ -223,6 +223,37 @@ export async function getCheckoutURL(variantId: number, embed = false) {
 }
 
 /**
+ * Create a checkout URL or update existing subscription
+ */
+export async function createOrUpdateSubscription(variantId: number, embed = false) {
+  const userId = await getUserId();
+
+  if (!userId) {
+    throw new Error("User is not authenticated.");
+  }
+
+  // Check if user has active subscription
+  const subscription = await prisma.subscription.findFirst({
+    where: {
+      userId,
+      status: {
+        in: ["active", "on_trial"],
+      },
+    },
+  });
+
+  if (subscription) {
+    // If user has an active subscription, change the plan
+    await changePlan(subscription.lemonSqueezyId, variantId);
+    return { type: "success", message: "Plan updated successfully" };
+  } else {
+    // If no active subscription, create a new checkout
+    const url = await getCheckoutURL(variantId, embed);
+    return { type: "url", url };
+  }
+}
+
+/**
  * Store webhook event in database
  */
 export async function storeWebhookEvent(eventName: string, body: any) {
@@ -289,46 +320,15 @@ export async function processWebhookEvent(webhookEventId: string) {
             if (!userId) {
               processingError = "No user_id in custom_data.";
             } else {
-              // Check if user already has an active subscription
-              const existingActiveSubscription = await prisma.subscription.findFirst({
-                where: {
-                  userId: userId,
-                  status: {
-                    in: ["active", "on_trial"],
-                  },
-                },
-                orderBy: {
-                  createdAt: "desc",
-                },
-              });
-
-              // Determine status and startsAt for subscription stacking
-              let subscriptionStatus = attributes.status as string;
-              let startsAt: string | null = null;
-
-              // If creating a new subscription and user already has an active one, schedule it
-              if (
-                eventBody.meta.event_name === "subscription_created" &&
-                existingActiveSubscription &&
-                existingActiveSubscription.lemonSqueezyId !== eventBody.data.id
-              ) {
-                subscriptionStatus = "scheduled";
-                startsAt = existingActiveSubscription.endsAt || existingActiveSubscription.renewsAt;
-                console.log(
-                  `📅 Scheduling subscription ${eventBody.data.id} to start at ${startsAt}`
-                );
-              }
-
+              // First, save the subscription with status from Lemon Squeezy
               const updateData = {
                 lemonSqueezyId: eventBody.data.id,
                 orderId: attributes.order_id as number,
                 name: attributes.user_name as string,
                 email: attributes.user_email as string,
-                status: subscriptionStatus,
-                statusFormatted: subscriptionStatus === "scheduled" 
-                  ? "Scheduled" 
-                  : (attributes.status_formatted as string),
-                startsAt: startsAt,
+                status: attributes.status as string,
+                statusFormatted: attributes.status_formatted as string,
+                startsAt: null as string | null,
                 renewsAt: attributes.renews_at as string | null,
                 endsAt: attributes.ends_at as string | null,
                 trialEndsAt: attributes.trial_ends_at as string | null,
@@ -350,6 +350,12 @@ export async function processWebhookEvent(webhookEventId: string) {
               console.log(
                 `✅ Subscription ${updateData.lemonSqueezyId} saved for user ${userId}`
               );
+
+              // After saving, fix any race conditions by ensuring only the OLDEST subscription is active
+              // This handles cases where two webhooks process in parallel
+              if (eventBody.meta.event_name === "subscription_created") {
+                await normalizeUserSubscriptions(userId);
+              }
             }
           }
         }
@@ -371,6 +377,53 @@ export async function processWebhookEvent(webhookEventId: string) {
 
   // Revalidate billing page to show updated subscription
   revalidatePath("/billing");
+}
+
+/**
+ * Normalize user subscriptions to fix race conditions
+ * Ensures only the OLDEST active subscription remains active, 
+ * newer ones become scheduled
+ */
+async function normalizeUserSubscriptions(userId: string) {
+  // Get all "active" or "on_trial" subscriptions for this user, ordered by createdAt ASC (oldest first)
+  const activeSubscriptions = await prisma.subscription.findMany({
+    where: {
+      userId: userId,
+      status: {
+        in: ["active", "on_trial"],
+      },
+    },
+    orderBy: {
+      createdAt: "asc", // Oldest first
+    },
+  });
+
+  if (activeSubscriptions.length <= 1) {
+    // No race condition, nothing to fix
+    return;
+  }
+
+  console.log(
+    `🔧 Found ${activeSubscriptions.length} active subscriptions for user ${userId}, normalizing...`
+  );
+
+  // Keep the first (oldest) as active, mark others as scheduled
+  const [primarySubscription, ...otherSubscriptions] = activeSubscriptions;
+
+  for (const sub of otherSubscriptions) {
+    const startsAt = primarySubscription.endsAt || primarySubscription.renewsAt;
+    await prisma.subscription.update({
+      where: { id: sub.id },
+      data: {
+        status: "scheduled",
+        statusFormatted: "Scheduled",
+        startsAt: startsAt,
+      },
+    });
+    console.log(
+      `📅 Marked subscription ${sub.lemonSqueezyId} as scheduled (starts at ${startsAt})`
+    );
+  }
 }
 
 /**

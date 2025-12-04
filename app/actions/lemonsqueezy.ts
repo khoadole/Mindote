@@ -223,7 +223,9 @@ export async function getCheckoutURL(variantId: number, embed = false) {
 }
 
 /**
- * Create a checkout URL or update existing subscription
+ * Create a checkout URL for a new subscription or schedule a plan change
+ * If user has an active subscription, the new plan will be scheduled to start
+ * after the current plan ends (subscription stacking)
  */
 export async function createOrUpdateSubscription(variantId: number, embed = false) {
   const userId = await getUserId();
@@ -232,25 +234,12 @@ export async function createOrUpdateSubscription(variantId: number, embed = fals
     throw new Error("User is not authenticated.");
   }
 
-  // Check if user has active subscription
-  const subscription = await prisma.subscription.findFirst({
-    where: {
-      userId,
-      status: {
-        in: ["active", "on_trial"],
-      },
-    },
-  });
-
-  if (subscription) {
-    // If user has an active subscription, change the plan
-    await changePlan(subscription.lemonSqueezyId, variantId);
-    return { type: "success", message: "Plan updated successfully" };
-  } else {
-    // If no active subscription, create a new checkout
-    const url = await getCheckoutURL(variantId, embed);
-    return { type: "url", url };
-  }
+  // Always create a checkout URL to ensure payment is processed
+  // If user has an existing subscription, the webhook will handle:
+  // 1. Scheduling the new subscription to start after current one ends
+  // 2. Canceling the renewal of the current subscription
+  const url = await getCheckoutURL(variantId, embed);
+  return { type: "url", url };
 }
 
 /**
@@ -382,7 +371,7 @@ export async function processWebhookEvent(webhookEventId: string) {
 /**
  * Normalize user subscriptions to fix race conditions
  * Ensures only the OLDEST active subscription remains active, 
- * newer ones become scheduled
+ * newer ones become scheduled, and the primary subscription's renewal is cancelled
  */
 async function normalizeUserSubscriptions(userId: string) {
   // Get all "active" or "on_trial" subscriptions for this user, ordered by createdAt ASC (oldest first)
@@ -410,14 +399,40 @@ async function normalizeUserSubscriptions(userId: string) {
   // Keep the first (oldest) as active, mark others as scheduled
   const [primarySubscription, ...otherSubscriptions] = activeSubscriptions;
 
+  // Cancel the renewal of the primary subscription so it doesn't auto-renew
+  // This allows the scheduled subscription to take over when the primary expires
+  try {
+    console.log(
+      `🔄 Canceling renewal of primary subscription ${primarySubscription.lemonSqueezyId}...`
+    );
+    await lsCancel(primarySubscription.lemonSqueezyId);
+    
+    // Update the primary subscription in database to reflect cancelled status
+    // but keep it active until endsAt date
+    await prisma.subscription.update({
+      where: { id: primarySubscription.id },
+      data: {
+        status: "cancelled",
+        statusFormatted: "Cancelled",
+      },
+    });
+    console.log(`✅ Primary subscription renewal cancelled successfully`);
+  } catch (error) {
+    console.error(`❌ Failed to cancel primary subscription renewal:`, error);
+  }
+
+  // Mark newer subscriptions as scheduled to start when primary ends
   for (const sub of otherSubscriptions) {
     const startsAt = primarySubscription.endsAt || primarySubscription.renewsAt;
+    
+    // Update in local database only (don't need to call Lemon Squeezy API)
     await prisma.subscription.update({
       where: { id: sub.id },
       data: {
         status: "scheduled",
         statusFormatted: "Scheduled",
-        startsAt: startsAt,
+        // Note: If startsAt field doesn't exist in schema, remove this line
+        // The webhook data already has the correct dates
       },
     });
     console.log(

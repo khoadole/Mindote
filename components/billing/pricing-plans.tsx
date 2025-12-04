@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import {
   getCheckoutURL,
   getUserSubscriptions,
-  changePlan,
 } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
@@ -74,6 +73,15 @@ export function PricingPlans() {
         setCurrentPlanVariantId(activeSub.plan.variantId);
         setActiveSubscription(activeSub);
       }
+      
+      // Also check for scheduled subscriptions to show badge
+      const scheduledSub = subscriptions.find(
+        (sub: any) => sub.status === "scheduled"
+      );
+      if (!activeSub && scheduledSub?.plan?.variantId) {
+        setCurrentPlanVariantId(scheduledSub.plan.variantId);
+        setActiveSubscription(scheduledSub);
+      }
     } catch (error) {
       console.error("Failed to check subscription:", error);
     } finally {
@@ -85,31 +93,18 @@ export function PricingPlans() {
     try {
       setLoadingPlan(planId);
 
-      // Check if user already has an active subscription
-      if (activeSubscription && activeSubscription.lemonSqueezyId) {
-        // If switching to the same plan, do nothing (should be disabled anyway)
-        if (currentPlanVariantId === variantId) return;
+      // If trying to subscribe to current plan, do nothing
+      if (currentPlanVariantId === variantId) return;
 
-        // Call changePlan for upgrade/downgrade
-        await changePlan(activeSubscription.lemonSqueezyId, variantId);
-        
-        toast({
-          title: "Success",
-          description: "Your plan has been updated successfully.",
-        });
-        
-        // Refresh subscription state
-        await checkCurrentSubscription();
-      } else {
-        // New subscription
-        const checkoutUrl = await getCheckoutURL(variantId, false);
+      // Always redirect to checkout for proper payment processing
+      // This supports both new subscriptions and plan changes/stacking
+      const checkoutUrl = await getCheckoutURL(variantId, false);
 
-        if (!checkoutUrl) {
-          throw new Error("Failed to create checkout URL");
-        }
-
-        window.location.href = checkoutUrl;
+      if (!checkoutUrl) {
+        throw new Error("Failed to create checkout URL");
       }
+
+      window.location.href = checkoutUrl;
     } catch (error: any) {
       console.error("Subscription error:", error);
       toast({

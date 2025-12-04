@@ -288,13 +288,46 @@ export async function processWebhookEvent(webhookEventId: string) {
           if (!userId) {
             processingError = "No user_id in custom_data.";
           } else {
+            // Check if user already has an active subscription
+            const existingActiveSubscription = await prisma.subscription.findFirst({
+              where: {
+                userId: userId,
+                status: {
+                  in: ["active", "on_trial"],
+                },
+              },
+              orderBy: {
+                createdAt: "desc",
+              },
+            });
+
+            // Determine status and startsAt for subscription stacking
+            let subscriptionStatus = attributes.status as string;
+            let startsAt: string | null = null;
+
+            // If creating a new subscription and user already has an active one, schedule it
+            if (
+              eventBody.meta.event_name === "subscription_created" &&
+              existingActiveSubscription &&
+              existingActiveSubscription.lemonSqueezyId !== eventBody.data.id
+            ) {
+              subscriptionStatus = "scheduled";
+              startsAt = existingActiveSubscription.endsAt || existingActiveSubscription.renewsAt;
+              console.log(
+                `📅 Scheduling subscription ${eventBody.data.id} to start at ${startsAt}`
+              );
+            }
+
             const updateData = {
               lemonSqueezyId: eventBody.data.id,
               orderId: attributes.order_id as number,
               name: attributes.user_name as string,
               email: attributes.user_email as string,
-              status: attributes.status as string,
-              statusFormatted: attributes.status_formatted as string,
+              status: subscriptionStatus,
+              statusFormatted: subscriptionStatus === "scheduled" 
+                ? "Scheduled" 
+                : (attributes.status_formatted as string),
+              startsAt: startsAt,
               renewsAt: attributes.renews_at as string | null,
               endsAt: attributes.ends_at as string | null,
               trialEndsAt: attributes.trial_ends_at as string | null,

@@ -188,6 +188,7 @@ model Subscription {
   email              String
   status             String
   statusFormatted    String   @map("status_formatted")
+  startsAt           String?  @map("starts_at")
   renewsAt           String?  @map("renews_at")
   endsAt             String?  @map("ends_at")
   trialEndsAt        String?  @map("trial_ends_at")

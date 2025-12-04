@@ -32,12 +32,33 @@ export async function GET(request: Request) {
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error && data.user) {
-      // Ensure user exists in database (handles Google OAuth user creation)
-      try {
-        await ensureUserExists(data.user.id);
-      } catch (ensureError) {
-        console.error("Error ensuring user exists:", ensureError);
-        // Continue anyway - the user might still be able to use the app
+      // ✅ FIX: Ensure user exists in database BEFORE redirecting
+      // This prevents "User not found" errors when clicking Premium upgrade
+      // immediately after Google OAuth login
+      console.log(`[OAuth Callback] Ensuring user ${data.user.id} exists in database...`);
+      
+      let userCreated = false;
+      let retryCount = 0;
+      const maxRetries = 3;
+      
+      while (!userCreated && retryCount < maxRetries) {
+        try {
+          await ensureUserExists(data.user.id);
+          userCreated = true;
+          console.log(`[OAuth Callback] ✅ User ${data.user.id} ensured in database`);
+        } catch (ensureError) {
+          retryCount++;
+          console.error(`[OAuth Callback] Attempt ${retryCount}/${maxRetries} failed:`, ensureError);
+          
+          if (retryCount < maxRetries) {
+            // Wait a bit before retrying (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, 100 * retryCount));
+          } else {
+            // If all retries fail, show error to user
+            console.error("[OAuth Callback] ❌ Failed to create user after all retries");
+            return NextResponse.redirect(`${origin}/auth/auth-code-error`);
+          }
+        }
       }
 
       // Redirect to the next URL or dashboard on success

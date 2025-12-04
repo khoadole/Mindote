@@ -176,8 +176,12 @@ export function SubscriptionInfo() {
   const activeSubscriptions = subscriptions.filter(
     (sub) => sub.status === "active" || sub.status === "on_trial"
   );
+  
+  const scheduledSubscriptions = subscriptions.filter(
+    (sub) => sub.status === "scheduled"
+  );
 
-  if (activeSubscriptions.length === 0) {
+  if (activeSubscriptions.length === 0 && scheduledSubscriptions.length === 0) {
     return (
       <Card>
         <CardHeader>
@@ -356,6 +360,56 @@ export function SubscriptionInfo() {
                 </span>
               </div>
             )}
+          </CardContent>
+        </Card>
+      ))}
+
+      {/* Scheduled/Upcoming Subscriptions */}
+      {scheduledSubscriptions.map((subscription) => (
+        <Card
+          key={subscription.id}
+          className="border-blue-500/50 bg-blue-500/5"
+        >
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle className="flex items-center gap-2">
+                <Calendar className="h-5 w-5 text-blue-500" />
+                <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+                  Upcoming: {subscription.plan.productName || "Premium Plan"}
+                </span>
+                <Badge variant="secondary" className="bg-blue-600 dark:bg-blue-500 text-white">
+                  Scheduled
+                </Badge>
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">Starts On</p>
+                <p className="text-lg font-semibold">
+                  {subscription.startsAt 
+                    ? format(new Date(subscription.startsAt), "MMMM d, yyyy")
+                    : "To be determined"}
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-muted-foreground">Price</p>
+                <p className="text-2xl font-bold">
+                  ${(parseInt(subscription.price) / 100).toFixed(2)}
+                  <span className="text-sm font-normal text-muted-foreground">
+                    /{subscription.plan.interval}
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-blue-500">
+              <CheckCircle2 className="h-4 w-4" />
+              <span>
+                This plan will automatically activate when your current subscription ends
+              </span>
+            </div>
           </CardContent>
         </Card>
       ))}

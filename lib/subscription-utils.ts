@@ -1,10 +1,8 @@
 /**
- * Subscription utility functions for sorting and identifying current vs scheduled subscriptions.
+ * Subscription utility functions for identifying the active subscription.
  * 
- * LemonSqueezy returns multiple subscriptions with status: "active" when users switch plans.
- * We distinguish between current and scheduled subscriptions by sorting by renewal date:
- * - Current: earliest renewsAt/endsAt date
- * - Scheduled: later renewsAt date (starts after current ends)
+ * Simplified logic: User has only ONE active subscription at a time.
+ * When switching plans, the old plan is cancelled and the new plan becomes active.
  */
 
 export interface Subscription {
@@ -25,13 +23,8 @@ export interface Subscription {
   trialEndsAt?: string;
 }
 
-export interface SubscriptionResult {
-  current: Subscription | null;
-  scheduled: Subscription | null;
-}
-
 /**
- * Filters subscriptions to get only those that are currently active or will be active.
+ * Filters subscriptions to get only those that are currently active.
  * Includes:
  * - status === 'active'
  * - status === 'on_trial'
@@ -66,24 +59,16 @@ export function sortSubscriptionsByRenewalDate(
 }
 
 /**
- * Gets the current and scheduled subscriptions from a list of subscriptions.
- * 
- * - Current: The subscription with the earliest renewal/end date
- * - Scheduled: The subscription with a later renewal date (if exists)
+ * Gets the active subscription from a list of subscriptions.
+ * Returns the first active subscription found.
  * 
  * @example
- * // User has Monthly (renews Jan 31) and Yearly (renews Jan 2026)
- * // Monthly is "current", Yearly is "scheduled"
- * const { current, scheduled } = getActiveAndScheduledSubscriptions(subscriptions);
+ * const active = getActiveSubscription(subscriptions);
  */
-export function getActiveAndScheduledSubscriptions(
+export function getActiveSubscription(
   subscriptions: Subscription[]
-): SubscriptionResult {
+): Subscription | null {
   const active = filterActiveSubscriptions(subscriptions);
-  const sorted = sortSubscriptionsByRenewalDate(active);
-  
-  return {
-    current: sorted[0] || null,
-    scheduled: sorted[1] || null,
-  };
+  return active[0] || null;
 }
+

@@ -10,12 +10,23 @@ import {
 } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { formatDistanceToNow } from "date-fns";
 
 const PLANS = [
   {
     id: "monthly",
     name: "Monthly",
-    price: "7.99",
+    price: "$7.99",
     period: "per month",
     variantId: parseInt(
       process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_MONTHLY || "1087650"
@@ -50,16 +61,22 @@ const PLANS = [
   },
 ];
 
+interface ConfirmDialogState {
+  open: boolean;
+  targetPlan: typeof PLANS[0] | null;
+  isUpgrade: boolean;
+}
+
 export function PricingPlans() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
-  const [currentPlanVariantId, setCurrentPlanVariantId] = useState<
-    number | null
-  >(null);
-  const [scheduledPlanVariantId, setScheduledPlanVariantId] = useState<
-    number | null
-  >(null);
+  const [currentPlanVariantId, setCurrentPlanVariantId] = useState<number | null>(null);
   const [activeSubscription, setActiveSubscription] = useState<any | null>(null);
   const [subscriptionsLoading, setSubscriptionsLoading] = useState(true);
+  const [confirmDialog, setConfirmDialog] = useState<ConfirmDialogState>({
+    open: false,
+    targetPlan: null,
+    isUpgrade: false,
+  });
   const { toast } = useToast();
 
   useEffect(() => {
@@ -83,22 +100,10 @@ export function PricingPlans() {
         return false;
       });
       
-      // Sort by renewal/end date (earliest first = current subscription)
-      const sortedSubs = [...activeSubscriptions].sort((a: any, b: any) => {
-        const dateA = new Date(a.renewsAt || a.endsAt || a.startsAt || 0);
-        const dateB = new Date(b.renewsAt || b.endsAt || b.startsAt || 0);
-        return dateA.getTime() - dateB.getTime();
-      });
-      
-      // First = current (earliest renewal/end date)
-      if (sortedSubs[0]?.plan?.variantId) {
-        setCurrentPlanVariantId(sortedSubs[0].plan.variantId);
-        setActiveSubscription(sortedSubs[0]);
-      }
-      
-      // Second = scheduled (later renewal)
-      if (sortedSubs[1]?.plan?.variantId) {
-        setScheduledPlanVariantId(sortedSubs[1].plan.variantId);
+      // Get the first active subscription (should be only one now)
+      if (activeSubscriptions[0]?.plan?.variantId) {
+        setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
+        setActiveSubscription(activeSubscriptions[0]);
       }
     } catch (error) {
       console.error("Failed to check subscription:", error);
@@ -107,25 +112,52 @@ export function PricingPlans() {
     }
   };
 
+  const getRemainingTime = () => {
+    if (!activeSubscription) return "";
+    const endDate = activeSubscription.renewsAt || activeSubscription.endsAt;
+    if (!endDate) return "";
+    return formatDistanceToNow(new Date(endDate));
+  };
+
+  const getCurrentPlanName = () => {
+    if (!currentPlanVariantId) return "";
+    const plan = PLANS.find(p => p.variantId === currentPlanVariantId);
+    return plan?.name || "Current Plan";
+  };
+
+  const handlePlanClick = (plan: typeof PLANS[0]) => {
+    // If current plan, do nothing
+    if (currentPlanVariantId === plan.variantId) return;
+    
+    // If no active subscription (free user), go straight to checkout
+    if (!activeSubscription) {
+      handleSubscribe(plan.id, plan.variantId);
+      return;
+    }
+    
+    // User has active subscription - show confirmation dialog
+    const isUpgrade = plan.id === "yearly";
+    setConfirmDialog({
+      open: true,
+      targetPlan: plan,
+      isUpgrade,
+    });
+  };
+
+  const handleConfirmSwitch = async () => {
+    if (!confirmDialog.targetPlan) return;
+    setConfirmDialog({ open: false, targetPlan: null, isUpgrade: false });
+    await handleSubscribe(confirmDialog.targetPlan.id, confirmDialog.targetPlan.variantId);
+  };
+
   const handleSubscribe = async (planId: string, variantId: number) => {
     try {
       setLoadingPlan(planId);
-
-      // If trying to subscribe to current or scheduled plan, do nothing
-      if (currentPlanVariantId === variantId || scheduledPlanVariantId === variantId) return;
 
       const result = await createOrUpdateSubscription(variantId, false);
 
       if (result.type === "url" && result.url) {
         window.location.href = result.url;
-      } else if (result.type === "success") {
-        toast({
-          title: "Success",
-          description: result.message,
-        });
-        // Refresh subscriptions and reload to show updated state
-        await checkCurrentSubscription();
-        window.location.reload();
       } else {
         throw new Error("Failed to process subscription");
       }
@@ -142,103 +174,153 @@ export function PricingPlans() {
     }
   };
 
+  const getConfirmDialogContent = () => {
+    if (!confirmDialog.targetPlan) return { title: "", description: "" };
+    
+    const remainingTime = getRemainingTime();
+    const currentPlanName = getCurrentPlanName();
+    const targetPlanName = confirmDialog.targetPlan.name;
+    
+    if (confirmDialog.isUpgrade) {
+      // Monthly → Yearly (Upgrade)
+      return {
+        title: "Nâng cấp lên " + targetPlanName + "?",
+        description: `Bạn đang sử dụng gói ${currentPlanName} (còn ${remainingTime}).
+
+Nếu nâng cấp lên ${targetPlanName}:
+• Gói ${currentPlanName} sẽ bị hủy ngay
+• Gói ${targetPlanName} sẽ bắt đầu ngay lập tức
+• Phần tiền còn lại sẽ được Lemon Squeezy tự động tính vào thanh toán
+
+Bạn có chắc muốn nâng cấp?`,
+      };
+    } else {
+      // Yearly → Monthly (Downgrade)
+      return {
+        title: "Chuyển sang " + targetPlanName + "?",
+        description: `Bạn đang sử dụng gói ${currentPlanName} (còn ${remainingTime}).
+
+Nếu chuyển sang ${targetPlanName}:
+• Gói ${currentPlanName} sẽ bị hủy ngay
+• Gói ${targetPlanName} sẽ bắt đầu ngay lập tức
+• Bạn sẽ mất thời gian còn lại của gói ${currentPlanName}
+
+Bạn có chắc muốn chuyển?`,
+      };
+    }
+  };
+
+  const dialogContent = getConfirmDialogContent();
+
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      {PLANS.map((plan) => (
-        <Card
-          key={plan.id}
-          className={`relative ${
-            plan.popular
-              ? "border-purple-500 shadow-lg shadow-purple-500/20"
-              : ""
-          }`}
-        >
-          {plan.popular && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-                Most Popular
-              </Badge>
-            </div>
-          )}
-
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span>{plan.name}</span>
-              {plan.savings && (
-                <Badge
-                  variant="secondary"
-                  className="text-green-600 dark:text-green-400"
-                >
-                  {plan.savings}
+    <>
+      <div className="grid md:grid-cols-2 gap-6">
+        {PLANS.map((plan) => (
+          <Card
+            key={plan.id}
+            className={`relative ${
+              plan.popular
+                ? "border-purple-500 shadow-lg shadow-purple-500/20"
+                : ""
+            }`}
+          >
+            {plan.popular && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                  Most Popular
                 </Badge>
-              )}
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-6">
-            <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold">{plan.price}</span>
-                <span className="text-muted-foreground">{plan.period}</span>
               </div>
-              {plan.pricePerMonth && (
-                <p className="text-sm text-muted-foreground mt-1">
-                  Only {plan.pricePerMonth} per month
-                </p>
-              )}
-            </div>
+            )}
 
-            <ul className="space-y-3">
-              {plan.features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span>{plan.name}</span>
+                {plan.savings && (
+                  <Badge
+                    variant="secondary"
+                    className="text-green-600 dark:text-green-400"
+                  >
+                    {plan.savings}
+                  </Badge>
+                )}
+              </CardTitle>
+            </CardHeader>
 
-            <Button
-              onClick={() => handleSubscribe(plan.id, plan.variantId)}
-              disabled={
-                loadingPlan === plan.id ||
-                currentPlanVariantId === plan.variantId ||
-                scheduledPlanVariantId === plan.variantId
-              }
-              className={`w-full ${
-                currentPlanVariantId === plan.variantId
-                  ? "bg-green-600 hover:bg-green-700"
-                  : scheduledPlanVariantId === plan.variantId
-                  ? "bg-blue-600 hover:bg-blue-700"
-                  : plan.popular
-                  ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                  : ""
-              }`}
-            >
-              {currentPlanVariantId === plan.variantId ? (
-                <>
-                  <CheckCircle2 className="h-4 w-4 mr-2" />
-                  Current Plan
-                </>
-              ) : scheduledPlanVariantId === plan.variantId ? (
-                <>
-                  <CheckCircle2 className="h-4 w-4 mr-2" />
-                  Scheduled
-                </>
-              ) : loadingPlan === plan.id ? (
-                <>
-                  <Sparkles className="h-4 w-4 mr-2 animate-spin" />
-                  Processing...
-                </>
-              ) : (
-                <>
-                  <Sparkles className="h-4 w-4 mr-2" />
-                  Get Started
-                </>
-              )}
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+            <CardContent className="space-y-6">
+              <div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-muted-foreground">{plan.period}</span>
+                </div>
+                {plan.pricePerMonth && (
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Only {plan.pricePerMonth} per month
+                  </p>
+                )}
+              </div>
+
+              <ul className="space-y-3">
+                {plan.features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                onClick={() => handlePlanClick(plan)}
+                disabled={
+                  loadingPlan === plan.id ||
+                  currentPlanVariantId === plan.variantId
+                }
+                className={`w-full ${
+                  currentPlanVariantId === plan.variantId
+                    ? "bg-green-600 hover:bg-green-700"
+                    : plan.popular
+                    ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                    : ""
+                }`}
+              >
+                {currentPlanVariantId === plan.variantId ? (
+                  <>
+                    <CheckCircle2 className="h-4 w-4 mr-2" />
+                    Current Plan
+                  </>
+                ) : loadingPlan === plan.id ? (
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Get Started
+                  </>
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={confirmDialog.open} onOpenChange={(open) => setConfirmDialog(prev => ({ ...prev, open }))}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{dialogContent.title}</AlertDialogTitle>
+            <AlertDialogDescription className="whitespace-pre-line">
+              {dialogContent.description}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Hủy</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirmSwitch}>
+              {confirmDialog.isUpgrade ? "Nâng cấp" : "Chuyển gói"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
   );
 }

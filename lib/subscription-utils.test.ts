@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   filterActiveSubscriptions,
   sortSubscriptionsByRenewalDate,
-  getActiveAndScheduledSubscriptions,
+  getActiveSubscription,
   Subscription,
 } from "./subscription-utils";
 
@@ -99,9 +99,9 @@ describe("sortSubscriptionsByRenewalDate", () => {
   });
 });
 
-describe("getActiveAndScheduledSubscriptions", () => {
+describe("getActiveSubscription", () => {
   describe("Use Case 1: Only Monthly Subscription", () => {
-    it("returns monthly as current, null as scheduled", () => {
+    it("returns monthly as the active subscription", () => {
       const subs: Subscription[] = [
         {
           id: "24153144",
@@ -112,17 +112,16 @@ describe("getActiveAndScheduledSubscriptions", () => {
         },
       ];
 
-      const { current, scheduled } = getActiveAndScheduledSubscriptions(subs);
+      const active = getActiveSubscription(subs);
 
-      expect(current).not.toBeNull();
-      expect(current?.plan.variantId).toBe(1087650);
-      expect(current?.plan.productName).toBe("Monthly");
-      expect(scheduled).toBeNull();
+      expect(active).not.toBeNull();
+      expect(active?.plan.variantId).toBe(1087650);
+      expect(active?.plan.productName).toBe("Monthly");
     });
   });
 
   describe("Use Case 2: Only Yearly Subscription", () => {
-    it("returns yearly as current, null as scheduled", () => {
+    it("returns yearly as the active subscription", () => {
       const subs: Subscription[] = [
         {
           id: "24153143",
@@ -133,94 +132,37 @@ describe("getActiveAndScheduledSubscriptions", () => {
         },
       ];
 
-      const { current, scheduled } = getActiveAndScheduledSubscriptions(subs);
+      const active = getActiveSubscription(subs);
 
-      expect(current).not.toBeNull();
-      expect(current?.plan.variantId).toBe(1087727);
-      expect(current?.plan.productName).toBe("Yearly");
-      expect(scheduled).toBeNull();
-    });
-  });
-
-  describe("Use Case 3: Monthly → Yearly (Upgrade)", () => {
-    it("returns monthly as current (earliest), yearly as scheduled", () => {
-      const subs: Subscription[] = [
-        {
-          id: "24153144",
-          status: "active",
-          plan: { variantId: 1087650, productName: "Monthly", interval: "month" },
-          renewsAt: "2025-01-31T10:00:00Z", // EARLIEST = CURRENT
-          price: "799",
-        },
-        {
-          id: "24153143",
-          status: "active",
-          plan: { variantId: 1087727, productName: "Yearly", interval: "year" },
-          startsAt: "2025-01-31T10:00:00Z",
-          renewsAt: "2026-01-31T10:00:00Z", // LATER = SCHEDULED
-          price: "7188",
-        },
-      ];
-
-      const { current, scheduled } = getActiveAndScheduledSubscriptions(subs);
-
-      expect(current).not.toBeNull();
-      expect(current?.plan.variantId).toBe(1087650);
-      expect(current?.plan.productName).toBe("Monthly");
-
-      expect(scheduled).not.toBeNull();
-      expect(scheduled?.plan.variantId).toBe(1087727);
-      expect(scheduled?.plan.productName).toBe("Yearly");
-    });
-  });
-
-  describe("Use Case 4: Yearly → Monthly (Downgrade)", () => {
-    it("returns yearly as current (earliest), monthly as scheduled", () => {
-      const subs: Subscription[] = [
-        {
-          id: "24153143",
-          status: "active",
-          plan: { variantId: 1087727, productName: "Yearly", interval: "year" },
-          renewsAt: "2026-01-01T10:00:00Z", // EARLIEST = CURRENT
-          price: "7188",
-        },
-        {
-          id: "24153144",
-          status: "active",
-          plan: { variantId: 1087650, productName: "Monthly", interval: "month" },
-          startsAt: "2026-01-01T10:00:00Z",
-          renewsAt: "2026-01-31T10:00:00Z", // LATER = SCHEDULED
-          price: "799",
-        },
-      ];
-
-      const { current, scheduled } = getActiveAndScheduledSubscriptions(subs);
-
-      expect(current).not.toBeNull();
-      expect(current?.plan.variantId).toBe(1087727);
-      expect(current?.plan.productName).toBe("Yearly");
-
-      expect(scheduled).not.toBeNull();
-      expect(scheduled?.plan.variantId).toBe(1087650);
-      expect(scheduled?.plan.productName).toBe("Monthly");
+      expect(active).not.toBeNull();
+      expect(active?.plan.variantId).toBe(1087727);
+      expect(active?.plan.productName).toBe("Yearly");
     });
   });
 
   describe("Edge Cases", () => {
-    it("returns null for both when no subscriptions", () => {
-      const { current, scheduled } = getActiveAndScheduledSubscriptions([]);
-      expect(current).toBeNull();
-      expect(scheduled).toBeNull();
+    it("returns null when no subscriptions", () => {
+      const active = getActiveSubscription([]);
+      expect(active).toBeNull();
     });
 
-    it("handles subscriptions with only expired statuses", () => {
+    it("returns null when all subscriptions are expired", () => {
       const subs: Subscription[] = [
         createSubscription({ status: "expired" }),
         createSubscription({ status: "unpaid" }),
       ];
-      const { current, scheduled } = getActiveAndScheduledSubscriptions(subs);
-      expect(current).toBeNull();
-      expect(scheduled).toBeNull();
+      const active = getActiveSubscription(subs);
+      expect(active).toBeNull();
+    });
+
+    it("returns the first active subscription when multiple exist", () => {
+      const subs: Subscription[] = [
+        createSubscription({ id: "1", status: "active" }),
+        createSubscription({ id: "2", status: "active" }),
+      ];
+      const active = getActiveSubscription(subs);
+      expect(active).not.toBeNull();
+      expect(active?.id).toBe("1");
     });
   });
 });

@@ -340,11 +340,7 @@ export async function processWebhookEvent(webhookEventId: string) {
                 `✅ Subscription ${updateData.lemonSqueezyId} saved for user ${userId}`
               );
 
-              // After saving, fix any race conditions by ensuring only the OLDEST subscription is active
-              // This handles cases where two webhooks process in parallel
-              if (eventBody.meta.event_name === "subscription_created") {
-                await normalizeUserSubscriptions(userId);
-              }
+
             }
           }
         }
@@ -368,78 +364,7 @@ export async function processWebhookEvent(webhookEventId: string) {
   revalidatePath("/billing");
 }
 
-/**
- * Normalize user subscriptions to fix race conditions
- * Ensures only the OLDEST active subscription remains active, 
- * newer ones become scheduled, and the primary subscription's renewal is cancelled
- */
-async function normalizeUserSubscriptions(userId: string) {
-  // Get all "active" or "on_trial" subscriptions for this user, ordered by createdAt ASC (oldest first)
-  const activeSubscriptions = await prisma.subscription.findMany({
-    where: {
-      userId: userId,
-      status: {
-        in: ["active", "on_trial"],
-      },
-    },
-    orderBy: {
-      createdAt: "asc", // Oldest first
-    },
-  });
 
-  if (activeSubscriptions.length <= 1) {
-    // No race condition, nothing to fix
-    return;
-  }
-
-  console.log(
-    `🔧 Found ${activeSubscriptions.length} active subscriptions for user ${userId}, normalizing...`
-  );
-
-  // Keep the first (oldest) as active, mark others as scheduled
-  const [primarySubscription, ...otherSubscriptions] = activeSubscriptions;
-
-  // Cancel the renewal of the primary subscription so it doesn't auto-renew
-  // This allows the scheduled subscription to take over when the primary expires
-  try {
-    console.log(
-      `🔄 Canceling renewal of primary subscription ${primarySubscription.lemonSqueezyId}...`
-    );
-    await lsCancel(primarySubscription.lemonSqueezyId);
-    
-    // Update the primary subscription in database to reflect cancelled status
-    // but keep it active until endsAt date
-    await prisma.subscription.update({
-      where: { id: primarySubscription.id },
-      data: {
-        status: "cancelled",
-        statusFormatted: "Cancelled",
-      },
-    });
-    console.log(`✅ Primary subscription renewal cancelled successfully`);
-  } catch (error) {
-    console.error(`❌ Failed to cancel primary subscription renewal:`, error);
-  }
-
-  // Mark newer subscriptions as scheduled to start when primary ends
-  for (const sub of otherSubscriptions) {
-    const startsAt = primarySubscription.endsAt || primarySubscription.renewsAt;
-    
-    // Update in local database only (don't need to call Lemon Squeezy API)
-    await prisma.subscription.update({
-      where: { id: sub.id },
-      data: {
-        status: "scheduled",
-        statusFormatted: "Scheduled",
-        // Note: If startsAt field doesn't exist in schema, remove this line
-        // The webhook data already has the correct dates
-      },
-    });
-    console.log(
-      `📅 Marked subscription ${sub.lemonSqueezyId} as scheduled (starts at ${startsAt})`
-    );
-  }
-}
 
 /**
  * Cancel a subscription

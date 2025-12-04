@@ -17,7 +17,6 @@ import {
   MoreVertical,
   Calendar,
   AlertCircle,
-  CheckCircle2,
   Loader2,
   RefreshCw,
   Crown,
@@ -175,7 +174,7 @@ export function SubscriptionInfo() {
 
   // Filter active subscriptions (including cancelled but not yet expired)
   const now = new Date();
-  const allActiveSubscriptions = subscriptions.filter((sub) => {
+  const activeSubscription = subscriptions.find((sub) => {
     if (sub.status === "active" || sub.status === "on_trial") {
       return true;
     }
@@ -186,22 +185,7 @@ export function SubscriptionInfo() {
     return false;
   });
 
-  // Sort by renewal/end date (earliest first = current subscription)
-  const sortedSubs = [...allActiveSubscriptions].sort((a, b) => {
-    const dateA = new Date(a.renewsAt || a.endsAt || a.startsAt || 0);
-    const dateB = new Date(b.renewsAt || b.endsAt || b.startsAt || 0);
-    return dateA.getTime() - dateB.getTime();
-  });
-
-  // Current = first (earliest renewal), Scheduled = second
-  const currentSubscription = sortedSubs[0] || null;
-  const scheduledSubscription = sortedSubs[1] || null;
-
-  // For UI rendering - arrays for mapping
-  const activeSubscriptions = currentSubscription ? [currentSubscription] : [];
-  const scheduledSubscriptions = scheduledSubscription ? [scheduledSubscription] : [];
-
-  if (!currentSubscription && !scheduledSubscription) {
+  if (!activeSubscription) {
     return (
       <Card>
         <CardHeader>
@@ -241,198 +225,141 @@ export function SubscriptionInfo() {
   }
 
   return (
-    <div className="space-y-4">
-      {activeSubscriptions.map((subscription) => (
-        <Card
-          key={subscription.id}
-          className="border-green-500/50 bg-green-500/5"
-        >
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle className="flex items-center gap-2">
-                <Crown className="h-5 w-5 text-yellow-500" />
-                <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  {subscription.plan.productName || "Premium Plan"}
-                </span>
-                <Badge variant="default" className="bg-green-600 dark:bg-green-500">
-                  Active
-                </Badge>
-              </CardTitle>
-              <div className="flex items-center gap-2">
+    <Card className="border-green-500/50 bg-green-500/5">
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="flex items-center gap-2">
+            <Crown className="h-5 w-5 text-yellow-500" />
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {activeSubscription.plan.productName || "Premium Plan"}
+            </span>
+            <Badge variant="default" className="bg-green-600 dark:bg-green-500">
+              Active
+            </Badge>
+          </CardTitle>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleRefresh}
+              disabled={refreshing}
+            >
+              <RefreshCw
+                className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
+              />
+            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  size="sm"
-                  onClick={handleRefresh}
-                  disabled={refreshing}
+                  size="icon"
+                  disabled={actionLoading}
                 >
-                  <RefreshCw
-                    className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
-                  />
+                  <MoreVertical className="h-4 w-4" />
                 </Button>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      disabled={actionLoading}
-                    >
-                      <MoreVertical className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem
-                      onClick={() =>
-                        handleManageBilling(subscription.lemonSqueezyId)
-                      }
-                    >
-                      <CreditCard className="h-4 w-4 mr-2" />
-                      Manage Billing
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() =>
-                        handlePauseSubscription(
-                          subscription.lemonSqueezyId,
-                          subscription.isPaused
-                        )
-                      }
-                    >
-                      {subscription.isPaused ? "Resume" : "Pause"} Subscription
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() =>
-                        handleCancelSubscription(subscription.lemonSqueezyId)
-                      }
-                      className="text-destructive"
-                    >
-                      Cancel Subscription
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  onClick={() =>
+                    handleManageBilling(activeSubscription.lemonSqueezyId)
+                  }
+                >
+                  <CreditCard className="h-4 w-4 mr-2" />
+                  Manage Billing
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() =>
+                    handlePauseSubscription(
+                      activeSubscription.lemonSqueezyId,
+                      activeSubscription.isPaused
+                    )
+                  }
+                >
+                  {activeSubscription.isPaused ? "Resume" : "Pause"} Subscription
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onClick={() =>
+                    handleCancelSubscription(activeSubscription.lemonSqueezyId)
+                  }
+                  className="text-destructive"
+                >
+                  Cancel Subscription
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-sm text-muted-foreground">Status</p>
+            <div className="flex items-center gap-2 mt-1">
+              <Badge
+                variant={
+                  activeSubscription.status === "active"
+                    ? "default"
+                    : activeSubscription.status === "on_trial"
+                    ? "secondary"
+                    : "outline"
+                }
+                className={
+                  activeSubscription.status === "active" ? "bg-green-600 dark:bg-green-500" : ""
+                }
+              >
+                {activeSubscription.statusFormatted}
+              </Badge>
+              {activeSubscription.isPaused && (
+                <Badge variant="outline">Paused</Badge>
+              )}
             </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Status</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <Badge
-                    variant={
-                      subscription.status === "active"
-                        ? "default"
-                        : subscription.status === "on_trial"
-                        ? "secondary"
-                        : "outline"
-                    }
-                    className={
-                      subscription.status === "active" ? "bg-green-600 dark:bg-green-500" : ""
-                    }
-                  >
-                    {subscription.statusFormatted}
-                  </Badge>
-                  {subscription.isPaused && (
-                    <Badge variant="outline">Paused</Badge>
-                  )}
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-muted-foreground">Price</p>
-                <p className="text-2xl font-bold">
-                  ${(parseInt(subscription.price) / 100).toFixed(2)}
-                  <span className="text-sm font-normal text-muted-foreground">
-                    /{subscription.plan.interval}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {subscription.renewsAt && (
-              <div className="flex items-center gap-2 text-sm">
-                <Calendar className="h-4 w-4 text-green-500" />
-                <span>
-                  <strong>Renews:</strong>{" "}
-                  {format(new Date(subscription.renewsAt), "MMMM d, yyyy")} (
-                  {formatDistanceToNow(new Date(subscription.renewsAt), {
-                    addSuffix: true,
-                  })}
-                  )
-                </span>
-              </div>
-            )}
-
-            {subscription.endsAt && subscription.status === "cancelled" && (
-              <div className="flex items-center gap-2 text-sm text-orange-500">
-                <AlertCircle className="h-4 w-4" />
-                <span>
-                  <strong>Expires:</strong>{" "}
-                  {format(new Date(subscription.endsAt), "MMMM d, yyyy")}
-                </span>
-              </div>
-            )}
-
-            {subscription.trialEndsAt && subscription.status === "on_trial" && (
-              <div className="flex items-center gap-2 text-sm text-blue-500">
-                <AlertCircle className="h-4 w-4" />
-                <span>
-                  <strong>Trial ends:</strong>{" "}
-                  {format(new Date(subscription.trialEndsAt), "MMMM d, yyyy")}
-                </span>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      ))}
-
-      {/* Scheduled/Upcoming Subscriptions */}
-      {scheduledSubscriptions.map((subscription) => (
-        <Card
-          key={subscription.id}
-          className="border-blue-500/50 bg-blue-500/5"
-        >
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-blue-500" />
-                <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
-                  Upcoming: {subscription.plan.productName || "Premium Plan"}
-                </span>
-                <Badge variant="secondary" className="bg-blue-600 dark:bg-blue-500 text-white">
-                  Scheduled
-                </Badge>
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Starts On</p>
-                <p className="text-lg font-semibold">
-                  {subscription.startsAt 
-                    ? format(new Date(subscription.startsAt), "MMMM d, yyyy")
-                    : "To be determined"}
-                </p>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-muted-foreground">Price</p>
-                <p className="text-2xl font-bold">
-                  ${(parseInt(subscription.price) / 100).toFixed(2)}
-                  <span className="text-sm font-normal text-muted-foreground">
-                    /{subscription.plan.interval}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 text-sm text-blue-500">
-              <CheckCircle2 className="h-4 w-4" />
-              <span>
-                This plan will automatically activate when your current subscription ends
+          </div>
+          <div className="text-right">
+            <p className="text-sm text-muted-foreground">Price</p>
+            <p className="text-2xl font-bold">
+              ${(parseInt(activeSubscription.price) / 100).toFixed(2)}
+              <span className="text-sm font-normal text-muted-foreground">
+                /{activeSubscription.plan.interval}
               </span>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+            </p>
+          </div>
+        </div>
+
+        {activeSubscription.renewsAt && (
+          <div className="flex items-center gap-2 text-sm">
+            <Calendar className="h-4 w-4 text-green-500" />
+            <span>
+              <strong>Renews:</strong>{" "}
+              {format(new Date(activeSubscription.renewsAt), "MMMM d, yyyy")} (
+              {formatDistanceToNow(new Date(activeSubscription.renewsAt), {
+                addSuffix: true,
+              })}
+              )
+            </span>
+          </div>
+        )}
+
+        {activeSubscription.endsAt && activeSubscription.status === "cancelled" && (
+          <div className="flex items-center gap-2 text-sm text-orange-500">
+            <AlertCircle className="h-4 w-4" />
+            <span>
+              <strong>Expires:</strong>{" "}
+              {format(new Date(activeSubscription.endsAt), "MMMM d, yyyy")}
+            </span>
+          </div>
+        )}
+
+        {activeSubscription.trialEndsAt && activeSubscription.status === "on_trial" && (
+          <div className="flex items-center gap-2 text-sm text-blue-500">
+            <AlertCircle className="h-4 w-4" />
+            <span>
+              <strong>Trial ends:</strong>{" "}
+              {format(new Date(activeSubscription.trialEndsAt), "MMMM d, yyyy")}
+            </span>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }

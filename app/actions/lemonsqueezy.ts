@@ -11,7 +11,7 @@ import {
   cancelSubscription as lsCancel,
   getPrice,
 } from "@lemonsqueezy/lemonsqueezy.js";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, unstable_noStore } from "next/cache";
 import prisma from "@/lib/prisma";
 import { configureLemonSqueezy, getAppURL } from "@/lib/lemonsqueezy";
 import { getUserId } from "@/lib/server-auth";
@@ -138,14 +138,14 @@ export async function syncPlans() {
         name: variant.name,
         description: variant.description,
         price: priceString,
-        interval,
-        intervalCount,
+        interval: interval ?? undefined,
+        intervalCount: intervalCount ?? undefined,
         isUsageBased,
         productId: variant.product_id,
         productName,
         variantId: parseInt(v.id) as number,
-        trialInterval,
-        trialIntervalCount,
+        trialInterval: trialInterval ?? undefined,
+        trialIntervalCount: trialIntervalCount ?? undefined,
         sort: variant.sort,
       });
     }
@@ -158,6 +158,9 @@ export async function syncPlans() {
  * Get user subscriptions from database
  */
 export async function getUserSubscriptions() {
+  // Bypass Next.js cache to always fetch fresh data
+  unstable_noStore();
+  
   const userId = await getUserId();
 
   if (!userId) {
@@ -212,7 +215,7 @@ export async function getCheckoutURL(variantId: number, embed = false) {
       },
       productOptions: {
         enabledVariants: [variantId],
-        redirectUrl: `${getAppURL()}/billing`,
+        redirectUrl: `${getAppURL()}/billing?checkout=success`,
         receiptButtonText: "Go to Dashboard",
         receiptThankYouNote: "Thank you for subscribing to Mindote Premium!",
       },

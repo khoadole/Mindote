@@ -89,6 +89,38 @@ export function PricingPlans() {
   useEffect(() => {
     checkCurrentSubscription();
 
+    // Lắng nghe event từ SubscriptionInfo khi subscription được cập nhật
+    const handleSubscriptionUpdate = (event: CustomEvent) => {
+      console.log("[PricingPlans] Received subscription-updated event");
+      const subs = event.detail?.subscriptions || [];
+
+      // Filter active subscriptions
+      const now = new Date();
+      const activeSubscriptions = subs.filter((sub: any) => {
+        if (sub.status === "active" || sub.status === "on_trial") {
+          return true;
+        }
+        if (sub.status === "cancelled" && sub.endsAt) {
+          return new Date(sub.endsAt) > now;
+        }
+        return false;
+      });
+
+      if (activeSubscriptions[0]?.plan?.variantId) {
+        setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
+        setActiveSubscription(activeSubscriptions[0]);
+      } else {
+        setCurrentPlanVariantId(null);
+        setActiveSubscription(null);
+      }
+      setSubscriptionsLoading(false);
+    };
+
+    window.addEventListener(
+      "subscription-updated",
+      handleSubscriptionUpdate as EventListener
+    );
+
     // Auto-refresh khi vừa thanh toán xong (check URL params hoặc referrer)
     const isFromCheckout =
       document.referrer.includes("lemonsqueezy") ||
@@ -113,8 +145,21 @@ export function PricingPlans() {
         }
       }, 3000); // Check every 3 seconds
 
-      return () => clearInterval(retryInterval);
+      return () => {
+        clearInterval(retryInterval);
+        window.removeEventListener(
+          "subscription-updated",
+          handleSubscriptionUpdate as EventListener
+        );
+      };
     }
+
+    return () => {
+      window.removeEventListener(
+        "subscription-updated",
+        handleSubscriptionUpdate as EventListener
+      );
+    };
   }, [searchParams]);
 
   const checkCurrentSubscription = async () => {

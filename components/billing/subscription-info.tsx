@@ -75,6 +75,13 @@ export function SubscriptionInfo() {
       const subs = await getUserSubscriptions();
       setSubscriptions(subs);
       console.log("[Billing] Loaded subscriptions:", subs.length);
+
+      // Emit custom event để đồng bộ với PricingPlans component
+      window.dispatchEvent(
+        new CustomEvent("subscription-updated", {
+          detail: { subscriptions: subs },
+        })
+      );
     } catch (error: any) {
       console.error("Failed to load subscriptions:", error);
     } finally {

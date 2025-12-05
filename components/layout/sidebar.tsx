@@ -80,7 +80,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
       console.log("[Sidebar] Received subscription-updated event");
       const subs = event.detail?.subscriptions || [];
       const now = new Date();
-      
+
       // Check if there's any active subscription
       const active = subs.some((sub: any) => {
         if (sub.status === "active" || sub.status === "on_trial") {
@@ -92,7 +92,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         }
         return false;
       });
-      
+
       setHasActiveSubscription(active);
       setSubscriptionLoading(false);
     };
@@ -269,7 +269,9 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                           "transition-all duration-300 font-medium relative z-10 flex items-center gap-2"
                         )}
                       >
-                        {t(`sidebar.${item.name.toLowerCase().replace(/ /g, "")}`)}  
+                        {t(
+                          `sidebar.${item.name.toLowerCase().replace(/ /g, "")}`
+                        )}
                         {item.badge && (
                           <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
                             {t("sidebar.new")}

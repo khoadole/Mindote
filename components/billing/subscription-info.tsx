@@ -255,11 +255,7 @@ export function SubscriptionInfo() {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  disabled={actionLoading}
-                >
+                <Button variant="ghost" size="icon" disabled={actionLoading}>
                   <MoreVertical className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -280,7 +276,8 @@ export function SubscriptionInfo() {
                     )
                   }
                 >
-                  {activeSubscription.isPaused ? "Resume" : "Pause"} Subscription
+                  {activeSubscription.isPaused ? "Resume" : "Pause"}{" "}
+                  Subscription
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -310,7 +307,9 @@ export function SubscriptionInfo() {
                     : "outline"
                 }
                 className={
-                  activeSubscription.status === "active" ? "bg-green-600 dark:bg-green-500" : ""
+                  activeSubscription.status === "active"
+                    ? "bg-green-600 dark:bg-green-500"
+                    : ""
                 }
               >
                 {activeSubscription.statusFormatted}
@@ -345,25 +344,30 @@ export function SubscriptionInfo() {
           </div>
         )}
 
-        {activeSubscription.endsAt && activeSubscription.status === "cancelled" && (
-          <div className="flex items-center gap-2 text-sm text-orange-500">
-            <AlertCircle className="h-4 w-4" />
-            <span>
-              <strong>Expires:</strong>{" "}
-              {format(new Date(activeSubscription.endsAt), "MMMM d, yyyy")}
-            </span>
-          </div>
-        )}
+        {activeSubscription.endsAt &&
+          activeSubscription.status === "cancelled" && (
+            <div className="flex items-center gap-2 text-sm text-orange-500">
+              <AlertCircle className="h-4 w-4" />
+              <span>
+                <strong>Expires:</strong>{" "}
+                {format(new Date(activeSubscription.endsAt), "MMMM d, yyyy")}
+              </span>
+            </div>
+          )}
 
-        {activeSubscription.trialEndsAt && activeSubscription.status === "on_trial" && (
-          <div className="flex items-center gap-2 text-sm text-blue-500">
-            <AlertCircle className="h-4 w-4" />
-            <span>
-              <strong>Trial ends:</strong>{" "}
-              {format(new Date(activeSubscription.trialEndsAt), "MMMM d, yyyy")}
-            </span>
-          </div>
-        )}
+        {activeSubscription.trialEndsAt &&
+          activeSubscription.status === "on_trial" && (
+            <div className="flex items-center gap-2 text-sm text-blue-500">
+              <AlertCircle className="h-4 w-4" />
+              <span>
+                <strong>Trial ends:</strong>{" "}
+                {format(
+                  new Date(activeSubscription.trialEndsAt),
+                  "MMMM d, yyyy"
+                )}
+              </span>
+            </div>
+          )}
       </CardContent>
     </Card>
   );

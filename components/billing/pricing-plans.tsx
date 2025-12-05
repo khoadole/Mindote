@@ -64,14 +64,18 @@ const PLANS = [
 
 interface ConfirmDialogState {
   open: boolean;
-  targetPlan: typeof PLANS[0] | null;
+  targetPlan: (typeof PLANS)[0] | null;
   isUpgrade: boolean;
 }
 
 export function PricingPlans() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
-  const [currentPlanVariantId, setCurrentPlanVariantId] = useState<number | null>(null);
-  const [activeSubscription, setActiveSubscription] = useState<any | null>(null);
+  const [currentPlanVariantId, setCurrentPlanVariantId] = useState<
+    number | null
+  >(null);
+  const [activeSubscription, setActiveSubscription] = useState<any | null>(
+    null
+  );
   const [subscriptionsLoading, setSubscriptionsLoading] = useState(true);
   const [confirmDialog, setConfirmDialog] = useState<ConfirmDialogState>({
     open: false,
@@ -93,7 +97,7 @@ export function PricingPlans() {
     if (isFromCheckout) {
       // Force router refresh to bypass Next.js Router Cache
       router.refresh();
-      
+
       // Retry loading a few times to wait for webhook processing
       let retries = 0;
       const maxRetries = 5;
@@ -116,7 +120,7 @@ export function PricingPlans() {
   const checkCurrentSubscription = async () => {
     try {
       const subscriptions = await getUserSubscriptions();
-      
+
       // Filter active subscriptions (including cancelled but not yet expired)
       const now = new Date();
       const activeSubscriptions = subscriptions.filter((sub: any) => {
@@ -129,7 +133,7 @@ export function PricingPlans() {
         }
         return false;
       });
-      
+
       // Get the first active subscription (should be only one now)
       if (activeSubscriptions[0]?.plan?.variantId) {
         setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
@@ -155,20 +159,20 @@ export function PricingPlans() {
 
   const getCurrentPlanName = () => {
     if (!currentPlanVariantId) return "";
-    const plan = PLANS.find(p => p.variantId === currentPlanVariantId);
+    const plan = PLANS.find((p) => p.variantId === currentPlanVariantId);
     return plan?.name || "Current Plan";
   };
 
-  const handlePlanClick = (plan: typeof PLANS[0]) => {
+  const handlePlanClick = (plan: (typeof PLANS)[0]) => {
     // If current plan, do nothing
     if (currentPlanVariantId === plan.variantId) return;
-    
+
     // If no active subscription (free user), go straight to checkout
     if (!activeSubscription) {
       handleSubscribe(plan.id, plan.variantId);
       return;
     }
-    
+
     // User has active subscription - show confirmation dialog
     const isUpgrade = plan.id === "yearly";
     setConfirmDialog({
@@ -181,7 +185,10 @@ export function PricingPlans() {
   const handleConfirmSwitch = async () => {
     if (!confirmDialog.targetPlan) return;
     setConfirmDialog({ open: false, targetPlan: null, isUpgrade: false });
-    await handleSubscribe(confirmDialog.targetPlan.id, confirmDialog.targetPlan.variantId);
+    await handleSubscribe(
+      confirmDialog.targetPlan.id,
+      confirmDialog.targetPlan.variantId
+    );
   };
 
   const handleSubscribe = async (planId: string, variantId: number) => {
@@ -210,11 +217,11 @@ export function PricingPlans() {
 
   const getConfirmDialogContent = () => {
     if (!confirmDialog.targetPlan) return { title: "", description: "" };
-    
+
     const remainingTime = getRemainingTime();
     const currentPlanName = getCurrentPlanName();
     const targetPlanName = confirmDialog.targetPlan.name;
-    
+
     if (confirmDialog.isUpgrade) {
       // Monthly → Yearly (Upgrade)
       return {
@@ -339,7 +346,10 @@ Bạn có chắc muốn chuyển?`,
       </div>
 
       {/* Confirmation Dialog */}
-      <AlertDialog open={confirmDialog.open} onOpenChange={(open) => setConfirmDialog(prev => ({ ...prev, open }))}>
+      <AlertDialog
+        open={confirmDialog.open}
+        onOpenChange={(open) => setConfirmDialog((prev) => ({ ...prev, open }))}
+      >
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>{dialogContent.title}</AlertDialogTitle>

@@ -22,7 +22,6 @@ import {
   Crown,
 } from "lucide-react";
 import {
-  getUserSubscriptions,
   getSubscriptionURLs,
   cancelSubscription as cancelSub,
   pauseSubscription,
@@ -72,7 +71,21 @@ export function SubscriptionInfo() {
 
   const loadSubscriptions = async () => {
     try {
-      const subs = await getUserSubscriptions();
+      // Use fetch API with cache: 'no-store' to bypass all Next.js caching
+      const response = await fetch('/api/subscriptions', {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch subscriptions');
+      }
+      
+      const data = await response.json();
+      const subs = data.subscriptions || [];
       setSubscriptions(subs);
       console.log("[Billing] Loaded subscriptions:", subs.length);
 

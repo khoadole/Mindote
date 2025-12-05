@@ -20,7 +20,7 @@ import {
   FileText,
   Crown,
 } from "lucide-react";
-import { UpgradePlanModal } from "@/components/modals/upgrade-plan-modal";
+
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
 import { useTranslation } from "@/lib/i18n-provider";
 
@@ -67,7 +67,7 @@ interface SidebarProps {
 export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const { t } = useTranslation();
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
+
   const [hasActiveSubscription, setHasActiveSubscription] = useState(false);
   const [subscriptionLoading, setSubscriptionLoading] = useState(true);
   const pathname = usePathname();
@@ -324,30 +324,31 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   </Button>
                 </Link>
               ) : (
-                <Button
-                  variant="default"
-                  onClick={() => setIsUpgradeModalOpen(true)}
-                  className={cn(
-                    "w-full bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6]",
-                    "text-white font-medium shadow-lg shadow-[#6365EF]/30 transition-all duration-300 rounded-xl",
-                    "hover:scale-105 hover:shadow-xl hover:shadow-[#6365EF]/40",
-                    isCollapsed
-                      ? "justify-center h-12 w-12 p-0"
-                      : "justify-start h-12"
-                  )}
-                >
-                  <Sparkles
+                <Link href="/billing">
+                  <Button
+                    variant="default"
                     className={cn(
-                      "h-5 w-5 transition-all duration-300",
-                      !isCollapsed && "mr-2"
+                      "w-full bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6]",
+                      "text-white font-medium shadow-lg shadow-[#6365EF]/30 transition-all duration-300 rounded-xl",
+                      "hover:scale-105 hover:shadow-xl hover:shadow-[#6365EF]/40",
+                      isCollapsed
+                        ? "justify-center h-12 w-12 p-0"
+                        : "justify-start h-12"
                     )}
-                  />
-                  {!isCollapsed && (
-                    <span className="transition-opacity duration-300">
-                      {t("sidebar.upgradePlan")}
-                    </span>
-                  )}
-                </Button>
+                  >
+                    <Sparkles
+                      className={cn(
+                        "h-5 w-5 transition-all duration-300",
+                        !isCollapsed && "mr-2"
+                      )}
+                    />
+                    {!isCollapsed && (
+                      <span className="transition-opacity duration-300">
+                        {t("sidebar.upgradePlan")}
+                      </span>
+                    )}
+                  </Button>
+                </Link>
               )}
             </>
           )}
@@ -382,11 +383,6 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         </div>
       </div>
 
-      {/* Upgrade Plan Modal */}
-      <UpgradePlanModal
-        open={isUpgradeModalOpen}
-        onOpenChange={setIsUpgradeModalOpen}
-      />
     </div>
   );
 }

@@ -74,6 +74,40 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
   useEffect(() => {
     checkSubscription();
+
+    // Lắng nghe event khi subscription được cập nhật từ billing page
+    const handleSubscriptionUpdate = (event: CustomEvent) => {
+      console.log("[Sidebar] Received subscription-updated event");
+      const subs = event.detail?.subscriptions || [];
+      const now = new Date();
+      
+      // Check if there's any active subscription
+      const active = subs.some((sub: any) => {
+        if (sub.status === "active" || sub.status === "on_trial") {
+          return true;
+        }
+        // Also check cancelled but still valid subscriptions
+        if (sub.status === "cancelled" && sub.endsAt) {
+          return new Date(sub.endsAt) > now;
+        }
+        return false;
+      });
+      
+      setHasActiveSubscription(active);
+      setSubscriptionLoading(false);
+    };
+
+    window.addEventListener(
+      "subscription-updated",
+      handleSubscriptionUpdate as EventListener
+    );
+
+    return () => {
+      window.removeEventListener(
+        "subscription-updated",
+        handleSubscriptionUpdate as EventListener
+      );
+    };
   }, []);
 
   const checkSubscription = async () => {

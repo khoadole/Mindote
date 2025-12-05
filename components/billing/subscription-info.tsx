@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,6 +38,7 @@ export function SubscriptionInfo() {
   const [refreshing, setRefreshing] = useState(false);
   const { toast } = useToast();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     loadSubscriptions();
@@ -48,6 +49,8 @@ export function SubscriptionInfo() {
       searchParams.get("checkout") === "success";
 
     if (isFromCheckout) {
+      // Force router refresh to bypass Next.js Router Cache
+      router.refresh();
       // Retry loading a few times to wait for webhook processing
       let retries = 0;
       const maxRetries = 5;
@@ -82,6 +85,8 @@ export function SubscriptionInfo() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
+    // Force router refresh to bypass Next.js Router Cache
+    router.refresh();
     await loadSubscriptions();
     toast({
       title: "Refreshed",

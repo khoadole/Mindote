@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   createOrUpdateSubscription,
   getUserSubscriptions,
@@ -80,6 +80,7 @@ export function PricingPlans() {
   });
   const { toast } = useToast();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     checkCurrentSubscription();
@@ -90,6 +91,9 @@ export function PricingPlans() {
       searchParams.get("checkout") === "success";
 
     if (isFromCheckout) {
+      // Force router refresh to bypass Next.js Router Cache
+      router.refresh();
+      
       // Retry loading a few times to wait for webhook processing
       let retries = 0;
       const maxRetries = 5;

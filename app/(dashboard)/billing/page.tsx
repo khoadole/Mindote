@@ -1,20 +1,23 @@
+"use client";
+
 import { Suspense } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SubscriptionInfo } from "@/components/billing/subscription-info";
 import { PricingPlans } from "@/components/billing/pricing-plans";
-
-export const dynamic = "force-dynamic";
+import { useTranslation } from "@/lib/i18n-provider";
 
 export default function BillingPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="container max-w-6xl mx-auto py-8 px-4 bg-white dark:bg-background min-h-screen">
       <div className="space-y-8">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Billing</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('components.billing.title')}</h1>
           <p className="text-muted-foreground mt-2">
-            Manage your subscription and billing information
+            {t('components.billing.subtitle')}
           </p>
         </div>
 
@@ -25,7 +28,7 @@ export default function BillingPage() {
 
         {/* Available Plans */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Available Plans</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('components.billing.availablePlans')}</h2>
           <Suspense fallback={<PlansSkeleton />}>
             <PricingPlans />
           </Suspense>
@@ -75,3 +78,4 @@ function PlansSkeleton() {
     </div>
   );
 }
+

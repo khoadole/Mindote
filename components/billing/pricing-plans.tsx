@@ -22,6 +22,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { formatDistanceToNow } from "date-fns";
+import { useTranslation } from "@/lib/i18n-provider";
 
 const PLANS = [
   {
@@ -83,6 +84,7 @@ export function PricingPlans() {
     isUpgrade: false,
   });
   const { toast } = useToast();
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -205,7 +207,8 @@ export function PricingPlans() {
   const getCurrentPlanName = () => {
     if (!currentPlanVariantId) return "";
     const plan = PLANS.find((p) => p.variantId === currentPlanVariantId);
-    return plan?.name || "Current Plan";
+    if (!plan) return t('components.billing.currentPlan');
+    return plan.id === 'monthly' ? t('components.billing.monthly') : t('components.billing.yearly');
   };
 
   const handlePlanClick = (plan: (typeof PLANS)[0]) => {
@@ -250,9 +253,9 @@ export function PricingPlans() {
     } catch (error: any) {
       console.error("Subscription error:", error);
       toast({
-        title: "Error",
+        title: t('components.billing.error'),
         description:
-          error.message || "Failed to process subscription. Please try again.",
+          error.message || t('components.billing.failedToCheckout'),
         variant: "destructive",
       });
     } finally {
@@ -265,33 +268,21 @@ export function PricingPlans() {
 
     const remainingTime = getRemainingTime();
     const currentPlanName = getCurrentPlanName();
-    const targetPlanName = confirmDialog.targetPlan.name;
+    const targetPlanName = confirmDialog.targetPlan.id === 'monthly' 
+      ? t('components.billing.monthly') 
+      : t('components.billing.yearly');
 
     if (confirmDialog.isUpgrade) {
       // Monthly → Yearly (Upgrade)
       return {
-        title: "Nâng cấp lên " + targetPlanName + "?",
-        description: `Bạn đang sử dụng gói ${currentPlanName} (còn ${remainingTime}).
-
-Nếu nâng cấp lên ${targetPlanName}:
-• Gói ${currentPlanName} sẽ bị hủy ngay
-• Gói ${targetPlanName} sẽ bắt đầu ngay lập tức
-• Phần tiền còn lại sẽ được Lemon Squeezy tự động tính vào thanh toán
-
-Bạn có chắc muốn nâng cấp?`,
+        title: t('components.billing.upgradeDialog.upgradeTitle', { plan: targetPlanName }),
+        description: `${t('components.billing.upgradeDialog.currentPlanInfo', { currentPlan: currentPlanName, remaining: remainingTime })}\n\n${t('components.billing.upgradeDialog.upgradeInfo', { currentPlan: currentPlanName, targetPlan: targetPlanName })}\n\n${t('components.billing.upgradeDialog.confirmUpgrade')}`,
       };
     } else {
       // Yearly → Monthly (Downgrade)
       return {
-        title: "Chuyển sang " + targetPlanName + "?",
-        description: `Bạn đang sử dụng gói ${currentPlanName} (còn ${remainingTime}).
-
-Nếu chuyển sang ${targetPlanName}:
-• Gói ${currentPlanName} sẽ bị hủy ngay
-• Gói ${targetPlanName} sẽ bắt đầu ngay lập tức
-• Bạn sẽ mất thời gian còn lại của gói ${currentPlanName}
-
-Bạn có chắc muốn chuyển?`,
+        title: t('components.billing.upgradeDialog.switchTitle', { plan: targetPlanName }),
+        description: `${t('components.billing.upgradeDialog.currentPlanInfo', { currentPlan: currentPlanName, remaining: remainingTime })}\n\n${t('components.billing.upgradeDialog.switchInfo', { currentPlan: currentPlanName, targetPlan: targetPlanName })}\n\n${t('components.billing.upgradeDialog.confirmSwitch')}`,
       };
     }
   };
@@ -313,20 +304,20 @@ Bạn có chắc muốn chuyển?`,
             {plan.popular && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-                  Most Popular
+                  {t('components.billing.mostPopular')}
                 </Badge>
               </div>
             )}
 
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
-                <span>{plan.name}</span>
+                <span>{plan.id === 'monthly' ? t('components.billing.monthly') : t('components.billing.yearly')}</span>
                 {plan.savings && (
                   <Badge
                     variant="secondary"
                     className="text-green-600 dark:text-green-400"
                   >
-                    {plan.savings}
+                    {t('components.billing.save25')}
                   </Badge>
                 )}
               </CardTitle>
@@ -336,17 +327,30 @@ Bạn có chắc muốn chuyển?`,
               <div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-muted-foreground">{plan.period}</span>
+                  <span className="text-muted-foreground">{plan.id === 'monthly' ? t('components.billing.perMonth') : t('components.billing.perYear')}</span>
                 </div>
                 {plan.pricePerMonth && (
                   <p className="text-sm text-muted-foreground mt-1">
-                    Only {plan.pricePerMonth} per month
+                    {t('components.billing.onlyPerMonth', { price: plan.pricePerMonth })}
                   </p>
                 )}
               </div>
 
               <ul className="space-y-3">
-                {plan.features.map((feature, index) => (
+                {(plan.id === 'monthly' ? [
+                  t('components.billing.features.unlimitedAiFills'),
+                  t('components.billing.features.unlimitedReading'),
+                  t('components.billing.features.advancedAnalytics'),
+                  t('components.billing.features.earlyAccess'),
+                  t('components.billing.features.prioritySupport'),
+                  t('components.billing.features.allCoreFeatures'),
+                ] : [
+                  t('components.billing.features.everythingInMonthly'),
+                  t('components.billing.features.prioritySupport'),
+                  t('components.billing.features.earlyBetaAccess'),
+                  t('components.billing.features.exclusiveCommunity'),
+                  t('components.billing.features.annualSavings'),
+                ]).map((feature, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{feature}</span>
@@ -371,17 +375,17 @@ Bạn có chắc muốn chuyển?`,
                 {currentPlanVariantId === plan.variantId ? (
                   <>
                     <CheckCircle2 className="h-4 w-4 mr-2" />
-                    Current Plan
+                    {t('components.billing.currentPlan')}
                   </>
                 ) : loadingPlan === plan.id ? (
                   <>
                     <Sparkles className="h-4 w-4 mr-2 animate-spin" />
-                    Processing...
+                    {t('components.billing.processing')}
                   </>
                 ) : (
                   <>
                     <Sparkles className="h-4 w-4 mr-2" />
-                    Get Started
+                    {t('components.billing.getStarted')}
                   </>
                 )}
               </Button>
@@ -403,9 +407,9 @@ Bạn có chắc muốn chuyển?`,
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Hủy</AlertDialogCancel>
+            <AlertDialogCancel>{t('components.billing.upgradeDialog.cancel')}</AlertDialogCancel>
             <AlertDialogAction onClick={handleConfirmSwitch}>
-              {confirmDialog.isUpgrade ? "Nâng cấp" : "Chuyển gói"}
+              {confirmDialog.isUpgrade ? t('components.billing.upgradeDialog.upgrade') : t('components.billing.upgradeDialog.switch')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

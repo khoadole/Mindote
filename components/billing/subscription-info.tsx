@@ -29,6 +29,7 @@ import {
 } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { formatDistanceToNow, format } from "date-fns";
+import { useTranslation } from "@/lib/i18n-provider";
 
 export function SubscriptionInfo() {
   const [subscriptions, setSubscriptions] = useState<any[]>([]);
@@ -36,6 +37,7 @@ export function SubscriptionInfo() {
   const [actionLoading, setActionLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -109,8 +111,8 @@ export function SubscriptionInfo() {
     router.refresh();
     await loadSubscriptions();
     toast({
-      title: "Refreshed",
-      description: "Subscription status updated",
+      title: t('components.billing.refreshed'),
+      description: t('components.billing.subscriptionStatusUpdated'),
     });
   };
 
@@ -123,8 +125,8 @@ export function SubscriptionInfo() {
       }
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: "Failed to open customer portal",
+        title: t('components.billing.error'),
+        description: t('components.billing.failedToOpenPortal'),
         variant: "destructive",
       });
     } finally {
@@ -133,7 +135,7 @@ export function SubscriptionInfo() {
   };
 
   const handleCancelSubscription = async (subscriptionId: string) => {
-    if (!confirm("Are you sure you want to cancel your subscription?")) {
+    if (!confirm(t('components.billing.cancelConfirm'))) {
       return;
     }
 
@@ -141,14 +143,14 @@ export function SubscriptionInfo() {
       setActionLoading(true);
       await cancelSub(subscriptionId);
       toast({
-        title: "Success",
-        description: "Subscription cancelled successfully",
+        title: t('components.billing.success'),
+        description: t('components.billing.subscriptionCancelled'),
       });
       await loadSubscriptions();
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "Failed to cancel subscription",
+        title: t('components.billing.error'),
+        description: error.message || t('components.billing.failedToCancel'),
         variant: "destructive",
       });
     } finally {
@@ -165,21 +167,21 @@ export function SubscriptionInfo() {
       if (isPaused) {
         await unpauseSubscription(subscriptionId);
         toast({
-          title: "Success",
-          description: "Subscription resumed successfully",
+          title: t('components.billing.success'),
+          description: t('components.billing.subscriptionResumed'),
         });
       } else {
         await pauseSubscription(subscriptionId);
         toast({
-          title: "Success",
-          description: "Subscription paused successfully",
+          title: t('components.billing.success'),
+          description: t('components.billing.subscriptionPaused'),
         });
       }
       await loadSubscriptions();
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "Failed to update subscription",
+        title: t('components.billing.error'),
+        description: error.message || t('components.billing.failedToUpdate'),
         variant: "destructive",
       });
     } finally {
@@ -215,7 +217,7 @@ export function SubscriptionInfo() {
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Current Subscription</CardTitle>
+            <CardTitle>{t('components.billing.currentSubscription')}</CardTitle>
             <Button
               variant="ghost"
               size="sm"
@@ -225,7 +227,7 @@ export function SubscriptionInfo() {
               <RefreshCw
                 className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`}
               />
-              Refresh
+              {t('components.billing.refresh')}
             </Button>
           </div>
         </CardHeader>
@@ -233,15 +235,13 @@ export function SubscriptionInfo() {
           <div className="flex flex-col items-center justify-center py-8 text-center">
             <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
             <h3 className="text-lg font-semibold mb-2">
-              No Active Subscription
+              {t('components.billing.noActiveSubscription')}
             </h3>
             <p className="text-muted-foreground mb-4">
-              You're currently on the free plan. Upgrade to unlock unlimited
-              features!
+              {t('components.billing.noActiveSubscriptionDesc')}
             </p>
             <p className="text-xs text-muted-foreground">
-              Just paid? Click refresh or wait a moment for your subscription to
-              activate.
+              {t('components.billing.justPaidHint')}
             </p>
           </div>
         </CardContent>
@@ -256,10 +256,10 @@ export function SubscriptionInfo() {
           <CardTitle className="flex items-center gap-2">
             <Crown className="h-5 w-5 text-yellow-500" />
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-              {activeSubscription.plan.productName || "Premium Plan"}
+              {activeSubscription.plan.productName || t('components.billing.premiumPlan')}
             </span>
             <Badge variant="default" className="bg-green-600 dark:bg-green-500">
-              Active
+              {t('components.billing.active')}
             </Badge>
           </CardTitle>
           <div className="flex items-center gap-2">
@@ -286,7 +286,7 @@ export function SubscriptionInfo() {
                   }
                 >
                   <CreditCard className="h-4 w-4 mr-2" />
-                  Manage Billing
+                  {t('components.billing.manageBilling')}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() =>
@@ -296,8 +296,7 @@ export function SubscriptionInfo() {
                     )
                   }
                 >
-                  {activeSubscription.isPaused ? "Resume" : "Pause"}{" "}
-                  Subscription
+                  {activeSubscription.isPaused ? t('components.billing.resumeSubscription') : t('components.billing.pauseSubscription')}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -306,7 +305,7 @@ export function SubscriptionInfo() {
                   }
                   className="text-destructive"
                 >
-                  Cancel Subscription
+                  {t('components.billing.cancelSubscription')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -316,7 +315,7 @@ export function SubscriptionInfo() {
       <CardContent className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-muted-foreground">Status</p>
+            <p className="text-sm text-muted-foreground">{t('components.billing.status')}</p>
             <div className="flex items-center gap-2 mt-1">
               <Badge
                 variant={
@@ -335,12 +334,12 @@ export function SubscriptionInfo() {
                 {activeSubscription.statusFormatted}
               </Badge>
               {activeSubscription.isPaused && (
-                <Badge variant="outline">Paused</Badge>
+                <Badge variant="outline">{t('components.billing.paused')}</Badge>
               )}
             </div>
           </div>
           <div className="text-right">
-            <p className="text-sm text-muted-foreground">Price</p>
+            <p className="text-sm text-muted-foreground">{t('components.billing.price')}</p>
             <p className="text-2xl font-bold">
               ${(parseInt(activeSubscription.price) / 100).toFixed(2)}
               <span className="text-sm font-normal text-muted-foreground">
@@ -354,7 +353,7 @@ export function SubscriptionInfo() {
           <div className="flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4 text-green-500" />
             <span>
-              <strong>Renews:</strong>{" "}
+              <strong>{t('components.billing.renews')}:</strong>{" "}
               {format(new Date(activeSubscription.renewsAt), "MMMM d, yyyy")} (
               {formatDistanceToNow(new Date(activeSubscription.renewsAt), {
                 addSuffix: true,
@@ -369,7 +368,7 @@ export function SubscriptionInfo() {
             <div className="flex items-center gap-2 text-sm text-orange-500">
               <AlertCircle className="h-4 w-4" />
               <span>
-                <strong>Expires:</strong>{" "}
+                <strong>{t('components.billing.expires')}:</strong>{" "}
                 {format(new Date(activeSubscription.endsAt), "MMMM d, yyyy")}
               </span>
             </div>
@@ -380,7 +379,7 @@ export function SubscriptionInfo() {
             <div className="flex items-center gap-2 text-sm text-blue-500">
               <AlertCircle className="h-4 w-4" />
               <span>
-                <strong>Trial ends:</strong>{" "}
+                <strong>{t('components.billing.trialEnds')}:</strong>{" "}
                 {format(
                   new Date(activeSubscription.trialEndsAt),
                   "MMMM d, yyyy"

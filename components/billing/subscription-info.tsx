@@ -295,7 +295,7 @@ export function SubscriptionInfo() {
                   <MoreVertical className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="z-50">
                 <DropdownMenuItem
                   onClick={() =>
                     handleManageBilling(activeSubscription.lemonSqueezyId)

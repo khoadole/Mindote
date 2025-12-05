@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   createOrUpdateSubscription,
   getUserSubscriptions,
@@ -78,10 +79,35 @@ export function PricingPlans() {
     isUpgrade: false,
   });
   const { toast } = useToast();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     checkCurrentSubscription();
-  }, []);
+
+    // Auto-refresh khi vừa thanh toán xong (check URL params hoặc referrer)
+    const isFromCheckout =
+      document.referrer.includes("lemonsqueezy") ||
+      searchParams.get("checkout") === "success";
+
+    if (isFromCheckout) {
+      // Retry loading a few times to wait for webhook processing
+      let retries = 0;
+      const maxRetries = 5;
+      const retryInterval = setInterval(async () => {
+        retries++;
+        console.log(
+          `[PricingPlans] Retry ${retries}/${maxRetries} - checking for new subscription...`
+        );
+        await checkCurrentSubscription();
+
+        if (retries >= maxRetries) {
+          clearInterval(retryInterval);
+        }
+      }, 3000); // Check every 3 seconds
+
+      return () => clearInterval(retryInterval);
+    }
+  }, [searchParams]);
 
   const checkCurrentSubscription = async () => {
     try {
@@ -104,6 +130,10 @@ export function PricingPlans() {
       if (activeSubscriptions[0]?.plan?.variantId) {
         setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
         setActiveSubscription(activeSubscriptions[0]);
+      } else {
+        // Reset state if no active subscription found
+        setCurrentPlanVariantId(null);
+        setActiveSubscription(null);
       }
     } catch (error) {
       console.error("Failed to check subscription:", error);

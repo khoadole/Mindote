@@ -37,9 +37,25 @@ export function SubscriptionInfo() {
   const [actionLoading, setActionLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const { toast } = useToast();
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  // Helper function to translate interval
+  const getIntervalText = (interval: string) => {
+    if (interval === 'month') return t('components.billing.perMonth');
+    if (interval === 'year') return t('components.billing.perYear');
+    return interval;
+  };
+
+  // Helper function to translate status
+  const getStatusText = (status: string) => {
+    if (status === 'active' || status === 'Active') return t('components.billing.active');
+    if (status === 'paused' || status === 'Paused') return t('components.billing.paused');
+    if (status === 'cancelled' || status === 'Cancelled') return t('components.billing.cancelled');
+    if (status === 'on_trial' || status === 'On Trial') return t('components.billing.onTrial');
+    return status;
+  };
 
   useEffect(() => {
     loadSubscriptions();
@@ -331,7 +347,7 @@ export function SubscriptionInfo() {
                     : ""
                 }
               >
-                {activeSubscription.statusFormatted}
+                {getStatusText(activeSubscription.statusFormatted)}
               </Badge>
               {activeSubscription.isPaused && (
                 <Badge variant="outline">{t('components.billing.paused')}</Badge>
@@ -343,7 +359,7 @@ export function SubscriptionInfo() {
             <p className="text-2xl font-bold">
               ${(parseInt(activeSubscription.price) / 100).toFixed(2)}
               <span className="text-sm font-normal text-muted-foreground">
-                /{activeSubscription.plan.interval}
+                /{activeSubscription.plan.interval === 'month' ? t('components.billing.month') : t('components.billing.year')}
               </span>
             </p>
           </div>
@@ -354,10 +370,8 @@ export function SubscriptionInfo() {
             <Calendar className="h-4 w-4 text-green-500" />
             <span>
               <strong>{t('components.billing.renews')}:</strong>{" "}
-              {format(new Date(activeSubscription.renewsAt), "MMMM d, yyyy")} (
-              {formatDistanceToNow(new Date(activeSubscription.renewsAt), {
-                addSuffix: true,
-              })}
+              {format(new Date(activeSubscription.renewsAt), "PPP")} (
+              {t('components.billing.inTime', { time: formatDistanceToNow(new Date(activeSubscription.renewsAt)) })}
               )
             </span>
           </div>
@@ -369,7 +383,7 @@ export function SubscriptionInfo() {
               <AlertCircle className="h-4 w-4" />
               <span>
                 <strong>{t('components.billing.expires')}:</strong>{" "}
-                {format(new Date(activeSubscription.endsAt), "MMMM d, yyyy")}
+                {format(new Date(activeSubscription.endsAt), "PPP")}
               </span>
             </div>
           )}
@@ -382,7 +396,7 @@ export function SubscriptionInfo() {
                 <strong>{t('components.billing.trialEnds')}:</strong>{" "}
                 {format(
                   new Date(activeSubscription.trialEndsAt),
-                  "MMMM d, yyyy"
+                  "PPP"
                 )}
               </span>
             </div>

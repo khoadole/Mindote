@@ -217,16 +217,25 @@ export function SubscriptionInfo() {
 
   // Filter active subscriptions (including cancelled but not yet expired)
   const now = new Date();
+  console.log("[Billing] All subscriptions:", subscriptions);
+  console.log("[Billing] Current time:", now.toISOString());
+  
   const activeSubscription = subscriptions.find((sub) => {
+    console.log("[Billing] Checking sub:", sub.id, "status:", sub.status, "endsAt:", sub.endsAt);
     if (sub.status === "active" || sub.status === "on_trial") {
+      console.log("[Billing] Found active subscription:", sub.id);
       return true;
     }
     // Include cancelled subscriptions that haven't expired yet
     if (sub.status === "cancelled" && sub.endsAt) {
-      return new Date(sub.endsAt) > now;
+      const isValid = new Date(sub.endsAt) > now;
+      console.log("[Billing] Cancelled sub valid:", isValid, "endsAt:", sub.endsAt);
+      return isValid;
     }
     return false;
   });
+  
+  console.log("[Billing] Active subscription found:", activeSubscription ? activeSubscription.id : "none");
 
   if (!activeSubscription) {
     return (

@@ -299,36 +299,26 @@ export function SubscriptionInfo() {
               />
             </Button>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" disabled={actionLoading}>
+              <DropdownMenuTrigger disabled={actionLoading}>
+                <span className="inline-flex items-center justify-center h-9 w-9 rounded-md hover:bg-primary/10 cursor-pointer">
                   <MoreVertical className="h-4 w-4" />
-                </Button>
+                </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="z-50">
                 <DropdownMenuItem
                   onClick={() =>
                     handleManageBilling(activeSubscription.lemonSqueezyId)
                   }
+                  className="hover:bg-primary/10 focus:bg-primary/10 text-foreground dark:text-white cursor-pointer"
                 >
                   <CreditCard className="h-4 w-4 mr-2" />
                   {t('components.billing.manageBilling')}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() =>
-                    handlePauseSubscription(
-                      activeSubscription.lemonSqueezyId,
-                      activeSubscription.isPaused
-                    )
-                  }
-                >
-                  {activeSubscription.isPaused ? t('components.billing.resumeSubscription') : t('components.billing.pauseSubscription')}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  onClick={() =>
                     handleCancelSubscription(activeSubscription.lemonSqueezyId)
                   }
-                  className="text-destructive"
+                  className="text-primary hover:bg-primary/10 focus:bg-primary/10 hover:text-white focus:text-white cursor-pointer"
                 >
                   {t('components.billing.cancelSubscription')}
                 </DropdownMenuItem>

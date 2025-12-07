@@ -31,6 +31,32 @@ import { useToast } from "@/hooks/use-toast";
 import { formatDistanceToNow, format } from "date-fns";
 import { useTranslation } from "@/lib/i18n-provider";
 
+import {
+  enUS,
+  vi,
+  de,
+  es,
+  fr,
+  it,
+  ja,
+  ko,
+  pt,
+  zhCN,
+} from "date-fns/locale";
+
+const locales: Record<string, any> = {
+  en: enUS,
+  vi: vi,
+  de: de,
+  es: es,
+  fr: fr,
+  it: it,
+  ja: ja,
+  ko: ko,
+  pt: pt,
+  zh: zhCN,
+};
+
 export function SubscriptionInfo() {
   const [subscriptions, setSubscriptions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -369,8 +395,8 @@ export function SubscriptionInfo() {
             <Calendar className="h-4 w-4 text-green-500" />
             <span>
               <strong>{t('components.billing.renews')}:</strong>{" "}
-              {format(new Date(activeSubscription.renewsAt), "PPP")} (
-              {t('components.billing.inTime', { time: formatDistanceToNow(new Date(activeSubscription.renewsAt)) })}
+              {format(new Date(activeSubscription.renewsAt), "PPP", { locale: locales[language] || enUS })} (
+              {t('components.billing.inTime', { time: formatDistanceToNow(new Date(activeSubscription.renewsAt), { locale: locales[language] || enUS }) })}
               )
             </span>
           </div>
@@ -382,7 +408,7 @@ export function SubscriptionInfo() {
               <AlertCircle className="h-4 w-4" />
               <span>
                 <strong>{t('components.billing.expires')}:</strong>{" "}
-                {format(new Date(activeSubscription.endsAt), "PPP")}
+                {format(new Date(activeSubscription.endsAt), "PPP", { locale: locales[language] || enUS })}
               </span>
             </div>
           )}
@@ -395,7 +421,8 @@ export function SubscriptionInfo() {
                 <strong>{t('components.billing.trialEnds')}:</strong>{" "}
                 {format(
                   new Date(activeSubscription.trialEndsAt),
-                  "PPP"
+                  "PPP",
+                  { locale: locales[language] || enUS }
                 )}
               </span>
             </div>

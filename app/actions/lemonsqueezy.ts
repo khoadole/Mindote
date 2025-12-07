@@ -91,11 +91,8 @@ export async function syncPlans() {
     for (const v of allVariants) {
       const variant = v.attributes;
 
-      // Skip draft variants or if there's more than one variant, skip the default variant
-      if (
-        variant.status === "draft" ||
-        (allVariants.length !== 1 && variant.status === "pending")
-      ) {
+      // Skip draft variants
+      if (variant.status === "draft") {
         continue;
       }
 

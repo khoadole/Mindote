@@ -4,16 +4,42 @@ import { useState, useRef, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Plus } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  BookOpen,
+  Plus,
+  Sparkles,
+  Check,
+  Loader2,
+  AlertCircle,
+  ChevronDown,
+} from "lucide-react";
 import { AddWordModal } from "@/components/modals/add-word-modal";
 import { useTranslation } from "@/lib/i18n-provider";
+import { useToast } from "@/hooks/use-toast";
+import { useCollections } from "@/hooks/use-collections";
+import { useCreateWord } from "@/hooks/use-words";
 
-interface CapturedItem {
-  id: string;
-  type: "word" | "sentence";
-  text: string;
-  context?: string;
-  timestamp?: string;
+interface ExtractedWord {
+  term: string;
+  definition: string;
+  example: string;
+  partOfSpeech: string;
+  phonetic?: string;
+  added?: boolean;
 }
 
 interface TranscriptViewerProps {
@@ -21,21 +47,38 @@ interface TranscriptViewerProps {
   videoTitle?: string;
 }
 
+const CEFR_LEVELS = [
+  { value: "A1", label: "A1 - Beginner" },
+  { value: "A2", label: "A2 - Elementary" },
+  { value: "B1", label: "B1 - Intermediate" },
+  { value: "B2", label: "B2 - Upper Intermediate" },
+  { value: "C1", label: "C1 - Advanced" },
+  { value: "C2", label: "C2 - Proficient" },
+];
+
 export function TranscriptViewer({
   transcript,
   videoTitle,
 }: TranscriptViewerProps) {
   const { t } = useTranslation();
-  const [capturedItems, setCapturedItems] = useState<CapturedItem[]>([]);
+  const { toast } = useToast();
+  const { data: collections } = useCollections();
+  const addWordMutation = useCreateWord();
+
+  // Selection states
   const [selectedText, setSelectedText] = useState("");
   const [showAddButton, setShowAddButton] = useState(false);
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
   const [openAddWordModal, setOpenAddWordModal] = useState(false);
   const transcriptRef = useRef<HTMLDivElement>(null);
 
-  const removeCapturedItem = (id: string) => {
-    setCapturedItems((prev) => prev.filter((item) => item.id !== id));
-  };
+  // AI Extract states
+  const [selectedLevel, setSelectedLevel] = useState("B1");
+  const [wordCount, setWordCount] = useState(10);
+  const [selectedCollection, setSelectedCollection] = useState("");
+  const [extractedWords, setExtractedWords] = useState<ExtractedWord[]>([]);
+  const [isExtracting, setIsExtracting] = useState(false);
+  const [extractError, setExtractError] = useState("");
 
   useEffect(() => {
     const updateButtonPosition = () => {
@@ -50,18 +93,15 @@ export function TranscriptViewer({
       ) {
         const range = selection?.getRangeAt(0);
         if (range) {
-          // Clone range để không ảnh hưởng selection gốc
           const endRange = range.cloneRange();
-          endRange.collapse(false); // Collapse đến end của range (focus point)
+          endRange.collapse(false);
 
-          // Lấy rects của collapsed range
           const rects = endRange.getClientRects();
           if (rects.length > 0) {
-            const endRect = rects[0]; // Rect đầu (và duy nhất) của collapsed range
+            const endRect = rects[0];
             const containerRect =
               transcriptRef.current!.getBoundingClientRect();
 
-            // Tính vị trí tương đối với container (không phải window)
             setSelectedText(text);
             setButtonPosition({
               x:
@@ -95,7 +135,6 @@ export function TranscriptViewer({
     };
 
     const handleScroll = () => {
-      // Update button position when scrolling instead of hiding
       if (showAddButton) {
         updateButtonPosition();
       }
@@ -104,12 +143,10 @@ export function TranscriptViewer({
     document.addEventListener("mouseup", handleSelection);
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Listen to scroll on the transcript container
     const transcriptContainer = transcriptRef.current;
     if (transcriptContainer) {
       transcriptContainer.addEventListener("scroll", handleScroll);
     }
-    // Also listen to window scroll
     window.addEventListener("scroll", handleScroll, true);
 
     return () => {
@@ -125,6 +162,132 @@ export function TranscriptViewer({
   const handleAddWord = () => {
     setOpenAddWordModal(true);
     setShowAddButton(false);
+  };
+
+  const handleExtractVocabulary = async () => {
+    if (!transcript || transcript.length < 50) {
+      setExtractError(t("youtube.transcriptTooShort"));
+      return;
+    }
+
+    setIsExtracting(true);
+    setExtractError("");
+    setExtractedWords([]);
+
+    try {
+      const response = await fetch("/api/ai/extract-vocabulary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          transcript,
+          level: selectedLevel,
+          wordCount: Math.min(wordCount, 15),
+          nativeLanguage: "en", // TODO: Get from user settings
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || data.error || "Failed to extract");
+      }
+
+      setExtractedWords(data.data.words.map((w: ExtractedWord) => ({ ...w, added: false })));
+
+      toast({
+        title: t("youtube.extractSuccess"),
+        description: t("youtube.extractedWords", { count: data.data.words.length }),
+      });
+    } catch (error: any) {
+      console.error("Extract error:", error);
+      setExtractError(error.message || t("youtube.extractFailed"));
+      toast({
+        title: t("toast.error"),
+        description: error.message || t("youtube.extractFailed"),
+        variant: "destructive",
+      });
+    } finally {
+      setIsExtracting(false);
+    }
+  };
+
+  const handleAddExtractedWord = async (word: ExtractedWord, index: number) => {
+    if (!selectedCollection) {
+      toast({
+        title: t("toast.error"),
+        description: t("youtube.selectCollectionFirst"),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      await addWordMutation.mutateAsync({
+        term: word.term,
+        definition: word.definition,
+        example: word.example,
+        partOfSpeech: word.partOfSpeech,
+        phonetic: word.phonetic || "",
+        collectionId: selectedCollection,
+      });
+
+      // Mark as added
+      setExtractedWords((prev) =>
+        prev.map((w, i) => (i === index ? { ...w, added: true } : w))
+      );
+
+      toast({
+        title: t("hooks.words.wordAdded"),
+        description: `"${word.term}" ${t("youtube.addedToCollection")}`,
+      });
+    } catch (error: any) {
+      toast({
+        title: t("toast.error"),
+        description: error.message || t("hooks.words.failedToAdd"),
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleAddAllWords = async () => {
+    if (!selectedCollection) {
+      toast({
+        title: t("toast.error"),
+        description: t("youtube.selectCollectionFirst"),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const wordsToAdd = extractedWords.filter((w) => !w.added);
+    let addedCount = 0;
+
+    for (let i = 0; i < wordsToAdd.length; i++) {
+      const word = wordsToAdd[i];
+      try {
+        await addWordMutation.mutateAsync({
+          term: word.term,
+          definition: word.definition,
+          example: word.example,
+          partOfSpeech: word.partOfSpeech,
+          phonetic: word.phonetic || "",
+          collectionId: selectedCollection,
+        });
+        addedCount++;
+
+        // Mark as added
+        setExtractedWords((prev) =>
+          prev.map((w) => (w.term === word.term ? { ...w, added: true } : w))
+        );
+      } catch (error) {
+        console.error(`Failed to add word: ${word.term}`, error);
+      }
+    }
+
+    toast({
+      title: t("youtube.wordsAdded"),
+      description: t("youtube.addedWordsCount", { count: addedCount }),
+    });
   };
 
   return (
@@ -172,7 +335,7 @@ export function TranscriptViewer({
           <CardContent>
             <div
               ref={transcriptRef}
-              className="prose prose-sm max-w-none text-foreground leading-relaxed select-text cursor-text p-4 bg-muted/30 rounded-lg min-h-[400px] relative"
+              className="prose prose-sm max-w-none text-foreground leading-relaxed select-text cursor-text p-4 bg-muted/30 rounded-lg min-h-[400px] max-h-[600px] overflow-y-auto relative"
               style={{ userSelect: "text" }}
             >
               {transcript.split("\n").map((paragraph, index) => (
@@ -185,48 +348,175 @@ export function TranscriptViewer({
         </Card>
       </div>
 
-      {/* Captured Items */}
+      {/* AI Extract */}
       <div className="lg:col-span-1">
         <Card>
           <CardHeader>
-            <CardTitle>{t("youtube.capturedItems")}</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-purple-500" />
+              {t("youtube.aiExtract")}
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            {capturedItems.length === 0 ? (
-              <div className="text-center py-8">
-                <BookOpen className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-                <p className="text-sm text-muted-foreground">
-                  {t("youtube.selectTextToCapture")}
-                </p>
+          <CardContent className="space-y-4">
+            {/* CEFR Level Selection */}
+            <div className="space-y-2">
+              <Label>{t("youtube.cefrLevel")}</Label>
+              <Select value={selectedLevel} onValueChange={setSelectedLevel}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {CEFR_LEVELS.map((level) => (
+                    <SelectItem key={level.value} value={level.value}>
+                      {level.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Word Count */}
+            <div className="space-y-2">
+              <Label>{t("youtube.wordCountLabel")}</Label>
+              <Input
+                type="number"
+                min={1}
+                max={15}
+                value={wordCount}
+                onChange={(e) =>
+                  setWordCount(Math.min(15, Math.max(1, parseInt(e.target.value) || 1)))
+                }
+                placeholder="1-15"
+              />
+              <p className="text-xs text-muted-foreground">
+                {t("youtube.maxWords", { max: 15 })}
+              </p>
+            </div>
+
+            {/* Collection Selection */}
+            <div className="space-y-2">
+              <Label>{t("youtube.addToCollection")}</Label>
+              <Select
+                value={selectedCollection}
+                onValueChange={setSelectedCollection}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder={t("components.addWordModal.selectCollection")} />
+                </SelectTrigger>
+                <SelectContent>
+                  {collections?.map((collection) => (
+                    <SelectItem key={collection.id} value={collection.id}>
+                      {collection.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Extract Button */}
+            <Button
+              onClick={handleExtractVocabulary}
+              disabled={isExtracting || !transcript}
+              className="w-full"
+            >
+              {isExtracting ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  {t("youtube.extracting")}
+                </>
+              ) : (
+                <>
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  {t("youtube.extractVocabulary")}
+                </>
+              )}
+            </Button>
+
+            {/* Error Message */}
+            {extractError && (
+              <div className="flex items-center gap-2 text-sm text-destructive">
+                <AlertCircle className="h-4 w-4" />
+                {extractError}
               </div>
-            ) : (
-              <div className="space-y-3">
-                {capturedItems.map((item) => (
-                  <div key={item.id} className="p-3 bg-muted/50 rounded-lg">
-                    <div className="flex items-start justify-between mb-2">
-                      <Badge
-                        variant={item.type === "word" ? "default" : "secondary"}
-                        className="text-xs"
-                      >
-                        {item.type}
-                      </Badge>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => removeCapturedItem(item.id)}
-                        className="h-6 w-6 p-0 text-muted-foreground hover:text-foreground"
-                      >
-                        ×
-                      </Button>
+            )}
+
+            {/* Extracted Words List */}
+            {extractedWords.length > 0 && (
+              <div className="space-y-3 mt-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium">
+                    {t("youtube.extractedWordsList")} ({extractedWords.length})
+                  </p>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={handleAddAllWords}
+                    disabled={
+                      !selectedCollection ||
+                      extractedWords.every((w) => w.added)
+                    }
+                  >
+                    <Plus className="h-3 w-3 mr-1" />
+                    {t("youtube.addAll")}
+                  </Button>
+                </div>
+
+                <div className="space-y-2 max-h-[300px] overflow-y-auto">
+                  {extractedWords.map((word, index) => (
+                    <div
+                      key={index}
+                      className={`p-3 rounded-lg border ${
+                        word.added
+                          ? "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800"
+                          : "bg-muted/50 border-border"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="font-medium text-sm">
+                              {word.term}
+                            </span>
+                            {word.phonetic && (
+                              <span className="text-xs text-muted-foreground">
+                                {word.phonetic}
+                              </span>
+                            )}
+                            <Badge variant="secondary" className="text-xs">
+                              {word.partOfSpeech}
+                            </Badge>
+                          </div>
+                          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                            {word.definition}
+                          </p>
+                        </div>
+                        <Button
+                          size="sm"
+                          variant={word.added ? "ghost" : "outline"}
+                          className="shrink-0"
+                          onClick={() => handleAddExtractedWord(word, index)}
+                          disabled={word.added || !selectedCollection}
+                        >
+                          {word.added ? (
+                            <Check className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <Plus className="h-4 w-4" />
+                          )}
+                        </Button>
+                      </div>
                     </div>
-                    <p className="text-sm mb-2 line-clamp-3">{item.text}</p>
-                    {item.timestamp && (
-                      <p className="text-xs text-muted-foreground">
-                        {item.timestamp}
-                      </p>
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Empty State */}
+            {extractedWords.length === 0 && !isExtracting && !extractError && (
+              <div className="text-center py-6">
+                <Sparkles className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
+                <p className="text-sm text-muted-foreground">
+                  {t("youtube.extractDescription")}
+                </p>
               </div>
             )}
           </CardContent>

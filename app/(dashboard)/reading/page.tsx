@@ -350,7 +350,7 @@ export default function ReadingPage() {
                           className="block"
                         >
                           <div
-                            className="group p-4 border-2 border-transparent hover:border-primary rounded-lg bg-card hover:bg-card/50 transition-all cursor-pointer animate-in fade-in slide-in-from-bottom-4 fill-mode-both"
+                            className="group p-4 border rounded-lg bg-muted/30 hover:bg-muted/50 hover:border-primary transition-all cursor-pointer animate-in fade-in slide-in-from-bottom-4 fill-mode-both"
                             style={{
                               animationDelay: `${index * 50}ms`,
                               animationDuration: "300ms",

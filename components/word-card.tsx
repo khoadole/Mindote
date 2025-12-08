@@ -57,7 +57,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
   return (
     <>
       <Card
-        className="group cursor-pointer card-hover border-2 border-transparent hover:border-primary/30 transition-all duration-300 content-rounded overflow-hidden relative"
+        className="group cursor-pointer card-hover border-2 border-border/60 hover:border-primary/50 transition-all duration-300 content-rounded overflow-hidden relative shadow-sm"
         onClick={() => setShowDetails(true)}
       >
         {/* Gradient overlay */}
@@ -161,7 +161,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <span
-                    className="text-2xl font-bold break-all bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                    className="text-2xl font-bold break-all text-foreground"
                     style={{ wordBreak: "break-all" }}
                   >
                     {word.term}

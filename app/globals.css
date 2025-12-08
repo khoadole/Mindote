@@ -101,7 +101,7 @@
   --destructive-foreground: oklch(0.96 0 0);
   --border: oklch(0.26 0.02 265);
   --input: oklch(0.26 0.02 265);
-  --ring: oklch(0.72 0.25 300);
+  --ring: oklch(0.72 0.25 275);
 
   /* Chart colors */
   --chart-1: oklch(0.72 0.25 300);

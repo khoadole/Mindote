@@ -489,23 +489,23 @@ export default function LandingPage() {
             <div className="flex items-center flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <span>© 2025 Mindote. All rights reserved.</span>
               <Link
-                href="#"
+                href="/privacy"
                 className="hover:text-foreground transition-colors"
               >
                 Privacy
               </Link>
               <Link
-                href="#"
+                href="/terms"
                 className="hover:text-foreground transition-colors"
               >
                 Terms
               </Link>
-              <Link
-                href="#"
+              <a
+                href="mailto:mindote.hello@gmail.com"
                 className="hover:text-foreground transition-colors"
               >
                 Support
-              </Link>
+              </a>
             </div>
           </div>
         </div>

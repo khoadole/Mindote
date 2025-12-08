@@ -9,6 +9,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Skip middleware for public pages that don't need auth
+  const publicPaths = ["/terms", "/privacy", "/manifest.webmanifest"];
+  if (publicPaths.some(path => pathname.startsWith(path) || pathname === path)) {
+    return NextResponse.next();
+  }
+
   return await updateSession(request);
 }
 

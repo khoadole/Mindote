@@ -147,6 +147,19 @@ export default function TermsOfUsePage() {
             </p>
           </section>
 
+          {/* Price Changes */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-foreground">Price Changes</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              We may change the price for Subscriptions from time to time. We will communicate any price changes to you in advance. Price changes for Subscriptions will take effect on the next renewal date following the date of the price change.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              As permitted by local law, you accept the new price by continuing to maintain your Subscription after the price change takes effect. If you do not agree with the price changes, you have the right to reject the change by canceling your Subscription prior to the price change going into effect.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Please be sure to read any such notification of price changes carefully.
+            </p>
+          </section>
           {/* Third-Party Services */}
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">Third-Party Services</h2>

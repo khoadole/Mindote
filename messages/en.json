@@ -514,7 +514,8 @@
     "goodWork": "Good work! Keep practicing!",
     "keepStudying": "Keep studying, you'll improve!",
     "tryAgain": "Try Again",
-    "explanation": "Explanation:"
+    "explanation": "Explanation:",
+    "wordNotFoundInCollection": "Word information not found in your collection."
   },
   "youtube": {
     "title": "YouTube Notes",

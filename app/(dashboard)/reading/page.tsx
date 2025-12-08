@@ -8,6 +8,7 @@ import {
   DIFFICULTY_LEVELS,
   getCefrCode,
   getDifficultyFromCefr,
+  getTranslationKeyFromCefr,
 } from "@/lib/difficulty-levels";
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -186,21 +187,18 @@ export default function ReadingPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                          {DIFFICULTY_LEVELS.map((l) => {
-                            const key = l.value.toLowerCase().replace(/\s+/g, "");
-                            return (
+                          {DIFFICULTY_LEVELS.map((l) => (
                               <SelectItem key={l.value} value={l.value}>
                                 <div>
                                   <div className="font-medium">
-                                    {t(`reading.difficultyLevels.${key}.label`)}
+                                    {t(`reading.difficultyLevels.${l.translationKey}.label`)}
                                   </div>
                                   <div className="text-xs text-muted-foreground">
-                                    {t(`reading.difficultyLevels.${key}.description`)}
+                                    {t(`reading.difficultyLevels.${l.translationKey}.description`)}
                                   </div>
                                 </div>
                               </SelectItem>
-                            );
-                          })}
+                            ))}
                           </SelectContent>
                         </Select>
                       </div>
@@ -365,11 +363,7 @@ export default function ReadingPage() {
                                 </h3>
                                 <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                                   <Badge variant="secondary">
-                                    {(() => {
-                                      const difficultyName = getDifficultyFromCefr(passage.level);
-                                      const key = difficultyName.toLowerCase().replace(/\s+/g, "");
-                                      return t(`reading.difficultyLevels.${key}.label`);
-                                    })()}
+                                    {t(`reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`)}
                                   </Badge>
                                   <span className="flex items-center gap-1">
                                     <FileText className="h-3 w-3" />

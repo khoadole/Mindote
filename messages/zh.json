@@ -451,7 +451,7 @@
         "label": "中级",
         "description": "熟悉的主题和概念"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "中高级",
         "description": "复杂文本和抽象主题"
       },
@@ -497,7 +497,8 @@
     "goodWork": "做得不错！继续练习！",
     "keepStudying": "继续学习，你会提高的！",
     "tryAgain": "再试一次",
-    "explanation": "解释："
+    "explanation": "解释：",
+    "wordNotFoundInCollection": "在您的收藏中未找到该词汇信息。"
   },
   "youtube": {
     "title": "YouTube 笔记",

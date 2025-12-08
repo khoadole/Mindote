@@ -444,7 +444,7 @@
         "label": "Intermédiaire",
         "description": "Sujets et idées familiers"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "Intermédiaire Supérieur",
         "description": "Textes complexes et sujets abstraits"
       },
@@ -490,7 +490,8 @@
     "goodWork": "Bon travail ! Continuez à pratiquer !",
     "keepStudying": "Continuez à étudier, vous allez vous améliorer !",
     "tryAgain": "Réessayer",
-    "explanation": "Explication :"
+    "explanation": "Explication :",
+    "wordNotFoundInCollection": "Informations sur le mot non trouvées dans votre collection."
   },
   "youtube": {
     "title": "Notes YouTube",

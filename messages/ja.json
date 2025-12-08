@@ -444,7 +444,7 @@
         "label": "中級",
         "description": "馴染みのある話題とアイデア"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "中級上級",
         "description": "複雑なテキストと抽象的な話題"
       },
@@ -490,7 +490,8 @@
     "goodWork": "良い仕事！練習を続けましょう！",
     "keepStudying": "学習を続ければ、上達します！",
     "tryAgain": "もう一度試す",
-    "explanation": "解説:"
+    "explanation": "解説:",
+    "wordNotFoundInCollection": "コレクションに単語情報が見つかりませんでした。"
   },
   "youtube": {
     "title": "YouTubeノート",

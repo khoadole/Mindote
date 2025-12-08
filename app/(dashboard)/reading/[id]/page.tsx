@@ -1,15 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useReadingPassage, useSubmitAttempt } from "@/hooks/use-reading";
-import { getDifficultyFromCefr } from "@/lib/difficulty-levels";
+import { useWords } from "@/hooks/use-words";
+import { getDifficultyFromCefr, getTranslationKeyFromCefr } from "@/lib/difficulty-levels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   ArrowLeft,
   Clock,
@@ -18,8 +25,12 @@ import {
   XCircle,
   Loader2,
   BookOpen,
+  Volume2,
+  VolumeX,
+  MessageSquare,
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
+import { useTextToSpeech } from "@/hooks/use-text-to-speech";
 
 export default function ReadingPassageViewer() {
   const { t } = useTranslation();
@@ -29,11 +40,70 @@ export default function ReadingPassageViewer() {
 
   const { data: passage, isLoading, error } = useReadingPassage(passageId);
   const submitMutation = useSubmitAttempt();
+  
+  // Fetch words from the collection to get word details
+  const { data: collectionWords = [] } = useWords(passage?.collectionId || "");
 
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [startTime] = useState(Date.now());
   const [highlightedWord, setHighlightedWord] = useState<string | null>(null);
+  const [showWordDialog, setShowWordDialog] = useState(false);
+
+  // Text to speech for word pronunciation
+  const { speak, isSpeaking, stop } = useTextToSpeech({
+    lang: "en-US",
+    rate: 0.9,
+  });
+
+  // Find the word info from collection when a highlighted word is clicked
+  const selectedWordInfo = useMemo(() => {
+    if (!highlightedWord || !collectionWords) return null;
+    
+    const normalizedHighlight = highlightedWord.toLowerCase().trim();
+    
+    return collectionWords.find((word) => {
+      const normalizedTerm = word.term.toLowerCase().trim();
+      // Exact match
+      if (normalizedTerm === normalizedHighlight) return true;
+      // Check plurals and verb forms
+      if (
+        normalizedHighlight === normalizedTerm + "s" ||
+        normalizedHighlight === normalizedTerm + "es" ||
+        normalizedHighlight === normalizedTerm + "d" ||
+        normalizedHighlight === normalizedTerm + "ed" ||
+        normalizedHighlight === normalizedTerm + "ing" ||
+        normalizedTerm === normalizedHighlight + "s" ||
+        normalizedTerm === normalizedHighlight + "es" ||
+        normalizedTerm === normalizedHighlight + "d" ||
+        normalizedTerm === normalizedHighlight + "ed" ||
+        normalizedTerm === normalizedHighlight + "ing"
+      ) {
+        return true;
+      }
+      return false;
+    });
+  }, [highlightedWord, collectionWords]);
+
+  // When a highlighted word is clicked, show the dialog
+  useEffect(() => {
+    if (highlightedWord) {
+      setShowWordDialog(true);
+    }
+  }, [highlightedWord]);
+
+  const handleSpeak = () => {
+    if (isSpeaking) {
+      stop();
+    } else if (selectedWordInfo) {
+      speak(selectedWordInfo.term);
+    }
+  };
+
+  const handleCloseWordDialog = () => {
+    setShowWordDialog(false);
+    setHighlightedWord(null);
+  };
 
   useEffect(() => {
     if (!passage) return;
@@ -292,15 +362,7 @@ export default function ReadingPassageViewer() {
                 <CardTitle className="text-2xl">{passage.title}</CardTitle>
                 <div className="flex flex-wrap gap-2 text-sm">
                   <Badge>
-                    {(() => {
-                      const difficultyName = getDifficultyFromCefr(
-                        passage.level
-                      );
-                      const key = difficultyName
-                        .toLowerCase()
-                        .replace(/\s+/g, "");
-                      return t(`reading.difficultyLevels.${key}.label`);
-                    })()}
+                    {t(`reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`)}
                   </Badge>
                   <span className="flex items-center gap-1 text-muted-foreground">
                     <FileText className="h-4 w-4" />
@@ -484,6 +546,89 @@ export default function ReadingPassageViewer() {
           </Card>
         </div>
       </div>
+
+      {/* Word Info Dialog */}
+      <Dialog open={showWordDialog} onOpenChange={handleCloseWordDialog}>
+        <DialogContent className="sm:max-w-[450px] content-rounded-lg border-2">
+          <DialogHeader>
+            <DialogTitle className="flex items-start gap-3 pr-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <span
+                    className="text-2xl font-bold break-all text-foreground"
+                    style={{ wordBreak: "break-all" }}
+                  >
+                    {selectedWordInfo?.term || highlightedWord}
+                  </span>
+                  {selectedWordInfo && (
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={handleSpeak}
+                      className="shrink-0 h-9 w-9 p-0 rounded-full hover:bg-primary/10"
+                      title={isSpeaking ? "Stop speaking" : "Speak word"}
+                    >
+                      {isSpeaking ? (
+                        <VolumeX className="h-5 w-5 text-primary animate-pulse" />
+                      ) : (
+                        <Volume2 className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                      )}
+                    </Button>
+                  )}
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {selectedWordInfo?.phonetic && (
+                    <Badge variant="outline" className="font-mono rounded-lg">
+                      {selectedWordInfo.phonetic}
+                    </Badge>
+                  )}
+                  {selectedWordInfo?.partOfSpeech && (
+                    <Badge className="rounded-lg bg-primary/10 text-primary border-primary/20">
+                      {selectedWordInfo.partOfSpeech}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedWordInfo ? (
+            <div className="space-y-4 mt-4">
+              <div className="p-4 rounded-2xl bg-muted/50">
+                <h4 className="font-semibold mb-2 flex items-center gap-2 text-primary">
+                  <BookOpen className="h-4 w-4" />
+                  {t("word.definition")}
+                </h4>
+                <p
+                  className="text-foreground leading-relaxed break-all"
+                  style={{ wordBreak: "break-all" }}
+                >
+                  {selectedWordInfo.definition}
+                </p>
+              </div>
+
+              {selectedWordInfo.example && (
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-primary/10">
+                  <h4 className="font-semibold mb-2 flex items-center gap-2 text-accent">
+                    <MessageSquare className="h-4 w-4" />
+                    {t("word.example")}
+                  </h4>
+                  <p
+                    className="text-foreground italic leading-relaxed break-all"
+                    style={{ wordBreak: "break-all" }}
+                  >
+                    "{selectedWordInfo.example}"
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="py-6 text-center text-muted-foreground">
+              <p>{t("reading.wordNotFoundInCollection")}</p>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

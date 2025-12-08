@@ -444,7 +444,7 @@
         "label": "Mittelstufe",
         "description": "Vertraute Themen und Ideen"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "Obere Mittelstufe",
         "description": "Komplexe Texte und abstrakte Themen"
       },
@@ -490,7 +490,8 @@
     "goodWork": "Gute Arbeit! Üben Sie weiter!",
     "keepStudying": "Lernen Sie weiter, Sie werden sich verbessern!",
     "tryAgain": "Nochmal versuchen",
-    "explanation": "Erklärung:"
+    "explanation": "Erklärung:",
+    "wordNotFoundInCollection": "Wortinformationen wurden in Ihrer Sammlung nicht gefunden."
   },
   "youtube": {
     "title": "YouTube-Notizen",

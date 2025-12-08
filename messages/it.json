@@ -444,7 +444,7 @@
         "label": "Intermedio",
         "description": "Argomenti e idee familiari"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "Intermedio Superiore",
         "description": "Testi complessi e argomenti astratti"
       },
@@ -490,7 +490,8 @@
     "goodWork": "Buon lavoro! Continua a praticare!",
     "keepStudying": "Continua a studiare, migliorerai!",
     "tryAgain": "Riprova",
-    "explanation": "Spiegazione:"
+    "explanation": "Spiegazione:",
+    "wordNotFoundInCollection": "Informazioni sulla parola non trovate nella tua collezione."
   },
   "youtube": {
     "title": "Note YouTube",

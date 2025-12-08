@@ -451,7 +451,7 @@
         "label": "중급",
         "description": "친숙한 주제와 아이디어"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "중고급",
         "description": "복잡한 텍스트와 추상적인 주제"
       },
@@ -497,7 +497,8 @@
     "goodWork": "잘했어요! 계속 연습하세요!",
     "keepStudying": "계속 학습하면 향상될 거예요!",
     "tryAgain": "다시 시도",
-    "explanation": "설명:"
+    "explanation": "설명:",
+    "wordNotFoundInCollection": "컬렉션에서 단어 정보를 찾을 수 없습니다."
   },
   "youtube": {
     "title": "YouTube 노트",

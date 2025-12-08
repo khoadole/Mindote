@@ -452,9 +452,9 @@
         "label": "Trung cấp",
         "description": "Chủ đề và ý tưởng quen thuộc"
       },
-      "upperintermediate": {
+      "upperIntermediate": {
         "label": "Trung cấp cao",
-        "description": "Văn bản phức tạp và chủ đề truu tượng"
+        "description": "Văn bản phức tạp và chủ đề trừu tượng"
       },
       "advanced": {
         "label": "Nâng cao",
@@ -498,7 +498,8 @@
     "goodWork": "Làm tốt! Tiếp tục luyện tập!",
     "keepStudying": "Tiếp tục học, bạn sẽ tiến bộ!",
     "tryAgain": "Thử lại",
-    "explanation": "Giải thích:"
+    "explanation": "Giải thích:",
+    "wordNotFoundInCollection": "Không tìm thấy thông tin từ trong bộ sưu tập của bạn."
   },
   "youtube": {
     "title": "Ghi chú YouTube",

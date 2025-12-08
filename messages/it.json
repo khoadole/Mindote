@@ -27,7 +27,29 @@
     "new": "NUOVO",
     "premiumActive": "Premium Attivo",
     "upgradePlan": "Aggiorna Piano",
-    "settings": "Impostazioni"
+    "settings": "Impostazioni",
+    "help": "Aiuto"
+  },
+  "onboarding": {
+    "welcome": "Benvenuto su Mindote!",
+    "skip": "Salta",
+    "next": "Avanti",
+    "previous": "Indietro",
+    "finish": "Inizia",
+    "features": {
+      "collections": "Collezioni",
+      "collectionsDesc": "Organizza il tuo vocabolario in collezioni personalizzate per un apprendimento migliore.",
+      "flashcards": "Flashcard",
+      "flashcardsDesc": "Ripassa le parole con flashcard interattive usando la ripetizione spaziata.",
+      "quiz": "Quiz",
+      "quizDesc": "Metti alla prova le tue conoscenze con vari tipi di quiz e monitora i progressi.",
+      "reading": "Lettura IA",
+      "readingDesc": "Pratica la lettura con passaggi generati dall'IA adatti al tuo livello.",
+      "youtube": "Note YouTube",
+      "youtubeDesc": "Impara vocaboli dai video di YouTube con l'analisi delle trascrizioni.",
+      "aiExtract": "Estrazione IA",
+      "aiExtractDesc": "Estrai automaticamente il vocabolario da qualsiasi testo usando l'IA."
+    }
   },
   "topbar": {
     "goodMorning": "Buongiorno",

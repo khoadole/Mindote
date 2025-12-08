@@ -27,7 +27,29 @@
     "new": "신규",
     "premiumActive": "프리미엄 활성화",
     "upgradePlan": "플랜 업그레이드",
-    "settings": "설정"
+    "settings": "설정",
+    "help": "도움말"
+  },
+  "onboarding": {
+    "welcome": "Mindote에 오신 것을 환영합니다!",
+    "skip": "건너뛰기",
+    "next": "다음",
+    "previous": "이전",
+    "finish": "시작하기",
+    "features": {
+      "collections": "컬렉션",
+      "collectionsDesc": "더 나은 학습을 위해 어휘를 맞춤 컬렉션으로 정리하세요.",
+      "flashcards": "플래시카드",
+      "flashcardsDesc": "간격 반복을 사용한 대화형 카드로 단어를 복습하세요.",
+      "quiz": "퀴즈",
+      "quizDesc": "다양한 퀴즈 유형으로 지식을 테스트하고 진행 상황을 추적하세요.",
+      "reading": "AI 읽기",
+      "readingDesc": "레벨에 맞는 AI 생성 지문으로 읽기 연습을 하세요.",
+      "youtube": "YouTube 노트",
+      "youtubeDesc": "자막 분석을 통해 YouTube 동영상에서 어휘를 배우세요.",
+      "aiExtract": "AI 추출",
+      "aiExtractDesc": "AI를 사용하여 모든 텍스트에서 자동으로 어휘를 추출하세요."
+    }
   },
   "topbar": {
     "goodMorning": "좋은 아침입니다",

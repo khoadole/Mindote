@@ -27,7 +27,29 @@
     "new": "MỚI",
     "premiumActive": "Premium đang hoạt động",
     "upgradePlan": "Nâng cấp gói",
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "help": "Trợ giúp"
+  },
+  "onboarding": {
+    "welcome": "Chào mừng đến với Mindote!",
+    "skip": "Bỏ qua",
+    "next": "Tiếp",
+    "previous": "Trước",
+    "finish": "Bắt đầu",
+    "features": {
+      "collections": "Bộ sưu tập",
+      "collectionsDesc": "Sắp xếp từ vựng thành các bộ sưu tập tùy chỉnh để học hiệu quả hơn.",
+      "flashcards": "Thẻ ghi nhớ",
+      "flashcardsDesc": "Ôn tập từ vựng với thẻ ghi nhớ tương tác sử dụng phương pháp lặp lại ngắt quãng.",
+      "quiz": "Trắc nghiệm",
+      "quizDesc": "Kiểm tra kiến thức với nhiều loại trắc nghiệm và theo dõi tiến độ.",
+      "reading": "Đọc hiểu AI",
+      "readingDesc": "Luyện đọc với các bài đọc được tạo bởi AI phù hợp với trình độ của bạn.",
+      "youtube": "Ghi chú YouTube",
+      "youtubeDesc": "Học từ vựng từ video YouTube với phân tích phụ đề.",
+      "aiExtract": "AI Trích xuất",
+      "aiExtractDesc": "Tự động trích xuất từ vựng từ bất kỳ văn bản nào bằng AI."
+    }
   },
   "topbar": {
     "goodMorning": "Chào buổi sáng",

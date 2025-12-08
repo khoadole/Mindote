@@ -19,10 +19,12 @@ import {
   ChevronRight,
   FileText,
   Crown,
+  HelpCircle,
 } from "lucide-react";
 
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
 import { useTranslation } from "@/lib/i18n-provider";
+import { OnboardingModal } from "@/components/modals/onboarding-modal";
 
 const navigation = [
   {
@@ -67,6 +69,7 @@ interface SidebarProps {
 export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const { t } = useTranslation();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   const [hasActiveSubscription, setHasActiveSubscription] = useState(false);
   const [subscriptionLoading, setSubscriptionLoading] = useState(true);
@@ -293,6 +296,31 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
         {/* Bottom Section */}
         <div className="p-3 space-y-2 border-t border-white/10">
+          {/* Help Button */}
+          <Button
+            variant="ghost"
+            onClick={() => setShowOnboarding(true)}
+            className={cn(
+              "transition-all duration-300 rounded-xl",
+              "hover:bg-indigo-50 dark:hover:bg-white/[0.03] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
+              isCollapsed
+                ? "justify-center h-10 w-10 p-0 mx-auto"
+                : "justify-start h-10 w-full"
+            )}
+          >
+            <HelpCircle
+              className={cn(
+                "h-5 w-5 transition-all duration-300",
+                !isCollapsed && "mr-2"
+              )}
+            />
+            {!isCollapsed && (
+              <span className="transition-opacity duration-300 font-medium text-sm">
+                {t("sidebar.help")}
+              </span>
+            )}
+          </Button>
+
           {/* Upgrade Plan / Premium Status Button */}
           {!subscriptionLoading && (
             <>
@@ -383,6 +411,12 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         </div>
       </div>
 
+      {/* Onboarding Modal */}
+      <OnboardingModal
+        open={showOnboarding}
+        onOpenChange={setShowOnboarding}
+        forceOpen={true}
+      />
     </div>
   );
 }

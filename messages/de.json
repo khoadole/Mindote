@@ -27,7 +27,29 @@
     "new": "NEU",
     "premiumActive": "Premium Aktiv",
     "upgradePlan": "Plan upgraden",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "help": "Hilfe"
+  },
+  "onboarding": {
+    "welcome": "Willkommen bei Mindote!",
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "finish": "Los geht's",
+    "features": {
+      "collections": "Sammlungen",
+      "collectionsDesc": "Organisieren Sie Ihren Wortschatz in benutzerdefinierten Sammlungen für besseres Lernen.",
+      "flashcards": "Karteikarten",
+      "flashcardsDesc": "Wiederholen Sie Wörter mit interaktiven Karteikarten und Wiederholungssystem.",
+      "quiz": "Quiz",
+      "quizDesc": "Testen Sie Ihr Wissen mit verschiedenen Quiz-Typen und verfolgen Sie Ihren Fortschritt.",
+      "reading": "KI-Lesen",
+      "readingDesc": "Üben Sie das Lesen mit KI-generierten Texten, die auf Ihr Niveau abgestimmt sind.",
+      "youtube": "YouTube-Notizen",
+      "youtubeDesc": "Lernen Sie Vokabeln aus YouTube-Videos mit Transkriptanalyse.",
+      "aiExtract": "KI-Extraktion",
+      "aiExtractDesc": "Extrahieren Sie automatisch Vokabeln aus beliebigen Texten mit KI."
+    }
   },
   "topbar": {
     "goodMorning": "Guten Morgen",

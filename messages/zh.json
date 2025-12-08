@@ -27,7 +27,29 @@
     "new": "新",
     "premiumActive": "高级版已激活",
     "upgradePlan": "升级计划",
-    "settings": "设置"
+    "settings": "设置",
+    "help": "帮助"
+  },
+  "onboarding": {
+    "welcome": "欢迎来到Mindote!",
+    "skip": "跳过",
+    "next": "下一步",
+    "previous": "上一步",
+    "finish": "开始使用",
+    "features": {
+      "collections": "收藏集",
+      "collectionsDesc": "将词汇整理到自定义收藏集中，以便更好地学习。",
+      "flashcards": "闪卡",
+      "flashcardsDesc": "使用间隔重复的互动卡片复习单词。",
+      "quiz": "测验",
+      "quizDesc": "通过各种测验类型测试您的知识并跟踪进度。",
+      "reading": "AI阅读",
+      "readingDesc": "使用与您水平匹配的AI生成文章练习阅读。",
+      "youtube": "YouTube笔记",
+      "youtubeDesc": "通过字幕分析从YouTube视频中学习词汇。",
+      "aiExtract": "AI提取",
+      "aiExtractDesc": "使用AI从任何文本中自动提取词汇。"
+    }
   },
   "topbar": {
     "goodMorning": "早上好",

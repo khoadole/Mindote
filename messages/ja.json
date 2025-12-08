@@ -27,7 +27,29 @@
     "new": "新着",
     "premiumActive": "プレミアム有効",
     "upgradePlan": "プランをアップグレード",
-    "settings": "設定"
+    "settings": "設定",
+    "help": "ヘルプ"
+  },
+  "onboarding": {
+    "welcome": "Mindoteへようこそ!",
+    "skip": "スキップ",
+    "next": "次へ",
+    "previous": "戻る",
+    "finish": "始める",
+    "features": {
+      "collections": "コレクション",
+      "collectionsDesc": "カスタムコレクションで語彙を整理し、効果的に学習しましょう。",
+      "flashcards": "フラッシュカード",
+      "flashcardsDesc": "間隔反復を使った対話的なカードで単語を復習しましょう。",
+      "quiz": "クイズ",
+      "quizDesc": "様々なクイズタイプで知識をテストし、進捗を追跡しましょう。",
+      "reading": "AI読解",
+      "readingDesc": "レベルに合わせたAI生成の文章で読解練習をしましょう。",
+      "youtube": "YouTubeノート",
+      "youtubeDesc": "YouTubeビデオから字幕分析で語彙を学びましょう。",
+      "aiExtract": "AI抽出",
+      "aiExtractDesc": "AIを使って任意のテキストから自動的に語彙を抽出します。"
+    }
   },
   "topbar": {
     "goodMorning": "おはようございます",

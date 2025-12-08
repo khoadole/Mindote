@@ -12,7 +12,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { WordCard } from "@/components/word-card";
 import {
   ArrowLeft,
@@ -25,6 +31,8 @@ import {
   Flame,
   Plus,
   ChevronLeft,
+  Filter,
+  ArrowUpDown,
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
@@ -80,6 +88,8 @@ export default function CollectionDetailPage() {
   const deleteCollectionMutation = useDeleteCollection();
   const deleteWordMutation = useDeleteWord();
   const [searchQuery, setSearchQuery] = useState("");
+  const [filterType, setFilterType] = useState("all");
+  const [sortOrder, setSortOrder] = useState("newest");
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 9;
 
@@ -134,11 +144,36 @@ export default function CollectionDetailPage() {
   }
 
   const dueWordsCount = dueWords.length;
-  const filteredWords = collectionWords.filter(
-    (word) =>
-      word.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      word.definition.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  
+  // Filter and sort words
+  const filteredWords = collectionWords
+    .filter((word) => {
+      const matchesSearch =
+        word.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        word.definition.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesFilter =
+        filterType === "all" ||
+        (filterType === "custom" && (!word.partOfSpeech || ![
+          "noun", "pronoun", "verb", "adjective", 
+          "adverb", "preposition", "conjunction", "interjection"
+        ].includes(word.partOfSpeech.toLowerCase()))) ||
+        word.partOfSpeech?.toLowerCase() === filterType;
+      return matchesSearch && matchesFilter;
+    })
+    .sort((a, b) => {
+      switch (sortOrder) {
+        case "newest":
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        case "oldest":
+          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        case "az":
+          return a.term.localeCompare(b.term);
+        case "za":
+          return b.term.localeCompare(a.term);
+        default:
+          return 0;
+      }
+    });
 
   // Pagination
   const totalPages = Math.ceil(filteredWords.length / ITEMS_PER_PAGE);
@@ -146,9 +181,19 @@ export default function CollectionDetailPage() {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedWords = filteredWords.slice(startIndex, endIndex);
 
-  // Reset to page 1 when search changes
+  // Reset to page 1 when search/filter/sort changes
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
+    setCurrentPage(1);
+  };
+
+  const handleFilterChange = (value: string) => {
+    setFilterType(value);
+    setCurrentPage(1);
+  };
+
+  const handleSortChange = (value: string) => {
+    setSortOrder(value);
     setCurrentPage(1);
   };
 
@@ -309,19 +354,14 @@ export default function CollectionDetailPage() {
         </div>
 
         {/* Content */}
-        <Tabs
-          defaultValue="words"
+        <div
           className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
           style={{ animationDelay: "300ms" }}
         >
-          <TabsList>
-            <TabsTrigger value="words">{t("collections.wordsTab")}</TabsTrigger>
-            <TabsTrigger value="activity">{t("collections.activityTab")}</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="words" className="space-y-4">
+          {/* Search, Filter & Sort Bar */}
+          <div className="flex flex-wrap items-center gap-3">
             {/* Search */}
-            <div className="relative max-w-sm">
+            <div className="relative flex-1 min-w-[200px] max-w-sm">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder={t("collections.searchWords")}
@@ -331,117 +371,138 @@ export default function CollectionDetailPage() {
               />
             </div>
 
-            {/* Words Grid */}
-            {filteredWords.length === 0 ? (
-              <Card className="text-center py-12">
-                <CardContent>
-                  <h3 className="text-lg font-medium mb-2">
-                    {searchQuery ? t("collections.noWordsFound") : t("collections.noWordsYet")}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {searchQuery
-                      ? t("collections.clearSearch")
-                      : t("collections.startAdding")}
-                  </p>
-                  {!searchQuery && <AddWordModal collectionId={collectionId} />}
-                </CardContent>
-              </Card>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {paginatedWords.map((word, index) => (
-                    <div
-                      key={word.id}
-                      className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
-                      style={{
-                        animationDelay: `${index * 30}ms`,
-                        animationDuration: "400ms",
-                      }}
-                    >
-                      <WordCard
-                        word={{
-                          ...word,
-                          partOfSpeech: word.partOfSpeech ?? undefined,
-                          example: word.example ?? undefined,
-                          phonetic: word.phonetic ?? undefined,
-                          collection: {
-                            id: collection.id,
-                            name: collection.name,
-                            color: collection.color || "bg-primary",
-                          },
-                        }}
-                        onEdit={() => handleEditWord(word)}
-                        onDelete={() => handleDeleteWord(word.id, word.term)}
-                      />
-                    </div>
-                  ))}
-                </div>
+            {/* Filter Dropdown */}
+            <Select value={filterType} onValueChange={handleFilterChange}>
+              <SelectTrigger className="w-[140px]">
+                <Filter className="h-4 w-4 mr-2 text-muted-foreground" />
+                <SelectValue placeholder={t("collections.filter")} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">{t("collections.filterAll")}</SelectItem>
+                <SelectItem value="noun">{t("collections.filterNoun")}</SelectItem>
+                <SelectItem value="pronoun">{t("collections.filterPronoun")}</SelectItem>
+                <SelectItem value="verb">{t("collections.filterVerb")}</SelectItem>
+                <SelectItem value="adjective">{t("collections.filterAdjective")}</SelectItem>
+                <SelectItem value="adverb">{t("collections.filterAdverb")}</SelectItem>
+                <SelectItem value="preposition">{t("collections.filterPreposition")}</SelectItem>
+                <SelectItem value="conjunction">{t("collections.filterConjunction")}</SelectItem>
+                <SelectItem value="interjection">{t("collections.filterInterjection")}</SelectItem>
+                <SelectItem value="custom">{t("collections.filterCustom")}</SelectItem>
+              </SelectContent>
+            </Select>
 
-                {/* Pagination */}
-                {totalPages > 1 && (
-                  <div className="flex items-center justify-center gap-2 mt-8">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() =>
-                        setCurrentPage((prev) => Math.max(prev - 1, 1))
-                      }
-                      disabled={currentPage === 1}
-                      className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
-                    >
-                      <ChevronLeft className="h-4 w-4 mr-1" />
-                      {t("collections.previous")}
-                    </Button>
+            {/* Sort Dropdown */}
+            <Select value={sortOrder} onValueChange={handleSortChange}>
+              <SelectTrigger className="w-[150px]">
+                <ArrowUpDown className="h-4 w-4 mr-2 text-muted-foreground" />
+                <SelectValue placeholder={t("collections.sort")} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="newest">{t("collections.sortNewest")}</SelectItem>
+                <SelectItem value="oldest">{t("collections.sortOldest")}</SelectItem>
+                <SelectItem value="az">{t("collections.sortAZ")}</SelectItem>
+                <SelectItem value="za">{t("collections.sortZA")}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                        (page) => (
-                          <Button
-                            key={page}
-                            variant={
-                              currentPage === page ? "default" : "ghost"
-                            }
-                            size="sm"
-                            onClick={() => setCurrentPage(page)}
-                            className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
-                          >
-                            {page}
-                          </Button>
-                        )
-                      )}
-                    </div>
-
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() =>
-                        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                      }
-                      disabled={currentPage === totalPages}
-                      className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
-                    >
-                      {t("collections.next")}
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Button>
-                  </div>
-                )}
-              </>
-            )}
-          </TabsContent>
-
-          <TabsContent value="activity">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t("collections.activityTab")}</CardTitle>
-              </CardHeader>
+          {/* Words Grid */}
+          {filteredWords.length === 0 ? (
+            <Card className="text-center py-12">
               <CardContent>
-                <p className="text-muted-foreground">
-                  {t("collections.activityTrackingComingSoon")}
+                <h3 className="text-lg font-medium mb-2">
+                  {searchQuery || filterType !== "all" ? t("collections.noWordsFound") : t("collections.noWordsYet")}
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {searchQuery || filterType !== "all"
+                    ? t("collections.clearSearch")
+                    : t("collections.startAdding")}
                 </p>
+                {!searchQuery && filterType === "all" && <AddWordModal collectionId={collectionId} />}
               </CardContent>
             </Card>
-          </TabsContent>
-        </Tabs>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {paginatedWords.map((word, index) => (
+                  <div
+                    key={word.id}
+                    className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
+                    style={{
+                      animationDelay: `${index * 30}ms`,
+                      animationDuration: "400ms",
+                    }}
+                  >
+                    <WordCard
+                      word={{
+                        ...word,
+                        partOfSpeech: word.partOfSpeech ?? undefined,
+                        example: word.example ?? undefined,
+                        phonetic: word.phonetic ?? undefined,
+                        collection: {
+                          id: collection.id,
+                          name: collection.name,
+                          color: collection.color || "bg-primary",
+                        },
+                      }}
+                      onEdit={() => handleEditWord(word)}
+                      onDelete={() => handleDeleteWord(word.id, word.term)}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-8">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    disabled={currentPage === 1}
+                    className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
+                  >
+                    <ChevronLeft className="h-4 w-4 mr-1" />
+                    {t("collections.previous")}
+                  </Button>
+
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                      (page) => (
+                        <Button
+                          key={page}
+                          variant={
+                            currentPage === page ? "default" : "ghost"
+                          }
+                          size="sm"
+                          onClick={() => setCurrentPage(page)}
+                          className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
+                        >
+                          {page}
+                        </Button>
+                      )
+                    )}
+                  </div>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    }
+                    disabled={currentPage === totalPages}
+                    className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
+                  >
+                    {t("collections.next")}
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </Button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
 
       {/* Delete Collection Modal */}

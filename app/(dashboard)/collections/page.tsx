@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
 import { getDifficultyLabelKey } from "@/lib/difficulty-levels";
+import { getPaginationItems, PaginationItemType } from "@/lib/pagination-utils";
+import { PaginationEllipsis } from "@/components/ui/pagination";
 
 // ✅ Lazy load modals
 const AddWordModal = dynamic(
@@ -81,7 +83,7 @@ export default function CollectionsPage() {
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
       {/* Minimal gradient background - Light mode only - REMOVED for pure white */}
       {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */}
 
@@ -96,7 +98,7 @@ export default function CollectionsPage() {
 
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">
         {/* Header */}
-        <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-500">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <div>
             <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
               {t("collections.title")}
@@ -124,10 +126,10 @@ export default function CollectionsPage() {
 
         {/* Toolbar */}
         <div
-          className="flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
           style={{ animationDelay: "100ms" }}
         >
-          <div className="relative flex-1 max-w-md">
+          <div className="relative flex-1 max-w-full md:max-w-md">
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder={t("collections.searchCollections")}
@@ -267,18 +269,26 @@ export default function CollectionsPage() {
                 </Button>
 
                 <div className="flex items-center gap-1">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => (
-                      <Button
-                        key={page}
-                        variant={currentPage === page ? "default" : "ghost"}
-                        size="sm"
-                        onClick={() => setCurrentPage(page)}
-                        className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
-                      >
-                        {page}
-                      </Button>
-                    )
+                  {getPaginationItems(currentPage, totalPages).map(
+                    (page, index) => {
+                      if (page === 'ellipsis') {
+                        return (
+                          <PaginationEllipsis key={`ellipsis-${index}`} />
+                        );
+                      }
+
+                      return (
+                        <Button
+                          key={page}
+                          variant={currentPage === page ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setCurrentPage(page as number)}
+                          className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
+                        >
+                          {page}
+                        </Button>
+                      );
+                    }
                   )}
                 </div>
 

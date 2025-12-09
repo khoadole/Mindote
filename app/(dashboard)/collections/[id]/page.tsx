@@ -37,6 +37,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getPaginationItems, PaginationItemType } from "@/lib/pagination-utils";
+import { PaginationEllipsis } from "@/components/ui/pagination";
 
 // ✅ Lazy load AddWordModal
 const AddWordModal = dynamic(
@@ -226,28 +228,30 @@ export default function CollectionDetailPage() {
   };
 
   return (
-        <div className="p-6 bg-white dark:bg-background min-h-screen">
+        <div className="p-4 md:p-6 bg-white dark:bg-background min-h-screen">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => router.push("/collections")}
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            {t("collections.back")}
-          </Button>
-          <div className="flex items-center gap-2 flex-1 min-w-0">
-            <div
-              className={`h-4 w-4 rounded-full shrink-0 ${
-                !collection.color?.startsWith("#") ? collection.color : ""
-              }`}
-              style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
-            />
-            <h1 className="text-3xl font-bold truncate">{collection.name}</h1>
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => router.push("/collections")}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              {t("collections.back")}
+            </Button>
+            <div className="flex items-center gap-2 flex-1 min-w-0">
+              <div
+                className={`h-4 w-4 rounded-full shrink-0 ${
+                  !collection.color?.startsWith("#") ? collection.color : ""
+                }`}
+                style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
+              />
+              <h1 className="text-2xl md:text-3xl font-bold truncate">{collection.name}</h1>
+            </div>
           </div>
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center gap-2 ml-auto w-full md:w-auto justify-end">
             <RenameCollectionModal
               collectionId={collection.id}
               currentName={collection.name}
@@ -287,7 +291,7 @@ export default function CollectionDetailPage() {
 
         {/* Study Actions */}
         <div
-          className="flex gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
+          className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
           style={{ animationDelay: "200ms" }}
         >
           <Link href={`/flashcards?collection=${collectionId}`}>
@@ -359,9 +363,9 @@ export default function CollectionDetailPage() {
           style={{ animationDelay: "300ms" }}
         >
           {/* Search, Filter & Sort Bar */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
             {/* Search */}
-            <div className="relative flex-1 min-w-[200px] max-w-sm">
+            <div className="relative w-full sm:w-[300px]">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder={t("collections.searchWords")}
@@ -373,7 +377,7 @@ export default function CollectionDetailPage() {
 
             {/* Filter Dropdown */}
             <Select value={filterType} onValueChange={handleFilterChange}>
-              <SelectTrigger className="w-[140px]">
+              <SelectTrigger className="w-full sm:w-[140px]">
                 <Filter className="h-4 w-4 mr-2 text-muted-foreground" />
                 <SelectValue placeholder={t("collections.filter")} />
               </SelectTrigger>
@@ -393,7 +397,7 @@ export default function CollectionDetailPage() {
 
             {/* Sort Dropdown */}
             <Select value={sortOrder} onValueChange={handleSortChange}>
-              <SelectTrigger className="w-[150px]">
+              <SelectTrigger className="w-full sm:w-[150px]">
                 <ArrowUpDown className="h-4 w-4 mr-2 text-muted-foreground" />
                 <SelectValue placeholder={t("collections.sort")} />
               </SelectTrigger>
@@ -469,20 +473,28 @@ export default function CollectionDetailPage() {
                   </Button>
 
                   <div className="flex items-center gap-1">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (page) => (
-                        <Button
-                          key={page}
-                          variant={
-                            currentPage === page ? "default" : "ghost"
-                          }
-                          size="sm"
-                          onClick={() => setCurrentPage(page)}
-                          className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
-                        >
-                          {page}
-                        </Button>
-                      )
+                    {getPaginationItems(currentPage, totalPages).map(
+                      (page, index) => {
+                        if (page === 'ellipsis') {
+                          return (
+                            <PaginationEllipsis key={`ellipsis-${index}`} />
+                          );
+                        }
+
+                        return (
+                          <Button
+                            key={page}
+                            variant={
+                              currentPage === page ? "default" : "ghost"
+                            }
+                            size="sm"
+                            onClick={() => setCurrentPage(page as number)}
+                            className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
+                          >
+                            {page}
+                          </Button>
+                        );
+                      }
                     )}
                   </div>
 

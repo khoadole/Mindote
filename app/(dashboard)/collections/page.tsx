@@ -254,7 +254,7 @@ export default function CollectionsPage() {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-8">
+              <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 mt-8">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -262,10 +262,10 @@ export default function CollectionsPage() {
                     setCurrentPage((prev) => Math.max(prev - 1, 1))
                   }
                   disabled={currentPage === 1}
-                  className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
+                  className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
-                  <ChevronLeft className="h-4 w-4 mr-1" />
-                  {t("collections.previous")}
+                  <ChevronLeft className="h-4 w-4 sm:mr-1" />
+                  <span className="hidden sm:inline">{t("collections.previous")}</span>
                 </Button>
 
                 <div className="flex items-center gap-1">
@@ -283,7 +283,7 @@ export default function CollectionsPage() {
                           variant={currentPage === page ? "default" : "ghost"}
                           size="sm"
                           onClick={() => setCurrentPage(page as number)}
-                          className={`rounded-full w-8 h-8 p-0 ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
+                          className={`rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0 text-xs sm:text-sm ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
                         >
                           {page}
                         </Button>
@@ -299,10 +299,10 @@ export default function CollectionsPage() {
                     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                   }
                   disabled={currentPage === totalPages}
-                  className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 px-4"
+                  className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
-                  {t("collections.next")}
-                  <ChevronRight className="h-4 w-4 ml-1" />
+                  <span className="hidden sm:inline">{t("collections.next")}</span>
+                  <ChevronRight className="h-4 w-4 sm:ml-1" />
                 </Button>
               </div>
             )}

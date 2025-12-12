@@ -214,12 +214,12 @@ export default function CollectionsPage() {
                               {t("collections.wordsLabel")}
                             </span>
                           </div>
-                          <Badge
+                          {/* <Badge
                             variant="secondary"
                             className="text-xs bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md font-semibold border-0"
                           >
                             {Math.round(masteryPercent)}% {t("collections.mastered")}
-                          </Badge>
+                          </Badge> */}
                         </div>
 
                         <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1">

@@ -26,11 +26,14 @@ async function getTranscript(videoId: string) {
 }
 
 // Helper to extract video ID from YouTube URL
+// Helper to extract video ID from YouTube URL
 function extractVideoId(url: string): string | null {
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/,
     /youtube\.com\/embed\/([^&\n?#]+)/,
     /youtube\.com\/v\/([^&\n?#]+)/,
+    /youtube\.com\/shorts\/([^&\n?#]+)/, // Shorts
+    /youtube\.com\/live\/([^&\n?#]+)/,   // Live
   ];
 
   for (const pattern of patterns) {
@@ -151,8 +154,19 @@ export async function POST(request: NextRequest) {
       // Handle transcript-specific errors
       console.error(
         "❌ [YouTube API] Transcript error:",
-        transcriptError.message
+        transcriptError.message || transcriptError
       );
+
+      // Check for 400 Bad Request (often means invalid video or restricted)
+      if (transcriptError?.info?.status === 400) {
+         return NextResponse.json(
+          {
+            error:
+              "Video is unavailable or has restricted access. Please check the URL and try again.",
+          },
+          { status: 400 }
+        );
+      }
 
       if (
         transcriptError.message?.includes("Transcript is disabled") ||

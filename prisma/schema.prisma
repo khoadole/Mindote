@@ -22,6 +22,7 @@ model User {
   collections   Collection[]
   setting       Setting?
   subscriptions Subscription[]
+  aiLogs        AILog[]
 
   @@index([email])
   @@map("users")
@@ -220,4 +221,22 @@ model WebhookEvent {
   @@index([eventName])
   @@index([processed])
   @@map("webhook_events")
+}
+
+model AILog {
+  id           String   @id @default(uuid()) @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  feature      String
+  model        String
+  inputTokens  Int      @map("input_tokens")
+  outputTokens Int      @map("output_tokens")
+  totalTokens  Int      @map("total_tokens")
+  cost         Float
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("ai_logs")
 }

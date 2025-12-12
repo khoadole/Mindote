@@ -3,6 +3,7 @@ import OpenAI from "openai";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
+import { logAIUsage } from "@/lib/ai-logger";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -144,6 +145,16 @@ Respond ONLY with valid JSON:
       max_tokens: 1500,
       response_format: { type: "json_object" },
     });
+
+    if (completion.usage) {
+      await logAIUsage({
+        userId,
+        feature: "extract-vocabulary",
+        model: "gpt-4o-mini",
+        inputTokens: completion.usage.prompt_tokens,
+        outputTokens: completion.usage.completion_tokens,
+      });
+    }
 
     const responseContent = completion.choices[0]?.message?.content;
 

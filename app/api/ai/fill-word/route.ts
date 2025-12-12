@@ -4,6 +4,7 @@ import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
 import { getLanguageByCode, DEFAULT_LANGUAGE } from "@/lib/languages";
+import { logAIUsage } from "@/lib/ai-logger";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -153,6 +154,16 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
       max_tokens: 500,
       response_format: { type: "json_object" },
     });
+
+    if (completion.usage) {
+      await logAIUsage({
+        userId,
+        feature: "fill-word",
+        model: "gpt-4o-mini",
+        inputTokens: completion.usage.prompt_tokens,
+        outputTokens: completion.usage.completion_tokens,
+      });
+    }
 
     const responseContent = completion.choices[0]?.message?.content;
 

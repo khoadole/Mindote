@@ -165,7 +165,7 @@ export default function FlashcardsPage() {
 
   if (isStudying) {
     return (
-      <div className="p-6">
+      <div className="h-full w-full flex flex-col">
         <FlashcardPlayer
           words={studyWords as any}
           onComplete={handleStudyComplete}

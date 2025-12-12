@@ -283,7 +283,7 @@ export function FlashcardPlayer({
   };
 
   return (
-    <div className="fixed inset-0 bg-white dark:bg-background overflow-auto flex items-center justify-center">
+    <div className="w-full min-h-full flex items-center justify-center bg-white dark:bg-background py-8">
       <div className="p-8 w-full max-w-2xl space-y-6 relative z-10">
         {/* Progress */}
         <div className="space-y-2">

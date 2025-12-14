@@ -185,7 +185,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             <div className="flex items-center gap-3">
               <div className="relative w-[50px] h-[50px] rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-1.5">
                 <Image
-                  src="/mindote_rmbg.png"
+                  src="/logo.png"
                   alt="Mindote Logo"
                   width={50}
                   height={50}

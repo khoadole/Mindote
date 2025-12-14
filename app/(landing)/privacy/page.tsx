@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src="/mindote_rmbg.png"
+              src="/logo.png"
               alt="Mindote Logo"
               width={48}
               height={48}
@@ -228,7 +228,7 @@ export default function PrivacyPolicyPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/mindote_rmbg.png"
+                src="/logo.png"
                 alt="Mindote Logo"
                 width={32}
                 height={32}

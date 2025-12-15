@@ -17,12 +17,73 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mindote - Language Learning App",
+  metadataBase: new URL("https://mindote.app"),
+  title: {
+    default: "Mindote - Language Learning App",
+    template: "%s | Mindote",
+  },
   description:
-    "Learn Language vocabulary with flashcards, quizzes, and YouTube integration",
+    "Master vocabulary with spaced repetition flashcards. Our AI-powered system shows you words exactly when you need to review them. Smart Flashcards, Immersive Reading, and more.",
+  keywords: [
+    "language learning",
+    "vocabulary",
+    "flashcards",
+    "spaced repetition",
+    "english learning",
+    "toeic",
+    "ielts",
+    "ai learning",
+  ],
+  authors: [{ name: "Mindote Team" }],
+  creator: "Mindote",
+  publisher: "Mindote",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png" },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://mindote.app",
+    title: "Mindote - Language Learning App",
+    description:
+      "Master vocabulary with spaced repetition flashcards. AI-powered learning system.",
+    siteName: "Mindote",
+    images: [
+      {
+        url: "/mindote_full.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mindote App",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mindote - Language Learning App",
+    description:
+      "Master vocabulary with spaced repetition flashcards. AI-powered learning system.",
+    images: ["/mindote_full.jpg"],
+    creator: "@mindote_app",
   },
 };
 
@@ -86,6 +147,32 @@ export default function RootLayout({
                 }
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Mindote",
+              "applicationCategory": "EducationalApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "description": "Master vocabulary with spaced repetition flashcards. Our AI-powered system shows you words exactly when you need to review them.",
+              "image": "https://mindote.app/mindote_full.jpg",
+              "logo": "https://mindote.app/icon.png",
+              "url": "https://mindote.app",
+              "author": {
+                "@type": "Organization",
+                "name": "Mindote Team",
+                "url": "https://mindote.app"
+              }
+            }),
           }}
         />
       </head>

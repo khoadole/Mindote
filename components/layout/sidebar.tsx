@@ -130,14 +130,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   return (
     <div
       className={cn(
-        "flex h-full flex-col transition-all duration-300 relative",
+        "flex h-full flex-col transition-all duration-300 relative bg-sidebar",
         isCollapsed ? "w-20" : "w-72",
         className
       )}
-      style={{
-        // Pure white background for light mode
-        backgroundColor: "rgb(255, 255, 255)",
-      }}
     >
       {/* Dark mode background - absolute positioned */}
       <div

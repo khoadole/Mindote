@@ -111,7 +111,7 @@ export default function RootLayout({
               :root {
                 color-scheme: light dark;
                 --background: oklch(1 0 0);
-                --sidebar: oklch(0.9 0.008 265);
+                --sidebar: oklch(1 0 0);
               }
               
               .dark {

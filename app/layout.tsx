@@ -57,9 +57,7 @@ export const metadata: Metadata = {
       { url: "/icon.png", sizes: "192x192", type: "image/png" },
       { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-icon.png" },
-    ],
+    apple: [{ url: "/apple-icon.png" }],
     shortcut: "/favicon.ico",
   },
   openGraph: {
@@ -160,23 +158,24 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "Mindote",
-              "applicationCategory": "EducationalApplication",
-              "operatingSystem": "Web",
-              "offers": {
+              name: "Mindote",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web",
+              offers: {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+                price: "0",
+                priceCurrency: "USD",
               },
-              "description": "Master vocabulary with spaced repetition flashcards. Our AI-powered system shows you words exactly when you need to review them.",
-              "image": "https://mindote.app/mindote_full.jpg",
-              "logo": "https://mindote.app/icon.png",
-              "url": "https://mindote.app",
-              "author": {
+              description:
+                "Master vocabulary with spaced repetition flashcards. Our AI-powered system shows you words exactly when you need to review them.",
+              image: "https://mindote.app/mindote_full.jpg",
+              logo: "https://mindote.app/icon.png",
+              url: "https://mindote.app",
+              author: {
                 "@type": "Organization",
-                "name": "Mindote Team",
-                "url": "https://mindote.app"
-              }
+                name: "Mindote Team",
+                url: "https://mindote.app",
+              },
             }),
           }}
         />

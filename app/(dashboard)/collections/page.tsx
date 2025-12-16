@@ -142,12 +142,13 @@ export default function CollectionsPage() {
 
         {/* Collections Grid */}
         {filteredCollections.length === 0 ? (
-          <GradientCard gradient="purple" hoverable={false}>
+          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-indigo-200/50 dark:border-indigo-800/30">
             <div className="text-center py-16">
-              <div className="mx-auto w-20 h-20 bg-white/20 dark:bg-gradient-to-br dark:from-primary/20 dark:to-accent/20 rounded-3xl flex items-center justify-center mb-6 animate-float backdrop-blur-sm">
-                <Layers className="h-10 w-10 text-white dark:text-primary" />
+              <div className="mx-auto w-20 h-20 bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 rounded-3xl flex items-center justify-center mb-6 animate-float">
+                <Layers className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 justify-center">
+                <Layers className="h-5 w-5 text-primary" />
                 {t("collections.noCollectionsFound")}
               </h3>
               <p className="text-muted-foreground mb-8">
@@ -156,7 +157,7 @@ export default function CollectionsPage() {
                   : t("collections.createFirstCollectionPrompt")}
               </p>
             </div>
-          </GradientCard>
+          </Card>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

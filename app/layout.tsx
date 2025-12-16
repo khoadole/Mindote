@@ -96,7 +96,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico?v=2" sizes="48x48" />
-        <link rel="icon" href="/icon.png?v=2" type="image/png" sizes="192x192" />
+        <link
+          rel="icon"
+          href="/icon.png?v=2"
+          type="image/png"
+          sizes="192x192"
+        />
         <link rel="apple-touch-icon" href="/apple-icon.png?v=2" />
         <meta name="color-scheme" content="light dark" />
         <style

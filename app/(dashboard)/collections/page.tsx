@@ -164,12 +164,18 @@ export default function CollectionsPage() {
               {paginatedCollections.map((collection, index) => {
                 const wordCount = collection.wordCount || 0;
                 const masteryPercent = Math.min((wordCount / 50) * 100, 100); // Assume 50 words = 100%
-                
+
                 const isHex = collection.color?.startsWith("#");
                 const color = collection.color || "#6365EF";
-                const colorClass = !isHex ? (collection.color || "bg-primary") : "";
-                const textClass = !isHex ? colorClass.replace("bg-", "text-") : "";
-                const borderClass = !isHex ? colorClass.replace("bg-", "border-") : "";
+                const colorClass = !isHex
+                  ? collection.color || "bg-primary"
+                  : "";
+                const textClass = !isHex
+                  ? colorClass.replace("bg-", "text-")
+                  : "";
+                const borderClass = !isHex
+                  ? colorClass.replace("bg-", "border-")
+                  : "";
 
                 return (
                   <Link
@@ -177,14 +183,22 @@ export default function CollectionsPage() {
                     href={`/collections/${collection.id}`}
                   >
                     <Card
-                      className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group ${!isHex ? `${colorClass} bg-opacity-20` : ''}`}
-                      style={isHex ? { backgroundColor: `${color}33` } : undefined}
+                      className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group ${
+                        !isHex ? `${colorClass} bg-opacity-20` : ""
+                      }`}
+                      style={
+                        isHex ? { backgroundColor: `${color}33` } : undefined
+                      }
                     >
                       <CardHeader>
                         <div className="flex items-center justify-between gap-3 mb-3">
                           <div
-                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform ${!isHex ? colorClass : ''}`}
-                            style={isHex ? { backgroundColor: color } : undefined}
+                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform ${
+                              !isHex ? colorClass : ""
+                            }`}
+                            style={
+                              isHex ? { backgroundColor: color } : undefined
+                            }
                           >
                             <Layers className="h-7 w-7 text-white" />
                           </div>
@@ -193,13 +207,17 @@ export default function CollectionsPage() {
                               variant="secondary"
                               className="bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md border-0 font-semibold"
                             >
-                              {t(getDifficultyLabelKey(collection.difficultyLevel))}
+                              {t(
+                                getDifficultyLabelKey(
+                                  collection.difficultyLevel
+                                )
+                              )}
                             </Badge>
                           )}
                         </div>
-                        <CardTitle 
+                        <CardTitle
                           className={`text-xl truncate text-foreground group-hover:opacity-80 transition-opacity`}
-                          style={isHex ? { color: 'inherit' } : undefined}
+                          style={isHex ? { color: "inherit" } : undefined}
                         >
                           {collection.name}
                         </CardTitle>
@@ -228,8 +246,6 @@ export default function CollectionsPage() {
                           {t("collections.created")}{" "}
                           {new Date(collection.createdAt).toLocaleDateString()}
                         </p>
-
-
 
                         <div className="flex gap-2">
                           <Button
@@ -266,16 +282,16 @@ export default function CollectionsPage() {
                   className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
                   <ChevronLeft className="h-4 w-4 sm:mr-1" />
-                  <span className="hidden sm:inline">{t("collections.previous")}</span>
+                  <span className="hidden sm:inline">
+                    {t("collections.previous")}
+                  </span>
                 </Button>
 
                 <div className="flex items-center gap-1">
                   {getPaginationItems(currentPage, totalPages).map(
                     (page, index) => {
-                      if (page === 'ellipsis') {
-                        return (
-                          <PaginationEllipsis key={`ellipsis-${index}`} />
-                        );
+                      if (page === "ellipsis") {
+                        return <PaginationEllipsis key={`ellipsis-${index}`} />;
                       }
 
                       return (
@@ -284,7 +300,11 @@ export default function CollectionsPage() {
                           variant={currentPage === page ? "default" : "ghost"}
                           size="sm"
                           onClick={() => setCurrentPage(page as number)}
-                          className={`rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0 text-xs sm:text-sm ${currentPage === page ? "bg-primary text-primary-foreground" : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"}`}
+                          className={`rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0 text-xs sm:text-sm ${
+                            currentPage === page
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                          }`}
                         >
                           {page}
                         </Button>
@@ -302,7 +322,9 @@ export default function CollectionsPage() {
                   disabled={currentPage === totalPages}
                   className="rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
-                  <span className="hidden sm:inline">{t("collections.next")}</span>
+                  <span className="hidden sm:inline">
+                    {t("collections.next")}
+                  </span>
                   <ChevronRight className="h-4 w-4 sm:ml-1" />
                 </Button>
               </div>

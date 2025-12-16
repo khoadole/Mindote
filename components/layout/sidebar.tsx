@@ -38,6 +38,7 @@ const navigation = [
     href: "/collections",
     icon: Layers,
     color: "text-blue-400",
+    badge: "AI",
   },
   {
     name: "Flashcards",
@@ -271,10 +272,17 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                         {t(
                           `sidebar.${item.name.toLowerCase().replace(/ /g, "")}`
                         )}
-                        {item.badge && (
-                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
-                            {t("sidebar.new")}
+                        {item.badge === "AI" ? (
+                          <span className="flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
+                            <Sparkles className="w-3 h-3" />
+                            AI
                           </span>
+                        ) : (
+                          item.badge && (
+                            <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
+                              {t("sidebar.new")}
+                            </span>
+                          )
                         )}
                       </span>
                     )}

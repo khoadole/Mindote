@@ -49,37 +49,79 @@ async function getTranscript(videoId: string): Promise<{
   success: boolean;
   segments?: TranscriptSegment[];
   error?: string;
+  debug?: any;
 }> {
+  const debug: any = {
+    videoId,
+    attempts: [],
+    timestamp: new Date().toISOString(),
+  };
+  
   try {
     console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
     
-    const transcript = await fetchTranscript(videoId, {
-      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    });
+    // Try multiple language options
+    const languageOptions = [
+      undefined,  // Default - auto-detect
+      { lang: 'en' },
+      { lang: 'en-US' },
+      { lang: 'vi' },
+    ];
     
-    if (!transcript || transcript.length === 0) {
-      return {
-        success: false,
-        error: 'No transcript found'
-      };
+    let lastError: any = null;
+    
+    for (const langOption of languageOptions) {
+      try {
+        const optionDesc = langOption ? JSON.stringify(langOption) : 'auto';
+        console.log(`🔍 [YouTube API] Trying with options: ${optionDesc}`);
+        debug.attempts.push({ option: optionDesc, status: 'trying' });
+        
+        const transcript = await fetchTranscript(videoId, {
+          userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          ...langOption,
+        });
+        
+        console.log(`✅ [YouTube API] Got ${transcript?.length || 0} segments with options: ${optionDesc}`);
+        debug.attempts[debug.attempts.length - 1].status = 'success';
+        debug.attempts[debug.attempts.length - 1].segmentCount = transcript?.length || 0;
+        
+        if (transcript && transcript.length > 0) {
+          const segments: TranscriptSegment[] = transcript.map((item: any) => ({
+            text: item.text || '',
+            start: item.offset || item.start || 0,
+            duration: item.duration || 0
+          }));
+
+          return {
+            success: true,
+            segments: segments,
+            debug
+          };
+        }
+      } catch (langError: any) {
+        const optionDesc = langOption ? JSON.stringify(langOption) : 'auto';
+        console.log(`❌ [YouTube API] Failed with options ${optionDesc}: ${langError.message}`);
+        debug.attempts[debug.attempts.length - 1].status = 'failed';
+        debug.attempts[debug.attempts.length - 1].error = langError.message;
+        lastError = langError;
+      }
     }
-
-    const segments: TranscriptSegment[] = transcript.map((item: any) => ({
-      text: item.text || '',
-      start: item.offset || item.start || 0,
-      duration: item.duration || 0
-    }));
-
+    
+    // If all attempts failed
     return {
-      success: true,
-      segments: segments
+      success: false,
+      error: lastError?.message || 'No transcript found after trying all language options',
+      debug
     };
     
   } catch (error: any) {
     console.error(`❌ [YouTube API] Transcript error:`, error.message);
+    console.error(`❌ [YouTube API] Full error:`, error);
+    debug.fatalError = error.message;
     return {
       success: false,
-      error: error.message || 'Failed to fetch transcript'
+      error: error.message || 'Failed to fetch transcript',
+      debug
     };
   }
 }

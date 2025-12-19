@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchTranscript } from "youtube-transcript-plus";
+
+// Force Node.js runtime (not Edge)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 // ============================================================================
 // YouTube Transcript API using youtube-transcript-plus library
@@ -59,6 +62,10 @@ async function getTranscript(videoId: string): Promise<{
   
   try {
     console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
+    
+    // Dynamic import to ensure proper module loading
+    const { fetchTranscript } = await import('youtube-transcript-plus');
+    console.log(`📦 [YouTube API] Module loaded successfully`);
     
     // Try multiple language options
     const languageOptions = [

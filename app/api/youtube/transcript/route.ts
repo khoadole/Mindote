@@ -21,10 +21,11 @@ interface TranscriptResult {
 import { exec } from "child_process";
 import { promisify } from "util";
 import path from "path";
+import { request } from "http";
 
 const execAsync = promisify(exec);
 
-async function getTranscript(videoId: string): Promise<TranscriptResult> {
+async function getTranscript(videoId: string, reqHeaders?: Headers): Promise<TranscriptResult> {
   // Check if running on Vercel
   const isVercel = process.env.VERCEL === '1';
 
@@ -39,12 +40,14 @@ async function getTranscript(videoId: string): Promise<TranscriptResult> {
         
         // Forward headers from the original request to bypass Vercel Authentication (Preview Mode)
         const headers = new Headers();
-        request.headers.forEach((value, key) => {
-            // Forward relevant headers, especially Cookie and Authorization
-            if (['cookie', 'authorization', 'x-vercel-protection-bypass'].includes(key.toLowerCase())) {
-                headers.set(key, value);
-            }
-        });
+        if (reqHeaders) {
+            reqHeaders.forEach((value, key) => {
+                // Forward relevant headers, especially Cookie and Authorization
+                if (['cookie', 'authorization', 'x-vercel-protection-bypass'].includes(key.toLowerCase())) {
+                    headers.set(key, value);
+                }
+            });
+        }
         
         const response = await fetch(`${baseUrl}/api/py_transcript?videoId=${videoId}`, {
             headers: headers
@@ -169,7 +172,7 @@ export async function POST(request: NextRequest) {
 
     // Fetch transcript
     console.log("📄 [YouTube API] Fetching transcript...");
-    const transcriptResult = await getTranscript(videoId);
+    const transcriptResult = await getTranscript(videoId, request.headers);
     
     if (!transcriptResult.success || !transcriptResult.segments) {
       console.log("❌ [YouTube API] Transcript fetch failed:", transcriptResult.error);

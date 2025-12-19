@@ -86,13 +86,16 @@ export default function YouTubePage() {
 
     setIsLoading(true);
 
+    // Use direct call to Python API (Vercel Function) to avoid "Unauthorized" server-to-server issues
+    // The browser automatically sends cookies, passing Vercel Protection.
     try {
-      const response = await fetch("/api/youtube/transcript", {
-        method: "POST",
+      // Use the generic /api/py_transcript endpoint
+      // Note: In development we might rely on the Next.js rewrite or direct call if on same port.
+      const response = await fetch(`/api/py_transcript?videoId=${vidId}`, {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url }),
       });
 
       const data = await response.json();

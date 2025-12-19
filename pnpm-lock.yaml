@@ -185,12 +185,9 @@ importers:
       vaul:
         specifier: ^0.9.9
         version: 0.9.9(@types/react-dom@18.3.7(@types/react@18.3.24))(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      youtube-transcript:
-        specifier: ^1.2.1
-        version: 1.2.1
-      youtubei.js:
-        specifier: ^16.0.1
-        version: 16.0.1
+      youtube-transcript-plus:
+        specifier: ^1.1.1
+        version: 1.1.1
       zod:
         specifier: 3.25.67
         version: 3.25.67
@@ -351,9 +348,6 @@ packages:
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
-
-  '@bufbuild/protobuf@2.10.0':
-    resolution: {integrity: sha512-fdRs9PSrBF7QUntpZpq6BTw58fhgGJojgg39m9oFOJGZT+nip9b0so5cYY1oWl5pvemDLr0cPPsH46vwThEbpQ==}
 
   '@csstools/color-helpers@5.1.0':
     resolution: {integrity: sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA==}
@@ -2238,10 +2232,6 @@ packages:
   mdn-data@2.12.2:
     resolution: {integrity: sha512-IEn+pegP1aManZuckezWCO+XZQDplx1366JoVhTpMpBB1sPey/SbveZQUosKiKiGYjg1wH4pMlNgXbCiYgihQA==}
 
-  meriyah@6.1.4:
-    resolution: {integrity: sha512-Sz8FzjzI0kN13GK/6MVEsVzMZEPvOhnmmI1lU5+/1cGOiK3QUahntrNNtdVeihrO7t9JpoH75iMNXg6R6uWflQ==}
-    engines: {node: '>=18.0.0'}
-
   min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
@@ -2797,12 +2787,9 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
-  youtube-transcript@1.2.1:
-    resolution: {integrity: sha512-TvEGkBaajKw+B6y91ziLuBLsa5cawgowou+Bk0ciGpjELDfAzSzTGXaZmeSSkUeknCPpEr/WGApOHDwV7V+Y9Q==}
+  youtube-transcript-plus@1.1.1:
+    resolution: {integrity: sha512-KmAcn7eBPMgSnPJosCaaRp6/eqOAXk9p5f5ExBf+aD0M74Hud5RzbwHVoFpR5wOS++QqrrFaFhq9eiaWqWDlXg==}
     engines: {node: '>=18.0.0'}
-
-  youtubei.js@16.0.1:
-    resolution: {integrity: sha512-3802bCAGkBc2/G5WUTc0l/bO5mPYJbQAHL04d9hE9PnrDHoBUT8MN721Yqt4RCNncAXdHcfee9VdJy3Fhq1r5g==}
 
   zod@3.25.67:
     resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
@@ -2964,8 +2951,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
-
-  '@bufbuild/protobuf@2.10.0': {}
 
   '@csstools/color-helpers@5.1.0': {}
 
@@ -4706,8 +4691,6 @@ snapshots:
 
   mdn-data@2.12.2: {}
 
-  meriyah@6.1.4: {}
-
   min-indent@1.0.1: {}
 
   minipass@7.1.2: {}
@@ -5218,12 +5201,7 @@ snapshots:
 
   yallist@5.0.0: {}
 
-  youtube-transcript@1.2.1: {}
-
-  youtubei.js@16.0.1:
-    dependencies:
-      '@bufbuild/protobuf': 2.10.0
-      meriyah: 6.1.4
+  youtube-transcript-plus@1.1.1: {}
 
   zod@3.25.67: {}
 

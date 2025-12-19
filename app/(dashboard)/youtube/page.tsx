@@ -91,11 +91,12 @@ export default function YouTubePage() {
     try {
       // Use the generic /api/py_transcript endpoint
       // Note: In development we might rely on the Next.js rewrite or direct call if on same port.
-      const response = await fetch(`/api/py_transcript?videoId=${vidId}`, {
-        method: "GET",
+      const response = await fetch(`/api/youtube/transcript`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ url }),
       });
 
       const data = await response.json();

@@ -36,7 +36,19 @@ async function getTranscript(videoId: string): Promise<TranscriptResult> {
         // Usually internal APIs needs absolute URL on server side.
         // We can use process.env.VERCEL_URL
         const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
-        const response = await fetch(`${baseUrl}/api/py_transcript?videoId=${videoId}`);
+        
+        // Forward headers from the original request to bypass Vercel Authentication (Preview Mode)
+        const headers = new Headers();
+        request.headers.forEach((value, key) => {
+            // Forward relevant headers, especially Cookie and Authorization
+            if (['cookie', 'authorization', 'x-vercel-protection-bypass'].includes(key.toLowerCase())) {
+                headers.set(key, value);
+            }
+        });
+        
+        const response = await fetch(`${baseUrl}/api/py_transcript?videoId=${videoId}`, {
+            headers: headers
+        });
         
         if (!response.ok) {
             throw new Error(`Python function failed: ${response.statusText}`);

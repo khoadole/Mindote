@@ -86,23 +86,39 @@ export default function YouTubePage() {
 
     setIsLoading(true);
 
-    // Use direct call to Python API (Vercel Function) to avoid "Unauthorized" server-to-server issues
-    // The browser automatically sends cookies, passing Vercel Protection.
+    // Try Python API first (works better on Vercel), then fall back to Node.js API
     try {
-      // Use the generic /api/py_transcript endpoint
-      // Note: In development we might rely on the Next.js rewrite or direct call if on same port.
-      const response = await fetch(`/api/youtube/transcript`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url }),
-      });
+      let response: Response;
+      let data: any;
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to fetch transcript");
+      // Try Python API first (better compatibility on Vercel)
+      try {
+        response = await fetch(`/api/py_transcript?videoId=${vidId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.error || "Python API failed");
+        }
+      } catch (pyError) {
+        // Fall back to Node.js API
+        console.log("Python API failed, trying Node.js API...", pyError);
+        response = await fetch(`/api/youtube/transcript`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        });
+        data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to fetch transcript");
+        }
       }
 
       setTranscript(data.data.transcript);

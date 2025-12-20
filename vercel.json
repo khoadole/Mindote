@@ -1,27 +1,7 @@
 {
   "functions": {
-    "api/py_transcript.py": {
+    "api/**/*.py": {
       "maxDuration": 30
     }
-  },
-  "builds": [
-    {
-      "src": "api/py_transcript.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/py_transcript",
-      "dest": "/api/py_transcript.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ]
+  }
 }

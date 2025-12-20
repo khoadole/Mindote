@@ -185,14 +185,41 @@ export async function POST(request: NextRequest) {
     console.log("📄 [YouTube API] Fetching transcript...");
     const transcriptResult = await getTranscript(videoId);
     
+    // Fallback to Python API if Node.js fails
     if (!transcriptResult.success || !transcriptResult.segments) {
-      console.log("❌ [YouTube API] Transcript fetch failed:", transcriptResult.error);
-      return NextResponse.json(
-        {
-          error: transcriptResult.error || "No captions available for this video. Please try a video with closed captions (CC).",
-        },
-        { status: 404 }
-      );
+        console.log("⚠️ [YouTube API] Node.js fetch failed, trying Python fallback...");
+        
+        try {
+            // Construct absolute URL for internal API call
+            const protocol = request.nextUrl.protocol;
+            const host = request.headers.get('host') || 'localhost:3000';
+            const pythonApiUrl = `${protocol}//${host}/api/py_transcript?videoId=${videoId}`;
+            
+            console.log(`🐍 [YouTube API] Calling Python endpoint: ${pythonApiUrl}`);
+            
+            const pythonResponse = await fetch(pythonApiUrl);
+            
+            if (pythonResponse.ok) {
+                const pythonData = await pythonResponse.json();
+                
+                if (pythonData.success && pythonData.data) {
+                    console.log(`✅ [YouTube API] Python fallback successful!`);
+                    return NextResponse.json(pythonData);
+                }
+            } else {
+                console.log(`❌ [YouTube API] Python fallback failed with status: ${pythonResponse.status}`);
+            }
+        } catch (fallbackError) {
+             console.error(`❌ [YouTube API] Python fallback error:`, fallbackError);
+        }
+
+        console.log("❌ [YouTube API] Transcript fetch failed:", transcriptResult.error);
+        return NextResponse.json(
+          {
+            error: transcriptResult.error || "No captions available for this video. Please try a video with closed captions (CC).",
+          },
+          { status: 404 }
+        );
     }
     
     console.log(`✅ [YouTube API] Transcript fetched: ${transcriptResult.segments.length} segments`);

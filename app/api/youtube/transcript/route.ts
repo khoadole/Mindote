@@ -80,8 +80,8 @@ async function getTranscript(videoId: string): Promise<{
     // Strategy: Try auto-detect first (works for most videos), then fallback to specific languages
     const languageOptions = [
       undefined, // Auto-detect first (best chance of success)
-      "en",      // English as fallback
-      "vi",      // Vietnamese as second fallback
+      "en", // English as fallback
+      "vi", // Vietnamese as second fallback
     ];
 
     let lastError: any = null;

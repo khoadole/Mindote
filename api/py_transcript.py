@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import re
+import time
 from urllib.parse import parse_qs, urlparse
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import (
@@ -9,6 +10,7 @@ from youtube_transcript_api._errors import (
     VideoUnavailable,
 )
 import urllib.request
+import http.cookiejar
 
 
 def extract_video_id(url: str) -> str | None:
@@ -34,104 +36,172 @@ def extract_video_id(url: str) -> str | None:
 
 
 def get_video_title(video_id: str) -> str:
-    """Get video title using oEmbed API"""
-    try:
-        oembed_url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
-        req = urllib.request.Request(
-            oembed_url,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-            },
-        )
-        with urllib.request.urlopen(req, timeout=10) as response:
-            data = json.loads(response.read().decode())
-            return data.get("title", "Unknown Title")
-    except Exception:
-        return "Unknown Title"
+    """Get video title using oEmbed API with retry"""
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            oembed_url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
+            req = urllib.request.Request(
+                oembed_url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Accept": "application/json",
+                    "Accept-Language": "en-US,en;q=0.9",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=15) as response:
+                data = json.loads(response.read().decode())
+                return data.get("title", "Unknown Title")
+        except Exception as e:
+            if attempt < max_retries - 1:
+                time.sleep(1)
+                continue
+            print(f"Failed to get video title: {str(e)}")
+            return "Unknown Title"
 
 
 def get_transcript(video_id: str) -> dict:
-    """Fetch transcript using youtube-transcript-api"""
-    try:
-        # Try to get transcript in preferred languages
-        transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-        
-        # Try to find manually created transcript first, then generated
-        transcript = None
-        language_code = "unknown"
-        
+    """Fetch transcript using youtube-transcript-api with retry and enhanced error handling"""
+    max_retries = 3
+    last_error = None
+    
+    for attempt in range(max_retries):
         try:
-            # Try English first
-            transcript = transcript_list.find_transcript(["en"])
-            language_code = "en"
-        except:
-            try:
-                # Try auto-generated English
-                transcript = transcript_list.find_generated_transcript(["en"])
-                language_code = "en-auto"
-            except:
+            print(f"Attempt {attempt + 1}/{max_retries} to fetch transcript for {video_id}")
+            
+            # Setup cookie jar for better YouTube compatibility
+            cookie_jar = http.cookiejar.CookieJar()
+            
+            # Try to get transcript in preferred languages
+            transcript_list = YouTubeTranscriptApi.list_transcripts(
+                video_id,
+                cookies=cookie_jar
+            )
+            
+            # Try to find manually created transcript first, then generated
+            transcript = None
+            language_code = "unknown"
+            
+            # Try multiple language options in order of preference
+            language_attempts = [
+                (["en", "en-US", "en-GB"], "en"),  # English manual
+                (["vi"], "vi"),  # Vietnamese manual
+            ]
+            
+            # Try manual transcripts first
+            for langs, code in language_attempts:
                 try:
-                    # Get any available transcript
-                    for t in transcript_list:
-                        transcript = t
-                        language_code = t.language_code
-                        break
+                    transcript = transcript_list.find_transcript(langs)
+                    language_code = code
+                    print(f"Found manual transcript in {code}")
+                    break
                 except:
-                    pass
-        
-        if transcript is None:
+                    continue
+            
+            # If no manual transcript, try auto-generated
+            if transcript is None:
+                try:
+                    transcript = transcript_list.find_generated_transcript(["en"])
+                    language_code = "en-auto"
+                    print("Found auto-generated English transcript")
+                except:
+                    # Get any available transcript as last resort
+                    try:
+                        for t in transcript_list:
+                            transcript = t
+                            language_code = t.language_code
+                            print(f"Using available transcript in {language_code}")
+                            break
+                    except Exception as e:
+                        print(f"No transcript available: {str(e)}")
+            
+            if transcript is None:
+                return {
+                    "success": False,
+                    "error": "No transcripts are available for this video. The video may not have captions enabled."
+                }
+            
+            # Fetch the transcript data
+            transcript_data = transcript.fetch()
+            
+            if not transcript_data or len(transcript_data) == 0:
+                return {
+                    "success": False,
+                    "error": "Transcript data is empty"
+                }
+            
+            # Format transcript as segments
+            segments = []
+            full_text_parts = []
+            
+            for item in transcript_data:
+                text = item.get("text", "").replace("\n", " ").strip()
+                if text:  # Only add non-empty segments
+                    segments.append({
+                        "text": text,
+                        "start": item.get("start", 0),
+                        "duration": item.get("duration", 0)
+                    })
+                    full_text_parts.append(text)
+            
+            full_text = " ".join(full_text_parts)
+            # Clean up multiple spaces
+            full_text = re.sub(r"\s+", " ", full_text).strip()
+            
+            print(f"Successfully fetched {len(segments)} transcript segments")
+            
+            return {
+                "success": True,
+                "transcript": full_text,
+                "segments": segments,
+                "languageCode": language_code
+            }
+            
+        except TranscriptsDisabled as e:
+            last_error = e
             return {
                 "success": False,
-                "error": "No transcript available for this video"
+                "error": "Transcripts are disabled for this video. The creator may have turned off captions."
             }
-        
-        # Fetch the transcript data
-        transcript_data = transcript.fetch()
-        
-        # Format transcript as segments
-        segments = []
-        full_text_parts = []
-        
-        for item in transcript_data:
-            text = item.get("text", "").replace("\n", " ").strip()
-            segments.append({
-                "text": text,
-                "start": item.get("start", 0),
-                "duration": item.get("duration", 0)
-            })
-            full_text_parts.append(text)
-        
-        full_text = " ".join(full_text_parts)
-        # Clean up multiple spaces
-        full_text = re.sub(r"\s+", " ", full_text).strip()
-        
-        return {
-            "success": True,
-            "transcript": full_text,
-            "segments": segments,
-            "languageCode": language_code
-        }
-        
-    except TranscriptsDisabled:
-        return {
-            "success": False,
-            "error": "Transcripts are disabled for this video"
-        }
-    except NoTranscriptFound:
-        return {
-            "success": False,
-            "error": "No transcript found for this video"
-        }
-    except VideoUnavailable:
-        return {
-            "success": False,
-            "error": "Video is unavailable"
-        }
-    except Exception as e:
-        return {
-            "success": False,
-            "error": str(e)
-        }
+        except NoTranscriptFound as e:
+            last_error = e
+            return {
+                "success": False,
+                "error": "No transcript found for this video. Please ensure the video has captions enabled."
+            }
+        except VideoUnavailable as e:
+            last_error = e
+            return {
+                "success": False,
+                "error": "This video is unavailable or private."
+            }
+        except Exception as e:
+            last_error = e
+            print(f"Attempt {attempt + 1} failed: {str(e)}")
+            
+            # If this is not the last attempt, wait before retrying
+            if attempt < max_retries - 1:
+                wait_time = (attempt + 1) * 2  # Exponential backoff: 2s, 4s, 6s
+                print(f"Retrying in {wait_time} seconds...")
+                time.sleep(wait_time)
+            else:
+                # Last attempt failed
+                error_msg = str(last_error)
+                if "not accessible" in error_msg.lower() or "unavailable" in error_msg.lower():
+                    return {
+                        "success": False,
+                        "error": "No transcripts are available for the video with ID '{}'. This may be because the video does not have captions or the captions are not accessible.".format(video_id)
+                    }
+                return {
+                    "success": False,
+                    "error": f"Failed to fetch transcript after {max_retries} attempts: {error_msg}"
+                }
+    
+    # Should never reach here, but just in case
+    return {
+        "success": False,
+        "error": "Unknown error occurred while fetching transcript"
+    }
 
 
 class handler(BaseHTTPRequestHandler):

@@ -181,42 +181,47 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Fetch transcript
+    // Try Python API first (more reliable on Vercel), then fall back to Node.js
     console.log("📄 [YouTube API] Fetching transcript...");
+    
+    // Try Python API first
+    try {
+        const protocol = request.nextUrl.protocol;
+        const host = request.headers.get('host') || 'localhost:3000';
+        const pythonApiUrl = `${protocol}//${host}/api/py_transcript?videoId=${videoId}`;
+        
+        console.log(`🐍 [YouTube API] Trying Python API first: ${pythonApiUrl}`);
+        
+        const pythonResponse = await fetch(pythonApiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        
+        if (pythonResponse.ok) {
+            const pythonData = await pythonResponse.json();
+            
+            if (pythonData.success && pythonData.data) {
+                console.log(`✅ [YouTube API] Python API successful!`);
+                return NextResponse.json(pythonData);
+            }
+        }
+        
+        console.log(`⚠️ [YouTube API] Python API failed with status: ${pythonResponse.status}`);
+    } catch (pythonError) {
+        console.log(`⚠️ [YouTube API] Python API error, falling back to Node.js:`, pythonError);
+    }
+    
+    // Fallback to Node.js API
+    console.log("📄 [YouTube API] Trying Node.js fallback...");
     const transcriptResult = await getTranscript(videoId);
     
-    // Fallback to Python API if Node.js fails
     if (!transcriptResult.success || !transcriptResult.segments) {
-        console.log("⚠️ [YouTube API] Node.js fetch failed, trying Python fallback...");
-        
-        try {
-            // Construct absolute URL for internal API call
-            const protocol = request.nextUrl.protocol;
-            const host = request.headers.get('host') || 'localhost:3000';
-            const pythonApiUrl = `${protocol}//${host}/api/py_transcript?videoId=${videoId}`;
-            
-            console.log(`🐍 [YouTube API] Calling Python endpoint: ${pythonApiUrl}`);
-            
-            const pythonResponse = await fetch(pythonApiUrl);
-            
-            if (pythonResponse.ok) {
-                const pythonData = await pythonResponse.json();
-                
-                if (pythonData.success && pythonData.data) {
-                    console.log(`✅ [YouTube API] Python fallback successful!`);
-                    return NextResponse.json(pythonData);
-                }
-            } else {
-                console.log(`❌ [YouTube API] Python fallback failed with status: ${pythonResponse.status}`);
-            }
-        } catch (fallbackError) {
-             console.error(`❌ [YouTube API] Python fallback error:`, fallbackError);
-        }
-
-        console.log("❌ [YouTube API] Transcript fetch failed:", transcriptResult.error);
+        console.log("❌ [YouTube API] All attempts failed:", transcriptResult.error);
         return NextResponse.json(
           {
-            error: transcriptResult.error || "No captions available for this video. Please try a video with closed captions (CC).",
+            error: transcriptResult.error || "No transcripts are available for this video. This may be because the video does not have captions or the captions are not accessible.",
           },
           { status: 404 }
         );

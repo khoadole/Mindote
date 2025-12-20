@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/py_transcript.py": {
+      "maxDuration": 30
+    }
+  },
   "builds": [
     {
       "src": "api/py_transcript.py",

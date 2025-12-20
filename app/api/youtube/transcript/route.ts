@@ -1,20 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSubtitles, getVideoDetails } from "youtube-caption-extractor";
-import {
-  fetchTranscript,
-  YoutubeTranscriptVideoUnavailableError,
-  YoutubeTranscriptDisabledError,
-  YoutubeTranscriptInvalidVideoIdError,
-} from "youtube-transcript-plus";
+import { Innertube, ClientType } from "youtubei.js";
 
 // Force Node.js runtime (not Edge)
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 30; // 30 seconds timeout (requires Hobby plan or higher)
+export const maxDuration = 30;
 
 // ============================================================================
-// YouTube Transcript API with multi-library fallback
-// Strategy: Try youtube-caption-extractor first, fallback to youtube-transcript-plus
+// YouTube Transcript API using youtubei.js with Android client
+// Android client may bypass some IP restrictions
 // ============================================================================
 
 interface TranscriptSegment {
@@ -43,7 +37,7 @@ function extractVideoId(url: string): string | null {
   return null;
 }
 
-// Decode HTML/Unicode entities in transcript text
+// Decode HTML entities
 function decodeEntities(text: string): string {
   return text
     .replace(/&amp;/g, "&")
@@ -56,7 +50,7 @@ function decodeEntities(text: string): string {
     .trim();
 }
 
-// Get video info using YouTube oembed API (always works)
+// Get video info using oembed (always works)
 async function getVideoInfo(
   videoId: string
 ): Promise<{ title: string; duration: number }> {
@@ -67,137 +61,56 @@ async function getVideoInfo(
       const data = await response.json();
       return {
         title: data.title || "Unknown Title",
-        duration: 0, // oembed doesn't provide duration
+        duration: 0,
       };
     }
   } catch (error) {
-    console.error("Error fetching video info:", error);
+    console.error("[YouTube API] Error fetching video info:", error);
   }
   return { title: "Unknown Title", duration: 0 };
 }
 
-// Strategy 1: Try youtube-caption-extractor
-async function tryYoutubeCaptionExtractor(
-  videoId: string,
-  debug: any
-): Promise<TranscriptSegment[] | null> {
-  const languagesToTry = ["en", "vi", undefined];
+// Try different client configurations
+const clientConfigs = [
+  {
+    name: "ANDROID",
+    config: {
+      lang: "en",
+      location: "US",
+      client_type: ClientType.ANDROID,
+      device_category: "MOBILE",
+      retrieve_player: false,
+      generate_session_locally: true,
+    },
+  },
+  {
+    name: "IOS",
+    config: {
+      lang: "en",
+      location: "US",
+      client_type: ClientType.IOS,
+      device_category: "MOBILE",
+      retrieve_player: false,
+      generate_session_locally: true,
+    },
+  },
+  {
+    name: "WEB",
+    config: {
+      lang: "en",
+      location: "US",
+      client_type: ClientType.WEB,
+      retrieve_player: false,
+      generate_session_locally: true,
+    },
+  },
+];
 
-  for (const lang of languagesToTry) {
-    const langDesc = lang || "auto";
-    debug.attempts.push({
-      method: "youtube-caption-extractor",
-      lang: langDesc,
-      status: "trying",
-    });
-
-    try {
-      console.log(
-        `📝 [YouTube API] [caption-extractor] Trying lang: ${langDesc}`
-      );
-
-      const subtitles = await getSubtitles({
-        videoID: videoId,
-        lang: lang,
-      });
-
-      if (subtitles && subtitles.length > 0) {
-        console.log(
-          `✅ [YouTube API] [caption-extractor] Got ${subtitles.length} segments`
-        );
-        debug.attempts[debug.attempts.length - 1].status = "success";
-        debug.attempts[debug.attempts.length - 1].segmentCount =
-          subtitles.length;
-
-        return subtitles.map((item: any) => ({
-          text: item.text || "",
-          start: parseFloat(item.start) || 0,
-          duration: parseFloat(item.dur) || 0,
-        }));
-      } else {
-        debug.attempts[debug.attempts.length - 1].status = "empty";
-      }
-    } catch (error: any) {
-      console.log(
-        `❌ [YouTube API] [caption-extractor] Failed: ${error.message}`
-      );
-      debug.attempts[debug.attempts.length - 1].status = "failed";
-      debug.attempts[debug.attempts.length - 1].error = error.message;
-    }
-  }
-
-  return null;
-}
-
-// Strategy 2: Try youtube-transcript-plus (better for cloud environments)
-async function tryYoutubeTranscriptPlus(
-  videoId: string,
-  debug: any
-): Promise<TranscriptSegment[] | null> {
-  const languagesToTry = [undefined, "en", "vi"]; // undefined = auto-detect first
-
-  for (const lang of languagesToTry) {
-    const langDesc = lang || "auto";
-    debug.attempts.push({
-      method: "youtube-transcript-plus",
-      lang: langDesc,
-      status: "trying",
-    });
-
-    try {
-      console.log(
-        `📝 [YouTube API] [transcript-plus] Trying lang: ${langDesc}`
-      );
-
-      const transcript = await fetchTranscript(videoId, {
-        lang,
-        userAgent:
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      });
-
-      if (transcript && transcript.length > 0) {
-        console.log(
-          `✅ [YouTube API] [transcript-plus] Got ${transcript.length} segments`
-        );
-        debug.attempts[debug.attempts.length - 1].status = "success";
-        debug.attempts[debug.attempts.length - 1].segmentCount =
-          transcript.length;
-
-        return transcript.map((item: any) => ({
-          text: item.text || "",
-          start: item.offset || 0,
-          duration: item.duration || 0,
-        }));
-      } else {
-        debug.attempts[debug.attempts.length - 1].status = "empty";
-      }
-    } catch (error: any) {
-      console.log(
-        `❌ [YouTube API] [transcript-plus] Failed: ${error.message}`
-      );
-      debug.attempts[debug.attempts.length - 1].status = "failed";
-      debug.attempts[debug.attempts.length - 1].error = error.message;
-
-      // Handle specific errors that mean we should stop trying
-      if (
-        error instanceof YoutubeTranscriptVideoUnavailableError ||
-        error instanceof YoutubeTranscriptDisabledError ||
-        error instanceof YoutubeTranscriptInvalidVideoIdError
-      ) {
-        debug.fatalError = error.message;
-        return null;
-      }
-    }
-  }
-
-  return null;
-}
-
-// Main transcript fetching function with multi-library fallback
 async function getTranscript(videoId: string): Promise<{
   success: boolean;
   segments?: TranscriptSegment[];
   error?: string;
+  method?: string;
   debug?: any;
 }> {
   const debug: any = {
@@ -206,32 +119,165 @@ async function getTranscript(videoId: string): Promise<{
     timestamp: new Date().toISOString(),
   };
 
-  console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
+  // Try different client types
+  for (const clientConfig of clientConfigs) {
+    debug.attempts.push({
+      client: clientConfig.name,
+      status: "trying",
+    });
 
-  // Strategy 1: Try youtube-caption-extractor first (works better locally)
-  console.log(`🔄 [YouTube API] Trying youtube-caption-extractor...`);
-  let segments = await tryYoutubeCaptionExtractor(videoId, debug);
+    try {
+      console.log(`📱 [YouTube API] Trying ${clientConfig.name} client...`);
 
-  if (segments && segments.length > 0) {
-    debug.successMethod = "youtube-caption-extractor";
-    return { success: true, segments, debug };
+      const innertube = await Innertube.create(clientConfig.config as any);
+      const info = await innertube.getInfo(videoId);
+
+      // Check playability
+      if (info.playability_status?.status !== "OK") {
+        debug.attempts[debug.attempts.length - 1].status = "not_playable";
+        debug.attempts[debug.attempts.length - 1].reason =
+          info.playability_status?.reason;
+        console.log(
+          `❌ [YouTube API] ${clientConfig.name}: Not playable - ${info.playability_status?.reason}`
+        );
+        continue;
+      }
+
+      // Try getTranscript method
+      try {
+        console.log(`📝 [YouTube API] ${clientConfig.name}: Getting transcript...`);
+        const transcriptInfo = await info.getTranscript();
+
+        if (transcriptInfo) {
+          const transcriptContent = transcriptInfo?.transcript?.content;
+          const bodySegments = transcriptContent?.body?.initial_segments;
+
+          if (bodySegments && bodySegments.length > 0) {
+            console.log(
+              `✅ [YouTube API] ${clientConfig.name}: Got ${bodySegments.length} segments!`
+            );
+
+            debug.attempts[debug.attempts.length - 1].status = "success";
+            debug.attempts[debug.attempts.length - 1].segmentCount =
+              bodySegments.length;
+
+            const segments: TranscriptSegment[] = bodySegments
+              .filter((segment: any) => segment?.snippet?.text)
+              .map((segment: any) => ({
+                text: segment.snippet.text || "",
+                start: parseFloat(segment.start_ms || "0") / 1000,
+                duration:
+                  parseFloat(segment.end_ms || "0") / 1000 -
+                  parseFloat(segment.start_ms || "0") / 1000,
+              }));
+
+            return {
+              success: true,
+              segments,
+              method: `youtubei.js-${clientConfig.name}`,
+              debug,
+            };
+          }
+        }
+      } catch (transcriptError: any) {
+        console.log(
+          `⚠️ [YouTube API] ${clientConfig.name}: getTranscript failed - ${transcriptError.message}`
+        );
+        debug.attempts[debug.attempts.length - 1].transcriptError =
+          transcriptError.message;
+      }
+
+      // Fallback: Try caption tracks
+      const captions = info.captions;
+      if (captions) {
+        const captionTracks = (captions as any).caption_tracks || [];
+
+        if (captionTracks.length > 0) {
+          console.log(
+            `📝 [YouTube API] ${clientConfig.name}: Found ${captionTracks.length} caption tracks`
+          );
+
+          // Select best track
+          let selectedTrack =
+            captionTracks.find(
+              (t: any) =>
+                t.language_code?.startsWith("en") && t.kind !== "asr"
+            ) ||
+            captionTracks.find((t: any) => t.kind !== "asr") ||
+            captionTracks.find((t: any) =>
+              t.language_code?.startsWith("en")
+            ) ||
+            captionTracks[0];
+
+          if (selectedTrack?.base_url) {
+            try {
+              const captionResponse = await fetch(selectedTrack.base_url);
+              const xmlText = await captionResponse.text();
+
+              if (xmlText && xmlText.trim().length > 0) {
+                // Parse XML
+                const segments: TranscriptSegment[] = [];
+                const textRegex =
+                  /<text\s+start="([^"]+)"\s+dur="([^"]+)"[^>]*>([^<]*)<\/text>/g;
+
+                let match;
+                while ((match = textRegex.exec(xmlText)) !== null) {
+                  const start = parseFloat(match[1]) || 0;
+                  const dur = parseFloat(match[2]) || 0;
+                  let text = match[3] || "";
+                  text = decodeEntities(text);
+
+                  if (text.trim()) {
+                    segments.push({
+                      text: text.trim(),
+                      start,
+                      duration: dur,
+                    });
+                  }
+                }
+
+                if (segments.length > 0) {
+                  console.log(
+                    `✅ [YouTube API] ${clientConfig.name}: Parsed ${segments.length} segments from captions`
+                  );
+
+                  debug.attempts[debug.attempts.length - 1].status = "success";
+                  debug.attempts[debug.attempts.length - 1].segmentCount =
+                    segments.length;
+                  debug.attempts[debug.attempts.length - 1].method = "captions";
+
+                  return {
+                    success: true,
+                    segments,
+                    method: `youtubei.js-${clientConfig.name}-captions`,
+                    debug,
+                  };
+                }
+              }
+            } catch (captionError: any) {
+              console.log(
+                `⚠️ [YouTube API] ${clientConfig.name}: Caption fetch failed - ${captionError.message}`
+              );
+              debug.attempts[debug.attempts.length - 1].captionError =
+                captionError.message;
+            }
+          }
+        }
+      }
+
+      debug.attempts[debug.attempts.length - 1].status = "no_transcript";
+    } catch (error: any) {
+      console.log(
+        `❌ [YouTube API] ${clientConfig.name} error: ${error.message}`
+      );
+      debug.attempts[debug.attempts.length - 1].status = "error";
+      debug.attempts[debug.attempts.length - 1].error = error.message;
+    }
   }
 
-  // Strategy 2: Try youtube-transcript-plus (better cloud compatibility)
-  console.log(`🔄 [YouTube API] Trying youtube-transcript-plus...`);
-  segments = await tryYoutubeTranscriptPlus(videoId, debug);
-
-  if (segments && segments.length > 0) {
-    debug.successMethod = "youtube-transcript-plus";
-    return { success: true, segments, debug };
-  }
-
-  // All strategies failed
   return {
     success: false,
-    error:
-      debug.fatalError ||
-      "No transcripts available for this video. Tried multiple methods.",
+    error: "No transcripts available. Tried ANDROID, IOS, and WEB clients.",
     debug,
   };
 }
@@ -241,72 +287,52 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    console.log("📝 [YouTube API] Request body:", body);
-
     const { url } = body;
 
     if (!url) {
-      console.log("❌ [YouTube API] No URL provided");
       return NextResponse.json(
         { error: "YouTube URL is required" },
         { status: 400 }
       );
     }
 
-    // Extract video ID
     const videoId = extractVideoId(url);
-    console.log("🎯 [YouTube API] Extracted video ID:", videoId);
-
     if (!videoId) {
-      console.log("❌ [YouTube API] Invalid URL");
       return NextResponse.json(
         { error: "Invalid YouTube URL" },
         { status: 400 }
       );
     }
 
-    // Fetch video info
-    console.log("📺 [YouTube API] Fetching video info...");
+    console.log(`🎯 [YouTube API] Video ID: ${videoId}`);
+
+    // Get video info
     const { title, duration } = await getVideoInfo(videoId);
-    console.log(`📺 [YouTube API] Video: "${title}" (${duration}s)`);
+    console.log(`📺 [YouTube API] Title: "${title}"`);
 
-    // Fetch transcript with multi-library fallback
-    console.log("📄 [YouTube API] Fetching transcript...");
-    const transcriptResult = await getTranscript(videoId);
+    // Get transcript
+    const result = await getTranscript(videoId);
 
-    if (!transcriptResult.success || !transcriptResult.segments) {
-      console.log(
-        "❌ [YouTube API] Transcript fetch failed:",
-        transcriptResult.error
-      );
-      console.log(
-        "📊 [YouTube API] Debug info:",
-        JSON.stringify(transcriptResult.debug, null, 2)
-      );
+    if (!result.success || !result.segments) {
+      console.log(`❌ [YouTube API] Failed: ${result.error}`);
       return NextResponse.json(
         {
-          error:
-            transcriptResult.error ||
-            "No transcripts are available for this video.",
-          debug: transcriptResult.debug,
+          error: result.error || "No transcripts available",
+          debug: result.debug,
         },
         { status: 404 }
       );
     }
 
-    console.log(
-      `✅ [YouTube API] Transcript fetched: ${transcriptResult.segments.length} segments (via ${transcriptResult.debug?.successMethod})`
-    );
-
-    // Format transcript - decode entities and join
-    const formattedTranscript = transcriptResult.segments
-      .map((item) => decodeEntities(item.text))
+    // Format transcript
+    const formattedTranscript = result.segments
+      .map((s) => s.text)
       .join(" ")
       .replace(/\s+/g, " ")
       .trim();
 
     console.log(
-      `✅ [YouTube API] Success! Transcript length: ${formattedTranscript.length} chars`
+      `✅ [YouTube API] Success! ${result.segments.length} segments via ${result.method}`
     );
 
     return NextResponse.json({
@@ -315,25 +341,16 @@ export async function POST(request: NextRequest) {
         videoId,
         title,
         duration,
-        language: "auto",
-        languageCode: "auto",
         transcript: formattedTranscript,
-        rawTranscript: transcriptResult.segments.map((item) => ({
-          ...item,
-          text: decodeEntities(item.text),
-        })),
-        cached: false,
-        method: transcriptResult.debug?.successMethod,
+        rawTranscript: result.segments,
+        languageCode: "auto",
+        method: result.method,
       },
     });
   } catch (error: any) {
     console.error("❌ [YouTube API] Fatal error:", error);
-    console.error("❌ [YouTube API] Error stack:", error.stack);
     return NextResponse.json(
-      {
-        error: error.message || "Failed to fetch transcript",
-        details: error.stack,
-      },
+      { error: error.message || "Failed to fetch transcript" },
       { status: 500 }
     );
   }

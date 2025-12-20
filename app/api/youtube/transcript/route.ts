@@ -77,10 +77,11 @@ async function getTranscript(videoId: string): Promise<{
     console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
 
     // Try fetching with different language options
-    // Reduced to 2 attempts for better performance on Vercel
+    // Strategy: Try auto-detect first (works for most videos), then fallback to specific languages
     const languageOptions = [
-      "en", // English first
-      undefined, // Auto-detect as fallback
+      undefined, // Auto-detect first (best chance of success)
+      "en",      // English as fallback
+      "vi",      // Vietnamese as second fallback
     ];
 
     let lastError: any = null;
@@ -130,8 +131,9 @@ async function getTranscript(videoId: string): Promise<{
         debug.attempts[debug.attempts.length - 1].error = langError.message;
         lastError = langError;
 
-        // Handle specific error types
+        // Handle specific error types that should NOT retry with other languages
         if (langError instanceof YoutubeTranscriptVideoUnavailableError) {
+          // Video is completely unavailable - no point trying other languages
           return {
             success: false,
             error: "Video is unavailable or has been removed",
@@ -139,20 +141,15 @@ async function getTranscript(videoId: string): Promise<{
           };
         }
         if (langError instanceof YoutubeTranscriptDisabledError) {
+          // Transcripts are disabled for this video - no point trying other languages
           return {
             success: false,
             error: "Transcripts are disabled for this video",
             debug,
           };
         }
-        if (langError instanceof YoutubeTranscriptNotAvailableError) {
-          return {
-            success: false,
-            error: "No transcript is available for this video",
-            debug,
-          };
-        }
         if (langError instanceof YoutubeTranscriptInvalidVideoIdError) {
+          // Invalid video ID - no point trying other languages
           return {
             success: false,
             error: "Invalid video ID or URL",
@@ -160,7 +157,9 @@ async function getTranscript(videoId: string): Promise<{
           };
         }
 
-        // Continue to next language option for other errors
+        // For NotAvailableError or NotAvailableLanguageError:
+        // Continue to try next language option (might be available in different language)
+        // This is common when a video has captions but not in the requested language
       }
     }
 

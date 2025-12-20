@@ -117,9 +117,38 @@ export default function YouTubePage() {
         }
       }
 
-      // Strategy 2: Fallback to server API
+      // Strategy 2: Try Python API (may work better on Vercel)
       if (!transcriptData) {
-        console.log("[YouTube] Falling back to server API...");
+        console.log("[YouTube] Trying Python API...");
+        try {
+          const response = await fetch(`/api/transcript`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ url }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            console.log("[YouTube] Python API successful!");
+            transcriptData = {
+              transcript: data.data.transcript,
+              title: data.data.title,
+              videoId: data.data.videoId,
+            };
+          } else {
+            console.log("[YouTube] Python API failed:", data.error);
+          }
+        } catch (pyError: any) {
+          console.log("[YouTube] Python API error:", pyError.message);
+        }
+      }
+
+      // Strategy 3: Fallback to Node.js API
+      if (!transcriptData) {
+        console.log("[YouTube] Falling back to Node.js API...");
         const response = await fetch(`/api/youtube/transcript`, {
           method: "POST",
           headers: {

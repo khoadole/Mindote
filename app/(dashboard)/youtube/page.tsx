@@ -18,6 +18,10 @@ import {
 } from "@/app/actions/youtube-history";
 import { Youtube, ArrowLeft, Play, FileText, AlertCircle } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
+import {
+  fetchTranscriptClientSide,
+  canFetchClientSide,
+} from "@/lib/youtube-transcript-client";
 
 export default function YouTubePage() {
   const router = useRouter();
@@ -86,32 +90,68 @@ export default function YouTubePage() {
 
     setIsLoading(true);
 
+    let transcriptData: {
+      transcript: string;
+      title: string;
+      videoId: string;
+    } | null = null;
+
     try {
-      // Call Node.js API (works reliably)
-      const response = await fetch(`/api/youtube/transcript`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url }),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to fetch transcript");
+      // Strategy 1: Try client-side fetch first (uses user's IP, bypasses cloud blocking)
+      if (canFetchClientSide()) {
+        console.log("[YouTube] Trying client-side fetch...");
+        const clientResult = await fetchTranscriptClientSide(url);
+
+        if (clientResult.success && clientResult.transcript) {
+          console.log("[YouTube] Client-side fetch successful!");
+          transcriptData = {
+            transcript: clientResult.transcript,
+            title: clientResult.title || "Unknown Title",
+            videoId: clientResult.videoId || vidId,
+          };
+        } else {
+          console.log(
+            "[YouTube] Client-side fetch failed:",
+            clientResult.error
+          );
+        }
       }
 
-      setTranscript(data.data.transcript);
-      setVideoTitle(data.data.title);
-      setVideoId(data.data.videoId);
+      // Strategy 2: Fallback to server API
+      if (!transcriptData) {
+        console.log("[YouTube] Falling back to server API...");
+        const response = await fetch(`/api/youtube/transcript`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to fetch transcript");
+        }
+
+        transcriptData = {
+          transcript: data.data.transcript,
+          title: data.data.title,
+          videoId: data.data.videoId,
+        };
+      }
+
+      // Update state with transcript data
+      setTranscript(transcriptData.transcript);
+      setVideoTitle(transcriptData.title);
+      setVideoId(transcriptData.videoId);
       setHasTranscript(true);
 
       // Save to history
       await saveYouTubeHistoryAction({
         url,
-        title: data.data.title,
-        videoId: data.data.videoId,
+        title: transcriptData.title,
+        videoId: transcriptData.videoId,
       });
 
       // Reload history

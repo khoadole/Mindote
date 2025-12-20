@@ -1,37 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
+import { fetchTranscript, extractVideoId } from "@/lib/youtube-transcript";
 
 // Force Node.js runtime (not Edge)
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 // ============================================================================
-// YouTube Transcript API using youtube-transcript-plus library
+// YouTube Transcript API using HTTP-based approach (works on Vercel!)
 // ============================================================================
 
 interface TranscriptSegment {
   text: string;
   start: number;
   duration: number;
-}
-
-// Helper to extract video ID from YouTube URL
-function extractVideoId(url: string): string | null {
-  const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/,
-    /youtube\.com\/embed\/([^&\n?#]+)/,
-    /youtube\.com\/v\/([^&\n?#]+)/,
-    /youtube\.com\/shorts\/([^&\n?#]+)/,
-    /youtube\.com\/live\/([^&\n?#]+)/,
-  ];
-
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match && match[1]) {
-      return match[1];
-    }
-  }
-
-  return null;
 }
 
 // Decode HTML/Unicode entities in transcript text
@@ -47,90 +28,24 @@ function decodeEntities(text: string): string {
     .trim();
 }
 
-// Fetch transcript using youtube-transcript-plus
+// Wrapper function for HTTP-based transcript fetching
 async function getTranscript(videoId: string): Promise<{
   success: boolean;
   segments?: TranscriptSegment[];
   error?: string;
-  debug?: any;
 }> {
-  const debug: any = {
-    videoId,
-    attempts: [],
-    timestamp: new Date().toISOString(),
-  };
+  console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
   
-  try {
-    console.log(`📄 [YouTube API] Fetching transcript for video: ${videoId}`);
-    
-    // Dynamic import to ensure proper module loading
-    const { fetchTranscript } = await import('youtube-transcript-plus');
-    console.log(`📦 [YouTube API] Module loaded successfully`);
-    
-    // Try multiple language options
-    const languageOptions = [
-      undefined,  // Default - auto-detect
-      { lang: 'en' },
-      { lang: 'en-US' },
-      { lang: 'vi' },
-    ];
-    
-    let lastError: any = null;
-    
-    for (const langOption of languageOptions) {
-      try {
-        const optionDesc = langOption ? JSON.stringify(langOption) : 'auto';
-        console.log(`🔍 [YouTube API] Trying with options: ${optionDesc}`);
-        debug.attempts.push({ option: optionDesc, status: 'trying' });
-        
-        const transcript = await fetchTranscript(videoId, {
-          userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-          ...langOption,
-        });
-        
-        console.log(`✅ [YouTube API] Got ${transcript?.length || 0} segments with options: ${optionDesc}`);
-        debug.attempts[debug.attempts.length - 1].status = 'success';
-        debug.attempts[debug.attempts.length - 1].segmentCount = transcript?.length || 0;
-        
-        if (transcript && transcript.length > 0) {
-          const segments: TranscriptSegment[] = transcript.map((item: any) => ({
-            text: item.text || '',
-            start: item.offset || item.start || 0,
-            duration: item.duration || 0
-          }));
-
-          return {
-            success: true,
-            segments: segments,
-            debug
-          };
-        }
-      } catch (langError: any) {
-        const optionDesc = langOption ? JSON.stringify(langOption) : 'auto';
-        console.log(`❌ [YouTube API] Failed with options ${optionDesc}: ${langError.message}`);
-        debug.attempts[debug.attempts.length - 1].status = 'failed';
-        debug.attempts[debug.attempts.length - 1].error = langError.message;
-        lastError = langError;
-      }
-    }
-    
-    // If all attempts failed
-    return {
-      success: false,
-      error: lastError?.message || 'No transcript found after trying all language options',
-      debug
-    };
-    
-  } catch (error: any) {
-    console.error(`❌ [YouTube API] Transcript error:`, error.message);
-    console.error(`❌ [YouTube API] Full error:`, error);
-    debug.fatalError = error.message;
-    return {
-      success: false,
-      error: error.message || 'Failed to fetch transcript',
-      debug
-    };
+  // Use our HTTP-based helper
+  const result = await fetchTranscript(videoId);
+  
+  if (result.success && result.segments) {
+    console.log(`✅ [YouTube API] Transcript fetched: ${result.segments.length} segments`);
+  } else {
+    console.log(`❌ [YouTube API] Transcript fetch failed: ${result.error}`);
   }
+  
+  return result;
 }
 
 // Get video info (title, duration)

@@ -86,39 +86,20 @@ export default function YouTubePage() {
 
     setIsLoading(true);
 
-    // Try Python API first (works better on Vercel), then fall back to Node.js API
     try {
-      let response: Response;
-      let data: any;
-
-      // Try Python API first (better compatibility on Vercel)
-      try {
-        response = await fetch(`/api/py_transcript?videoId=${vidId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        data = await response.json();
-        
-        if (!response.ok) {
-          throw new Error(data.error || "Python API failed");
-        }
-      } catch (pyError) {
-        // Fall back to Node.js API
-        console.log("Python API failed, trying Node.js API...", pyError);
-        response = await fetch(`/api/youtube/transcript`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url }),
-        });
-        data = await response.json();
-        
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to fetch transcript");
-        }
+      // Call Node.js API (works reliably)
+      const response = await fetch(`/api/youtube/transcript`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to fetch transcript");
       }
 
       setTranscript(data.data.transcript);

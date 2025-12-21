@@ -90,15 +90,12 @@ export default function YouTubePage() {
 
     setIsLoading(true);
 
-    let transcriptData: {
-      transcript: string;
-      title: string;
-      videoId: string;
-    } | null = null;
+    let transcriptData: { transcript: string; title: string; videoId: string } | null = null;
+    let lastError: string = "";
 
-    try {
-      // Strategy 1: Try client-side fetch first (uses user's IP, bypasses cloud blocking)
-      if (canFetchClientSide()) {
+    // Method 1: Try client-side fetch first (uses user's IP via CORS proxy)
+    if (canFetchClientSide()) {
+      try {
         console.log("[YouTube] Trying client-side fetch...");
         const clientResult = await fetchTranscriptClientSide(url);
 
@@ -110,67 +107,75 @@ export default function YouTubePage() {
             videoId: clientResult.videoId || vidId,
           };
         } else {
-          console.log(
-            "[YouTube] Client-side fetch failed:",
-            clientResult.error
-          );
+          lastError = clientResult.error || "Client-side fetch failed";
+          console.log("[YouTube] Client-side fetch failed:", lastError);
         }
+      } catch (error: any) {
+        lastError = error.message || "Client-side fetch error";
+        console.log("[YouTube] Client-side fetch error:", lastError);
       }
+    }
 
-      // Strategy 2: Try Python API (may work better on Vercel)
-      if (!transcriptData) {
-        console.log("[YouTube] Trying Python API...");
-        try {
-          const response = await fetch(`/api/transcript`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ url }),
-          });
-
-          const data = await response.json();
-
-          if (response.ok && data.success) {
-            console.log("[YouTube] Python API successful!");
-            transcriptData = {
-              transcript: data.data.transcript,
-              title: data.data.title,
-              videoId: data.data.videoId,
-            };
-          } else {
-            console.log("[YouTube] Python API failed:", data.error);
-          }
-        } catch (pyError: any) {
-          console.log("[YouTube] Python API error:", pyError.message);
-        }
-      }
-
-      // Strategy 3: Fallback to Node.js API
-      if (!transcriptData) {
-        console.log("[YouTube] Falling back to Node.js API...");
-        const response = await fetch(`/api/youtube/transcript`, {
+    // Method 2: Fallback to server-side API
+    if (!transcriptData) {
+      try {
+        console.log("[YouTube] Trying server-side API fallback...");
+        const response = await fetch("/api/youtube/transcript", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url }),
         });
 
         const data = await response.json();
 
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to fetch transcript");
+        if (response.ok && data.success && data.data?.transcript) {
+          console.log("[YouTube] Server-side API successful!");
+          transcriptData = {
+            transcript: data.data.transcript,
+            title: data.data.title || "Unknown Title",
+            videoId: data.data.videoId || vidId,
+          };
+        } else {
+          lastError = data.error || "Server-side API failed";
+          console.log("[YouTube] Server-side API failed:", lastError);
         }
-
-        transcriptData = {
-          transcript: data.data.transcript,
-          title: data.data.title,
-          videoId: data.data.videoId,
-        };
+      } catch (error: any) {
+        lastError = error.message || "Server-side API error";
+        console.log("[YouTube] Server-side API error:", lastError);
       }
+    }
 
-      // Update state with transcript data
+    // Method 3: Try innertube API as last resort
+    if (!transcriptData) {
+      try {
+        console.log("[YouTube] Trying innertube API as last resort...");
+        const response = await fetch("/api/youtube/innertube", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success && data.data?.transcript) {
+          console.log("[YouTube] Innertube API successful!");
+          transcriptData = {
+            transcript: data.data.transcript,
+            title: "Unknown Title", // Innertube doesn't return title
+            videoId: data.data.videoId || vidId,
+          };
+        } else {
+          lastError = data.error || "Innertube API failed";
+          console.log("[YouTube] Innertube API failed:", lastError);
+        }
+      } catch (error: any) {
+        lastError = error.message || "Innertube API error";
+        console.log("[YouTube] Innertube API error:", lastError);
+      }
+    }
+
+    // Process result
+    if (transcriptData) {
       setTranscript(transcriptData.transcript);
       setVideoTitle(transcriptData.title);
       setVideoId(transcriptData.videoId);
@@ -190,15 +195,15 @@ export default function YouTubePage() {
         title: t("youtube.transcriptLoaded"),
         description: t("youtube.selectTextToSave"),
       });
-    } catch (error: any) {
+    } else {
       toast({
         title: t("toast.error"),
-        description: error.message || t("youtube.failedToFetchTranscript"),
+        description: lastError || t("youtube.failedToFetchTranscript"),
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
+
+    setIsLoading(false);
   };
 
   const handleReset = () => {

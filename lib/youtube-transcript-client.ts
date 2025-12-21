@@ -79,52 +79,96 @@ function parseCaptionsXml(xmlText: string): TranscriptSegment[] {
   return segments;
 }
 
-// Fetch transcript from caption URL
+// Fetch transcript from caption URL (via CORS proxy if needed)
 async function fetchCaptionFromUrl(captionUrl: string): Promise<TranscriptSegment[]> {
-  try {
-    const response = await fetch(captionUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch captions: ${response.status}`);
-    }
+  // Try direct fetch first (may work for some caption URLs)
+  // Then fallback to CORS proxy
+  const urlsToTry = [
+    captionUrl,
+    `https://corsproxy.io/?${encodeURIComponent(captionUrl)}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(captionUrl)}`,
+  ];
 
-    const xmlText = await response.text();
-    return parseCaptionsXml(xmlText);
-  } catch (error) {
-    console.error("[Client Transcript] Error fetching caption URL:", error);
-    throw error;
+  for (const url of urlsToTry) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        continue;
+      }
+
+      const xmlText = await response.text();
+      const segments = parseCaptionsXml(xmlText);
+      
+      if (segments.length > 0) {
+        return segments;
+      }
+    } catch (error) {
+      console.log("[Client Transcript] Caption fetch attempt failed:", error);
+      // Continue to next URL
+    }
   }
+
+  throw new Error("Failed to fetch captions from all sources");
 }
 
-// Extract player response from YouTube page
+// CORS Proxies for client-side YouTube page fetching
+// These proxies bypass CORS but request still comes from user's browser/IP
+const CORS_PROXIES = [
+  (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  (url: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  (url: string) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+];
+
+// Extract player response from YouTube page via CORS proxy
 async function getPlayerResponse(videoId: string): Promise<any> {
-  // Use YouTube's oembed for basic info
-  const oembedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
-
-  // We need to fetch the actual video page to get caption tracks
-  // This uses a CORS proxy or direct fetch (works in browser context)
   const videoPageUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  
+  let lastError: Error | null = null;
+  
+  // Try each CORS proxy until one works
+  for (let i = 0; i < CORS_PROXIES.length; i++) {
+    const proxyUrl = CORS_PROXIES[i](videoPageUrl);
+    
+    try {
+      console.log(`[Client Transcript] Trying proxy ${i + 1}...`);
+      
+      const response = await fetch(proxyUrl, {
+        headers: {
+          'Accept': 'text/html,application/xhtml+xml',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Proxy ${i + 1} returned ${response.status}`);
+      }
 
-  const response = await fetch(videoPageUrl);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch video page: ${response.status}`);
+      const html = await response.text();
+      
+      // Extract ytInitialPlayerResponse
+      const playerResponseMatch = html.match(
+        /ytInitialPlayerResponse\s*=\s*(\{[\s\S]+?\});/
+      );
+
+      if (!playerResponseMatch) {
+        throw new Error("Could not find player response in page");
+      }
+
+      try {
+        const parsed = JSON.parse(playerResponseMatch[1]);
+        console.log(`[Client Transcript] Successfully parsed player response via proxy ${i + 1}`);
+        return parsed;
+      } catch (e) {
+        throw new Error("Failed to parse player response JSON");
+      }
+    } catch (error: any) {
+      console.log(`[Client Transcript] Proxy ${i + 1} failed:`, error.message);
+      lastError = error;
+      // Continue to next proxy
+    }
   }
 
-  const html = await response.text();
-
-  // Extract ytInitialPlayerResponse
-  const playerResponseMatch = html.match(
-    /ytInitialPlayerResponse\s*=\s*(\{[\s\S]+?\});/
-  );
-
-  if (!playerResponseMatch) {
-    throw new Error("Could not find player response in page");
-  }
-
-  try {
-    return JSON.parse(playerResponseMatch[1]);
-  } catch (e) {
-    throw new Error("Failed to parse player response");
-  }
+  // All proxies failed
+  throw lastError || new Error("All CORS proxies failed");
 }
 
 // Main function to fetch transcript client-side

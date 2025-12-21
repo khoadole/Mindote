@@ -188,6 +188,9 @@ importers:
       youtube-caption-extractor:
         specifier: ^1.9.1
         version: 1.9.1
+      youtube-transcript:
+        specifier: ^1.2.1
+        version: 1.2.1
       youtube-transcript-plus:
         specifier: ^1.1.1
         version: 1.1.1
@@ -2815,6 +2818,10 @@ packages:
     resolution: {integrity: sha512-KmAcn7eBPMgSnPJosCaaRp6/eqOAXk9p5f5ExBf+aD0M74Hud5RzbwHVoFpR5wOS++QqrrFaFhq9eiaWqWDlXg==}
     engines: {node: '>=18.0.0'}
 
+  youtube-transcript@1.2.1:
+    resolution: {integrity: sha512-TvEGkBaajKw+B6y91ziLuBLsa5cawgowou+Bk0ciGpjELDfAzSzTGXaZmeSSkUeknCPpEr/WGApOHDwV7V+Y9Q==}
+    engines: {node: '>=18.0.0'}
+
   youtubei.js@16.0.1:
     resolution: {integrity: sha512-3802bCAGkBc2/G5WUTc0l/bO5mPYJbQAHL04d9hE9PnrDHoBUT8MN721Yqt4RCNncAXdHcfee9VdJy3Fhq1r5g==}
 
@@ -5242,6 +5249,8 @@ snapshots:
       striptags: 3.2.0
 
   youtube-transcript-plus@1.1.1: {}
+
+  youtube-transcript@1.2.1: {}
 
   youtubei.js@16.0.1:
     dependencies:

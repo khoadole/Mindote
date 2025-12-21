@@ -11,7 +11,6 @@ import {
   Layers,
   Candy as Cards,
   CheckCircle,
-  Youtube,
   Settings,
   Menu,
   X,
@@ -53,12 +52,6 @@ const navigation = [
     icon: FileText,
     color: "text-amber-400",
     badge: "NEW",
-  },
-  {
-    name: "YouTube Notes",
-    href: "/youtube",
-    icon: Youtube,
-    color: "text-red-400",
   },
 ];
 

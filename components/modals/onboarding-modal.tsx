@@ -12,7 +12,6 @@ import {
   Layers,
   Candy as Cards,
   CheckCircle,
-  Youtube,
   FileText,
   Sparkles,
   ChevronLeft,
@@ -60,13 +59,6 @@ const features: OnboardingFeature[] = [
     bgColor: "bg-amber-500/10",
     titleKey: "reading",
     descriptionKey: "readingDesc",
-  },
-  {
-    icon: Youtube,
-    color: "text-red-500",
-    bgColor: "bg-red-500/10",
-    titleKey: "youtube",
-    descriptionKey: "youtubeDesc",
   },
   {
     icon: Sparkles,

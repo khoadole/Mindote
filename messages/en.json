@@ -181,6 +181,7 @@
     "collectionNotFound": "Collection not found",
     "collectionNotFoundDescription": "The collection you're looking for doesn't exist.",
     "backToCollections": "Back to Collections",
+    "goToCollections": "Go to Collections",
     "back": "Back",
     "helpsOrganize": "Helps organize your collections by learning level",
     "deleteWord": "Delete Word",

@@ -181,6 +181,7 @@
     "collectionNotFound": "コレクションが見つかりません",
     "collectionNotFoundDescription": "お探しのコレクションは存在しません。",
     "backToCollections": "コレクションに戻る",
+    "goToCollections": "コレクションへ",
     "back": "戻る",
     "helpsOrganize": "学習レベルでコレクションを整理するのに役立ちます",
     "deleteWord": "単語を削除",

@@ -251,6 +251,7 @@
     "collectionNotFound": "커렉션을 찾을 수 없습니다",
     "collectionNotFoundDescription": "찾으시는 커렉션이 존재하지 않습니다.",
     "backToCollections": "커렉션으로 돌아가기",
+    "goToCollections": "컬렉션으로 이동",
     "back": "뒤로",
     "helpsOrganize": "학습 수준별로 커렉션을 정리하는 데 도움이 됩니다",
     "deleteWord": "단어 삭제",

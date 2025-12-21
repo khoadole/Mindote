@@ -417,12 +417,11 @@ export default function CollectionDetailPage() {
                 <h3 className="text-lg font-medium mb-2">
                   {searchQuery || filterType !== "all" ? t("collections.noWordsFound") : t("collections.noWordsYet")}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground">
                   {searchQuery || filterType !== "all"
                     ? t("collections.clearSearch")
                     : t("collections.startAdding")}
                 </p>
-                {!searchQuery && filterType === "all" && <AddWordModal collectionId={collectionId} />}
               </CardContent>
             </Card>
           ) : (

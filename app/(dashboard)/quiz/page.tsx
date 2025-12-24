@@ -180,8 +180,8 @@ export default function QuizPage() {
           {/* Header */}
           <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
             <Button
-              variant="ghost"
-              size="sm"
+              variant="outline"
+              size="default"
               onClick={() => {
                 if (collectionParam) {
                   router.push(`/collections/${collectionParam}`);
@@ -189,13 +189,14 @@ export default function QuizPage() {
                   router.push("/dashboard");
                 }
               }}
+              className="text-base"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t("common.back")}
             </Button>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-6 w-6 text-primary" />
-              <h1 className="text-3xl font-bold">
+              <CheckCircle className="h-8 w-8 text-primary" />
+              <h1 className="text-4xl font-bold">
                 {collectionParam && specificCollection
                   ? t("quiz.quizWithCollection", { name: specificCollection.name })
                   : t("quiz.title")}

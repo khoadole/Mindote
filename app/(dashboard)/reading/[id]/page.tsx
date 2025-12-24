@@ -343,9 +343,10 @@ export default function ReadingPassageViewer() {
           {/* Header */}
           <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
             <Button
-              variant="ghost"
-              size="sm"
+              variant="outline"
+              size="default"
               onClick={() => router.push("/reading")}
+              className="text-base"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t("reading.backToReading")}

@@ -234,9 +234,10 @@ export default function CollectionDetailPage() {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
           <div className="flex items-center gap-4 w-full md:w-auto">
             <Button
-              variant="ghost"
-              size="sm"
+              variant="outline"
+              size="default"
               onClick={() => router.push("/collections")}
+              className="text-base"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t("collections.back")}
@@ -448,6 +449,7 @@ export default function CollectionDetailPage() {
                           color: collection.color || "bg-primary",
                         },
                       }}
+                      showCollection={false}
                       onEdit={() => handleEditWord(word)}
                       onDelete={() => handleDeleteWord(word.id, word.term)}
                     />

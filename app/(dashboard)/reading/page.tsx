@@ -105,16 +105,17 @@ export default function ReadingPage() {
           {/* Header */}
           <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
             <Button
-              variant="ghost"
-              size="sm"
+              variant="outline"
+              size="default"
               onClick={() => router.push("/dashboard")}
+              className="text-base"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t("common.back")}
             </Button>
             <div className="flex items-center gap-2">
-              <BookOpen className="h-6 w-6 text-primary" />
-              <h1 className="text-3xl font-bold">{t("reading.title")}</h1>
+              <BookOpen className="h-8 w-8 text-primary" />
+              <h1 className="text-4xl font-bold">{t("reading.title")}</h1>
             </div>
           </div>
 

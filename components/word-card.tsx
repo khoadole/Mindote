@@ -33,9 +33,10 @@ interface WordCardProps {
   };
   onEdit?: () => void;
   onDelete?: () => void;
+  showCollection?: boolean; // Whether to show collection badge (default: true)
 }
 
-export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
+export function WordCard({ word, onEdit, onDelete, showCollection = true }: WordCardProps) {
   const { t } = useTranslation();
   const [showDetails, setShowDetails] = useState(false);
   const collection = word.collection;
@@ -104,7 +105,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
                 {word.definition}
               </p>
 
-              {collection && (
+              {showCollection && collection && (
                 <div className="flex items-center gap-2 mt-auto">
                   <div
                     className={`h-2 w-2 rounded-full shrink-0 ${
@@ -224,7 +225,7 @@ export function WordCard({ word, onEdit, onDelete }: WordCardProps) {
               </div>
             )}
 
-            {collection && (
+            {showCollection && collection && (
               <div className="flex items-center gap-2 p-3 rounded-xl bg-card">
                 <div
                   className={`h-8 w-8 rounded-lg ${

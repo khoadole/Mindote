@@ -37,8 +37,21 @@ export async function logAIUsage({
     const cost =
       inputTokens * modelPricing.input + outputTokens * modelPricing.output;
 
-    await prisma.aILog.create({
-      data: {
+    await prisma.aILog.upsert({
+      where: {
+        userId_feature: {
+          userId,
+          feature,
+        },
+      },
+      update: {
+        model, // Cập nhật model mới nhất
+        inputTokens: { increment: inputTokens },
+        outputTokens: { increment: outputTokens },
+        totalTokens: { increment: inputTokens + outputTokens },
+        cost: { increment: cost },
+      },
+      create: {
         userId,
         feature,
         model,

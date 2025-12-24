@@ -78,8 +78,7 @@ model Word {
 }
 
 model Setting {
-  id               String   @id @default(uuid()) @db.Uuid
-  userId           String   @unique @map("user_id") @db.Uuid
+  userId           String   @id @map("user_id") @db.Uuid
   theme            String   @default("dark")
   language         String   @default("en")
   createdAt        DateTime @default(now()) @map("created_at")
@@ -88,34 +87,6 @@ model Setting {
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("settings")
-}
-
-model YouTubeHistory {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @map("user_id") @db.Uuid
-  url       String
-  title     String
-  videoId   String   @map("video_id")
-  createdAt DateTime @default(now()) @map("created_at")
-
-  @@unique([userId, videoId])
-  @@index([userId, createdAt])
-  @@index([videoId])
-  @@index([createdAt], map: "idx_youtube_history_created_at_brin", type: Brin)
-  @@map("youtube_history")
-}
-
-model AIUsage {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @map("user_id") @db.Uuid
-  date      DateTime @default(now()) @db.Date
-  count     Int      @default(0)
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  @@unique([userId, date])
-  @@index([userId, date])
-  @@map("ai_usage")
 }
 
 model ReadingPassage {
@@ -224,7 +195,6 @@ model WebhookEvent {
 }
 
 model AILog {
-  id           String   @id @default(uuid()) @db.Uuid
   userId       String   @map("user_id") @db.Uuid
   feature      String
   model        String
@@ -233,10 +203,11 @@ model AILog {
   totalTokens  Int      @map("total_tokens")
   cost         Float
   createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId])
+  @@id([userId, feature])
   @@index([createdAt])
   @@map("ai_logs")
 }

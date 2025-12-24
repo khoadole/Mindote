@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -64,11 +64,15 @@ export function FlashcardPlayer({
     lang: "en-US",
     rate: 0.9,
   });
+  const hasShuffledRef = useRef(false);
 
   useEffect(() => {
-    // Shuffle words on mount
-    const shuffled = [...words].sort(() => Math.random() - 0.5);
-    setShuffledWords(shuffled);
+    // Only shuffle words once on mount, not on every re-render
+    if (!hasShuffledRef.current && words.length > 0) {
+      const shuffled = [...words].sort(() => Math.random() - 0.5);
+      setShuffledWords(shuffled);
+      hasShuffledRef.current = true;
+    }
   }, [words]);
 
   if (shuffledWords.length === 0) return null;

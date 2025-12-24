@@ -105,11 +105,12 @@ export function AddWordModal({
       setDefinition(defaultDefinition);
       setExample(defaultExample);
 
-      // Set default languages from user settings
-      const defaultLang = settings?.learningLanguage || DEFAULT_LANGUAGE;
-      setTermLanguage(defaultLang);
-      setDefinitionLanguage(defaultLang);
-      setExampleLanguage(defaultLang);
+      // Set default languages:
+      // - Term and Example: English (since user is learning English vocabulary)
+      // - Definition: User's UI language (so definitions appear in their native language)
+      setTermLanguage(DEFAULT_LANGUAGE); // English
+      setExampleLanguage(DEFAULT_LANGUAGE); // English
+      setDefinitionLanguage(settings?.language || DEFAULT_LANGUAGE); // User's UI language
 
       // Fetch AI usage info when modal opens
       fetchUsageInfo();
@@ -189,11 +190,10 @@ export function AddWordModal({
           if (!collectionId) {
             setSelectedCollection("");
           }
-          // Reset languages to default
-          const defaultLang = settings?.learningLanguage || DEFAULT_LANGUAGE;
-          setTermLanguage(defaultLang);
-          setDefinitionLanguage(defaultLang);
-          setExampleLanguage(defaultLang);
+          // Reset languages to default (same as modal open logic)
+          setTermLanguage(DEFAULT_LANGUAGE);
+          setExampleLanguage(DEFAULT_LANGUAGE);
+          setDefinitionLanguage(settings?.language || DEFAULT_LANGUAGE);
           setOpen(false);
         },
       }

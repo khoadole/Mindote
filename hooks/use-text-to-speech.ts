@@ -59,6 +59,11 @@ export function useTextToSpeech(options: UseTextToSpeechOptions = {}) {
       };
 
       utterance.onerror = (event) => {
+        // Ignore "interrupted" errors - this happens when we cancel speech intentionally
+        if (event.error === "interrupted" || event.error === "canceled") {
+          setIsSpeaking(false);
+          return;
+        }
         console.error("Speech synthesis error:", event);
         setIsSpeaking(false);
         toast({

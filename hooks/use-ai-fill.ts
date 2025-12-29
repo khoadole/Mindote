@@ -46,10 +46,11 @@ export function useAIFill() {
 
   const fillWord = async (
     term: string,
-    languages?: {
+    options?: {
       termLanguage?: string;
       definitionLanguage?: string;
       exampleLanguage?: string;
+      partOfSpeech?: string;
     }
   ): Promise<AIFillData | null> => {
     if (!term.trim()) {
@@ -71,7 +72,7 @@ export function useAIFill() {
         },
         body: JSON.stringify({
           term: term.trim(),
-          ...languages,
+          ...options,
         }),
       });
 

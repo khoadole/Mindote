@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       termLanguage = DEFAULT_LANGUAGE,
       definitionLanguage = DEFAULT_LANGUAGE,
       exampleLanguage = DEFAULT_LANGUAGE,
+      partOfSpeech,
     } = body;
 
     if (!term || typeof term !== "string" || term.trim().length === 0) {
@@ -100,6 +101,15 @@ export async function POST(request: NextRequest) {
 
     const phoneticFormat = getPhoneticInstruction(termLanguage);
 
+    // Build part of speech instruction based on whether user selected one
+    const partOfSpeechInstruction = partOfSpeech
+      ? `IMPORTANT - PART OF SPEECH PREFERENCE:
+The user prefers the "${partOfSpeech}" form of this word. 
+- If the word CAN be used as "${partOfSpeech}", provide the definition and example for that usage.
+- If the word CANNOT be used as "${partOfSpeech}" (that form doesn't exist), provide the most common/default usage instead.
+- Always return the actual part of speech you're defining in the response.`
+      : `5. Part of speech (noun, verb, adjective, etc.)`;
+
     // Call OpenAI API with gpt-4o-mini (cheapest and efficient)
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -115,7 +125,7 @@ export async function POST(request: NextRequest) {
 4. Phonetic pronunciation for the term in the appropriate format for ${
             termLang?.name || "English"
           }
-5. Part of speech (noun, verb, adjective, etc.)
+${partOfSpeech ? partOfSpeechInstruction : "5. Part of speech (noun, verb, adjective, etc.)"}
 
 IMPORTANT LANGUAGE INSTRUCTIONS:
 - The TERM should be in ${termLang?.name || "English"}

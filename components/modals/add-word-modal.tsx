@@ -149,6 +149,7 @@ export function AddWordModal({
       termLanguage,
       definitionLanguage,
       exampleLanguage,
+      partOfSpeech: partOfSpeech || undefined,
     });
     if (result) {
       // Fill the form with AI generated data

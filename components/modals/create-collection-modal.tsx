@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Plus, Loader2 } from "lucide-react";
 import { DIFFICULTY_LEVELS } from "@/lib/difficulty-levels";
+import { IconPicker } from "@/components/ui/icon-picker";
 
 const colorOptions = [
   { name: "Mint Green", value: "#10B981" }, // Emerald 500
@@ -44,6 +45,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [selectedColor, setSelectedColor] = useState(colorOptions[0].value);
+  const [selectedIcon, setSelectedIcon] = useState("Layers");
   const [difficultyLevel, setDifficultyLevel] = useState<string>("");
 
   const createCollectionMutation = useCreateCollection();
@@ -59,13 +61,15 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
       {
         name: name.trim(),
         color: selectedColor,
+        icon: selectedIcon,
         difficultyLevel: difficultyLevel || undefined,
       },
       {
         onSuccess: () => {
           // Reset form
           setName("");
-          setSelectedColor("bg-primary");
+          setSelectedColor(colorOptions[0].value);
+          setSelectedIcon("Layers");
           setDifficultyLevel("");
           setOpen(false);
         },
@@ -106,6 +110,15 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
             <p className="text-xs text-muted-foreground">
               {t("collections.charactersLabel", { count: name.length })}
             </p>
+          </div>
+
+          <div className="space-y-2">
+            <Label>{t("collections.iconLabel")}</Label>
+            <IconPicker
+              value={selectedIcon}
+              onChange={setSelectedIcon}
+              color={selectedColor}
+            />
           </div>
 
           <div className="space-y-2">

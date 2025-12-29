@@ -14,7 +14,8 @@
     "search": "Tìm kiếm",
     "or": "hoặc",
     "and": "và",
-    "viewAll": "Xem tất cả"
+    "viewAll": "Xem tất cả",
+    "saving": "Đang lưu..."
   },
   "sidebar": {
     "tagline": "Học thông minh hơn",
@@ -206,6 +207,7 @@
     "collectionNamePlaceholder": "ví dụ: Tiếng Anh kinh doanh",
     "charactersLabel": "{{count}}/80 ký tự",
     "colorLabel": "Màu sắc",
+    "iconLabel": "Biểu tượng",
     "difficultyLevelLabel": "Cấp độ khó (Tùy chọn)",
     "difficultyLevelPlaceholder": "Chọn cấp độ khó",
     "creating": "Đang tạo...",

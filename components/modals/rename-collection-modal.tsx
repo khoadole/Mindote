@@ -13,7 +13,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Edit, Loader2 } from "lucide-react";
+import { IconPicker } from "@/components/ui/icon-picker";
+import { DIFFICULTY_LEVELS } from "@/lib/difficulty-levels";
 
 const colorOptions = [
   { name: "Mint Green", value: "#10B981" }, // Emerald 500
@@ -29,6 +38,8 @@ interface RenameCollectionModalProps {
   collectionId: string;
   currentName: string;
   currentColor?: string;
+  currentIcon?: string;
+  currentLevel?: string;
   trigger?: React.ReactNode;
 }
 
@@ -36,12 +47,16 @@ export function RenameCollectionModal({
   collectionId,
   currentName,
   currentColor,
+  currentIcon,
+  currentLevel,
   trigger,
 }: RenameCollectionModalProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState(currentName);
   const [selectedColor, setSelectedColor] = useState(currentColor || colorOptions[0].value);
+  const [selectedIcon, setSelectedIcon] = useState(currentIcon || "Layers");
+  const [difficultyLevel, setDifficultyLevel] = useState<string>(currentLevel || "");
   const updateCollectionMutation = useUpdateCollection();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -52,7 +67,7 @@ export function RenameCollectionModal({
     }
 
     // Check if anything changed
-    if (name.trim() === currentName && selectedColor === currentColor) {
+    if (name.trim() === currentName && selectedColor === currentColor && selectedIcon === currentIcon && difficultyLevel === (currentLevel || "")) {
       setOpen(false);
       return;
     }
@@ -62,7 +77,9 @@ export function RenameCollectionModal({
         collectionId,
         data: { 
           name: name.trim(),
-          color: selectedColor
+          color: selectedColor,
+          icon: selectedIcon,
+          difficultyLevel: difficultyLevel || undefined
         },
       },
       {
@@ -112,6 +129,15 @@ export function RenameCollectionModal({
           </div>
 
           <div className="space-y-2">
+            <Label>{t("collections.iconLabel")}</Label>
+            <IconPicker
+              value={selectedIcon}
+              onChange={setSelectedIcon}
+              color={selectedColor}
+            />
+          </div>
+
+          <div className="space-y-2">
             <Label>{t("collections.colorLabel")}</Label>
             <div className="grid grid-cols-7 gap-2">
               {colorOptions.map((color) => (
@@ -129,6 +155,27 @@ export function RenameCollectionModal({
                 />
               ))}
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="difficulty">{t("collections.difficultyLevelLabel")}</Label>
+            <Select value={difficultyLevel} onValueChange={setDifficultyLevel}>
+              <SelectTrigger>
+                <SelectValue placeholder={t("collections.difficultyLevelPlaceholder")} />
+              </SelectTrigger>
+              <SelectContent>
+                {DIFFICULTY_LEVELS.map((level) => (
+                  <SelectItem key={level.value} value={level.value}>
+                    <div>
+                      <div className="font-medium">{t(level.labelKey)}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {t(level.descriptionKey)}
+                      </div>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="flex justify-end space-x-2 pt-4">

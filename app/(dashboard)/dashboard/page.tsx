@@ -36,6 +36,7 @@ import { useEffect, useMemo } from "react";
 import { updateUserStreakAction } from "@/app/actions/settings";
 import { WordStageCard } from "@/components/ui/word-stage-card";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getIconComponent } from "@/lib/collection-icons";
 
 // ✅ Lazy load modals - only load when needed
 const AddWordModal = dynamic(
@@ -575,6 +576,7 @@ export default function Dashboard() {
                   {recentCollections.map((collection, index) => {
                     const isHex = collection.color?.startsWith("#");
                     const color = collection.color || "#6365EF";
+                    const CollectionIcon = getIconComponent(collection.icon || "Layers");
                     
                     return (
                       <Link
@@ -582,14 +584,14 @@ export default function Dashboard() {
                         href={`/collections/${collection.id}`}
                       >
                         <div 
-                          className={`group flex items-center gap-3 p-4 rounded-xl border-0 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg ${!isHex ? `${color} bg-opacity-20` : ''}`}
-                          style={isHex ? { backgroundColor: `${color}33` } : undefined}
+                          className={`group flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg ${!isHex ? `${color} bg-opacity-40` : ''}`}
+                          style={isHex ? { backgroundColor: `${color}66` } : undefined}
                         >
                           <div
                             className={`h-12 w-12 rounded-xl shrink-0 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform ${!isHex ? color : ''}`}
                             style={isHex ? { backgroundColor: color } : undefined}
                           >
-                            <Layers className="h-6 w-6 text-white" />
+                            <CollectionIcon className="h-6 w-6 text-white" />
                           </div>
                           <div className="min-w-0 flex-1">
                             <h3 className="font-semibold text-base truncate group-hover:text-primary transition-colors">

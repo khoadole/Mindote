@@ -14,7 +14,8 @@
     "search": "Search",
     "or": "or",
     "and": "and",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "saving": "Saving..."
   },
   "sidebar": {
     "tagline": "Learn smarter",
@@ -143,6 +144,7 @@
     "collectionNamePlaceholder": "e.g., Business English",
     "charactersLabel": "{{count}}/80 characters",
     "colorLabel": "Color",
+    "iconLabel": "Icon",
     "difficultyLevelLabel": "Difficulty Level (Optional)",
     "difficultyLevelPlaceholder": "Select difficulty level",
     "creating": "Creating...",

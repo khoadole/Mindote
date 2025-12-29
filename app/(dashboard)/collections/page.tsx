@@ -26,6 +26,7 @@ import { useTranslation } from "@/lib/i18n-provider";
 import { getDifficultyLabelKey } from "@/lib/difficulty-levels";
 import { getPaginationItems, PaginationItemType } from "@/lib/pagination-utils";
 import { PaginationEllipsis } from "@/components/ui/pagination";
+import { getIconComponent } from "@/lib/collection-icons";
 
 // ✅ Lazy load modals
 const AddWordModal = dynamic(
@@ -183,11 +184,11 @@ export default function CollectionsPage() {
                     href={`/collections/${collection.id}`}
                   >
                     <Card
-                      className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group ${
-                        !isHex ? `${colorClass} bg-opacity-20` : ""
+                      className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group ${
+                        !isHex ? `${colorClass} bg-opacity-40` : ""
                       }`}
                       style={
-                        isHex ? { backgroundColor: `${color}33` } : undefined
+                        isHex ? { backgroundColor: `${color}66` } : undefined
                       }
                     >
                       <CardHeader>
@@ -200,7 +201,10 @@ export default function CollectionsPage() {
                               isHex ? { backgroundColor: color } : undefined
                             }
                           >
-                            <Layers className="h-7 w-7 text-white" />
+                            {(() => {
+                              const CollectionIcon = getIconComponent(collection.icon || "Layers");
+                              return <CollectionIcon className="h-7 w-7 text-white" />;
+                            })()}
                           </div>
                           {collection.difficultyLevel && (
                             <Badge

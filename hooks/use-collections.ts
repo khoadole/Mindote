@@ -59,6 +59,7 @@ export function useCreateCollection() {
     mutationFn: async (data: {
       name: string;
       color: string;
+      icon?: string;
       difficultyLevel?: string;
     }) => {
       const result = await createCollectionAction(data);
@@ -107,7 +108,7 @@ export function useUpdateCollection() {
       data,
     }: {
       collectionId: string;
-      data: { name?: string; color?: string };
+      data: { name?: string; color?: string; icon?: string; difficultyLevel?: string };
     }) => {
       const result = await updateCollectionAction(collectionId, data);
       if (result.error) {

@@ -257,6 +257,8 @@ export default function CollectionDetailPage() {
               collectionId={collection.id}
               currentName={collection.name}
               currentColor={collection.color}
+              currentIcon={collection.icon}
+              currentLevel={collection.difficultyLevel ?? undefined}
             />
             <Button
               variant="ghost"

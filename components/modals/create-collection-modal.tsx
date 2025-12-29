@@ -27,13 +27,13 @@ import { DIFFICULTY_LEVELS } from "@/lib/difficulty-levels";
 import { IconPicker } from "@/components/ui/icon-picker";
 
 const colorOptions = [
-  { name: "Mint Green", value: "#10B981" }, // Emerald 500
-  { name: "Sunny Yellow", value: "#F59E0B" }, // Amber 500
-  { name: "Coral Peach", value: "#F97316" }, // Orange 500
-  { name: "Lavender", value: "#8B5CF6" }, // Violet 500
-  { name: "Sky Blue", value: "#3B82F6" }, // Blue 500
-  { name: "Soft Pink", value: "#EC4899" }, // Pink 500
-  { name: "Lime Green", value: "#84CC16" }, // Lime 500
+  { name: "Fresh Green", value: "#34D399" }, // Bright mint green (like "Mới" card)
+  { name: "Sunny Yellow", value: "#FBBF24" }, // Vibrant yellow (like "Đang học" card)
+  { name: "Coral Orange", value: "#FB923C" }, // Coral orange (like "Quen thuộc" card)
+  { name: "Soft Purple", value: "#A78BFA" }, // Soft purple (like "Thành thạo" card)
+  { name: "Sky Blue", value: "#60A5FA" }, // Bright blue
+  { name: "Hot Pink", value: "#F472B6" }, // Vibrant pink
+  { name: "Lime", value: "#A3E635" }, // Bright lime green
 ];
 
 interface CreateCollectionModalProps {

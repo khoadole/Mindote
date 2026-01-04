@@ -281,7 +281,7 @@ export default function QuizPage() {
 
                   <Button
                     onClick={handleStartQuiz}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-xl"
                     disabled={validQuizWords.length < 2}
                   >
                     <Play className="h-4 w-4 mr-2" />

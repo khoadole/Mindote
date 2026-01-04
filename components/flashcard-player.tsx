@@ -428,7 +428,7 @@ export function FlashcardPlayer({
                 variant="outline"
                 onClick={() => handleAnswer(3)}
                 disabled={isSubmitting}
-                className="flex items-center gap-2 bg-[#6365EF] hover:bg-[#5254E0] text-white"
+                className="flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white"
               >
                 <ThumbsUp className="h-4 w-4" />
                 {t("flashcardPlayer.good")}

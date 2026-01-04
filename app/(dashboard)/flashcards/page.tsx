@@ -321,7 +321,7 @@ export default function FlashcardsPage() {
 
                   <Button
                     onClick={handleStartStudy}
-                    className="w-full bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6] text-white font-bold transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] hover:from-[#2563EB] hover:to-[#3B82F6] text-white font-bold transition-all hover:scale-105 shadow-lg hover:shadow-xl"
                     disabled={studyWords.length === 0}
                   >
                     <Play className="h-4 w-4 mr-2" />

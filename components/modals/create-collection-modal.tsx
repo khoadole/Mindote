@@ -31,7 +31,7 @@ const colorOptions = [
   { name: "Sunny Yellow", value: "#FBBF24" }, // Vibrant yellow (like "Đang học" card)
   { name: "Coral Orange", value: "#FB923C" }, // Coral orange (like "Quen thuộc" card)
   { name: "Soft Purple", value: "#A78BFA" }, // Soft purple (like "Thành thạo" card)
-  { name: "Sky Blue", value: "#60A5FA" }, // Bright blue
+  { name: "Sky Blue", value: "#3B82F6" }, // Blue 500
   { name: "Hot Pink", value: "#F472B6" }, // Vibrant pink
   { name: "Lime", value: "#A3E635" }, // Bright lime green
 ];

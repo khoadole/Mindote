@@ -114,7 +114,7 @@ export default function CollectionsPage() {
               trigger={
                 <Button
                   variant="outline"
-                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6] border-transparent text-white hover:text-white transition-all hover:scale-105 shadow-lg font-semibold"
+                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] hover:from-[#2563EB] hover:to-[#3B82F6] border-transparent text-white hover:text-white transition-all hover:scale-105 shadow-lg font-semibold"
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
@@ -167,7 +167,7 @@ export default function CollectionsPage() {
                 const masteryPercent = Math.min((wordCount / 50) * 100, 100); // Assume 50 words = 100%
 
                 const isHex = collection.color?.startsWith("#");
-                const color = collection.color || "#6365EF";
+                const color = collection.color || "#3B82F6";
                 const colorClass = !isHex
                   ? collection.color || "bg-primary"
                   : "";

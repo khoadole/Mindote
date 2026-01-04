@@ -9,7 +9,7 @@ interface IconPickerProps {
   color?: string;
 }
 
-export function IconPicker({ value, onChange, color = "#6365EF" }: IconPickerProps) {
+export function IconPicker({ value, onChange, color = "#3B82F6" }: IconPickerProps) {
   return (
     <div className="grid grid-cols-6 gap-2">
       {COLLECTION_ICONS.map((icon) => {

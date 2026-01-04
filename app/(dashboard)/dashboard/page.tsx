@@ -138,7 +138,7 @@ export default function Dashboard() {
           <div className="lg:col-span-2 space-y-6">
             {/* 🎯 HERO CARD: Create Reading Passage - PRIMARY CTA */}
             <div
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 to-indigo-600 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group"
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-blue-600 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group"
               style={{ animationDelay: "100ms" }}
             >
               {/* Background decoration - Grid Pattern */}
@@ -149,7 +149,7 @@ export default function Dashboard() {
               
               {/* Decorative floating circles */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-300/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "1s" }} />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-300/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "1s" }} />
               
               {/* Dot pattern accent */}
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-60" />
@@ -307,7 +307,7 @@ export default function Dashboard() {
           <div className="space-y-4">
             {/* Reading Passages Library */}
             <div
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2 border-blue-200/50 dark:border-blue-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
+              className="bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-2 border-blue-200/50 dark:border-blue-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
               style={{ animationDelay: "150ms" }}
             >
               <div className="flex items-center justify-between mb-4">
@@ -336,7 +336,7 @@ export default function Dashboard() {
                   </div>
                   <div className="w-full bg-white/80 dark:bg-black/20 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full transition-all duration-500"
+                      className="bg-gradient-to-r from-blue-500 to-sky-500 h-2 rounded-full transition-all duration-500"
                       style={{ width: `${passageMetrics.completionRate}%` }}
                     />
                   </div>
@@ -416,7 +416,7 @@ export default function Dashboard() {
                       {t("dashboard.createFirstPassage")}
                     </p>
                     <Link href="/reading">
-                      <Button size="sm" variant="default">
+                      <Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white">
                         <Sparkles className="h-3 w-3 mr-1" />
                         {t("dashboard.createPassage")}
                       </Button>
@@ -428,10 +428,10 @@ export default function Dashboard() {
 
             {/* Secondary: Revision Card */}
             <div
-              className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-2 border-indigo-200/50 dark:border-indigo-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
+              className="bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-2 border-blue-200/50 dark:border-blue-800/30 rounded-2xl p-5 animate-in fade-in slide-in-from-right-4"
               style={{ animationDelay: "250ms" }}
             >
-              <h3 className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-4 flex items-center gap-2">
                 <Zap className="h-4 w-4" />
                 {t("dashboard.quickRevision")}
               </h3>
@@ -442,7 +442,7 @@ export default function Dashboard() {
                     <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
                   ) : (
                     <>
-                      <div className="text-4xl font-bold text-indigo-900 dark:text-indigo-100">
+                      <div className="text-4xl font-bold text-blue-900 dark:text-blue-100">
                         {dueCount}
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -455,7 +455,7 @@ export default function Dashboard() {
                 </div>
 
                 <Button
-                  className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-semibold rounded-xl disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl disabled:opacity-50"
                   size="sm"
                   asChild={dueCount > 0}
                   disabled={dueCount === 0}
@@ -524,7 +524,7 @@ export default function Dashboard() {
           className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
           style={{ animationDelay: "350ms" }}
         >
-          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-indigo-200/50 dark:border-indigo-800/30">
+          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/50 dark:border-blue-800/30">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Layers className="h-5 w-5 text-primary" />
@@ -549,19 +549,19 @@ export default function Dashboard() {
                       className="flex items-center justify-between p-4 rounded-xl border bg-card/50"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="h-3 w-3 rounded-full bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse" />
+                        <div className="h-3 w-3 rounded-full bg-blue-200/40 dark:bg-blue-500/20 animate-pulse" />
                         <div className="space-y-2">
-                          <div className="h-4 w-32 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded" />
-                          <div className="h-3 w-20 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded" />
+                          <div className="h-4 w-32 bg-blue-200/40 dark:bg-blue-500/20 animate-pulse rounded" />
+                          <div className="h-3 w-20 bg-blue-200/40 dark:bg-blue-500/20 animate-pulse rounded" />
                         </div>
                       </div>
-                      <div className="h-8 w-16 bg-indigo-200/40 dark:bg-indigo-500/20 animate-pulse rounded-xl" />
+                      <div className="h-8 w-16 bg-blue-200/40 dark:bg-blue-500/20 animate-pulse rounded-xl" />
                     </div>
                   ))}
                 </div>
               ) : recentCollections.length === 0 ? (
                 <div className="text-center py-12">
-                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-4">
                     <Layers className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">
@@ -575,7 +575,7 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {recentCollections.map((collection, index) => {
                     const isHex = collection.color?.startsWith("#");
-                    const color = collection.color || "#6365EF";
+                    const color = collection.color || "#3B82F6";
                     const CollectionIcon = getIconComponent(collection.icon || "Layers");
                     
                     return (

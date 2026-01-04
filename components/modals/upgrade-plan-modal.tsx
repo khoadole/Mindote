@@ -130,7 +130,7 @@ export function UpgradePlanModal({
       <DialogContent className="max-w-2xl">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl">
-            <Sparkles className="h-6 w-6 text-[#6365EF]" />
+            <Sparkles className="h-6 w-6 text-[#3B82F6]" />
             Upgrade to Premium
           </DialogTitle>
           <DialogDescription>
@@ -147,7 +147,7 @@ export function UpgradePlanModal({
             className={cn(
               "flex-1 max-w-[180px]",
               selectedCycle === "monthly" &&
-                "bg-[#6365EF] hover:bg-[#5254E0]"
+                "bg-[#3B82F6] hover:bg-[#2563EB]"
             )}
           >
             Monthly
@@ -158,7 +158,7 @@ export function UpgradePlanModal({
             className={cn(
               "flex-1 max-w-[180px] relative",
               selectedCycle === "yearly" &&
-                "bg-[#6365EF] hover:bg-[#5254E0]"
+                "bg-[#3B82F6] hover:bg-[#2563EB]"
             )}
           >
             Yearly
@@ -171,9 +171,9 @@ export function UpgradePlanModal({
         </div>
 
         {/* Pricing Card */}
-        <Card className="p-6 border-2 border-[#6365EF]/30 dark:border-[#6365EF]/50 bg-gradient-to-br from-[#6365EF]/5 via-[#6365EF]/10 to-[#FFD93D]/10 dark:from-[#6365EF]/10 dark:to-[#FFD93D]/10">
+        <Card className="p-6 border-2 border-[#3B82F6]/30 dark:border-[#3B82F6]/50 bg-gradient-to-br from-[#3B82F6]/5 via-[#3B82F6]/10 to-[#FFD93D]/10 dark:from-[#3B82F6]/10 dark:to-[#FFD93D]/10">
           <div className="text-center mb-6">
-            <div className="text-4xl font-bold text-[#6365EF] dark:text-[#7C7EF5]">
+            <div className="text-4xl font-bold text-[#3B82F6] dark:text-[#60A5FA]">
               {plans[selectedCycle].price}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -190,7 +190,7 @@ export function UpgradePlanModal({
           <div className="space-y-3 mb-6">
             {features.map((feature) => (
               <div key={feature} className="flex items-start gap-2">
-                <Check className="h-5 w-5 text-[#6365EF] dark:text-[#7C7EF5] flex-shrink-0 mt-0.5" />
+                <Check className="h-5 w-5 text-[#3B82F6] dark:text-[#60A5FA] flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-foreground">{feature}</span>
               </div>
             ))}
@@ -200,7 +200,7 @@ export function UpgradePlanModal({
           <Button
             onClick={handleUpgrade}
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-[#6365EF] to-[#7C7EF5] hover:from-[#5254E0] hover:to-[#6B6DE6] text-white text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] hover:from-[#2563EB] hover:to-[#3B82F6] text-white text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>

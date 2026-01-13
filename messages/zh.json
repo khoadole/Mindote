@@ -270,6 +270,7 @@
     "filterInterjection": "感叹词",
     "filterCustom": "自定义",
     "sort": "排序",
+    "filterByColor": "按颜色筛选",
     "sortNewest": "最新优先",
     "sortOldest": "最早优先",
     "sortAZ": "A → Z",

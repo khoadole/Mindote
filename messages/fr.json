@@ -200,6 +200,7 @@
     "filterInterjection": "Interjection",
     "filterCustom": "Personnalisé",
     "sort": "Trier",
+    "filterByColor": "Filtrer par couleur",
     "sortNewest": "Plus récent",
     "sortOldest": "Plus ancien",
     "sortAZ": "A → Z",

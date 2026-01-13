@@ -200,6 +200,7 @@
     "filterInterjection": "Interjektion",
     "filterCustom": "Benutzerdefiniert",
     "sort": "Sortieren",
+    "filterByColor": "Nach Farbe filtern",
     "sortNewest": "Neueste zuerst",
     "sortOldest": "Älteste zuerst",
     "sortAZ": "A → Z",

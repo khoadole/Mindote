@@ -270,6 +270,7 @@
     "filterInterjection": "감탄사",
     "filterCustom": "사용자 정의",
     "sort": "정렬",
+    "filterByColor": "색상으로 필터",
     "sortNewest": "최신순",
     "sortOldest": "오래된 순",
     "sortAZ": "A → Z",

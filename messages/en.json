@@ -202,6 +202,7 @@
     "filterInterjection": "Interjection",
     "filterCustom": "Custom",
     "sort": "Sort",
+    "filterByColor": "Filter by color",
     "sortNewest": "Newest first",
     "sortOldest": "Oldest first",
     "sortAZ": "A → Z",
@@ -800,5 +801,4 @@
       "errorOccurred": "An error occurred while speaking"
     }
   }
-
 }

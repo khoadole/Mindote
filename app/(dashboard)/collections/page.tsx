@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
   Search,
-  Filter,
   Loader2,
   Plus,
   Layers,
@@ -21,6 +20,10 @@ import {
   TrendingUp,
   ChevronLeft,
   ChevronRight,
+  ArrowUpAZ,
+  ArrowDownAZ,
+  Palette,
+  X,
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
 import { getDifficultyLabelKey } from "@/lib/difficulty-levels";
@@ -50,7 +53,20 @@ export default function CollectionsPage() {
   const { data: collections, isLoading } = useCollections();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
+  const [colorFilter, setColorFilter] = useState<string | null>(null);
   const ITEMS_PER_PAGE = 9;
+
+  // Fixed color options (same as create-collection-modal)
+  const colorOptions = [
+    { name: "Fresh Green", value: "#34D399" },
+    { name: "Sunny Yellow", value: "#FBBF24" },
+    { name: "Coral Orange", value: "#FB923C" },
+    { name: "Soft Purple", value: "#A78BFA" },
+    { name: "Sky Blue", value: "#3B82F6" },
+    { name: "Hot Pink", value: "#F472B6" },
+    { name: "Lime", value: "#A3E635" },
+  ];
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
@@ -67,9 +83,22 @@ export default function CollectionsPage() {
     );
   }
 
-  const filteredCollections = (collections || []).filter((collection) =>
-    collection.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter and sort collections
+  const filteredCollections = (collections || [])
+    .filter((collection) =>
+      collection.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .filter((collection) =>
+      colorFilter ? (collection.color || "#3B82F6") === colorFilter : true
+    )
+    .sort((a, b) => {
+      if (!sortOrder) return 0;
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      return sortOrder === "asc"
+        ? nameA.localeCompare(nameB)
+        : nameB.localeCompare(nameA);
+    });
 
   // Pagination
   const totalPages = Math.ceil(filteredCollections.length / ITEMS_PER_PAGE);
@@ -77,9 +106,23 @@ export default function CollectionsPage() {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedCollections = filteredCollections.slice(startIndex, endIndex);
 
-  // Reset to page 1 when search changes
+  // Reset to page 1 when filters change
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
+    setCurrentPage(1);
+  };
+
+  const handleSortToggle = () => {
+    setSortOrder((prev) => {
+      if (prev === null) return "asc";
+      if (prev === "asc") return "desc";
+      return null;
+    });
+    setCurrentPage(1);
+  };
+
+  const handleColorFilter = (color: string | null) => {
+    setColorFilter(color);
     setCurrentPage(1);
   };
 
@@ -114,7 +157,8 @@ export default function CollectionsPage() {
               trigger={
                 <Button
                   variant="outline"
-                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] hover:from-[#2563EB] hover:to-[#3B82F6] border-transparent text-white hover:text-white transition-all hover:scale-105 shadow-lg font-semibold"
+                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] border-transparent transition-all hover:scale-105 shadow-lg font-semibold hover:opacity-90"
+                  style={{ color: "white" }}
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
@@ -138,6 +182,94 @@ export default function CollectionsPage() {
               onChange={(e) => handleSearchChange(e.target.value)}
               className="pl-11 h-12 rounded-2xl border-2 focus:border-primary/50 bg-card/50"
             />
+          </div>
+
+          {/* Sort Button */}
+          <Button
+            variant="outline"
+            onClick={handleSortToggle}
+            className={`h-12 rounded-2xl border-2 flex items-center gap-2 transition-all ${
+              sortOrder
+                ? "bg-primary/10 border-primary/50 text-primary"
+                : "bg-card/50"
+            }`}
+          >
+            {sortOrder === "desc" ? (
+              <ArrowDownAZ className="h-4 w-4" />
+            ) : (
+              <ArrowUpAZ className="h-4 w-4" />
+            )}
+            <span className="hidden sm:inline">
+              {sortOrder === "asc"
+                ? "A → Z"
+                : sortOrder === "desc"
+                ? "Z → A"
+                : t("collections.sort")}
+            </span>
+          </Button>
+
+          {/* Color Filter */}
+          <div className="relative z-50 flex items-center gap-2">
+            <Button
+              variant="outline"
+              className={`h-12 rounded-2xl border-2 flex items-center gap-2 transition-all ${
+                colorFilter ? "bg-primary/10 border-primary/50" : "bg-card/50"
+              }`}
+              onClick={() => {
+                const dropdown = document.getElementById("color-dropdown");
+                dropdown?.classList.toggle("hidden");
+              }}
+            >
+              {colorFilter ? (
+                <div
+                  className="w-4 h-4 rounded-full border border-white/50"
+                  style={{ backgroundColor: colorFilter }}
+                />
+              ) : (
+                <Palette className="h-4 w-4" />
+              )}
+              <span className="hidden sm:inline">
+                {t("collections.filterByColor")}
+              </span>
+            </Button>
+
+            {colorFilter && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handleColorFilter(null)}
+                className="h-8 w-8 p-0 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30"
+              >
+                <X className="h-4 w-4 text-red-500" />
+              </Button>
+            )}
+
+            {/* Color Dropdown */}
+            <div
+              id="color-dropdown"
+              className="hidden absolute bottom-14 left-0 z-[9999] bg-white dark:bg-gray-900 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl p-3 min-w-[200px]"
+            >
+              <div className="flex flex-wrap gap-2">
+                {colorOptions.map((color) => (
+                  <button
+                    key={color.value}
+                    onClick={() => {
+                      handleColorFilter(color.value);
+                      document
+                        .getElementById("color-dropdown")
+                        ?.classList.add("hidden");
+                    }}
+                    className={`w-8 h-8 rounded-xl border-2 transition-all hover:scale-110 ${
+                      colorFilter === color.value
+                        ? "ring-2 ring-primary ring-offset-2"
+                        : "border-white/30"
+                    }`}
+                    style={{ backgroundColor: color.value }}
+                    title={color.name}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -202,8 +334,12 @@ export default function CollectionsPage() {
                             }
                           >
                             {(() => {
-                              const CollectionIcon = getIconComponent(collection.icon || "Layers");
-                              return <CollectionIcon className="h-7 w-7 text-white" />;
+                              const CollectionIcon = getIconComponent(
+                                collection.icon || "Layers"
+                              );
+                              return (
+                                <CollectionIcon className="h-7 w-7 text-white" />
+                              );
                             })()}
                           </div>
                           {collection.difficultyLevel && (
@@ -245,27 +381,11 @@ export default function CollectionsPage() {
                           </Badge> */}
                         </div>
 
-                        <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1">
+                        <p className="text-xs text-muted-foreground flex items-center gap-1">
                           <TrendingUp className="h-3 w-3" />
                           {t("collections.created")}{" "}
                           {new Date(collection.createdAt).toLocaleDateString()}
                         </p>
-
-                        <div className="flex gap-2">
-                          <Button
-                            size="sm"
-                            className="flex-1 rounded-xl font-bold shadow-md hover:shadow-xl transition-all hover:scale-105 text-white"
-                          >
-                            {t("collections.study")}
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="flex-1 rounded-xl border-2 bg-white/50 hover:bg-white transition-all hover:scale-105 backdrop-blur-sm shadow-sm hover:shadow-md"
-                          >
-                            {t("collections.quiz")}
-                          </Button>
-                        </div>
                       </CardContent>
                     </Card>
                   </Link>

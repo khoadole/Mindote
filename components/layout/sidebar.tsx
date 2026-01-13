@@ -292,7 +292,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         </nav>
 
         {/* Bottom Section */}
-        <div className="p-3 space-y-2 border-t border-white/10">
+        <div className="p-3 space-y-3 border-t border-white/10">
           {/* Help Button */}
           <Button
             variant="ghost"
@@ -327,9 +327,9 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                     variant="default"
                     className={cn(
                       "w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500",
-                      "hover:from-amber-600 hover:via-yellow-600 hover:to-amber-600",
+                      "hover:from-amber-500 hover:via-yellow-400 hover:to-amber-500",
                       "text-white font-medium shadow-lg shadow-amber-500/30 transition-all duration-300 rounded-xl",
-                      "hover:scale-105 hover:shadow-xl hover:shadow-amber-500/40",
+                      "hover:shadow-xl hover:shadow-amber-500/40",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
                         : "justify-start h-12"
@@ -379,7 +379,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           )}
 
           {/* Settings Link */}
-          <Link href="/settings">
+          <Link href="/settings" className="block mt-2">
             <Button
               variant="ghost"
               className={cn(

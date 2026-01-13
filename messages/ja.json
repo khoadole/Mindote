@@ -130,7 +130,7 @@
     "wordsInPassages": "間{{count}}個の単語がパッセージで使用されました",
     "yourLearningPath": "あなたの学習経路",
     "viewAll": "すべて表示",
-   "word": "単語"
+    "word": "単語"
   },
   "collections": {
     "title": "コレクション",
@@ -200,6 +200,7 @@
     "filterInterjection": "感嘆詞",
     "filterCustom": "カスタム",
     "sort": "並べ替え",
+    "filterByColor": "色でフィルター",
     "sortNewest": "新しい順",
     "sortOldest": "古い順",
     "sortAZ": "A → Z",

@@ -3,6 +3,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useSettings, useUpdateSettings } from "@/hooks/use-settings";
 import { DEFAULT_LANGUAGE } from "@/lib/languages";
+// ✅ Preload default language to avoid blocking render
+import defaultTranslations from "@/messages/en.json";
 
 // Translation type based on our JSON structure
 type TranslationKeys = {
@@ -17,6 +19,7 @@ type TranslationKeys = {
   reading: Record<string, string>;
   youtube: Record<string, string>;
   toast: Record<string, string>;
+  sidebar: Record<string, string>;
 };
 
 interface TranslationContextType {
@@ -37,32 +40,33 @@ export function TranslationProvider({
 }) {
   const { data: settings } = useSettings();
   const updateSettings = useUpdateSettings();
+  // ✅ Initialize with bundled translations immediately
   const [translations, setTranslations] = useState<TranslationKeys | null>(
-    null
+    defaultTranslations as any
   );
-  const [currentLanguage, setCurrentLanguage] = useState<string>(
-    DEFAULT_LANGUAGE
-  );
+  const [currentLanguage, setCurrentLanguage] =
+    useState<string>(DEFAULT_LANGUAGE);
 
-  // Load translations when language changes
+  // Load translations when language changes (only for non-default languages)
   useEffect(() => {
     const langCode = settings?.language || DEFAULT_LANGUAGE;
     setCurrentLanguage(langCode);
 
-    // Dynamically import the translation file
-    import(`@/messages/${langCode}.json`)
-      .then((module) => {
-        setTranslations(module.default);
-      })
-      .catch((error) => {
-        console.error(`Failed to load translations for ${langCode}:`, error);
-        // Fallback to English if loading fails
-        if (langCode !== DEFAULT_LANGUAGE) {
-          import(`@/messages/${DEFAULT_LANGUAGE}.json`).then((module) => {
-            setTranslations(module.default);
-          });
-        }
-      });
+    // Only dynamic import for non-default languages
+    if (langCode !== DEFAULT_LANGUAGE) {
+      import(`@/messages/${langCode}.json`)
+        .then((module) => {
+          setTranslations(module.default);
+        })
+        .catch((error) => {
+          console.error(`Failed to load translations for ${langCode}:`, error);
+          // Fallback to bundled English
+          setTranslations(defaultTranslations as any);
+        });
+    } else {
+      // Use bundled English immediately
+      setTranslations(defaultTranslations as any);
+    }
   }, [settings?.language]);
 
   // Sync with localStorage as well

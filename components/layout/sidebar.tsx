@@ -65,8 +65,37 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
 
-  const [hasActiveSubscription, setHasActiveSubscription] = useState(false);
-  const [subscriptionLoading, setSubscriptionLoading] = useState(true);
+  // ✅ Initialize from cache immediately to avoid blocking render
+  const [hasActiveSubscription, setHasActiveSubscription] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("mindote-subscription-cache");
+        if (cached) {
+          const { active, timestamp } = JSON.parse(cached);
+          // Cache valid for 5 minutes
+          if (Date.now() - timestamp < 5 * 60 * 1000) {
+            return active;
+          }
+        }
+      } catch {}
+    }
+    return false;
+  });
+  const [subscriptionLoading, setSubscriptionLoading] = useState(() => {
+    // If we have valid cache, don't show loading
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("mindote-subscription-cache");
+        if (cached) {
+          const { timestamp } = JSON.parse(cached);
+          if (Date.now() - timestamp < 5 * 60 * 1000) {
+            return false;
+          }
+        }
+      } catch {}
+    }
+    return true;
+  });
   const pathname = usePathname();
 
   useEffect(() => {
@@ -92,6 +121,17 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
       setHasActiveSubscription(active);
       setSubscriptionLoading(false);
+
+      // Update cache
+      try {
+        localStorage.setItem(
+          "mindote-subscription-cache",
+          JSON.stringify({
+            active,
+            timestamp: Date.now(),
+          })
+        );
+      } catch {}
     };
 
     window.addEventListener(
@@ -114,6 +154,17 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         (sub: any) => sub.status === "active" || sub.status === "on_trial"
       );
       setHasActiveSubscription(active);
+
+      // Update cache
+      try {
+        localStorage.setItem(
+          "mindote-subscription-cache",
+          JSON.stringify({
+            active,
+            timestamp: Date.now(),
+          })
+        );
+      } catch {}
     } catch (error) {
       console.error("Failed to check subscription:", error);
     } finally {
@@ -179,6 +230,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   alt="Mindote Logo"
                   width={50}
                   height={50}
+                  priority
                   className="w-full h-full object-contain"
                 />
               </div>

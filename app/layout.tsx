@@ -10,10 +10,20 @@ import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
 import "./globals.css";
 
+// ✅ PERFORMANCE: Preload font with fallbacks for faster text rendering
 const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
   display: "swap",
+  preload: true,
+  fallback: [
+    "system-ui",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "Roboto",
+    "sans-serif",
+  ],
 });
 
 export const metadata: Metadata = {
@@ -96,6 +106,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico?v=2" sizes="48x48" />
+        {/* ✅ PERFORMANCE: Preconnect to Google Fonts CDN */}
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="icon"
           href="/icon.png?v=2"

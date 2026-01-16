@@ -264,6 +264,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         </div>
 
         {/* Navigation */}
+        {/* ✅ PERFORMANCE: prefetch={false} to avoid unnecessary prefetch requests */}
         <nav className="flex-1 px-3 space-y-2 overflow-y-auto">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
@@ -271,6 +272,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               <Link
                 key={item.name}
                 href={item.href}
+                prefetch={false}
                 onClick={() => onMobileClose?.()}
               >
                 <div
@@ -374,7 +376,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           {!subscriptionLoading && (
             <>
               {hasActiveSubscription ? (
-                <Link href="/billing">
+                <Link href="/billing" prefetch={false}>
                   <Button
                     variant="default"
                     className={cn(
@@ -401,7 +403,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   </Button>
                 </Link>
               ) : (
-                <Link href="/billing">
+                <Link href="/billing" prefetch={false}>
                   <Button
                     variant="default"
                     className={cn(
@@ -431,7 +433,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           )}
 
           {/* Settings Link */}
-          <Link href="/settings" className="block mt-2">
+          <Link href="/settings" prefetch={false} className="block mt-2">
             <Button
               variant="ghost"
               className={cn(

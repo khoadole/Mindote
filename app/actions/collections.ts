@@ -10,9 +10,13 @@ import { ensureUserExists } from "@/lib/ensure-user";
  */
 export async function getCollectionsAction() {
   const startTime = Date.now();
+  const isDev = process.env.NODE_ENV === "development";
   try {
     const userId = await getUserId();
-    console.log(`[getCollections] getUserId took ${Date.now() - startTime}ms`);
+    if (isDev)
+      console.log(
+        `[getCollections] getUserId took ${Date.now() - startTime}ms`
+      );
 
     const queryStart = Date.now();
     // ✅ Optimized: Only count words, don't fetch all word data
@@ -27,8 +31,12 @@ export async function getCollectionsAction() {
         createdAt: "desc",
       },
     });
-    console.log(`[getCollections] DB query took ${Date.now() - queryStart}ms`);
-    console.log(`[getCollections] Total took ${Date.now() - startTime}ms`);
+    if (isDev) {
+      console.log(
+        `[getCollections] DB query took ${Date.now() - queryStart}ms`
+      );
+      console.log(`[getCollections] Total took ${Date.now() - startTime}ms`);
+    }
 
     return {
       data: collections.map((col) => ({

@@ -169,9 +169,11 @@ export async function updateSettingsAction(data: {
  */
 export async function getUserStatsAction() {
   const startTime = Date.now();
+  const isDev = process.env.NODE_ENV === "development";
   try {
     const userId = await getUserId();
-    console.log(`[getUserStats] getUserId took ${Date.now() - startTime}ms`);
+    if (isDev)
+      console.log(`[getUserStats] getUserId took ${Date.now() - startTime}ms`);
 
     const queryStart = Date.now();
 
@@ -203,8 +205,10 @@ export async function getUserStatsAction() {
         (SELECT COUNT(*)::bigint FROM words w WHERE w.collection_id IN (SELECT id FROM user_collections) AND w.repetitions >= 8) as master_words
     `;
 
-    console.log(`[getUserStats] DB query took ${Date.now() - queryStart}ms`);
-    console.log(`[getUserStats] Total took ${Date.now() - startTime}ms`);
+    if (isDev) {
+      console.log(`[getUserStats] DB query took ${Date.now() - queryStart}ms`);
+      console.log(`[getUserStats] Total took ${Date.now() - startTime}ms`);
+    }
 
     const stats = result[0] || {
       total_collections: BigInt(0),

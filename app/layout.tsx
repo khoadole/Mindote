@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AppProvider } from "@/lib/app-provider";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { QueryProvider } from "@/lib/query-provider";
@@ -215,7 +216,9 @@ export default function RootLayout({
             </AppProvider>
           </QueryProvider>
         </Suspense>
+        {/* ✅ PERFORMANCE: Analytics & Speed Insights for Core Web Vitals monitoring */}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

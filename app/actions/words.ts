@@ -145,7 +145,7 @@ export async function updateWordAction(
     phonetic?: string;
     partOfSpeech?: string;
     score?: number;
-  }
+  },
 ) {
   try {
     const userId = await getUserId();
@@ -227,7 +227,7 @@ export async function deleteWordAction(wordId: string) {
 
 /**
  * Get all words for current user (for Quiz and Flashcards)
- * ✅ OPTIMIZED: Added pagination and better field selection
+ * ✅ OPTIMIZED: Two-step query for better index usage
  */
 export async function getAllWordsAction(options?: {
   skip?: number;
@@ -236,14 +236,36 @@ export async function getAllWordsAction(options?: {
 }) {
   try {
     const userId = await getUserId();
-    const { skip = 0, take = 1000, collectionId } = options || {};
+    const { skip = 0, take = 200, collectionId } = options || {};
 
+    // Step 1: Get user's collection IDs (uses index on collections.user_id)
+    let collectionIds: string[];
+    if (collectionId) {
+      // Verify collection belongs to user
+      const collection = await prisma.collection.findFirst({
+        where: { id: collectionId, userId },
+        select: { id: true },
+      });
+      if (!collection) {
+        return { data: [], error: null };
+      }
+      collectionIds = [collectionId];
+    } else {
+      const collections = await prisma.collection.findMany({
+        where: { userId },
+        select: { id: true },
+      });
+      collectionIds = collections.map((c) => c.id);
+    }
+
+    if (collectionIds.length === 0) {
+      return { data: [], error: null };
+    }
+
+    // Step 2: Get words using IN clause (uses index on words.collection_id)
     const words = await prisma.word.findMany({
       where: {
-        collection: {
-          userId,
-        },
-        ...(collectionId && { collectionId }),
+        collectionId: { in: collectionIds },
       },
       select: {
         id: true,

@@ -13,6 +13,7 @@ const FREE_DAILY_READING_LIMIT = 3;
 
 interface GenerateReadingRequest {
   collectionId: string;
+  selectedWordIds?: string[]; // Optional: specific word IDs to use (max 20)
   level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   passageType?: "story" | "article" | "essay" | "news";
   language?: string;
@@ -41,6 +42,7 @@ export async function POST(request: NextRequest) {
     const body: GenerateReadingRequest = await request.json();
     const {
       collectionId,
+      selectedWordIds,
       level = "B1",
       passageType = "story",
       language = "en",
@@ -49,40 +51,78 @@ export async function POST(request: NextRequest) {
     if (!collectionId) {
       return NextResponse.json(
         { error: "Collection ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // Check if collection belongs to user
-    const collection = await prisma.collection.findFirst({
-      where: {
-        id: collectionId,
-        userId,
-      },
-      include: {
-        words: {
-          select: {
-            term: true,
-            definition: true,
+    // Validate selectedWordIds if provided
+    if (selectedWordIds && selectedWordIds.length > 20) {
+      return NextResponse.json(
+        { error: "Maximum 20 words can be selected" },
+        { status: 400 },
+      );
+    }
+
+    // Check if collection belongs to user and fetch words
+    let words: Array<{ id: string; term: string; definition: string }>;
+
+    if (selectedWordIds && selectedWordIds.length > 0) {
+      // Fetch only selected words
+      const collection = await prisma.collection.findFirst({
+        where: { id: collectionId, userId },
+        select: { id: true },
+      });
+
+      if (!collection) {
+        return NextResponse.json(
+          { error: "Collection not found" },
+          { status: 404 },
+        );
+      }
+
+      words = await prisma.word.findMany({
+        where: {
+          id: { in: selectedWordIds },
+          collectionId: collectionId,
+        },
+        select: { id: true, term: true, definition: true },
+      });
+
+      if (words.length < 5) {
+        return NextResponse.json(
+          { error: "At least 5 words must be selected to generate a passage" },
+          { status: 400 },
+        );
+      }
+    } else {
+      // Fetch all words from collection (original behavior)
+      const collection = await prisma.collection.findFirst({
+        where: { id: collectionId, userId },
+        include: {
+          words: {
+            select: { id: true, term: true, definition: true },
           },
         },
-      },
-    });
+      });
 
-    if (!collection) {
-      return NextResponse.json(
-        { error: "Collection not found" },
-        { status: 404 }
-      );
-    }
+      if (!collection) {
+        return NextResponse.json(
+          { error: "Collection not found" },
+          { status: 404 },
+        );
+      }
 
-    if (collection.words.length < 5) {
-      return NextResponse.json(
-        {
-          error: "Collection must have at least 5 words to generate a passage",
-        },
-        { status: 400 }
-      );
+      if (collection.words.length < 5) {
+        return NextResponse.json(
+          {
+            error:
+              "Collection must have at least 5 words to generate a passage",
+          },
+          { status: 400 },
+        );
+      }
+
+      words = collection.words;
     }
 
     // Check if user has active subscription (premium bypass)
@@ -113,13 +153,13 @@ export async function POST(request: NextRequest) {
             remainingUses: 0,
             isPremium: false,
           },
-          { status: 429 }
+          { status: 429 },
         );
       }
     }
 
     // Get word terms for AI prompt
-    const wordTerms = collection.words.map((w) => w.term);
+    const wordTerms = words.map((w) => w.term);
     const wordList = wordTerms.slice(0, 30).join(", "); // Use max 30 words
 
     // Get language name for better AI understanding
@@ -277,10 +317,10 @@ Format as JSON:
       message: isPremium
         ? "Unlimited reading passages available"
         : remainingUses > 0
-        ? `${remainingUses} reading passage${
-            remainingUses === 1 ? "" : "s"
-          } remaining today`
-        : "Last free reading passage for today! Upgrade for unlimited access.",
+          ? `${remainingUses} reading passage${
+              remainingUses === 1 ? "" : "s"
+            } remaining today`
+          : "Last free reading passage for today! Upgrade for unlimited access.",
     });
   } catch (error: any) {
     console.error("Reading generation error:", error);
@@ -288,14 +328,14 @@ Format as JSON:
     if (error?.status === 401) {
       return NextResponse.json(
         { error: "Invalid OpenAI API key" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     if (error?.status === 429) {
       return NextResponse.json(
         { error: "AI service rate limit reached. Please try again later." },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -304,7 +344,7 @@ Format as JSON:
         error: "Failed to generate reading passage",
         message: error.message || "Unknown error occurred",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -353,7 +393,7 @@ export async function GET(request: NextRequest) {
     console.error("Fetch passages error:", error);
     return NextResponse.json(
       { error: "Failed to fetch reading passages" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

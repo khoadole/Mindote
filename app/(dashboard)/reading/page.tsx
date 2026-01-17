@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useCollections } from "@/hooks/use-collections";
+import { useWords } from "@/hooks/use-words";
 import { useGeneratePassage, useReadingPassages } from "@/hooks/use-reading";
 import {
   DIFFICULTY_LEVELS,
@@ -14,6 +15,7 @@ import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -32,6 +34,8 @@ import {
   TrendingUp,
   ChevronLeft,
   ChevronRight,
+  CheckSquare,
+  Square,
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n-provider";
@@ -65,15 +69,26 @@ export default function ReadingPage() {
   const generateMutation = useGeneratePassage();
 
   const [selectedCollection, setSelectedCollection] = useState<string>("");
+  const [selectedWordIds, setSelectedWordIds] = useState<string[]>([]);
   const [level, setLevel] = useState<string>("Intermediate");
   const [passageType, setPassageType] = useState<string>("story");
   const [language, setLanguage] = useState<string>(DEFAULT_LANGUAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 4;
+  const MAX_WORDS = 20;
+
+  // Fetch words when collection is selected
+  const { data: collectionWords, isLoading: wordsLoading } =
+    useWords(selectedCollection);
+
+  // Reset word selection when collection changes
+  useEffect(() => {
+    setSelectedWordIds([]);
+  }, [selectedCollection]);
 
   const hasCollections = collections && collections.length > 0;
   const selectedCollectionData = collections?.find(
-    (c) => c.id === selectedCollection
+    (c) => c.id === selectedCollection,
   );
 
   // Pagination logic
@@ -81,22 +96,56 @@ export default function ReadingPage() {
   const paginatedPassages = passages
     ? passages.slice(
         (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
+        currentPage * ITEMS_PER_PAGE,
       )
     : [];
+
+  // Word selection handlers
+  const handleWordToggle = (wordId: string) => {
+    setSelectedWordIds((prev) => {
+      if (prev.includes(wordId)) {
+        return prev.filter((id) => id !== wordId);
+      }
+      if (prev.length >= MAX_WORDS) {
+        return prev; // Don't add if at limit
+      }
+      return [...prev, wordId];
+    });
+  };
+
+  const handleSelectAll = () => {
+    if (collectionWords) {
+      setSelectedWordIds(collectionWords.slice(0, MAX_WORDS).map((w) => w.id));
+    }
+  };
+
+  const handleClearAll = () => {
+    setSelectedWordIds([]);
+  };
 
   const handleGenerate = () => {
     if (!selectedCollection) {
       return;
     }
 
-    generateMutation.mutate({
+    // Use selected words if any, otherwise API will use all words
+    const params: any = {
       collectionId: selectedCollection,
-      level: getCefrCode(level) as any, // Convert difficulty name to CEFR code (A1, B1, etc.)
+      level: getCefrCode(level) as any,
       passageType: passageType as any,
       language,
-    });
+    };
+
+    if (selectedWordIds.length > 0) {
+      params.selectedWordIds = selectedWordIds;
+    }
+
+    generateMutation.mutate(params);
   };
+
+  // Determine minimum words requirement
+  const hasEnoughWords =
+    selectedWordIds.length >= 5 || selectedWordIds.length === 0;
 
   return (
     <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
@@ -152,7 +201,9 @@ export default function ReadingPage() {
                           onValueChange={setSelectedCollection}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder={t("reading.chooseCollection")} />
+                            <SelectValue
+                              placeholder={t("reading.chooseCollection")}
+                            />
                           </SelectTrigger>
                           <SelectContent>
                             {collections.map((collection) => (
@@ -166,7 +217,8 @@ export default function ReadingPage() {
                                   />
                                   <span>{collection.name}</span>
                                   <span className="text-muted-foreground">
-                                    ({collection.wordCount || 0} {t("reading.words")})
+                                    ({collection.wordCount || 0}{" "}
+                                    {t("reading.words")})
                                   </span>
                                 </div>
                               </SelectItem>
@@ -181,6 +233,91 @@ export default function ReadingPage() {
                           )}
                       </div>
 
+                      {/* Word Selector */}
+                      {selectedCollection &&
+                        collectionWords &&
+                        collectionWords.length > 0 && (
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <Label>{t("reading.selectWords")}</Label>
+                              <span className="text-xs text-muted-foreground">
+                                {selectedWordIds.length}/{MAX_WORDS}{" "}
+                                {t("reading.selected")}
+                              </span>
+                            </div>
+
+                            <div className="flex gap-2 mb-2">
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={handleSelectAll}
+                                disabled={selectedWordIds.length >= MAX_WORDS}
+                              >
+                                <CheckSquare className="h-3 w-3 mr-1" />
+                                {t("common.selectAll")}
+                              </Button>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={handleClearAll}
+                                disabled={selectedWordIds.length === 0}
+                              >
+                                <Square className="h-3 w-3 mr-1" />
+                                {t("common.clearAll")}
+                              </Button>
+                            </div>
+
+                            <div className="max-h-48 overflow-y-auto border rounded-lg p-2 space-y-1">
+                              {wordsLoading ? (
+                                <div className="flex items-center justify-center py-4">
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                </div>
+                              ) : (
+                                collectionWords.map((word) => (
+                                  <div
+                                    key={word.id}
+                                    className={`flex items-center gap-2 p-2 rounded-md cursor-pointer hover:bg-muted/50 transition-colors ${
+                                      selectedWordIds.includes(word.id)
+                                        ? "bg-primary/10"
+                                        : ""
+                                    }`}
+                                    onClick={() => handleWordToggle(word.id)}
+                                  >
+                                    <Checkbox
+                                      checked={selectedWordIds.includes(
+                                        word.id,
+                                      )}
+                                      onCheckedChange={() =>
+                                        handleWordToggle(word.id)
+                                      }
+                                      disabled={
+                                        !selectedWordIds.includes(word.id) &&
+                                        selectedWordIds.length >= MAX_WORDS
+                                      }
+                                    />
+                                    <span className="text-sm font-medium">
+                                      {word.term}
+                                    </span>
+                                  </div>
+                                ))
+                              )}
+                            </div>
+
+                            {selectedWordIds.length > 0 &&
+                              selectedWordIds.length < 5 && (
+                                <p className="text-xs text-destructive">
+                                  {t("reading.selectAtLeast5")}
+                                </p>
+                              )}
+
+                            <p className="text-xs text-muted-foreground">
+                              {t("reading.wordSelectionHint")}
+                            </p>
+                          </div>
+                        )}
+
                       <div className="space-y-2">
                         <Label>{t("reading.difficultyLevel")}</Label>
                         <Select value={level} onValueChange={setLevel}>
@@ -188,14 +325,18 @@ export default function ReadingPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                          {DIFFICULTY_LEVELS.map((l) => (
+                            {DIFFICULTY_LEVELS.map((l) => (
                               <SelectItem key={l.value} value={l.value}>
                                 <div>
                                   <div className="font-medium">
-                                    {t(`reading.difficultyLevels.${l.translationKey}.label`)}
+                                    {t(
+                                      `reading.difficultyLevels.${l.translationKey}.label`,
+                                    )}
                                   </div>
                                   <div className="text-xs text-muted-foreground">
-                                    {t(`reading.difficultyLevels.${l.translationKey}.description`)}
+                                    {t(
+                                      `reading.difficultyLevels.${l.translationKey}.description`,
+                                    )}
                                   </div>
                                 </div>
                               </SelectItem>
@@ -218,10 +359,14 @@ export default function ReadingPage() {
                               <SelectItem key={type.value} value={type.value}>
                                 <div>
                                   <div className="font-medium">
-                                    {t(`reading.passageTypes.${type.value}.label`)}
+                                    {t(
+                                      `reading.passageTypes.${type.value}.label`,
+                                    )}
                                   </div>
                                   <div className="text-xs text-muted-foreground">
-                                    {t(`reading.passageTypes.${type.value}.description`)}
+                                    {t(
+                                      `reading.passageTypes.${type.value}.description`,
+                                    )}
                                   </div>
                                 </div>
                               </SelectItem>
@@ -285,24 +430,16 @@ export default function ReadingPage() {
               {/* Info Card */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-base">{t("reading.howItWorks")}</CardTitle>
+                  <CardTitle className="text-base">
+                    {t("reading.howItWorks")}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-muted-foreground">
-                  <p>
-                    {t("reading.chooseCollectionStep", { count: 5 })}
-                  </p>
-                  <p>
-                    {t("reading.selectDifficultyStep")}
-                  </p>
-                  <p>
-                    {t("reading.aiGeneratesStep")}
-                  </p>
-                  <p>
-                    {t("reading.readAnswerStep")}
-                  </p>
-                  <p>
-                    {t("reading.trackProgressStep")}
-                  </p>
+                  <p>{t("reading.chooseCollectionStep", { count: 5 })}</p>
+                  <p>{t("reading.selectDifficultyStep")}</p>
+                  <p>{t("reading.aiGeneratesStep")}</p>
+                  <p>{t("reading.readAnswerStep")}</p>
+                  <p>{t("reading.trackProgressStep")}</p>
                 </CardContent>
               </Card>
             </div>
@@ -364,7 +501,9 @@ export default function ReadingPage() {
                                 </h3>
                                 <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                                   <Badge variant="secondary">
-                                    {t(`reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`)}
+                                    {t(
+                                      `reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`,
+                                    )}
                                   </Badge>
                                   <span className="flex items-center gap-1">
                                     <FileText className="h-3 w-3" />
@@ -378,7 +517,10 @@ export default function ReadingPage() {
                                     passage._count.attempts > 0 && (
                                       <span className="flex items-center gap-1">
                                         <TrendingUp className="h-3 w-3" />
-                                        {passage._count.attempts} {t("reading.attempts", { count: passage._count.attempts })}
+                                        {passage._count.attempts}{" "}
+                                        {t("reading.attempts", {
+                                          count: passage._count.attempts,
+                                        })}
                                       </span>
                                     )}
                                 </div>
@@ -422,7 +564,7 @@ export default function ReadingPage() {
                           <div className="flex items-center gap-1">
                             {Array.from(
                               { length: totalPages },
-                              (_, i) => i + 1
+                              (_, i) => i + 1,
                             ).map((page) => (
                               <Button
                                 key={page}

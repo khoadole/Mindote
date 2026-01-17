@@ -14,7 +14,9 @@
     "search": "검색",
     "or": "또는",
     "and": "및",
-    "viewAll": "모두 보기"
+    "viewAll": "모두 보기",
+    "selectAll": "모두 선택",
+    "clearAll": "모두 해제"
   },
   "sidebar": {
     "tagline": "더 스마트하게 배우기",
@@ -538,7 +540,11 @@
     "keepStudying": "계속 학습하면 향상될 거예요!",
     "tryAgain": "다시 시도",
     "explanation": "설명:",
-    "wordNotFoundInCollection": "컬렉션에서 단어 정보를 찾을 수 없습니다."
+    "wordNotFoundInCollection": "컬렉션에서 단어 정보를 찾을 수 없습니다.",
+    "selectWords": "단어 선택 (선택사항)",
+    "selected": "선택됨",
+    "selectAtLeast5": "5개 이상 선택하거나 비워두세요",
+    "wordSelectionHint": "비워두면 모든 단어 사용 (최대 30개)"
   },
   "youtube": {
     "title": "YouTube 노트",

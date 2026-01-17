@@ -14,7 +14,9 @@
     "search": "Suchen",
     "or": "oder",
     "and": "und",
-    "viewAll": "Alle anzeigen"
+    "viewAll": "Alle anzeigen",
+    "selectAll": "Alle auswählen",
+    "clearAll": "Auswahl aufheben"
   },
   "sidebar": {
     "tagline": "Intelligenter lernen",
@@ -531,7 +533,11 @@
     "keepStudying": "Lernen Sie weiter, Sie werden sich verbessern!",
     "tryAgain": "Nochmal versuchen",
     "explanation": "Erklärung:",
-    "wordNotFoundInCollection": "Wortinformationen wurden in Ihrer Sammlung nicht gefunden."
+    "wordNotFoundInCollection": "Wortinformationen wurden in Ihrer Sammlung nicht gefunden.",
+    "selectWords": "Wörter auswählen (Optional)",
+    "selected": "ausgewählt",
+    "selectAtLeast5": "Mindestens 5 Wörter auswählen oder leer lassen",
+    "wordSelectionHint": "Leer lassen um alle Wörter zu verwenden (max 30)"
   },
   "youtube": {
     "title": "YouTube-Notizen",

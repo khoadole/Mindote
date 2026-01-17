@@ -14,7 +14,9 @@
     "search": "Buscar",
     "or": "o",
     "and": "y",
-    "viewAll": "Ver todo"
+    "viewAll": "Ver todo",
+    "selectAll": "Seleccionar todo",
+    "clearAll": "Borrar todo"
   },
   "sidebar": {
     "tagline": "Aprende más inteligentemente",
@@ -532,7 +534,11 @@
     "keepStudying": "¡Sigue estudiando, mejorarás!",
     "tryAgain": "Intentar de nuevo",
     "explanation": "Explicación:",
-    "wordNotFoundInCollection": "No se encontró información de la palabra en tu colección."
+    "wordNotFoundInCollection": "No se encontró información de la palabra en tu colección.",
+    "selectWords": "Seleccionar palabras (Opcional)",
+    "selected": "seleccionado",
+    "selectAtLeast5": "Selecciona al menos 5 palabras o deja vacío",
+    "wordSelectionHint": "Deja vacío para usar todas las palabras (máx 30)"
   },
   "youtube": {
     "title": "Notas de YouTube",

@@ -14,7 +14,9 @@
     "search": "検索",
     "or": "または",
     "and": "および",
-    "viewAll": "すべて表示"
+    "viewAll": "すべて表示",
+    "selectAll": "すべて選択",
+    "clearAll": "選択解除"
   },
   "sidebar": {
     "tagline": "スマートに学ぶ",
@@ -531,7 +533,11 @@
     "keepStudying": "学習を続ければ、上達します！",
     "tryAgain": "もう一度試す",
     "explanation": "解説:",
-    "wordNotFoundInCollection": "コレクションに単語情報が見つかりませんでした。"
+    "wordNotFoundInCollection": "コレクションに単語情報が見つかりませんでした。",
+    "selectWords": "単語を選択（オプション）",
+    "selected": "選択済み",
+    "selectAtLeast5": "5語以上選択するか、空のままにしてください",
+    "wordSelectionHint": "空のままで全単語を使用（最大30語）"
   },
   "youtube": {
     "title": "YouTubeノート",

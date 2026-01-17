@@ -15,7 +15,9 @@
     "or": "hoặc",
     "and": "và",
     "viewAll": "Xem tất cả",
-    "saving": "Đang lưu..."
+    "saving": "Đang lưu...",
+    "selectAll": "Chọn tất cả",
+    "clearAll": "Bỏ chọn"
   },
   "sidebar": {
     "tagline": "Học thông minh hơn",
@@ -541,7 +543,11 @@
     "keepStudying": "Tiếp tục học, bạn sẽ tiến bộ!",
     "tryAgain": "Thử lại",
     "explanation": "Giải thích:",
-    "wordNotFoundInCollection": "Không tìm thấy thông tin từ trong bộ sưu tập của bạn."
+    "wordNotFoundInCollection": "Không tìm thấy thông tin từ trong bộ sưu tập của bạn.",
+    "selectWords": "Chọn từ (Tùy chọn)",
+    "selected": "đã chọn",
+    "selectAtLeast5": "Chọn ít nhất 5 từ hoặc để trống để dùng tất cả",
+    "wordSelectionHint": "Để trống để dùng tất cả từ trong bộ sưu tập (tối đa 30)"
   },
   "youtube": {
     "title": "Ghi chú YouTube",

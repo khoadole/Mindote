@@ -14,7 +14,9 @@
     "search": "Pesquisar",
     "or": "ou",
     "and": "e",
-    "viewAll": "Ver tudo"
+    "viewAll": "Ver tudo",
+    "selectAll": "Selecionar tudo",
+    "clearAll": "Limpar tudo"
   },
   "sidebar": {
     "tagline": "Aprenda de forma mais inteligente",
@@ -538,7 +540,11 @@
     "keepStudying": "Continue estudando, você vai melhorar!",
     "tryAgain": "Tentar novamente",
     "explanation": "Explicação:",
-    "wordNotFoundInCollection": "Informações da palavra não encontradas na sua coleção."
+    "wordNotFoundInCollection": "Informações da palavra não encontradas na sua coleção.",
+    "selectWords": "Selecionar palavras (Opcional)",
+    "selected": "selecionado",
+    "selectAtLeast5": "Selecione pelo menos 5 palavras ou deixe vazio",
+    "wordSelectionHint": "Deixe vazio para usar todas as palavras (máx 30)"
   },
   "youtube": {
     "title": "Notas do YouTube",

@@ -14,7 +14,9 @@
     "search": "搜索",
     "or": "或",
     "and": "和",
-    "viewAll": "查看全部"
+    "viewAll": "查看全部",
+    "selectAll": "全选",
+    "clearAll": "清除"
   },
   "sidebar": {
     "tagline": "更智能地学习",
@@ -538,7 +540,11 @@
     "keepStudying": "继续学习，你会提高的！",
     "tryAgain": "再试一次",
     "explanation": "解释：",
-    "wordNotFoundInCollection": "在您的收藏中未找到该词汇信息。"
+    "wordNotFoundInCollection": "在您的收藏中未找到该词汇信息。",
+    "selectWords": "选择单词（可选）",
+    "selected": "已选",
+    "selectAtLeast5": "至少选择5个单词或留空使用全部",
+    "wordSelectionHint": "留空以使用所有单词（最多30个）"
   },
   "youtube": {
     "title": "YouTube 笔记",

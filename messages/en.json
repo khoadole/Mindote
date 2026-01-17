@@ -15,7 +15,9 @@
     "or": "or",
     "and": "and",
     "viewAll": "View all",
-    "saving": "Saving..."
+    "saving": "Saving...",
+    "selectAll": "Select All",
+    "clearAll": "Clear All"
   },
   "sidebar": {
     "tagline": "Learn smarter",
@@ -557,7 +559,11 @@
     "keepStudying": "Keep studying, you'll improve!",
     "tryAgain": "Try Again",
     "explanation": "Explanation:",
-    "wordNotFoundInCollection": "Word information not found in your collection."
+    "wordNotFoundInCollection": "Word information not found in your collection.",
+    "selectWords": "Select Words (Optional)",
+    "selected": "selected",
+    "selectAtLeast5": "Select at least 5 words or leave empty to use all",
+    "wordSelectionHint": "Leave empty to use all words from collection (max 30)"
   },
   "youtube": {
     "title": "YouTube Notes",

@@ -42,6 +42,7 @@ interface ReadingAttempt {
 
 interface GeneratePassageParams {
   collectionId: string;
+  selectedWordIds?: string[]; // Optional: specific word IDs to use (max 20)
   level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   passageType?: "story" | "article" | "essay" | "news";
   language?: string;
@@ -106,7 +107,7 @@ export function useReadingPassages(collectionId?: string) {
       }
 
       const response = await fetch(
-        `/api/reading/generate?${params.toString()}`
+        `/api/reading/generate?${params.toString()}`,
       );
 
       if (!response.ok) {
@@ -180,8 +181,8 @@ export function useSubmitAttempt() {
           score >= 80
             ? "🎉 Great Job!"
             : score >= 60
-            ? "👍 Good Work!"
-            : "💪 Keep Practicing!",
+              ? "👍 Good Work!"
+              : "💪 Keep Practicing!",
         description: `You scored ${score}% on this reading passage.`,
       });
     },
@@ -203,7 +204,7 @@ export function useReadingAttempts(passageId: string | null) {
       if (!passageId) return [];
 
       const response = await fetch(
-        `/api/reading/attempt?passageId=${passageId}`
+        `/api/reading/attempt?passageId=${passageId}`,
       );
 
       if (!response.ok) {

@@ -1,0 +1,674 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+A1,1,Greetings and Introductions,1,hello,exclamation,/həˈloʊ/,an expression of greeting,Hello! How are you?
+A1,1,Greetings and Introductions,2,hi,exclamation,/ˈhaɪ/,an informal greeting,Hi! Nice to see you!
+A1,1,Greetings and Introductions,3,good morning,interjection,/ˌgʊd ˈmɔrnɪŋ/,a greeting used in the morning,Good morning! Did you sleep well?
+A1,1,Greetings and Introductions,4,good afternoon,interjection,/ˌgʊd ˌæftɚˈnun/,a greeting used in the afternoon,"Good afternoon, how may I help you?"
+A1,1,Greetings and Introductions,5,good evening,interjection,/ˌgʊd ˈivnɪŋ/,a greeting used in the evening,Good evening! Welcome to our restaurant.
+A1,1,Greetings and Introductions,6,good night,interjection,/ˌgʊd ˈnaɪt/,a farewell used at night or before going to sleep,Good night! Sleep well.
+A1,1,Greetings and Introductions,7,goodbye,exclamation,/ˌgʊdˈbaɪ/,a farewell remark,Goodbye! See you tomorrow.
+A1,1,Greetings and Introductions,8,bye,exclamation,/ˈbaɪ/,an informal way to say goodbye,Bye! Have a nice day!
+A1,1,Greetings and Introductions,9,please,adverb,/ˈpliz/,used to ask for something politely,"Can I have some water, please?"
+A1,1,Greetings and Introductions,10,thanks,exclamation,/ˈθæŋks/,an informal way to express gratitude,Thanks for your help!
+A1,1,Greetings and Introductions,11,sorry,adjective,/ˈsɑri/,feeling regret or apologizing,"Sorry, I am late."
+A1,1,Greetings and Introductions,12,welcome,exclamation,/ˈwɛlkəm/,used as a greeting or response to thanks,You are welcome!
+A1,1,Greetings and Introductions,13,yes,adverb,/ˈjɛs/,used to give a positive answer,"Yes, I understand."
+A1,1,Greetings and Introductions,14,no,adverb,/ˈnoʊ/,used to give a negative answer,"No, thank you."
+A1,1,Greetings and Introductions,15,I,pronoun,/ˈaɪ/,used to refer to oneself,I am a student.
+A1,1,Greetings and Introductions,16,you,pronoun,/ˈju/,used to refer to the person being spoken to,How are you?
+A1,1,Greetings and Introductions,17,my,determiner,/ˈmaɪ/,belonging to me,My name is John.
+A1,1,Greetings and Introductions,18,your,determiner,/ˈjʊr/,belonging to you,What is your name?
+A1,1,Greetings and Introductions,19,name,noun,/ˈneɪm/,a word by which a person is known,My name is Anna.
+A1,1,Greetings and Introductions,20,first name,noun,/ˈfɝst ˌneɪm/,a personal name given at birth,My first name is David.
+A1,1,Greetings and Introductions,21,last name,noun,/ˈlæst ˌneɪm/,the name shared by members of a family,What is your last name?
+A1,1,Greetings and Introductions,22,meet,verb,/ˈmit/,to come together with someone,Nice to meet you!
+A1,1,Greetings and Introductions,23,introduce,verb,/ˌɪntrəˈdus/,to present someone to another person,Let me introduce my friend.
+A1,1,Greetings and Introductions,24,speak,verb,/ˈspik/,to say words using your voice,Do you speak English?
+A1,1,Greetings and Introductions,25,nice,adjective,/ˈnaɪs/,pleasant or agreeable,It is nice to meet you.
+A1,2,"Numbers, Dates and Time",1,one,number,/ˈwʌn/,the smallest whole number,I have one apple
+A1,2,"Numbers, Dates and Time",2,two,number,/ˈtu/,the cardinal number that is the sum of one and one,I have two sisters
+A1,2,"Numbers, Dates and Time",3,three,number,/ˈθri/,the cardinal number that is the sum of two and one,There are three cats in the garden
+A1,2,"Numbers, Dates and Time",4,four,number,/ˈfɔr/,the cardinal number that is the sum of three and one,There are four seasons in a year
+A1,2,"Numbers, Dates and Time",5,five,number,/ˈfaɪv/,the cardinal number that is the sum of four and one,I have five fingers on each hand
+A1,2,"Numbers, Dates and Time",6,six,number,/ˈsɪks/,the cardinal number that is the sum of five and one,There are six eggs in the box
+A1,2,"Numbers, Dates and Time",7,seven,number,/ˈsɛvən/,the cardinal number that is the sum of six and one,There are seven days in a week
+A1,2,"Numbers, Dates and Time",8,eight,number,/ˈeɪt/,the cardinal number that is the sum of seven and one,I have eight books on my shelf
+A1,2,"Numbers, Dates and Time",9,nine,number,/ˈnaɪn/,the cardinal number that is the sum of eight and one,The shop opens at nine o'clock
+A1,2,"Numbers, Dates and Time",10,ten,number,/ˈtɛn/,the cardinal number that is the sum of nine and one,I have ten fingers
+A1,2,"Numbers, Dates and Time",11,eleven,number,/ɪˈlɛvən/,the cardinal number that is the sum of ten and one,There are eleven players on a football team
+A1,2,"Numbers, Dates and Time",12,twelve,number,/ˈtwɛlv/,the cardinal number that is the sum of eleven and one,There are twelve months in a year
+A1,2,"Numbers, Dates and Time",13,twenty,number,/ˈtwɛnti/,the cardinal number that is the product of ten and two,She is twenty years old
+A1,2,"Numbers, Dates and Time",14,fifty,number,/ˈfɪfti/,the cardinal number that is the product of ten and five,The ticket costs fifty dollars
+A1,2,"Numbers, Dates and Time",15,hundred,number,/ˈhʌndrəd/,ten 10s,There are one hundred students in our school
+A1,2,"Numbers, Dates and Time",16,thousand,number,/ˈθaʊzənd/,the number that is represented as a one followed by 3 zeros,A thousand people came to the concert
+A1,2,"Numbers, Dates and Time",17,first,ordinal number,/ˈfɝst/,the first or highest in an ordering or series,He finished in first place
+A1,2,"Numbers, Dates and Time",18,second,ordinal number,/ˈsɛkənd/,following the first in order,She came in second place
+A1,2,"Numbers, Dates and Time",19,third,ordinal number,/ˈθɝd/,following the second position; number three in a countable series,He lives on the third floor
+A1,2,"Numbers, Dates and Time",20,fourth,ordinal number,/ˈfɔrθ/,following the third position; number four in a countable series,She lives on the fourth floor
+A1,2,"Numbers, Dates and Time",21,fifth,ordinal number,/ˈfɪfθ/,following the fourth position; number five in a countable series,He finished in fifth place
+A1,2,"Numbers, Dates and Time",22,minute,noun,/ˈmɪnət/,a unit of time equal to 60 seconds,The train leaves in five minutes
+A1,2,"Numbers, Dates and Time",23,hour,noun,/ˈaʊɚ/,a period of time equal to 1/24th of a day,The job will take more than an hour
+A1,2,"Numbers, Dates and Time",24,day,noun,/ˈdeɪ/,time for Earth to make a complete rotation on its axis,Two days later they left
+A1,2,"Numbers, Dates and Time",25,week,noun,/ˈwik/,a period of seven consecutive days,I work five days a week
+A1,2,"Numbers, Dates and Time",26,month,noun,/ˈmʌnθ/,one of the twelve divisions of the calendar year,He paid the bill last month
+A1,2,"Numbers, Dates and Time",27,year,noun,/ˈjɪr/,a period of time containing 365 or 366 days,She is 25 years old
+A1,2,"Numbers, Dates and Time",28,morning,noun,/ˈmɔrnɪŋ/,the time from midnight to noon,I wake up early in the morning
+A1,2,"Numbers, Dates and Time",29,afternoon,noun,/ˌæftɚˈnun/,the part of the day between noon and evening,He spent a quiet afternoon in the park
+A1,2,"Numbers, Dates and Time",30,evening,noun,/ˈivnɪŋ/,the latter part of the day from late afternoon until nightfall,He enjoyed the evening light across the lake
+A1,2,"Numbers, Dates and Time",31,midnight,noun,/ˈmɪˌdnaɪt/,12 o'clock at night; the middle of the night,The movie ended at midnight
+A1,2,"Numbers, Dates and Time",32,Monday,noun,/ˈmʌndi/,the second day of the week; the first working day,I start work on Monday
+A1,2,"Numbers, Dates and Time",33,Tuesday,noun,/ˈtuzdi/,the third day of the week; the second working day,We have a meeting on Tuesday
+A1,2,"Numbers, Dates and Time",34,Wednesday,noun,/ˈwɛnzdi/,the fourth day of the week; the third working day,Wednesday is the middle of the week
+A1,2,"Numbers, Dates and Time",35,Thursday,noun,/ˈθɝzdi/,the fifth day of the week; the fourth working day,The show is on Thursday night
+A1,2,"Numbers, Dates and Time",36,Friday,noun,/ˈfraɪdi/,the sixth day of the week; the fifth working day,We go to the movies on Friday
+A1,2,"Numbers, Dates and Time",37,Saturday,noun,/ˈsætɚdi/,the seventh day of the week; the first day of the weekend,We go shopping on Saturday
+A1,2,"Numbers, Dates and Time",38,Sunday,noun,/ˈsʌndi/,the first day of the week; a day of rest and worship,We visit grandma on Sunday
+A1,2,"Numbers, Dates and Time",39,January,noun,/ˈdʒænjuˌɛri/,the first month of the year,The new year starts in January
+A1,2,"Numbers, Dates and Time",40,February,noun,/ˈfɛbjuˌɛri/,the second month of the year,Valentine's Day is in February
+A1,2,"Numbers, Dates and Time",41,March,noun,/ˈmɑrtʃ/,the third month of the year,Spring begins in March
+A1,2,"Numbers, Dates and Time",42,April,noun,/ˈeɪprəl/,the fourth month of the year,My birthday is in April
+A1,2,"Numbers, Dates and Time",43,May,noun,/ˈmeɪ/,the fifth month of the year,Flowers bloom in May
+A1,2,"Numbers, Dates and Time",44,June,noun,/ˈdʒun/,the sixth month of the year,School ends in June
+A1,2,"Numbers, Dates and Time",45,July,noun,/ˌdʒuˈlaɪ/,the seventh month of the year,We have summer vacation in July
+A1,2,"Numbers, Dates and Time",46,August,noun,/ˈɑgəst/,the eighth month of the year,We go on vacation in August
+A1,2,"Numbers, Dates and Time",47,September,noun,/sɛpˈtɛmbɚ/,the ninth month of the year,School starts in September
+A1,2,"Numbers, Dates and Time",48,October,noun,/ɑkˈtoʊbɚ/,the tenth month of the year,Halloween is in October
+A1,2,"Numbers, Dates and Time",49,November,noun,/noʊˈvɛmbɚ/,the eleventh month of the year,Thanksgiving is in November
+A1,2,"Numbers, Dates and Time",50,December,noun,/dɪˈsɛmbɚ/,the twelfth and last month of the year,Christmas is in December
+A1,2,"Numbers, Dates and Time",52,date,noun,/ˈdeɪt/,the specified day of the month,What is the date today?
+A1,2,"Numbers, Dates and Time",53,today,adverb,/təˈdeɪ/,on this present day,I am busy today
+A1,2,"Numbers, Dates and Time",54,tomorrow,adverb,/təˈmɔroʊ/,the day after today,I will call you tomorrow
+A1,2,"Numbers, Dates and Time",55,early,adjective,/ˈɝli/,at or near the beginning of a period of time,I wake up early in the morning
+A1,2,"Numbers, Dates and Time",56,late,adjective,/ˈleɪt/,being or occurring at an advanced period of time,The bus is late today
+A1,3,Colors and Shapes,1,red,adjective,/ˈrɛd/,the color of blood or fire,She has a red car.
+A1,3,Colors and Shapes,2,blue,adjective,/ˈblu/,the color of the sky on a clear day,The sky is blue today.
+A1,3,Colors and Shapes,3,green,adjective,/ˈgrin/,the color of grass and leaves,The grass is green.
+A1,3,Colors and Shapes,4,yellow,adjective,/ˈjɛloʊ/,the color of the sun or a banana,The taxi is yellow.
+A1,3,Colors and Shapes,5,white,adjective,/ˈwaɪt/,the color of snow or milk,She wears a white dress.
+A1,3,Colors and Shapes,6,black,adjective,/ˈblæk/,"the darkest color, the color of night",He has a black cat.
+A1,3,Colors and Shapes,7,orange,adjective,/ˈɔrəndʒ/,the color between red and yellow,I like orange juice.
+A1,3,Colors and Shapes,8,pink,adjective,/ˈpɪŋk/,a light red color,She wears a pink dress.
+A1,3,Colors and Shapes,9,brown,adjective,/ˈbraʊn/,the color of wood or chocolate,He has brown eyes.
+A1,3,Colors and Shapes,10,purple,adjective,/ˈpɝpəl/,the color between red and blue,She painted the room purple.
+A1,3,Colors and Shapes,11,grey,adjective,/ˈgreɪ/,the color between black and white,The cat is grey.
+A1,3,Colors and Shapes,12,color,noun,/ˈkʌlɚ/,the appearance of things caused by light,What color is your car?
+A1,3,Colors and Shapes,13,dark,adjective,/ˈdɑrk/,having little or no light,I like dark blue.
+A1,3,Colors and Shapes,14,light,adjective,/ˈlaɪt/,not dark; pale,She has light brown hair.
+A1,3,Colors and Shapes,15,shape,noun,/ˈʃeɪp/,the form of something,What shape is this?
+A1,3,Colors and Shapes,16,circle,noun,/ˈsɝkəl/,a round shape like the letter O,Draw a circle on the paper.
+A1,3,Colors and Shapes,17,square,noun,/ˈskwɛr/,a shape with four equal sides,The box is a square.
+A1,3,Colors and Shapes,18,triangle,noun,/ˈtraɪˌæŋgəl/,a shape with three sides,A triangle has three corners.
+A1,3,Colors and Shapes,19,rectangle,noun,/ˈrɛkˌtæŋgəl/,a shape with four sides and four right angles,The door is a rectangle.
+A1,3,Colors and Shapes,20,round,adjective,/ˈraʊnd/,shaped like a circle or ball,The ball is round.
+A1,4,Family and Friends,1,mother,noun,/ˈmʌðɚ/,a female parent,My mother is a teacher.
+A1,4,Family and Friends,2,father,noun,/ˈfɑðɚ/,a male parent,My father works at a bank.
+A1,4,Family and Friends,3,parent,noun,/ˈpɛrənt/,a father or mother,My parents live in the city.
+A1,4,Family and Friends,4,brother,noun,/ˈbrʌðɚ/,a male sibling,I have one brother.
+A1,4,Family and Friends,5,sister,noun,/ˈsɪstɚ/,a female sibling,My sister is older than me.
+A1,4,Family and Friends,6,baby,noun,/ˈbeɪbi/,a very young child,The baby is sleeping.
+A1,4,Family and Friends,7,child,noun,/ˈtʃaɪld/,a young person,She has one child.
+A1,4,Family and Friends,8,son,noun,/ˈsʌn/,a male child,Their son is ten years old.
+A1,4,Family and Friends,9,daughter,noun,/ˈdɔtɚ/,a female child,Her daughter goes to school.
+A1,4,Family and Friends,10,family,noun,/ˈfæməli/,a group of parents and children living together,I love my family.
+A1,4,Family and Friends,11,grandparent,noun,/ˈgræˌndpɛrənt/,the parent of your parent,I visit my grandparents every Sunday.
+A1,4,Family and Friends,12,grandmother,noun,/ˈgræˌndmʌðɚ/,the mother of your parent,My grandmother makes delicious cookies.
+A1,4,Family and Friends,13,grandfather,noun,/ˈgræˌndfɑðɚ/,the father of your parent,My grandfather is 80 years old.
+A1,4,Family and Friends,14,aunt,noun,/ˈænt/,the sister of your parent,My aunt lives in Canada.
+A1,4,Family and Friends,15,uncle,noun,/ˈʌŋkəl/,the brother of your parent,My uncle lives in London.
+A1,4,Family and Friends,16,cousin,noun,/ˈkʌzən/,the child of your aunt or uncle,My cousin lives in New York.
+A1,4,Family and Friends,17,boy,noun,/ˈbɔɪ/,a male child or young man,The boy is playing football.
+A1,4,Family and Friends,18,girl,noun,/ˈgɝl/,a female child or young woman,The girl is reading a book.
+A1,4,Family and Friends,19,man,noun,/ˈmæn/,an adult male person,That man is my teacher.
+A1,4,Family and Friends,20,woman,noun,/ˈwʊmən/,an adult female person,That woman is a doctor.
+A1,4,Family and Friends,21,person,noun,/ˈpɝsən/,a human being,She is a nice person.
+A1,4,Family and Friends,22,people,noun,/ˈpipəl/,more than one person,Many people live here.
+A1,4,Family and Friends,23,friend,noun,/ˈfrɛnd/,a person you like and trust,She is my best friend.
+A1,4,Family and Friends,24,boyfriend,noun,/ˈbɔɪˌfrɛnd/,a male romantic partner,Her boyfriend is very kind.
+A1,4,Family and Friends,25,girlfriend,noun,/ˈgɝlˌfrɛnd/,a female romantic partner,His girlfriend is a student.
+A1,4,Family and Friends,26,husband,noun,/ˈhʌzbənd/,a married man,Her husband works at a bank.
+A1,4,Family and Friends,27,wife,noun,/ˈwaɪf/,a married woman,His wife is a doctor.
+A1,4,Family and Friends,28,married,adjective,/ˈmɛrid/,having a husband or wife,They are married.
+A1,5,Body & Health,1,head,noun,/ˈhɛd/,the top part of your body,I have a headache.
+A1,5,Body & Health,2,face,noun,/ˈfeɪs/,the front of your head,She washed her face.
+A1,5,Body & Health,3,eye,noun,/ˈaɪ/,the part of your body that you see with,She has blue eyes.
+A1,5,Body & Health,4,ear,noun,/ˈɪr/,the part of your body that you hear with,I have a pain in my ear.
+A1,5,Body & Health,5,nose,noun,/ˈnoʊz/,the part of your face that you smell with,He has a cold in his nose.
+A1,5,Body & Health,6,mouth,noun,/ˈmaʊθ/,the part of your face that you eat and speak with,Open your mouth please.
+A1,5,Body & Health,7,tooth,noun,/ˈtuθ/,one of the hard white things in your mouth,I brush my teeth twice a day.
+A1,5,Body & Health,8,hair,noun,/ˈhɛr/,the thin threads that grow on your head,She has long brown hair.
+A1,5,Body & Health,9,neck,noun,/ˈnɛk/,the part between your head and shoulders,He wears a tie around his neck.
+A1,5,Body & Health,10,arm,noun,/ˈɑrm/,the part of your body from shoulder to hand,She broke her arm.
+A1,5,Body & Health,11,hand,noun,/ˈhænd/,the part at the end of your arm,Wash your hands please.
+A1,5,Body & Health,12,finger,noun,/ˈfɪŋgɚ/,one of the five parts at the end of your hand,I have five fingers on each hand.
+A1,5,Body & Health,13,body,noun,/ˈbɑdi/,all of a person or animal,Exercise is good for your body.
+A1,5,Body & Health,14,back,noun,/ˈbæk/,the part of your body behind you,My back hurts.
+A1,5,Body & Health,15,stomach,noun,/ˈstʌmək/,the front part of your body below your chest,I have a stomach ache.
+A1,5,Body & Health,16,leg,noun,/ˈlɛg/,the part of your body from hip to foot,He hurt his leg.
+A1,5,Body & Health,17,foot,noun,/ˈfʊt/,the part at the end of your leg,I wear shoes on my feet.
+A1,5,Body & Health,18,health,noun,/ˈhɛlθ/,the condition of your body,Good health is important.
+A1,5,Body & Health,19,healthy,adjective,/ˈhɛlθi/,not sick; in good condition,Eat vegetables to stay healthy.
+A1,5,Body & Health,20,sick,adjective,/ˈsɪk/,not well; ill,I feel sick today.
+A1,5,Body & Health,21,well,adjective,/ˈwɛl/,in good health,I hope you get well soon.
+A1,5,Body & Health,22,hurt,verb,/ˈhɝt/,to feel pain,My head hurts.
+A1,6,Clothes and Accessories,1,shirt,noun,/ˈʃɝt/,a piece of clothing for the upper body,He wears a white shirt.
+A1,6,Clothes and Accessories,2,T-shirt,noun,/ˈtiˌʃɝt/,a casual shirt with short sleeves,He wears a T-shirt in summer.
+A1,6,Clothes and Accessories,3,blouse,noun,/ˈblaʊs/,a shirt for women,She wore a white blouse.
+A1,6,Clothes and Accessories,4,sweater,noun,/ˈswɛtɚ/,a warm knitted piece of clothing,"Wear a sweater, it is cold."
+A1,6,Clothes and Accessories,5,jacket,noun,/ˈdʒækət/,a short coat,Wear a jacket outside.
+A1,6,Clothes and Accessories,6,coat,noun,/ˈkoʊt/,a long piece of clothing worn outdoors,Put on your coat.
+A1,6,Clothes and Accessories,7,trousers,noun,/ˈtraʊzɚz/,a piece of clothing that covers the legs,He wears black trousers.
+A1,6,Clothes and Accessories,8,jeans,noun,/ˈdʒinz/,trousers made of denim,I wear jeans to school.
+A1,6,Clothes and Accessories,9,shorts,noun,/ˈʃɔrts/,short trousers that end above the knee,I wear shorts in summer.
+A1,6,Clothes and Accessories,10,skirt,noun,/ˈskɝt/,a piece of clothing for women that hangs from the waist,She wears a long skirt.
+A1,6,Clothes and Accessories,11,dress,noun,/ˈdrɛs/,a one-piece garment for women,She wore a beautiful dress.
+A1,6,Clothes and Accessories,12,shoe,noun,/ˈʃu/,a covering for your foot,I need new shoes.
+A1,6,Clothes and Accessories,13,boot,noun,/ˈbut/,a shoe that covers the foot and ankle,She wears boots in winter.
+A1,6,Clothes and Accessories,14,socks,noun,/ˈsɑks/,soft covering for the foot worn inside shoes,I wear white socks.
+A1,6,Clothes and Accessories,15,hat,noun,/ˈhæt/,a covering for your head,She wears a hat in the sun.
+A1,6,Clothes and Accessories,16,bag,noun,/ˈbæg/,a container for carrying things,She carries a red bag.
+A1,6,Clothes and Accessories,17,glasses,noun,/ˈglæsəz/,two lenses in a frame worn to help you see,I need glasses to read.
+A1,6,Clothes and Accessories,18,watch,noun,/ˈwɑtʃ/,a small clock worn on your wrist,I check my watch for the time.
+A1,6,Clothes and Accessories,19,umbrella,noun,/əmˈbrɛlə/,something you hold over your head when it rains,"Take an umbrella, it might rain."
+A1,6,Clothes and Accessories,20,clothes,noun,/ˈkloʊðz/,things you wear on your body,I buy new clothes every month.
+A1,6,Clothes and Accessories,21,wear,verb,/ˈwɛr/,to have clothes on your body,She wears a blue dress.
+A1,7,Food and Drink,1,water,noun,/ˈwɔtɚ/,a clear liquid that you drink,I drink water every day.
+A1,7,Food and Drink,2,milk,noun,/ˈmɪlk/,a white liquid from cows,I drink milk every morning.
+A1,7,Food and Drink,3,juice,noun,/ˈdʒus/,a drink made from fruit,I drink orange juice.
+A1,7,Food and Drink,4,tea,noun,/ˈti/,a hot drink made from leaves,Would you like some tea?
+A1,7,Food and Drink,5,coffee,noun,/ˈkɑfi/,a hot brown drink,He drinks coffee in the morning.
+A1,7,Food and Drink,6,drink,verb,/ˈdrɪŋk/,to take liquid into your mouth,I drink water every day.
+A1,7,Food and Drink,7,eat,verb,/ˈit/,to put food in your mouth,I eat breakfast at 7 AM.
+A1,7,Food and Drink,8,food,noun,/ˈfud/,things that you eat,I love Italian food.
+A1,7,Food and Drink,9,bread,noun,/ˈbrɛd/,a food made from flour,I eat bread for breakfast.
+A1,7,Food and Drink,10,rice,noun,/ˈraɪs/,small white grains used as food,I eat rice with vegetables.
+A1,7,Food and Drink,11,egg,noun,/ˈɛg/,a food that comes from chickens,I eat eggs for breakfast.
+A1,7,Food and Drink,12,meat,noun,/ˈmit/,food from animals,I eat meat for dinner.
+A1,7,Food and Drink,13,fish,noun,/ˈfɪʃ/,an animal that lives in water,I like to eat fish.
+A1,7,Food and Drink,14,chicken,noun,/ˈtʃɪkən/,a bird used for food,We had chicken for dinner.
+A1,7,Food and Drink,15,fruit,noun,/ˈfrut/,sweet food from plants like apples,I eat fruit every day.
+A1,7,Food and Drink,16,apple,noun,/ˈæpəl/,a round red or green fruit,She ate a red apple.
+A1,7,Food and Drink,17,banana,noun,/bəˈnænə/,a long yellow fruit,I eat a banana for breakfast.
+A1,7,Food and Drink,18,carrot,noun,/ˈkærət/,an orange vegetable,Rabbits like to eat carrots.
+A1,7,Food and Drink,19,potato,noun,/pəˈteɪtoʊ/,a brown vegetable that grows underground,I like fried potatoes.
+A1,7,Food and Drink,20,onion,noun,/ˈʌnjən/,a round vegetable with a strong smell,I add onions to the salad.
+A1,7,Food and Drink,21,cheese,noun,/ˈtʃiz/,a food made from milk,I like cheese on my pizza.
+A1,7,Food and Drink,22,butter,noun,/ˈbʌtɚ/,a yellow food made from milk,Put some butter on the bread.
+A1,7,Food and Drink,23,sugar,noun,/ˈʃʊgɚ/,a sweet white substance,Do you want sugar in your tea?
+A1,7,Food and Drink,24,salt,noun,/ˈsɔlt/,a white substance used to add taste,Please pass the salt.
+A1,7,Food and Drink,25,chocolate,noun,/ˈtʃɔklət/,a sweet brown food,I love chocolate.
+A1,7,Food and Drink,26,cake,noun,/ˈkeɪk/,a sweet food made for special occasions,We have cake on birthdays.
+A1,7,Food and Drink,27,ice cream,noun,/ˈaɪs ˌkrim/,a cold sweet food,I love vanilla ice cream.
+A1,7,Food and Drink,28,breakfast,noun,/ˈbrɛkfəst/,the first meal of the day,I eat breakfast at 7 AM.
+A1,7,Food and Drink,29,lunch,noun,/ˈlʌntʃ/,a meal in the middle of the day,I eat lunch at noon.
+A1,7,Food and Drink,30,dinner,noun,/ˈdɪnɚ/,the main meal in the evening,Dinner is at 7 PM.
+A1,7,Food and Drink,31,meal,noun,/ˈmil/,food that you eat at one time,Dinner is my favorite meal.
+A1,7,Food and Drink,32,menu,noun,/ˈmɛnju/,a list of food in a restaurant,Can I see the menu please?
+A1,7,Food and Drink,33,cup,noun,/ˈkʌp/,a small container for drinks,I drink tea from a cup.
+A1,7,Food and Drink,34,glass,noun,/ˈglæs/,a container for cold drinks,Can I have a glass of water?
+A1,7,Food and Drink,35,bottle,noun,/ˈbɑtəl/,a container for liquids,I bought a bottle of water.
+A1,7,Food and Drink,36,dish,noun,/ˈdɪʃ/,a plate for food,Put the food on the dish.
+A1,7,Food and Drink,37,hungry,adjective,/ˈhʌŋgri/,wanting to eat food,I am hungry.
+A1,7,Food and Drink,38,delicious,adjective,/dɪˈlɪʃəs/,very good to eat,This food is delicious!
+A1,8,Daily Routine,1,wake,verb,/ˈweɪk/,to stop sleeping,I wake up at 7 AM.
+A1,8,Daily Routine,2,get up,verb,/ˈgɛt ˌʌp/,to get out of bed,I get up early every day.
+A1,8,Daily Routine,3,go,verb,/ˈgoʊ/,to move from one place to another,I go to school at 8 AM.
+A1,8,Daily Routine,4,come,verb,/ˈkʌm/,to move toward a place,Please come here.
+A1,8,Daily Routine,5,work,verb,/ˈwɝk/,to do a job,I work from 9 to 5.
+A1,8,Daily Routine,6,start,verb,/ˈstɑrt/,to begin doing something,School starts at 8 AM.
+A1,8,Daily Routine,7,finish,verb,/ˈfɪnɪʃ/,to complete something,I finish work at 5 PM.
+A1,8,Daily Routine,8,sleep,verb,/ˈslip/,to rest with your eyes closed,I sleep 8 hours every night.
+A1,8,Daily Routine,9,live,verb,/ˈlɪv/,to have your home in a place,I live in London.
+A1,8,Daily Routine,10,spend,verb,/ˈspɛnd/,to use time doing something,I spend time with my family.
+A1,8,Daily Routine,11,begin,verb,/bɪˈgɪn/,to start,The class begins at 9 AM.
+A1,8,Daily Routine,12,clean,verb,/ˈklin/,to make something not dirty,I clean my room every week.
+A1,8,Daily Routine,13,relax,verb,/rɪˈlæks/,to rest and feel calm,I relax on the weekend.
+A1,8,Daily Routine,14,arrive,verb,/əˈraɪv/,to reach a place,I arrive at work at 9 AM.
+A1,8,Daily Routine,15,always,adverb,/ˈɔlˌweɪz/,at all times,I always eat breakfast.
+A1,8,Daily Routine,16,usually,adverb,/ˈjuʒəwəli/,most of the time,I usually wake up early.
+A1,8,Daily Routine,17,often,adverb,/ˈɔfən/,many times,We often go to the park.
+A1,8,Daily Routine,18,sometimes,adverb,/ˈsʌmˌtaɪmz/,on some occasions,Sometimes I walk to work.
+A1,8,Daily Routine,19,never,adverb,/ˈnɛvɚ/,not at any time,I never drink coffee.
+A1,8,Daily Routine,20,every,determiner,/ˈɛvɚi/,each one,I go to school every day.
+A1,8,Daily Routine,21,weekend,noun,/ˈwiˌkɛnd/,Saturday and Sunday,I relax on the weekend.
+A1,9,Home & Kitchen,1,home,noun,/ˈhoʊm/,the place where you live,I go home after work.
+A1,9,Home & Kitchen,2,house,noun,/ˈhaʊs/,a building where people live,They have a big house.
+A1,9,Home & Kitchen,3,apartment,noun,/əˈpɑrtmənt/,a set of rooms in a building,They live in an apartment.
+A1,9,Home & Kitchen,4,room,noun,/ˈrum/,a space in a building with walls,This room is very big.
+A1,9,Home & Kitchen,5,door,noun,/ˈdɔr/,something you open to enter a room,Please close the door.
+A1,9,Home & Kitchen,6,window,noun,/ˈwɪndoʊ/,an opening in a wall with glass,Open the window please.
+A1,9,Home & Kitchen,7,wall,noun,/ˈwɔl/,the side of a room,There is a picture on the wall.
+A1,9,Home & Kitchen,8,floor,noun,/ˈflɔr/,the surface you walk on in a room,The floor is clean.
+A1,9,Home & Kitchen,9,bedroom,noun,/ˈbɛdˌrum/,a room for sleeping,My bedroom is upstairs.
+A1,9,Home & Kitchen,10,bathroom,noun,/ˈbæθˌrum/,a room with a toilet and shower,The bathroom is upstairs.
+A1,9,Home & Kitchen,11,kitchen,noun,/ˈkɪtʃən/,a room for cooking,She cooks in the kitchen.
+A1,9,Home & Kitchen,12,living room,noun,/ˈlɪvɪŋ ˌrum/,a room for relaxing and watching TV,We watch TV in the living room.
+A1,9,Home & Kitchen,13,dining room,noun,/ˈdaɪnɪŋ ˌrum/,a room for eating meals,We eat dinner in the dining room.
+A1,9,Home & Kitchen,14,garden,noun,/ˈgɑrdən/,an area with plants and flowers,We have a beautiful garden.
+A1,9,Home & Kitchen,15,bed,noun,/ˈbɛd/,a piece of furniture for sleeping,I sleep in my bed.
+A1,9,Home & Kitchen,16,table,noun,/ˈteɪbəl/,a piece of furniture with a flat top,Put the book on the table.
+A1,9,Home & Kitchen,17,chair,noun,/ˈtʃɛr/,a seat for one person,Please sit on the chair.
+A1,9,Home & Kitchen,18,desk,noun,/ˈdɛsk/,a table for working or studying,I do homework at my desk.
+A1,9,Home & Kitchen,19,sofa,noun,/ˈsoʊfə/,a long soft seat for more than one person,We sit on the sofa.
+A1,9,Home & Kitchen,20,lamp,noun,/ˈlæmp/,a device that gives light,Turn on the lamp please.
+A1,9,Home & Kitchen,21,bath,noun,/ˈbæθ/,a container for washing your body,I take a bath every night.
+A1,9,Home & Kitchen,22,shower,noun,/ˈʃaʊɚ/,a device that sprays water for washing,I take a shower every morning.
+A1,9,Home & Kitchen,23,toilet,noun,/ˈtɔɪlət/,a bowl for human waste,Where is the toilet?
+A1,9,Home & Kitchen,24,closet,noun,/ˈklɑzət/,a small space for storing clothes,Hang your coat in the closet.
+A1,10,Describing People & Feelings,1,big,adjective,/ˈbɪg/,large in size,They have a big house.
+A1,10,Describing People & Feelings,2,small,adjective,/ˈsmɔl/,little in size,This room is too small.
+A1,10,Describing People & Feelings,3,tall,adjective,/ˈtɔl/,having a great height,He is very tall.
+A1,10,Describing People & Feelings,4,short,adjective,/ˈʃɔrt/,having a small height,My sister is short.
+A1,10,Describing People & Feelings,5,old,adjective,/ˈoʊld/,having lived for many years,My grandfather is old.
+A1,10,Describing People & Feelings,6,young,adjective,/ˈjʌŋ/,not old,She is very young.
+A1,10,Describing People & Feelings,7,happy,adjective,/ˈhæpi/,feeling pleased,I am happy today.
+A1,10,Describing People & Feelings,8,sad,adjective,/ˈsæd/,feeling unhappy,She is sad today.
+A1,10,Describing People & Feelings,9,tired,adjective,/ˈtaɪɚd/,needing rest or sleep,I am tired after work.
+A1,10,Describing People & Feelings,10,angry,adjective,/ˈæŋgri/,feeling or showing anger,He is angry with me.
+A1,10,Describing People & Feelings,11,afraid,adjective,/əˈfreɪd/,feeling fear,She is afraid of dogs.
+A1,10,Describing People & Feelings,12,excited,adjective,/ɪkˈsaɪtəd/,feeling very happy and eager,I am excited about the trip.
+A1,10,Describing People & Feelings,13,bored,adjective,/ˈbɔrd/,feeling tired of something uninteresting,I am bored at home.
+A1,10,Describing People & Feelings,14,beautiful,adjective,/ˈbjutəfəl/,very pretty to look at,She is beautiful.
+A1,10,Describing People & Feelings,15,pretty,adjective,/ˈprɪti/,nice to look at,She is very pretty.
+A1,10,Describing People & Feelings,16,strong,adjective,/ˈstrɔŋ/,having physical power,He is very strong.
+A1,10,Describing People & Feelings,17,fat,adjective,/ˈfæt/,having a lot of body weight,The cat is fat.
+A1,10,Describing People & Feelings,18,quiet,adjective,/ˈkwaɪət/,making little noise,Please be quiet.
+A1,10,Describing People & Feelings,19,friendly,adjective,/ˈfrɛndli/,kind and pleasant,She is very friendly.
+A1,10,Describing People & Feelings,20,famous,adjective,/ˈfeɪməs/,known by many people,He is a famous singer.
+A1,10,Describing People & Feelings,21,good,adjective,/ˈgʊd/,of a high quality,This is a good book.
+A1,10,Describing People & Feelings,22,bad,adjective,/ˈbæd/,not good,The weather is bad today.
+A1,10,Describing People & Feelings,23,great,adjective,/ˈgreɪt/,very good or very large,This is a great idea!
+A1,10,Describing People & Feelings,24,wonderful,adjective,/ˈwʌndɚfəl/,extremely good,We had a wonderful time.
+A1,10,Describing People & Feelings,25,amazing,adjective,/əˈmeɪzɪŋ/,very surprising and good,The show was amazing!
+A1,10,Describing People & Feelings,26,terrible,adjective,/ˈtɛrəbəl/,very bad,The weather is terrible.
+A1,10,Describing People & Feelings,27,funny,adjective,/ˈfʌni/,making you laugh,That joke is funny.
+A1,10,Describing People & Feelings,28,rich,adjective,/ˈrɪtʃ/,having a lot of money,He is very rich.
+A1,10,Describing People & Feelings,29,poor,adjective,/ˈpʊr/,having little money,They are very poor.
+A1,11,Common Action Verbs,1,be,verb,/ˈbi/,to exist or live,I am a student.
+A1,11,Common Action Verbs,2,have,verb,/ˈhæv/,to own or possess,I have a car.
+A1,11,Common Action Verbs,3,do,verb,/ˈdu/,to perform an action,I do my homework.
+A1,11,Common Action Verbs,4,get,verb,/ˈgɛt/,to receive or obtain,I get a gift.
+A1,11,Common Action Verbs,5,make,verb,/ˈmeɪk/,to create or produce,I make breakfast.
+A1,11,Common Action Verbs,6,say,verb,/ˈseɪ/,to speak words,He says hello.
+A1,11,Common Action Verbs,7,tell,verb,/ˈtɛl/,to give information to someone,Tell me your name.
+A1,11,Common Action Verbs,8,ask,verb,/ˈæsk/,to request information,I ask a question.
+A1,11,Common Action Verbs,9,think,verb,/ˈθɪŋk/,to use your mind,I think it is good.
+A1,11,Common Action Verbs,10,know,verb,/ˈnoʊ/,to have information in your mind,I know your name.
+A1,11,Common Action Verbs,11,take,verb,/ˈteɪk/,to get something with your hand,Take this book.
+A1,11,Common Action Verbs,12,give,verb,/ˈgɪv/,to let someone have something,Give me the pen.
+A1,11,Common Action Verbs,13,put,verb,/ˈpʊt/,to place something somewhere,Put the book on the table.
+A1,11,Common Action Verbs,14,bring,verb,/ˈbrɪŋ/,to carry something to a place,Bring me water please.
+A1,11,Common Action Verbs,15,see,verb,/ˈsi/,to use your eyes,I see a bird.
+A1,11,Common Action Verbs,16,look,verb,/ˈlʊk/,to direct your eyes at something,Look at this picture.
+A1,11,Common Action Verbs,17,watch,verb,/ˈwɑtʃ/,to look at something for a time,I watch TV at night.
+A1,11,Common Action Verbs,18,listen,verb,/ˈlɪsən/,to hear with attention,Listen to the music.
+A1,11,Common Action Verbs,19,want,verb,/ˈwɑnt/,to wish for something,I want a coffee.
+A1,11,Common Action Verbs,20,need,verb,/ˈnid/,to require something,I need help.
+A1,11,Common Action Verbs,21,like,verb,/ˈlaɪk/,to enjoy something,I like pizza.
+A1,11,Common Action Verbs,22,try,verb,/ˈtraɪ/,to attempt to do something,I try to learn English.
+A1,11,Common Action Verbs,23,use,verb,/ˈjuz/,to operate something,I use a computer.
+A1,11,Common Action Verbs,24,open,verb,/ˈoʊpən/,to make something not closed,Open the door please.
+A1,11,Common Action Verbs,25,close,verb,/ˈkloʊz/,to make something not open,Close the window please.
+A1,11,Common Action Verbs,26,find,verb,/ˈfaɪnd/,to discover something,I find my keys.
+A1,11,Common Action Verbs,27,help,verb,/ˈhɛlp/,to make something easier for someone,Can you help me?
+A1,11,Common Action Verbs,28,send,verb,/ˈsɛnd/,to cause something to go somewhere,I send an email.
+A1,11,Common Action Verbs,29,keep,verb,/ˈkip/,to continue to have something,Keep the change.
+A1,11,Common Action Verbs,30,let,verb,/ˈlɛt/,to allow someone to do something,Let me help you.
+A1,12,Animals and Nature,1,dog,noun,/ˈdɔg/,a common pet animal,I have a dog.
+A1,12,Animals and Nature,2,cat,noun,/ˈkæt/,a small pet animal,The cat is sleeping.
+A1,12,Animals and Nature,3,bird,noun,/ˈbɝd/,an animal with wings that can fly,A bird is singing.
+A1,12,Animals and Nature,4,cow,noun,/ˈkaʊ/,a large farm animal that gives milk,The cow gives milk.
+A1,12,Animals and Nature,5,pig,noun,/ˈpɪg/,a farm animal with a short nose,The pig is pink.
+A1,12,Animals and Nature,6,horse,noun,/ˈhɔrs/,a large animal that people ride,She rides a horse.
+A1,12,Animals and Nature,7,sheep,noun,/ˈʃip/,a farm animal with wool,The farmer has sheep.
+A1,12,Animals and Nature,8,elephant,noun,/ˈɛləfənt/,a very large animal with a long nose,Elephants are big.
+A1,12,Animals and Nature,9,lion,noun,/ˈlaɪən/,a big wild cat in Africa,We saw a lion at the zoo.
+A1,12,Animals and Nature,10,snake,noun,/ˈsneɪk/,a long animal with no legs,I saw a snake.
+A1,12,Animals and Nature,11,fish,noun,/ˈfɪʃ/,an animal that lives in water,Fish swim in the sea.
+A1,12,Animals and Nature,12,animal,noun,/ˈænəməl/,a living thing that is not a plant,Dogs are animals.
+A1,12,Animals and Nature,13,tree,noun,/ˈtri/,a tall plant with branches,There is a big tree.
+A1,12,Animals and Nature,14,flower,noun,/ˈflaʊɚ/,the colorful part of a plant,She likes flowers.
+A1,12,Animals and Nature,15,plant,noun,/ˈplænt/,a living thing that grows in the ground,I water the plants.
+A1,12,Animals and Nature,16,sky,noun,/ˈskaɪ/,the space above the earth,The sky is blue.
+A1,12,Animals and Nature,17,sun,noun,/ˈsʌn/,the star that gives us light and heat,The sun is hot.
+A1,12,Animals and Nature,18,moon,noun,/ˈmun/,the round object we see at night,The moon is bright.
+A1,12,Animals and Nature,19,sea,noun,/ˈsi/,a large area of salt water,We swim in the sea.
+A1,12,Animals and Nature,20,beach,noun,/ˈbitʃ/,the sandy area by the sea,We go to the beach.
+A1,12,Animals and Nature,21,river,noun,/ˈrɪvɚ/,water that flows through land,The river is long.
+A1,12,Animals and Nature,22,mountain,noun,/ˈmaʊntən/,a very high hill,We climb the mountain.
+A1,12,Animals and Nature,23,island,noun,/ˈaɪlənd/,land with water all around it,Hawaii is an island.
+A1,12,Animals and Nature,24,zoo,noun,/ˈzu/,a place to see wild animals,We go to the zoo.
+A1,13,Countries and Nationalities,1,country,noun,/ˈkʌntri/,a nation with its own government,Japan is a beautiful country.
+A1,13,Countries and Nationalities,2,world,noun,/ˈwɝld/,the earth and all people,There are many countries in the world.
+A1,13,Countries and Nationalities,3,England,noun,/ˈɪŋglənd/,a country in the United Kingdom,London is in England.
+A1,13,Countries and Nationalities,4,America,noun,/əˈmɛrəkə/,the United States of America,I live in America.
+A1,13,Countries and Nationalities,5,China,noun,/ˈtʃaɪnə/,a large country in Asia,China has many people.
+A1,13,Countries and Nationalities,6,France,noun,/ˈfræns/,a country in Europe,Paris is in France.
+A1,13,Countries and Nationalities,7,Germany,noun,/ˈdʒɝməni/,a country in Europe,Berlin is in Germany.
+A1,13,Countries and Nationalities,8,Italy,noun,/ˈɪtəli/,a country in Europe,Rome is in Italy.
+A1,13,Countries and Nationalities,9,Japan,noun,/dʒəˈpæn/,a country in Asia,Tokyo is in Japan.
+A1,13,Countries and Nationalities,10,Spain,noun,/ˈspeɪn/,a country in Europe,Madrid is in Spain.
+A1,13,Countries and Nationalities,11,India,noun,/ˈɪndiə/,a large country in Asia,India has many languages.
+A1,13,Countries and Nationalities,12,Australia,noun,/ɔˈstreɪljə/,a country and continent,Sydney is in Australia.
+A1,13,Countries and Nationalities,13,English,adjective,/ˈɪŋglɪʃ/,from England; the language,I speak English.
+A1,13,Countries and Nationalities,14,American,adjective,/əˈmɛrəkən/,from America,He is American.
+A1,13,Countries and Nationalities,15,Chinese,adjective,/tʃaɪˈniz/,from China,I like Chinese food.
+A1,13,Countries and Nationalities,16,French,adjective,/ˈfrɛntʃ/,from France,French wine is good.
+A1,13,Countries and Nationalities,17,German,adjective,/ˈdʒɝmən/,from Germany,German cars are good.
+A1,13,Countries and Nationalities,18,Italian,adjective,/ɪˈtæljən/,from Italy,I love Italian pizza.
+A1,13,Countries and Nationalities,19,Japanese,adjective,/ˌdʒæpəˈniz/,from Japan,Japanese food is healthy.
+A1,13,Countries and Nationalities,20,Spanish,adjective,/ˈspænɪʃ/,from Spain,I study Spanish.
+A1,14,School and Education,1,school,noun,/ˈskul/,a place for learning,I go to school.
+A1,14,School and Education,2,class,noun,/ˈklæs/,a group of students,There are 20 students in my class.
+A1,14,School and Education,3,classroom,noun,/ˈklæsˌrum/,a room where classes are taught,The classroom is big.
+A1,14,School and Education,4,student,noun,/ˈstudənt/,a person who studies,I am a student.
+A1,14,School and Education,5,teacher,noun,/ˈtitʃɚ/,a person who teaches,My teacher is nice.
+A1,14,School and Education,6,book,noun,/ˈbʊk/,pages with words to read,I read a book.
+A1,14,School and Education,7,read,verb,/ˈrid/,to look at and understand words,I read every day.
+A1,14,School and Education,8,write,verb,/ˈraɪt/,to make letters or words on paper,I write in my notebook.
+A1,14,School and Education,9,learn,verb,/ˈlɝn/,to get knowledge,I learn English.
+A1,14,School and Education,10,study,verb,/ˈstʌdi/,to learn about something,I study math.
+A1,14,School and Education,11,lesson,noun,/ˈlɛsən/,a period of teaching,The lesson is 45 minutes.
+A1,14,School and Education,12,homework,noun,/ˈhoʊmˌwɝk/,work to do at home,I do my homework.
+A1,14,School and Education,13,exam,noun,/ɪgˈzæm/,a test of knowledge,I have an exam tomorrow.
+A1,14,School and Education,14,test,noun,/ˈtɛst/,questions to check knowledge,The test was easy.
+A1,14,School and Education,15,question,noun,/ˈkwɛstʃən/,something you ask,I have a question.
+A1,14,School and Education,16,answer,noun,/ˈænsɚ/,a reply to a question,I know the answer.
+A1,14,School and Education,17,correct,adjective,/kəˈrɛkt/,"right, without mistakes",Your answer is correct.
+A1,14,School and Education,18,mistake,noun,/mɪˈsteɪk/,something done wrong,I made a mistake.
+A1,14,School and Education,19,pen,noun,/ˈpɛn/,a tool for writing with ink,I write with a pen.
+A1,14,School and Education,20,pencil,noun,/ˈpɛnsəl/,a tool for writing with wood,I draw with a pencil.
+A1,14,School and Education,21,paper,noun,/ˈpeɪpɚ/,thin material for writing,I need paper.
+A1,14,School and Education,22,page,noun,/ˈpeɪdʒ/,one side of a piece of paper,Turn to page 10.
+A1,14,School and Education,23,note,noun,/ˈnoʊt/,a short written message,I take notes in class.
+A1,14,School and Education,24,board,noun,/ˈbɔrd/,a flat surface in a classroom,The teacher writes on the board.
+A1,14,School and Education,25,English,noun,/ˈɪŋglɪʃ/,the language,I study English.
+A1,14,School and Education,26,math,noun,/ˈmæθ/,the study of numbers,I like math.
+A1,14,School and Education,27,science,noun,/ˈsaɪəns/,the study of nature,I study science.
+A1,14,School and Education,28,history,noun,/ˈhɪstɚi/,the study of the past,I like history.
+A1,14,School and Education,29,music,noun,/ˈmjuzɪk/,sounds that are nice to hear,I love music.
+A1,14,School and Education,30,art,noun,/ˈɑrt/,"painting, drawing, etc.",I like art class.
+A1,14,School and Education,31,library,noun,/ˈlaɪˌbrɛri/,a place with many books,I go to the library.
+A1,14,School and Education,32,dictionary,noun,/ˈdɪkʃəˌnɛri/,a book with word meanings,I use a dictionary.
+A1,14,School and Education,33,word,noun,/ˈwɝd/,a unit of language,I learn new words.
+A1,14,School and Education,34,text,noun,/ˈtɛkst/,written words,Read the text.
+A1,14,School and Education,35,understand,verb,/ˌʌndɚˈstænd/,to know the meaning,I understand English.
+A1,15,Jobs and Work,1,job,noun,/ˈdʒɑb/,work that you do for money,I have a good job.
+A1,15,Jobs and Work,2,work,verb,/ˈwɝk/,to do a job,I work at a bank.
+A1,15,Jobs and Work,3,office,noun,/ˈɔfəs/,a place where people work,I go to the office.
+A1,15,Jobs and Work,4,company,noun,/ˈkʌmpəni/,a business organization,I work for a big company.
+A1,15,Jobs and Work,5,boss,noun,/ˈbɔs/,a person who manages workers,My boss is nice.
+A1,15,Jobs and Work,6,doctor,noun,/ˈdɑktɚ/,a person who helps sick people,I go to the doctor.
+A1,15,Jobs and Work,7,nurse,noun,/ˈnɝs/,a person who helps doctors,The nurse is kind.
+A1,15,Jobs and Work,8,hospital,noun,/ˈhɑspɪtəl/,a place for sick people,She works at a hospital.
+A1,15,Jobs and Work,9,teacher,noun,/ˈtitʃɚ/,a person who teaches,He is a teacher.
+A1,15,Jobs and Work,10,police,noun,/pəˈlis/,people who keep us safe,Call the police.
+A1,15,Jobs and Work,11,waiter,noun,/ˈweɪtɚ/,a person who serves food,The waiter is friendly.
+A1,15,Jobs and Work,12,driver,noun,/ˈdraɪvɚ/,a person who drives,He is a taxi driver.
+A1,15,Jobs and Work,13,cook,noun,/ˈkʊk/,a person who makes food,She is a good cook.
+A1,15,Jobs and Work,14,shop,noun,/ˈʃɑp/,a place to buy things,I work in a shop.
+A1,15,Jobs and Work,15,actor,noun,/ˈæktɚ/,a person who acts in movies,He is a famous actor.
+A1,15,Jobs and Work,16,artist,noun,/ˈɑrtəst/,a person who makes art,She is an artist.
+A1,15,Jobs and Work,17,singer,noun,/ˈsɪŋɚ/,a person who sings,She is a singer.
+A1,15,Jobs and Work,18,writer,noun,/ˈraɪtɚ/,a person who writes,He is a writer.
+A1,15,Jobs and Work,19,manager,noun,/ˈmænədʒɚ/,a person who manages a business,She is a manager.
+A1,15,Jobs and Work,20,worker,noun,/ˈwɝkɚ/,a person who works,The workers are busy.
+A1,15,Jobs and Work,21,farmer,noun,/ˈfɑrmɚ/,a person who works on a farm,The farmer has cows.
+A1,15,Jobs and Work,22,pilot,noun,/ˈpaɪlət/,a person who flies planes,He is a pilot.
+A1,15,Jobs and Work,23,engineer,noun,/ˌɛndʒəˈnɪr/,a person who designs things,She is an engineer.
+A1,15,Jobs and Work,24,lawyer,noun,/ˈlɔjɚ/,a person who knows the law,He is a lawyer.
+A1,15,Jobs and Work,25,businessman,noun,/ˈbɪznəsˌmæn/,a man who works in business,He is a businessman.
+A1,15,Jobs and Work,26,teach,verb,/ˈtitʃ/,to give knowledge to someone,I teach English.
+A1,15,Jobs and Work,27,pay,verb,/ˈpeɪ/,to give money for something,I pay for the food.
+A1,15,Jobs and Work,28,earn,verb,/ˈɝn/,to get money from work,I earn money.
+A1,15,Jobs and Work,29,sell,verb,/ˈsɛl/,to give something for money,I sell books.
+A1,15,Jobs and Work,30,buy,verb,/ˈbaɪ/,to get something with money,I buy food.
+A1,16,Places in Town,1,city,noun,/ˈsɪti/,a large town,I live in a big city.
+A1,16,Places in Town,2,town,noun,/ˈtaʊn/,a place smaller than a city,This is a small town.
+A1,16,Places in Town,3,village,noun,/ˈvɪlədʒ/,a very small town,She lives in a village.
+A1,16,Places in Town,4,street,noun,/ˈstrit/,a road in a town or city,I walk down the street.
+A1,16,Places in Town,5,road,noun,/ˈroʊd/,a way for cars to travel,The road is long.
+A1,16,Places in Town,6,shop,noun,/ˈʃɑp/,a place to buy things,I go to the shop.
+A1,16,Places in Town,7,market,noun,/ˈmɑrkət/,a place to buy food,I buy fruit at the market.
+A1,16,Places in Town,8,supermarket,noun,/ˈsupɚˌmɑrkət/,a large shop for food,I shop at the supermarket.
+A1,16,Places in Town,9,restaurant,noun,/ˈrɛstəˌrɑnt/,a place to eat food,We eat at a restaurant.
+A1,16,Places in Town,10,cafe,noun,/kæˈfeɪ/,a small restaurant for drinks,I drink coffee at a cafe.
+A1,16,Places in Town,11,hotel,noun,/hoʊˈtɛl/,a place to stay when traveling,We stay at a hotel.
+A1,16,Places in Town,12,hospital,noun,/ˈhɑspɪtəl/,a place for sick people,He is in the hospital.
+A1,16,Places in Town,13,bank,noun,/ˈbæŋk/,a place to keep money,I go to the bank.
+A1,16,Places in Town,14,park,noun,/ˈpɑrk/,a place with grass and trees,We walk in the park.
+A1,16,Places in Town,15,cinema,noun,/ˈsɪnəmə/,a place to watch movies,We go to the cinema.
+A1,16,Places in Town,16,gym,noun,/ˈdʒɪm/,a place to exercise,I go to the gym.
+A1,16,Places in Town,17,station,noun,/ˈsteɪʃən/,a place for trains or buses,I wait at the station.
+A1,16,Places in Town,18,church,noun,/ˈtʃɝtʃ/,a building for religion,They go to church.
+A1,16,Places in Town,19,museum,noun,/mjuˈziəm/,a place to see art and history,We visit the museum.
+A1,16,Places in Town,20,library,noun,/ˈlaɪˌbrɛri/,a place with many books,I read at the library.
+A1,17,Directions and Locations,1,here,adverb,/ˈhɪr/,in this place,Come here please.
+A1,17,Directions and Locations,2,there,adverb,/ˈðɛr/,in that place,Go over there.
+A1,17,Directions and Locations,3,where,adverb,/ˈwɛr/,at what place,Where is the bank?
+A1,17,Directions and Locations,4,place,noun,/ˈpleɪs/,a location,This is a nice place.
+A1,17,Directions and Locations,5,up,adverb,/ˈʌp/,to a higher position,Go up the stairs.
+A1,17,Directions and Locations,6,down,adverb,/ˈdaʊn/,to a lower position,Go down the stairs.
+A1,17,Directions and Locations,7,left,noun,/ˈlɛft/,the opposite of right,Turn left here.
+A1,17,Directions and Locations,8,right,noun,/ˈraɪt/,the opposite of left,Turn right at the corner.
+A1,17,Directions and Locations,9,front,noun,/ˈfrʌnt/,the forward part,Stand in front of me.
+A1,17,Directions and Locations,10,back,noun,/ˈbæk/,the opposite of front,Go to the back.
+A1,17,Directions and Locations,11,in,preposition,/ˈɪn/,inside something,The book is in the bag.
+A1,17,Directions and Locations,12,on,preposition,/ˈɑn/,on top of something,The book is on the table.
+A1,17,Directions and Locations,13,under,preposition,/ˈʌndɚ/,below something,The cat is under the table.
+A1,17,Directions and Locations,14,above,preposition,/əˈbʌv/,higher than something,The picture is above the sofa.
+A1,17,Directions and Locations,15,below,preposition,/bɪˈloʊ/,lower than something,The shop is below my apartment.
+A1,17,Directions and Locations,16,near,preposition,/ˈnɪr/,close to something,I live near the park.
+A1,17,Directions and Locations,17,far,adjective,/ˈfɑr/,not close,The station is far.
+A1,17,Directions and Locations,18,next to,preposition,/ˈnɛkst tu/,beside something,The bank is next to the shop.
+A1,17,Directions and Locations,19,between,preposition,/bɪˈtwin/,in the middle of two things,The park is between the bank and the school.
+A1,17,Directions and Locations,20,north,noun,/ˈnɔrθ/,the direction of the North Pole,Go north from here.
+A1,17,Directions and Locations,21,south,noun,/ˈsaʊθ/,the opposite of north,The city is in the south.
+A1,17,Directions and Locations,22,east,noun,/ˈist/,where the sun rises,The sun rises in the east.
+A1,17,Directions and Locations,23,west,noun,/ˈwɛst/,where the sun sets,The sun sets in the west.
+A1,18,Shopping and Money,1,money,noun,/ˈmʌni/,what you use to buy things,I have no money.
+A1,18,Shopping and Money,2,dollar,noun,/ˈdɑlɚ/,money in USA,This costs five dollars.
+A1,18,Shopping and Money,3,euro,noun,/ˈjʊroʊ/,money in Europe,This costs two euros.
+A1,18,Shopping and Money,4,pound,noun,/ˈpaʊnd/,money in UK,This costs ten pounds.
+A1,18,Shopping and Money,5,cent,noun,/ˈsɛnt/,a small unit of money,This costs fifty cents.
+A1,18,Shopping and Money,6,cash,noun,/ˈkæʃ/,money in coins or notes,I pay with cash.
+A1,18,Shopping and Money,7,coin,noun,/ˈkɔɪn/,a small round piece of metal money,I have some coins.
+A1,18,Shopping and Money,8,wallet,noun,/ˈwɑlət/,a small bag for money,My wallet is in my pocket.
+A1,18,Shopping and Money,9,buy,verb,/ˈbaɪ/,to get something with money,I buy a book.
+A1,18,Shopping and Money,10,sell,verb,/ˈsɛl/,to give something for money,I sell my car.
+A1,18,Shopping and Money,11,pay,verb,/ˈpeɪ/,to give money for something,I pay for the food.
+A1,18,Shopping and Money,12,spend,verb,/ˈspɛnd/,to use money,I spend money on food.
+A1,18,Shopping and Money,13,cost,verb,/ˈkɔst/,to have a price of,This costs ten dollars.
+A1,18,Shopping and Money,14,price,noun,/ˈpraɪs/,how much money something costs,What is the price?
+A1,18,Shopping and Money,15,cheap,adjective,/ˈtʃip/,not expensive,This is cheap.
+A1,18,Shopping and Money,16,expensive,adjective,/ɪkˈspɛnsɪv/,costing a lot of money,This is expensive.
+A1,18,Shopping and Money,17,shop,noun,/ˈʃɑp/,a place to buy things,I go to the shop.
+A1,18,Shopping and Money,18,store,noun,/ˈstɔr/,a large shop,I buy food at the store.
+A1,18,Shopping and Money,19,market,noun,/ˈmɑrkət/,a place to buy food,I go to the market.
+A1,18,Shopping and Money,20,supermarket,noun,/ˈsupɚˌmɑrkət/,a big shop for food,I shop at the supermarket.
+A1,18,Shopping and Money,21,mall,noun,/ˈmɔl/,a large shopping center,We go to the mall.
+A1,18,Shopping and Money,22,online,adverb,/ˈɑnˌlaɪn/,on the internet,I buy things online.
+A1,18,Shopping and Money,23,card,noun,/ˈkɑrd/,a plastic card for paying,I pay by card.
+A1,18,Shopping and Money,24,bill,noun,/ˈbɪl/,a paper showing how much to pay,Can I have the bill please?
+A1,18,Shopping and Money,25,receipt,noun,/rɪˈsit/,a paper showing what you paid,Keep the receipt.
+A1,18,Shopping and Money,26,change,noun,/ˈtʃeɪndʒ/,money you get back,Here is your change.
+A1,18,Shopping and Money,27,discount,noun,/ˈdɪsˌkaʊnt/,a lower price,There is a 10% discount.
+A1,18,Shopping and Money,28,sale,noun,/ˈseɪl/,when things are cheaper,The shop has a sale.
+A1,18,Shopping and Money,29,free,adjective,/ˈfri/,costing no money,This is free.
+A1,18,Shopping and Money,30,size,noun,/ˈsaɪz/,how big or small something is,What size do you want?
+A1,18,Shopping and Money,31,customer,noun,/ˈkʌstəmɚ/,a person who buys things,The customer is happy.
+A1,18,Shopping and Money,32,thing,noun,/ˈθɪŋ/,an object,I buy many things.
+A1,19,Transport and Travel,1,car,noun,/ˈkɑr/,a vehicle with four wheels,I drive a car.
+A1,19,Transport and Travel,2,bus,noun,/ˈbʌs/,a large vehicle for many people,I take the bus to work.
+A1,19,Transport and Travel,3,train,noun,/ˈtreɪn/,a vehicle that travels on rails,The train is fast.
+A1,19,Transport and Travel,4,plane,noun,/ˈpleɪn/,a vehicle that flies,I fly by plane.
+A1,19,Transport and Travel,5,bike,noun,/ˈbaɪk/,a vehicle with two wheels,I ride my bike.
+A1,19,Transport and Travel,6,boat,noun,/ˈboʊt/,a vehicle for water,We take a boat.
+A1,19,Transport and Travel,7,taxi,noun,/ˈtæksi/,a car you pay to ride in,I take a taxi.
+A1,19,Transport and Travel,8,motorcycle,noun,/ˈmoʊtɚˌsaɪkəl/,a fast bike with an engine,He rides a motorcycle.
+A1,19,Transport and Travel,9,trip,noun,/ˈtrɪp/,a journey somewhere,I take a trip to Paris.
+A1,19,Transport and Travel,10,travel,verb,/ˈtrævəl/,to go to places,I love to travel.
+A1,19,Transport and Travel,11,visit,verb,/ˈvɪzɪt/,to go to see a place or person,I visit my grandma.
+A1,19,Transport and Travel,12,drive,verb,/ˈdraɪv/,to control a car,I drive to work.
+A1,19,Transport and Travel,13,ride,verb,/ˈraɪd/,to travel on something,I ride my bike.
+A1,19,Transport and Travel,14,fly,verb,/ˈflaɪ/,to travel by plane,I fly to London.
+A1,19,Transport and Travel,15,airport,noun,/ˈɛrˌpɔrt/,a place for planes,I go to the airport.
+A1,19,Transport and Travel,16,station,noun,/ˈsteɪʃən/,a place for trains or buses,I wait at the station.
+A1,19,Transport and Travel,17,ticket,noun,/ˈtɪkət/,a paper to travel or enter,I buy a ticket.
+A1,19,Transport and Travel,18,passport,noun,/ˈpæsˌpɔrt/,a document for travel abroad,I need my passport.
+A1,19,Transport and Travel,19,tourist,noun,/ˈtʊrəst/,a person who travels for fun,Many tourists visit Paris.
+A1,19,Transport and Travel,20,holiday,noun,/ˈhɑləˌdeɪ/,time away from work for rest,I go on holiday.
+A1,20,The Weather and Seasons,1,weather,noun,/ˈwɛðɚ/,"rain, sun, wind, etc outside",The weather is nice.
+A1,20,The Weather and Seasons,2,hot,adjective,/ˈhɑt/,very warm,It is hot today.
+A1,20,The Weather and Seasons,3,cold,adjective,/ˈkoʊld/,not warm,It is cold outside.
+A1,20,The Weather and Seasons,4,warm,adjective,/ˈwɔrm/,a little hot,It is warm today.
+A1,20,The Weather and Seasons,5,cool,adjective,/ˈkul/,a little cold,The night is cool.
+A1,20,The Weather and Seasons,6,sunny,adjective,/ˈsʌni/,with a lot of sun,It is sunny today.
+A1,20,The Weather and Seasons,7,rainy,adjective,/ˈreɪni/,with a lot of rain,It is a rainy day.
+A1,20,The Weather and Seasons,8,cloudy,adjective,/ˈklaʊdi/,with many clouds,It is cloudy today.
+A1,20,The Weather and Seasons,9,windy,adjective,/ˈwɪndi/,with a lot of wind,It is windy outside.
+A1,20,The Weather and Seasons,10,rain,noun,/ˈreɪn/,water falling from the sky,The rain is heavy.
+A1,20,The Weather and Seasons,11,snow,noun,/ˈsnoʊ/,white ice falling from the sky,I love the snow.
+A1,20,The Weather and Seasons,12,spring,noun,/ˈsprɪŋ/,the season after winter,Spring is beautiful.
+A1,20,The Weather and Seasons,13,summer,noun,/ˈsʌmɚ/,the hottest season,I love summer.
+A1,20,The Weather and Seasons,14,autumn,noun,/ˈɔtəm/,the season before winter,Leaves fall in autumn.
+A1,20,The Weather and Seasons,15,winter,noun,/ˈwɪntɚ/,the coldest season,It snows in winter.
+A1,21,Hobbies and Interests,1,hobby,noun,/ˈhɑbi/,something you do for fun,Reading is my hobby.
+A1,21,Hobbies and Interests,2,interest,noun,/ˈɪntrəst/,something you like,I have an interest in music.
+A1,21,Hobbies and Interests,3,love,verb,/ˈlʌv/,to like very much,I love reading.
+A1,21,Hobbies and Interests,4,like,verb,/ˈlaɪk/,to enjoy something,I like music.
+A1,21,Hobbies and Interests,5,enjoy,verb,/ɛnˈdʒɔɪ/,to get pleasure from,I enjoy cooking.
+A1,21,Hobbies and Interests,6,prefer,verb,/prɪˈfɝ/,to like more than another,I prefer tea to coffee.
+A1,21,Hobbies and Interests,7,favorite,adjective,/ˈfeɪvɚət/,liked the most,This is my favorite song.
+A1,21,Hobbies and Interests,8,fun,noun,/ˈfʌn/,enjoyment,We have fun together.
+A1,21,Hobbies and Interests,9,music,noun,/ˈmjuzɪk/,sounds that are nice to hear,I listen to music.
+A1,21,Hobbies and Interests,10,art,noun,/ˈɑrt/,"painting, drawing, etc",I love art.
+A1,21,Hobbies and Interests,11,film,noun,/ˈfɪlm/,a movie,I watch a film.
+A1,21,Hobbies and Interests,12,movie,noun,/ˈmuvi/,a film,I like this movie.
+A1,21,Hobbies and Interests,13,video,noun,/ˈvɪdioʊ/,a recording of images,I watch videos online.
+A1,21,Hobbies and Interests,14,photo,noun,/ˈfoʊtoʊ/,a picture from a camera,I take photos.
+A1,21,Hobbies and Interests,15,camera,noun,/ˈkæmɚə/,a device for taking pictures,I have a camera.
+A1,21,Hobbies and Interests,16,picture,noun,/ˈpɪktʃɚ/,a drawing or photo,I draw a picture.
+A1,21,Hobbies and Interests,17,read,verb,/ˈrid/,to look at words,I read books.
+A1,21,Hobbies and Interests,18,write,verb,/ˈraɪt/,to make words on paper,I write stories.
+A1,21,Hobbies and Interests,19,draw,verb,/ˈdrɔ/,to make pictures with a pen,I draw flowers.
+A1,21,Hobbies and Interests,20,paint,verb,/ˈpeɪnt/,to make pictures with colors,I paint pictures.
+A1,21,Hobbies and Interests,21,cook,verb,/ˈkʊk/,to make food,I cook dinner.
+A1,21,Hobbies and Interests,22,dance,verb,/ˈdæns/,to move to music,I love to dance.
+A1,21,Hobbies and Interests,23,sing,verb,/ˈsɪŋ/,to make music with your voice,I sing songs.
+A1,21,Hobbies and Interests,24,play,verb,/ˈpleɪ/,to do something for fun,I play guitar.
+A1,21,Hobbies and Interests,25,travel,verb,/ˈtrævəl/,to go to places,I love to travel.
+A1,21,Hobbies and Interests,26,walk,verb,/ˈwɔk/,to move on foot,I walk in the park.
+A1,21,Hobbies and Interests,27,run,verb,/ˈrʌn/,to move fast on foot,I run every morning.
+A1,21,Hobbies and Interests,28,swim,verb,/ˈswɪm/,to move in water,I swim in the pool.
+A1,21,Hobbies and Interests,29,game,noun,/ˈgeɪm/,something you play,I play a game.
+A1,21,Hobbies and Interests,30,sport,noun,/ˈspɔrt/,physical activity for fun,I like sports.
+A1,21,Hobbies and Interests,31,book,noun,/ˈbʊk/,pages with words,I read a book.
+A1,21,Hobbies and Interests,32,song,noun,/ˈsɔŋ/,music with words,I love this song.
+A1,21,Hobbies and Interests,33,guitar,noun,/gɪˈtɑr/,a musical instrument with strings,I play guitar.
+A1,21,Hobbies and Interests,34,piano,noun,/piˈænoʊ/,a large musical instrument,She plays piano.
+A1,21,Hobbies and Interests,35,garden,noun,/ˈgɑrdən/,a place with plants,I work in the garden.
+A1,22,Sports and Games,1,sport,noun,/ˈspɔrt/,physical activity for fun,Football is a sport.
+A1,22,Sports and Games,2,play,verb,/ˈpleɪ/,to do a sport or game,I play football.
+A1,22,Sports and Games,3,game,noun,/ˈgeɪm/,an activity with rules,We watch the game.
+A1,22,Sports and Games,4,ball,noun,/ˈbɔl/,a round object for games,Kick the ball.
+A1,22,Sports and Games,5,team,noun,/ˈtim/,a group playing together,Our team wins.
+A1,22,Sports and Games,6,player,noun,/ˈpleɪɚ/,a person who plays,He is a good player.
+A1,22,Sports and Games,7,match,noun,/ˈmætʃ/,a game between two teams,We watch the match.
+A1,22,Sports and Games,8,race,noun,/ˈreɪs/,a competition to be fastest,I run in a race.
+A1,22,Sports and Games,9,win,verb,/ˈwɪn/,to be first in a game,We win the game.
+A1,22,Sports and Games,10,lose,verb,/ˈluz/,to not win,They lose the game.
+A1,22,Sports and Games,11,score,noun,/ˈskɔr/,the number of points,The score is 2-1.
+A1,22,Sports and Games,12,point,noun,/ˈpɔɪnt/,a unit in a game,We get one point.
+A1,22,Sports and Games,13,goal,noun,/ˈgoʊl/,when a ball goes in the net,He scores a goal.
+A1,22,Sports and Games,14,champion,noun,/ˈtʃæmpiən/,the winner,He is the champion.
+A1,22,Sports and Games,15,football,noun,/ˈfʊtˌbɔl/,a sport with a ball and goals,I play football.
+A1,22,Sports and Games,16,basketball,noun,/ˈbæskətˌbɔl/,a sport with a ball and hoop,I play basketball.
+A1,22,Sports and Games,17,tennis,noun,/ˈtɛnəs/,a sport with a racket and ball,I play tennis.
+A1,22,Sports and Games,18,golf,noun,/ˈgɑlf/,a sport with a ball and clubs,He plays golf.
+A1,22,Sports and Games,19,swimming,noun,/ˈswɪmɪŋ/,the sport of moving in water,I like swimming.
+A1,22,Sports and Games,20,running,noun,/ˈrʌnɪŋ/,the sport of moving fast on foot,I go running.
+A1,22,Sports and Games,21,cycling,noun,/ˈsaɪklɪŋ/,riding a bicycle for sport,I like cycling.
+A1,22,Sports and Games,22,skiing,noun,/ˈskiɪŋ/,moving on snow with skis,Skiing is fun.
+A1,22,Sports and Games,23,boxing,noun,/ˈbɑksɪŋ/,a sport where people fight,He does boxing.
+A1,22,Sports and Games,24,volleyball,noun,/ˈvɑliˌbɔl/,a sport with a ball and net,We play volleyball.
+A1,22,Sports and Games,25,baseball,noun,/ˈbeɪsˌbɔl/,a sport with a bat and ball,Baseball is popular.
+A1,22,Sports and Games,26,hockey,noun,/ˈhɑki/,a sport with a stick and puck,I watch hockey.
+A1,22,Sports and Games,27,run,verb,/ˈrʌn/,to move fast on foot,I run every day.
+A1,22,Sports and Games,28,jump,verb,/ˈdʒʌmp/,to go up in the air,I jump high.
+A1,22,Sports and Games,29,kick,verb,/ˈkɪk/,to hit with your foot,Kick the ball.
+A1,22,Sports and Games,30,throw,verb,/ˈθroʊ/,to send through the air,Throw the ball.
+A1,22,Sports and Games,31,catch,verb,/ˈkætʃ/,to get something thrown,Catch the ball.
+A1,22,Sports and Games,32,hit,verb,/ˈhɪt/,to strike something,Hit the ball.
+A1,22,Sports and Games,33,gym,noun,/ˈdʒɪm/,a place to exercise,I go to the gym.
+A1,22,Sports and Games,34,pool,noun,/ˈpul/,a place to swim,I swim in the pool.
+A1,22,Sports and Games,35,field,noun,/ˈfild/,a place for sports outdoors,We play on the field.
+A1,22,Sports and Games,36,court,noun,/ˈkɔrt/,a place for tennis or basketball,We play on the court.
+A1,22,Sports and Games,37,stadium,noun,/ˈsteɪdiəm/,a large place for sports,We go to the stadium.
+A1,22,Sports and Games,38,exercise,noun,/ˈɛksɚˌsaɪz/,physical activity,I do exercise.
+A1,23,Music and Art,1,music,noun,/ˈmjuzɪk/,sounds made to enjoy,I love music.
+A1,23,Music and Art,2,song,noun,/ˈsɔŋ/,music with words,I like this song.
+A1,23,Music and Art,3,sing,verb,/ˈsɪŋ/,to make music with your voice,She sings well.
+A1,23,Music and Art,4,dance,verb,/ˈdæns/,to move to music,I love to dance.
+A1,23,Music and Art,5,piano,noun,/piˈænoʊ/,a large musical instrument,She plays piano.
+A1,23,Music and Art,6,guitar,noun,/gɪˈtɑr/,an instrument with strings,He plays guitar.
+A1,23,Music and Art,7,band,noun,/ˈbænd/,a group of musicians,I like this band.
+A1,23,Music and Art,8,concert,noun,/ˈkɑnsɚt/,a music show,We go to a concert.
+A1,23,Music and Art,9,show,noun,/ˈʃoʊ/,a performance,The show is great.
+A1,23,Music and Art,10,theatre,noun,/ˈθiətɚ/,a place for plays and shows,We go to the theatre.
+A1,23,Music and Art,11,draw,verb,/ˈdrɔ/,to make a picture with a pen,I draw a cat.
+A1,23,Music and Art,12,paint,verb,/ˈpeɪnt/,to make a picture with colors,I paint flowers.
+A1,23,Music and Art,13,picture,noun,/ˈpɪktʃɚ/,a drawing or photo,I draw a picture.
+A1,23,Music and Art,14,photo,noun,/ˈfoʊtoʊ/,a picture from a camera,I take a photo.
+A1,23,Music and Art,15,camera,noun,/ˈkæmɚə/,a device for taking pictures,I have a camera.
+A1,24,Technology and Communication,1,phone,noun,/ˈfoʊn/,a device for talking,I use my phone.
+A1,24,Technology and Communication,2,call,verb,/ˈkɔl/,to use the phone,I call my mom.
+A1,24,Technology and Communication,3,message,noun,/ˈmɛsɪdʒ/,a short text you send,I send a message.
+A1,24,Technology and Communication,4,text,noun,/ˈtɛkst/,a short message on phone,I send a text.
+A1,24,Technology and Communication,5,email,noun,/ˈiˌmeɪl/,a message on computer,I send an email.
+A1,24,Technology and Communication,6,computer,noun,/kəmˈpjutɚ/,a machine for work and games,I use a computer.
+A1,24,Technology and Communication,7,internet,noun,/ˈɪntɚˌnɛt/,a network of computers,I use the internet.
+A1,24,Technology and Communication,8,website,noun,/ˈwɛbˌsaɪt/,a page on the internet,I visit a website.
+A1,24,Technology and Communication,9,online,adverb,/ˈɑnˌlaɪn/,on the internet,I buy things online.
+A1,24,Technology and Communication,10,TV,noun,/ˌtiˈvi/,a device to watch shows,I watch TV.
+A1,24,Technology and Communication,11,radio,noun,/ˈreɪdiˌoʊ/,a device for music and news,I listen to the radio.
+A1,24,Technology and Communication,12,video,noun,/ˈvɪdioʊ/,a recording of images,I watch a video.
+A1,24,Technology and Communication,13,app,noun,/ˈæp/,a program on your phone,I use this app.
+A1,24,Technology and Communication,14,screen,noun,/ˈskrin/,the part you look at,The screen is big.
+A1,24,Technology and Communication,15,keyboard,noun,/ˈkiˌbɔrd/,a device with letters for typing,I type on the keyboard.
+A1,24,Technology and Communication,16,mouse,noun,/ˈmaʊs/,a device to click on computer,I use a mouse.
+A1,24,Technology and Communication,17,program,noun,/ˈproʊˌgræm/,software on a computer,I use this program.
+A1,24,Technology and Communication,18,machine,noun,/məˈʃin/,a device that does work,This machine is new.
+A1,25,Social Life & Celebrations,1,party,noun,/ˈpɑrti/,a gathering for fun,We have a party.
+A1,25,Social Life & Celebrations,2,birthday,noun,/ˈbɝθˌdeɪ/,the day you were born,Happy birthday!
+A1,25,Social Life & Celebrations,3,celebrate,verb,/ˈsɛləˌbreɪt/,to do something special for an event,We celebrate his birthday.
+A1,25,Social Life & Celebrations,4,holiday,noun,/ˈhɑləˌdeɪ/,a day of rest or celebration,It is a holiday.
+A1,25,Social Life & Celebrations,5,festival,noun,/ˈfɛstəvəl/,a special event with activities,We go to the festival.
+A1,25,Social Life & Celebrations,6,event,noun,/ɪˈvɛnt/,something that happens,The concert is a big event.
+A1,25,Social Life & Celebrations,7,present,noun,/ˈprɛzənt/,something you give,I give a present.
+A1,25,Social Life & Celebrations,8,gift,noun,/ˈgɪft/,something you give someone,This is a gift for you.
+A1,25,Social Life & Celebrations,9,invite,verb,/ɪnˈvaɪt/,to ask someone to come,I invite my friends.
+A1,25,Social Life & Celebrations,10,together,adverb,/təˈgɛðɚ/,with each other,We are together.
+A1,25,Social Life & Celebrations,11,special,adjective,/ˈspɛʃəl/,not ordinary,This is a special day.
+A1,25,Social Life & Celebrations,12,congratulations,exclamation,/kənˌgrætʃəˈleɪʃənz/,used to show you are happy for someone,Congratulations on your wedding!
+A1,25,Social Life & Celebrations,13,agree,verb,/əˈgri/,to have the same opinion,I agree with you.
+A1,25,Social Life & Celebrations,14,maybe,adverb,/ˈmeɪbi/,perhaps,Maybe I will come.
+A1,25,Social Life & Celebrations,15,sure,adjective,/ˈʃʊr/,certain,I am sure.
+A1,26,Opposite Adjectives,1,new,adjective,/ˈnu/,recently made,I have a new car.
+A1,26,Opposite Adjectives,2,old,adjective,/ˈoʊld/,not new,This is an old house.
+A1,26,Opposite Adjectives,3,long,adjective,/ˈlɔŋ/,not short,The road is long.
+A1,26,Opposite Adjectives,4,high,adjective,/ˈhaɪ/,far from the ground,The mountain is high.
+A1,26,Opposite Adjectives,5,low,adjective,/ˈloʊ/,near the ground,The table is low.
+A1,26,Opposite Adjectives,6,fast,adjective,/ˈfæst/,moving quickly,The car is fast.
+A1,26,Opposite Adjectives,7,slow,adjective,/ˈsloʊ/,not fast,The turtle is slow.
+A1,26,Opposite Adjectives,8,hard,adjective,/ˈhɑrd/,not soft; not easy,The test is hard.
+A1,26,Opposite Adjectives,9,easy,adjective,/ˈizi/,not difficult,This is easy.
+A1,26,Opposite Adjectives,10,difficult,adjective,/ˈdɪfəkəlt/,not easy,The problem is difficult.
+A1,26,Opposite Adjectives,11,full,adjective,/ˈfʊl/,with no space left,The glass is full.
+A1,26,Opposite Adjectives,12,empty,adjective,/ˈɛmpti/,with nothing inside,The box is empty.
+A1,26,Opposite Adjectives,13,clean,adjective,/ˈklin/,not dirty,The room is clean.
+A1,26,Opposite Adjectives,14,dirty,adjective,/ˈdɝti/,not clean,The floor is dirty.
+A1,26,Opposite Adjectives,15,same,adjective,/ˈseɪm/,not different,We have the same bag.
+A1,26,Opposite Adjectives,16,different,adjective,/ˈdɪfɚənt/,not the same,They are different.
+A1,26,Opposite Adjectives,17,right,adjective,/ˈraɪt/,correct,You are right.
+A1,26,Opposite Adjectives,18,wrong,adjective,/ˈrɔŋ/,not correct,This answer is wrong.
+A1,26,Opposite Adjectives,19,open,adjective,/ˈoʊpən/,not closed,The door is open.
+A1,26,Opposite Adjectives,20,closed,adjective,/ˈkloʊzd/,not open,The shop is closed.

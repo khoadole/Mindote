@@ -1,0 +1,1456 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+B1,1,Daily Life,1,chore,noun,/ˈtʃɔr/,a routine task at home,Doing chores helps the family.
+B1,1,Daily Life,2,housework,noun,/ˈhaʊsˌwɜrk/,work done to keep a house clean,She does housework every day.
+B1,1,Daily Life,3,laundry,noun,/ˈlɔndri/,clothes to be washed,I need to do the laundry.
+B1,1,Daily Life,4,vacuum,verb,/ˈvækjum/,to clean with a vacuum cleaner,Please vacuum the carpet.
+B1,1,Daily Life,5,mop,verb,/ˈmɑp/,to clean floors with water,Mop the kitchen floor.
+B1,1,Daily Life,6,sweep,verb,/ˈswip/,to clean with a broom,Sweep the leaves outside.
+B1,1,Daily Life,7,dust,verb,/ˈdʌst/,to remove dust from surfaces,Dust the shelves.
+B1,1,Daily Life,8,iron,verb,/ˈaɪɚn/,to make clothes smooth,Iron your shirt.
+B1,1,Daily Life,9,fold,verb,/ˈfoʊld/,to bend something over itself,Fold the clean towels.
+B1,1,Daily Life,10,scrub,verb,/ˈskrʌb/,to clean by rubbing hard,Scrub the bathtub.
+B1,1,Daily Life,11,rinse,verb,/ˈrɪns/,to wash with clean water,Rinse the dishes.
+B1,1,Daily Life,12,wipe,verb,/ˈwaɪp/,to clean by rubbing,Wipe the table.
+B1,1,Daily Life,13,polish,verb,/ˈpɑlɪʃ/,to make something shiny,Polish the furniture.
+B1,1,Daily Life,14,tidy,verb,/ˈtaɪdi/,to make neat and organized,Tidy your room.
+B1,1,Daily Life,15,organize,verb,/ˈɔrgəˌnaɪz/,to arrange in order,Organize your closet.
+B1,1,Daily Life,16,maintain,verb,/meɪnˈteɪn/,to keep in good condition,Maintain your car regularly.
+B1,1,Daily Life,17,broom,noun,/ˈbrum/,tool for sweeping,Sweep with a broom.
+B1,1,Daily Life,18,mop,noun,/ˈmɑp/,tool for cleaning floors,Use the mop.
+B1,1,Daily Life,19,bucket,noun,/ˈbʌkɪt/,container for water,Fill the bucket with water.
+B1,1,Daily Life,20,sponge,noun,/ˈspʌndʒ/,soft material for cleaning,Clean with a sponge.
+B1,1,Daily Life,21,detergent,noun,/dɪˈtɜrdʒənt/,soap for cleaning,Add detergent to the water.
+B1,1,Daily Life,22,bleach,noun,/ˈblitʃ/,chemical for whitening,Use bleach carefully.
+B1,1,Daily Life,23,dishwasher,noun,/ˈdɪʃˌwɑʃɚ/,machine for washing dishes,Load the dishwasher.
+B1,1,Daily Life,24,dryer,noun,/ˈdraɪɚ/,machine for drying clothes,Put clothes in the dryer.
+B1,1,Daily Life,25,washer,noun,/ˈwɑʃɚ/,machine for washing clothes,The washer is running.
+B1,1,Daily Life,26,trash,noun,/ˈtræʃ/,things to throw away,Take out the trash.
+B1,1,Daily Life,27,garbage,noun,/ˈgɑrbɪdʒ/,waste material,Collect the garbage.
+B1,1,Daily Life,28,recycling,noun,/riˈsaɪklɪŋ/,process of reusing materials,Put bottles in recycling.
+B1,1,Daily Life,29,routine,noun,/ruˈtin/,regular way of doing things,I have a morning routine.
+B1,1,Daily Life,30,schedule,noun,/ˈskɛdʒul/,plan of activities,Check your schedule.
+B1,1,Daily Life,31,task,noun,/ˈtæsk/,piece of work to do,Complete the task.
+B1,1,Daily Life,32,responsibility,noun,/rɪˌspɑnsəˈbɪləti/,something you must do,It is my responsibility.
+B1,1,Daily Life,33,household,noun,/ˈhaʊsˌhoʊld/,people living together,The whole household helped.
+B1,1,Daily Life,34,tidy,adjective,/ˈtaɪdi/,neat and organized,Keep your desk tidy.
+B1,1,Daily Life,35,messy,adjective,/ˈmɛsi/,not neat or clean,The room is messy.
+B1,1,Daily Life,36,spotless,adjective,/ˈspɑtləs/,perfectly clean,The kitchen is spotless.
+B1,1,Daily Life,37,dusty,adjective,/ˈdʌsti/,covered with dust,The shelf is dusty.
+B1,1,Daily Life,38,daily,adjective,/ˈdeɪli/,happening every day,Daily cleaning is important.
+B1,1,Daily Life,39,weekly,adjective,/ˈwikli/,happening every week,Weekly shopping trip.
+B1,1,Daily Life,40,regularly,adverb,/ˈrɛgjələrli/,at regular times,Clean regularly.
+B1,2,Time & Schedules,1,generally,adverb,/ˈdʒɛnərəli/,usually; in most cases,I generally wake up early.
+B1,2,Time & Schedules,2,eventually,adverb,/ɪˈvɛntʃuəli/,in the end; finally,He eventually found a job.
+B1,2,Time & Schedules,3,currently,adverb,/ˈkɜrəntli/,at the present time,I am currently working.
+B1,2,Time & Schedules,4,frequently,adverb,/ˈfrikwəntli/,often; many times,She frequently visits us.
+B1,2,Time & Schedules,5,occasionally,adverb,/əˈkeɪʒənəli/,sometimes; not often,I occasionally eat out.
+B1,2,Time & Schedules,6,previously,adverb,/ˈpriviəsli/,before now,I previously lived in Paris.
+B1,2,Time & Schedules,7,recently,adverb,/ˈrisəntli/,not long ago,I recently started a new job.
+B1,2,Time & Schedules,8,constantly,adverb,/ˈkɑnstəntli/,all the time,He is constantly busy.
+B1,2,Time & Schedules,9,immediately,adverb,/ɪˈmidiətli/,at once,Please respond immediately.
+B1,2,Time & Schedules,10,gradually,adverb,/ˈgrædʒuəli/,slowly over time,Things improved gradually.
+B1,2,Time & Schedules,11,meanwhile,adverb,/ˈminˌwaɪl/,at the same time,"Meanwhile, I will wait."
+B1,2,Time & Schedules,12,afterward,adverb,/ˈæftɚwɚd/,later,We talked afterward.
+B1,2,Time & Schedules,13,current,adjective,/ˈkɜrənt/,happening now,Current events are discussed.
+B1,2,Time & Schedules,14,previous,adjective,/ˈpriviəs/,coming before,The previous owner left.
+B1,2,Time & Schedules,15,upcoming,adjective,/ˈʌpˌkʌmɪŋ/,happening soon,The upcoming event.
+B1,2,Time & Schedules,16,recent,adjective,/ˈrisənt/,happening not long ago,A recent study showed.
+B1,2,Time & Schedules,17,frequent,adjective,/ˈfrikwənt/,happening often,Frequent delays occur.
+B1,2,Time & Schedules,18,rare,adjective,/ˈrɛr/,not happening often,A rare opportunity.
+B1,2,Time & Schedules,19,immediate,adjective,/ɪˈmidiət/,happening at once,An immediate response.
+B1,2,Time & Schedules,20,regular,adjective,/ˈrɛgjələr/,happening at fixed times,Regular meetings.
+B1,2,Time & Schedules,21,annual,adjective,/ˈænjuəl/,happening once a year,Annual review.
+B1,2,Time & Schedules,22,temporary,adjective,/ˈtɛmpəˌrɛri/,lasting a short time,Temporary solution.
+B1,2,Time & Schedules,23,permanent,adjective,/ˈpɜrmənənt/,lasting forever,Permanent change.
+B1,2,Time & Schedules,24,deadline,noun,/ˈdɛdˌlaɪn/,time by which something must be done,Meet the deadline.
+B1,2,Time & Schedules,25,schedule,noun,/ˈskɛdʒul/,list of planned times,Check the schedule.
+B1,2,Time & Schedules,26,appointment,noun,/əˈpɔɪntmənt/,arranged meeting,I have an appointment.
+B1,2,Time & Schedules,27,occasion,noun,/əˈkeɪʒən/,particular time or event,A special occasion.
+B1,2,Time & Schedules,28,decade,noun,/ˈdɛkeɪd/,period of ten years,In the past decade.
+B1,2,Time & Schedules,29,era,noun,/ˈɪrə/,long period of history,A new era began.
+B1,2,Time & Schedules,30,phase,noun,/ˈfeɪz/,stage in a process,The first phase.
+B1,2,Time & Schedules,31,period,noun,/ˈpɪriəd/,length of time,A long period.
+B1,2,Time & Schedules,32,delay,noun,/dɪˈleɪ/,time when something is late,There was a delay.
+B1,2,Time & Schedules,33,duration,noun,/dʊˈreɪʃən/,length of time something lasts,For the duration.
+B1,2,Time & Schedules,34,up-to-date,adjective,/ˌʌptəˈdeɪt/,having latest information,Keep records up-to-date.
+B1,2,Time & Schedules,35,outdated,adjective,/ˌaʊtˈdeɪtɪd/,no longer current,Outdated technology.
+B1,3,Numbers & Measurement,1,total,noun,/ˈtoʊtəl/,complete amount,The total is $50.
+B1,3,Numbers & Measurement,2,approximately,adverb,/əˈprɑksɪmətli/,about; roughly,Approximately 100 people came.
+B1,3,Numbers & Measurement,3,roughly,adverb,/ˈrʌfli/,about; not exactly,Roughly half agreed.
+B1,3,Numbers & Measurement,4,exactly,adverb,/ɪgˈzæktli/,precisely,Exactly ten items.
+B1,3,Numbers & Measurement,5,nearly,adverb,/ˈnɪrli/,almost,Nearly finished.
+B1,3,Numbers & Measurement,6,slightly,adverb,/ˈslaɪtli/,a little bit,Slightly more than expected.
+B1,3,Numbers & Measurement,7,significantly,adverb,/sɪgˈnɪfɪkəntli/,by a large amount,Sales increased significantly.
+B1,3,Numbers & Measurement,8,percentage,noun,/pɚˈsɛntɪdʒ/,part of 100,What percentage passed?
+B1,3,Numbers & Measurement,9,fraction,noun,/ˈfrækʃən/,part of a whole,A fraction of the cost.
+B1,3,Numbers & Measurement,10,ratio,noun,/ˈreɪʃioʊ/,relationship between numbers,A ratio of 2 to 1.
+B1,3,Numbers & Measurement,11,average,noun,/ˈævərɪdʒ/,typical amount,The average is 75.
+B1,3,Numbers & Measurement,12,majority,noun,/məˈdʒɔrəti/,more than half,The majority voted yes.
+B1,3,Numbers & Measurement,13,minority,noun,/maɪˈnɔrəti/,less than half,A minority disagreed.
+B1,3,Numbers & Measurement,14,estimate,noun,/ˈɛstəmɪt/,rough calculation,Give me an estimate.
+B1,3,Numbers & Measurement,15,calculation,noun,/ˌkælkjəˈleɪʃən/,working out a number,Check your calculation.
+B1,3,Numbers & Measurement,16,measurement,noun,/ˈmɛʒɚmənt/,size or amount found,Take the measurement.
+B1,3,Numbers & Measurement,17,length,noun,/ˈlɛŋkθ/,how long something is,The length is 5 meters.
+B1,3,Numbers & Measurement,18,width,noun,/ˈwɪdθ/,how wide something is,The width is 3 meters.
+B1,3,Numbers & Measurement,19,height,noun,/ˈhaɪt/,how tall something is,The height is 2 meters.
+B1,3,Numbers & Measurement,20,depth,noun,/ˈdɛpθ/,how deep something is,The depth is 10 feet.
+B1,3,Numbers & Measurement,21,distance,noun,/ˈdɪstəns/,how far away something is,The distance is 5 km.
+B1,3,Numbers & Measurement,22,weight,noun,/ˈweɪt/,how heavy something is,Check the weight.
+B1,3,Numbers & Measurement,23,volume,noun,/ˈvɑljum/,amount of space,Measure the volume.
+B1,3,Numbers & Measurement,24,unit,noun,/ˈjunɪt/,standard amount,A unit of measurement.
+B1,3,Numbers & Measurement,25,degree,noun,/dɪˈgri/,unit of temperature or angle,30 degrees Celsius.
+B1,3,Numbers & Measurement,26,double,adjective,/ˈdʌbəl/,twice as much,Double the amount.
+B1,3,Numbers & Measurement,27,triple,adjective,/ˈtrɪpəl/,three times as much,Triple the price.
+B1,3,Numbers & Measurement,28,maximum,noun,/ˈmæksɪməm/,highest amount,The maximum is 100.
+B1,3,Numbers & Measurement,29,minimum,noun,/ˈmɪnɪməm/,lowest amount,The minimum is 10.
+B1,3,Numbers & Measurement,30,increase,noun,/ˈɪnkris/,rise in amount,An increase in sales.
+B1,3,Numbers & Measurement,31,decrease,noun,/ˈdikris/,fall in amount,A decrease in cost.
+B1,3,Numbers & Measurement,32,calculate,verb,/ˈkælkjəˌleɪt/,to work out a number,Calculate the total.
+B1,3,Numbers & Measurement,33,measure,verb,/ˈmɛʒɚ/,to find the size,Measure the room.
+B1,3,Numbers & Measurement,34,estimate,verb,/ˈɛstəˌmeɪt/,to guess approximately,Estimate the cost.
+B1,3,Numbers & Measurement,35,compare,verb,/kəmˈpɛr/,to see differences,Compare the numbers.
+B1,4,Family & Relationships,1,youth,noun,/ˈjuθ/,the time when you are young,He spent his youth traveling.
+B1,4,Family & Relationships,2,childhood,noun,/ˈtʃaɪldˌhʊd/,time when you are a child,She had a happy childhood.
+B1,4,Family & Relationships,3,adulthood,noun,/əˈdʌltˌhʊd/,time when you are an adult,He reached adulthood.
+B1,4,Family & Relationships,4,adolescence,noun,/ˌædəˈlɛsəns/,teenage years,Adolescence is challenging.
+B1,4,Family & Relationships,5,generation,noun,/ˌdʒɛnəˈreɪʃən/,people born at similar time,The younger generation.
+B1,4,Family & Relationships,6,marriage,noun,/ˈmɛrɪdʒ/,being husband and wife,A happy marriage.
+B1,4,Family & Relationships,7,divorce,noun,/dɪˈvɔrs/,end of a marriage,They got a divorce.
+B1,4,Family & Relationships,8,engagement,noun,/ɪnˈgeɪdʒmənt/,promise to marry,They announced their engagement.
+B1,4,Family & Relationships,9,relationship,noun,/rɪˈleɪʃənˌʃɪp/,connection between people,A good relationship.
+B1,4,Family & Relationships,10,friendship,noun,/ˈfrɛndˌʃɪp/,being friends,Their friendship is strong.
+B1,4,Family & Relationships,11,acquaintance,noun,/əˈkweɪntəns/,person you know slightly,She is an acquaintance.
+B1,4,Family & Relationships,12,stranger,noun,/ˈstreɪndʒɚ/,person you dont know,Dont talk to strangers.
+B1,4,Family & Relationships,13,fiancé,noun,/ˌfiɑnˈseɪ/,man engaged to marry,Her fiancé is kind.
+B1,4,Family & Relationships,14,fiancée,noun,/ˌfiɑnˈseɪ/,woman engaged to marry,His fiancée is beautiful.
+B1,4,Family & Relationships,15,bride,noun,/ˈbraɪd/,woman getting married,The bride wore white.
+B1,4,Family & Relationships,16,groom,noun,/ˈgrum/,man getting married,The groom was nervous.
+B1,4,Family & Relationships,17,bridesmaid,noun,/ˈbraɪdzˌmeɪd/,woman helping the bride,Her sister was bridesmaid.
+B1,4,Family & Relationships,18,godmother,noun,/ˈgɑdˌmʌðɚ/,woman who sponsors a child,Her godmother gave her a gift.
+B1,4,Family & Relationships,19,godfather,noun,/ˈgɑdˌfɑðɚ/,man who sponsors a child,His godfather is kind.
+B1,4,Family & Relationships,20,guardian,noun,/ˈgɑrdiən/,person who cares for a child,Her aunt is her guardian.
+B1,4,Family & Relationships,21,ancestor,noun,/ˈænˌsɛstɚ/,family member from long ago,My ancestors came from Europe.
+B1,4,Family & Relationships,22,descendant,noun,/dɪˈsɛndənt/,persons children and grandchildren,Descendants of the founder.
+B1,4,Family & Relationships,23,heir,noun,/ˈɛr/,person who inherits,The heir to the throne.
+B1,4,Family & Relationships,24,widow,noun,/ˈwɪdoʊ/,woman whose husband died,She became a widow.
+B1,4,Family & Relationships,25,widower,noun,/ˈwɪdoʊɚ/,man whose wife died,He is a widower.
+B1,4,Family & Relationships,26,orphan,noun,/ˈɔrfən/,child without parents,She is an orphan.
+B1,4,Family & Relationships,27,elderly,adjective,/ˈɛldɚli/,old in age,Elderly people need care.
+B1,4,Family & Relationships,28,engaged,adjective,/ɪnˈgeɪdʒd/,promised to marry,They are engaged.
+B1,4,Family & Relationships,29,divorced,adjective,/dɪˈvɔrst/,no longer married,They are divorced.
+B1,4,Family & Relationships,30,widowed,adjective,/ˈwɪdoʊd/,spouse has died,She was widowed young.
+B1,4,Family & Relationships,31,adopted,adjective,/əˈdɑptɪd/,taken as ones child,Their adopted son.
+B1,4,Family & Relationships,32,related,adjective,/rɪˈleɪtɪd/,in the same family,We are related.
+B1,4,Family & Relationships,33,reunite,verb,/ˌriuˈnaɪt/,bring together again,The family was reunited.
+B1,4,Family & Relationships,34,socialize,verb,/ˈsoʊʃəˌlaɪz/,spend time with others,I like to socialize.
+B1,4,Family & Relationships,35,inherit,verb,/ɪnˈhɛrɪt/,receive from someone who died,She inherited the house.
+B1,4,Family & Relationships,36,adopt,verb,/əˈdɑpt/,take as ones child,They adopted a baby.
+B1,4,Family & Relationships,37,raise,verb,/ˈreɪz/,bring up a child,She raised three children.
+B1,4,Family & Relationships,38,care,verb,/ˈkɛr/,to look after,She cares for her parents.
+B1,4,Family & Relationships,39,respect,verb,/rɪˈspɛkt/,to admire someone,I respect my elders.
+B1,4,Family & Relationships,40,trust,verb,/ˈtrʌst/,to believe in someone,I trust my friends.
+B1,5,Body & Appearance,1,throat,noun,/ˈθroʊt/,passage in neck,I have a sore throat.
+B1,5,Body & Appearance,2,tongue,noun,/ˈtʌŋ/,organ in mouth,I burned my tongue.
+B1,5,Body & Appearance,3,muscle,noun,/ˈmʌsəl/,body tissue for movement,He pulled a muscle.
+B1,5,Body & Appearance,4,bone,noun,/ˈboʊn/,hard part of skeleton,He broke a bone.
+B1,5,Body & Appearance,5,joint,noun,/ˈdʒɔɪnt/,where bones connect,My knee joint hurts.
+B1,5,Body & Appearance,6,chest,noun,/ˈtʃɛst/,front of upper body,My chest hurts.
+B1,5,Body & Appearance,7,waist,noun,/ˈweɪst/,middle part of body,She has a small waist.
+B1,5,Body & Appearance,8,hip,noun,/ˈhɪp/,side of body below waist,He hurt his hip.
+B1,5,Body & Appearance,9,forehead,noun,/ˈfɔrˌhɛd/,area above eyes,She wiped her forehead.
+B1,5,Body & Appearance,10,chin,noun,/ˈtʃɪn/,bottom of face,He has a strong chin.
+B1,5,Body & Appearance,11,cheek,noun,/ˈtʃik/,side of face,Her cheeks turned red.
+B1,5,Body & Appearance,12,eyebrow,noun,/ˈaɪˌbraʊ/,hair above eye,She raised her eyebrow.
+B1,5,Body & Appearance,13,eyelash,noun,/ˈaɪˌlæʃ/,hair on eyelid,She has long eyelashes.
+B1,5,Body & Appearance,14,wrist,noun,/ˈrɪst/,joint between hand and arm,She hurt her wrist.
+B1,5,Body & Appearance,15,ankle,noun,/ˈæŋkəl/,joint between foot and leg,I twisted my ankle.
+B1,5,Body & Appearance,16,fist,noun,/ˈfɪst/,closed hand,He made a fist.
+B1,5,Body & Appearance,17,palm,noun,/ˈpɑm/,inside of hand,She read my palm.
+B1,5,Body & Appearance,18,heel,noun,/ˈhil/,back of foot,My heel hurts.
+B1,5,Body & Appearance,19,toe,noun,/ˈtoʊ/,digit of foot,I stubbed my toe.
+B1,5,Body & Appearance,20,skin,noun,/ˈskɪn/,outer covering of body,She has smooth skin.
+B1,5,Body & Appearance,21,beard,noun,/ˈbɪrd/,hair on mans face,He grew a beard.
+B1,5,Body & Appearance,22,moustache,noun,/məˈstæʃ/,hair above lip,He has a moustache.
+B1,5,Body & Appearance,23,wrinkle,noun,/ˈrɪŋkəl/,line on old skin,She has wrinkles.
+B1,5,Body & Appearance,24,scar,noun,/ˈskɑr/,mark from old wound,He has a scar.
+B1,5,Body & Appearance,25,freckle,noun,/ˈfrɛkəl/,small brown spot on skin,She has freckles.
+B1,5,Body & Appearance,26,appearance,noun,/əˈpɪrəns/,how someone looks,Her appearance changed.
+B1,5,Body & Appearance,27,figure,noun,/ˈfɪgjɚ/,shape of body,She has a slim figure.
+B1,5,Body & Appearance,28,height,noun,/ˈhaɪt/,how tall someone is,Average height.
+B1,5,Body & Appearance,29,weight,noun,/ˈweɪt/,how heavy someone is,Healthy weight.
+B1,5,Body & Appearance,30,complexion,noun,/kəmˈplɛkʃən/,skin color on face,A fair complexion.
+B1,5,Body & Appearance,31,pale,adjective,/ˈpeɪl/,light colored,She looked pale.
+B1,5,Body & Appearance,32,slim,adjective,/ˈslɪm/,thin in attractive way,A slim figure.
+B1,5,Body & Appearance,33,overweight,adjective,/ˌoʊvɚˈweɪt/,weighing too much,He is overweight.
+B1,5,Body & Appearance,34,handsome,adjective,/ˈhænsəm/,good looking man,He is handsome.
+B1,5,Body & Appearance,35,attractive,adjective,/əˈtræktɪv/,good looking,She is attractive.
+B1,5,Body & Appearance,36,ugly,adjective,/ˈʌgli/,not pleasant to look at,An ugly building.
+B1,5,Body & Appearance,37,bald,adjective,/ˈbɔld/,having no hair,He went bald.
+B1,5,Body & Appearance,38,muscular,adjective,/ˈmʌskjəlɚ/,having strong muscles,He is muscular.
+B1,5,Body & Appearance,39,weigh,verb,/ˈweɪ/,to measure weight,How much do you weigh?
+B1,5,Body & Appearance,40,resemble,verb,/rɪˈzɛmbəl/,to look like,She resembles her mother.
+B1,6,Fashion & Clothing,1,collar,noun,/ˈkɑlɚ/,part around neck,Turn up your collar.
+B1,6,Fashion & Clothing,2,sleeve,noun,/ˈsliv/,part covering arm,Roll up your sleeves.
+B1,6,Fashion & Clothing,3,hem,noun,/ˈhɛm/,bottom edge of clothing,Shorten the hem.
+B1,6,Fashion & Clothing,4,pocket,noun,/ˈpɑkɪt/,small bag in clothes,Hands in pockets.
+B1,6,Fashion & Clothing,5,zipper,noun,/ˈzɪpɚ/,device to close clothes,The zipper is stuck.
+B1,6,Fashion & Clothing,6,button,noun,/ˈbʌtən/,small disc to close clothes,A missing button.
+B1,6,Fashion & Clothing,7,underwear,noun,/ˈʌndɚˌwɛr/,clothes worn under others,Pack extra underwear.
+B1,6,Fashion & Clothing,8,fabric,noun,/ˈfæbrɪk/,material for clothes,Soft fabric.
+B1,6,Fashion & Clothing,9,leather,noun,/ˈlɛðɚ/,material from animal skin,A leather jacket.
+B1,6,Fashion & Clothing,10,cotton,noun,/ˈkɑtən/,natural plant material,Cotton shirt.
+B1,6,Fashion & Clothing,11,wool,noun,/ˈwʊl/,material from sheep,A wool sweater.
+B1,6,Fashion & Clothing,12,silk,noun,/ˈsɪlk/,smooth shiny material,A silk dress.
+B1,6,Fashion & Clothing,13,linen,noun,/ˈlɪnən/,light natural fabric,Linen suit.
+B1,6,Fashion & Clothing,14,denim,noun,/ˈdɛnɪm/,blue jean material,A denim jacket.
+B1,6,Fashion & Clothing,15,polyester,noun,/ˌpɑliˈɛstɚ/,synthetic material,Polyester shirts.
+B1,6,Fashion & Clothing,16,pattern,noun,/ˈpætɚn/,design on fabric,A nice pattern.
+B1,6,Fashion & Clothing,17,style,noun,/ˈstaɪl/,way of dressing,Her style is unique.
+B1,6,Fashion & Clothing,18,outfit,noun,/ˈaʊtˌfɪt/,set of clothes,A nice outfit.
+B1,6,Fashion & Clothing,19,wardrobe,noun,/ˈwɔrˌdroʊb/,all clothes you own,Update your wardrobe.
+B1,6,Fashion & Clothing,20,accessory,noun,/ækˈsɛsəri/,extra item like belt or bag,Fashion accessories.
+B1,6,Fashion & Clothing,21,costume,noun,/ˈkɑstum/,special outfit,Halloween costume.
+B1,6,Fashion & Clothing,22,uniform,noun,/ˈjunəˌfɔrm/,same clothes for all,School uniform.
+B1,6,Fashion & Clothing,23,striped,adjective,/ˈstraɪpt/,having lines,A striped shirt.
+B1,6,Fashion & Clothing,24,plain,adjective,/ˈpleɪn/,without pattern,Plain colors.
+B1,6,Fashion & Clothing,25,patterned,adjective,/ˈpætɚnd/,having a design,A patterned dress.
+B1,6,Fashion & Clothing,26,casual,adjective,/ˈkæʒuəl/,informal style,Casual clothes.
+B1,6,Fashion & Clothing,27,formal,adjective,/ˈfɔrməl/,for special occasions,Formal dress.
+B1,6,Fashion & Clothing,28,fashionable,adjective,/ˈfæʃənəbəl/,in current style,Very fashionable.
+B1,6,Fashion & Clothing,29,old-fashioned,adjective,/ˌoʊldˈfæʃənd/,out of style,Old-fashioned clothes.
+B1,6,Fashion & Clothing,30,trendy,adjective,/ˈtrɛndi/,very fashionable now,Trendy designs.
+B1,6,Fashion & Clothing,31,loose,adjective,/ˈlus/,not tight,Loose fitting.
+B1,6,Fashion & Clothing,32,tight,adjective,/ˈtaɪt/,fitting closely,Too tight.
+B1,6,Fashion & Clothing,33,fit,verb,/ˈfɪt/,to be the right size,It fits perfectly.
+B1,6,Fashion & Clothing,34,match,verb,/ˈmætʃ/,to go well together,The colors match.
+B1,6,Fashion & Clothing,35,suit,verb,/ˈsut/,to look good on,That color suits you.
+B1,7,Food & Cooking,1,ingredient,noun,/ɪnˈgridiənt/,component of a recipe,List all ingredients.
+B1,7,Food & Cooking,2,recipe,noun,/ˈrɛsəpi/,instructions for cooking,Follow the recipe.
+B1,7,Food & Cooking,3,portion,noun,/ˈpɔrʃən/,amount of food for one,A small portion.
+B1,7,Food & Cooking,4,serving,noun,/ˈsɜrvɪŋ/,amount of food,One serving only.
+B1,7,Food & Cooking,5,course,noun,/ˈkɔrs/,part of a meal,The main course.
+B1,7,Food & Cooking,6,appetizer,noun,/ˈæpɪˌtaɪzɚ/,starter dish,Order an appetizer.
+B1,7,Food & Cooking,7,dessert,noun,/dɪˈzɜrt/,sweet dish at end,Dessert is ready.
+B1,7,Food & Cooking,8,flavor,noun,/ˈfleɪvɚ/,taste of food,Vanilla flavor.
+B1,7,Food & Cooking,9,texture,noun,/ˈtɛkstʃɚ/,how food feels,Smooth texture.
+B1,7,Food & Cooking,10,broth,noun,/ˈbrɔθ/,liquid from cooking meat,Chicken broth.
+B1,7,Food & Cooking,11,sauce,noun,/ˈsɔs/,liquid for food,Tomato sauce.
+B1,7,Food & Cooking,12,dressing,noun,/ˈdrɛsɪŋ/,sauce for salad,Salad dressing.
+B1,7,Food & Cooking,13,seasoning,noun,/ˈsizənɪŋ/,spices added to food,Add seasoning.
+B1,7,Food & Cooking,14,spice,noun,/ˈspaɪs/,flavoring from plants,Use fresh spices.
+B1,7,Food & Cooking,15,herb,noun,/ˈɜrb/,plant used for flavor,Fresh herbs.
+B1,7,Food & Cooking,16,flour,noun,/ˈflaʊɚ/,powder from grain,Add flour.
+B1,7,Food & Cooking,17,dough,noun,/ˈdoʊ/,mixture for bread,Knead the dough.
+B1,7,Food & Cooking,18,batter,noun,/ˈbætɚ/,liquid mixture,Pancake batter.
+B1,7,Food & Cooking,19,vegetarian,noun,/ˌvɛdʒəˈtɛriən/,person not eating meat,She is vegetarian.
+B1,7,Food & Cooking,20,vegan,noun,/ˈvigən/,person eating no animal products,He is vegan.
+B1,7,Food & Cooking,21,chef,noun,/ˈʃɛf/,professional cook,Famous chef.
+B1,7,Food & Cooking,22,pan,noun,/ˈpæn/,flat cooking container,A frying pan.
+B1,7,Food & Cooking,23,pot,noun,/ˈpɑt/,deep cooking container,A large pot.
+B1,7,Food & Cooking,24,oven,noun,/ˈʌvən/,for baking food,Preheat the oven.
+B1,7,Food & Cooking,25,fry,verb,/ˈfraɪ/,cook in hot oil,Fry the eggs.
+B1,7,Food & Cooking,26,bake,verb,/ˈbeɪk/,cook in oven,Bake the cake.
+B1,7,Food & Cooking,27,boil,verb,/ˈbɔɪl/,cook in hot water,Boil the pasta.
+B1,7,Food & Cooking,28,grill,verb,/ˈgrɪl/,cook on direct heat,Grill the meat.
+B1,7,Food & Cooking,29,roast,verb,/ˈroʊst/,cook in oven with fat,Roast the chicken.
+B1,7,Food & Cooking,30,steam,verb,/ˈstim/,cook with steam,Steam the vegetables.
+B1,7,Food & Cooking,31,stir,verb,/ˈstɜr/,mix with spoon,Stir the soup.
+B1,7,Food & Cooking,32,chop,verb,/ˈtʃɑp/,cut into pieces,Chop the onions.
+B1,7,Food & Cooking,33,slice,verb,/ˈslaɪs/,cut into thin pieces,Slice the bread.
+B1,7,Food & Cooking,34,peel,verb,/ˈpil/,remove skin,Peel the potato.
+B1,7,Food & Cooking,35,melt,verb,/ˈmɛlt/,make liquid by heat,Melt the butter.
+B1,7,Food & Cooking,36,pour,verb,/ˈpɔr/,make liquid flow,Pour the milk.
+B1,7,Food & Cooking,37,spicy,adjective,/ˈspaɪsi/,with strong flavor,Spicy food.
+B1,7,Food & Cooking,38,salty,adjective,/ˈsɔlti/,tasting of salt,Too salty.
+B1,7,Food & Cooking,39,bitter,adjective,/ˈbɪtɚ/,sharp unpleasant taste,Bitter coffee.
+B1,7,Food & Cooking,40,raw,adjective,/ˈrɔ/,not cooked,Raw vegetables.
+B1,8,Home & Furniture,1,ceiling,noun,/ˈsilɪŋ/,top surface of room,High ceiling.
+B1,8,Home & Furniture,2,floor,noun,/ˈflɔr/,bottom surface of room,Wooden floor.
+B1,8,Home & Furniture,3,wall,noun,/ˈwɔl/,side of room,Paint the wall.
+B1,8,Home & Furniture,4,doorway,noun,/ˈdɔrˌweɪ/,opening for a door,Stand in the doorway.
+B1,8,Home & Furniture,5,hallway,noun,/ˈhɔlˌweɪ/,corridor in house,Long hallway.
+B1,8,Home & Furniture,6,staircase,noun,/ˈstɛrˌkeɪs/,set of stairs,Spiral staircase.
+B1,8,Home & Furniture,7,balcony,noun,/ˈbælkəni/,platform outside window,Sit on the balcony.
+B1,8,Home & Furniture,8,basement,noun,/ˈbeɪsmənt/,room below ground,Store things in basement.
+B1,8,Home & Furniture,9,attic,noun,/ˈætɪk/,room under roof,Old things in attic.
+B1,8,Home & Furniture,10,shelf,noun,/ˈʃɛlf/,board for items,Put it on the shelf.
+B1,8,Home & Furniture,11,drawer,noun,/ˈdrɔɚ/,sliding storage box,Open the drawer.
+B1,8,Home & Furniture,12,closet,noun,/ˈklɑzɪt/,small storage room,Walk-in closet.
+B1,8,Home & Furniture,13,wardrobe,noun,/ˈwɔrˌdroʊb/,large clothes cabinet,Hang in wardrobe.
+B1,8,Home & Furniture,14,curtain,noun,/ˈkɜrtən/,cloth for window,Close the curtains.
+B1,8,Home & Furniture,15,blind,noun,/ˈblaɪnd/,cover for window,Pull down the blind.
+B1,8,Home & Furniture,16,rug,noun,/ˈrʌg/,small carpet,A Persian rug.
+B1,8,Home & Furniture,17,carpet,noun,/ˈkɑrpɪt/,floor covering,Wall-to-wall carpet.
+B1,8,Home & Furniture,18,tile,noun,/ˈtaɪl/,flat piece for surfaces,Floor tiles.
+B1,8,Home & Furniture,19,mattress,noun,/ˈmætrɪs/,soft part of bed,A new mattress.
+B1,8,Home & Furniture,20,pillow,noun,/ˈpɪloʊ/,head cushion,Soft pillow.
+B1,8,Home & Furniture,21,blanket,noun,/ˈblæŋkɪt/,bed covering,Warm blanket.
+B1,8,Home & Furniture,22,sheet,noun,/ˈʃit/,bed cloth,Clean sheets.
+B1,8,Home & Furniture,23,duvet,noun,/duˈveɪ/,thick bed cover,A warm duvet.
+B1,8,Home & Furniture,24,cushion,noun,/ˈkʊʃən/,soft pad for sitting,Sofa cushions.
+B1,8,Home & Furniture,25,armchair,noun,/ˈɑrmˌtʃɛr/,chair with arms,Leather armchair.
+B1,8,Home & Furniture,26,couch,noun,/ˈkaʊtʃ/,long soft seat,Sit on the couch.
+B1,8,Home & Furniture,27,desk,noun,/ˈdɛsk/,table for work,Study desk.
+B1,8,Home & Furniture,28,bookcase,noun,/ˈbʊkˌkeɪs/,furniture for books,Tall bookcase.
+B1,8,Home & Furniture,29,vase,noun,/ˈveɪs/,container for flowers,A flower vase.
+B1,8,Home & Furniture,30,frame,noun,/ˈfreɪm/,border for picture,Photo frame.
+B1,8,Home & Furniture,31,decoration,noun,/ˌdɛkəˈreɪʃən/,ornament,Wall decoration.
+B1,8,Home & Furniture,32,furniture,noun,/ˈfɜrnɪtʃɚ/,items in home,Modern furniture.
+B1,8,Home & Furniture,33,appliance,noun,/əˈplaɪəns/,home machine,Kitchen appliance.
+B1,8,Home & Furniture,34,decorate,verb,/ˈdɛkəˌreɪt/,make attractive,Decorate the room.
+B1,8,Home & Furniture,35,furnish,verb,/ˈfɜrnɪʃ/,put furniture in,Furnish the apartment.
+B1,8,Home & Furniture,36,renovate,verb,/ˈrɛnəˌveɪt/,repair and improve,Renovate the kitchen.
+B1,8,Home & Furniture,37,spacious,adjective,/ˈspeɪʃəs/,having much space,A spacious living room.
+B1,8,Home & Furniture,38,cozy,adjective,/ˈkoʊzi/,warm and comfortable,A cozy bedroom.
+B1,8,Home & Furniture,39,modern,adjective,/ˈmɑdɚn/,new style,Modern design.
+B1,8,Home & Furniture,40,antique,adjective,/ænˈtik/,old and valuable,Antique furniture.
+B1,9,Housing & Urban Life,1,accommodation,noun,/əˌkɑməˈdeɪʃən/,place to stay,Book accommodation.
+B1,9,Housing & Urban Life,2,apartment,noun,/əˈpɑrtmənt/,flat in building,Rent an apartment.
+B1,9,Housing & Urban Life,3,flat,noun,/ˈflæt/,apartment UK,A two-bedroom flat.
+B1,9,Housing & Urban Life,4,property,noun,/ˈprɑpɚti/,building or land owned,Buy property.
+B1,9,Housing & Urban Life,5,landlord,noun,/ˈlændˌlɔrd/,owner who rents out,The landlord collects rent.
+B1,9,Housing & Urban Life,6,tenant,noun,/ˈtɛnənt/,person who rents,The tenant moved in.
+B1,9,Housing & Urban Life,7,rent,noun,/ˈrɛnt/,payment for housing,Pay the rent.
+B1,9,Housing & Urban Life,8,lease,noun,/ˈlis/,rental agreement,Sign the lease.
+B1,9,Housing & Urban Life,9,deposit,noun,/dɪˈpɑzɪt/,money paid as security,Pay a deposit.
+B1,9,Housing & Urban Life,10,mortgage,noun,/ˈmɔrgɪdʒ/,loan for house,Pay the mortgage.
+B1,9,Housing & Urban Life,11,suburb,noun,/ˈsʌbɜrb/,area outside city center,Live in the suburbs.
+B1,9,Housing & Urban Life,12,neighborhood,noun,/ˈneɪbɚˌhʊd/,local area,A nice neighborhood.
+B1,9,Housing & Urban Life,13,district,noun,/ˈdɪstrɪkt/,area of city,Business district.
+B1,9,Housing & Urban Life,14,block,noun,/ˈblɑk/,group of buildings,Around the block.
+B1,9,Housing & Urban Life,15,street,noun,/ˈstrit/,road in town,Main street.
+B1,9,Housing & Urban Life,16,avenue,noun,/ˈævəˌnu/,wide road,Fifth Avenue.
+B1,9,Housing & Urban Life,17,sidewalk,noun,/ˈsaɪdˌwɔk/,path beside street,Walk on the sidewalk.
+B1,9,Housing & Urban Life,18,crossroad,noun,/ˈkrɔsˌroʊd/,where roads meet,At the crossroad.
+B1,9,Housing & Urban Life,19,driveway,noun,/ˈdraɪvˌweɪ/,private road to house,Park in the driveway.
+B1,9,Housing & Urban Life,20,cottage,noun,/ˈkɑtɪdʒ/,small country house,A charming cottage.
+B1,9,Housing & Urban Life,21,mansion,noun,/ˈmænʃən/,large grand house,A beautiful mansion.
+B1,9,Housing & Urban Life,22,skyscraper,noun,/ˈskaɪˌskreɪpɚ/,very tall building,City skyscrapers.
+B1,9,Housing & Urban Life,23,tower,noun,/ˈtaʊɚ/,tall narrow building,Apartment tower.
+B1,9,Housing & Urban Life,24,hostel,noun,/ˈhɑstəl/,cheap hotel for travelers,Youth hostel.
+B1,9,Housing & Urban Life,25,lodge,noun,/ˈlɑdʒ/,small house in countryside,Mountain lodge.
+B1,9,Housing & Urban Life,26,resident,noun,/ˈrɛzɪdənt/,person who lives there,Local residents.
+B1,9,Housing & Urban Life,27,neighbor,noun,/ˈneɪbɚ/,person living nearby,My neighbor is friendly.
+B1,9,Housing & Urban Life,28,urban,adjective,/ˈɜrbən/,relating to city,Urban life.
+B1,9,Housing & Urban Life,29,rural,adjective,/ˈrʊrəl/,relating to countryside,Rural areas.
+B1,9,Housing & Urban Life,30,residential,adjective,/ˌrɛzɪˈdɛnʃəl/,for housing,Residential area.
+B1,9,Housing & Urban Life,31,downtown,adjective,/ˈdaʊnˌtaʊn/,in city center,Downtown Manhattan.
+B1,9,Housing & Urban Life,32,locate,verb,/ˈloʊˌkeɪt/,find position of,Locate the building.
+B1,9,Housing & Urban Life,33,relocate,verb,/riˈloʊˌkeɪt/,move to new place,Relocate for work.
+B1,9,Housing & Urban Life,34,commute,verb,/kəˈmjut/,travel to work daily,Commute by train.
+B1,9,Housing & Urban Life,35,settle,verb,/ˈsɛtəl/,make home somewhere,Settle in the city.
+B1,9,Housing & Urban Life,36,rent,verb,/ˈrɛnt/,pay to use,Rent a house.
+B1,9,Housing & Urban Life,37,occupy,verb,/ˈɑkjəˌpaɪ/,live in a place,Occupy the apartment.
+B1,9,Housing & Urban Life,38,crowded,adjective,/ˈkraʊdɪd/,full of people,Crowded streets.
+B1,9,Housing & Urban Life,39,peaceful,adjective,/ˈpisfəl/,calm and quiet,A peaceful area.
+B1,9,Housing & Urban Life,40,lively,adjective,/ˈlaɪvli/,full of activity,A lively neighborhood.
+B1,10,Description & Comparison,1,similar,adjective,/ˈsɪmɪlɚ/,almost the same,They have similar interests.
+B1,10,Description & Comparison,2,different,adjective,/ˈdɪfərənt/,not the same,This is very different.
+B1,10,Description & Comparison,3,opposite,adjective,/ˈɑpəzɪt/,completely different,The opposite direction.
+B1,10,Description & Comparison,4,equal,adjective,/ˈikwəl/,the same in amount,Equal parts.
+B1,10,Description & Comparison,5,various,adjective,/ˈvɛriəs/,many different kinds,Various options.
+B1,10,Description & Comparison,6,certain,adjective,/ˈsɜrtən/,sure; definite,I am certain about it.
+B1,10,Description & Comparison,7,particular,adjective,/pɚˈtɪkjəlɚ/,specific,This particular case.
+B1,10,Description & Comparison,8,specific,adjective,/spɪˈsɪfɪk/,exact; particular,Specific details.
+B1,10,Description & Comparison,9,obvious,adjective,/ˈɑbviəs/,easy to see or understand,The answer is obvious.
+B1,10,Description & Comparison,10,clear,adjective,/ˈklɪr/,easy to understand,A clear explanation.
+B1,10,Description & Comparison,11,typical,adjective,/ˈtɪpɪkəl/,normal; usual,A typical example.
+B1,10,Description & Comparison,12,unusual,adjective,/ənˈjuʒuəl/,not common,An unusual situation.
+B1,10,Description & Comparison,13,ordinary,adjective,/ˈɔrdənˌɛri/,normal; not special,An ordinary day.
+B1,10,Description & Comparison,14,extraordinary,adjective,/ɪkˈstrɔrdənˌɛri/,very unusual,Extraordinary talent.
+B1,10,Description & Comparison,15,essential,adjective,/ɪˈsɛnʃəl/,very important,Essential information.
+B1,10,Description & Comparison,16,significant,adjective,/sɪgˈnɪfɪkənt/,important; large,A significant change.
+B1,10,Description & Comparison,17,major,adjective,/ˈmeɪdʒɚ/,very important,A major problem.
+B1,10,Description & Comparison,18,minor,adjective,/ˈmaɪnɚ/,not very important,A minor issue.
+B1,10,Description & Comparison,19,excellent,adjective,/ˈɛksələnt/,very good,Excellent work!
+B1,10,Description & Comparison,20,awful,adjective,/ˈɔfəl/,very bad,An awful mistake.
+B1,10,Description & Comparison,21,huge,adjective,/ˈhjudʒ/,very large,A huge building.
+B1,10,Description & Comparison,22,tiny,adjective,/ˈtaɪni/,very small,A tiny insect.
+B1,10,Description & Comparison,23,thick,adjective,/ˈθɪk/,not thin,Thick walls.
+B1,10,Description & Comparison,24,thin,adjective,/ˈθɪn/,not thick,Thin paper.
+B1,10,Description & Comparison,25,smooth,adjective,/ˈsmuð/,without roughness,Smooth surface.
+B1,10,Description & Comparison,26,rough,adjective,/ˈrʌf/,not smooth,Rough texture.
+B1,10,Description & Comparison,27,tight,adjective,/ˈtaɪt/,fitting closely,Tight schedule.
+B1,10,Description & Comparison,28,loose,adjective,/ˈlus/,not tight,Loose clothing.
+B1,10,Description & Comparison,29,sharp,adjective,/ˈʃɑrp/,with a fine edge,A sharp knife.
+B1,10,Description & Comparison,30,dull,adjective,/ˈdʌl/,not sharp; boring,A dull blade.
+B1,10,Description & Comparison,31,compare,verb,/kəmˈpɛr/,look at differences,Compare the two.
+B1,10,Description & Comparison,32,contrast,verb,/kənˈtræst/,show differences,Contrast light and dark.
+B1,10,Description & Comparison,33,differ,verb,/ˈdɪfɚ/,be different,Opinions differ.
+B1,10,Description & Comparison,34,vary,verb,/ˈvɛri/,change; be different,Prices vary.
+B1,10,Description & Comparison,35,especially,adverb,/ɪˈspɛʃəli/,more than usual,Especially important.
+B1,10,Description & Comparison,36,particularly,adverb,/pɚˈtɪkjəlɚli/,especially,Particularly useful.
+B1,10,Description & Comparison,37,slightly,adverb,/ˈslaɪtli/,a little bit,Slightly different.
+B1,10,Description & Comparison,38,extremely,adverb,/ɪkˈstrimli/,very much,Extremely hot.
+B1,10,Description & Comparison,39,fairly,adverb,/ˈfɛrli/,quite; reasonably,Fairly easy.
+B1,10,Description & Comparison,40,rather,adverb,/ˈræðɚ/,somewhat; quite,Rather difficult.
+B1,11,Feelings & Personality,1,emotion,noun,/ɪˈmoʊʃən/,a strong feeling,Show your emotions.
+B1,11,Feelings & Personality,2,mood,noun,/ˈmud/,how you feel,In a good mood.
+B1,11,Feelings & Personality,3,feeling,noun,/ˈfilɪŋ/,something you feel,A strange feeling.
+B1,11,Feelings & Personality,4,attitude,noun,/ˈætɪˌtud/,way of thinking,Positive attitude.
+B1,11,Feelings & Personality,5,personality,noun,/ˌpɜrsəˈnæləti/,type of character,A friendly personality.
+B1,11,Feelings & Personality,6,character,noun,/ˈkærɪktɚ/,personal qualities,Strong character.
+B1,11,Feelings & Personality,7,temper,noun,/ˈtɛmpɚ/,tendency to get angry,Bad temper.
+B1,11,Feelings & Personality,8,patience,noun,/ˈpeɪʃəns/,ability to wait calmly,Have patience.
+B1,11,Feelings & Personality,9,confidence,noun,/ˈkɑnfɪdəns/,belief in yourself,Build confidence.
+B1,11,Feelings & Personality,10,anxiety,noun,/æŋˈzaɪəti/,worry; nervousness,Reduce anxiety.
+B1,11,Feelings & Personality,11,excitement,noun,/ɪkˈsaɪtmənt/,feeling of enthusiasm,Full of excitement.
+B1,11,Feelings & Personality,12,relief,noun,/rɪˈlif/,feeling when worry ends,What a relief!
+B1,11,Feelings & Personality,13,jealousy,noun,/ˈdʒɛləsi/,envying others,Overcome jealousy.
+B1,11,Feelings & Personality,14,pride,noun,/ˈpraɪd/,feeling of satisfaction,Take pride in work.
+B1,11,Feelings & Personality,15,honest,adjective,/ˈɑnəst/,telling the truth,An honest person.
+B1,11,Feelings & Personality,16,brave,adjective,/ˈbreɪv/,not afraid,Be brave.
+B1,11,Feelings & Personality,17,calm,adjective,/ˈkɑm/,not excited or angry,Stay calm.
+B1,11,Feelings & Personality,18,nervous,adjective,/ˈnɜrvəs/,worried; anxious,Feeling nervous.
+B1,11,Feelings & Personality,19,confident,adjective,/ˈkɑnfɪdənt/,sure of yourself,Feel confident.
+B1,11,Feelings & Personality,20,patient,adjective,/ˈpeɪʃənt/,able to wait calmly,Be patient.
+B1,11,Feelings & Personality,21,generous,adjective,/ˈdʒɛnərəs/,willing to give,Very generous.
+B1,11,Feelings & Personality,22,selfish,adjective,/ˈsɛlfɪʃ/,thinking only of yourself,Dont be selfish.
+B1,11,Feelings & Personality,23,ambitious,adjective,/æmˈbɪʃəs/,wanting success,Very ambitious.
+B1,11,Feelings & Personality,24,cheerful,adjective,/ˈtʃɪrfəl/,happy and positive,A cheerful smile.
+B1,11,Feelings & Personality,25,grateful,adjective,/ˈgreɪtfəl/,feeling thankful,Very grateful.
+B1,11,Feelings & Personality,26,jealous,adjective,/ˈdʒɛləs/,wanting what others have,Feeling jealous.
+B1,11,Feelings & Personality,27,proud,adjective,/ˈpraʊd/,pleased with achievement,Very proud.
+B1,11,Feelings & Personality,28,ashamed,adjective,/əˈʃeɪmd/,feeling guilty or embarrassed,Ashamed of mistakes.
+B1,11,Feelings & Personality,29,embarrassed,adjective,/ɪmˈbærəst/,feeling awkward,Feeling embarrassed.
+B1,11,Feelings & Personality,30,disappointed,adjective,/ˌdɪsəˈpɔɪntɪd/,unhappy about results,Very disappointed.
+B1,11,Feelings & Personality,31,relieved,adjective,/rɪˈlivd/,happy worry is over,Feeling relieved.
+B1,11,Feelings & Personality,32,stressed,adjective,/ˈstrɛst/,worried and tense,Feeling stressed.
+B1,11,Feelings & Personality,33,annoyed,adjective,/əˈnɔɪd/,slightly angry,Getting annoyed.
+B1,11,Feelings & Personality,34,frustrated,adjective,/ˈfrʌˌstreɪtɪd/,upset and impatient,Feeling frustrated.
+B1,11,Feelings & Personality,35,enthusiastic,adjective,/ɪnˌθuziˈæstɪk/,very excited and interested,Very enthusiastic.
+B1,11,Feelings & Personality,36,admire,verb,/ədˈmaɪr/,respect and like,I admire her.
+B1,11,Feelings & Personality,37,appreciate,verb,/əˈpriʃiˌeɪt/,be grateful for,I appreciate your help.
+B1,11,Feelings & Personality,38,trust,verb,/ˈtrʌst/,believe in someone,I trust you.
+B1,11,Feelings & Personality,39,forgive,verb,/fɚˈgɪv/,stop being angry,Please forgive me.
+B1,11,Feelings & Personality,40,respect,verb,/rɪˈspɛkt/,admire someone,I respect him.
+B1,12,Actions & Movement,1,grab,verb,/ˈgræb/,take quickly,Grab your bag.
+B1,12,Actions & Movement,2,reach,verb,/ˈritʃ/,stretch to touch,Reach for the shelf.
+B1,12,Actions & Movement,3,stretch,verb,/ˈstrɛtʃ/,extend body or arms,Stretch before exercise.
+B1,12,Actions & Movement,4,bend,verb,/ˈbɛnd/,curve the body,Bend your knees.
+B1,12,Actions & Movement,5,lean,verb,/ˈlin/,rest against something,Lean on the wall.
+B1,12,Actions & Movement,6,twist,verb,/ˈtwɪst/,turn around,Twist the cap.
+B1,12,Actions & Movement,7,slide,verb,/ˈslaɪd/,move smoothly,Slide across the floor.
+B1,12,Actions & Movement,8,roll,verb,/ˈroʊl/,move by turning over,Roll the ball.
+B1,12,Actions & Movement,9,spin,verb,/ˈspɪn/,turn around quickly,Spin in circles.
+B1,12,Actions & Movement,10,swing,verb,/ˈswɪŋ/,move back and forth,Swing your arms.
+B1,12,Actions & Movement,11,shake,verb,/ˈʃeɪk/,move quickly up and down,Shake the bottle.
+B1,12,Actions & Movement,12,push,verb,/ˈpʊʃ/,press against to move,Push the door.
+B1,12,Actions & Movement,13,pull,verb,/ˈpʊl/,move toward yourself,Pull the rope.
+B1,12,Actions & Movement,14,lift,verb,/ˈlɪft/,raise up,Lift the box.
+B1,12,Actions & Movement,15,lower,verb,/ˈloʊɚ/,move down,Lower your voice.
+B1,12,Actions & Movement,16,raise,verb,/ˈreɪz/,move upward,Raise your hand.
+B1,12,Actions & Movement,17,drop,verb,/ˈdrɑp/,let fall,Drop the ball.
+B1,12,Actions & Movement,18,throw,verb,/ˈθroʊ/,send through air,Throw the ball.
+B1,12,Actions & Movement,19,catch,verb,/ˈkætʃ/,grab moving object,Catch the ball.
+B1,12,Actions & Movement,20,kick,verb,/ˈkɪk/,hit with foot,Kick the ball.
+B1,12,Actions & Movement,21,knock,verb,/ˈnɑk/,hit to make sound,Knock on the door.
+B1,12,Actions & Movement,22,tap,verb,/ˈtæp/,touch lightly,Tap my shoulder.
+B1,12,Actions & Movement,23,pat,verb,/ˈpæt/,touch gently,Pat the dog.
+B1,12,Actions & Movement,24,rub,verb,/ˈrʌb/,move hand over surface,Rub your eyes.
+B1,12,Actions & Movement,25,scratch,verb,/ˈskrætʃ/,rub with nails,Scratch an itch.
+B1,12,Actions & Movement,26,pour,verb,/ˈpɔr/,make liquid flow,Pour water.
+B1,12,Actions & Movement,27,stir,verb,/ˈstɜr/,mix by moving,Stir the coffee.
+B1,12,Actions & Movement,28,spread,verb,/ˈsprɛd/,cover a surface,Spread butter.
+B1,12,Actions & Movement,29,fold,verb,/ˈfoʊld/,bend over itself,Fold the paper.
+B1,12,Actions & Movement,30,tear,verb,/ˈtɛr/,pull apart,Tear the paper.
+B1,12,Actions & Movement,31,wrap,verb,/ˈræp/,cover completely,Wrap the gift.
+B1,12,Actions & Movement,32,tie,verb,/ˈtaɪ/,fasten with string,Tie your shoes.
+B1,12,Actions & Movement,33,attach,verb,/əˈtætʃ/,connect to something,Attach the file.
+B1,12,Actions & Movement,34,remove,verb,/rɪˈmuv/,take away,Remove the cover.
+B1,12,Actions & Movement,35,replace,verb,/rɪˈpleɪs/,put back,Replace the batteries.
+B1,12,Actions & Movement,36,adjust,verb,/əˈdʒʌst/,change slightly,Adjust the volume.
+B1,12,Actions & Movement,37,operate,verb,/ˈɑpəˌreɪt/,use a machine,Operate the machine.
+B1,12,Actions & Movement,38,press,verb,/ˈprɛs/,push firmly,Press the button.
+B1,12,Actions & Movement,39,squeeze,verb,/ˈskwiz/,press tightly,Squeeze the tube.
+B1,12,Actions & Movement,40,release,verb,/rɪˈlis/,let go,Release the handle.
+B1,13,Thinking & Decision Making,1,thought,noun,/ˈθɔt/,idea in your mind,Share your thoughts.
+B1,13,Thinking & Decision Making,2,idea,noun,/aɪˈdiə/,plan or suggestion,A good idea.
+B1,13,Thinking & Decision Making,3,opinion,noun,/əˈpɪnjən/,what you think,In my opinion.
+B1,13,Thinking & Decision Making,4,decision,noun,/dɪˈsɪʒən/,choice you make,Make a decision.
+B1,13,Thinking & Decision Making,5,choice,noun,/ˈtʃɔɪs/,option to select,The right choice.
+B1,13,Thinking & Decision Making,6,option,noun,/ˈɑpʃən/,thing you can choose,Several options.
+B1,13,Thinking & Decision Making,7,conclusion,noun,/kənˈkluʒən/,final decision,Reach a conclusion.
+B1,13,Thinking & Decision Making,8,solution,noun,/səˈluʃən/,answer to problem,Find a solution.
+B1,13,Thinking & Decision Making,9,reason,noun,/ˈrizən/,cause or explanation,The reason why.
+B1,13,Thinking & Decision Making,10,purpose,noun,/ˈpɜrpəs/,reason for doing,The purpose of this.
+B1,13,Thinking & Decision Making,11,intention,noun,/ɪnˈtɛnʃən/,plan to do something,Good intentions.
+B1,13,Thinking & Decision Making,12,goal,noun,/ˈgoʊl/,aim; target,Achieve your goal.
+B1,13,Thinking & Decision Making,13,plan,noun,/ˈplæn/,arrangement for future,Make a plan.
+B1,13,Thinking & Decision Making,14,memory,noun,/ˈmɛməri/,ability to remember,Good memory.
+B1,13,Thinking & Decision Making,15,knowledge,noun,/ˈnɑlɪdʒ/,information you know,General knowledge.
+B1,13,Thinking & Decision Making,16,understanding,noun,/ˌʌndɚˈstændɪŋ/,ability to understand,Better understanding.
+B1,13,Thinking & Decision Making,17,aware,adjective,/əˈwɛr/,knowing about,Be aware of risks.
+B1,13,Thinking & Decision Making,18,conscious,adjective,/ˈkɑnʃəs/,knowing; awake,Conscious decision.
+B1,13,Thinking & Decision Making,19,logical,adjective,/ˈlɑdʒɪkəl/,using reason,A logical answer.
+B1,13,Thinking & Decision Making,20,reasonable,adjective,/ˈrizənəbəl/,fair and sensible,A reasonable price.
+B1,13,Thinking & Decision Making,21,creative,adjective,/kriˈeɪtɪv/,good at new ideas,Creative thinking.
+B1,13,Thinking & Decision Making,22,curious,adjective,/ˈkjʊriəs/,wanting to know,Curious about it.
+B1,13,Thinking & Decision Making,23,certain,adjective,/ˈsɜrtən/,sure; definite,I am certain.
+B1,13,Thinking & Decision Making,24,uncertain,adjective,/ʌnˈsɜrtən/,not sure,Feeling uncertain.
+B1,13,Thinking & Decision Making,25,think,verb,/ˈθɪŋk/,use your mind,Think carefully.
+B1,13,Thinking & Decision Making,26,consider,verb,/kənˈsɪdɚ/,think about carefully,Consider the options.
+B1,13,Thinking & Decision Making,27,decide,verb,/dɪˈsaɪd/,make a choice,Decide now.
+B1,13,Thinking & Decision Making,28,choose,verb,/ˈtʃuz/,pick from options,Choose wisely.
+B1,13,Thinking & Decision Making,29,prefer,verb,/prɪˈfɜr/,like better,I prefer coffee.
+B1,13,Thinking & Decision Making,30,wonder,verb,/ˈwʌndɚ/,want to know,I wonder why.
+B1,13,Thinking & Decision Making,31,realize,verb,/ˈriəˌlaɪz/,become aware,I realize now.
+B1,13,Thinking & Decision Making,32,recognize,verb,/ˈrɛkəgˌnaɪz/,know from before,I recognize you.
+B1,13,Thinking & Decision Making,33,remember,verb,/rɪˈmɛmbɚ/,keep in mind,Remember this.
+B1,13,Thinking & Decision Making,34,forget,verb,/fɚˈgɛt/,fail to remember,Dont forget.
+B1,13,Thinking & Decision Making,35,remind,verb,/rɪˈmaɪnd/,help someone remember,Remind me later.
+B1,13,Thinking & Decision Making,36,imagine,verb,/ɪˈmædʒɪn/,picture in mind,Imagine that.
+B1,13,Thinking & Decision Making,37,guess,verb,/ˈgɛs/,try to answer without knowing,Guess the answer.
+B1,13,Thinking & Decision Making,38,assume,verb,/əˈsum/,think without proof,I assume so.
+B1,13,Thinking & Decision Making,39,doubt,verb,/ˈdaʊt/,not believe fully,I doubt it.
+B1,13,Thinking & Decision Making,40,concentrate,verb,/ˈkɑnsənˌtreɪt/,focus attention,Concentrate on work.
+B1,14,Communication,1,message,noun,/ˈmɛsɪdʒ/,information sent,Leave a message.
+B1,14,Communication,2,conversation,noun,/ˌkɑnvɚˈseɪʃən/,talk between people,Have a conversation.
+B1,14,Communication,3,discussion,noun,/dɪˈskʌʃən/,talking about something,A long discussion.
+B1,14,Communication,4,argument,noun,/ˈɑrgjəmənt/,disagreement,They had an argument.
+B1,14,Communication,5,announcement,noun,/əˈnaʊnsmənt/,public statement,Make an announcement.
+B1,14,Communication,6,statement,noun,/ˈsteɪtmənt/,something said formally,Official statement.
+B1,14,Communication,7,explanation,noun,/ˌɛkspləˈneɪʃən/,making clear,Clear explanation.
+B1,14,Communication,8,complaint,noun,/kəmˈpleɪnt/,saying something is wrong,File a complaint.
+B1,14,Communication,9,suggestion,noun,/səgˈdʒɛstʃən/,idea proposed,Good suggestion.
+B1,14,Communication,10,advice,noun,/ədˈvaɪs/,guidance given,Take my advice.
+B1,14,Communication,11,warning,noun,/ˈwɔrnɪŋ/,notice of danger,A warning sign.
+B1,14,Communication,12,apology,noun,/əˈpɑlədʒi/,saying sorry,Accept an apology.
+B1,14,Communication,13,reply,noun,/rɪˈplaɪ/,answer to message,Wait for a reply.
+B1,14,Communication,14,response,noun,/rɪˈspɑns/,answer or reaction,Quick response.
+B1,14,Communication,15,speech,noun,/ˈspitʃ/,formal talk,Give a speech.
+B1,14,Communication,16,voice,noun,/ˈvɔɪs/,sound when speaking,Loud voice.
+B1,14,Communication,17,tone,noun,/ˈtoʊn/,way of speaking,Friendly tone.
+B1,14,Communication,18,communicate,verb,/kəˈmjunɪˌkeɪt/,share information,Communicate clearly.
+B1,14,Communication,19,speak,verb,/ˈspik/,use voice,Speak slowly.
+B1,14,Communication,20,talk,verb,/ˈtɔk/,have conversation,Talk to me.
+B1,14,Communication,21,discuss,verb,/dɪˈskʌs/,talk about,Discuss the plan.
+B1,14,Communication,22,explain,verb,/ɪkˈspleɪn/,make clear,Explain the rules.
+B1,14,Communication,23,describe,verb,/dɪˈskraɪb/,say what something is like,Describe the scene.
+B1,14,Communication,24,announce,verb,/əˈnaʊns/,tell publicly,Announce the winner.
+B1,14,Communication,25,mention,verb,/ˈmɛnʃən/,speak briefly about,Mention your name.
+B1,14,Communication,26,suggest,verb,/səgˈdʒɛst/,propose an idea,I suggest we go.
+B1,14,Communication,27,recommend,verb,/ˌrɛkəˈmɛnd/,say something is good,I recommend this book.
+B1,14,Communication,28,advise,verb,/ədˈvaɪz/,give advice,I advise caution.
+B1,14,Communication,29,warn,verb,/ˈwɔrn/,tell about danger,Warn them now.
+B1,14,Communication,30,complain,verb,/kəmˈpleɪn/,say something is wrong,Dont complain.
+B1,14,Communication,31,apologize,verb,/əˈpɑləˌdʒaɪz/,say sorry,I apologize.
+B1,14,Communication,32,agree,verb,/əˈgri/,have same opinion,I agree with you.
+B1,14,Communication,33,disagree,verb,/ˌdɪsəˈgri/,have different opinion,I disagree.
+B1,14,Communication,34,persuade,verb,/pɚˈsweɪd/,convince someone,Persuade him to stay.
+B1,14,Communication,35,convince,verb,/kənˈvɪns/,make someone believe,Convince me.
+B1,14,Communication,36,admit,verb,/ədˈmɪt/,say something is true,Admit your mistake.
+B1,14,Communication,37,deny,verb,/dɪˈnaɪ/,say something is not true,Deny the accusation.
+B1,14,Communication,38,interrupt,verb,/ˌɪntəˈrʌpt/,stop someone speaking,Dont interrupt.
+B1,14,Communication,39,whisper,verb,/ˈwɪspɚ/,speak very quietly,Whisper a secret.
+B1,14,Communication,40,shout,verb,/ˈʃaʊt/,speak very loudly,Dont shout.
+B1,15,Language & Grammar,1,language,noun,/ˈlæŋgwɪdʒ/,system of communication,Learn a language.
+B1,15,Language & Grammar,2,word,noun,/ˈwɜrd/,unit of language,New vocabulary word.
+B1,15,Language & Grammar,3,sentence,noun,/ˈsɛntəns/,group of words,Write a sentence.
+B1,15,Language & Grammar,4,paragraph,noun,/ˈpærəˌgræf/,section of text,Start a new paragraph.
+B1,15,Language & Grammar,5,vocabulary,noun,/voʊˈkæbjəˌlɛri/,words you know,Build vocabulary.
+B1,15,Language & Grammar,6,grammar,noun,/ˈgræmɚ/,rules of language,Study grammar.
+B1,15,Language & Grammar,7,spelling,noun,/ˈspɛlɪŋ/,how to write words,Check spelling.
+B1,15,Language & Grammar,8,pronunciation,noun,/prəˌnʌnsiˈeɪʃən/,how to say words,Correct pronunciation.
+B1,15,Language & Grammar,9,meaning,noun,/ˈminɪŋ/,what something means,The meaning of the word.
+B1,15,Language & Grammar,10,definition,noun,/ˌdɛfɪˈnɪʃən/,explanation of meaning,Dictionary definition.
+B1,15,Language & Grammar,11,translation,noun,/trænsˈleɪʃən/,words in another language,Accurate translation.
+B1,15,Language & Grammar,12,expression,noun,/ɪkˈsprɛʃən/,phrase or saying,Common expression.
+B1,15,Language & Grammar,13,phrase,noun,/ˈfreɪz/,group of words,A useful phrase.
+B1,15,Language & Grammar,14,accent,noun,/ˈæksɛnt/,way of pronouncing,British accent.
+B1,15,Language & Grammar,15,dialect,noun,/ˈdaɪəˌlɛkt/,regional language variety,Local dialect.
+B1,15,Language & Grammar,16,slang,noun,/ˈslæŋ/,informal words,Street slang.
+B1,15,Language & Grammar,17,native,adjective,/ˈneɪtɪv/,from birth,Native speaker.
+B1,15,Language & Grammar,18,fluent,adjective,/ˈfluənt/,speaking smoothly,Fluent in Spanish.
+B1,15,Language & Grammar,19,bilingual,adjective,/baɪˈlɪŋgwəl/,speaking two languages,Bilingual education.
+B1,15,Language & Grammar,20,formal,adjective,/ˈfɔrməl/,official style,Formal language.
+B1,15,Language & Grammar,21,informal,adjective,/ɪnˈfɔrməl/,casual style,Informal speech.
+B1,15,Language & Grammar,22,written,adjective,/ˈrɪtən/,in writing,Written exam.
+B1,15,Language & Grammar,23,spoken,adjective,/ˈspoʊkən/,said aloud,Spoken English.
+B1,15,Language & Grammar,24,translate,verb,/trænsˈleɪt/,change to another language,Translate the text.
+B1,15,Language & Grammar,25,pronounce,verb,/prəˈnaʊns/,say a word,Pronounce it correctly.
+B1,15,Language & Grammar,26,spell,verb,/ˈspɛl/,write letters of word,Spell your name.
+B1,15,Language & Grammar,27,define,verb,/dɪˈfaɪn/,give meaning of,Define the term.
+B1,15,Language & Grammar,28,express,verb,/ɪkˈsprɛs/,put into words,Express your feelings.
+B1,15,Language & Grammar,29,pronounce,verb,/prəˈnaʊns/,say correctly,Pronounce carefully.
+B1,15,Language & Grammar,30,misunderstand,verb,/ˌmɪsʌndɚˈstænd/,understand wrongly,I misunderstood.
+B1,15,Language & Grammar,31,alphabet,noun,/ˈælfəˌbɛt/,letters A to Z,English alphabet.
+B1,15,Language & Grammar,32,vowel,noun,/ˈvaʊəl/,"a, e, i, o, u",A is a vowel.
+B1,15,Language & Grammar,33,consonant,noun,/ˈkɑnsənənt/,letter not a vowel,B is a consonant.
+B1,15,Language & Grammar,34,comma,noun,/ˈkɑmə/,punctuation mark,Use a comma.
+B1,15,Language & Grammar,35,period,noun,/ˈpɪriəd/,full stop,End with a period.
+B1,16,Animals & Wildlife,1,mammal,noun,/ˈmæməl/,warm-blooded animal,Dogs are mammals.
+B1,16,Animals & Wildlife,2,reptile,noun,/ˈrɛptaɪl/,cold-blooded animal,Snakes are reptiles.
+B1,16,Animals & Wildlife,3,insect,noun,/ˈɪnsɛkt/,small creature with six legs,A bee is an insect.
+B1,16,Animals & Wildlife,4,creature,noun,/ˈkritʃɚ/,any living thing,Sea creatures.
+B1,16,Animals & Wildlife,5,species,noun,/ˈspiʃiz/,type of animal or plant,Endangered species.
+B1,16,Animals & Wildlife,6,wildlife,noun,/ˈwaɪldˌlaɪf/,wild animals,Protect wildlife.
+B1,16,Animals & Wildlife,7,habitat,noun,/ˈhæbɪˌtæt/,where animals live,Natural habitat.
+B1,16,Animals & Wildlife,8,predator,noun,/ˈprɛdətɚ/,animal that hunts others,Lions are predators.
+B1,16,Animals & Wildlife,9,prey,noun,/ˈpreɪ/,animal that is hunted,The prey escaped.
+B1,16,Animals & Wildlife,10,herd,noun,/ˈhɜrd/,group of animals,A herd of elephants.
+B1,16,Animals & Wildlife,11,flock,noun,/ˈflɑk/,group of birds,A flock of birds.
+B1,16,Animals & Wildlife,12,swarm,noun,/ˈswɔrm/,group of insects,A swarm of bees.
+B1,16,Animals & Wildlife,13,nest,noun,/ˈnɛst/,home of bird,Birds build nests.
+B1,16,Animals & Wildlife,14,cage,noun,/ˈkeɪdʒ/,container for animals,A bird cage.
+B1,16,Animals & Wildlife,15,wing,noun,/ˈwɪŋ/,part for flying,Bird wings.
+B1,16,Animals & Wildlife,16,feather,noun,/ˈfɛðɚ/,bird covering,Soft feathers.
+B1,16,Animals & Wildlife,17,fur,noun,/ˈfɜr/,animal hair,Thick fur.
+B1,16,Animals & Wildlife,18,claw,noun,/ˈklɔ/,sharp nail on animal,Sharp claws.
+B1,16,Animals & Wildlife,19,tail,noun,/ˈteɪl/,back part of animal,The dog wagged its tail.
+B1,16,Animals & Wildlife,20,paw,noun,/ˈpɔ/,foot of animal,The cat licked its paw.
+B1,16,Animals & Wildlife,21,dolphin,noun,/ˈdɑlfɪn/,intelligent sea animal,Dolphins are smart.
+B1,16,Animals & Wildlife,22,whale,noun,/ˈweɪl/,large sea mammal,Blue whale.
+B1,16,Animals & Wildlife,23,shark,noun,/ˈʃɑrk/,large sea fish,Great white shark.
+B1,16,Animals & Wildlife,24,eagle,noun,/ˈigəl/,large bird,Bald eagle.
+B1,16,Animals & Wildlife,25,owl,noun,/ˈaʊl/,night bird,Owls hunt at night.
+B1,16,Animals & Wildlife,26,butterfly,noun,/ˈbʌtɚˌflaɪ/,colorful insect,Beautiful butterfly.
+B1,16,Animals & Wildlife,27,bee,noun,/ˈbi/,insect that makes honey,Bees make honey.
+B1,16,Animals & Wildlife,28,ant,noun,/ˈænt/,small insect,Ants work hard.
+B1,16,Animals & Wildlife,29,spider,noun,/ˈspaɪdɚ/,eight-legged creature,Spider web.
+B1,16,Animals & Wildlife,30,snake,noun,/ˈsneɪk/,reptile without legs,A dangerous snake.
+B1,16,Animals & Wildlife,31,wild,adjective,/ˈwaɪld/,living in nature,Wild animals.
+B1,16,Animals & Wildlife,32,endangered,adjective,/ɪnˈdeɪndʒɚd/,in danger of dying out,Endangered species.
+B1,16,Animals & Wildlife,33,extinct,adjective,/ɪkˈstɪŋkt/,no longer existing,Dinosaurs are extinct.
+B1,16,Animals & Wildlife,34,domestic,adjective,/dəˈmɛstɪk/,kept as pets,Domestic animals.
+B1,16,Animals & Wildlife,35,hunt,verb,/ˈhʌnt/,chase to catch,Lions hunt zebras.
+B1,16,Animals & Wildlife,36,feed,verb,/ˈfid/,give food to,Feed the animals.
+B1,16,Animals & Wildlife,37,breed,verb,/ˈbrid/,produce young,Birds breed in spring.
+B1,16,Animals & Wildlife,38,protect,verb,/prəˈtɛkt/,keep safe,Protect wildlife.
+B1,16,Animals & Wildlife,39,survive,verb,/sɚˈvaɪv/,stay alive,Animals must survive.
+B1,16,Animals & Wildlife,40,migrate,verb,/ˈmaɪˌgreɪt/,move to another place,Birds migrate south.
+B1,17,Nature & Environment,1,nature,noun,/ˈneɪtʃɚ/,the natural world,Love of nature.
+B1,17,Nature & Environment,2,environment,noun,/ɪnˈvaɪrənmənt/,surroundings,Protect the environment.
+B1,17,Nature & Environment,3,climate,noun,/ˈklaɪmɪt/,weather conditions,Tropical climate.
+B1,17,Nature & Environment,4,weather,noun,/ˈwɛðɚ/,daily conditions,Nice weather today.
+B1,17,Nature & Environment,5,temperature,noun,/ˈtɛmprətʃɚ/,how hot or cold,High temperature.
+B1,17,Nature & Environment,6,pollution,noun,/pəˈluʃən/,harmful substances,Air pollution.
+B1,17,Nature & Environment,7,flood,noun,/ˈflʌd/,water covering land,The flood damaged homes.
+B1,17,Nature & Environment,8,drought,noun,/ˈdraʊt/,long time without rain,Severe drought.
+B1,17,Nature & Environment,9,earthquake,noun,/ˈɜrθˌkweɪk/,ground shaking,The earthquake was strong.
+B1,17,Nature & Environment,10,storm,noun,/ˈstɔrm/,bad weather,A terrible storm.
+B1,17,Nature & Environment,11,hurricane,noun,/ˈhɜrɪˌkeɪn/,strong tropical storm,Hurricane warning.
+B1,17,Nature & Environment,12,thunder,noun,/ˈθʌndɚ/,loud sound in storm,Thunder and lightning.
+B1,17,Nature & Environment,13,lightning,noun,/ˈlaɪtnɪŋ/,flash of electricity,Lightning struck.
+B1,17,Nature & Environment,14,rainbow,noun,/ˈreɪnˌboʊ/,colorful arc in sky,A beautiful rainbow.
+B1,17,Nature & Environment,15,fog,noun,/ˈfɑg/,thick mist,Dense fog.
+B1,17,Nature & Environment,16,frost,noun,/ˈfrɔst/,ice crystals,Frost on the window.
+B1,17,Nature & Environment,17,sunshine,noun,/ˈsʌnˌʃaɪn/,light from sun,Enjoy the sunshine.
+B1,17,Nature & Environment,18,sunrise,noun,/ˈsʌnˌraɪz/,when sun appears,Beautiful sunrise.
+B1,17,Nature & Environment,19,sunset,noun,/ˈsʌnˌsɛt/,when sun disappears,Watch the sunset.
+B1,17,Nature & Environment,20,forest,noun,/ˈfɔrɪst/,area with many trees,Tropical forest.
+B1,17,Nature & Environment,21,jungle,noun,/ˈdʒʌŋgəl/,thick tropical forest,Amazon jungle.
+B1,17,Nature & Environment,22,desert,noun,/ˈdɛzɚt/,dry sandy area,Sahara desert.
+B1,17,Nature & Environment,23,valley,noun,/ˈvæli/,low land between hills,Green valley.
+B1,17,Nature & Environment,24,cliff,noun,/ˈklɪf/,high steep rock,Sea cliff.
+B1,17,Nature & Environment,25,waterfall,noun,/ˈwɔtɚˌfɔl/,water falling from height,Niagara Falls.
+B1,17,Nature & Environment,26,coast,noun,/ˈkoʊst/,land near sea,Beautiful coast.
+B1,17,Nature & Environment,27,soil,noun,/ˈsɔɪl/,earth for growing,Rich soil.
+B1,17,Nature & Environment,28,branch,noun,/ˈbræntʃ/,part of tree,Tree branch.
+B1,17,Nature & Environment,29,leaf,noun,/ˈlif/,part of plant,Green leaves.
+B1,17,Nature & Environment,30,seed,noun,/ˈsid/,plant beginning,Plant seeds.
+B1,17,Nature & Environment,31,environmental,adjective,/ɪnˌvaɪrənˈmɛntəl/,about environment,Environmental issues.
+B1,17,Nature & Environment,32,natural,adjective,/ˈnætʃərəl/,from nature,Natural beauty.
+B1,17,Nature & Environment,33,humid,adjective,/ˈhjumɪd/,with moisture in air,Humid weather.
+B1,17,Nature & Environment,34,dry,adjective,/ˈdraɪ/,without water,Dry season.
+B1,17,Nature & Environment,35,mild,adjective,/ˈmaɪld/,not extreme,Mild winter.
+B1,17,Nature & Environment,36,pollute,verb,/pəˈlut/,make dirty,Factories pollute air.
+B1,17,Nature & Environment,37,recycle,verb,/riˈsaɪkəl/,use again,Recycle plastic.
+B1,17,Nature & Environment,38,conserve,verb,/kənˈsɜrv/,protect from waste,Conserve water.
+B1,17,Nature & Environment,39,destroy,verb,/dɪˈstrɔɪ/,ruin completely,Fire destroyed the forest.
+B1,17,Nature & Environment,40,grow,verb,/ˈgroʊ/,get bigger,Plants grow in spring.
+B1,18,Geography & Directions,1,continent,noun,/ˈkɑntənənt/,large land mass,Seven continents.
+B1,18,Geography & Directions,2,country,noun,/ˈkʌntri/,nation,A beautiful country.
+B1,18,Geography & Directions,3,region,noun,/ˈridʒən/,area of land,This region is hot.
+B1,18,Geography & Directions,4,area,noun,/ˈɛriə/,part of place,Rural area.
+B1,18,Geography & Directions,5,territory,noun,/ˈtɛrɪˌtɔri/,land controlled,Enemy territory.
+B1,18,Geography & Directions,6,border,noun,/ˈbɔrdɚ/,line between countries,Cross the border.
+B1,18,Geography & Directions,7,capital,noun,/ˈkæpɪtəl/,main city,Paris is the capital.
+B1,18,Geography & Directions,8,population,noun,/ˌpɑpjəˈleɪʃən/,number of people,Large population.
+B1,18,Geography & Directions,9,location,noun,/loʊˈkeɪʃən/,place; position,Good location.
+B1,18,Geography & Directions,10,distance,noun,/ˈdɪstəns/,how far,Short distance.
+B1,18,Geography & Directions,11,direction,noun,/dəˈrɛkʃən/,way to go,Which direction?
+B1,18,Geography & Directions,12,route,noun,/ˈrut/,way to destination,The fastest route.
+B1,18,Geography & Directions,13,path,noun,/ˈpæθ/,way for walking,Follow the path.
+B1,18,Geography & Directions,14,map,noun,/ˈmæp/,picture of area,Read the map.
+B1,18,Geography & Directions,15,north,noun,/ˈnɔrθ/,direction,Go north.
+B1,18,Geography & Directions,16,south,noun,/ˈsaʊθ/,direction,Travel south.
+B1,18,Geography & Directions,17,east,noun,/ˈist/,direction,The sun rises in the east.
+B1,18,Geography & Directions,18,west,noun,/ˈwɛst/,direction,Go west.
+B1,18,Geography & Directions,19,northern,adjective,/ˈnɔrðɚn/,in the north,Northern region.
+B1,18,Geography & Directions,20,southern,adjective,/ˈsʌðɚn/,in the south,Southern coast.
+B1,18,Geography & Directions,21,eastern,adjective,/ˈistɚn/,in the east,Eastern Europe.
+B1,18,Geography & Directions,22,western,adjective,/ˈwɛstɚn/,in the west,Western culture.
+B1,18,Geography & Directions,23,central,adjective,/ˈsɛntrəl/,in the middle,Central location.
+B1,18,Geography & Directions,24,local,adjective,/ˈloʊkəl/,of the area,Local news.
+B1,18,Geography & Directions,25,global,adjective,/ˈgloʊbəl/,worldwide,Global warming.
+B1,18,Geography & Directions,26,international,adjective,/ˌɪntɚˈnæʃənəl/,between countries,International travel.
+B1,18,Geography & Directions,27,domestic,adjective,/dəˈmɛstɪk/,within country,Domestic flights.
+B1,18,Geography & Directions,28,foreign,adjective,/ˈfɔrɪn/,from another country,Foreign language.
+B1,18,Geography & Directions,29,rural,adjective,/ˈrʊrəl/,in countryside,Rural village.
+B1,18,Geography & Directions,30,urban,adjective,/ˈɜrbən/,in city,Urban development.
+B1,18,Geography & Directions,31,navigate,verb,/ˈnævɪˌgeɪt/,find the way,Navigate the streets.
+B1,18,Geography & Directions,32,explore,verb,/ɪkˈsplɔr/,travel to discover,Explore the area.
+B1,18,Geography & Directions,33,locate,verb,/ˈloʊˌkeɪt/,find position,Locate on map.
+B1,18,Geography & Directions,34,surround,verb,/səˈraʊnd/,be all around,Mountains surround the city.
+B1,18,Geography & Directions,35,cross,verb,/ˈkrɔs/,go across,Cross the river.
+B1,18,Geography & Directions,36,nearby,adverb,/ˈnɪrˌbaɪ/,close by,A nearby town.
+B1,18,Geography & Directions,37,abroad,adverb,/əˈbrɔd/,in foreign country,Travel abroad.
+B1,18,Geography & Directions,38,overseas,adverb,/ˌoʊvɚˈsiz/,across the sea,Work overseas.
+B1,18,Geography & Directions,39,nationwide,adverb,/ˈneɪʃənˌwaɪd/,across the country,Nationwide search.
+B1,18,Geography & Directions,40,worldwide,adverb,/ˈwɜrldˌwaɪd/,all over the world,Worldwide fame.
+B1,19,Education,1,education,noun,/ˌɛdʒəˈkeɪʃən/,learning at school,Good education is important.
+B1,19,Education,2,student,noun,/ˈstudənt/,person who studies,A university student.
+B1,19,Education,3,teacher,noun,/ˈtitʃɚ/,person who teaches,My English teacher.
+B1,19,Education,4,professor,noun,/prəˈfɛsɚ/,university teacher,The professor gave a lecture.
+B1,19,Education,5,lecturer,noun,/ˈlɛktʃərɚ/,person who gives lectures,A guest lecturer.
+B1,19,Education,6,course,noun,/ˈkɔrs/,series of lessons,An English course.
+B1,19,Education,7,subject,noun,/ˈsʌbdʒɪkt/,area of study,My favorite subject.
+B1,19,Education,8,lesson,noun,/ˈlɛsən/,period of teaching,A piano lesson.
+B1,19,Education,9,lecture,noun,/ˈlɛktʃɚ/,talk to students,Attend a lecture.
+B1,19,Education,10,assignment,noun,/əˈsaɪnmənt/,homework task,Complete the assignment.
+B1,19,Education,11,homework,noun,/ˈhoʊmˌwɜrk/,work done at home,Do your homework.
+B1,19,Education,12,exam,noun,/ɪgˈzæm/,test,Pass the exam.
+B1,19,Education,13,test,noun,/ˈtɛst/,short exam,A vocabulary test.
+B1,19,Education,14,grade,noun,/ˈgreɪd/,mark or score,Get good grades.
+B1,19,Education,15,degree,noun,/dɪˈgri/,qualification from university,A masters degree.
+B1,19,Education,16,diploma,noun,/dɪˈploʊmə/,certificate from school,Receive a diploma.
+B1,19,Education,17,certificate,noun,/sɚˈtɪfɪkɪt/,document proving skill,A teaching certificate.
+B1,19,Education,18,scholarship,noun,/ˈskɑlɚˌʃɪp/,money for study,Win a scholarship.
+B1,19,Education,19,campus,noun,/ˈkæmpəs/,university grounds,On campus.
+B1,19,Education,20,library,noun,/ˈlaɪˌbrɛri/,place with books,Study in the library.
+B1,19,Education,21,laboratory,noun,/ˈlæbrəˌtɔri/,room for experiments,Science laboratory.
+B1,19,Education,22,primary,adjective,/ˈpraɪˌmɛri/,first level of school,Primary school.
+B1,19,Education,23,secondary,adjective,/ˈsɛkənˌdɛri/,second level of school,Secondary education.
+B1,19,Education,24,academic,adjective,/ˌækəˈdɛmɪk/,related to education,Academic year.
+B1,19,Education,25,educational,adjective,/ˌɛdʒəˈkeɪʃənəl/,related to learning,Educational program.
+B1,19,Education,26,qualify,verb,/ˈkwɑləˌfaɪ/,get qualification,Qualify as a teacher.
+B1,19,Education,27,graduate,verb,/ˈgrædʒuˌeɪt/,finish school,Graduate from university.
+B1,19,Education,28,study,verb,/ˈstʌdi/,learn,Study hard.
+B1,19,Education,29,learn,verb,/ˈlɜrn/,gain knowledge,Learn new skills.
+B1,19,Education,30,teach,verb,/ˈtitʃ/,give lessons,Teach English.
+B1,19,Education,31,attend,verb,/əˈtɛnd/,go to,Attend classes.
+B1,19,Education,32,revise,verb,/rɪˈvaɪz/,study for exam,Revise for the test.
+B1,19,Education,33,memorize,verb,/ˈmɛməˌraɪz/,learn by heart,Memorize vocabulary.
+B1,19,Education,34,research,verb,/rɪˈsɜrtʃ/,study in detail,Research the topic.
+B1,19,Education,35,analyze,verb,/ˈænəˌlaɪz/,examine carefully,Analyze the data.
+B1,19,Education,36,summarize,verb,/ˈsʌməˌraɪz/,give main points,Summarize the article.
+B1,19,Education,37,pass,verb,/ˈpæs/,succeed in exam,Pass the test.
+B1,19,Education,38,fail,verb,/ˈfeɪl/,not succeed,Fail the exam.
+B1,19,Education,39,enroll,verb,/ɪnˈroʊl/,register for course,Enroll in a class.
+B1,19,Education,40,improve,verb,/ɪmˈpruv/,get better,Improve your English.
+B1,20,Career & Jobs,1,career,noun,/kəˈrɪr/,working life,A successful career.
+B1,20,Career & Jobs,2,job,noun,/ˈdʒɑb/,work you are paid for,Find a job.
+B1,20,Career & Jobs,3,profession,noun,/prəˈfɛʃən/,type of job needing training,The medical profession.
+B1,20,Career & Jobs,4,occupation,noun,/ˌɑkjəˈpeɪʃən/,type of work,What is your occupation?
+B1,20,Career & Jobs,5,position,noun,/pəˈzɪʃən/,job role,Apply for a position.
+B1,20,Career & Jobs,6,employer,noun,/ɪmˈplɔɪɚ/,person who hires,A good employer.
+B1,20,Career & Jobs,7,employee,noun,/ɪmˈplɔɪi/,person who works,Company employees.
+B1,20,Career & Jobs,8,colleague,noun,/ˈkɑlig/,work partner,My colleagues are helpful.
+B1,20,Career & Jobs,9,boss,noun,/ˈbɔs/,person in charge,My boss is strict.
+B1,20,Career & Jobs,10,manager,noun,/ˈmænɪdʒɚ/,person who manages,The store manager.
+B1,20,Career & Jobs,11,candidate,noun,/ˈkændɪˌdeɪt/,person applying,A job candidate.
+B1,20,Career & Jobs,12,interview,noun,/ˈɪntɚˌvju/,job meeting,A job interview.
+B1,20,Career & Jobs,13,application,noun,/ˌæplɪˈkeɪʃən/,request for job,Submit an application.
+B1,20,Career & Jobs,14,resume,noun,/ˈrɛzəˌmeɪ/,job history document,Update your resume.
+B1,20,Career & Jobs,15,salary,noun,/ˈsæləri/,money paid for work,A good salary.
+B1,20,Career & Jobs,16,wage,noun,/ˈweɪdʒ/,money paid hourly,Minimum wage.
+B1,20,Career & Jobs,17,income,noun,/ˈɪnˌkʌm/,money you earn,Monthly income.
+B1,20,Career & Jobs,18,experience,noun,/ɪkˈspɪriəns/,work knowledge,Work experience.
+B1,20,Career & Jobs,19,skill,noun,/ˈskɪl/,ability to do well,Computer skills.
+B1,20,Career & Jobs,20,qualification,noun,/ˌkwɑlɪfɪˈkeɪʃən/,proof of ability,Required qualifications.
+B1,20,Career & Jobs,21,employment,noun,/ɪmˈplɔɪmənt/,state of having job,Full employment.
+B1,20,Career & Jobs,22,unemployment,noun,/ˌʌnɪmˈplɔɪmənt/,not having job,High unemployment.
+B1,20,Career & Jobs,23,promotion,noun,/prəˈmoʊʃən/,move to higher position,Get a promotion.
+B1,20,Career & Jobs,24,retirement,noun,/rɪˈtaɪɚmənt/,end of working life,Early retirement.
+B1,20,Career & Jobs,25,employed,adjective,/ɪmˈplɔɪd/,having a job,Fully employed.
+B1,20,Career & Jobs,26,unemployed,adjective,/ˌʌnɪmˈplɔɪd/,without job,Currently unemployed.
+B1,20,Career & Jobs,27,professional,adjective,/prəˈfɛʃənəl/,related to profession,Professional behavior.
+B1,20,Career & Jobs,28,experienced,adjective,/ɪkˈspɪriənst/,having experience,Experienced worker.
+B1,20,Career & Jobs,29,qualified,adjective,/ˈkwɑlɪˌfaɪd/,having qualifications,Highly qualified.
+B1,20,Career & Jobs,30,apply,verb,/əˈplaɪ/,ask for job,Apply online.
+B1,20,Career & Jobs,31,hire,verb,/ˈhaɪɚ/,give job to,Hire new staff.
+B1,20,Career & Jobs,32,employ,verb,/ɪmˈplɔɪ/,give work to,Employ more people.
+B1,20,Career & Jobs,33,fire,verb,/ˈfaɪɚ/,end someones job,Fire an employee.
+B1,20,Career & Jobs,34,resign,verb,/rɪˈzaɪn/,quit job,Resign from work.
+B1,20,Career & Jobs,35,retire,verb,/rɪˈtaɪɚ/,stop working,Retire at 65.
+B1,20,Career & Jobs,36,promote,verb,/prəˈmoʊt/,give higher position,Promote to manager.
+B1,20,Career & Jobs,37,train,verb,/ˈtreɪn/,teach skills,Train new employees.
+B1,20,Career & Jobs,38,earn,verb,/ˈɜrn/,get money for work,Earn a living.
+B1,20,Career & Jobs,39,achieve,verb,/əˈtʃiv/,succeed in doing,Achieve your goals.
+B1,20,Career & Jobs,40,succeed,verb,/səkˈsid/,do well,Succeed in business.
+B1,21,Office & Workplace,1,office,noun,/ˈɔfɪs/,place of work,Work in an office.
+B1,21,Office & Workplace,2,desk,noun,/ˈdɛsk/,table for work,At my desk.
+B1,21,Office & Workplace,3,computer,noun,/kəmˈpjutɚ/,electronic machine,Use the computer.
+B1,21,Office & Workplace,4,printer,noun,/ˈprɪntɚ/,machine for printing,The printer is broken.
+B1,21,Office & Workplace,5,scanner,noun,/ˈskænɚ/,machine for copying,Use the scanner.
+B1,21,Office & Workplace,6,photocopier,noun,/ˈfoʊtoʊˌkɑpiɚ/,copying machine,The photocopier is busy.
+B1,21,Office & Workplace,7,file,noun,/ˈfaɪl/,document folder,Keep it on file.
+B1,21,Office & Workplace,8,folder,noun,/ˈfoʊldɚ/,holder for papers,A document folder.
+B1,21,Office & Workplace,9,document,noun,/ˈdɑkjəmənt/,official paper,Sign the document.
+B1,21,Office & Workplace,10,report,noun,/rɪˈpɔrt/,written account,Write a report.
+B1,21,Office & Workplace,11,meeting,noun,/ˈmitɪŋ/,gathering for discussion,Attend a meeting.
+B1,21,Office & Workplace,12,presentation,noun,/ˌprɛzənˈteɪʃən/,formal talk with slides,Give a presentation.
+B1,21,Office & Workplace,13,deadline,noun,/ˈdɛdˌlaɪn/,time limit,Meet the deadline.
+B1,21,Office & Workplace,14,project,noun,/ˈprɑdʒɛkt/,planned work,A new project.
+B1,21,Office & Workplace,15,task,noun,/ˈtæsk/,piece of work,Complete the task.
+B1,21,Office & Workplace,16,schedule,noun,/ˈskɛdʒul/,plan of activities,Check the schedule.
+B1,21,Office & Workplace,17,appointment,noun,/əˈpɔɪntmənt/,arranged meeting,Make an appointment.
+B1,21,Office & Workplace,18,staff,noun,/ˈstæf/,workers,Office staff.
+B1,21,Office & Workplace,19,department,noun,/dɪˈpɑrtmənt/,section of company,Marketing department.
+B1,21,Office & Workplace,20,conference,noun,/ˈkɑnfərəns/,large formal meeting,Attend a conference.
+B1,21,Office & Workplace,21,memo,noun,/ˈmɛmoʊ/,short message,Send a memo.
+B1,21,Office & Workplace,22,email,noun,/ˈiˌmeɪl/,electronic message,Reply to the email.
+B1,21,Office & Workplace,23,organize,verb,/ˈɔrgəˌnaɪz/,arrange in order,Organize files.
+B1,21,Office & Workplace,24,schedule,verb,/ˈskɛdʒul/,plan time for,Schedule a meeting.
+B1,21,Office & Workplace,25,print,verb,/ˈprɪnt/,make copy on paper,Print the document.
+B1,21,Office & Workplace,26,scan,verb,/ˈskæn/,copy electronically,Scan the paper.
+B1,21,Office & Workplace,27,copy,verb,/ˈkɑpi/,make duplicate,Copy the file.
+B1,21,Office & Workplace,28,file,verb,/ˈfaɪl/,put in order,File the documents.
+B1,21,Office & Workplace,29,attach,verb,/əˈtætʃ/,add to email,Attach a file.
+B1,21,Office & Workplace,30,forward,verb,/ˈfɔrwɚd/,send to another,Forward the email.
+B1,21,Office & Workplace,31,confirm,verb,/kənˈfɜrm/,make certain,Confirm the booking.
+B1,21,Office & Workplace,32,cancel,verb,/ˈkænsəl/,stop from happening,Cancel the meeting.
+B1,21,Office & Workplace,33,postpone,verb,/poʊstˈpoʊn/,delay to later,Postpone the deadline.
+B1,21,Office & Workplace,34,assist,verb,/əˈsɪst/,help,Assist colleagues.
+B1,21,Office & Workplace,35,represent,verb,/ˌrɛprɪˈzɛnt/,speak for,Represent the company.
+B1,21,Office & Workplace,36,busy,adjective,/ˈbɪzi/,having much to do,A busy day.
+B1,21,Office & Workplace,37,urgent,adjective,/ˈɜrdʒənt/,needing quick action,Urgent matter.
+B1,21,Office & Workplace,38,efficient,adjective,/ɪˈfɪʃənt/,working well,An efficient system.
+B1,21,Office & Workplace,39,organized,adjective,/ˈɔrgəˌnaɪzd/,well arranged,Stay organized.
+B1,21,Office & Workplace,40,available,adjective,/əˈveɪləbəl/,free to use,When are you available?
+B1,22,Money & Business,1,money,noun,/ˈmʌni/,currency for exchange,Save money.
+B1,22,Money & Business,2,cash,noun,/ˈkæʃ/,physical money,Pay in cash.
+B1,22,Money & Business,3,bank,noun,/ˈbæŋk/,place for money,Open a bank account.
+B1,22,Money & Business,4,account,noun,/əˈkaʊnt/,bank record,Checking account.
+B1,22,Money & Business,5,balance,noun,/ˈbæləns/,amount in account,Check your balance.
+B1,22,Money & Business,6,loan,noun,/ˈloʊn/,borrowed money,Get a loan.
+B1,22,Money & Business,7,debt,noun,/ˈdɛt/,money owed,Pay off debt.
+B1,22,Money & Business,8,payment,noun,/ˈpeɪmənt/,act of paying,Monthly payment.
+B1,22,Money & Business,9,bill,noun,/ˈbɪl/,document for payment,Pay the bill.
+B1,22,Money & Business,10,receipt,noun,/rɪˈsit/,proof of payment,Keep the receipt.
+B1,22,Money & Business,11,tax,noun,/ˈtæks/,money to government,Income tax.
+B1,22,Money & Business,12,income,noun,/ˈɪnˌkʌm/,money earned,Monthly income.
+B1,22,Money & Business,13,expense,noun,/ɪkˈspɛns/,money spent,Business expenses.
+B1,22,Money & Business,14,profit,noun,/ˈprɑfɪt/,money gained,Make a profit.
+B1,22,Money & Business,15,loss,noun,/ˈlɔs/,money lost,Financial loss.
+B1,22,Money & Business,16,budget,noun,/ˈbʌdʒɪt/,spending plan,Monthly budget.
+B1,22,Money & Business,17,investment,noun,/ɪnˈvɛstmənt/,money put into something,Good investment.
+B1,22,Money & Business,18,currency,noun,/ˈkɜrənsi/,type of money,Foreign currency.
+B1,22,Money & Business,19,credit,noun,/ˈkrɛdɪt/,buying now paying later,Credit card.
+B1,22,Money & Business,20,discount,noun,/ˈdɪsˌkaʊnt/,price reduction,Get a discount.
+B1,22,Money & Business,21,business,noun,/ˈbɪznɪs/,commercial activity,Start a business.
+B1,22,Money & Business,22,company,noun,/ˈkʌmpəni/,business organization,A large company.
+B1,22,Money & Business,23,economy,noun,/ɪˈkɑnəmi/,financial system,The economy is growing.
+B1,22,Money & Business,24,market,noun,/ˈmɑrkɪt/,place for trading,Stock market.
+B1,22,Money & Business,25,trade,noun,/ˈtreɪd/,buying and selling,International trade.
+B1,22,Money & Business,26,financial,adjective,/fɪˈnænʃəl/,related to money,Financial planning.
+B1,22,Money & Business,27,economic,adjective,/ˌɛkəˈnɑmɪk/,related to economy,Economic growth.
+B1,22,Money & Business,28,commercial,adjective,/kəˈmɜrʃəl/,related to business,Commercial area.
+B1,22,Money & Business,29,wealthy,adjective,/ˈwɛlθi/,having much money,A wealthy family.
+B1,22,Money & Business,30,affordable,adjective,/əˈfɔrdəbəl/,not too expensive,Affordable prices.
+B1,22,Money & Business,31,pay,verb,/ˈpeɪ/,give money for,Pay the rent.
+B1,22,Money & Business,32,spend,verb,/ˈspɛnd/,use money,Spend wisely.
+B1,22,Money & Business,33,save,verb,/ˈseɪv/,keep money,Save for retirement.
+B1,22,Money & Business,34,borrow,verb,/ˈbɑroʊ/,get money temporarily,Borrow from the bank.
+B1,22,Money & Business,35,lend,verb,/ˈlɛnd/,give money temporarily,Lend you some money.
+B1,22,Money & Business,36,invest,verb,/ɪnˈvɛst/,put money into,Invest in stocks.
+B1,22,Money & Business,37,earn,verb,/ˈɜrn/,get money from work,Earn good money.
+B1,22,Money & Business,38,afford,verb,/əˈfɔrd/,have enough money for,I cant afford it.
+B1,22,Money & Business,39,charge,verb,/ˈtʃɑrdʒ/,ask for payment,Charge a fee.
+B1,22,Money & Business,40,owe,verb,/ˈoʊ/,need to pay back,I owe you money.
+B1,23,Sales & Marketing,1,sale,noun,/ˈseɪl/,selling something,For sale.
+B1,23,Sales & Marketing,2,sales,noun,/ˈseɪlz/,selling activities,Sales department.
+B1,23,Sales & Marketing,3,marketing,noun,/ˈmɑrkɪtɪŋ/,promoting products,Marketing strategy.
+B1,23,Sales & Marketing,4,advertisement,noun,/ˌædvɚˈtaɪzmənt/,public promotion,TV advertisement.
+B1,23,Sales & Marketing,5,ad,noun,/ˈæd/,short for advertisement,Online ad.
+B1,23,Sales & Marketing,6,campaign,noun,/kæmˈpeɪn/,organized effort,Marketing campaign.
+B1,23,Sales & Marketing,7,brand,noun,/ˈbrænd/,product name,Famous brand.
+B1,23,Sales & Marketing,8,product,noun,/ˈprɑdʌkt/,thing made for sale,New product launch.
+B1,23,Sales & Marketing,9,service,noun,/ˈsɜrvɪs/,help provided,Customer service.
+B1,23,Sales & Marketing,10,customer,noun,/ˈkʌstəmɚ/,person who buys,Regular customer.
+B1,23,Sales & Marketing,11,client,noun,/ˈklaɪənt/,person using service,Business client.
+B1,23,Sales & Marketing,12,consumer,noun,/kənˈsumɚ/,person who uses products,Consumer behavior.
+B1,23,Sales & Marketing,13,buyer,noun,/ˈbaɪɚ/,person who purchases,Potential buyer.
+B1,23,Sales & Marketing,14,seller,noun,/ˈsɛlɚ/,person who sells,Best seller.
+B1,23,Sales & Marketing,15,salesperson,noun,/ˈseɪlzˌpɜrsən/,person in sales,Experienced salesperson.
+B1,23,Sales & Marketing,16,competition,noun,/ˌkɑmpəˈtɪʃən/,business rivals,Face competition.
+B1,23,Sales & Marketing,17,competitor,noun,/kəmˈpɛtɪtɚ/,business rival,Main competitor.
+B1,23,Sales & Marketing,18,demand,noun,/dɪˈmænd/,desire to buy,High demand.
+B1,23,Sales & Marketing,19,supply,noun,/səˈplaɪ/,amount available,Limited supply.
+B1,23,Sales & Marketing,20,target,noun,/ˈtɑrgɪt/,aimed at group,Target audience.
+B1,23,Sales & Marketing,21,offer,noun,/ˈɔfɚ/,proposal to sell,Special offer.
+B1,23,Sales & Marketing,22,deal,noun,/ˈdil/,business agreement,Good deal.
+B1,23,Sales & Marketing,23,export,noun,/ˈɛkspɔrt/,goods sent abroad,Main export.
+B1,23,Sales & Marketing,24,import,noun,/ˈɪmpɔrt/,goods from abroad,Import goods.
+B1,23,Sales & Marketing,25,promote,verb,/prəˈmoʊt/,advertise product,Promote the brand.
+B1,23,Sales & Marketing,26,advertise,verb,/ˈædvɚˌtaɪz/,make publicly known,Advertise online.
+B1,23,Sales & Marketing,27,sell,verb,/ˈsɛl/,exchange for money,Sell products.
+B1,23,Sales & Marketing,28,buy,verb,/ˈbaɪ/,purchase,Buy in bulk.
+B1,23,Sales & Marketing,29,launch,verb,/ˈlɔntʃ/,start selling,Launch a product.
+B1,23,Sales & Marketing,30,market,verb,/ˈmɑrkɪt/,sell or promote,Market the service.
+B1,23,Sales & Marketing,31,compete,verb,/kəmˈpit/,try to win,Compete for customers.
+B1,23,Sales & Marketing,32,attract,verb,/əˈtrækt/,draw attention,Attract buyers.
+B1,23,Sales & Marketing,33,persuade,verb,/pɚˈsweɪd/,convince to buy,Persuade customers.
+B1,23,Sales & Marketing,34,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss terms,Negotiate a deal.
+B1,23,Sales & Marketing,35,popular,adjective,/ˈpɑpjəlɚ/,well-liked,Popular product.
+B1,23,Sales & Marketing,36,successful,adjective,/səkˈsɛsfəl/,achieving goals,Successful campaign.
+B1,23,Sales & Marketing,37,profitable,adjective,/ˈprɑfɪtəbəl/,making money,Profitable business.
+B1,23,Sales & Marketing,38,competitive,adjective,/kəmˈpɛtɪtɪv/,able to compete,Competitive prices.
+B1,23,Sales & Marketing,39,exclusive,adjective,/ɪkˈsklusɪv/,only available to some,Exclusive offer.
+B1,23,Sales & Marketing,40,online,adjective,/ˈɑnˌlaɪn/,on internet,Online marketing.
+B1,24,Shopping,1,shop,noun,/ˈʃɑp/,store,Clothes shop.
+B1,24,Shopping,2,store,noun,/ˈstɔr/,place to buy things,Department store.
+B1,24,Shopping,3,mall,noun,/ˈmɔl/,shopping center,Go to the mall.
+B1,24,Shopping,4,supermarket,noun,/ˈsupɚˌmɑrkɪt/,large food store,At the supermarket.
+B1,24,Shopping,5,market,noun,/ˈmɑrkɪt/,place selling goods,Farmers market.
+B1,24,Shopping,6,checkout,noun,/ˈtʃɛkˌaʊt/,where you pay,At the checkout.
+B1,24,Shopping,7,counter,noun,/ˈkaʊntɚ/,surface for service,Service counter.
+B1,24,Shopping,8,aisle,noun,/ˈaɪl/,passage between shelves,Down the aisle.
+B1,24,Shopping,9,cart,noun,/ˈkɑrt/,shopping container,Shopping cart.
+B1,24,Shopping,10,basket,noun,/ˈbæskɪt/,small container,Shopping basket.
+B1,24,Shopping,11,bag,noun,/ˈbæg/,carrier,Paper bag.
+B1,24,Shopping,12,receipt,noun,/rɪˈsit/,proof of purchase,Keep your receipt.
+B1,24,Shopping,13,refund,noun,/ˈrifʌnd/,money back,Get a refund.
+B1,24,Shopping,14,exchange,noun,/ɪksˈtʃeɪndʒ/,swap for another,Exchange for larger size.
+B1,24,Shopping,15,warranty,noun,/ˈwɔrənti/,guarantee,One-year warranty.
+B1,24,Shopping,16,bargain,noun,/ˈbɑrgən/,good deal,Great bargain.
+B1,24,Shopping,17,discount,noun,/ˈdɪsˌkaʊnt/,price reduction,Student discount.
+B1,24,Shopping,18,price,noun,/ˈpraɪs/,cost,Low price.
+B1,24,Shopping,19,quality,noun,/ˈkwɑləti/,how good something is,High quality.
+B1,24,Shopping,20,size,noun,/ˈsaɪz/,how big,What size?
+B1,24,Shopping,21,shopper,noun,/ˈʃɑpɚ/,person shopping,Many shoppers.
+B1,24,Shopping,22,customer,noun,/ˈkʌstəmɚ/,person buying,Happy customer.
+B1,24,Shopping,23,cashier,noun,/kæˈʃɪr/,person at checkout,Pay the cashier.
+B1,24,Shopping,24,cheap,adjective,/ˈtʃip/,low price,Very cheap.
+B1,24,Shopping,25,expensive,adjective,/ɪkˈspɛnsɪv/,high price,Too expensive.
+B1,24,Shopping,26,affordable,adjective,/əˈfɔrdəbəl/,reasonable price,Affordable option.
+B1,24,Shopping,27,available,adjective,/əˈveɪləbəl/,can be bought,Currently available.
+B1,24,Shopping,28,sold-out,adjective,/ˌsoʊld ˈaʊt/,none left,Completely sold-out.
+B1,24,Shopping,29,brand-new,adjective,/ˌbrænd ˈnu/,completely new,Brand-new phone.
+B1,24,Shopping,30,second-hand,adjective,/ˌsɛkənd ˈhænd/,previously used,Second-hand car.
+B1,24,Shopping,31,buy,verb,/ˈbaɪ/,purchase,Buy groceries.
+B1,24,Shopping,32,sell,verb,/ˈsɛl/,offer for money,They sell clothes.
+B1,24,Shopping,33,pay,verb,/ˈpeɪ/,give money,Pay by card.
+B1,24,Shopping,34,spend,verb,/ˈspɛnd/,use money,Spend too much.
+B1,24,Shopping,35,cost,verb,/ˈkɔst/,have as price,How much does it cost?
+B1,24,Shopping,36,save,verb,/ˈseɪv/,keep money,Save money.
+B1,24,Shopping,37,order,verb,/ˈɔrdɚ/,request to buy,Order online.
+B1,24,Shopping,38,return,verb,/rɪˈtɜrn/,give back,Return the item.
+B1,24,Shopping,39,try on,verb,/ˈtraɪ ɑn/,test clothes,Try on the jacket.
+B1,24,Shopping,40,queue,verb,/ˈkju/,wait in line,Queue at checkout.
+B1,25,Transportation,1,transport,noun,/ˈtrænspɔrt/,moving people or goods,Public transport.
+B1,25,Transportation,2,transportation,noun,/ˌtrænspɔrˈteɪʃən/,system of transport,Transportation system.
+B1,25,Transportation,3,vehicle,noun,/ˈviɪkəl/,machine for travel,Motor vehicle.
+B1,25,Transportation,4,traffic,noun,/ˈtræfɪk/,moving vehicles,Heavy traffic.
+B1,25,Transportation,5,road,noun,/ˈroʊd/,path for vehicles,Main road.
+B1,25,Transportation,6,highway,noun,/ˈhaɪˌweɪ/,major road,Highway driving.
+B1,25,Transportation,7,lane,noun,/ˈleɪn/,section of road,Change lanes.
+B1,25,Transportation,8,junction,noun,/ˈdʒʌŋkʃən/,road crossing,At the junction.
+B1,25,Transportation,9,roundabout,noun,/ˈraʊndəˌbaʊt/,circular road,Take the roundabout.
+B1,25,Transportation,10,parking,noun,/ˈpɑrkɪŋ/,place for vehicles,Parking lot.
+B1,25,Transportation,11,garage,noun,/gəˈrɑʒ/,car shelter,Park in the garage.
+B1,25,Transportation,12,petrol,noun,/ˈpɛtrəl/,fuel for cars,Fill up with petrol.
+B1,25,Transportation,13,fuel,noun,/ˈfjuəl/,energy source,Fuel prices.
+B1,25,Transportation,14,engine,noun,/ˈɛndʒɪn/,machine that powers,Car engine.
+B1,25,Transportation,15,tire,noun,/ˈtaɪɚ/,wheel covering,Flat tire.
+B1,25,Transportation,16,wheel,noun,/ˈwil/,circular part,Steering wheel.
+B1,25,Transportation,17,seat belt,noun,/ˈsit bɛlt/,safety strap,Wear your seat belt.
+B1,25,Transportation,18,license,noun,/ˈlaɪsəns/,permission to drive,Drivers license.
+B1,25,Transportation,19,passenger,noun,/ˈpæsəndʒɚ/,person traveling,Bus passenger.
+B1,25,Transportation,20,driver,noun,/ˈdraɪvɚ/,person who drives,Taxi driver.
+B1,25,Transportation,21,commute,noun,/kəˈmjut/,regular travel,Daily commute.
+B1,25,Transportation,22,commuter,noun,/kəˈmjutɚ/,person who commutes,Train commuter.
+B1,25,Transportation,23,flight,noun,/ˈflaɪt/,air travel,Book a flight.
+B1,25,Transportation,24,connection,noun,/kəˈnɛkʃən/,linking transport,Flight connection.
+B1,25,Transportation,25,delay,noun,/dɪˈleɪ/,being late,Train delay.
+B1,25,Transportation,26,railway,noun,/ˈreɪlˌweɪ/,train system,Railway station.
+B1,25,Transportation,27,platform,noun,/ˈplætˌfɔrm/,train area,Platform 5.
+B1,25,Transportation,28,ferry,noun,/ˈfɛri/,boat for passengers,Take the ferry.
+B1,25,Transportation,29,helicopter,noun,/ˈhɛlɪˌkɑptɚ/,aircraft with blades,Helicopter tour.
+B1,25,Transportation,30,public,adjective,/ˈpʌblɪk/,for everyone,Public transport.
+B1,25,Transportation,31,private,adjective,/ˈpraɪvɪt/,for one person,Private car.
+B1,25,Transportation,32,underground,adjective,/ˈʌndɚˌgraʊnd/,below ground,Underground train.
+B1,25,Transportation,33,drive,verb,/ˈdraɪv/,operate vehicle,Drive carefully.
+B1,25,Transportation,34,ride,verb,/ˈraɪd/,travel on vehicle,Ride a bike.
+B1,25,Transportation,35,park,verb,/ˈpɑrk/,leave vehicle,Park here.
+B1,25,Transportation,36,board,verb,/ˈbɔrd/,get on vehicle,Board the plane.
+B1,25,Transportation,37,arrive,verb,/əˈraɪv/,reach destination,Arrive on time.
+B1,25,Transportation,38,depart,verb,/dɪˈpɑrt/,leave,Depart from gate 5.
+B1,25,Transportation,39,commute,verb,/kəˈmjut/,travel regularly,Commute to work.
+B1,25,Transportation,40,transfer,verb,/trænsˈfɜr/,change vehicles,Transfer at the station.
+B1,26,Travel & Tourism,1,travel,noun,/ˈtrævəl/,going places,Love to travel.
+B1,26,Travel & Tourism,2,trip,noun,/ˈtrɪp/,journey,A weekend trip.
+B1,26,Travel & Tourism,3,journey,noun,/ˈdʒɜrni/,travel from A to B,Long journey.
+B1,26,Travel & Tourism,4,vacation,noun,/veɪˈkeɪʃən/,holiday time,Summer vacation.
+B1,26,Travel & Tourism,5,holiday,noun,/ˈhɑlɪˌdeɪ/,time off,On holiday.
+B1,26,Travel & Tourism,6,tour,noun,/ˈtʊr/,guided visit,City tour.
+B1,26,Travel & Tourism,7,tourism,noun,/ˈtʊrˌɪzəm/,travel industry,Tourism industry.
+B1,26,Travel & Tourism,8,tourist,noun,/ˈtʊrɪst/,person traveling,Many tourists.
+B1,26,Travel & Tourism,9,destination,noun,/ˌdɛstɪˈneɪʃən/,place to go,Popular destination.
+B1,26,Travel & Tourism,10,attraction,noun,/əˈtrækʃən/,place to visit,Tourist attraction.
+B1,26,Travel & Tourism,11,sightseeing,noun,/ˈsaɪtˌsiɪŋ/,visiting sights,Go sightseeing.
+B1,26,Travel & Tourism,12,accommodation,noun,/əˌkɑməˈdeɪʃən/,place to stay,Book accommodation.
+B1,26,Travel & Tourism,13,hotel,noun,/hoʊˈtɛl/,place to sleep,Stay at a hotel.
+B1,26,Travel & Tourism,14,hostel,noun,/ˈhɑstəl/,cheap lodging,Youth hostel.
+B1,26,Travel & Tourism,15,resort,noun,/rɪˈzɔrt/,vacation place,Beach resort.
+B1,26,Travel & Tourism,16,reservation,noun,/ˌrɛzɚˈveɪʃən/,booking,Make a reservation.
+B1,26,Travel & Tourism,17,booking,noun,/ˈbʊkɪŋ/,arrangement,Online booking.
+B1,26,Travel & Tourism,18,passport,noun,/ˈpæsˌpɔrt/,travel document,Check your passport.
+B1,26,Travel & Tourism,19,visa,noun,/ˈvizə/,entry permit,Apply for a visa.
+B1,26,Travel & Tourism,20,luggage,noun,/ˈlʌgɪdʒ/,travel bags,Pack your luggage.
+B1,26,Travel & Tourism,21,baggage,noun,/ˈbægɪdʒ/,travelers bags,Baggage claim.
+B1,26,Travel & Tourism,22,suitcase,noun,/ˈsutˌkeɪs/,travel bag,Pack your suitcase.
+B1,26,Travel & Tourism,23,backpack,noun,/ˈbækˌpæk/,shoulder bag,Carry a backpack.
+B1,26,Travel & Tourism,24,souvenir,noun,/ˌsuvəˈnɪr/,travel keepsake,Buy souvenirs.
+B1,26,Travel & Tourism,25,customs,noun,/ˈkʌstəmz/,border control,Go through customs.
+B1,26,Travel & Tourism,26,departure,noun,/dɪˈpɑrtʃɚ/,leaving,Departure lounge.
+B1,26,Travel & Tourism,27,arrival,noun,/əˈraɪvəl/,coming,Arrival time.
+B1,26,Travel & Tourism,28,guide,noun,/ˈgaɪd/,person who shows,Tour guide.
+B1,26,Travel & Tourism,29,abroad,adverb,/əˈbrɔd/,in foreign country,Travel abroad.
+B1,26,Travel & Tourism,30,overseas,adverb,/ˌoʊvɚˈsiz/,across the sea,Work overseas.
+B1,26,Travel & Tourism,31,travel,verb,/ˈtrævəl/,go places,Travel the world.
+B1,26,Travel & Tourism,32,visit,verb,/ˈvɪzɪt/,go to see,Visit a museum.
+B1,26,Travel & Tourism,33,explore,verb,/ɪkˈsplɔr/,discover new places,Explore the city.
+B1,26,Travel & Tourism,34,book,verb,/ˈbʊk/,reserve,Book a hotel.
+B1,26,Travel & Tourism,35,cancel,verb,/ˈkænsəl/,stop booking,Cancel the trip.
+B1,26,Travel & Tourism,36,pack,verb,/ˈpæk/,put in luggage,Pack your bags.
+B1,26,Travel & Tourism,37,unpack,verb,/ʌnˈpæk/,take out of luggage,Unpack at hotel.
+B1,26,Travel & Tourism,38,check in,verb,/ˈtʃɛk ɪn/,register at hotel,Check in early.
+B1,26,Travel & Tourism,39,check out,verb,/ˈtʃɛk aʊt/,leave hotel,Check out by noon.
+B1,26,Travel & Tourism,40,sightsee,verb,/ˈsaɪtˌsi/,visit attractions,Sightsee all day.
+B1,27,Leisure & Hobbies,1,hobby,noun,/ˈhɑbi/,activity for fun,Photography is my hobby.
+B1,27,Leisure & Hobbies,2,leisure,noun,/ˈliʒɚ/,free time,Leisure activities.
+B1,27,Leisure & Hobbies,3,entertainment,noun,/ˌɛntɚˈteɪnmənt/,fun activities,Home entertainment.
+B1,27,Leisure & Hobbies,4,activity,noun,/ækˈtɪvɪti/,thing to do,Outdoor activity.
+B1,27,Leisure & Hobbies,5,interest,noun,/ˈɪntrəst/,what you like,Common interests.
+B1,27,Leisure & Hobbies,6,collection,noun,/kəˈlɛkʃən/,items gathered,Stamp collection.
+B1,27,Leisure & Hobbies,7,photography,noun,/fəˈtɑgrəfi/,taking photos,Love photography.
+B1,27,Leisure & Hobbies,8,painting,noun,/ˈpeɪntɪŋ/,art with paint,Oil painting.
+B1,27,Leisure & Hobbies,9,drawing,noun,/ˈdrɔɪŋ/,art with pencil,A nice drawing.
+B1,27,Leisure & Hobbies,10,gardening,noun,/ˈgɑrdənɪŋ/,growing plants,Enjoy gardening.
+B1,27,Leisure & Hobbies,11,cooking,noun,/ˈkʊkɪŋ/,making food,Love cooking.
+B1,27,Leisure & Hobbies,12,reading,noun,/ˈridɪŋ/,enjoying books,Reading for pleasure.
+B1,27,Leisure & Hobbies,13,camping,noun,/ˈkæmpɪŋ/,staying outdoors,Go camping.
+B1,27,Leisure & Hobbies,14,hiking,noun,/ˈhaɪkɪŋ/,walking in nature,Mountain hiking.
+B1,27,Leisure & Hobbies,15,fishing,noun,/ˈfɪʃɪŋ/,catching fish,Go fishing.
+B1,27,Leisure & Hobbies,16,cycling,noun,/ˈsaɪklɪŋ/,riding a bike,Morning cycling.
+B1,27,Leisure & Hobbies,17,bowling,noun,/ˈboʊlɪŋ/,ball and pins game,Go bowling.
+B1,27,Leisure & Hobbies,18,dancing,noun,/ˈdænsɪŋ/,moving to music,Ballroom dancing.
+B1,27,Leisure & Hobbies,19,singing,noun,/ˈsɪŋɪŋ/,making music with voice,Singing lessons.
+B1,27,Leisure & Hobbies,20,relaxation,noun,/ˌrilækˈseɪʃən/,resting,Time for relaxation.
+B1,27,Leisure & Hobbies,21,outdoor,adjective,/ˈaʊtˌdɔr/,outside,Outdoor sports.
+B1,27,Leisure & Hobbies,22,indoor,adjective,/ˈɪnˌdɔr/,inside,Indoor games.
+B1,27,Leisure & Hobbies,23,creative,adjective,/kriˈeɪtɪv/,making new things,Creative hobby.
+B1,27,Leisure & Hobbies,24,relaxing,adjective,/rɪˈlæksɪŋ/,making you calm,Relaxing activity.
+B1,27,Leisure & Hobbies,25,exciting,adjective,/ɪkˈsaɪtɪŋ/,thrilling,Exciting adventure.
+B1,27,Leisure & Hobbies,26,enjoyable,adjective,/ɪnˈdʒɔɪəbəl/,giving pleasure,Enjoyable time.
+B1,27,Leisure & Hobbies,27,collect,verb,/kəˈlɛkt/,gather items,Collect stamps.
+B1,27,Leisure & Hobbies,28,paint,verb,/ˈpeɪnt/,make art,Paint a picture.
+B1,27,Leisure & Hobbies,29,draw,verb,/ˈdrɔ/,make lines,Draw a sketch.
+B1,27,Leisure & Hobbies,30,photograph,verb,/ˈfoʊtəˌgræf/,take photos,Photograph nature.
+B1,27,Leisure & Hobbies,31,garden,verb,/ˈgɑrdən/,grow plants,Garden on weekends.
+B1,27,Leisure & Hobbies,32,camp,verb,/ˈkæmp/,stay in tent,Camp by the lake.
+B1,27,Leisure & Hobbies,33,hike,verb,/ˈhaɪk/,walk in nature,Hike in the mountains.
+B1,27,Leisure & Hobbies,34,relax,verb,/rɪˈlæks/,rest and calm,Relax at home.
+B1,27,Leisure & Hobbies,35,enjoy,verb,/ɪnˈdʒɔɪ/,have fun with,Enjoy your hobby.
+B1,27,Leisure & Hobbies,36,entertain,verb,/ˌɛntɚˈteɪn/,amuse,Entertain guests.
+B1,27,Leisure & Hobbies,37,explore,verb,/ɪkˈsplɔr/,discover,Explore new hobbies.
+B1,27,Leisure & Hobbies,38,practice,verb,/ˈpræktɪs/,do regularly,Practice guitar.
+B1,27,Leisure & Hobbies,39,outdoors,adverb,/ˌaʊtˈdɔrz/,outside,Play outdoors.
+B1,27,Leisure & Hobbies,40,indoors,adverb,/ˌɪnˈdɔrz/,inside,Stay indoors.
+B1,28,Sports & Games,1,sport,noun,/ˈspɔrt/,physical activity,Play a sport.
+B1,28,Sports & Games,2,game,noun,/ˈgeɪm/,activity with rules,Play a game.
+B1,28,Sports & Games,3,match,noun,/ˈmætʃ/,sports competition,Watch the match.
+B1,28,Sports & Games,4,team,noun,/ˈtim/,group playing together,Join the team.
+B1,28,Sports & Games,5,player,noun,/ˈpleɪɚ/,person playing,Star player.
+B1,28,Sports & Games,6,coach,noun,/ˈkoʊtʃ/,person who trains,Football coach.
+B1,28,Sports & Games,7,opponent,noun,/əˈpoʊnənt/,person against you,Strong opponent.
+B1,28,Sports & Games,8,champion,noun,/ˈtʃæmpiən/,winner,World champion.
+B1,28,Sports & Games,9,score,noun,/ˈskɔr/,points in game,Final score.
+B1,28,Sports & Games,10,goal,noun,/ˈgoʊl/,point in game,Score a goal.
+B1,28,Sports & Games,11,point,noun,/ˈpɔɪnt/,unit of scoring,Win by one point.
+B1,28,Sports & Games,12,race,noun,/ˈreɪs/,speed competition,Running race.
+B1,28,Sports & Games,13,tournament,noun,/ˈtʊrnəmənt/,series of games,Tennis tournament.
+B1,28,Sports & Games,14,league,noun,/ˈlig/,group of teams,Premier League.
+B1,28,Sports & Games,15,stadium,noun,/ˈsteɪdiəm/,sports venue,Big stadium.
+B1,28,Sports & Games,16,court,noun,/ˈkɔrt/,playing area,Tennis court.
+B1,28,Sports & Games,17,field,noun,/ˈfild/,playing area,Football field.
+B1,28,Sports & Games,18,pool,noun,/ˈpul/,place for swimming,Swimming pool.
+B1,28,Sports & Games,19,gym,noun,/ˈdʒɪm/,exercise place,Go to the gym.
+B1,28,Sports & Games,20,competitive,adjective,/kəmˈpɛtɪtɪv/,wanting to win,Very competitive.
+B1,28,Sports & Games,21,professional,adjective,/prəˈfɛʃənəl/,paid to play,Professional athlete.
+B1,28,Sports & Games,22,amateur,adjective,/ˈæmətʃɚ/,not professional,Amateur player.
+B1,28,Sports & Games,23,athletic,adjective,/æθˈlɛtɪk/,physically active,Athletic build.
+B1,28,Sports & Games,24,play,verb,/ˈpleɪ/,take part in game,Play football.
+B1,28,Sports & Games,25,win,verb,/ˈwɪn/,be first,Win the game.
+B1,28,Sports & Games,26,lose,verb,/ˈluz/,not win,Lose the match.
+B1,28,Sports & Games,27,compete,verb,/kəmˈpit/,try to win,Compete in Olympics.
+B1,28,Sports & Games,28,score,verb,/ˈskɔr/,get points,Score a goal.
+B1,28,Sports & Games,29,beat,verb,/ˈbit/,defeat,Beat the opponent.
+B1,28,Sports & Games,30,train,verb,/ˈtreɪn/,practice,Train every day.
+B1,28,Sports & Games,31,exercise,verb,/ˈɛksɚˌsaɪz/,do physical activity,Exercise regularly.
+B1,28,Sports & Games,32,kick,verb,/ˈkɪk/,hit with foot,Kick the ball.
+B1,28,Sports & Games,33,throw,verb,/ˈθroʊ/,send through air,Throw the ball.
+B1,28,Sports & Games,34,catch,verb,/ˈkætʃ/,grab object,Catch the ball.
+B1,28,Sports & Games,35,hit,verb,/ˈhɪt/,strike,Hit the target.
+B1,29,Music & Performance,1,music,noun,/ˈmjuzɪk/,sounds arranged,Listen to music.
+B1,29,Music & Performance,2,song,noun,/ˈsɔŋ/,piece of music,Favorite song.
+B1,29,Music & Performance,3,album,noun,/ˈælbəm/,collection of songs,New album.
+B1,29,Music & Performance,4,concert,noun,/ˈkɑnsɚt/,live music show,Go to a concert.
+B1,29,Music & Performance,5,performance,noun,/pɚˈfɔrməns/,live show,Great performance.
+B1,29,Music & Performance,6,band,noun,/ˈbænd/,group of musicians,Rock band.
+B1,29,Music & Performance,7,singer,noun,/ˈsɪŋɚ/,person who sings,Famous singer.
+B1,29,Music & Performance,8,musician,noun,/mjuˈzɪʃən/,person who plays music,Talented musician.
+B1,29,Music & Performance,9,instrument,noun,/ˈɪnstrəmənt/,tool for music,Play an instrument.
+B1,29,Music & Performance,10,guitar,noun,/gɪˈtɑr/,string instrument,Play guitar.
+B1,29,Music & Performance,11,piano,noun,/piˈænoʊ/,keyboard instrument,Learn piano.
+B1,29,Music & Performance,12,drum,noun,/ˈdrʌm/,percussion instrument,Play the drums.
+B1,29,Music & Performance,13,violin,noun,/ˌvaɪəˈlɪn/,string instrument,Play violin.
+B1,29,Music & Performance,14,stage,noun,/ˈsteɪdʒ/,performance area,On stage.
+B1,29,Music & Performance,15,audience,noun,/ˈɔdiəns/,people watching,Large audience.
+B1,29,Music & Performance,16,lyric,noun,/ˈlɪrɪk/,words of song,Song lyrics.
+B1,29,Music & Performance,17,melody,noun,/ˈmɛlədi/,tune,Beautiful melody.
+B1,29,Music & Performance,18,rhythm,noun,/ˈrɪðəm/,beat pattern,Good rhythm.
+B1,29,Music & Performance,19,classical,adjective,/ˈklæsɪkəl/,traditional style,Classical music.
+B1,29,Music & Performance,20,pop,adjective,/ˈpɑp/,popular style,Pop music.
+B1,29,Music & Performance,21,live,adjective,/ˈlaɪv/,in person,Live performance.
+B1,29,Music & Performance,22,sing,verb,/ˈsɪŋ/,make music with voice,Sing a song.
+B1,29,Music & Performance,23,play,verb,/ˈpleɪ/,make music,Play an instrument.
+B1,29,Music & Performance,24,perform,verb,/pɚˈfɔrm/,do show,Perform on stage.
+B1,29,Music & Performance,25,dance,verb,/ˈdæns/,move to music,Dance to the beat.
+B1,29,Music & Performance,26,record,verb,/rɪˈkɔrd/,capture sound,Record a song.
+B1,29,Music & Performance,27,compose,verb,/kəmˈpoʊz/,write music,Compose a song.
+B1,29,Music & Performance,28,practice,verb,/ˈpræktɪs/,rehearse,Practice every day.
+B1,29,Music & Performance,29,applaud,verb,/əˈplɔd/,clap hands,Applaud the performance.
+B1,29,Music & Performance,30,encore,noun,/ˈɑnˌkɔr/,extra performance,Demand an encore.
+B1,30,Art & Photography,1,art,noun,/ˈɑrt/,creative work,Modern art.
+B1,30,Art & Photography,2,artist,noun,/ˈɑrtɪst/,person who creates art,Famous artist.
+B1,30,Art & Photography,3,painting,noun,/ˈpeɪntɪŋ/,picture with paint,Oil painting.
+B1,30,Art & Photography,4,drawing,noun,/ˈdrɔɪŋ/,picture with pencil,Pencil drawing.
+B1,30,Art & Photography,5,sculpture,noun,/ˈskʌlptʃɚ/,3D art work,Stone sculpture.
+B1,30,Art & Photography,6,photography,noun,/fəˈtɑgrəfi/,taking photos,Digital photography.
+B1,30,Art & Photography,7,photograph,noun,/ˈfoʊtəˌgræf/,picture,Family photograph.
+B1,30,Art & Photography,8,photographer,noun,/fəˈtɑgrəfɚ/,person who takes photos,Professional photographer.
+B1,30,Art & Photography,9,camera,noun,/ˈkæmərə/,device for photos,Digital camera.
+B1,30,Art & Photography,10,gallery,noun,/ˈgæləri/,art display place,Art gallery.
+B1,30,Art & Photography,11,exhibition,noun,/ˌɛksɪˈbɪʃən/,display of art,Art exhibition.
+B1,30,Art & Photography,12,museum,noun,/mjuˈziəm/,place for art,Art museum.
+B1,30,Art & Photography,13,portrait,noun,/ˈpɔrtrət/,picture of person,Family portrait.
+B1,30,Art & Photography,14,landscape,noun,/ˈlændskeɪp/,nature picture,Landscape painting.
+B1,30,Art & Photography,15,canvas,noun,/ˈkænvəs/,surface for painting,Paint on canvas.
+B1,30,Art & Photography,16,brush,noun,/ˈbrʌʃ/,tool for painting,Paint brush.
+B1,30,Art & Photography,17,creative,adjective,/kriˈeɪtɪv/,making new things,Creative art.
+B1,30,Art & Photography,18,artistic,adjective,/ɑrˈtɪstɪk/,relating to art,Artistic talent.
+B1,30,Art & Photography,19,visual,adjective,/ˈvɪʒuəl/,seen with eyes,Visual art.
+B1,30,Art & Photography,20,paint,verb,/ˈpeɪnt/,create with paint,Paint a picture.
+B1,30,Art & Photography,21,draw,verb,/ˈdrɔ/,create with pencil,Draw a portrait.
+B1,30,Art & Photography,22,photograph,verb,/ˈfoʊtəˌgræf/,take a photo,Photograph nature.
+B1,30,Art & Photography,23,design,verb,/dɪˈzaɪn/,plan appearance,Design a logo.
+B1,30,Art & Photography,24,display,verb,/dɪˈspleɪ/,show to public,Display artwork.
+B1,30,Art & Photography,25,create,verb,/kriˈeɪt/,make something new,Create art.
+B1,31,Creative Writing,1,story,noun,/ˈstɔri/,tale or narrative,Write a story.
+B1,31,Creative Writing,2,novel,noun,/ˈnɑvəl/,long fiction book,Read a novel.
+B1,31,Creative Writing,3,fiction,noun,/ˈfɪkʃən/,made-up stories,Science fiction.
+B1,31,Creative Writing,4,poetry,noun,/ˈpoʊətri/,written verses,Love poetry.
+B1,31,Creative Writing,5,poem,noun,/ˈpoʊəm/,piece of poetry,Write a poem.
+B1,31,Creative Writing,6,author,noun,/ˈɔθɚ/,person who writes,Famous author.
+B1,31,Creative Writing,7,writer,noun,/ˈraɪtɚ/,person who writes,Creative writer.
+B1,31,Creative Writing,8,character,noun,/ˈkærɪktɚ/,person in story,Main character.
+B1,31,Creative Writing,9,plot,noun,/ˈplɑt/,story events,Exciting plot.
+B1,31,Creative Writing,10,chapter,noun,/ˈtʃæptɚ/,book section,First chapter.
+B1,31,Creative Writing,11,paragraph,noun,/ˈpærəˌgræf/,text section,Write a paragraph.
+B1,31,Creative Writing,12,title,noun,/ˈtaɪtəl/,name of work,Book title.
+B1,31,Creative Writing,13,creative,adjective,/kriˈeɪtɪv/,making new things,Creative writing.
+B1,31,Creative Writing,14,fictional,adjective,/ˈfɪkʃənəl/,not real,Fictional story.
+B1,31,Creative Writing,15,write,verb,/ˈraɪt/,put words on paper,Write a story.
+B1,31,Creative Writing,16,describe,verb,/dɪˈskraɪb/,tell about,Describe the scene.
+B1,31,Creative Writing,17,publish,verb,/ˈpʌblɪʃ/,make available,Publish a book.
+B1,31,Creative Writing,18,edit,verb,/ˈɛdɪt/,correct text,Edit the draft.
+B1,31,Creative Writing,19,imagine,verb,/ɪˈmædʒɪn/,picture in mind,Imagine a world.
+B1,31,Creative Writing,20,inspire,verb,/ɪnˈspaɪɚ/,give ideas,Inspire creativity.
+B1,32,Entertainment & Media,1,entertainment,noun,/ˌɛntɚˈteɪnmənt/,fun activities,Home entertainment.
+B1,32,Entertainment & Media,2,movie,noun,/ˈmuvi/,film,Watch a movie.
+B1,32,Entertainment & Media,3,film,noun,/ˈfɪlm/,motion picture,Action film.
+B1,32,Entertainment & Media,4,television,noun,/ˈtɛləˌvɪʒən/,TV,Watch television.
+B1,32,Entertainment & Media,5,show,noun,/ˈʃoʊ/,TV program,TV show.
+B1,32,Entertainment & Media,6,series,noun,/ˈsɪriz/,TV episodes,Drama series.
+B1,32,Entertainment & Media,7,episode,noun,/ˈɛpɪˌsoʊd/,one show,Next episode.
+B1,32,Entertainment & Media,8,channel,noun,/ˈtʃænəl/,TV station,Change channel.
+B1,32,Entertainment & Media,9,documentary,noun,/ˌdɑkjəˈmɛntəri/,factual film,Nature documentary.
+B1,32,Entertainment & Media,10,comedy,noun,/ˈkɑmədi/,funny show,Stand-up comedy.
+B1,32,Entertainment & Media,11,drama,noun,/ˈdrɑmə/,serious show,TV drama.
+B1,32,Entertainment & Media,12,actor,noun,/ˈæktɚ/,person in films,Famous actor.
+B1,32,Entertainment & Media,13,actress,noun,/ˈæktrɪs/,female actor,Leading actress.
+B1,32,Entertainment & Media,14,director,noun,/dɪˈrɛktɚ/,film maker,Film director.
+B1,32,Entertainment & Media,15,audience,noun,/ˈɔdiəns/,viewers,Large audience.
+B1,32,Entertainment & Media,16,viewer,noun,/ˈvjuɚ/,person watching,TV viewer.
+B1,32,Entertainment & Media,17,broadcast,noun,/ˈbrɔdˌkæst/,TV/radio show,Live broadcast.
+B1,32,Entertainment & Media,18,entertaining,adjective,/ˌɛntɚˈteɪnɪŋ/,fun to watch,Entertaining show.
+B1,32,Entertainment & Media,19,popular,adjective,/ˈpɑpjəlɚ/,liked by many,Popular show.
+B1,32,Entertainment & Media,20,watch,verb,/ˈwɑtʃ/,look at,Watch TV.
+B1,32,Entertainment & Media,21,broadcast,verb,/ˈbrɔdˌkæst/,transmit,Broadcast live.
+B1,32,Entertainment & Media,22,stream,verb,/ˈstrim/,watch online,Stream movies.
+B1,32,Entertainment & Media,23,entertain,verb,/ˌɛntɚˈteɪn/,amuse,Entertain guests.
+B1,32,Entertainment & Media,24,record,verb,/rɪˈkɔrd/,save video,Record the show.
+B1,32,Entertainment & Media,25,release,verb,/rɪˈlis/,make available,Release a film.
+B1,33,Media & Journalism,1,news,noun,/ˈnuz/,current events,Watch the news.
+B1,33,Media & Journalism,2,newspaper,noun,/ˈnuzˌpeɪpɚ/,daily paper,Read newspaper.
+B1,33,Media & Journalism,3,article,noun,/ˈɑrtɪkəl/,written piece,News article.
+B1,33,Media & Journalism,4,headline,noun,/ˈhɛdˌlaɪn/,main title,Front page headline.
+B1,33,Media & Journalism,5,journalist,noun,/ˈdʒɜrnəlɪst/,reporter,TV journalist.
+B1,33,Media & Journalism,6,reporter,noun,/rɪˈpɔrtɚ/,news gatherer,News reporter.
+B1,33,Media & Journalism,7,editor,noun,/ˈɛdɪtɚ/,content manager,Newspaper editor.
+B1,33,Media & Journalism,8,press,noun,/ˈprɛs/,news media,The press reported.
+B1,33,Media & Journalism,9,media,noun,/ˈmidiə/,communication channels,Social media.
+B1,33,Media & Journalism,10,magazine,noun,/ˌmægəˈzin/,periodic publication,Fashion magazine.
+B1,33,Media & Journalism,11,interview,noun,/ˈɪntɚˌvju/,Q&A session,TV interview.
+B1,33,Media & Journalism,12,report,noun,/rɪˈpɔrt/,news account,News report.
+B1,33,Media & Journalism,13,online,adjective,/ˈɑnˌlaɪn/,on internet,Online news.
+B1,33,Media & Journalism,14,breaking,adjective,/ˈbreɪkɪŋ/,just happening,Breaking news.
+B1,33,Media & Journalism,15,report,verb,/rɪˈpɔrt/,tell news,Report the story.
+B1,33,Media & Journalism,16,publish,verb,/ˈpʌblɪʃ/,release publicly,Publish article.
+B1,33,Media & Journalism,17,interview,verb,/ˈɪntɚˌvju/,ask questions,Interview the star.
+B1,33,Media & Journalism,18,cover,verb,/ˈkʌvɚ/,report on,Cover the event.
+B1,33,Media & Journalism,19,announce,verb,/əˈnaʊns/,make known,Announce results.
+B1,33,Media & Journalism,20,broadcast,verb,/ˈbrɔdˌkæst/,transmit,Broadcast news.
+B1,34,Technology,1,technology,noun,/tɛkˈnɑlədʒi/,technical tools,New technology.
+B1,34,Technology,2,computer,noun,/kəmˈpjutɚ/,electronic device,Use a computer.
+B1,34,Technology,3,laptop,noun,/ˈlæpˌtɑp/,portable computer,Work on laptop.
+B1,34,Technology,4,tablet,noun,/ˈtæblɪt/,touch device,Use a tablet.
+B1,34,Technology,5,smartphone,noun,/ˈsmɑrtˌfoʊn/,mobile phone,Buy smartphone.
+B1,34,Technology,6,internet,noun,/ˈɪntɚˌnɛt/,global network,Browse internet.
+B1,34,Technology,7,website,noun,/ˈwɛbˌsaɪt/,web page,Visit website.
+B1,34,Technology,8,app,noun,/ˈæp/,application,Download an app.
+B1,34,Technology,9,software,noun,/ˈsɔftˌwɛr/,computer programs,Install software.
+B1,34,Technology,10,file,noun,/ˈfaɪl/,digital document,Save the file.
+B1,34,Technology,11,data,noun,/ˈdeɪtə/,information,Store data.
+B1,34,Technology,12,screen,noun,/ˈskrin/,display,Touch screen.
+B1,34,Technology,13,keyboard,noun,/ˈkiˌbɔrd/,typing device,Type on keyboard.
+B1,34,Technology,14,password,noun,/ˈpæsˌwɜrd/,secret code,Enter password.
+B1,34,Technology,15,email,noun,/ˈiˌmeɪl/,electronic mail,Send an email.
+B1,34,Technology,16,message,noun,/ˈmɛsɪdʒ/,text sent,Text message.
+B1,34,Technology,17,battery,noun,/ˈbætəri/,power source,Low battery.
+B1,34,Technology,18,digital,adjective,/ˈdɪdʒɪtəl/,computer-based,Digital camera.
+B1,34,Technology,19,online,adjective,/ˈɑnˌlaɪn/,connected,Online shopping.
+B1,34,Technology,20,offline,adjective,/ˈɔfˌlaɪn/,not connected,Work offline.
+B1,34,Technology,21,wireless,adjective,/ˈwaɪɚlɪs/,no cables,Wireless network.
+B1,34,Technology,22,download,verb,/ˈdaʊnˌloʊd/,get from internet,Download file.
+B1,34,Technology,23,upload,verb,/ˈʌpˌloʊd/,send to internet,Upload photos.
+B1,34,Technology,24,click,verb,/ˈklɪk/,press button,Click the link.
+B1,34,Technology,25,search,verb,/ˈsɜrtʃ/,look for online,Search online.
+B1,34,Technology,26,connect,verb,/kəˈnɛkt/,link together,Connect to wifi.
+B1,34,Technology,27,install,verb,/ɪnˈstɔl/,set up program,Install app.
+B1,34,Technology,28,update,verb,/ʌpˈdeɪt/,make current,Update software.
+B1,34,Technology,29,delete,verb,/dɪˈlit/,remove,Delete file.
+B1,34,Technology,30,save,verb,/ˈseɪv/,store for later,Save document.
+B1,35,Science & Research,1,science,noun,/ˈsaɪəns/,systematic knowledge,Study science.
+B1,35,Science & Research,2,research,noun,/rɪˈsɜrtʃ/,investigation,Scientific research.
+B1,35,Science & Research,3,scientist,noun,/ˈsaɪəntɪst/,science expert,Famous scientist.
+B1,35,Science & Research,4,experiment,noun,/ɪkˈspɛrɪmənt/,scientific test,Lab experiment.
+B1,35,Science & Research,5,laboratory,noun,/ˈlæbrəˌtɔri/,research room,Science laboratory.
+B1,35,Science & Research,6,discovery,noun,/dɪˈskʌvəri/,finding something new,Major discovery.
+B1,35,Science & Research,7,theory,noun,/ˈθɪri/,explanation,Scientific theory.
+B1,35,Science & Research,8,result,noun,/rɪˈzʌlt/,outcome,Research results.
+B1,35,Science & Research,9,data,noun,/ˈdeɪtə/,facts collected,Analyze data.
+B1,35,Science & Research,10,evidence,noun,/ˈɛvɪdəns/,proof,Scientific evidence.
+B1,35,Science & Research,11,chemical,noun,/ˈkɛmɪkəl/,substance,Dangerous chemical.
+B1,35,Science & Research,12,element,noun,/ˈɛləmənt/,basic substance,Chemical element.
+B1,35,Science & Research,13,energy,noun,/ˈɛnɚdʒi/,power,Solar energy.
+B1,35,Science & Research,14,cell,noun,/ˈsɛl/,basic unit,Body cell.
+B1,35,Science & Research,15,atom,noun,/ˈætəm/,tiny particle,Atom structure.
+B1,35,Science & Research,16,scientific,adjective,/ˌsaɪənˈtɪfɪk/,based on science,Scientific method.
+B1,35,Science & Research,17,chemical,adjective,/ˈkɛmɪkəl/,of chemistry,Chemical reaction.
+B1,35,Science & Research,18,natural,adjective,/ˈnætʃərəl/,from nature,Natural resources.
+B1,35,Science & Research,19,research,verb,/rɪˈsɜrtʃ/,investigate,Research the topic.
+B1,35,Science & Research,20,discover,verb,/dɪˈskʌvɚ/,find new,Discover a cure.
+B1,35,Science & Research,21,prove,verb,/ˈpruv/,show truth,Prove the theory.
+B1,35,Science & Research,22,test,verb,/ˈtɛst/,try out,Test the hypothesis.
+B1,35,Science & Research,23,observe,verb,/əbˈzɜrv/,watch carefully,Observe changes.
+B1,35,Science & Research,24,measure,verb,/ˈmɛʒɚ/,find size,Measure accurately.
+B1,35,Science & Research,25,analyze,verb,/ˈænəˌlaɪz/,examine closely,Analyze samples.
+B1,35,Science & Research,26,develop,verb,/dɪˈvɛləp/,create new,Develop technology.
+B1,35,Science & Research,27,invent,verb,/ɪnˈvɛnt/,create first,Invent a device.
+B1,35,Science & Research,28,solve,verb,/ˈsɑlv/,find answer,Solve the problem.
+B1,35,Science & Research,29,study,verb,/ˈstʌdi/,examine,Study the effects.
+B1,35,Science & Research,30,experiment,verb,/ɪkˈspɛrɪˌmɛnt/,test ideas,Experiment with methods.
+B1,36,Energy & Resources,1,energy,noun,/ˈɛnɚdʒi/,power to do work,Solar energy.
+B1,36,Energy & Resources,2,electricity,noun,/ɪˌlɛkˈtrɪsəti/,electric power,Save electricity.
+B1,36,Energy & Resources,3,power,noun,/ˈpaʊɚ/,energy source,Electric power.
+B1,36,Energy & Resources,4,fuel,noun,/ˈfjuəl/,energy material,Fuel shortage.
+B1,36,Energy & Resources,5,oil,noun,/ˈɔɪl/,liquid fuel,Crude oil.
+B1,36,Energy & Resources,6,gas,noun,/ˈgæs/,fuel type,Natural gas.
+B1,36,Energy & Resources,7,coal,noun,/ˈkoʊl/,rock fuel,Burn coal.
+B1,36,Energy & Resources,8,resource,noun,/ˈrisɔrs/,useful material,Natural resources.
+B1,36,Energy & Resources,9,solar,adjective,/ˈsoʊlɚ/,from the sun,Solar panels.
+B1,36,Energy & Resources,10,nuclear,adjective,/ˈnukliɚ/,from atoms,Nuclear power.
+B1,36,Energy & Resources,11,renewable,adjective,/rɪˈnuəbəl/,can be replaced,Renewable energy.
+B1,36,Energy & Resources,12,electric,adjective,/ɪˈlɛktrɪk/,using electricity,Electric car.
+B1,36,Energy & Resources,13,generate,verb,/ˈdʒɛnəˌreɪt/,produce,Generate power.
+B1,36,Energy & Resources,14,consume,verb,/kənˈsum/,use up,Consume energy.
+B1,36,Energy & Resources,15,save,verb,/ˈseɪv/,use less,Save energy.
+B1,36,Energy & Resources,16,waste,verb,/ˈweɪst/,use badly,Waste resources.
+B1,36,Energy & Resources,17,recycle,verb,/riˈsaɪkəl/,use again,Recycle materials.
+B1,36,Energy & Resources,18,reduce,verb,/rɪˈdus/,make less,Reduce usage.
+B1,36,Energy & Resources,19,pollute,verb,/pəˈlut/,make dirty,Pollute the air.
+B1,36,Energy & Resources,20,heat,verb,/ˈhit/,make warm,Heat the house.
+B1,37,Health & Fitness,1,health,noun,/ˈhɛlθ/,body condition,Good health.
+B1,37,Health & Fitness,2,fitness,noun,/ˈfɪtnəs/,being fit,Physical fitness.
+B1,37,Health & Fitness,3,exercise,noun,/ˈɛksɚˌsaɪz/,physical activity,Daily exercise.
+B1,37,Health & Fitness,4,diet,noun,/ˈdaɪət/,food eaten,Healthy diet.
+B1,37,Health & Fitness,5,medicine,noun,/ˈmɛdɪsɪn/,treatment drug,Take medicine.
+B1,37,Health & Fitness,6,disease,noun,/dɪˈziz/,illness,Heart disease.
+B1,37,Health & Fitness,7,illness,noun,/ˈɪlnəs/,sickness,Serious illness.
+B1,37,Health & Fitness,8,injury,noun,/ˈɪndʒəri/,body damage,Sports injury.
+B1,37,Health & Fitness,9,pain,noun,/ˈpeɪn/,hurt feeling,Back pain.
+B1,37,Health & Fitness,10,symptom,noun,/ˈsɪmptəm/,sign of illness,Flu symptoms.
+B1,37,Health & Fitness,11,treatment,noun,/ˈtritmənt/,medical care,Cancer treatment.
+B1,37,Health & Fitness,12,patient,noun,/ˈpeɪʃənt/,sick person,Hospital patient.
+B1,37,Health & Fitness,13,pharmacy,noun,/ˈfɑrməsi/,drug store,Visit pharmacy.
+B1,37,Health & Fitness,14,healthy,adjective,/ˈhɛlθi/,in good health,Healthy lifestyle.
+B1,37,Health & Fitness,15,fit,adjective,/ˈfɪt/,in good shape,Stay fit.
+B1,37,Health & Fitness,16,sick,adjective,/ˈsɪk/,not well,Feel sick.
+B1,37,Health & Fitness,17,injured,adjective,/ˈɪndʒɚd/,hurt,Injured leg.
+B1,37,Health & Fitness,18,painful,adjective,/ˈpeɪnfəl/,causing pain,Painful injury.
+B1,37,Health & Fitness,19,mental,adjective,/ˈmɛntəl/,of the mind,Mental health.
+B1,37,Health & Fitness,20,physical,adjective,/ˈfɪzɪkəl/,of the body,Physical health.
+B1,37,Health & Fitness,21,exercise,verb,/ˈɛksɚˌsaɪz/,work out,Exercise daily.
+B1,37,Health & Fitness,22,treat,verb,/ˈtrit/,give medicine,Treat the illness.
+B1,37,Health & Fitness,23,recover,verb,/rɪˈkʌvɚ/,get better,Recover quickly.
+B1,37,Health & Fitness,24,heal,verb,/ˈhil/,become healthy,Wounds heal.
+B1,37,Health & Fitness,25,breathe,verb,/ˈbrið/,take air in,Breathe deeply.
+B1,37,Health & Fitness,26,injure,verb,/ˈɪndʒɚ/,hurt,Injure your back.
+B1,37,Health & Fitness,27,cure,verb,/ˈkjʊr/,make well,Cure disease.
+B1,37,Health & Fitness,28,prevent,verb,/prɪˈvɛnt/,stop from happening,Prevent illness.
+B1,37,Health & Fitness,29,stretch,verb,/ˈstrɛtʃ/,extend body,Stretch before running.
+B1,37,Health & Fitness,30,relax,verb,/rɪˈlæks/,rest,Relax and rest.
+B1,38,Safety & Law,1,safety,noun,/ˈseɪfti/,being safe,Road safety.
+B1,38,Safety & Law,2,security,noun,/sɪˈkjʊrəti/,protection,Home security.
+B1,38,Safety & Law,3,law,noun,/ˈlɔ/,official rule,Break the law.
+B1,38,Safety & Law,4,crime,noun,/ˈkraɪm/,illegal act,Serious crime.
+B1,38,Safety & Law,5,police,noun,/pəˈlis/,law enforcers,Call police.
+B1,38,Safety & Law,6,court,noun,/ˈkɔrt/,legal building,Go to court.
+B1,38,Safety & Law,7,judge,noun,/ˈdʒʌdʒ/,legal decision maker,The judge ruled.
+B1,38,Safety & Law,8,lawyer,noun,/ˈlɔjɚ/,legal expert,Hire a lawyer.
+B1,38,Safety & Law,9,prison,noun,/ˈprɪzən/,jail,Go to prison.
+B1,38,Safety & Law,10,victim,noun,/ˈvɪktɪm/,person harmed,Crime victim.
+B1,38,Safety & Law,11,thief,noun,/ˈθif/,person who steals,Catch the thief.
+B1,38,Safety & Law,12,safe,adjective,/ˈseɪf/,not in danger,Stay safe.
+B1,38,Safety & Law,13,dangerous,adjective,/ˈdeɪndʒərəs/,risky,Dangerous area.
+B1,38,Safety & Law,14,legal,adjective,/ˈligəl/,by law,Legal advice.
+B1,38,Safety & Law,15,illegal,adjective,/ɪˈligəl/,against law,Illegal activity.
+B1,38,Safety & Law,16,guilty,adjective,/ˈgɪlti/,did wrong,Found guilty.
+B1,38,Safety & Law,17,innocent,adjective,/ˈɪnəsənt/,not guilty,Proved innocent.
+B1,38,Safety & Law,18,protect,verb,/prəˈtɛkt/,keep safe,Protect yourself.
+B1,38,Safety & Law,19,arrest,verb,/əˈrɛst/,take by police,Arrest the suspect.
+B1,38,Safety & Law,20,steal,verb,/ˈstil/,take illegally,Steal money.
+B1,38,Safety & Law,21,punish,verb,/ˈpʌnɪʃ/,give penalty,Punish criminals.
+B1,38,Safety & Law,22,warn,verb,/ˈwɔrn/,tell of danger,Warn of risks.
+B1,38,Safety & Law,23,investigate,verb,/ɪnˈvɛstɪˌgeɪt/,look into,Investigate crime.
+B1,38,Safety & Law,24,rescue,verb,/ˈrɛskju/,save from danger,Rescue victims.
+B1,38,Safety & Law,25,survive,verb,/sɚˈvaɪv/,stay alive,Survive the accident.
+B1,39,Politics & Government,1,government,noun,/ˈgʌvɚnmənt/,ruling body,The government.
+B1,39,Politics & Government,2,politics,noun,/ˈpɑləˌtɪks/,political matters,Talk about politics.
+B1,39,Politics & Government,3,president,noun,/ˈprɛzɪdənt/,country leader,The president spoke.
+B1,39,Politics & Government,4,minister,noun,/ˈmɪnɪstɚ/,government official,Prime minister.
+B1,39,Politics & Government,5,election,noun,/ɪˈlɛkʃən/,voting event,Win election.
+B1,39,Politics & Government,6,vote,noun,/ˈvoʊt/,choice in election,Cast your vote.
+B1,39,Politics & Government,7,policy,noun,/ˈpɑləsi/,plan of action,New policy.
+B1,39,Politics & Government,8,law,noun,/ˈlɔ/,official rule,Pass a law.
+B1,39,Politics & Government,9,citizen,noun,/ˈsɪtɪzən/,country member,Good citizen.
+B1,39,Politics & Government,10,nation,noun,/ˈneɪʃən/,country,The nation.
+B1,39,Politics & Government,11,political,adjective,/pəˈlɪtɪkəl/,of politics,Political party.
+B1,39,Politics & Government,12,national,adjective,/ˈnæʃənəl/,of a nation,National holiday.
+B1,39,Politics & Government,13,public,adjective,/ˈpʌblɪk/,for everyone,Public service.
+B1,39,Politics & Government,14,official,adjective,/əˈfɪʃəl/,formal,Official statement.
+B1,39,Politics & Government,15,democratic,adjective,/ˌdɛməˈkrætɪk/,by the people,Democratic system.
+B1,39,Politics & Government,16,vote,verb,/ˈvoʊt/,choose by voting,Vote in election.
+B1,39,Politics & Government,17,elect,verb,/ɪˈlɛkt/,choose by vote,Elect a leader.
+B1,39,Politics & Government,18,govern,verb,/ˈgʌvɚn/,rule a country,Govern fairly.
+B1,39,Politics & Government,19,represent,verb,/ˌrɛprɪˈzɛnt/,speak for,Represent the people.
+B1,39,Politics & Government,20,protest,verb,/prəˈtɛst/,object publicly,Protest the decision.
+B1,39,Politics & Government,21,support,verb,/səˈpɔrt/,help,Support the policy.
+B1,39,Politics & Government,22,oppose,verb,/əˈpoʊz/,be against,Oppose the law.
+B1,39,Politics & Government,23,debate,verb,/dɪˈbeɪt/,discuss formally,Debate the issue.
+B1,39,Politics & Government,24,campaign,verb,/kæmˈpeɪn/,work for election,Campaign for votes.
+B1,39,Politics & Government,25,reform,verb,/rɪˈfɔrm/,improve by change,Reform the system.
+B1,40,Nationalities & Culture,1,culture,noun,/ˈkʌltʃɚ/,way of life,Local culture.
+B1,40,Nationalities & Culture,2,tradition,noun,/trəˈdɪʃən/,old custom,Family tradition.
+B1,40,Nationalities & Culture,3,custom,noun,/ˈkʌstəm/,usual practice,Local custom.
+B1,40,Nationalities & Culture,4,nationality,noun,/ˌnæʃəˈnæləti/,country belonging,What nationality?
+B1,40,Nationalities & Culture,5,heritage,noun,/ˈhɛrɪtɪdʒ/,cultural history,Cultural heritage.
+B1,40,Nationalities & Culture,6,immigrant,noun,/ˈɪmɪgrənt/,person moving to new country,New immigrant.
+B1,40,Nationalities & Culture,7,foreigner,noun,/ˈfɔrənɚ/,person from abroad,Meet foreigners.
+B1,40,Nationalities & Culture,8,cultural,adjective,/ˈkʌltʃərəl/,of culture,Cultural event.
+B1,40,Nationalities & Culture,9,traditional,adjective,/trəˈdɪʃənəl/,following tradition,Traditional food.
+B1,40,Nationalities & Culture,10,ethnic,adjective,/ˈɛθnɪk/,of ethnic group,Ethnic food.
+B1,40,Nationalities & Culture,11,foreign,adjective,/ˈfɔrɪn/,from abroad,Foreign country.
+B1,40,Nationalities & Culture,12,native,adjective,/ˈneɪtɪv/,born there,Native language.
+B1,40,Nationalities & Culture,13,diverse,adjective,/dɪˈvɜrs/,varied,Diverse culture.
+B1,40,Nationalities & Culture,14,celebrate,verb,/ˈsɛləˌbreɪt/,honor with event,Celebrate the festival.
+B1,40,Nationalities & Culture,15,preserve,verb,/prɪˈzɜrv/,keep safe,Preserve traditions.
+B1,40,Nationalities & Culture,16,respect,verb,/rɪˈspɛkt/,show honor,Respect culture.
+B1,40,Nationalities & Culture,17,adapt,verb,/əˈdæpt/,adjust to new,Adapt to culture.
+B1,40,Nationalities & Culture,18,integrate,verb,/ˈɪntɪˌgreɪt/,become part of,Integrate into society.
+B1,40,Nationalities & Culture,19,immigrate,verb,/ˈɪmɪˌgreɪt/,move to new country,Immigrate for work.
+B1,40,Nationalities & Culture,20,inherit,verb,/ɪnˈhɛrɪt/,receive from past,Inherit traditions.
+B1,41,Religion & Beliefs,1,religion,noun,/rɪˈlɪdʒən/,belief system,World religions.
+B1,41,Religion & Beliefs,2,belief,noun,/bɪˈlif/,something believed,Personal beliefs.
+B1,41,Religion & Beliefs,3,faith,noun,/ˈfeɪθ/,strong belief,Have faith.
+B1,41,Religion & Beliefs,4,god,noun,/ˈgɑd/,divine being,Believe in God.
+B1,41,Religion & Beliefs,5,prayer,noun,/ˈprɛr/,speaking to God,Say a prayer.
+B1,41,Religion & Beliefs,6,church,noun,/ˈtʃɜrtʃ/,place of worship,Go to church.
+B1,41,Religion & Beliefs,7,temple,noun,/ˈtɛmpəl/,religious building,Visit the temple.
+B1,41,Religion & Beliefs,8,mosque,noun,/ˈmɑsk/,Muslim place,Pray at mosque.
+B1,41,Religion & Beliefs,9,religious,adjective,/rɪˈlɪdʒəs/,of religion,Religious holiday.
+B1,41,Religion & Beliefs,10,spiritual,adjective,/ˈspɪrɪtʃuəl/,of the spirit,Spiritual beliefs.
+B1,41,Religion & Beliefs,11,sacred,adjective,/ˈseɪkrɪd/,holy,Sacred place.
+B1,41,Religion & Beliefs,12,believe,verb,/bɪˈliv/,have faith in,Believe in yourself.
+B1,41,Religion & Beliefs,13,pray,verb,/ˈpreɪ/,speak to God,Pray daily.
+B1,41,Religion & Beliefs,14,worship,verb,/ˈwɜrʃɪp/,show devotion,Worship together.
+B1,41,Religion & Beliefs,15,celebrate,verb,/ˈsɛləˌbreɪt/,honor occasion,Celebrate religious holidays.
+B1,42,Social Issues,1,society,noun,/səˈsaɪəti/,people together,Modern society.
+B1,42,Social Issues,2,community,noun,/kəˈmjunəti/,local group,Local community.
+B1,42,Social Issues,3,issue,noun,/ˈɪʃu/,problem topic,Social issue.
+B1,42,Social Issues,4,problem,noun,/ˈprɑbləm/,difficulty,Serious problem.
+B1,42,Social Issues,5,poverty,noun,/ˈpɑvɚti/,being poor,Fight poverty.
+B1,42,Social Issues,6,equality,noun,/ɪˈkwɑləti/,being equal,Gender equality.
+B1,42,Social Issues,7,discrimination,noun,/dɪˌskrɪmɪˈneɪʃən/,unfair treatment,End discrimination.
+B1,42,Social Issues,8,volunteer,noun,/ˌvɑlənˈtɪr/,unpaid helper,Be a volunteer.
+B1,42,Social Issues,9,charity,noun,/ˈtʃærəti/,help for needy,Give to charity.
+B1,42,Social Issues,10,social,adjective,/ˈsoʊʃəl/,of society,Social problems.
+B1,42,Social Issues,11,equal,adjective,/ˈikwəl/,the same,Equal rights.
+B1,42,Social Issues,12,fair,adjective,/ˈfɛr/,just,Fair treatment.
+B1,42,Social Issues,13,unfair,adjective,/ʌnˈfɛr/,not just,Unfair situation.
+B1,42,Social Issues,14,homeless,adjective,/ˈhoʊmlɪs/,without home,Help the homeless.
+B1,42,Social Issues,15,help,verb,/ˈhɛlp/,give aid,Help others.
+B1,42,Social Issues,16,support,verb,/səˈpɔrt/,give assistance,Support the cause.
+B1,42,Social Issues,17,donate,verb,/ˈdoʊˌneɪt/,give freely,Donate money.
+B1,42,Social Issues,18,volunteer,verb,/ˌvɑlənˈtɪr/,offer to help,Volunteer time.
+B1,42,Social Issues,19,protest,verb,/prəˈtɛst/,show opposition,Protest inequality.
+B1,42,Social Issues,20,solve,verb,/ˈsɑlv/,find solution,Solve problems.
+B1,43,Objects & Tools,1,tool,noun,/ˈtul/,implement,Hand tools.
+B1,43,Objects & Tools,2,machine,noun,/məˈʃin/,mechanical device,Washing machine.
+B1,43,Objects & Tools,3,equipment,noun,/ɪˈkwɪpmənt/,tools needed,Sports equipment.
+B1,43,Objects & Tools,4,device,noun,/dɪˈvaɪs/,small machine,Electronic device.
+B1,43,Objects & Tools,5,container,noun,/kənˈteɪnɚ/,holder,Plastic container.
+B1,43,Objects & Tools,6,box,noun,/ˈbɑks/,storage container,Cardboard box.
+B1,43,Objects & Tools,7,bottle,noun,/ˈbɑtəl/,liquid container,Water bottle.
+B1,43,Objects & Tools,8,jar,noun,/ˈdʒɑr/,glass container,Jam jar.
+B1,43,Objects & Tools,9,rope,noun,/ˈroʊp/,thick string,Tie with rope.
+B1,43,Objects & Tools,10,chain,noun,/ˈtʃeɪn/,linked metal,Bike chain.
+B1,43,Objects & Tools,11,wire,noun,/ˈwaɪɚ/,thin metal,Electric wire.
+B1,43,Objects & Tools,12,pipe,noun,/ˈpaɪp/,tube for liquid,Water pipe.
+B1,43,Objects & Tools,13,handle,noun,/ˈhændəl/,part to hold,Door handle.
+B1,43,Objects & Tools,14,blade,noun,/ˈbleɪd/,cutting edge,Knife blade.
+B1,43,Objects & Tools,15,sharp,adjective,/ˈʃɑrp/,can cut,Sharp knife.
+B1,43,Objects & Tools,16,heavy,adjective,/ˈhɛvi/,weighs much,Heavy box.
+B1,43,Objects & Tools,17,light,adjective,/ˈlaɪt/,weighs little,Light bag.
+B1,43,Objects & Tools,18,useful,adjective,/ˈjusfəl/,helpful,Useful tool.
+B1,43,Objects & Tools,19,use,verb,/ˈjuz/,put to work,Use the tool.
+B1,43,Objects & Tools,20,fix,verb,/ˈfɪks/,repair,Fix the machine.
+B1,43,Objects & Tools,21,repair,verb,/rɪˈpɛr/,make work again,Repair equipment.
+B1,43,Objects & Tools,22,cut,verb,/ˈkʌt/,divide with blade,Cut the rope.
+B1,43,Objects & Tools,23,build,verb,/ˈbɪld/,construct,Build something.
+B1,43,Objects & Tools,24,connect,verb,/kəˈnɛkt/,join together,Connect the wires.
+B1,43,Objects & Tools,25,operate,verb,/ˈɑpəˌreɪt/,use machine,Operate equipment.

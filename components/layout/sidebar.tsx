@@ -19,6 +19,7 @@ import {
   FileText,
   Crown,
   HelpCircle,
+  GraduationCap,
 } from "lucide-react";
 
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
@@ -52,6 +53,12 @@ const navigation = [
     icon: FileText,
     color: "text-amber-400",
     badge: "NEW",
+  },
+  {
+    name: "Vocabulary",
+    href: "/vocabulary",
+    icon: GraduationCap,
+    color: "text-teal-400",
   },
 ];
 
@@ -129,20 +136,20 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           JSON.stringify({
             active,
             timestamp: Date.now(),
-          })
+          }),
         );
       } catch {}
     };
 
     window.addEventListener(
       "subscription-updated",
-      handleSubscriptionUpdate as EventListener
+      handleSubscriptionUpdate as EventListener,
     );
 
     return () => {
       window.removeEventListener(
         "subscription-updated",
-        handleSubscriptionUpdate as EventListener
+        handleSubscriptionUpdate as EventListener,
       );
     };
   }, []);
@@ -151,7 +158,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
     try {
       const subscriptions = await getUserSubscriptions();
       const active = subscriptions.some(
-        (sub: any) => sub.status === "active" || sub.status === "on_trial"
+        (sub: any) => sub.status === "active" || sub.status === "on_trial",
       );
       setHasActiveSubscription(active);
 
@@ -162,7 +169,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           JSON.stringify({
             active,
             timestamp: Date.now(),
-          })
+          }),
         );
       } catch {}
     } catch (error) {
@@ -177,7 +184,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
       className={cn(
         "flex h-full flex-col transition-all duration-300 relative bg-sidebar",
         isCollapsed ? "w-20" : "w-72",
-        className
+        className,
       )}
     >
       {/* Dark mode background - absolute positioned */}
@@ -218,7 +225,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         <div
           className={cn(
             "flex h-auto py-4 items-center mb-4 border-b border-sidebar-border",
-            isCollapsed ? "justify-center px-2" : "justify-between px-5"
+            isCollapsed ? "justify-center px-2" : "justify-between px-5",
           )}
         >
           {/* Logo Section - Only show when expanded */}
@@ -252,7 +259,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             onClick={() => setIsCollapsed(!isCollapsed)}
             className={cn(
               "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/10 dark:hover:bg-white/10 rounded-xl transition-all",
-              isCollapsed ? "w-10 h-10 p-0" : "shrink-0"
+              isCollapsed ? "w-10 h-10 p-0" : "shrink-0",
             )}
           >
             {isCollapsed ? (
@@ -278,7 +285,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                 <div
                   className={cn(
                     "group relative transition-all duration-300",
-                    isCollapsed ? "flex justify-center" : ""
+                    isCollapsed ? "flex justify-center" : "",
                   )}
                 >
                   {/* Active indicator removed - user request */}
@@ -292,14 +299,14 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                         : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
-                        : "justify-start h-12 pl-6"
+                        : "justify-start h-12 pl-6",
                     )}
                   >
                     {/* Hover glow effect */}
                     <div
                       className={cn(
                         "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-                        "bg-[#3B82F6]/10"
+                        "bg-[#3B82F6]/10",
                       )}
                     />
 
@@ -307,17 +314,17 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                       className={cn(
                         "h-5 w-5 transition-all duration-300 relative z-10",
                         isActive ? "text-white" : item.color,
-                        !isCollapsed && "mr-3"
+                        !isCollapsed && "mr-3",
                       )}
                     />
                     {!isCollapsed && (
                       <span
                         className={cn(
-                          "transition-all duration-300 font-medium relative z-10 flex items-center gap-2"
+                          "transition-all duration-300 font-medium relative z-10 flex items-center gap-2",
                         )}
                       >
                         {t(
-                          `sidebar.${item.name.toLowerCase().replace(/ /g, "")}`
+                          `sidebar.${item.name.toLowerCase().replace(/ /g, "")}`,
                         )}
                         {item.badge === "AI" ? (
                           <span className="flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
@@ -356,13 +363,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               "hover:bg-blue-50 dark:hover:bg-white/[0.03] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
               isCollapsed
                 ? "justify-center h-10 w-10 p-0 mx-auto"
-                : "justify-start h-10 w-full"
+                : "justify-start h-10 w-full",
             )}
           >
             <HelpCircle
               className={cn(
                 "h-5 w-5 transition-all duration-300",
-                !isCollapsed && "mr-2"
+                !isCollapsed && "mr-2",
               )}
             />
             {!isCollapsed && (
@@ -386,13 +393,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                       "hover:shadow-xl hover:shadow-amber-500/40",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
-                        : "justify-start h-12"
+                        : "justify-start h-12",
                     )}
                   >
                     <Crown
                       className={cn(
                         "h-5 w-5 transition-all duration-300",
-                        !isCollapsed && "mr-2"
+                        !isCollapsed && "mr-2",
                       )}
                     />
                     {!isCollapsed && (
@@ -412,13 +419,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                       "hover:scale-105 hover:shadow-xl hover:shadow-[#3B82F6]/40",
                       isCollapsed
                         ? "justify-center h-12 w-12 p-0"
-                        : "justify-start h-12"
+                        : "justify-start h-12",
                     )}
                   >
                     <Sparkles
                       className={cn(
                         "h-5 w-5 transition-all duration-300",
-                        !isCollapsed && "mr-2"
+                        !isCollapsed && "mr-2",
                       )}
                     />
                     {!isCollapsed && (
@@ -443,13 +450,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
                 isCollapsed
                   ? "justify-center h-12 w-12 p-0"
-                  : "justify-start h-12"
+                  : "justify-start h-12",
               )}
             >
               <Settings
                 className={cn(
                   "h-5 w-5 transition-all duration-300",
-                  !isCollapsed && "mr-3"
+                  !isCollapsed && "mr-3",
                 )}
               />
               {!isCollapsed && (

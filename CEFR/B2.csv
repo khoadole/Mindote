@@ -1,0 +1,1996 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+B2,1,Historical Events,1,history,noun,/ˈhɪstəri/,study of past events,Study history.
+B2,1,Historical Events,2,era,noun,/ˈɪrə/,period of time,Victorian era.
+B2,1,Historical Events,3,century,noun,/ˈsɛntʃəri/,100 years,The 21st century.
+B2,1,Historical Events,4,decade,noun,/ˈdɛkeɪd/,10 years,Last decade.
+B2,1,Historical Events,5,ancient,adjective,/ˈeɪnʃənt/,very old,Ancient civilization.
+B2,1,Historical Events,6,medieval,adjective,/ˌmidiˈivəl/,Middle Ages,Medieval castle.
+B2,1,Historical Events,7,modern,adjective,/ˈmɑdɚn/,recent times,Modern history.
+B2,1,Historical Events,8,empire,noun,/ˈɛmˌpaɪɚ/,large territory,Roman Empire.
+B2,1,Historical Events,9,colony,noun,/ˈkɑləni/,territory ruled by another,British colony.
+B2,1,Historical Events,10,revolution,noun,/ˌrɛvəˈluʃən/,major change,French Revolution.
+B2,1,Historical Events,11,independence,noun,/ˌɪndɪˈpɛndəns/,freedom,Declare independence.
+B2,1,Historical Events,12,civilization,noun,/ˌsɪvɪlɪˈzeɪʃən/,advanced society,Ancient civilization.
+B2,1,Historical Events,13,conquest,noun,/ˈkɑnkwɛst/,taking over,Norman Conquest.
+B2,1,Historical Events,14,monument,noun,/ˈmɑnjumənt/,historic structure,Visit the monument.
+B2,1,Historical Events,15,heritage,noun,/ˈhɛrɪtɪdʒ/,cultural legacy,World heritage site.
+B2,1,Historical Events,16,historian,noun,/hɪˈstɔriən/,history expert,Famous historian.
+B2,1,Historical Events,17,historical,adjective,/hɪˈstɔrɪkəl/,of history,Historical event.
+B2,1,Historical Events,18,colonial,adjective,/kəˈloʊniəl/,of colonies,Colonial period.
+B2,1,Historical Events,19,prehistoric,adjective,/ˌpriˌhɪˈstɔrɪk/,before written history,Prehistoric times.
+B2,1,Historical Events,20,archaeological,adjective,/ˌɑrkiəˈlɑdʒɪkəl/,of archaeology,Archaeological site.
+B2,1,Historical Events,21,discover,verb,/dɪˈskʌvɚ/,find for first time,Discover ruins.
+B2,1,Historical Events,22,conquer,verb,/ˈkɑŋkɚ/,take by force,Conquer territory.
+B2,1,Historical Events,23,establish,verb,/ɪˈstæblɪʃ/,found,Establish a colony.
+B2,1,Historical Events,24,preserve,verb,/prɪˈzɜrv/,keep safe,Preserve history.
+B2,1,Historical Events,25,commemorate,verb,/kəˈmɛməˌreɪt/,remember formally,Commemorate the event.
+B2,1,Time Management,1,deadline,noun,/ˈdɛdˌlaɪn/,final date,Meet the deadline.
+B2,1,Time Management,2,schedule,noun,/ˈskɛdʒul/,time plan,Busy schedule.
+B2,1,Time Management,3,priority,noun,/praɪˈɔrəti/,most important thing,Top priority.
+B2,1,Time Management,4,duration,noun,/duˈreɪʃən/,length of time,Short duration.
+B2,1,Time Management,5,delay,noun,/dɪˈleɪ/,wait time,Avoid delays.
+B2,1,Time Management,6,pace,noun,/ˈpeɪs/,speed of activity,Work at your pace.
+B2,1,Time Management,7,timetable,noun,/ˈtaɪmˌteɪbəl/,schedule,Train timetable.
+B2,1,Time Management,8,urgent,adjective,/ˈɜrdʒənt/,needing quick action,Urgent matter.
+B2,1,Time Management,9,frequent,adjective,/ˈfrikwənt/,happening often,Frequent meetings.
+B2,1,Time Management,10,brief,adjective,/ˈbrif/,short in time,Brief meeting.
+B2,1,Time Management,11,ongoing,adjective,/ˈɑnˌgoʊɪŋ/,continuing,Ongoing project.
+B2,1,Time Management,12,timely,adjective,/ˈtaɪmli/,at the right time,Timely response.
+B2,1,Time Management,13,overdue,adjective,/ˌoʊvɚˈdu/,past deadline,Overdue payment.
+B2,1,Time Management,14,weekly,adjective,/ˈwikli/,every week,Weekly meeting.
+B2,1,Time Management,15,monthly,adjective,/ˈmʌnθli/,every month,Monthly report.
+B2,1,Time Management,16,annual,adjective,/ˈænjuəl/,every year,Annual review.
+B2,1,Time Management,17,schedule,verb,/ˈskɛdʒul/,plan time,Schedule a meeting.
+B2,1,Time Management,18,prioritize,verb,/praɪˈɔrɪˌtaɪz/,rank importance,Prioritize tasks.
+B2,1,Time Management,19,postpone,verb,/poʊsˈpoʊn/,delay to later,Postpone the meeting.
+B2,1,Time Management,20,reschedule,verb,/riˈskɛdʒul/,change time,Reschedule the appointment.
+B2,1,Time Management,21,organize,verb,/ˈɔrgəˌnaɪz/,arrange,Organize your day.
+B2,1,Time Management,22,allocate,verb,/ˈæləˌkeɪt/,assign resources,Allocate time.
+B2,1,Time Management,23,manage,verb,/ˈmænɪdʒ/,control,Manage your time.
+B2,1,Time Management,24,efficiently,adverb,/ɪˈfɪʃəntli/,with no waste,Work efficiently.
+B2,1,Time Management,25,promptly,adverb,/ˈprɑmptli/,without delay,Reply promptly.
+B2,2,Measurement,1,measurement,noun,/ˈmɛʒɚmənt/,size or amount,Take measurements.
+B2,2,Measurement,2,dimension,noun,/dɪˈmɛnʃən/,size aspect,Check dimensions.
+B2,2,Measurement,3,scale,noun,/ˈskeɪl/,measurement system,On a scale of 1-10.
+B2,2,Measurement,4,ratio,noun,/ˈreɪʃioʊ/,proportion,Ratio of 2 to 1.
+B2,2,Measurement,5,percentage,noun,/pɚˈsɛntɪdʒ/,part of 100,High percentage.
+B2,2,Measurement,6,volume,noun,/ˈvɑljum/,space occupied,Measure volume.
+B2,2,Measurement,7,capacity,noun,/kəˈpæsəti/,maximum amount,Full capacity.
+B2,2,Measurement,8,depth,noun,/ˈdɛpθ/,how deep,Measure depth.
+B2,2,Measurement,9,width,noun,/ˈwɪdθ/,how wide,Check the width.
+B2,2,Measurement,10,height,noun,/ˈhaɪt/,how tall,Measure height.
+B2,2,Measurement,11,accurate,adjective,/ˈækjərət/,exact,Accurate measurement.
+B2,2,Measurement,12,precise,adjective,/prɪˈsaɪs/,exactly correct,Precise calculation.
+B2,2,Measurement,13,approximate,adjective,/əˈprɑksəmət/,nearly correct,Approximate value.
+B2,2,Measurement,14,extensive,adjective,/ɪkˈstɛnsɪv/,covering a lot,Extensive research.
+B2,2,Measurement,15,vast,adjective,/ˈvæst/,very large,Vast area.
+B2,2,Measurement,16,slight,adjective,/ˈslaɪt/,small in degree,Slight difference.
+B2,2,Measurement,17,maximum,adjective,/ˈmæksəməm/,greatest possible,Maximum speed.
+B2,2,Measurement,18,minimum,adjective,/ˈmɪnəməm/,smallest possible,Minimum requirement.
+B2,2,Measurement,19,measure,verb,/ˈmɛʒɚ/,find size,Measure carefully.
+B2,2,Measurement,20,calculate,verb,/ˈkælkjəˌleɪt/,work out,Calculate the total.
+B2,2,Measurement,21,estimate,verb,/ˈɛstəˌmeɪt/,guess amount,Estimate the cost.
+B2,2,Measurement,22,compare,verb,/kəmˈpɛr/,find differences,Compare results.
+B2,2,Measurement,23,exceed,verb,/ɪkˈsid/,go beyond,Exceed expectations.
+B2,2,Measurement,24,approximately,adverb,/əˈprɑksəmətli/,about,Approximately 100.
+B2,2,Measurement,25,considerably,adverb,/kənˈsɪdɚəbli/,by a lot,Considerably larger.
+B2,3,Family Relationships,1,relative,noun,/ˈrɛlətɪv/,family member,Visit relatives.
+B2,3,Family Relationships,2,ancestor,noun,/ˈænsɛstɚ/,family from past,Our ancestors.
+B2,3,Family Relationships,3,descendant,noun,/dɪˈsɛndənt/,future family,His descendants.
+B2,3,Family Relationships,4,sibling,noun,/ˈsɪblɪŋ/,brother or sister,Two siblings.
+B2,3,Family Relationships,5,spouse,noun,/ˈspaʊs/,husband or wife,Meet my spouse.
+B2,3,Family Relationships,6,in-law,noun,/ˈɪnˌlɔ/,relative by marriage,My in-laws.
+B2,3,Family Relationships,7,guardian,noun,/ˈgɑrdiən/,person responsible,Legal guardian.
+B2,3,Family Relationships,8,upbringing,noun,/ˈʌpˌbrɪŋɪŋ/,how raised,Strict upbringing.
+B2,3,Family Relationships,9,parenting,noun,/ˈpɛrəntɪŋ/,raising children,Good parenting.
+B2,3,Family Relationships,10,divorce,noun,/dɪˈvɔrs/,marriage end,File for divorce.
+B2,3,Family Relationships,11,custody,noun,/ˈkʌstədi/,child care right,Shared custody.
+B2,3,Family Relationships,12,adoption,noun,/əˈdɑpʃən/,legal child taking,Adoption process.
+B2,3,Family Relationships,13,intimacy,noun,/ˈɪntɪməsi/,close relationship,Family intimacy.
+B2,3,Family Relationships,14,domestic,adjective,/dəˈmɛstɪk/,of home/family,Domestic life.
+B2,3,Family Relationships,15,maternal,adjective,/məˈtɜrnəl/,of mother,Maternal instinct.
+B2,3,Family Relationships,16,paternal,adjective,/pəˈtɜrnəl/,of father,Paternal advice.
+B2,3,Family Relationships,17,extended,adjective,/ɪkˈstɛndɪd/,beyond immediate,Extended family.
+B2,3,Family Relationships,18,adopted,adjective,/əˈdɑptɪd/,legally taken in,Adopted child.
+B2,3,Family Relationships,19,inherit,verb,/ɪnˈhɛrɪt/,receive from family,Inherit property.
+B2,3,Family Relationships,20,adopt,verb,/əˈdɑpt/,legally take child,Adopt a child.
+B2,3,Family Relationships,21,raise,verb,/ˈreɪz/,bring up,Raise children.
+B2,3,Family Relationships,22,nurture,verb,/ˈnɜrtʃɚ/,care for,Nurture a child.
+B2,3,Family Relationships,23,bond,verb,/ˈbɑnd/,form connection,Bond with family.
+B2,3,Family Relationships,24,resemble,verb,/rɪˈzɛmbəl/,look like,Resemble parents.
+B2,3,Family Relationships,25,reconcile,verb,/ˈrɛkənˌsaɪl/,make peace,Reconcile differences.
+B2,4,Human Anatomy,1,organ,noun,/ˈɔrgən/,body part,Vital organ.
+B2,4,Human Anatomy,2,tissue,noun,/ˈtɪʃu/,body material,Muscle tissue.
+B2,4,Human Anatomy,3,cell,noun,/ˈsɛl/,smallest unit,Blood cells.
+B2,4,Human Anatomy,4,bone,noun,/ˈboʊn/,skeleton part,Broken bone.
+B2,4,Human Anatomy,5,muscle,noun,/ˈmʌsəl/,body tissue,Build muscle.
+B2,4,Human Anatomy,6,nerve,noun,/ˈnɜrv/,signal carrier,Nerve damage.
+B2,4,Human Anatomy,7,artery,noun,/ˈɑrtəri/,blood vessel,Blocked artery.
+B2,4,Human Anatomy,8,vein,noun,/ˈveɪn/,blood vessel,Blue veins.
+B2,4,Human Anatomy,9,lung,noun,/ˈlʌŋ/,breathing organ,Healthy lungs.
+B2,4,Human Anatomy,10,liver,noun,/ˈlɪvɚ/,body organ,Liver function.
+B2,4,Human Anatomy,11,kidney,noun,/ˈkɪdni/,filtering organ,Kidney disease.
+B2,4,Human Anatomy,12,spine,noun,/ˈspaɪn/,backbone,Spine injury.
+B2,4,Human Anatomy,13,skull,noun,/ˈskʌl/,head bone,Skull fracture.
+B2,4,Human Anatomy,14,rib,noun,/ˈrɪb/,chest bone,Broken rib.
+B2,4,Human Anatomy,15,joint,noun,/ˈdʒɔɪnt/,body connection,Knee joint.
+B2,4,Human Anatomy,16,limb,noun,/ˈlɪm/,arm or leg,Upper limb.
+B2,4,Human Anatomy,17,palm,noun,/ˈpɑm/,hand inside,Palm of hand.
+B2,4,Human Anatomy,18,wrist,noun,/ˈrɪst/,hand-arm joint,Wrist pain.
+B2,4,Human Anatomy,19,ankle,noun,/ˈæŋkəl/,foot-leg joint,Twisted ankle.
+B2,4,Human Anatomy,20,internal,adjective,/ɪnˈtɜrnəl/,inside body,Internal organs.
+B2,4,Human Anatomy,21,external,adjective,/ɪkˈstɜrnəl/,outside body,External wound.
+B2,4,Human Anatomy,22,muscular,adjective,/ˈmʌskjəlɚ/,of muscles,Muscular system.
+B2,4,Human Anatomy,23,skeletal,adjective,/ˈskɛlɪtəl/,of bones,Skeletal structure.
+B2,4,Human Anatomy,24,respiratory,adjective,/rɛˈspɪrəˌtɔri/,of breathing,Respiratory system.
+B2,4,Human Anatomy,25,digestive,adjective,/dɪˈdʒɛstɪv/,of digestion,Digestive tract.
+B2,4,Human Anatomy,26,circulate,verb,/ˈsɜrkjəˌleɪt/,flow through,Blood circulates.
+B2,4,Human Anatomy,27,digest,verb,/daɪˈdʒɛst/,process food,Digest food.
+B2,4,Human Anatomy,28,inhale,verb,/ɪnˈheɪl/,breathe in,Inhale deeply.
+B2,4,Human Anatomy,29,exhale,verb,/ɪkˈsheɪl/,breathe out,Exhale slowly.
+B2,4,Human Anatomy,30,function,verb,/ˈfʌŋkʃən/,work,Organs function.
+B2,5,Personal Appearance,1,appearance,noun,/əˈpɪrəns/,how one looks,Physical appearance.
+B2,5,Personal Appearance,2,complexion,noun,/kəmˈplɛkʃən/,skin color/quality,Clear complexion.
+B2,5,Personal Appearance,3,physique,noun,/fɪˈzik/,body build,Athletic physique.
+B2,5,Personal Appearance,4,posture,noun,/ˈpɑstʃɚ/,body position,Good posture.
+B2,5,Personal Appearance,5,feature,noun,/ˈfitʃɚ/,face part,Facial features.
+B2,5,Personal Appearance,6,wrinkle,noun,/ˈrɪŋkəl/,skin fold,Face wrinkles.
+B2,5,Personal Appearance,7,scar,noun,/ˈskɑr/,skin mark,Small scar.
+B2,5,Personal Appearance,8,freckle,noun,/ˈfrɛkəl/,skin spot,Face freckles.
+B2,5,Personal Appearance,9,attractive,adjective,/əˈtræktɪv/,good-looking,Very attractive.
+B2,5,Personal Appearance,10,slim,adjective,/ˈslɪm/,thin,Slim figure.
+B2,5,Personal Appearance,11,muscular,adjective,/ˈmʌskjəlɚ/,strong-looking,Muscular build.
+B2,5,Personal Appearance,12,pale,adjective,/ˈpeɪl/,light-colored,Pale skin.
+B2,5,Personal Appearance,13,tanned,adjective,/ˈtænd/,sun-darkened,Tanned skin.
+B2,5,Personal Appearance,14,neat,adjective,/ˈnit/,tidy,Neat appearance.
+B2,5,Personal Appearance,15,scruffy,adjective,/ˈskrʌfi/,messy,Scruffy look.
+B2,5,Personal Appearance,16,youthful,adjective,/ˈjuθfəl/,young-looking,Youthful appearance.
+B2,5,Personal Appearance,17,groom,verb,/ˈgrum/,make neat,Groom yourself.
+B2,5,Personal Appearance,18,age,verb,/ˈeɪdʒ/,grow older,Age gracefully.
+B2,5,Personal Appearance,19,resemble,verb,/rɪˈzɛmbəl/,look like,Resemble someone.
+B2,5,Personal Appearance,20,enhance,verb,/ɛnˈhæns/,improve,Enhance appearance.
+B2,6,Clothing,1,garment,noun,/ˈgɑrmənt/,piece of clothing,Fine garments.
+B2,6,Clothing,2,fabric,noun,/ˈfæbrɪk/,cloth material,Soft fabric.
+B2,6,Clothing,3,textile,noun,/ˈtɛkstaɪl/,woven material,Textile industry.
+B2,6,Clothing,4,outfit,noun,/ˈaʊtfɪt/,set of clothes,Stylish outfit.
+B2,6,Clothing,5,attire,noun,/əˈtaɪɚ/,clothing,Formal attire.
+B2,6,Clothing,6,wardrobe,noun,/ˈwɔrˌdroʊb/,clothes collection,Update wardrobe.
+B2,6,Clothing,7,sleeve,noun,/ˈsliv/,arm cover,Long sleeves.
+B2,6,Clothing,8,collar,noun,/ˈkɑlɚ/,neck part,Shirt collar.
+B2,6,Clothing,9,hem,noun,/ˈhɛm/,edge of cloth,Shorten the hem.
+B2,6,Clothing,10,casual,adjective,/ˈkæʒuəl/,informal,Casual wear.
+B2,6,Clothing,11,formal,adjective,/ˈfɔrməl/,official style,Formal dress.
+B2,6,Clothing,12,tailored,adjective,/ˈteɪlɚd/,custom-fitted,Tailored suit.
+B2,6,Clothing,13,loose,adjective,/ˈlus/,not tight,Loose fit.
+B2,6,Clothing,14,fitted,adjective,/ˈfɪtɪd/,close-fitting,Fitted jacket.
+B2,6,Clothing,15,wear,verb,/ˈwɛr/,have on body,Wear a suit.
+B2,6,Clothing,16,dress,verb,/ˈdrɛs/,put on clothes,Dress formally.
+B2,6,Clothing,17,fit,verb,/ˈfɪt/,be right size,Does it fit?
+B2,6,Clothing,18,alter,verb,/ˈɔltɚ/,change size,Alter the pants.
+B2,6,Clothing,19,match,verb,/ˈmætʃ/,go well together,Match your clothes.
+B2,6,Clothing,20,accessorize,verb,/ækˈsɛsəˌraɪz/,add accessories,Accessorize the outfit.
+B2,7,Fashion,1,trend,noun,/ˈtrɛnd/,current style,Fashion trend.
+B2,7,Fashion,2,style,noun,/ˈstaɪl/,manner of dress,Personal style.
+B2,7,Fashion,3,designer,noun,/dɪˈzaɪnɚ/,creator of fashion,Fashion designer.
+B2,7,Fashion,4,collection,noun,/kəˈlɛkʃən/,clothing line,New collection.
+B2,7,Fashion,5,accessory,noun,/ækˈsɛsəri/,added item,Fashion accessory.
+B2,7,Fashion,6,jewelry,noun,/ˈdʒuəlri/,decorative items,Wear jewelry.
+B2,7,Fashion,7,brand,noun,/ˈbrænd/,product name,Famous brand.
+B2,7,Fashion,8,runway,noun,/ˈrʌnˌweɪ/,fashion show path,Walk the runway.
+B2,7,Fashion,9,trendy,adjective,/ˈtrɛndi/,in fashion,Trendy clothes.
+B2,7,Fashion,10,stylish,adjective,/ˈstaɪlɪʃ/,fashionable,Very stylish.
+B2,7,Fashion,11,elegant,adjective,/ˈɛləgənt/,gracefully refined,Elegant dress.
+B2,7,Fashion,12,glamorous,adjective,/ˈglæmərəs/,excitingly attractive,Glamorous look.
+B2,7,Fashion,13,sophisticated,adjective,/səˈfɪstɪˌkeɪtɪd/,refined,Sophisticated taste.
+B2,7,Fashion,14,vintage,adjective,/ˈvɪntɪdʒ/,classic old style,Vintage fashion.
+B2,7,Fashion,15,design,verb,/dɪˈzaɪn/,create plans,Design clothes.
+B2,7,Fashion,16,model,verb,/ˈmɑdəl/,display clothes,Model the outfit.
+B2,7,Fashion,17,showcase,verb,/ˈʃoʊˌkeɪs/,display prominently,Showcase designs.
+B2,7,Fashion,18,coordinate,verb,/koʊˈɔrdəˌneɪt/,arrange together,Coordinate colors.
+B2,7,Fashion,19,customize,verb,/ˈkʌstəˌmaɪz/,make personal,Customize your style.
+B2,7,Fashion,20,inspire,verb,/ɪnˈspaɪɚ/,give ideas,Inspire trends.
+B2,8,Food Processing,1,ingredient,noun,/ɪnˈgridiənt/,food component,Fresh ingredients.
+B2,8,Food Processing,2,recipe,noun,/ˈrɛsəpi/,cooking instructions,Follow the recipe.
+B2,8,Food Processing,3,flavor,noun,/ˈfleɪvɚ/,taste,Rich flavor.
+B2,8,Food Processing,4,spice,noun,/ˈspaɪs/,seasoning,Add spices.
+B2,8,Food Processing,5,seasoning,noun,/ˈsizənɪŋ/,flavoring,Light seasoning.
+B2,8,Food Processing,6,portion,noun,/ˈpɔrʃən/,serving size,Small portion.
+B2,8,Food Processing,7,cuisine,noun,/kwɪˈzin/,cooking style,Italian cuisine.
+B2,8,Food Processing,8,preservation,noun,/ˌprɛzɚˈveɪʃən/,keeping fresh,Food preservation.
+B2,8,Food Processing,9,organic,adjective,/ɔrˈgænɪk/,naturally grown,Organic food.
+B2,8,Food Processing,10,processed,adjective,/ˈprɑsɛst/,manufactured,Processed food.
+B2,8,Food Processing,11,raw,adjective,/ˈrɔ/,uncooked,Raw vegetables.
+B2,8,Food Processing,12,frozen,adjective,/ˈfroʊzən/,preserved cold,Frozen food.
+B2,8,Food Processing,13,canned,adjective,/ˈkænd/,in containers,Canned goods.
+B2,8,Food Processing,14,prepare,verb,/prɪˈpɛr/,make ready,Prepare food.
+B2,8,Food Processing,15,chop,verb,/ˈtʃɑp/,cut into pieces,Chop vegetables.
+B2,8,Food Processing,16,blend,verb,/ˈblɛnd/,mix together,Blend ingredients.
+B2,8,Food Processing,17,preserve,verb,/prɪˈzɜrv/,keep fresh,Preserve food.
+B2,8,Food Processing,18,season,verb,/ˈsizən/,add flavor,Season the dish.
+B2,8,Food Processing,19,marinate,verb,/ˈmærəˌneɪt/,soak in flavor,Marinate the meat.
+B2,8,Food Processing,20,refrigerate,verb,/rɪˈfrɪdʒəˌreɪt/,keep cold,Refrigerate after opening.
+B2,9,Nutrition,1,nutrition,noun,/nuˈtrɪʃən/,nourishment study,Good nutrition.
+B2,9,Nutrition,2,nutrient,noun,/ˈnutriənt/,food substance,Essential nutrients.
+B2,9,Nutrition,3,vitamin,noun,/ˈvaɪtəmɪn/,food compound,Vitamin C.
+B2,9,Nutrition,4,mineral,noun,/ˈmɪnərəl/,essential element,Minerals needed.
+B2,9,Nutrition,5,protein,noun,/ˈproʊˌtin/,building nutrient,High protein.
+B2,9,Nutrition,6,carbohydrate,noun,/ˌkɑrboʊˈhaɪdreɪt/,energy nutrient,Complex carbohydrates.
+B2,9,Nutrition,7,fiber,noun,/ˈfaɪbɚ/,plant material,Dietary fiber.
+B2,9,Nutrition,8,calorie,noun,/ˈkæləri/,energy unit,Count calories.
+B2,9,Nutrition,9,diet,noun,/ˈdaɪət/,eating pattern,Balanced diet.
+B2,9,Nutrition,10,metabolism,noun,/məˈtæbəˌlɪzəm/,body processing,Fast metabolism.
+B2,9,Nutrition,11,supplement,noun,/ˈsʌpləmənt/,added nutrition,Take supplements.
+B2,9,Nutrition,12,deficiency,noun,/dɪˈfɪʃənsi/,lack of nutrient,Vitamin deficiency.
+B2,9,Nutrition,13,nutritious,adjective,/nuˈtrɪʃəs/,nourishing,Nutritious meal.
+B2,9,Nutrition,14,balanced,adjective,/ˈbælənst/,well-proportioned,Balanced diet.
+B2,9,Nutrition,15,organic,adjective,/ɔrˈgænɪk/,naturally grown,Organic food.
+B2,9,Nutrition,16,vegan,adjective,/ˈvigən/,no animal products,Vegan diet.
+B2,9,Nutrition,17,vegetarian,adjective,/ˌvɛdʒəˈtɛriən/,no meat,Vegetarian meal.
+B2,9,Nutrition,18,wholesome,adjective,/ˈhoʊlsəm/,healthy,Wholesome food.
+B2,9,Nutrition,19,processed,adjective,/ˈprɑsɛst/,manufactured food,Avoid processed.
+B2,9,Nutrition,20,refined,adjective,/rɪˈfaɪnd/,purified,Refined sugar.
+B2,9,Nutrition,21,nourish,verb,/ˈnɜrɪʃ/,provide food,Nourish the body.
+B2,9,Nutrition,22,digest,verb,/daɪˈdʒɛst/,process food,Easy to digest.
+B2,9,Nutrition,23,consume,verb,/kənˈsum/,eat or drink,Consume less sugar.
+B2,9,Nutrition,24,absorb,verb,/əbˈzɔrb/,take in,Absorb nutrients.
+B2,9,Nutrition,25,starve,verb,/ˈstɑrv/,lack food,Don't starve yourself.
+B2,9,Nutrition,26,overeat,verb,/ˌoʊvɚˈit/,eat too much,Avoid overeating.
+B2,9,Nutrition,27,supplement,verb,/ˈsʌpləˌmɛnt/,add to diet,Supplement your diet.
+B2,9,Nutrition,28,monitor,verb,/ˈmɑnɪtɚ/,track,Monitor intake.
+B2,9,Nutrition,29,restrict,verb,/rɪˈstrɪkt/,limit,Restrict calories.
+B2,9,Nutrition,30,maintain,verb,/meɪnˈteɪn/,keep up,Maintain health.
+B2,10,Housing,1,accommodation,noun,/əˌkɑməˈdeɪʃən/,place to live,Find accommodation.
+B2,10,Housing,2,residence,noun,/ˈrɛzɪdəns/,home,Primary residence.
+B2,10,Housing,3,property,noun,/ˈprɑpɚti/,real estate,Buy property.
+B2,10,Housing,4,apartment,noun,/əˈpɑrtmənt/,flat unit,Rent apartment.
+B2,10,Housing,5,landlord,noun,/ˈlændˌlɔrd/,property owner,Pay landlord.
+B2,10,Housing,6,tenant,noun,/ˈtɛnənt/,renter,New tenant.
+B2,10,Housing,7,lease,noun,/ˈlis/,rental contract,Sign lease.
+B2,10,Housing,8,mortgage,noun,/ˈmɔrgɪdʒ/,home loan,Pay mortgage.
+B2,10,Housing,9,deposit,noun,/dɪˈpɑzɪt/,security money,Security deposit.
+B2,10,Housing,10,suburb,noun,/ˈsʌbɜrb/,outer area,Live in suburbs.
+B2,10,Housing,11,attic,noun,/ˈætɪk/,top floor,Store in attic.
+B2,10,Housing,12,basement,noun,/ˈbeɪsmənt/,underground floor,Finished basement.
+B2,10,Housing,13,balcony,noun,/ˈbælkəni/,outdoor platform,Sit on balcony.
+B2,10,Housing,14,terrace,noun,/ˈtɛrəs/,outdoor area,Garden terrace.
+B2,10,Housing,15,household,noun,/ˈhaʊsˌhoʊld/,home family,Large household.
+B2,10,Housing,16,renovation,noun,/ˌrɛnəˈveɪʃən/,home improvement,Major renovation.
+B2,10,Housing,17,residential,adjective,/ˌrɛzɪˈdɛnʃəl/,for living,Residential area.
+B2,10,Housing,18,furnished,adjective,/ˈfɜrnɪʃt/,with furniture,Furnished apartment.
+B2,10,Housing,19,spacious,adjective,/ˈspeɪʃəs/,roomy,Spacious rooms.
+B2,10,Housing,20,affordable,adjective,/əˈfɔrdəbəl/,reasonably priced,Affordable housing.
+B2,10,Housing,21,cozy,adjective,/ˈkoʊzi/,comfortable,Cozy home.
+B2,10,Housing,22,detached,adjective,/dɪˈtætʃt/,separate,Detached house.
+B2,10,Housing,23,rent,verb,/ˈrɛnt/,pay for use,Rent an apartment.
+B2,10,Housing,24,relocate,verb,/ˌriloʊˈkeɪt/,move home,Relocate for work.
+B2,10,Housing,25,renovate,verb,/ˈrɛnəˌveɪt/,improve,Renovate the house.
+B2,10,Housing,26,furnish,verb,/ˈfɜrnɪʃ/,add furniture,Furnish the room.
+B2,10,Housing,27,decorate,verb,/ˈdɛkəˌreɪt/,add style,Decorate the home.
+B2,10,Housing,28,maintain,verb,/meɪnˈteɪn/,keep up,Maintain property.
+B2,10,Housing,29,occupy,verb,/ˈɑkjəˌpaɪ/,live in,Occupy the house.
+B2,10,Housing,30,vacate,verb,/ˈveɪkeɪt/,leave,Vacate the premises.
+B2,10,Housing,31,insulate,verb,/ˈɪnsəˌleɪt/,protect from cold,Insulate walls.
+B2,10,Housing,32,remodel,verb,/riˈmɑdəl/,redesign,Remodel kitchen.
+B2,10,Housing,33,downsize,verb,/ˈdaʊnˌsaɪz/,move smaller,Downsize home.
+B2,10,Housing,34,sublet,verb,/ˈsʌbˌlɛt/,rent to another,Sublet the apartment.
+B2,10,Housing,35,evict,verb,/ɪˈvɪkt/,force to leave,Evict the tenant.
+B2,11,Character Development,1,character,noun,/ˈkærɪktɚ/,personal qualities,Strong character.
+B2,11,Character Development,2,personality,noun,/ˌpɜrsəˈnæləti/,individual nature,Unique personality.
+B2,11,Character Development,3,development,noun,/dɪˈvɛləpmənt/,growth process,Personal development.
+B2,11,Character Development,4,growth,noun,/ˈgroʊθ/,improvement,Personal growth.
+B2,11,Character Development,5,maturity,noun,/məˈtʃʊrəti/,adult state,Show maturity.
+B2,11,Character Development,6,potential,noun,/pəˈtɛnʃəl/,capability,Reach potential.
+B2,11,Character Development,7,weakness,noun,/ˈwiknəs/,fault,Overcome weakness.
+B2,11,Character Development,8,strength,noun,/ˈstrɛŋθ/,strong point,Inner strength.
+B2,11,Character Development,9,resilience,noun,/rɪˈzɪljəns/,recovery ability,Show resilience.
+B2,11,Character Development,10,discipline,noun,/ˈdɪsəplɪn/,self-control,Self-discipline.
+B2,11,Character Development,11,mature,adjective,/məˈtʃʊr/,fully developed,Mature attitude.
+B2,11,Character Development,12,ambitious,adjective,/æmˈbɪʃəs/,driven,Very ambitious.
+B2,11,Character Development,13,determined,adjective,/dɪˈtɜrmɪnd/,resolved,Determined person.
+B2,11,Character Development,14,resilient,adjective,/rɪˈzɪljənt/,able to recover,Resilient spirit.
+B2,11,Character Development,15,self-aware,adjective,/ˌsɛlfəˈwɛr/,knowing oneself,Be self-aware.
+B2,11,Character Development,16,adaptable,adjective,/əˈdæptəbəl/,flexible,Very adaptable.
+B2,11,Character Development,17,disciplined,adjective,/ˈdɪsəplɪnd/,controlled,Highly disciplined.
+B2,11,Character Development,18,motivated,adjective,/ˈmoʊtəˌveɪtɪd/,driven,Highly motivated.
+B2,11,Character Development,19,develop,verb,/dɪˈvɛləp/,grow,Develop skills.
+B2,11,Character Development,20,improve,verb,/ɪmˈpruv/,get better,Improve yourself.
+B2,11,Character Development,21,overcome,verb,/ˌoʊvɚˈkʌm/,defeat,Overcome challenges.
+B2,11,Character Development,22,achieve,verb,/əˈtʃiv/,accomplish,Achieve goals.
+B2,11,Character Development,23,persevere,verb,/ˌpɜrsəˈvɪr/,keep trying,Persevere through.
+B2,11,Character Development,24,mature,verb,/məˈtʃʊr/,grow up,Mature over time.
+B2,11,Character Development,25,adapt,verb,/əˈdæpt/,adjust,Adapt to change.
+B2,11,Character Development,26,motivate,verb,/ˈmoʊtəˌveɪt/,inspire,Motivate yourself.
+B2,11,Character Development,27,reflect,verb,/rɪˈflɛkt/,think deeply,Reflect on actions.
+B2,11,Character Development,28,challenge,verb,/ˈtʃælɪndʒ/,test,Challenge yourself.
+B2,11,Character Development,29,transform,verb,/trænsˈfɔrm/,change completely,Transform yourself.
+B2,11,Character Development,30,evolve,verb,/ɪˈvɑlv/,develop gradually,Evolve as a person.
+B2,12,Personality Traits,1,trait,noun,/ˈtreɪt/,characteristic,Personality trait.
+B2,12,Personality Traits,2,personality,noun,/ˌpɜrsəˈnæləti/,character,Strong personality.
+B2,12,Personality Traits,3,temperament,noun,/ˈtɛmprəmənt/,nature,Calm temperament.
+B2,12,Personality Traits,4,confidence,noun,/ˈkɑnfɪdəns/,self-belief,Show confidence.
+B2,12,Personality Traits,5,patience,noun,/ˈpeɪʃəns/,calm waiting,Have patience.
+B2,12,Personality Traits,6,courage,noun,/ˈkɜrɪdʒ/,bravery,Show courage.
+B2,12,Personality Traits,7,humility,noun,/hjuˈmɪləti/,modesty,Practice humility.
+B2,12,Personality Traits,8,integrity,noun,/ɪnˈtɛgrəti/,honesty,Act with integrity.
+B2,12,Personality Traits,9,modest,adjective,/ˈmɑdɪst/,humble,Modest person.
+B2,12,Personality Traits,10,confident,adjective,/ˈkɑnfɪdənt/,self-assured,Feel confident.
+B2,12,Personality Traits,11,patient,adjective,/ˈpeɪʃənt/,calm,Be patient.
+B2,12,Personality Traits,12,courageous,adjective,/kəˈreɪdʒəs/,brave,Courageous act.
+B2,12,Personality Traits,13,loyal,adjective,/ˈlɔɪəl/,faithful,Loyal friend.
+B2,12,Personality Traits,14,stubborn,adjective,/ˈstʌbɚn/,unyielding,Too stubborn.
+B2,12,Personality Traits,15,ambitious,adjective,/æmˈbɪʃəs/,goal-driven,Very ambitious.
+B2,12,Personality Traits,16,generous,adjective,/ˈdʒɛnərəs/,giving,Generous person.
+B2,12,Personality Traits,17,selfish,adjective,/ˈsɛlfɪʃ/,self-centered,Selfish behavior.
+B2,12,Personality Traits,18,compassionate,adjective,/kəmˈpæʃənət/,caring,Compassionate nature.
+B2,12,Personality Traits,19,arrogant,adjective,/ˈærəgənt/,overly proud,Arrogant attitude.
+B2,12,Personality Traits,20,sensitive,adjective,/ˈsɛnsɪtɪv/,easily affected,Sensitive person.
+B2,12,Personality Traits,21,reliable,adjective,/rɪˈlaɪəbəl/,dependable,Very reliable.
+B2,12,Personality Traits,22,impulsive,adjective,/ɪmˈpʌlsɪv/,acting quickly,Impulsive decision.
+B2,12,Personality Traits,23,reserved,adjective,/rɪˈzɜrvd/,quiet,Reserved person.
+B2,12,Personality Traits,24,outgoing,adjective,/ˈaʊtˌgoʊɪŋ/,sociable,Very outgoing.
+B2,12,Personality Traits,25,pessimistic,adjective,/ˌpɛsəˈmɪstɪk/,negative outlook,Pessimistic view.
+B2,12,Personality Traits,26,optimistic,adjective,/ˌɑptəˈmɪstɪk/,positive outlook,Optimistic person.
+B2,12,Personality Traits,27,sincere,adjective,/sɪnˈsɪr/,genuine,Sincere apology.
+B2,12,Personality Traits,28,assertive,adjective,/əˈsɜrtɪv/,confident speaking,Be assertive.
+B2,12,Personality Traits,29,tolerant,adjective,/ˈtɑlərənt/,accepting,Tolerant of others.
+B2,12,Personality Traits,30,intolerant,adjective,/ɪnˈtɑlərənt/,not accepting,Intolerant attitude.
+B2,12,Personality Traits,31,possess,verb,/pəˈzɛs/,have,Possess qualities.
+B2,12,Personality Traits,32,exhibit,verb,/ɪgˈzɪbɪt/,show,Exhibit traits.
+B2,12,Personality Traits,33,demonstrate,verb,/ˈdɛmənˌstreɪt/,show,Demonstrate courage.
+B2,12,Personality Traits,34,develop,verb,/dɪˈvɛləp/,grow,Develop patience.
+B2,12,Personality Traits,35,overcome,verb,/ˌoʊvɚˈkʌm/,defeat,Overcome weakness.
+B2,13,Emotional Expression,1,emotion,noun,/ɪˈmoʊʃən/,feeling,Strong emotions.
+B2,13,Emotional Expression,2,feeling,noun,/ˈfilɪŋ/,emotional state,Express feelings.
+B2,13,Emotional Expression,3,joy,noun,/ˈdʒɔɪ/,happiness,Feel joy.
+B2,13,Emotional Expression,4,sorrow,noun,/ˈsɑroʊ/,sadness,Deep sorrow.
+B2,13,Emotional Expression,5,anger,noun,/ˈæŋgɚ/,mad feeling,Control anger.
+B2,13,Emotional Expression,6,fear,noun,/ˈfɪr/,scared feeling,Face your fear.
+B2,13,Emotional Expression,7,anxiety,noun,/æŋˈzaɪəti/,worry,Feel anxiety.
+B2,13,Emotional Expression,8,relief,noun,/rɪˈlif/,ease feeling,Sense of relief.
+B2,13,Emotional Expression,9,sympathy,noun,/ˈsɪmpəθi/,understanding,Show sympathy.
+B2,13,Emotional Expression,10,empathy,noun,/ˈɛmpəθi/,shared feeling,Have empathy.
+B2,13,Emotional Expression,11,frustration,noun,/frʌˈstreɪʃən/,upset feeling,Feel frustration.
+B2,13,Emotional Expression,12,disappointment,noun,/ˌdɪsəˈpɔɪntmənt/,letdown,Hide disappointment.
+B2,13,Emotional Expression,13,satisfaction,noun,/ˌsætɪsˈfækʃən/,contentment,Gain satisfaction.
+B2,13,Emotional Expression,14,emotional,adjective,/ɪˈmoʊʃənəl/,having feelings,Emotional response.
+B2,13,Emotional Expression,15,passionate,adjective,/ˈpæʃənət/,intense feeling,Passionate about.
+B2,13,Emotional Expression,16,anxious,adjective,/ˈæŋkʃəs/,worried,Feel anxious.
+B2,13,Emotional Expression,17,relieved,adjective,/rɪˈlivd/,eased,Feel relieved.
+B2,13,Emotional Expression,18,frustrated,adjective,/ˈfrʌˌstreɪtɪd/,upset,Feeling frustrated.
+B2,13,Emotional Expression,19,satisfied,adjective,/ˈsætɪsˌfaɪd/,content,Satisfied customer.
+B2,13,Emotional Expression,20,disappointed,adjective,/ˌdɪsəˈpɔɪntɪd/,let down,Deeply disappointed.
+B2,13,Emotional Expression,21,overwhelmed,adjective,/ˌoʊvɚˈwɛlmd/,too much,Feel overwhelmed.
+B2,13,Emotional Expression,22,thrilled,adjective,/ˈθrɪld/,very excited,Absolutely thrilled.
+B2,13,Emotional Expression,23,devastated,adjective,/ˈdɛvəˌsteɪtɪd/,very upset,Completely devastated.
+B2,13,Emotional Expression,24,express,verb,/ɪkˈsprɛs/,show feelings,Express emotions.
+B2,13,Emotional Expression,25,suppress,verb,/səˈprɛs/,hide feelings,Suppress anger.
+B2,13,Emotional Expression,26,cope,verb,/ˈkoʊp/,deal with,Cope with stress.
+B2,13,Emotional Expression,27,comfort,verb,/ˈkʌmfɚt/,ease pain,Comfort a friend.
+B2,13,Emotional Expression,28,console,verb,/kənˈsoʊl/,give comfort,Console the grieving.
+B2,13,Emotional Expression,29,experience,verb,/ɪkˈspɪriəns/,feel,Experience joy.
+B2,13,Emotional Expression,30,react,verb,/riˈækt/,respond,React emotionally.
+B2,13,Emotional Expression,31,respond,verb,/rɪˈspɑnd/,answer,Respond calmly.
+B2,13,Emotional Expression,32,vent,verb,/ˈvɛnt/,release emotions,Vent frustration.
+B2,13,Emotional Expression,33,bottle up,verb,/ˈbɑtəl ʌp/,hold in,Bottle up feelings.
+B2,13,Emotional Expression,34,emotionally,adverb,/ɪˈmoʊʃənəli/,with emotion,React emotionally.
+B2,13,Emotional Expression,35,passionately,adverb,/ˈpæʃənətli/,with passion,Speak passionately.
+B2,14,Mental Health,1,wellbeing,noun,/ˌwɛlˈbiɪŋ/,good state,Mental wellbeing.
+B2,14,Mental Health,2,stress,noun,/ˈstrɛs/,pressure,Reduce stress.
+B2,14,Mental Health,3,anxiety,noun,/æŋˈzaɪəti/,worry disorder,Suffer from anxiety.
+B2,14,Mental Health,4,depression,noun,/dɪˈprɛʃən/,mood disorder,Treat depression.
+B2,14,Mental Health,5,therapy,noun,/ˈθɛrəpi/,treatment,Get therapy.
+B2,14,Mental Health,6,counseling,noun,/ˈkaʊnsəlɪŋ/,guidance,Seek counseling.
+B2,14,Mental Health,7,disorder,noun,/dɪˈsɔrdɚ/,condition,Mental disorder.
+B2,14,Mental Health,8,recovery,noun,/rɪˈkʌvəri/,healing,Recovery process.
+B2,14,Mental Health,9,mindfulness,noun,/ˈmaɪndfəlnəs/,awareness,Practice mindfulness.
+B2,14,Mental Health,10,self-care,noun,/ˌsɛlfˈkɛr/,personal care,Prioritize self-care.
+B2,14,Mental Health,11,psychological,adjective,/ˌsaɪkəˈlɑdʒɪkəl/,of the mind,Psychological support.
+B2,14,Mental Health,12,depressed,adjective,/dɪˈprɛst/,very sad,Feel depressed.
+B2,14,Mental Health,13,stressed,adjective,/ˈstrɛst/,under pressure,Very stressed.
+B2,14,Mental Health,14,anxious,adjective,/ˈæŋkʃəs/,worried,Feel anxious.
+B2,14,Mental Health,15,overwhelmed,adjective,/ˌoʊvɚˈwɛlmd/,cannot cope,Overwhelmed by work.
+B2,14,Mental Health,16,balanced,adjective,/ˈbælənst/,stable,Balanced mindset.
+B2,14,Mental Health,17,resilient,adjective,/rɪˈzɪljənt/,able to recover,Mentally resilient.
+B2,14,Mental Health,18,vulnerable,adjective,/ˈvʌlnərəbəl/,easily hurt,Feel vulnerable.
+B2,14,Mental Health,19,cope,verb,/ˈkoʊp/,manage,Cope with stress.
+B2,14,Mental Health,20,recover,verb,/rɪˈkʌvɚ/,get better,Recover from depression.
+B2,14,Mental Health,21,relax,verb,/rɪˈlæks/,calm down,Learn to relax.
+B2,14,Mental Health,22,meditate,verb,/ˈmɛdɪˌteɪt/,focus mind,Meditate daily.
+B2,14,Mental Health,23,manage,verb,/ˈmænɪdʒ/,handle,Manage stress.
+B2,14,Mental Health,24,seek,verb,/ˈsik/,look for,Seek help.
+B2,14,Mental Health,25,support,verb,/səˈpɔrt/,help,Support each other.
+B2,14,Mental Health,26,struggle,verb,/ˈstrʌgəl/,have difficulty,Struggle with anxiety.
+B2,14,Mental Health,27,overcome,verb,/ˌoʊvɚˈkʌm/,beat,Overcome challenges.
+B2,14,Mental Health,28,heal,verb,/ˈhil/,recover,Heal emotionally.
+B2,14,Mental Health,29,prioritize,verb,/praɪˈɔrɪˌtaɪz/,put first,Prioritize mental health.
+B2,14,Mental Health,30,maintain,verb,/meɪnˈteɪn/,keep up,Maintain balance.
+B2,15,Verbal Communication,1,communication,noun,/kəˌmjunɪˈkeɪʃən/,exchanging info,Clear communication.
+B2,15,Verbal Communication,2,conversation,noun,/ˌkɑnvɚˈseɪʃən/,spoken exchange,Casual conversation.
+B2,15,Verbal Communication,3,discussion,noun,/dɪˈskʌʃən/,detailed talk,Group discussion.
+B2,15,Verbal Communication,4,speech,noun,/ˈspitʃ/,formal talk,Give a speech.
+B2,15,Verbal Communication,5,tone,noun,/ˈtoʊn/,voice quality,Friendly tone.
+B2,15,Verbal Communication,6,accent,noun,/ˈæksənt/,pronunciation style,Foreign accent.
+B2,15,Verbal Communication,7,fluency,noun,/ˈfluənsi/,smooth speaking,Improve fluency.
+B2,15,Verbal Communication,8,pronunciation,noun,/prəˌnʌnsiˈeɪʃən/,saying words,Correct pronunciation.
+B2,15,Verbal Communication,9,gesture,noun,/ˈdʒɛstʃɚ/,hand movement,Make a gesture.
+B2,15,Verbal Communication,10,verbal,adjective,/ˈvɜrbəl/,spoken,Verbal communication.
+B2,15,Verbal Communication,11,fluent,adjective,/ˈfluənt/,speaking well,Fluent speaker.
+B2,15,Verbal Communication,12,eloquent,adjective,/ˈɛləkwənt/,well-spoken,Eloquent speech.
+B2,15,Verbal Communication,13,articulate,adjective,/ɑrˈtɪkjələt/,clear speaking,Articulate speaker.
+B2,15,Verbal Communication,14,formal,adjective,/ˈfɔrməl/,official style,Formal speech.
+B2,15,Verbal Communication,15,informal,adjective,/ɪnˈfɔrməl/,casual style,Informal chat.
+B2,15,Verbal Communication,16,communicate,verb,/kəˈmjunɪˌkeɪt/,exchange info,Communicate clearly.
+B2,15,Verbal Communication,17,express,verb,/ɪkˈsprɛs/,put into words,Express ideas.
+B2,15,Verbal Communication,18,clarify,verb,/ˈklɛrəˌfaɪ/,make clear,Clarify the point.
+B2,15,Verbal Communication,19,interrupt,verb,/ˌɪntəˈrʌpt/,break in,Dont interrupt.
+B2,15,Verbal Communication,20,emphasize,verb,/ˈɛmfəˌsaɪz/,stress,Emphasize importance.
+B2,15,Verbal Communication,21,convey,verb,/kənˈveɪ/,communicate,Convey the message.
+B2,15,Verbal Communication,22,summarize,verb,/ˈsʌməˌraɪz/,give brief version,Summarize the talk.
+B2,15,Verbal Communication,23,elaborate,verb,/ɪˈlæbəˌreɪt/,explain more,Elaborate on the point.
+B2,15,Verbal Communication,24,articulate,verb,/ɑrˈtɪkjəˌleɪt/,express clearly,Articulate your thoughts.
+B2,15,Verbal Communication,25,pronounce,verb,/prəˈnaʊns/,say correctly,Pronounce clearly.
+B2,15,Verbal Communication,26,whisper,verb,/ˈwɪspɚ/,speak softly,Whisper a secret.
+B2,15,Verbal Communication,27,shout,verb,/ˈʃaʊt/,speak loudly,Shout for help.
+B2,15,Verbal Communication,28,mumble,verb,/ˈmʌmbəl/,speak unclearly,Stop mumbling.
+B2,15,Verbal Communication,29,stutter,verb,/ˈstʌtɚ/,speak with pauses,Stutter when nervous.
+B2,15,Verbal Communication,30,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss terms,Negotiate a deal.
+B2,15,Verbal Communication,31,persuade,verb,/pɚˈsweɪd/,convince,Persuade someone.
+B2,15,Verbal Communication,32,argue,verb,/ˈɑrgjʊ/,make a case,Argue a point.
+B2,15,Verbal Communication,33,debate,verb,/dɪˈbeɪt/,discuss formally,Debate the issue.
+B2,15,Verbal Communication,34,acknowledge,verb,/ækˈnɑlɪdʒ/,recognize,Acknowledge the point.
+B2,15,Verbal Communication,35,rephrase,verb,/riˈfreɪz/,say differently,Rephrase the question.
+B2,16,Language Structure,1,grammar,noun,/ˈgræmɚ/,language rules,Study grammar.
+B2,16,Language Structure,2,vocabulary,noun,/voʊˈkæbjəˌlɛri/,word knowledge,Build vocabulary.
+B2,16,Language Structure,3,syntax,noun,/ˈsɪnˌtæks/,sentence structure,Correct syntax.
+B2,16,Language Structure,4,phrase,noun,/ˈfreɪz/,word group,Common phrase.
+B2,16,Language Structure,5,clause,noun,/ˈklɔz/,sentence part,Main clause.
+B2,16,Language Structure,6,punctuation,noun,/ˌpʌŋktʃuˈeɪʃən/,marks in writing,Correct punctuation.
+B2,16,Language Structure,7,context,noun,/ˈkɑntɛkst/,surrounding meaning,Understand context.
+B2,16,Language Structure,8,meaning,noun,/ˈminɪŋ/,sense of words,Word meaning.
+B2,16,Language Structure,9,definition,noun,/ˌdɛfəˈnɪʃən/,word explanation,Clear definition.
+B2,16,Language Structure,10,grammatical,adjective,/grəˈmætɪkəl/,of grammar,Grammatical error.
+B2,16,Language Structure,11,formal,adjective,/ˈfɔrməl/,standard style,Formal language.
+B2,16,Language Structure,12,informal,adjective,/ɪnˈfɔrməl/,casual style,Informal language.
+B2,16,Language Structure,13,complex,adjective,/kəmˈplɛks/,complicated,Complex sentence.
+B2,16,Language Structure,14,ambiguous,adjective,/æmˈbɪgjuəs/,unclear,Ambiguous meaning.
+B2,16,Language Structure,15,literal,adjective,/ˈlɪtɚəl/,exact meaning,Literal translation.
+B2,16,Language Structure,16,figurative,adjective,/ˈfɪgjərətɪv/,symbolic,Figurative language.
+B2,16,Language Structure,17,define,verb,/dɪˈfaɪn/,explain meaning,Define the term.
+B2,16,Language Structure,18,interpret,verb,/ɪnˈtɜrprət/,explain meaning,Interpret the text.
+B2,16,Language Structure,19,translate,verb,/trænsˈleɪt/,change language,Translate the document.
+B2,16,Language Structure,20,paraphrase,verb,/ˈpɛrəˌfreɪz/,reword,Paraphrase the text.
+B2,16,Language Structure,21,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze the sentence.
+B2,16,Language Structure,22,structure,verb,/ˈstrʌktʃɚ/,organize,Structure sentences.
+B2,16,Language Structure,23,construct,verb,/kənˈstrʌkt/,build,Construct sentences.
+B2,16,Language Structure,24,modify,verb,/ˈmɑdəˌfaɪ/,change,Modify the phrase.
+B2,16,Language Structure,25,clarify,verb,/ˈklɛrəˌfaɪ/,make clear,Clarify meaning.
+B2,17,Problem Solving,1,problem,noun,/ˈprɑbləm/,difficulty,Solve the problem.
+B2,17,Problem Solving,2,solution,noun,/səˈluʃən/,answer,Find a solution.
+B2,17,Problem Solving,3,approach,noun,/əˈproʊtʃ/,method,New approach.
+B2,17,Problem Solving,4,strategy,noun,/ˈstrætədʒi/,plan,Effective strategy.
+B2,17,Problem Solving,5,obstacle,noun,/ˈɑbstəkəl/,barrier,Overcome obstacle.
+B2,17,Problem Solving,6,challenge,noun,/ˈtʃælɪndʒ/,difficulty,Face challenge.
+B2,17,Problem Solving,7,dilemma,noun,/dɪˈlɛmə/,difficult choice,Ethical dilemma.
+B2,17,Problem Solving,8,outcome,noun,/ˈaʊtˌkʌm/,result,Positive outcome.
+B2,17,Problem Solving,9,consequence,noun,/ˈkɑnsɪˌkwɛns/,result,Consider consequences.
+B2,17,Problem Solving,10,alternative,noun,/ɔlˈtɜrnətɪv/,other option,Find alternative.
+B2,17,Problem Solving,11,option,noun,/ˈɑpʃən/,choice,Best option.
+B2,17,Problem Solving,12,critical,adjective,/ˈkrɪtɪkəl/,important,Critical thinking.
+B2,17,Problem Solving,13,logical,adjective,/ˈlɑdʒɪkəl/,reasonable,Logical solution.
+B2,17,Problem Solving,14,practical,adjective,/ˈpræktɪkəl/,realistic,Practical approach.
+B2,17,Problem Solving,15,complex,adjective,/kəmˈplɛks/,complicated,Complex problem.
+B2,17,Problem Solving,16,challenging,adjective,/ˈtʃælɪndʒɪŋ/,difficult,Challenging task.
+B2,17,Problem Solving,17,feasible,adjective,/ˈfizəbəl/,possible,Feasible solution.
+B2,17,Problem Solving,18,effective,adjective,/ɪˈfɛktɪv/,working well,Effective method.
+B2,17,Problem Solving,19,ineffective,adjective,/ˌɪnɪˈfɛktɪv/,not working,Ineffective approach.
+B2,17,Problem Solving,20,solve,verb,/ˈsɑlv/,find answer,Solve the issue.
+B2,17,Problem Solving,21,resolve,verb,/rɪˈzɑlv/,settle,Resolve conflict.
+B2,17,Problem Solving,22,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze the situation.
+B2,17,Problem Solving,23,evaluate,verb,/ɪˈvæljuˌeɪt/,assess,Evaluate options.
+B2,17,Problem Solving,24,consider,verb,/kənˈsɪdɚ/,think about,Consider alternatives.
+B2,17,Problem Solving,25,identify,verb,/aɪˈdɛntɪˌfaɪ/,recognize,Identify the problem.
+B2,17,Problem Solving,26,address,verb,/əˈdrɛs/,deal with,Address the issue.
+B2,17,Problem Solving,27,tackle,verb,/ˈtækəl/,handle,Tackle the challenge.
+B2,17,Problem Solving,28,overcome,verb,/ˌoʊvɚˈkʌm/,defeat,Overcome obstacles.
+B2,17,Problem Solving,29,implement,verb,/ˈɪmpləˌmɛnt/,put into action,Implement the solution.
+B2,17,Problem Solving,30,brainstorm,verb,/ˈbreɪnˌstɔrm/,generate ideas,Brainstorm solutions.
+B2,17,Problem Solving,31,prioritize,verb,/praɪˈɔrɪˌtaɪz/,rank importance,Prioritize issues.
+B2,17,Problem Solving,32,simplify,verb,/ˈsɪmpləˌfaɪ/,make easier,Simplify the problem.
+B2,17,Problem Solving,33,compromise,verb,/ˈkɑmprəˌmaɪz/,meet halfway,Reach a compromise.
+B2,17,Problem Solving,34,anticipate,verb,/ænˈtɪsəˌpeɪt/,expect,Anticipate problems.
+B2,17,Problem Solving,35,troubleshoot,verb,/ˈtrʌbəlˌʃut/,find and fix,Troubleshoot issues.
+B2,18,Change,1,change,noun,/ˈtʃeɪndʒ/,alteration,Major change.
+B2,18,Change,2,transition,noun,/trænˈzɪʃən/,shift,Smooth transition.
+B2,18,Change,3,transformation,noun,/ˌtrænsfɚˈmeɪʃən/,complete change,Total transformation.
+B2,18,Change,4,shift,noun,/ˈʃɪft/,move,Shift in thinking.
+B2,18,Change,5,adjustment,noun,/əˈdʒʌstmənt/,small change,Minor adjustment.
+B2,18,Change,6,modification,noun,/ˌmɑdɪfɪˈkeɪʃən/,alteration,Simple modification.
+B2,18,Change,7,evolution,noun,/ˌɛvəˈluʃən/,gradual change,Constant evolution.
+B2,18,Change,8,revolution,noun,/ˌrɛvəˈluʃən/,major change,Industrial revolution.
+B2,18,Change,9,gradual,adjective,/ˈgrædʒuəl/,slow,Gradual change.
+B2,18,Change,10,sudden,adjective,/ˈsʌdən/,quick,Sudden change.
+B2,18,Change,11,dramatic,adjective,/drəˈmætɪk/,significant,Dramatic shift.
+B2,18,Change,12,subtle,adjective,/ˈsʌtəl/,slight,Subtle change.
+B2,18,Change,13,irreversible,adjective,/ˌɪrɪˈvɜrsəbəl/,permanent,Irreversible damage.
+B2,18,Change,14,reversible,adjective,/rɪˈvɜrsəbəl/,can undo,Reversible process.
+B2,18,Change,15,constant,adjective,/ˈkɑnstənt/,continuous,Constant change.
+B2,18,Change,16,change,verb,/ˈtʃeɪndʒ/,make different,Change plans.
+B2,18,Change,17,transform,verb,/trænsˈfɔrm/,change completely,Transform the space.
+B2,18,Change,18,adapt,verb,/əˈdæpt/,adjust,Adapt to change.
+B2,18,Change,19,modify,verb,/ˈmɑdɪˌfaɪ/,alter slightly,Modify the design.
+B2,18,Change,20,adjust,verb,/əˈdʒʌst/,change slightly,Adjust settings.
+B2,18,Change,21,evolve,verb,/ɪˈvɑlv/,develop gradually,Ideas evolve.
+B2,18,Change,22,shift,verb,/ˈʃɪft/,move,Shift focus.
+B2,18,Change,23,convert,verb,/kənˈvɜrt/,change form,Convert to digital.
+B2,18,Change,24,replace,verb,/rɪˈpleɪs/,substitute,Replace the old.
+B2,18,Change,25,reverse,verb,/rɪˈvɜrs/,change direction,Reverse the decision.
+B2,18,Change,26,reform,verb,/rɪˈfɔrm/,improve,Reform the system.
+B2,18,Change,27,restructure,verb,/riˈstrʌktʃɚ/,reorganize,Restructure the company.
+B2,18,Change,28,gradually,adverb,/ˈgrædʒuəli/,slowly,Gradually improve.
+B2,18,Change,29,dramatically,adverb,/drəˈmætɪkli/,significantly,Change dramatically.
+B2,18,Change,30,constantly,adverb,/ˈkɑnstəntli/,always,Constantly evolving.
+B2,19,Animal Behavior,1,behavior,noun,/bɪˈheɪvjɚ/,actions,Animal behavior.
+B2,19,Animal Behavior,2,instinct,noun,/ˈɪnstɪŋkt/,natural urge,Survival instinct.
+B2,19,Animal Behavior,3,habitat,noun,/ˈhæbɪˌtæt/,living place,Natural habitat.
+B2,19,Animal Behavior,4,species,noun,/ˈspiʃiz/,animal type,Endangered species.
+B2,19,Animal Behavior,5,predator,noun,/ˈprɛdətɚ/,hunter animal,Top predator.
+B2,19,Animal Behavior,6,prey,noun,/ˈpreɪ/,hunted animal,Easy prey.
+B2,19,Animal Behavior,7,migration,noun,/maɪˈgreɪʃən/,seasonal move,Bird migration.
+B2,19,Animal Behavior,8,hibernation,noun,/ˌhaɪbɚˈneɪʃən/,winter sleep,Bear hibernation.
+B2,19,Animal Behavior,9,territory,noun,/ˈtɛrɪˌtɔri/,claimed area,Mark territory.
+B2,19,Animal Behavior,10,pack,noun,/ˈpæk/,animal group,Wolf pack.
+B2,19,Animal Behavior,11,herd,noun,/ˈhɜrd/,animal group,Cattle herd.
+B2,19,Animal Behavior,12,wild,adjective,/ˈwaɪld/,not tame,Wild animals.
+B2,19,Animal Behavior,13,domestic,adjective,/dəˈmɛstɪk/,tame,Domestic pets.
+B2,19,Animal Behavior,14,endangered,adjective,/ɪnˈdeɪndʒɚd/,at risk,Endangered species.
+B2,19,Animal Behavior,15,nocturnal,adjective,/nɑkˈtɜrnəl/,night active,Nocturnal animals.
+B2,19,Animal Behavior,16,territorial,adjective,/ˌtɛrɪˈtɔriəl/,defending area,Territorial behavior.
+B2,19,Animal Behavior,17,hunt,verb,/ˈhʌnt/,chase prey,Lions hunt.
+B2,19,Animal Behavior,18,migrate,verb,/ˈmaɪˌgreɪt/,move seasonally,Birds migrate.
+B2,19,Animal Behavior,19,hibernate,verb,/ˈhaɪbɚˌneɪt/,sleep in winter,Bears hibernate.
+B2,19,Animal Behavior,20,adapt,verb,/əˈdæpt/,adjust,Adapt to environment.
+B2,19,Animal Behavior,21,breed,verb,/ˈbrid/,reproduce,Animals breed.
+B2,19,Animal Behavior,22,feed,verb,/ˈfid/,eat,Feed on plants.
+B2,19,Animal Behavior,23,mate,verb,/ˈmeɪt/,pair up,Birds mate.
+B2,19,Animal Behavior,24,prey,verb,/ˈpreɪ/,hunt,Prey on smaller animals.
+B2,19,Animal Behavior,25,camouflage,verb,/ˈkæməˌflɑʒ/,blend in,Lizards camouflage.
+B2,19,Animal Behavior,26,forage,verb,/ˈfɔrɪdʒ/,search food,Forage for food.
+B2,19,Animal Behavior,27,graze,verb,/ˈgreɪz/,eat grass,Cows graze.
+B2,19,Animal Behavior,28,nest,verb,/ˈnɛst/,make home,Birds nest.
+B2,19,Animal Behavior,29,roam,verb,/ˈroʊm/,wander,Lions roam.
+B2,19,Animal Behavior,30,swarm,verb,/ˈswɔrm/,move in group,Bees swarm.
+B2,20,Plant Biology,1,plant,noun,/ˈplænt/,vegetation,Grow plants.
+B2,20,Plant Biology,2,root,noun,/ˈrut/,underground part,Deep roots.
+B2,20,Plant Biology,3,stem,noun,/ˈstɛm/,main stalk,Plant stem.
+B2,20,Plant Biology,4,leaf,noun,/ˈlif/,green part,Fallen leaves.
+B2,20,Plant Biology,5,branch,noun,/ˈbræntʃ/,tree arm,Tree branch.
+B2,20,Plant Biology,6,seed,noun,/ˈsid/,plant start,Plant seeds.
+B2,20,Plant Biology,7,blossom,noun,/ˈblɑsəm/,flower,Cherry blossom.
+B2,20,Plant Biology,8,pollen,noun,/ˈpɑlən/,flower dust,Spread pollen.
+B2,20,Plant Biology,9,photosynthesis,noun,/ˌfoʊtoʊˈsɪnθəsɪs/,food making,Process of photosynthesis.
+B2,20,Plant Biology,10,vegetation,noun,/ˌvɛdʒɪˈteɪʃən/,plant life,Dense vegetation.
+B2,20,Plant Biology,11,botanical,adjective,/bəˈtænɪkəl/,of plants,Botanical garden.
+B2,20,Plant Biology,12,tropical,adjective,/ˈtrɑpɪkəl/,hot climate,Tropical plants.
+B2,20,Plant Biology,13,perennial,adjective,/pəˈrɛniəl/,lasting years,Perennial flowers.
+B2,20,Plant Biology,14,deciduous,adjective,/dɪˈsɪdʒuəs/,losing leaves,Deciduous trees.
+B2,20,Plant Biology,15,evergreen,adjective,/ˈɛvɚˌgrin/,always green,Evergreen forest.
+B2,20,Plant Biology,16,grow,verb,/ˈgroʊ/,develop,Plants grow.
+B2,20,Plant Biology,17,bloom,verb,/ˈblum/,flower,Roses bloom.
+B2,20,Plant Biology,18,pollinate,verb,/ˈpɑləˌneɪt/,spread pollen,Bees pollinate.
+B2,20,Plant Biology,19,germinate,verb,/ˈdʒɜrmɪˌneɪt/,start growing,Seeds germinate.
+B2,20,Plant Biology,20,wilt,verb,/ˈwɪlt/,droop,Flowers wilt.
+B2,20,Plant Biology,21,thrive,verb,/ˈθraɪv/,grow well,Plants thrive.
+B2,20,Plant Biology,22,cultivate,verb,/ˈkʌltɪˌveɪt/,grow plants,Cultivate vegetables.
+B2,20,Plant Biology,23,harvest,verb,/ˈhɑrvɪst/,collect crops,Harvest crops.
+B2,20,Plant Biology,24,prune,verb,/ˈprun/,cut back,Prune bushes.
+B2,20,Plant Biology,25,transplant,verb,/trænsˈplænt/,move plants,Transplant seedlings.
+B2,21,Wildlife Conservation,1,wildlife,noun,/ˈwaɪldˌlaɪf/,wild animals,Protect wildlife.
+B2,21,Wildlife Conservation,2,conservation,noun,/ˌkɑnsɚˈveɪʃən/,protection,Wildlife conservation.
+B2,21,Wildlife Conservation,3,extinction,noun,/ɪkˈstɪŋkʃən/,dying out,Face extinction.
+B2,21,Wildlife Conservation,4,biodiversity,noun,/ˌbaɪoʊdɪˈvɜrsəti/,variety of life,Preserve biodiversity.
+B2,21,Wildlife Conservation,5,ecosystem,noun,/ˈikoʊˌsɪstəm/,nature system,Fragile ecosystem.
+B2,21,Wildlife Conservation,6,habitat,noun,/ˈhæbɪˌtæt/,living place,Natural habitat.
+B2,21,Wildlife Conservation,7,species,noun,/ˈspiʃiz/,animal type,Endangered species.
+B2,21,Wildlife Conservation,8,reserve,noun,/rɪˈzɜrv/,protected area,Nature reserve.
+B2,21,Wildlife Conservation,9,sanctuary,noun,/ˈsæŋktʃuˌɛri/,safe place,Wildlife sanctuary.
+B2,21,Wildlife Conservation,10,poaching,noun,/ˈpoʊtʃɪŋ/,illegal hunting,Stop poaching.
+B2,21,Wildlife Conservation,11,endangered,adjective,/ɪnˈdeɪndʒɚd/,at risk,Endangered animals.
+B2,21,Wildlife Conservation,12,extinct,adjective,/ɪkˈstɪŋkt/,no longer exists,Extinct species.
+B2,21,Wildlife Conservation,13,threatened,adjective,/ˈθrɛtənd/,at risk,Threatened habitat.
+B2,21,Wildlife Conservation,14,native,adjective,/ˈneɪtɪv/,original,Native species.
+B2,21,Wildlife Conservation,15,invasive,adjective,/ɪnˈveɪsɪv/,spreading harm,Invasive species.
+B2,21,Wildlife Conservation,16,sustainable,adjective,/səˈsteɪnəbəl/,long-term,Sustainable approach.
+B2,21,Wildlife Conservation,17,conserve,verb,/kənˈsɜrv/,protect,Conserve wildlife.
+B2,21,Wildlife Conservation,18,preserve,verb,/prɪˈzɜrv/,keep safe,Preserve habitats.
+B2,21,Wildlife Conservation,19,protect,verb,/prəˈtɛkt/,guard,Protect animals.
+B2,21,Wildlife Conservation,20,endanger,verb,/ɪnˈdeɪndʒɚ/,put at risk,Endanger species.
+B2,21,Wildlife Conservation,21,rescue,verb,/ˈrɛskju/,save,Rescue animals.
+B2,21,Wildlife Conservation,22,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate wildlife.
+B2,21,Wildlife Conservation,23,release,verb,/rɪˈlis/,set free,Release into wild.
+B2,21,Wildlife Conservation,24,monitor,verb,/ˈmɑnɪtɚ/,track,Monitor populations.
+B2,21,Wildlife Conservation,25,breed,verb,/ˈbrid/,reproduce,Breed in captivity.
+B2,21,Wildlife Conservation,26,reintroduce,verb,/ˌriɪntrəˈdus/,bring back,Reintroduce species.
+B2,21,Wildlife Conservation,27,poach,verb,/ˈpoʊtʃ/,hunt illegally,Poach elephants.
+B2,21,Wildlife Conservation,28,threaten,verb,/ˈθrɛtən/,put at risk,Threaten survival.
+B2,21,Wildlife Conservation,29,restore,verb,/rɪˈstɔr/,bring back,Restore habitats.
+B2,21,Wildlife Conservation,30,sustain,verb,/səˈsteɪn/,maintain,Sustain populations.
+B2,22,Natural Landscapes,1,landscape,noun,/ˈlændˌskeɪp/,natural view,Beautiful landscape.
+B2,22,Natural Landscapes,2,terrain,noun,/təˈreɪn/,land type,Rough terrain.
+B2,22,Natural Landscapes,3,valley,noun,/ˈvæli/,low land,Green valley.
+B2,22,Natural Landscapes,4,cliff,noun,/ˈklɪf/,steep rock,High cliff.
+B2,22,Natural Landscapes,5,canyon,noun,/ˈkænjən/,deep gorge,Grand Canyon.
+B2,22,Natural Landscapes,6,glacier,noun,/ˈgleɪʃɚ/,ice mass,Melting glacier.
+B2,22,Natural Landscapes,7,waterfall,noun,/ˈwɔtɚˌfɔl/,falling water,Stunning waterfall.
+B2,22,Natural Landscapes,8,peninsula,noun,/pəˈnɪnsələ/,land strip,Korean peninsula.
+B2,22,Natural Landscapes,9,coastline,noun,/ˈkoʊstˌlaɪn/,shore edge,Rocky coastline.
+B2,22,Natural Landscapes,10,plateau,noun,/plæˈtoʊ/,flat highland,High plateau.
+B2,22,Natural Landscapes,11,wilderness,noun,/ˈwɪldɚnəs/,wild area,Untouched wilderness.
+B2,22,Natural Landscapes,12,scenic,adjective,/ˈsinɪk/,beautiful view,Scenic route.
+B2,22,Natural Landscapes,13,rugged,adjective,/ˈrʌgɪd/,rough,Rugged mountains.
+B2,22,Natural Landscapes,14,barren,adjective,/ˈbærən/,empty,Barren land.
+B2,22,Natural Landscapes,15,fertile,adjective,/ˈfɜrtəl/,productive,Fertile soil.
+B2,22,Natural Landscapes,16,arid,adjective,/ˈærɪd/,dry,Arid desert.
+B2,22,Natural Landscapes,17,tropical,adjective,/ˈtrɑpɪkəl/,hot climate,Tropical rainforest.
+B2,22,Natural Landscapes,18,arctic,adjective,/ˈɑrktɪk/,polar,Arctic region.
+B2,22,Natural Landscapes,19,coastal,adjective,/ˈkoʊstəl/,near sea,Coastal area.
+B2,22,Natural Landscapes,20,mountainous,adjective,/ˈmaʊntənəs/,with mountains,Mountainous region.
+B2,22,Natural Landscapes,21,volcanic,adjective,/vɑlˈkænɪk/,of volcano,Volcanic island.
+B2,22,Natural Landscapes,22,explore,verb,/ɪkˈsplɔr/,discover,Explore nature.
+B2,22,Natural Landscapes,23,overlook,verb,/ˌoʊvɚˈlʊk/,view from above,Overlook the valley.
+B2,22,Natural Landscapes,24,erode,verb,/ɪˈroʊd/,wear away,Cliffs erode.
+B2,22,Natural Landscapes,25,form,verb,/ˈfɔrm/,create,Valleys form.
+B2,22,Natural Landscapes,26,descend,verb,/dɪˈsɛnd/,go down,Descend the mountain.
+B2,22,Natural Landscapes,27,ascend,verb,/əˈsɛnd/,go up,Ascend the peak.
+B2,22,Natural Landscapes,28,stretch,verb,/ˈstrɛtʃ/,extend,Plains stretch.
+B2,22,Natural Landscapes,29,tower,verb,/ˈtaʊɚ/,rise high,Mountains tower.
+B2,22,Natural Landscapes,30,flow,verb,/ˈfloʊ/,move,Rivers flow.
+B2,23,Environmental Issues,1,environment,noun,/ɪnˈvaɪrənmənt/,surroundings,Protect environment.
+B2,23,Environmental Issues,2,pollution,noun,/pəˈluʃən/,contamination,Air pollution.
+B2,23,Environmental Issues,3,emission,noun,/ɪˈmɪʃən/,released gas,Carbon emissions.
+B2,23,Environmental Issues,4,waste,noun,/ˈweɪst/,trash,Reduce waste.
+B2,23,Environmental Issues,5,contamination,noun,/kənˌtæmɪˈneɪʃən/,pollution,Water contamination.
+B2,23,Environmental Issues,6,deforestation,noun,/diˌfɔrɪˈsteɪʃən/,tree removal,Stop deforestation.
+B2,23,Environmental Issues,7,recycling,noun,/riˈsaɪklɪŋ/,reusing materials,Promote recycling.
+B2,23,Environmental Issues,8,sustainability,noun,/səˌsteɪnəˈbɪləti/,long-term use,Environmental sustainability.
+B2,23,Environmental Issues,9,footprint,noun,/ˈfʊtˌprɪnt/,impact,Carbon footprint.
+B2,23,Environmental Issues,10,renewable,adjective,/rɪˈnuəbəl/,replaceable,Renewable energy.
+B2,23,Environmental Issues,11,toxic,adjective,/ˈtɑksɪk/,poisonous,Toxic waste.
+B2,23,Environmental Issues,12,biodegradable,adjective,/ˌbaɪoʊdɪˈgreɪdəbəl/,breaks down,Biodegradable packaging.
+B2,23,Environmental Issues,13,sustainable,adjective,/səˈsteɪnəbəl/,eco-friendly,Sustainable practices.
+B2,23,Environmental Issues,14,eco-friendly,adjective,/ˌikoʊˈfrɛndli/,good for nature,Eco-friendly products.
+B2,23,Environmental Issues,15,organic,adjective,/ɔrˈgænɪk/,natural,Organic farming.
+B2,23,Environmental Issues,16,hazardous,adjective,/ˈhæzɚdəs/,dangerous,Hazardous materials.
+B2,23,Environmental Issues,17,disposable,adjective,/dɪˈspoʊzəbəl/,throw away,Disposable plastic.
+B2,23,Environmental Issues,18,pollute,verb,/pəˈlut/,contaminate,Pollute water.
+B2,23,Environmental Issues,19,emit,verb,/ɪˈmɪt/,release,Emit gases.
+B2,23,Environmental Issues,20,recycle,verb,/riˈsaɪkəl/,reuse,Recycle materials.
+B2,23,Environmental Issues,21,conserve,verb,/kənˈsɜrv/,save,Conserve energy.
+B2,23,Environmental Issues,22,reduce,verb,/rɪˈdus/,lessen,Reduce emissions.
+B2,23,Environmental Issues,23,contaminate,verb,/kənˈtæmɪˌneɪt/,pollute,Contaminate water.
+B2,23,Environmental Issues,24,deplete,verb,/dɪˈplit/,use up,Deplete resources.
+B2,23,Environmental Issues,25,dispose,verb,/dɪˈspoʊz/,throw away,Dispose properly.
+B2,23,Environmental Issues,26,compost,verb,/ˈkɑmˌpoʊst/,decompose,Compost food waste.
+B2,23,Environmental Issues,27,restore,verb,/rɪˈstɔr/,bring back,Restore forests.
+B2,23,Environmental Issues,28,impact,verb,/ˈɪmpækt/,affect,Impact environment.
+B2,23,Environmental Issues,29,harm,verb,/ˈhɑrm/,damage,Harm wildlife.
+B2,23,Environmental Issues,30,offset,verb,/ˌɔfˈsɛt/,balance out,Offset emissions.
+B2,23,Environmental Issues,31,minimize,verb,/ˈmɪnɪˌmaɪz/,reduce,Minimize waste.
+B2,23,Environmental Issues,32,reuse,verb,/riˈjuz/,use again,Reuse containers.
+B2,23,Environmental Issues,33,generate,verb,/ˈdʒɛnəˌreɪt/,produce,Generate energy.
+B2,23,Environmental Issues,34,preserve,verb,/prɪˈzɜrv/,protect,Preserve nature.
+B2,23,Environmental Issues,35,advocate,verb,/ˈædvəˌkeɪt/,support,Advocate for change.
+B2,24,Climate Change,1,climate,noun,/ˈklaɪmɪt/,weather pattern,Climate change.
+B2,24,Climate Change,2,warming,noun,/ˈwɔrmɪŋ/,getting hotter,Global warming.
+B2,24,Climate Change,3,temperature,noun,/ˈtɛmpɚətʃɚ/,heat level,Rising temperature.
+B2,24,Climate Change,4,greenhouse,noun,/ˈgrinˌhaʊs/,heat trap,Greenhouse effect.
+B2,24,Climate Change,5,emission,noun,/ɪˈmɪʃən/,gas release,Carbon emission.
+B2,24,Climate Change,6,fossil,noun,/ˈfɑsəl/,ancient fuel,Fossil fuels.
+B2,24,Climate Change,7,carbon,noun,/ˈkɑrbən/,element,Carbon dioxide.
+B2,24,Climate Change,8,atmosphere,noun,/ˈætməˌsfɪr/,air layer,Earth atmosphere.
+B2,24,Climate Change,9,glacier,noun,/ˈgleɪʃɚ/,ice mass,Melting glaciers.
+B2,24,Climate Change,10,drought,noun,/ˈdraʊt/,dry period,Severe drought.
+B2,24,Climate Change,11,flood,noun,/ˈflʌd/,water overflow,Massive floods.
+B2,24,Climate Change,12,renewable,adjective,/rɪˈnuəbəl/,replaceable,Renewable energy.
+B2,24,Climate Change,13,sustainable,adjective,/səˈsteɪnəbəl/,eco-friendly,Sustainable living.
+B2,24,Climate Change,14,extreme,adjective,/ɪkˈstrim/,severe,Extreme weather.
+B2,24,Climate Change,15,global,adjective,/ˈgloʊbəl/,worldwide,Global impact.
+B2,24,Climate Change,16,environmental,adjective,/ɪnˌvaɪrənˈmɛntəl/,of nature,Environmental crisis.
+B2,24,Climate Change,17,catastrophic,adjective,/ˌkætəˈstrɑfɪk/,disastrous,Catastrophic effects.
+B2,24,Climate Change,18,irreversible,adjective,/ˌɪrɪˈvɜrsəbəl/,permanent,Irreversible damage.
+B2,24,Climate Change,19,solar,adjective,/ˈsoʊlɚ/,of sun,Solar energy.
+B2,24,Climate Change,20,melt,verb,/ˈmɛlt/,become liquid,Ice melts.
+B2,24,Climate Change,21,rise,verb,/ˈraɪz/,go up,Sea levels rise.
+B2,24,Climate Change,22,emit,verb,/ɪˈmɪt/,release,Emit gases.
+B2,24,Climate Change,23,warm,verb,/ˈwɔrm/,heat up,Planet warms.
+B2,24,Climate Change,24,adapt,verb,/əˈdæpt/,adjust,Adapt to change.
+B2,24,Climate Change,25,mitigate,verb,/ˈmɪtɪˌgeɪt/,reduce,Mitigate effects.
+B2,24,Climate Change,26,offset,verb,/ˌɔfˈsɛt/,balance,Offset emissions.
+B2,24,Climate Change,27,reduce,verb,/rɪˈdus/,lessen,Reduce footprint.
+B2,24,Climate Change,28,accelerate,verb,/ækˈsɛləˌreɪt/,speed up,Accelerate warming.
+B2,24,Climate Change,29,threaten,verb,/ˈθrɛtən/,endanger,Threaten ecosystems.
+B2,24,Climate Change,30,combat,verb,/ˈkɑmbæt/,fight against,Combat climate change.
+B2,24,Climate Change,31,conserve,verb,/kənˈsɜrv/,save,Conserve energy.
+B2,24,Climate Change,32,transition,verb,/trænˈzɪʃən/,shift,Transition to clean energy.
+B2,24,Climate Change,33,monitor,verb,/ˈmɑnɪtɚ/,track,Monitor changes.
+B2,24,Climate Change,34,predict,verb,/prɪˈdɪkt/,forecast,Predict impacts.
+B2,24,Climate Change,35,address,verb,/əˈdrɛs/,deal with,Address the crisis.
+B2,25,Geography,1,geography,noun,/dʒiˈɑgrəfi/,earth study,Study geography.
+B2,25,Geography,2,continent,noun,/ˈkɑntɪnənt/,large landmass,Seven continents.
+B2,25,Geography,3,region,noun,/ˈridʒən/,area,Tropical region.
+B2,25,Geography,4,territory,noun,/ˈtɛrɪˌtɔri/,land area,Vast territory.
+B2,25,Geography,5,border,noun,/ˈbɔrdɚ/,boundary,Cross the border.
+B2,25,Geography,6,latitude,noun,/ˈlætɪˌtud/,horizontal line,High latitude.
+B2,25,Geography,7,longitude,noun,/ˈlɑndʒɪˌtud/,vertical line,Eastern longitude.
+B2,25,Geography,8,hemisphere,noun,/ˈhɛmɪˌsfɪr/,half globe,Northern hemisphere.
+B2,25,Geography,9,equator,noun,/ɪˈkweɪtɚ/,center line,Near the equator.
+B2,25,Geography,10,population,noun,/ˌpɑpjəˈleɪʃən/,people count,Large population.
+B2,25,Geography,11,urban,adjective,/ˈɜrbən/,city,Urban area.
+B2,25,Geography,12,rural,adjective,/ˈrʊrəl/,countryside,Rural village.
+B2,25,Geography,13,coastal,adjective,/ˈkoʊstəl/,near sea,Coastal city.
+B2,25,Geography,14,inland,adjective,/ˈɪnlænd/,interior,Inland region.
+B2,25,Geography,15,remote,adjective,/rɪˈmoʊt/,far away,Remote location.
+B2,25,Geography,16,densely,adverb,/ˈdɛnsli/,closely packed,Densely populated.
+B2,25,Geography,17,sparsely,adverb,/ˈspɑrsli/,thinly spread,Sparsely populated.
+B2,25,Geography,18,border,verb,/ˈbɔrdɚ/,be adjacent,Border a country.
+B2,25,Geography,19,locate,verb,/ˈloʊkeɪt/,find position,Locate on map.
+B2,25,Geography,20,inhabit,verb,/ɪnˈhæbɪt/,live in,Inhabit the region.
+B2,25,Geography,21,span,verb,/ˈspæn/,extend across,Span continents.
+B2,25,Geography,22,stretch,verb,/ˈstrɛtʃ/,extend,Stretch for miles.
+B2,25,Geography,23,divide,verb,/dɪˈvaɪd/,separate,Divide into regions.
+B2,25,Geography,24,surround,verb,/səˈraʊnd/,encircle,Surround by water.
+B2,25,Geography,25,occupy,verb,/ˈɑkjəˌpaɪ/,take up,Occupy large area.
+B2,25,Geography,26,explore,verb,/ɪkˈsplɔr/,discover,Explore new territory.
+B2,25,Geography,27,migrate,verb,/ˈmaɪˌgreɪt/,move,Migrate to cities.
+B2,25,Geography,28,settle,verb,/ˈsɛtəl/,establish home,Settle in region.
+B2,25,Geography,29,map,verb,/ˈmæp/,chart,Map the area.
+B2,25,Geography,30,navigate,verb,/ˈnævɪˌgeɪt/,find way,Navigate terrain.
+B2,26,Weather Phenomena,1,weather,noun,/ˈwɛðɚ/,conditions,Check weather.
+B2,26,Weather Phenomena,2,forecast,noun,/ˈfɔrˌkæst/,prediction,Weather forecast.
+B2,26,Weather Phenomena,3,storm,noun,/ˈstɔrm/,severe weather,Violent storm.
+B2,26,Weather Phenomena,4,hurricane,noun,/ˈhɜrɪˌkeɪn/,tropical storm,Hurricane season.
+B2,26,Weather Phenomena,5,tornado,noun,/tɔrˈneɪdoʊ/,spinning wind,Deadly tornado.
+B2,26,Weather Phenomena,6,lightning,noun,/ˈlaɪtnɪŋ/,electric flash,Lightning strike.
+B2,26,Weather Phenomena,7,thunder,noun,/ˈθʌndɚ/,loud sound,Thunder roars.
+B2,26,Weather Phenomena,8,hail,noun,/ˈheɪl/,ice balls,Hail damage.
+B2,26,Weather Phenomena,9,blizzard,noun,/ˈblɪzɚd/,snow storm,Severe blizzard.
+B2,26,Weather Phenomena,10,humidity,noun,/hjuˈmɪdəti/,moisture level,High humidity.
+B2,26,Weather Phenomena,11,precipitation,noun,/prɪˌsɪpɪˈteɪʃən/,rain/snow,Heavy precipitation.
+B2,26,Weather Phenomena,12,pressure,noun,/ˈprɛʃɚ/,air force,Atmospheric pressure.
+B2,26,Weather Phenomena,13,severe,adjective,/səˈvɪr/,extreme,Severe weather.
+B2,26,Weather Phenomena,14,mild,adjective,/ˈmaɪld/,moderate,Mild climate.
+B2,26,Weather Phenomena,15,humid,adjective,/ˈhjumɪd/,moist,Humid conditions.
+B2,26,Weather Phenomena,16,foggy,adjective,/ˈfɔgi/,misty,Foggy morning.
+B2,26,Weather Phenomena,17,overcast,adjective,/ˌoʊvɚˈkæst/,cloudy,Overcast sky.
+B2,26,Weather Phenomena,18,sunny,adjective,/ˈsʌni/,bright,Sunny day.
+B2,26,Weather Phenomena,19,freezing,adjective,/ˈfrizɪŋ/,very cold,Freezing temperatures.
+B2,26,Weather Phenomena,20,forecast,verb,/ˈfɔrˌkæst/,predict,Forecast rain.
+B2,26,Weather Phenomena,21,pour,verb,/ˈpɔr/,rain heavily,Pouring rain.
+B2,26,Weather Phenomena,22,clear,verb,/ˈklɪr/,become sunny,Skies clear.
+B2,26,Weather Phenomena,23,form,verb,/ˈfɔrm/,develop,Storms form.
+B2,26,Weather Phenomena,24,strike,verb,/ˈstraɪk/,hit,Lightning strikes.
+B2,26,Weather Phenomena,25,intensify,verb,/ɪnˈtɛnsɪˌfaɪ/,strengthen,Storm intensifies.
+B2,26,Weather Phenomena,26,subside,verb,/səbˈsaɪd/,weaken,Wind subsides.
+B2,26,Weather Phenomena,27,scatter,verb,/ˈskætɚ/,spread out,Clouds scatter.
+B2,26,Weather Phenomena,28,accumulate,verb,/əˈkjumjəˌleɪt/,build up,Snow accumulates.
+B2,26,Weather Phenomena,29,fluctuate,verb,/ˈflʌktʃuˌeɪt/,vary,Temperatures fluctuate.
+B2,26,Weather Phenomena,30,prevail,verb,/prɪˈveɪl/,be common,Winds prevail.
+B2,27,Space & Astronomy,1,space,noun,/ˈspeɪs/,outer area,Outer space.
+B2,27,Space & Astronomy,2,universe,noun,/ˈjunɪˌvɜrs/,all existence,Vast universe.
+B2,27,Space & Astronomy,3,galaxy,noun,/ˈgæləksi/,star system,Milky Way galaxy.
+B2,27,Space & Astronomy,4,planet,noun,/ˈplænɪt/,celestial body,Planet Earth.
+B2,27,Space & Astronomy,5,star,noun,/ˈstɑr/,burning sun,Distant star.
+B2,27,Space & Astronomy,6,moon,noun,/ˈmun/,satellite,Full moon.
+B2,27,Space & Astronomy,7,orbit,noun,/ˈɔrbɪt/,circular path,Earth orbit.
+B2,27,Space & Astronomy,8,satellite,noun,/ˈsætəˌlaɪt/,orbiting object,Communication satellite.
+B2,27,Space & Astronomy,9,asteroid,noun,/ˈæstəˌrɔɪd/,space rock,Asteroid belt.
+B2,27,Space & Astronomy,10,comet,noun,/ˈkɑmɪt/,ice body,Passing comet.
+B2,27,Space & Astronomy,11,astronaut,noun,/ˈæstrəˌnɔt/,space traveler,Astronaut training.
+B2,27,Space & Astronomy,12,telescope,noun,/ˈtɛləˌskoʊp/,viewing device,Space telescope.
+B2,27,Space & Astronomy,13,gravity,noun,/ˈgrævɪti/,pulling force,Zero gravity.
+B2,27,Space & Astronomy,14,spacecraft,noun,/ˈspeɪsˌkræft/,space vehicle,Launch spacecraft.
+B2,27,Space & Astronomy,15,mission,noun,/ˈmɪʃən/,space task,Space mission.
+B2,27,Space & Astronomy,16,solar,adjective,/ˈsoʊlɚ/,of sun,Solar system.
+B2,27,Space & Astronomy,17,lunar,adjective,/ˈlunɚ/,of moon,Lunar eclipse.
+B2,27,Space & Astronomy,18,cosmic,adjective,/ˈkɑzmɪk/,of space,Cosmic rays.
+B2,27,Space & Astronomy,19,celestial,adjective,/səˈlɛstʃəl/,of sky,Celestial bodies.
+B2,27,Space & Astronomy,20,orbital,adjective,/ˈɔrbɪtəl/,of orbit,Orbital path.
+B2,27,Space & Astronomy,21,orbit,verb,/ˈɔrbɪt/,circle around,Planets orbit.
+B2,27,Space & Astronomy,22,launch,verb,/ˈlɔntʃ/,send up,Launch rocket.
+B2,27,Space & Astronomy,23,explore,verb,/ɪkˈsplɔr/,discover,Explore space.
+B2,27,Space & Astronomy,24,land,verb,/ˈlænd/,touch down,Land on moon.
+B2,27,Space & Astronomy,25,observe,verb,/əbˈzɜrv/,watch,Observe stars.
+B2,27,Space & Astronomy,26,discover,verb,/dɪˈskʌvɚ/,find,Discover planets.
+B2,27,Space & Astronomy,27,rotate,verb,/ˈroʊteɪt/,spin,Earth rotates.
+B2,27,Space & Astronomy,28,revolve,verb,/rɪˈvɑlv/,go around,Revolve around sun.
+B2,27,Space & Astronomy,29,expand,verb,/ɪkˈspænd/,grow larger,Universe expands.
+B2,27,Space & Astronomy,30,align,verb,/əˈlaɪn/,line up,Planets align.
+B2,28,Academic Education,1,education,noun,/ˌɛdʒəˈkeɪʃən/,learning,Higher education.
+B2,28,Academic Education,2,curriculum,noun,/kəˈrɪkjələm/,course content,School curriculum.
+B2,28,Academic Education,3,degree,noun,/dɪˈgri/,qualification,University degree.
+B2,28,Academic Education,4,diploma,noun,/dɪˈploʊmə/,certificate,High school diploma.
+B2,28,Academic Education,5,scholarship,noun,/ˈskɑlɚˌʃɪp/,study grant,Win scholarship.
+B2,28,Academic Education,6,tuition,noun,/tuˈɪʃən/,school fee,Tuition fees.
+B2,28,Academic Education,7,lecture,noun,/ˈlɛktʃɚ/,academic talk,Attend lecture.
+B2,28,Academic Education,8,seminar,noun,/ˈsɛmɪˌnɑr/,discussion class,Research seminar.
+B2,28,Academic Education,9,thesis,noun,/ˈθisɪs/,research paper,Write thesis.
+B2,28,Academic Education,10,dissertation,noun,/ˌdɪsɚˈteɪʃən/,long paper,Submit dissertation.
+B2,28,Academic Education,11,faculty,noun,/ˈfækəlti/,teaching staff,Faculty members.
+B2,28,Academic Education,12,campus,noun,/ˈkæmpəs/,school grounds,University campus.
+B2,28,Academic Education,13,academic,adjective,/ˌækəˈdɛmɪk/,of study,Academic year.
+B2,28,Academic Education,14,undergraduate,adjective,/ˌʌndɚˈgrædʒuɪt/,first degree,Undergraduate student.
+B2,28,Academic Education,15,postgraduate,adjective,/ˌpoʊstˈgrædʒuɪt/,after degree,Postgraduate studies.
+B2,28,Academic Education,16,compulsory,adjective,/kəmˈpʌlsəri/,required,Compulsory courses.
+B2,28,Academic Education,17,optional,adjective,/ˈɑpʃənəl/,not required,Optional subjects.
+B2,28,Academic Education,18,extracurricular,adjective,/ˌɛkstrəkəˈrɪkjəlɚ/,outside class,Extracurricular activities.
+B2,28,Academic Education,19,enroll,verb,/ɪnˈroʊl/,register,Enroll in course.
+B2,28,Academic Education,20,graduate,verb,/ˈgrædʒuˌeɪt/,finish school,Graduate from university.
+B2,28,Academic Education,21,major,verb,/ˈmeɪdʒɚ/,specialize,Major in biology.
+B2,28,Academic Education,22,specialize,verb,/ˈspɛʃəˌlaɪz/,focus on,Specialize in law.
+B2,28,Academic Education,23,research,verb,/rɪˈsɜrtʃ/,study deeply,Research the topic.
+B2,28,Academic Education,24,revise,verb,/rɪˈvaɪz/,review,Revise for exams.
+B2,28,Academic Education,25,submit,verb,/səbˈmɪt/,hand in,Submit assignment.
+B2,28,Academic Education,26,assess,verb,/əˈsɛs/,evaluate,Assess students.
+B2,28,Academic Education,27,evaluate,verb,/ɪˈvæljuˌeɪt/,judge,Evaluate performance.
+B2,28,Academic Education,28,tutor,verb,/ˈtutɚ/,teach privately,Tutor students.
+B2,28,Academic Education,29,attend,verb,/əˈtɛnd/,be present,Attend classes.
+B2,28,Academic Education,30,excel,verb,/ɪkˈsɛl/,do very well,Excel in studies.
+B2,28,Academic Education,31,achieve,verb,/əˈtʃiv/,accomplish,Achieve goals.
+B2,28,Academic Education,32,qualify,verb,/ˈkwɑlɪˌfaɪ/,meet requirements,Qualify for program.
+B2,28,Academic Education,33,pursue,verb,/pɚˈsu/,follow,Pursue degree.
+B2,28,Academic Education,34,drop,verb,/ˈdrɑp/,quit,Drop out of school.
+B2,28,Academic Education,35,pass,verb,/ˈpæs/,succeed,Pass the exam.
+B2,29,Employment,1,employment,noun,/ɪmˈplɔɪmənt/,having work,Find employment.
+B2,29,Employment,2,employer,noun,/ɪmˈplɔɪɚ/,boss,Meet employer.
+B2,29,Employment,3,employee,noun,/ɪmˈplɔɪi/,worker,New employee.
+B2,29,Employment,4,career,noun,/kəˈrɪr/,work life,Career path.
+B2,29,Employment,5,profession,noun,/prəˈfɛʃən/,occupation,Medical profession.
+B2,29,Employment,6,position,noun,/pəˈzɪʃən/,job role,Apply for position.
+B2,29,Employment,7,salary,noun,/ˈsæləri/,pay,Annual salary.
+B2,29,Employment,8,wage,noun,/ˈweɪdʒ/,hourly pay,Minimum wage.
+B2,29,Employment,9,benefit,noun,/ˈbɛnɪfɪt/,work perk,Health benefits.
+B2,29,Employment,10,promotion,noun,/prəˈmoʊʃən/,advancement,Get promotion.
+B2,29,Employment,11,resignation,noun,/ˌrɛzɪgˈneɪʃən/,quitting,Submit resignation.
+B2,29,Employment,12,layoff,noun,/ˈleɪˌɔf/,job cut,Company layoffs.
+B2,29,Employment,13,unemployed,adjective,/ˌʌnɪmˈplɔɪd/,without job,Currently unemployed.
+B2,29,Employment,14,self-employed,adjective,/ˌsɛlfɪmˈplɔɪd/,own business,Self-employed worker.
+B2,29,Employment,15,full-time,adjective,/ˈfʊlˈtaɪm/,all hours,Full-time job.
+B2,29,Employment,16,part-time,adjective,/ˈpɑrtˈtaɪm/,some hours,Part-time work.
+B2,29,Employment,17,permanent,adjective,/ˈpɜrmənənt/,lasting,Permanent position.
+B2,29,Employment,18,temporary,adjective,/ˈtɛmpəˌrɛri/,short-term,Temporary contract.
+B2,29,Employment,19,employ,verb,/ɪmˈplɔɪ/,hire,Employ workers.
+B2,29,Employment,20,hire,verb,/ˈhaɪɚ/,take on,Hire staff.
+B2,29,Employment,21,fire,verb,/ˈfaɪɚ/,dismiss,Fire an employee.
+B2,29,Employment,22,resign,verb,/rɪˈzaɪn/,quit job,Resign from position.
+B2,29,Employment,23,retire,verb,/rɪˈtaɪɚ/,stop working,Retire early.
+B2,29,Employment,24,promote,verb,/prəˈmoʊt/,advance,Promote employee.
+B2,29,Employment,25,apply,verb,/əˈplaɪ/,request,Apply for job.
+B2,29,Employment,26,interview,verb,/ˈɪntɚˌvju/,meet for job,Interview candidates.
+B2,29,Employment,27,recruit,verb,/rɪˈkrut/,find workers,Recruit new staff.
+B2,29,Employment,28,train,verb,/ˈtreɪn/,teach skills,Train employees.
+B2,29,Employment,29,supervise,verb,/ˈsupɚˌvaɪz/,oversee,Supervise team.
+B2,29,Employment,30,manage,verb,/ˈmænɪdʒ/,lead,Manage department.
+B2,29,Employment,31,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss terms,Negotiate salary.
+B2,29,Employment,32,commute,verb,/kəˈmjut/,travel to work,Commute daily.
+B2,29,Employment,33,transfer,verb,/trænsˈfɜr/,move jobs,Transfer to branch.
+B2,29,Employment,34,compensate,verb,/ˈkɑmpənˌseɪt/,pay for,Compensate fairly.
+B2,29,Employment,35,outsource,verb,/ˈaʊtˌsɔrs/,hire outside,Outsource tasks.
+B2,30,Business Management,1,management,noun,/ˈmænɪdʒmənt/,running business,Senior management.
+B2,30,Business Management,2,strategy,noun,/ˈstrætədʒi/,plan,Business strategy.
+B2,30,Business Management,3,operation,noun,/ˌɑpəˈreɪʃən/,activity,Daily operations.
+B2,30,Business Management,4,department,noun,/dɪˈpɑrtmənt/,section,Sales department.
+B2,30,Business Management,5,organization,noun,/ˌɔrgənɪˈzeɪʃən/,company structure,Large organization.
+B2,30,Business Management,6,executive,noun,/ɪgˈzɛkjətɪv/,senior leader,Chief executive.
+B2,30,Business Management,7,stakeholder,noun,/ˈsteɪkˌhoʊldɚ/,interested party,Key stakeholders.
+B2,30,Business Management,8,productivity,noun,/ˌproʊdʌkˈtɪvɪti/,output rate,Increase productivity.
+B2,30,Business Management,9,efficiency,noun,/ɪˈfɪʃənsi/,effectiveness,Improve efficiency.
+B2,30,Business Management,10,objective,noun,/əbˈdʒɛktɪv/,goal,Business objective.
+B2,30,Business Management,11,corporate,adjective,/ˈkɔrpərət/,of company,Corporate culture.
+B2,30,Business Management,12,strategic,adjective,/strəˈtidʒɪk/,planned,Strategic plan.
+B2,30,Business Management,13,operational,adjective,/ˌɑpəˈreɪʃənəl/,working,Operational costs.
+B2,30,Business Management,14,efficient,adjective,/ɪˈfɪʃənt/,effective,Efficient process.
+B2,30,Business Management,15,profitable,adjective,/ˈprɑfɪtəbəl/,making money,Profitable business.
+B2,30,Business Management,16,competitive,adjective,/kəmˈpɛtɪtɪv/,fighting for success,Competitive market.
+B2,30,Business Management,17,manage,verb,/ˈmænɪdʒ/,run,Manage team.
+B2,30,Business Management,18,supervise,verb,/ˈsupɚˌvaɪz/,oversee,Supervise staff.
+B2,30,Business Management,19,delegate,verb,/ˈdɛlɪˌgeɪt/,assign tasks,Delegate work.
+B2,30,Business Management,20,coordinate,verb,/koʊˈɔrdəˌneɪt/,organize together,Coordinate efforts.
+B2,30,Business Management,21,implement,verb,/ˈɪmpləˌmɛnt/,put into action,Implement changes.
+B2,30,Business Management,22,optimize,verb,/ˈɑptəˌmaɪz/,make best,Optimize processes.
+B2,30,Business Management,23,streamline,verb,/ˈstrimˌlaɪn/,simplify,Streamline operations.
+B2,30,Business Management,24,expand,verb,/ɪkˈspænd/,grow,Expand business.
+B2,30,Business Management,25,restructure,verb,/riˈstrʌktʃɚ/,reorganize,Restructure company.
+B2,30,Business Management,26,merge,verb,/ˈmɜrdʒ/,combine,Merge companies.
+B2,30,Business Management,27,acquire,verb,/əˈkwaɪɚ/,buy,Acquire competitor.
+B2,30,Business Management,28,downsize,verb,/ˈdaʊnˌsaɪz/,reduce size,Downsize workforce.
+B2,30,Business Management,29,outsource,verb,/ˈaʊtˌsɔrs/,hire outside,Outsource services.
+B2,30,Business Management,30,collaborate,verb,/kəˈlæbəˌreɪt/,work together,Collaborate on project.
+B2,30,Business Management,31,prioritize,verb,/praɪˈɔrɪˌtaɪz/,rank importance,Prioritize tasks.
+B2,30,Business Management,32,assess,verb,/əˈsɛs/,evaluate,Assess performance.
+B2,30,Business Management,33,allocate,verb,/ˈæləˌkeɪt/,assign,Allocate resources.
+B2,30,Business Management,34,monitor,verb,/ˈmɑnɪtɚ/,track,Monitor progress.
+B2,30,Business Management,35,innovate,verb,/ˈɪnəˌveɪt/,create new,Innovate constantly.
+B2,31,Corporate Finance,1,finance,noun,/fɪˈnæns/,money management,Corporate finance.
+B2,31,Corporate Finance,2,budget,noun,/ˈbʌdʒɪt/,spending plan,Annual budget.
+B2,31,Corporate Finance,3,investment,noun,/ɪnˈvɛstmənt/,money put in,Good investment.
+B2,31,Corporate Finance,4,revenue,noun,/ˈrɛvəˌnu/,income,Total revenue.
+B2,31,Corporate Finance,5,profit,noun,/ˈprɑfɪt/,earnings,Net profit.
+B2,31,Corporate Finance,6,loss,noun,/ˈlɔs/,deficit,Financial loss.
+B2,31,Corporate Finance,7,asset,noun,/ˈæsɛt/,valuable item,Company assets.
+B2,31,Corporate Finance,8,liability,noun,/ˌlaɪəˈbɪləti/,debt,Financial liability.
+B2,31,Corporate Finance,9,equity,noun,/ˈɛkwɪti/,ownership value,Shareholder equity.
+B2,31,Corporate Finance,10,dividend,noun,/ˈdɪvɪˌdɛnd/,profit share,Pay dividends.
+B2,31,Corporate Finance,11,shareholder,noun,/ˈʃɛrˌhoʊldɚ/,stock owner,Major shareholder.
+B2,31,Corporate Finance,12,transaction,noun,/trænˈzækʃən/,business deal,Financial transaction.
+B2,31,Corporate Finance,13,financial,adjective,/fɪˈnænʃəl/,of money,Financial report.
+B2,31,Corporate Finance,14,fiscal,adjective,/ˈfɪskəl/,of budget,Fiscal year.
+B2,31,Corporate Finance,15,profitable,adjective,/ˈprɑfɪtəbəl/,making profit,Profitable quarter.
+B2,31,Corporate Finance,16,liquid,adjective,/ˈlɪkwɪd/,easily converted,Liquid assets.
+B2,31,Corporate Finance,17,invest,verb,/ɪnˈvɛst/,put money in,Invest wisely.
+B2,31,Corporate Finance,18,budget,verb,/ˈbʌdʒɪt/,plan spending,Budget carefully.
+B2,31,Corporate Finance,19,fund,verb,/ˈfʌnd/,provide money,Fund the project.
+B2,31,Corporate Finance,20,finance,verb,/fɪˈnæns/,provide money,Finance expansion.
+B2,31,Corporate Finance,21,audit,verb,/ˈɔdɪt/,examine accounts,Audit finances.
+B2,31,Corporate Finance,22,forecast,verb,/ˈfɔrˌkæst/,predict,Forecast earnings.
+B2,31,Corporate Finance,23,allocate,verb,/ˈæləˌkeɪt/,assign funds,Allocate budget.
+B2,31,Corporate Finance,24,reimburse,verb,/ˌriɪmˈbɜrs/,pay back,Reimburse expenses.
+B2,31,Corporate Finance,25,depreciate,verb,/dɪˈpriʃiˌeɪt/,lose value,Assets depreciate.
+B2,31,Corporate Finance,26,appreciate,verb,/əˈpriʃiˌeɪt/,gain value,Investments appreciate.
+B2,31,Corporate Finance,27,liquidate,verb,/ˈlɪkwɪˌdeɪt/,sell off,Liquidate assets.
+B2,31,Corporate Finance,28,diversify,verb,/dɪˈvɜrsɪˌfaɪ/,vary investments,Diversify portfolio.
+B2,31,Corporate Finance,29,capitalize,verb,/ˈkæpɪtəˌlaɪz/,use advantage,Capitalize on opportunity.
+B2,31,Corporate Finance,30,break even,verb,/ˈbreɪk ˈivən/,no profit/loss,Break even this year.
+B2,32,Contract Negotiation,1,contract,noun,/ˈkɑntrækt/,agreement,Sign contract.
+B2,32,Contract Negotiation,2,negotiation,noun,/nɪˌgoʊʃiˈeɪʃən/,discussion,Contract negotiation.
+B2,32,Contract Negotiation,3,agreement,noun,/əˈgrimənt/,deal,Reach agreement.
+B2,32,Contract Negotiation,4,clause,noun,/ˈklɔz/,section,Contract clause.
+B2,32,Contract Negotiation,5,term,noun,/ˈtɜrm/,condition,Contract terms.
+B2,32,Contract Negotiation,6,condition,noun,/kənˈdɪʃən/,requirement,Key conditions.
+B2,32,Contract Negotiation,7,proposal,noun,/prəˈpoʊzəl/,offer,Business proposal.
+B2,32,Contract Negotiation,8,settlement,noun,/ˈsɛtəlmənt/,resolution,Final settlement.
+B2,32,Contract Negotiation,9,binding,adjective,/ˈbaɪndɪŋ/,legally required,Binding agreement.
+B2,32,Contract Negotiation,10,mutual,adjective,/ˈmjutʃuəl/,shared,Mutual benefit.
+B2,32,Contract Negotiation,11,confidential,adjective,/ˌkɑnfɪˈdɛnʃəl/,secret,Confidential terms.
+B2,32,Contract Negotiation,12,tentative,adjective,/ˈtɛntətɪv/,not final,Tentative agreement.
+B2,32,Contract Negotiation,13,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss terms,Negotiate deal.
+B2,32,Contract Negotiation,14,propose,verb,/prəˈpoʊz/,suggest,Propose terms.
+B2,32,Contract Negotiation,15,agree,verb,/əˈgri/,accept,Agree to terms.
+B2,32,Contract Negotiation,16,accept,verb,/ækˈsɛpt/,take offer,Accept proposal.
+B2,32,Contract Negotiation,17,reject,verb,/rɪˈdʒɛkt/,refuse,Reject offer.
+B2,32,Contract Negotiation,18,counter,verb,/ˈkaʊntɚ/,respond with,Counter proposal.
+B2,32,Contract Negotiation,19,compromise,verb,/ˈkɑmprəˌmaɪz/,meet halfway,Compromise on price.
+B2,32,Contract Negotiation,20,finalize,verb,/ˈfaɪnəˌlaɪz/,complete,Finalize contract.
+B2,32,Contract Negotiation,21,sign,verb,/ˈsaɪn/,approve,Sign agreement.
+B2,32,Contract Negotiation,22,renew,verb,/rɪˈnu/,extend,Renew contract.
+B2,32,Contract Negotiation,23,terminate,verb,/ˈtɜrmɪˌneɪt/,end,Terminate agreement.
+B2,32,Contract Negotiation,24,breach,verb,/ˈbritʃ/,break,Breach contract.
+B2,32,Contract Negotiation,25,enforce,verb,/ɪnˈfɔrs/,apply,Enforce terms.
+B2,33,Economics,1,economy,noun,/ɪˈkɑnəmi/,financial system,Strong economy.
+B2,33,Economics,2,inflation,noun,/ɪnˈfleɪʃən/,price rise,High inflation.
+B2,33,Economics,3,recession,noun,/rɪˈsɛʃən/,economic decline,Deep recession.
+B2,33,Economics,4,growth,noun,/ˈgroʊθ/,increase,Economic growth.
+B2,33,Economics,5,market,noun,/ˈmɑrkɪt/,trading place,Stock market.
+B2,33,Economics,6,demand,noun,/dɪˈmænd/,want for goods,High demand.
+B2,33,Economics,7,supply,noun,/səˈplaɪ/,goods available,Limited supply.
+B2,33,Economics,8,trade,noun,/ˈtreɪd/,buying/selling,International trade.
+B2,33,Economics,9,export,noun,/ˈɛkspɔrt/,goods sent out,Major export.
+B2,33,Economics,10,import,noun,/ˈɪmpɔrt/,goods brought in,Key import.
+B2,33,Economics,11,economic,adjective,/ˌɛkəˈnɑmɪk/,of economy,Economic crisis.
+B2,33,Economics,12,fiscal,adjective,/ˈfɪskəl/,of government money,Fiscal policy.
+B2,33,Economics,13,monetary,adjective,/ˈmɑnɪˌtɛri/,of money,Monetary policy.
+B2,33,Economics,14,domestic,adjective,/dəˈmɛstɪk/,within country,Domestic market.
+B2,33,Economics,15,global,adjective,/ˈgloʊbəl/,worldwide,Global trade.
+B2,33,Economics,16,export,verb,/ɪkˈspɔrt/,send abroad,Export goods.
+B2,33,Economics,17,import,verb,/ɪmˈpɔrt/,bring in,Import products.
+B2,33,Economics,18,invest,verb,/ɪnˈvɛst/,put money in,Invest abroad.
+B2,33,Economics,19,trade,verb,/ˈtreɪd/,buy and sell,Trade globally.
+B2,33,Economics,20,regulate,verb,/ˈrɛgjəˌleɪt/,control,Regulate markets.
+B2,33,Economics,21,stimulate,verb,/ˈstɪmjəˌleɪt/,encourage,Stimulate economy.
+B2,33,Economics,22,fluctuate,verb,/ˈflʌktʃuˌeɪt/,vary,Prices fluctuate.
+B2,33,Economics,23,stabilize,verb,/ˈsteɪbəˌlaɪz/,make steady,Stabilize currency.
+B2,33,Economics,24,decline,verb,/dɪˈklaɪn/,decrease,Economy declines.
+B2,33,Economics,25,recover,verb,/rɪˈkʌvɚ/,improve,Markets recover.
+B2,33,Economics,26,boom,verb,/ˈbum/,grow fast,Economy booms.
+B2,33,Economics,27,compete,verb,/kəmˈpit/,rival,Compete globally.
+B2,33,Economics,28,consume,verb,/kənˈsum/,use up,Consume resources.
+B2,33,Economics,29,produce,verb,/prəˈdus/,make,Produce goods.
+B2,33,Economics,30,distribute,verb,/dɪˈstrɪbjut/,spread out,Distribute products.
+B2,34,Transportation,1,transportation,noun,/ˌtrænspɔrˈteɪʃən/,moving people/goods,Public transportation.
+B2,34,Transportation,2,vehicle,noun,/ˈviɪkəl/,transport machine,Motor vehicle.
+B2,34,Transportation,3,traffic,noun,/ˈtræfɪk/,road movement,Heavy traffic.
+B2,34,Transportation,4,commute,noun,/kəˈmjut/,daily travel,Long commute.
+B2,34,Transportation,5,fare,noun,/ˈfɛr/,travel cost,Bus fare.
+B2,34,Transportation,6,route,noun,/ˈrut/,travel path,Direct route.
+B2,34,Transportation,7,departure,noun,/dɪˈpɑrtʃɚ/,leaving,Departure time.
+B2,34,Transportation,8,arrival,noun,/əˈraɪvəl/,coming,Safe arrival.
+B2,34,Transportation,9,delay,noun,/dɪˈleɪ/,wait time,Flight delay.
+B2,34,Transportation,10,congestion,noun,/kənˈdʒɛstʃən/,crowding,Traffic congestion.
+B2,34,Transportation,11,public,adjective,/ˈpʌblɪk/,for everyone,Public transit.
+B2,34,Transportation,12,private,adjective,/ˈpraɪvɪt/,personal,Private car.
+B2,34,Transportation,13,express,adjective,/ɪkˈsprɛs/,fast,Express train.
+B2,34,Transportation,14,delayed,adjective,/dɪˈleɪd/,late,Delayed flight.
+B2,34,Transportation,15,commute,verb,/kəˈmjut/,travel daily,Commute to work.
+B2,34,Transportation,16,transport,verb,/trænsˈpɔrt/,move,Transport goods.
+B2,34,Transportation,17,depart,verb,/dɪˈpɑrt/,leave,Depart on time.
+B2,34,Transportation,18,arrive,verb,/əˈraɪv/,reach,Arrive safely.
+B2,34,Transportation,19,board,verb,/ˈbɔrd/,get on,Board the plane.
+B2,34,Transportation,20,disembark,verb,/ˌdɪsɪmˈbɑrk/,get off,Disembark passengers.
+B2,34,Transportation,21,transfer,verb,/trænsˈfɜr/,change vehicle,Transfer trains.
+B2,34,Transportation,22,navigate,verb,/ˈnævɪˌgeɪt/,find way,Navigate traffic.
+B2,34,Transportation,23,accelerate,verb,/ækˈsɛləˌreɪt/,speed up,Accelerate slowly.
+B2,34,Transportation,24,brake,verb,/ˈbreɪk/,slow down,Brake gently.
+B2,34,Transportation,25,signal,verb,/ˈsɪgnəl/,indicate,Signal turn.
+B2,34,Transportation,26,overtake,verb,/ˌoʊvɚˈteɪk/,pass,Overtake safely.
+B2,34,Transportation,27,detour,verb,/ˈdiˌtʊr/,go around,Detour construction.
+B2,34,Transportation,28,carpool,verb,/ˈkɑrˌpul/,share ride,Carpool to work.
+B2,34,Transportation,29,shuttle,verb,/ˈʃʌtəl/,go back and forth,Shuttle passengers.
+B2,34,Transportation,30,reroute,verb,/riˈrut/,change path,Reroute traffic.
+B2,35,Vehicle Operation,1,engine,noun,/ˈɛndʒɪn/,motor,Car engine.
+B2,35,Vehicle Operation,2,brake,noun,/ˈbreɪk/,stopping device,Apply brakes.
+B2,35,Vehicle Operation,3,steering,noun,/ˈstɪrɪŋ/,direction control,Steering wheel.
+B2,35,Vehicle Operation,4,gear,noun,/ˈgɪr/,speed setting,Change gear.
+B2,35,Vehicle Operation,5,accelerator,noun,/ækˈsɛləˌreɪtɚ/,gas pedal,Press accelerator.
+B2,35,Vehicle Operation,6,dashboard,noun,/ˈdæʃˌbɔrd/,control panel,Check dashboard.
+B2,35,Vehicle Operation,7,indicator,noun,/ˈɪndɪˌkeɪtɚ/,turn signal,Use indicator.
+B2,35,Vehicle Operation,8,fuel,noun,/ˈfjuəl/,gasoline,Low fuel.
+B2,35,Vehicle Operation,9,mileage,noun,/ˈmaɪlɪdʒ/,distance traveled,Good mileage.
+B2,35,Vehicle Operation,10,automatic,adjective,/ˌɔtəˈmætɪk/,self-operating,Automatic transmission.
+B2,35,Vehicle Operation,11,manual,adjective,/ˈmænjuəl/,hand-operated,Manual car.
+B2,35,Vehicle Operation,12,reliable,adjective,/rɪˈlaɪəbəl/,dependable,Reliable vehicle.
+B2,35,Vehicle Operation,13,steer,verb,/ˈstɪr/,direct,Steer carefully.
+B2,35,Vehicle Operation,14,accelerate,verb,/ækˈsɛləˌreɪt/,speed up,Accelerate smoothly.
+B2,35,Vehicle Operation,15,brake,verb,/ˈbreɪk/,slow down,Brake hard.
+B2,35,Vehicle Operation,16,reverse,verb,/rɪˈvɜrs/,go backward,Reverse slowly.
+B2,35,Vehicle Operation,17,park,verb,/ˈpɑrk/,stop and leave,Park the car.
+B2,35,Vehicle Operation,18,refuel,verb,/riˈfjuəl/,add gas,Refuel the tank.
+B2,35,Vehicle Operation,19,maintain,verb,/meɪnˈteɪn/,keep working,Maintain vehicle.
+B2,35,Vehicle Operation,20,inspect,verb,/ɪnˈspɛkt/,check,Inspect brakes.
+B2,35,Vehicle Operation,21,service,verb,/ˈsɜrvɪs/,repair,Service the car.
+B2,35,Vehicle Operation,22,start,verb,/ˈstɑrt/,turn on,Start engine.
+B2,35,Vehicle Operation,23,idle,verb,/ˈaɪdəl/,run still,Engine idles.
+B2,35,Vehicle Operation,24,overheat,verb,/ˌoʊvɚˈhit/,get too hot,Engine overheats.
+B2,35,Vehicle Operation,25,tow,verb,/ˈtoʊ/,pull,Tow the car.
+B2,36,Travel Tourism,1,tourism,noun,/ˈtʊrˌɪzəm/,travel industry,Boost tourism.
+B2,36,Travel Tourism,2,destination,noun,/ˌdɛstɪˈneɪʃən/,travel place,Popular destination.
+B2,36,Travel Tourism,3,itinerary,noun,/aɪˈtɪnəˌrɛri/,travel plan,Detailed itinerary.
+B2,36,Travel Tourism,4,reservation,noun,/ˌrɛzɚˈveɪʃən/,booking,Hotel reservation.
+B2,36,Travel Tourism,5,accommodation,noun,/əˌkɑməˈdeɪʃən/,lodging,Find accommodation.
+B2,36,Travel Tourism,6,excursion,noun,/ɪkˈskɜrʒən/,trip,Day excursion.
+B2,36,Travel Tourism,7,sightseeing,noun,/ˈsaɪtˌsiɪŋ/,viewing attractions,Go sightseeing.
+B2,36,Travel Tourism,8,landmark,noun,/ˈlændˌmɑrk/,famous place,Historic landmark.
+B2,36,Travel Tourism,9,souvenir,noun,/ˌsuvəˈnɪr/,keepsake,Buy souvenirs.
+B2,36,Travel Tourism,10,traveler,noun,/ˈtrævəlɚ/,tourist,Frequent traveler.
+B2,36,Travel Tourism,11,scenic,adjective,/ˈsinɪk/,beautiful view,Scenic route.
+B2,36,Travel Tourism,12,exotic,adjective,/ɪgˈzɑtɪk/,unusual,Exotic location.
+B2,36,Travel Tourism,13,affordable,adjective,/əˈfɔrdəbəl/,reasonable cost,Affordable trip.
+B2,36,Travel Tourism,14,all-inclusive,adjective,/ˌɔlɪnˈklusɪv/,everything included,All-inclusive resort.
+B2,36,Travel Tourism,15,book,verb,/ˈbʊk/,reserve,Book a hotel.
+B2,36,Travel Tourism,16,reserve,verb,/rɪˈzɜrv/,hold,Reserve tickets.
+B2,36,Travel Tourism,17,explore,verb,/ɪkˈsplɔr/,discover,Explore the city.
+B2,36,Travel Tourism,18,tour,verb,/ˈtʊr/,visit,Tour the museum.
+B2,36,Travel Tourism,19,travel,verb,/ˈtrævəl/,journey,Travel abroad.
+B2,36,Travel Tourism,20,sightsee,verb,/ˈsaɪtˌsi/,view sights,Sightsee in Paris.
+B2,36,Travel Tourism,21,wander,verb,/ˈwɑndɚ/,walk around,Wander the streets.
+B2,36,Travel Tourism,22,navigate,verb,/ˈnævɪˌgeɪt/,find way,Navigate the city.
+B2,36,Travel Tourism,23,experience,verb,/ɪkˈspɪriəns/,undergo,Experience culture.
+B2,36,Travel Tourism,24,recommend,verb,/ˌrɛkəˈmɛnd/,suggest,Recommend attractions.
+B2,36,Travel Tourism,25,arrange,verb,/əˈreɪndʒ/,organize,Arrange transport.
+B2,36,Travel Tourism,26,cancel,verb,/ˈkænsəl/,call off,Cancel booking.
+B2,36,Travel Tourism,27,confirm,verb,/kənˈfɜrm/,verify,Confirm reservation.
+B2,36,Travel Tourism,28,extend,verb,/ɪkˈstɛnd/,lengthen,Extend stay.
+B2,36,Travel Tourism,29,pack,verb,/ˈpæk/,prepare luggage,Pack light.
+B2,36,Travel Tourism,30,unpack,verb,/ənˈpæk/,remove from bag,Unpack at hotel.
+B2,37,Sports Competition,1,competition,noun,/ˌkɑmpɪˈtɪʃən/,contest,Sports competition.
+B2,37,Sports Competition,2,tournament,noun,/ˈtʊrnəmənt/,series of games,Tennis tournament.
+B2,37,Sports Competition,3,championship,noun,/ˈtʃæmpiənˌʃɪp/,top contest,World championship.
+B2,37,Sports Competition,4,athlete,noun,/ˈæθˌlit/,sportsperson,Professional athlete.
+B2,37,Sports Competition,5,opponent,noun,/əˈpoʊnənt/,rival,Tough opponent.
+B2,37,Sports Competition,6,referee,noun,/ˌrɛfəˈri/,game official,Fair referee.
+B2,37,Sports Competition,7,score,noun,/ˈskɔr/,points,Final score.
+B2,37,Sports Competition,8,victory,noun,/ˈvɪktəri/,win,Great victory.
+B2,37,Sports Competition,9,defeat,noun,/dɪˈfit/,loss,Crushing defeat.
+B2,37,Sports Competition,10,medal,noun,/ˈmɛdəl/,award,Gold medal.
+B2,37,Sports Competition,11,competitive,adjective,/kəmˈpɛtɪtɪv/,wanting to win,Competitive spirit.
+B2,37,Sports Competition,12,athletic,adjective,/æθˈlɛtɪk/,sporty,Athletic ability.
+B2,37,Sports Competition,13,undefeated,adjective,/ˌʌndɪˈfitɪd/,never lost,Undefeated team.
+B2,37,Sports Competition,14,compete,verb,/kəmˈpit/,take part,Compete in race.
+B2,37,Sports Competition,15,win,verb,/ˈwɪn/,succeed,Win the match.
+B2,37,Sports Competition,16,lose,verb,/ˈluz/,fail,Lose the game.
+B2,37,Sports Competition,17,defeat,verb,/dɪˈfit/,beat,Defeat opponent.
+B2,37,Sports Competition,18,score,verb,/ˈskɔr/,get points,Score a goal.
+B2,37,Sports Competition,19,qualify,verb,/ˈkwɑlɪˌfaɪ/,earn place,Qualify for finals.
+B2,37,Sports Competition,20,eliminate,verb,/ɪˈlɪmɪˌneɪt/,remove,Eliminate from competition.
+B2,37,Sports Competition,21,advance,verb,/ædˈvæns/,move forward,Advance to next round.
+B2,37,Sports Competition,22,train,verb,/ˈtreɪn/,practice,Train hard.
+B2,37,Sports Competition,23,perform,verb,/pɚˈfɔrm/,do,Perform well.
+B2,37,Sports Competition,24,excel,verb,/ɪkˈsɛl/,be best,Excel in sport.
+B2,37,Sports Competition,25,dominate,verb,/ˈdɑmɪˌneɪt/,control,Dominate the game.
+B2,37,Sports Competition,26,tackle,verb,/ˈtækəl/,challenge,Tackle opponent.
+B2,37,Sports Competition,27,sprint,verb,/ˈsprɪnt/,run fast,Sprint to finish.
+B2,37,Sports Competition,28,endure,verb,/ɪnˈdʊr/,last,Endure the race.
+B2,37,Sports Competition,29,recover,verb,/rɪˈkʌvɚ/,get better,Recover from injury.
+B2,37,Sports Competition,30,retire,verb,/rɪˈtaɪɚ/,stop playing,Retire from sport.
+B2,38,Physical Fitness,1,fitness,noun,/ˈfɪtnəs/,physical health,Physical fitness.
+B2,38,Physical Fitness,2,exercise,noun,/ˈɛksɚˌsaɪz/,physical activity,Daily exercise.
+B2,38,Physical Fitness,3,workout,noun,/ˈwɜrkˌaʊt/,exercise session,Morning workout.
+B2,38,Physical Fitness,4,stamina,noun,/ˈstæmɪnə/,endurance,Build stamina.
+B2,38,Physical Fitness,5,flexibility,noun,/ˌflɛksəˈbɪləti/,bendability,Improve flexibility.
+B2,38,Physical Fitness,6,strength,noun,/ˈstrɛŋθ/,power,Muscle strength.
+B2,38,Physical Fitness,7,endurance,noun,/ɪnˈdʊrəns/,lasting power,Build endurance.
+B2,38,Physical Fitness,8,routine,noun,/ruˈtin/,regular plan,Exercise routine.
+B2,38,Physical Fitness,9,fit,adjective,/ˈfɪt/,healthy,Stay fit.
+B2,38,Physical Fitness,10,active,adjective,/ˈæktɪv/,moving,Stay active.
+B2,38,Physical Fitness,11,sedentary,adjective,/ˈsɛdənˌtɛri/,inactive,Sedentary lifestyle.
+B2,38,Physical Fitness,12,intense,adjective,/ɪnˈtɛns/,strong,Intense workout.
+B2,38,Physical Fitness,13,exercise,verb,/ˈɛksɚˌsaɪz/,work out,Exercise daily.
+B2,38,Physical Fitness,14,stretch,verb,/ˈstrɛtʃ/,extend muscles,Stretch before.
+B2,38,Physical Fitness,15,warm up,verb,/ˈwɔrm ʌp/,prepare body,Warm up first.
+B2,38,Physical Fitness,16,cool down,verb,/ˈkul daʊn/,slow down,Cool down after.
+B2,38,Physical Fitness,17,strengthen,verb,/ˈstrɛŋθən/,make strong,Strengthen muscles.
+B2,38,Physical Fitness,18,tone,verb,/ˈtoʊn/,firm up,Tone body.
+B2,38,Physical Fitness,19,burn,verb,/ˈbɜrn/,use up,Burn calories.
+B2,38,Physical Fitness,20,hydrate,verb,/ˈhaɪdreɪt/,add water,Stay hydrated.
+B2,38,Physical Fitness,21,recover,verb,/rɪˈkʌvɚ/,rest,Recover after workout.
+B2,38,Physical Fitness,22,maintain,verb,/meɪnˈteɪn/,keep up,Maintain fitness.
+B2,38,Physical Fitness,23,train,verb,/ˈtreɪn/,practice,Train regularly.
+B2,38,Physical Fitness,24,rest,verb,/ˈrɛst/,relax,Rest between sets.
+B2,38,Physical Fitness,25,motivate,verb,/ˈmoʊtɪˌveɪt/,encourage,Motivate yourself.
+B2,39,Music Performance,1,performance,noun,/pɚˈfɔrməns/,show,Live performance.
+B2,39,Music Performance,2,concert,noun,/ˈkɑnsɚt/,music show,Rock concert.
+B2,39,Music Performance,3,orchestra,noun,/ˈɔrkɪstrə/,music group,Symphony orchestra.
+B2,39,Music Performance,4,melody,noun,/ˈmɛlədi/,tune,Beautiful melody.
+B2,39,Music Performance,5,rhythm,noun,/ˈrɪðəm/,beat,Steady rhythm.
+B2,39,Music Performance,6,harmony,noun,/ˈhɑrməni/,musical blend,Perfect harmony.
+B2,39,Music Performance,7,composer,noun,/kəmˈpoʊzɚ/,music writer,Famous composer.
+B2,39,Music Performance,8,conductor,noun,/kənˈdʌktɚ/,orchestra leader,Guest conductor.
+B2,39,Music Performance,9,musician,noun,/mjuˈzɪʃən/,music player,Talented musician.
+B2,39,Music Performance,10,vocalist,noun,/ˈvoʊkəlɪst/,singer,Lead vocalist.
+B2,39,Music Performance,11,musical,adjective,/ˈmjuzɪkəl/,of music,Musical talent.
+B2,39,Music Performance,12,acoustic,adjective,/əˈkustɪk/,unplugged,Acoustic guitar.
+B2,39,Music Performance,13,classical,adjective,/ˈklæsɪkəl/,traditional,Classical music.
+B2,39,Music Performance,14,perform,verb,/pɚˈfɔrm/,play,Perform live.
+B2,39,Music Performance,15,compose,verb,/kəmˈpoʊz/,write music,Compose a song.
+B2,39,Music Performance,16,conduct,verb,/kənˈdʌkt/,lead orchestra,Conduct symphony.
+B2,39,Music Performance,17,rehearse,verb,/rɪˈhɜrs/,practice,Rehearse daily.
+B2,39,Music Performance,18,sing,verb,/ˈsɪŋ/,vocalize,Sing beautifully.
+B2,39,Music Performance,19,play,verb,/ˈpleɪ/,make music,Play instrument.
+B2,39,Music Performance,20,tune,verb,/ˈtun/,adjust pitch,Tune guitar.
+B2,39,Music Performance,21,improvise,verb,/ˈɪmprəˌvaɪz/,create spontaneously,Improvise a solo.
+B2,39,Music Performance,22,accompany,verb,/əˈkʌmpəni/,play with,Accompany singer.
+B2,39,Music Performance,23,harmonize,verb,/ˈhɑrməˌnaɪz/,blend sounds,Harmonize vocals.
+B2,39,Music Performance,24,amplify,verb,/ˈæmpləˌfaɪ/,make louder,Amplify sound.
+B2,39,Music Performance,25,record,verb,/rɪˈkɔrd/,capture sound,Record an album.
+B2,39,Music Performance,26,release,verb,/rɪˈlis/,publish,Release new song.
+B2,39,Music Performance,27,tour,verb,/ˈtʊr/,travel to perform,Tour worldwide.
+B2,39,Music Performance,28,collaborate,verb,/kəˈlæbəˌreɪt/,work together,Collaborate with artists.
+B2,39,Music Performance,29,inspire,verb,/ɪnˈspaɪɚ/,motivate,Inspire audiences.
+B2,39,Music Performance,30,entertain,verb,/ˌɛntɚˈteɪn/,amuse,Entertain crowds.
+B2,40,Sound Production,1,sound,noun,/ˈsaʊnd/,audio,Clear sound.
+B2,40,Sound Production,2,audio,noun,/ˈɔdioʊ/,sound signal,Audio quality.
+B2,40,Sound Production,3,recording,noun,/rɪˈkɔrdɪŋ/,captured sound,Studio recording.
+B2,40,Sound Production,4,studio,noun,/ˈstudiˌoʊ/,recording place,Recording studio.
+B2,40,Sound Production,5,microphone,noun,/ˈmaɪkrəˌfoʊn/,sound device,Use microphone.
+B2,40,Sound Production,6,speaker,noun,/ˈspikɚ/,sound output,Large speakers.
+B2,40,Sound Production,7,volume,noun,/ˈvɑljum/,loudness,Turn up volume.
+B2,40,Sound Production,8,frequency,noun,/ˈfrikwənsi/,sound wave,High frequency.
+B2,40,Sound Production,9,acoustic,adjective,/əˈkustɪk/,of sound,Acoustic properties.
+B2,40,Sound Production,10,digital,adjective,/ˈdɪdʒɪtəl/,computer-based,Digital audio.
+B2,40,Sound Production,11,record,verb,/rɪˈkɔrd/,capture,Record audio.
+B2,40,Sound Production,12,mix,verb,/ˈmɪks/,blend sounds,Mix tracks.
+B2,40,Sound Production,13,edit,verb,/ˈɛdɪt/,modify,Edit recording.
+B2,40,Sound Production,14,amplify,verb,/ˈæmpləˌfaɪ/,increase,Amplify signal.
+B2,40,Sound Production,15,broadcast,verb,/ˈbrɔdˌkæst/,transmit,Broadcast live.
+B2,40,Sound Production,16,stream,verb,/ˈstrim/,send online,Stream audio.
+B2,40,Sound Production,17,produce,verb,/prəˈdus/,create,Produce music.
+B2,40,Sound Production,18,master,verb,/ˈmæstɚ/,finalize,Master the track.
+B2,40,Sound Production,19,synchronize,verb,/ˈsɪŋkrəˌnaɪz/,match timing,Synchronize audio.
+B2,40,Sound Production,20,filter,verb,/ˈfɪltɚ/,remove noise,Filter sounds.
+B2,41,Artistic Expression,1,art,noun,/ˈɑrt/,creative work,Modern art.
+B2,41,Artistic Expression,2,artist,noun,/ˈɑrtɪst/,creator,Famous artist.
+B2,41,Artistic Expression,3,artwork,noun,/ˈɑrtˌwɜrk/,art piece,Original artwork.
+B2,41,Artistic Expression,4,masterpiece,noun,/ˈmæstɚˌpis/,great work,True masterpiece.
+B2,41,Artistic Expression,5,exhibition,noun,/ˌɛksəˈbɪʃən/,art show,Art exhibition.
+B2,41,Artistic Expression,6,gallery,noun,/ˈgæləri/,art space,Art gallery.
+B2,41,Artistic Expression,7,sculpture,noun,/ˈskʌlptʃɚ/,3D art,Bronze sculpture.
+B2,41,Artistic Expression,8,portrait,noun,/ˈpɔrtrət/,face picture,Family portrait.
+B2,41,Artistic Expression,9,canvas,noun,/ˈkænvəs/,painting surface,Blank canvas.
+B2,41,Artistic Expression,10,perspective,noun,/pɚˈspɛktɪv/,viewpoint,Artistic perspective.
+B2,41,Artistic Expression,11,artistic,adjective,/ɑrˈtɪstɪk/,creative,Artistic talent.
+B2,41,Artistic Expression,12,creative,adjective,/kriˈeɪtɪv/,inventive,Creative expression.
+B2,41,Artistic Expression,13,abstract,adjective,/ˈæbstrækt/,non-realistic,Abstract art.
+B2,41,Artistic Expression,14,contemporary,adjective,/kənˈtɛmpəˌrɛri/,modern,Contemporary art.
+B2,41,Artistic Expression,15,expressive,adjective,/ɪkˈsprɛsɪv/,showing feeling,Expressive style.
+B2,41,Artistic Expression,16,create,verb,/kriˈeɪt/,make,Create art.
+B2,41,Artistic Expression,17,design,verb,/dɪˈzaɪn/,plan,Design artwork.
+B2,41,Artistic Expression,18,paint,verb,/ˈpeɪnt/,apply color,Paint a picture.
+B2,41,Artistic Expression,19,draw,verb,/ˈdrɔ/,make lines,Draw sketches.
+B2,41,Artistic Expression,20,sculpt,verb,/ˈskʌlpt/,shape,Sculpt figures.
+B2,41,Artistic Expression,21,exhibit,verb,/ɪgˈzɪbɪt/,display,Exhibit work.
+B2,41,Artistic Expression,22,portray,verb,/pɔrˈtreɪ/,depict,Portray emotions.
+B2,41,Artistic Expression,23,illustrate,verb,/ˈɪləˌstreɪt/,show visually,Illustrate ideas.
+B2,41,Artistic Expression,24,interpret,verb,/ɪnˈtɜrprɪt/,explain meaning,Interpret art.
+B2,41,Artistic Expression,25,express,verb,/ɪkˈsprɛs/,show feelings,Express through art.
+B2,41,Artistic Expression,26,inspire,verb,/ɪnˈspaɪɚ/,motivate,Inspire creativity.
+B2,41,Artistic Expression,27,capture,verb,/ˈkæptʃɚ/,record,Capture beauty.
+B2,41,Artistic Expression,28,sketch,verb,/ˈskɛtʃ/,draw roughly,Sketch ideas.
+B2,41,Artistic Expression,29,craft,verb,/ˈkræft/,make skillfully,Craft by hand.
+B2,41,Artistic Expression,30,appreciate,verb,/əˈpriʃiˌeɪt/,value,Appreciate art.
+B2,42,Visual Design,1,design,noun,/dɪˈzaɪn/,visual plan,Graphic design.
+B2,42,Visual Design,2,layout,noun,/ˈleɪˌaʊt/,arrangement,Page layout.
+B2,42,Visual Design,3,composition,noun,/ˌkɑmpəˈzɪʃən/,arrangement,Visual composition.
+B2,42,Visual Design,4,color,noun,/ˈkʌlɚ/,hue,Color scheme.
+B2,42,Visual Design,5,contrast,noun,/ˈkɑntræst/,difference,High contrast.
+B2,42,Visual Design,6,texture,noun,/ˈtɛkstʃɚ/,surface feel,Rich texture.
+B2,42,Visual Design,7,symmetry,noun,/ˈsɪmətri/,balance,Perfect symmetry.
+B2,42,Visual Design,8,visual,adjective,/ˈvɪʒuəl/,of sight,Visual impact.
+B2,42,Visual Design,9,graphic,adjective,/ˈgræfɪk/,pictorial,Graphic design.
+B2,42,Visual Design,10,aesthetic,adjective,/ɛsˈθɛtɪk/,beautiful,Aesthetic appeal.
+B2,42,Visual Design,11,minimalist,adjective,/ˈmɪnɪməlɪst/,simple,Minimalist style.
+B2,42,Visual Design,12,bold,adjective,/ˈboʊld/,striking,Bold colors.
+B2,42,Visual Design,13,design,verb,/dɪˈzaɪn/,create plan,Design graphics.
+B2,42,Visual Design,14,arrange,verb,/əˈreɪndʒ/,organize,Arrange elements.
+B2,42,Visual Design,15,balance,verb,/ˈbæləns/,make even,Balance composition.
+B2,42,Visual Design,16,align,verb,/əˈlaɪn/,line up,Align objects.
+B2,42,Visual Design,17,contrast,verb,/kənˈtræst/,show difference,Contrast colors.
+B2,42,Visual Design,18,enhance,verb,/ɪnˈhæns/,improve,Enhance visuals.
+B2,42,Visual Design,19,simplify,verb,/ˈsɪmpləˌfaɪ/,make simple,Simplify design.
+B2,42,Visual Design,20,refine,verb,/rɪˈfaɪn/,improve,Refine layout.
+B2,42,Visual Design,21,visualize,verb,/ˈvɪʒuəˌlaɪz/,picture,Visualize concept.
+B2,42,Visual Design,22,prototype,verb,/ˈproʊtəˌtaɪp/,create model,Prototype design.
+B2,42,Visual Design,23,render,verb,/ˈrɛndɚ/,produce image,Render graphics.
+B2,42,Visual Design,24,animate,verb,/ˈænɪˌmeɪt/,add motion,Animate design.
+B2,42,Visual Design,25,customize,verb,/ˈkʌstəˌmaɪz/,personalize,Customize layout.
+B2,43,Film Production,1,film,noun,/ˈfɪlm/,movie,Feature film.
+B2,43,Film Production,2,production,noun,/prəˈdʌkʃən/,making,Film production.
+B2,43,Film Production,3,director,noun,/dɪˈrɛktɚ/,film leader,Famous director.
+B2,43,Film Production,4,screenplay,noun,/ˈskrinˌpleɪ/,film script,Write screenplay.
+B2,43,Film Production,5,scene,noun,/ˈsin/,film part,Action scene.
+B2,43,Film Production,6,cast,noun,/ˈkæst/,actors,All-star cast.
+B2,43,Film Production,7,crew,noun,/ˈkru/,workers,Film crew.
+B2,43,Film Production,8,footage,noun,/ˈfʊtɪdʒ/,recorded film,Raw footage.
+B2,43,Film Production,9,premiere,noun,/prɪˈmɪr/,first showing,Movie premiere.
+B2,43,Film Production,10,cinematic,adjective,/ˌsɪnəˈmætɪk/,of film,Cinematic style.
+B2,43,Film Production,11,dramatic,adjective,/drəˈmætɪk/,theatrical,Dramatic scene.
+B2,43,Film Production,12,direct,verb,/dɪˈrɛkt/,lead making,Direct a film.
+B2,43,Film Production,13,produce,verb,/prəˈdus/,make,Produce movies.
+B2,43,Film Production,14,shoot,verb,/ˈʃut/,film,Shoot scenes.
+B2,43,Film Production,15,edit,verb,/ˈɛdɪt/,cut and arrange,Edit footage.
+B2,43,Film Production,16,cast,verb,/ˈkæst/,choose actors,Cast the role.
+B2,43,Film Production,17,script,verb,/ˈskrɪpt/,write,Script the movie.
+B2,43,Film Production,18,premiere,verb,/prɪˈmɪr/,debut,Premiere the film.
+B2,43,Film Production,19,release,verb,/rɪˈlis/,distribute,Release worldwide.
+B2,43,Film Production,20,screen,verb,/ˈskrin/,show,Screen the movie.
+B2,43,Film Production,21,adapt,verb,/əˈdæpt/,modify,Adapt from book.
+B2,43,Film Production,22,distribute,verb,/dɪˈstrɪbjut/,spread,Distribute globally.
+B2,43,Film Production,23,finance,verb,/fɪˈnæns/,fund,Finance production.
+B2,43,Film Production,24,wrap,verb,/ˈræp/,finish filming,Wrap production.
+B2,43,Film Production,25,debut,verb,/deɪˈbju/,first appear,Debut as director.
+B2,44,Creative Writing,1,writing,noun,/ˈraɪtɪŋ/,text creation,Creative writing.
+B2,44,Creative Writing,2,author,noun,/ˈɔθɚ/,writer,Famous author.
+B2,44,Creative Writing,3,novel,noun,/ˈnɑvəl/,long book,Debut novel.
+B2,44,Creative Writing,4,plot,noun,/ˈplɑt/,story line,Complex plot.
+B2,44,Creative Writing,5,character,noun,/ˈkærɪktɚ/,story person,Main character.
+B2,44,Creative Writing,6,narrative,noun,/ˈnærətɪv/,story,Strong narrative.
+B2,44,Creative Writing,7,genre,noun,/ˈʒɑnrə/,category,Fiction genre.
+B2,44,Creative Writing,8,draft,noun,/ˈdræft/,first version,First draft.
+B2,44,Creative Writing,9,fiction,noun,/ˈfɪkʃən/,made-up story,Science fiction.
+B2,44,Creative Writing,10,non-fiction,noun,/ˌnɑnˈfɪkʃən/,true story,Non-fiction book.
+B2,44,Creative Writing,11,literary,adjective,/ˈlɪtəˌrɛri/,of literature,Literary style.
+B2,44,Creative Writing,12,write,verb,/ˈraɪt/,create text,Write stories.
+B2,44,Creative Writing,13,compose,verb,/kəmˈpoʊz/,create,Compose prose.
+B2,44,Creative Writing,14,draft,verb,/ˈdræft/,write first,Draft a chapter.
+B2,44,Creative Writing,15,edit,verb,/ˈɛdɪt/,revise,Edit manuscript.
+B2,44,Creative Writing,16,revise,verb,/rɪˈvaɪz/,change,Revise the draft.
+B2,44,Creative Writing,17,publish,verb,/ˈpʌblɪʃ/,release,Publish a book.
+B2,44,Creative Writing,18,narrate,verb,/ˈnæreɪt/,tell story,Narrate events.
+B2,44,Creative Writing,19,describe,verb,/dɪˈskraɪb/,explain,Describe scenes.
+B2,44,Creative Writing,20,develop,verb,/dɪˈvɛləp/,build up,Develop characters.
+B2,44,Creative Writing,21,outline,verb,/ˈaʊtˌlaɪn/,plan,Outline the plot.
+B2,44,Creative Writing,22,illustrate,verb,/ˈɪləˌstreɪt/,show,Illustrate ideas.
+B2,44,Creative Writing,23,proofread,verb,/ˈprufˌrid/,check errors,Proofread carefully.
+B2,44,Creative Writing,24,submit,verb,/səbˈmɪt/,send in,Submit manuscript.
+B2,44,Creative Writing,25,inspire,verb,/ɪnˈspaɪɚ/,motivate,Inspire readers.
+B2,45,Literature,1,literature,noun,/ˈlɪtərətʃɚ/,written works,Classic literature.
+B2,45,Literature,2,poetry,noun,/ˈpoʊətri/,verse writing,Modern poetry.
+B2,45,Literature,3,prose,noun,/ˈproʊz/,regular writing,Clear prose.
+B2,45,Literature,4,fiction,noun,/ˈfɪkʃən/,made-up stories,Literary fiction.
+B2,45,Literature,5,theme,noun,/ˈθim/,main idea,Central theme.
+B2,45,Literature,6,symbolism,noun,/ˈsɪmbəˌlɪzəm/,symbols used,Rich symbolism.
+B2,45,Literature,7,metaphor,noun,/ˈmɛtəˌfɔr/,comparison,Powerful metaphor.
+B2,45,Literature,8,imagery,noun,/ˈɪmədʒri/,mental pictures,Vivid imagery.
+B2,45,Literature,9,literary,adjective,/ˈlɪtəˌrɛri/,of literature,Literary work.
+B2,45,Literature,10,poetic,adjective,/poʊˈɛtɪk/,of poetry,Poetic language.
+B2,45,Literature,11,classic,adjective,/ˈklæsɪk/,timeless,Classic novel.
+B2,45,Literature,12,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze text.
+B2,45,Literature,13,interpret,verb,/ɪnˈtɜrprɪt/,explain,Interpret meaning.
+B2,45,Literature,14,critique,verb,/krɪˈtik/,evaluate,Critique the work.
+B2,45,Literature,15,compare,verb,/kəmˈpɛr/,find similarities,Compare works.
+B2,45,Literature,16,contrast,verb,/kənˈtræst/,find differences,Contrast styles.
+B2,45,Literature,17,appreciate,verb,/əˈpriʃiˌeɪt/,value,Appreciate literature.
+B2,45,Literature,18,recite,verb,/rɪˈsaɪt/,say from memory,Recite poetry.
+B2,45,Literature,19,symbolize,verb,/ˈsɪmbəˌlaɪz/,represent,Symbolize freedom.
+B2,45,Literature,20,convey,verb,/kənˈveɪ/,communicate,Convey meaning.
+B2,45,Literature,21,evoke,verb,/ɪˈvoʊk/,bring out,Evoke emotions.
+B2,45,Literature,22,portray,verb,/pɔrˈtreɪ/,depict,Portray characters.
+B2,45,Literature,23,reference,verb,/ˈrɛfərəns/,mention,Reference classics.
+B2,45,Literature,24,quote,verb,/ˈkwoʊt/,cite,Quote the author.
+B2,45,Literature,25,summarize,verb,/ˈsʌməˌraɪz/,give brief,Summarize the plot.
+B2,46,Digital Media,1,media,noun,/ˈmidiə/,communication channels,Digital media.
+B2,46,Digital Media,2,content,noun,/ˈkɑntɛnt/,material,Online content.
+B2,46,Digital Media,3,platform,noun,/ˈplætˌfɔrm/,service,Social platform.
+B2,46,Digital Media,4,streaming,noun,/ˈstrimɪŋ/,online viewing,Video streaming.
+B2,46,Digital Media,5,podcast,noun,/ˈpɑdˌkæst/,audio show,Popular podcast.
+B2,46,Digital Media,6,blog,noun,/ˈblɑg/,online journal,Personal blog.
+B2,46,Digital Media,7,influencer,noun,/ˈɪnfluənsɚ/,online personality,Social influencer.
+B2,46,Digital Media,8,subscriber,noun,/səbˈskraɪbɚ/,follower,Gain subscribers.
+B2,46,Digital Media,9,engagement,noun,/ɪnˈgeɪdʒmənt/,interaction,User engagement.
+B2,46,Digital Media,10,viral,adjective,/ˈvaɪrəl/,spreading fast,Viral video.
+B2,46,Digital Media,11,digital,adjective,/ˈdɪdʒɪtəl/,electronic,Digital content.
+B2,46,Digital Media,12,interactive,adjective,/ˌɪntɚˈæktɪv/,two-way,Interactive media.
+B2,46,Digital Media,13,online,adjective,/ˈɑnˌlaɪn/,on internet,Online presence.
+B2,46,Digital Media,14,stream,verb,/ˈstrim/,send live,Stream videos.
+B2,46,Digital Media,15,upload,verb,/ʌpˈloʊd/,put online,Upload content.
+B2,46,Digital Media,16,download,verb,/ˈdaʊnˌloʊd/,get from online,Download files.
+B2,46,Digital Media,17,subscribe,verb,/səbˈskraɪb/,follow,Subscribe to channel.
+B2,46,Digital Media,18,share,verb,/ˈʃɛr/,distribute,Share content.
+B2,46,Digital Media,19,post,verb,/ˈpoʊst/,publish,Post updates.
+B2,46,Digital Media,20,engage,verb,/ɪnˈgeɪdʒ/,interact,Engage audience.
+B2,46,Digital Media,21,monetize,verb,/ˈmɑnɪˌtaɪz/,make money,Monetize content.
+B2,46,Digital Media,22,curate,verb,/ˈkjʊreɪt/,select,Curate content.
+B2,46,Digital Media,23,broadcast,verb,/ˈbrɔdˌkæst/,transmit,Broadcast live.
+B2,46,Digital Media,24,trend,verb,/ˈtrɛnd/,become popular,Trending now.
+B2,46,Digital Media,25,influence,verb,/ˈɪnfluəns/,affect,Influence followers.
+B2,46,Digital Media,26,promote,verb,/prəˈmoʊt/,advertise,Promote content.
+B2,46,Digital Media,27,collaborate,verb,/kəˈlæbəˌreɪt/,work together,Collaborate online.
+B2,46,Digital Media,28,create,verb,/kriˈeɪt/,make,Create content.
+B2,46,Digital Media,29,consume,verb,/kənˈsum/,use,Consume media.
+B2,46,Digital Media,30,unsubscribe,verb,/ˌʌnsəbˈskraɪb/,stop following,Unsubscribe from list.
+B2,47,Journalism,1,journalism,noun,/ˈdʒɜrnəˌlɪzəm/,news reporting,Investigative journalism.
+B2,47,Journalism,2,journalist,noun,/ˈdʒɜrnəlɪst/,reporter,Professional journalist.
+B2,47,Journalism,3,reporter,noun,/rɪˈpɔrtɚ/,news person,News reporter.
+B2,47,Journalism,4,headline,noun,/ˈhɛdˌlaɪn/,title,Breaking headline.
+B2,47,Journalism,5,article,noun,/ˈɑrtɪkəl/,news piece,News article.
+B2,47,Journalism,6,source,noun,/ˈsɔrs/,information origin,Reliable source.
+B2,47,Journalism,7,editorial,noun,/ˌɛdɪˈtɔriəl/,opinion piece,Newspaper editorial.
+B2,47,Journalism,8,coverage,noun,/ˈkʌvərɪdʒ/,reporting,News coverage.
+B2,47,Journalism,9,deadline,noun,/ˈdɛdˌlaɪn/,due time,Meet the deadline.
+B2,47,Journalism,10,press,noun,/ˈprɛs/,media,Press conference.
+B2,47,Journalism,11,objective,adjective,/əbˈdʒɛktɪv/,unbiased,Objective reporting.
+B2,47,Journalism,12,investigative,adjective,/ɪnˈvɛstɪˌgeɪtɪv/,research-based,Investigative report.
+B2,47,Journalism,13,breaking,adjective,/ˈbreɪkɪŋ/,just happening,Breaking news.
+B2,47,Journalism,14,report,verb,/rɪˈpɔrt/,tell news,Report the story.
+B2,47,Journalism,15,investigate,verb,/ɪnˈvɛstɪˌgeɪt/,research deeply,Investigate claims.
+B2,47,Journalism,16,interview,verb,/ˈɪntɚˌvju/,question,Interview sources.
+B2,47,Journalism,17,cover,verb,/ˈkʌvɚ/,report on,Cover the event.
+B2,47,Journalism,18,publish,verb,/ˈpʌblɪʃ/,release,Publish article.
+B2,47,Journalism,19,broadcast,verb,/ˈbrɔdˌkæst/,send out,Broadcast news.
+B2,47,Journalism,20,verify,verb,/ˈvɛrəˌfaɪ/,confirm,Verify facts.
+B2,47,Journalism,21,edit,verb,/ˈɛdɪt/,revise,Edit the story.
+B2,47,Journalism,22,quote,verb,/ˈkwoʊt/,cite words,Quote sources.
+B2,47,Journalism,23,expose,verb,/ɪkˈspoʊz/,reveal,Expose corruption.
+B2,47,Journalism,24,uncover,verb,/ʌnˈkʌvɚ/,discover,Uncover truth.
+B2,47,Journalism,25,document,verb,/ˈdɑkjəˌmɛnt/,record,Document events.
+B2,47,Journalism,26,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze data.
+B2,47,Journalism,27,summarize,verb,/ˈsʌməˌraɪz/,give brief,Summarize findings.
+B2,47,Journalism,28,inform,verb,/ɪnˈfɔrm/,tell,Inform the public.
+B2,47,Journalism,29,update,verb,/ʌpˈdeɪt/,give new info,Update the story.
+B2,47,Journalism,30,retract,verb,/rɪˈtrækt/,take back,Retract statement.
+B2,48,Computer Systems,1,system,noun,/ˈsɪstəm/,computer setup,Operating system.
+B2,48,Computer Systems,2,software,noun,/ˈsɔftˌwɛr/,programs,Install software.
+B2,48,Computer Systems,3,hardware,noun,/ˈhɑrdˌwɛr/,physical parts,Computer hardware.
+B2,48,Computer Systems,4,network,noun,/ˈnɛtˌwɜrk/,connected computers,Computer network.
+B2,48,Computer Systems,5,database,noun,/ˈdeɪtəˌbeɪs/,data storage,Large database.
+B2,48,Computer Systems,6,server,noun,/ˈsɜrvɚ/,central computer,Web server.
+B2,48,Computer Systems,7,processor,noun,/ˈprɑsɛsɚ/,CPU,Fast processor.
+B2,48,Computer Systems,8,memory,noun,/ˈmɛmri/,RAM,Enough memory.
+B2,48,Computer Systems,9,storage,noun,/ˈstɔrɪdʒ/,data keeping,Cloud storage.
+B2,48,Computer Systems,10,interface,noun,/ˈɪntɚˌfeɪs/,user screen,User interface.
+B2,48,Computer Systems,11,digital,adjective,/ˈdɪdʒɪtəl/,computer-based,Digital system.
+B2,48,Computer Systems,12,compatible,adjective,/kəmˈpætəbəl/,works together,Compatible software.
+B2,48,Computer Systems,13,wireless,adjective,/ˈwaɪərlɪs/,no wires,Wireless network.
+B2,48,Computer Systems,14,install,verb,/ɪnˈstɔl/,set up,Install program.
+B2,48,Computer Systems,15,configure,verb,/kənˈfɪgjɚ/,set up,Configure settings.
+B2,48,Computer Systems,16,update,verb,/ʌpˈdeɪt/,make current,Update software.
+B2,48,Computer Systems,17,upgrade,verb,/ʌpˈgreɪd/,improve,Upgrade system.
+B2,48,Computer Systems,18,backup,verb,/ˈbækˌʌp/,copy data,Backup files.
+B2,48,Computer Systems,19,restore,verb,/rɪˈstɔr/,bring back,Restore data.
+B2,48,Computer Systems,20,encrypt,verb,/ɪnˈkrɪpt/,secure,Encrypt data.
+B2,48,Computer Systems,21,debug,verb,/diˈbʌg/,fix errors,Debug code.
+B2,48,Computer Systems,22,reboot,verb,/riˈbut/,restart,Reboot computer.
+B2,48,Computer Systems,23,crash,verb,/ˈkræʃ/,fail,System crashes.
+B2,48,Computer Systems,24,connect,verb,/kəˈnɛkt/,link,Connect to network.
+B2,48,Computer Systems,25,sync,verb,/ˈsɪŋk/,match data,Sync devices.
+B2,48,Computer Systems,26,process,verb,/ˈprɑsɛs/,handle,Process data.
+B2,48,Computer Systems,27,store,verb,/ˈstɔr/,save,Store information.
+B2,48,Computer Systems,28,retrieve,verb,/rɪˈtriv/,get back,Retrieve files.
+B2,48,Computer Systems,29,optimize,verb,/ˈɑptəˌmaɪz/,improve,Optimize performance.
+B2,48,Computer Systems,30,maintain,verb,/meɪnˈteɪn/,keep working,Maintain system.
+B2,49,Technology Innovation,1,technology,noun,/tɛkˈnɑlədʒi/,applied science,New technology.
+B2,49,Technology Innovation,2,innovation,noun,/ˌɪnəˈveɪʃən/,new idea,Tech innovation.
+B2,49,Technology Innovation,3,invention,noun,/ɪnˈvɛnʃən/,new creation,Great invention.
+B2,49,Technology Innovation,4,breakthrough,noun,/ˈbreɪkˌθru/,major advance,Scientific breakthrough.
+B2,49,Technology Innovation,5,advancement,noun,/ədˈvænsmənt/,progress,Technological advancement.
+B2,49,Technology Innovation,6,development,noun,/dɪˈvɛləpmənt/,growth,Product development.
+B2,49,Technology Innovation,7,prototype,noun,/ˈproʊtəˌtaɪp/,first model,Build prototype.
+B2,49,Technology Innovation,8,cutting-edge,adjective,/ˈkʌtɪŋ ˌɛdʒ/,most advanced,Cutting-edge tech.
+B2,49,Technology Innovation,9,innovative,adjective,/ˈɪnəˌveɪtɪv/,new and creative,Innovative solution.
+B2,49,Technology Innovation,10,revolutionary,adjective,/ˌrɛvəˈluʃəˌnɛri/,changing everything,Revolutionary product.
+B2,49,Technology Innovation,11,emerging,adjective,/ɪˈmɜrdʒɪŋ/,coming up,Emerging technology.
+B2,49,Technology Innovation,12,obsolete,adjective,/ˌɑbsəˈlit/,outdated,Obsolete tech.
+B2,49,Technology Innovation,13,innovate,verb,/ˈɪnəˌveɪt/,create new,Innovate constantly.
+B2,49,Technology Innovation,14,invent,verb,/ɪnˈvɛnt/,create,Invent solutions.
+B2,49,Technology Innovation,15,develop,verb,/dɪˈvɛləp/,build,Develop products.
+B2,49,Technology Innovation,16,design,verb,/dɪˈzaɪn/,plan,Design systems.
+B2,49,Technology Innovation,17,engineer,verb,/ˌɛndʒɪˈnɪr/,create technically,Engineer solutions.
+B2,49,Technology Innovation,18,patent,verb,/ˈpætənt/,protect legally,Patent invention.
+B2,49,Technology Innovation,19,launch,verb,/ˈlɔntʃ/,release,Launch product.
+B2,49,Technology Innovation,20,revolutionize,verb,/ˌrɛvəˈluʃəˌnaɪz/,change completely,Revolutionize industry.
+B2,49,Technology Innovation,21,transform,verb,/trænsˈfɔrm/,change,Transform market.
+B2,49,Technology Innovation,22,automate,verb,/ˈɔtəˌmeɪt/,make automatic,Automate processes.
+B2,49,Technology Innovation,23,digitize,verb,/ˈdɪdʒɪˌtaɪz/,make digital,Digitize records.
+B2,49,Technology Innovation,24,integrate,verb,/ˈɪntɪˌgreɪt/,combine,Integrate systems.
+B2,49,Technology Innovation,25,implement,verb,/ˈɪmpləˌmɛnt/,put in place,Implement solutions.
+B2,49,Technology Innovation,26,pioneer,verb,/ˌpaɪəˈnɪr/,lead the way,Pioneer technology.
+B2,49,Technology Innovation,27,disrupt,verb,/dɪsˈrʌpt/,shake up,Disrupt industry.
+B2,49,Technology Innovation,28,advance,verb,/ædˈvæns/,move forward,Advance technology.
+B2,49,Technology Innovation,29,enhance,verb,/ɪnˈhæns/,improve,Enhance capabilities.
+B2,49,Technology Innovation,30,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline processes.
+B2,50,Data Analysis,1,data,noun,/ˈdeɪtə/,information,Analyze data.
+B2,50,Data Analysis,2,analysis,noun,/əˈnæləsɪs/,examination,Data analysis.
+B2,50,Data Analysis,3,statistics,noun,/stəˈtɪstɪks/,numbers,Review statistics.
+B2,50,Data Analysis,4,trend,noun,/ˈtrɛnd/,pattern,Identify trends.
+B2,50,Data Analysis,5,pattern,noun,/ˈpætɚn/,regular form,Find patterns.
+B2,50,Data Analysis,6,insight,noun,/ˈɪnˌsaɪt/,understanding,Gain insights.
+B2,50,Data Analysis,7,metric,noun,/ˈmɛtrɪk/,measurement,Key metrics.
+B2,50,Data Analysis,8,variable,noun,/ˈvɛriəbəl/,changeable factor,Control variables.
+B2,50,Data Analysis,9,correlation,noun,/ˌkɔrəˈleɪʃən/,connection,Find correlation.
+B2,50,Data Analysis,10,dataset,noun,/ˈdeɪtəˌsɛt/,data collection,Large dataset.
+B2,50,Data Analysis,11,analytical,adjective,/ˌænəˈlɪtɪkəl/,examining,Analytical skills.
+B2,50,Data Analysis,12,statistical,adjective,/stəˈtɪstɪkəl/,of statistics,Statistical analysis.
+B2,50,Data Analysis,13,quantitative,adjective,/ˈkwɑntɪˌteɪtɪv/,number-based,Quantitative data.
+B2,50,Data Analysis,14,qualitative,adjective,/ˈkwɑlɪˌteɪtɪv/,quality-based,Qualitative research.
+B2,50,Data Analysis,15,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze data.
+B2,50,Data Analysis,16,interpret,verb,/ɪnˈtɜrprɪt/,explain,Interpret results.
+B2,50,Data Analysis,17,measure,verb,/ˈmɛʒɚ/,quantify,Measure outcomes.
+B2,50,Data Analysis,18,calculate,verb,/ˈkælkjəˌleɪt/,compute,Calculate totals.
+B2,50,Data Analysis,19,compare,verb,/kəmˈpɛr/,examine together,Compare data.
+B2,50,Data Analysis,20,correlate,verb,/ˈkɔrəˌleɪt/,connect,Correlate factors.
+B2,50,Data Analysis,21,visualize,verb,/ˈvɪʒuəˌlaɪz/,show graphically,Visualize data.
+B2,50,Data Analysis,22,predict,verb,/prɪˈdɪkt/,forecast,Predict trends.
+B2,50,Data Analysis,23,identify,verb,/aɪˈdɛntɪˌfaɪ/,recognize,Identify patterns.
+B2,50,Data Analysis,24,extract,verb,/ɪkˈstrækt/,pull out,Extract information.
+B2,50,Data Analysis,25,process,verb,/ˈprɑsɛs/,handle,Process data.
+B2,50,Data Analysis,26,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate results.
+B2,50,Data Analysis,27,summarize,verb,/ˈsʌməˌraɪz/,give brief,Summarize findings.
+B2,50,Data Analysis,28,model,verb,/ˈmɑdəl/,create representation,Model scenarios.
+B2,50,Data Analysis,29,segment,verb,/ˈsɛgmənt/,divide,Segment data.
+B2,50,Data Analysis,30,aggregate,verb,/ˈægrɪˌgeɪt/,combine,Aggregate results.
+B2,51,Mathematical Concepts,1,mathematics,noun,/ˌmæθəˈmætɪks/,number science,Study mathematics.
+B2,51,Mathematical Concepts,2,equation,noun,/ɪˈkweɪʒən/,math statement,Solve equation.
+B2,51,Mathematical Concepts,3,formula,noun,/ˈfɔrmjələ/,math rule,Apply formula.
+B2,51,Mathematical Concepts,4,variable,noun,/ˈvɛriəbəl/,unknown value,Find the variable.
+B2,51,Mathematical Concepts,5,function,noun,/ˈfʌŋkʃən/,math relation,Graph function.
+B2,51,Mathematical Concepts,6,probability,noun,/ˌprɑbəˈbɪləti/,chance,Calculate probability.
+B2,51,Mathematical Concepts,7,percentage,noun,/pɚˈsɛntɪdʒ/,part of 100,Express as percentage.
+B2,51,Mathematical Concepts,8,ratio,noun,/ˈreɪʃioʊ/,proportion,Simple ratio.
+B2,51,Mathematical Concepts,9,mathematical,adjective,/ˌmæθəˈmætɪkəl/,of math,Mathematical problem.
+B2,51,Mathematical Concepts,10,numerical,adjective,/nuˈmɛrɪkəl/,with numbers,Numerical data.
+B2,51,Mathematical Concepts,11,calculate,verb,/ˈkælkjəˌleɪt/,compute,Calculate the answer.
+B2,51,Mathematical Concepts,12,solve,verb,/ˈsɑlv/,find answer,Solve the problem.
+B2,51,Mathematical Concepts,13,multiply,verb,/ˈmʌltəˌplaɪ/,times,Multiply by two.
+B2,51,Mathematical Concepts,14,divide,verb,/dɪˈvaɪd/,split,Divide equally.
+B2,51,Mathematical Concepts,15,subtract,verb,/səbˈtrækt/,take away,Subtract the amount.
+B2,51,Mathematical Concepts,16,add,verb,/ˈæd/,combine,Add the numbers.
+B2,51,Mathematical Concepts,17,estimate,verb,/ˈɛstəˌmeɪt/,guess value,Estimate the total.
+B2,51,Mathematical Concepts,18,prove,verb,/ˈpruv/,show true,Prove the theorem.
+B2,51,Mathematical Concepts,19,derive,verb,/dɪˈraɪv/,get from,Derive the formula.
+B2,51,Mathematical Concepts,20,graph,verb,/ˈgræf/,plot,Graph the data.
+B2,51,Mathematical Concepts,21,convert,verb,/kənˈvɜrt/,change form,Convert units.
+B2,51,Mathematical Concepts,22,round,verb,/ˈraʊnd/,adjust number,Round to nearest.
+B2,51,Mathematical Concepts,23,factor,verb,/ˈfæktɚ/,break down,Factor the expression.
+B2,51,Mathematical Concepts,24,quantify,verb,/ˈkwɑntɪˌfaɪ/,express number,Quantify results.
+B2,51,Mathematical Concepts,25,simplify,verb,/ˈsɪmpləˌfaɪ/,make easier,Simplify the fraction.
+B2,52,Scientific Research,1,research,noun,/ˈrisɜrtʃ/,investigation,Scientific research.
+B2,52,Scientific Research,2,experiment,noun,/ɪkˈspɛrɪmənt/,test,Conduct experiment.
+B2,52,Scientific Research,3,hypothesis,noun,/haɪˈpɑθəsɪs/,theory,Test hypothesis.
+B2,52,Scientific Research,4,theory,noun,/ˈθɪri/,explanation,Develop theory.
+B2,52,Scientific Research,5,evidence,noun,/ˈɛvɪdəns/,proof,Gather evidence.
+B2,52,Scientific Research,6,conclusion,noun,/kənˈkluʒən/,result,Draw conclusion.
+B2,52,Scientific Research,7,methodology,noun,/ˌmɛθəˈdɑlədʒi/,approach,Research methodology.
+B2,52,Scientific Research,8,laboratory,noun,/ˈlæbrəˌtɔri/,science room,Work in laboratory.
+B2,52,Scientific Research,9,specimen,noun,/ˈspɛsɪmən/,sample,Examine specimen.
+B2,52,Scientific Research,10,scientific,adjective,/ˌsaɪənˈtɪfɪk/,of science,Scientific method.
+B2,52,Scientific Research,11,empirical,adjective,/ɪmˈpɪrɪkəl/,based on observation,Empirical evidence.
+B2,52,Scientific Research,12,theoretical,adjective,/ˌθɪəˈrɛtɪkəl/,based on theory,Theoretical framework.
+B2,52,Scientific Research,13,experimental,adjective,/ɪkˌspɛrɪˈmɛntəl/,test-based,Experimental design.
+B2,52,Scientific Research,14,research,verb,/rɪˈsɜrtʃ/,investigate,Research the topic.
+B2,52,Scientific Research,15,experiment,verb,/ɪkˈspɛrɪˌmɛnt/,test,Experiment with variables.
+B2,52,Scientific Research,16,observe,verb,/əbˈzɜrv/,watch,Observe carefully.
+B2,52,Scientific Research,17,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze results.
+B2,52,Scientific Research,18,hypothesize,verb,/haɪˈpɑθəˌsaɪz/,propose,Hypothesize outcomes.
+B2,52,Scientific Research,19,conclude,verb,/kənˈklud/,decide,Conclude findings.
+B2,52,Scientific Research,20,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate results.
+B2,52,Scientific Research,21,replicate,verb,/ˈrɛpləˌkeɪt/,repeat,Replicate experiment.
+B2,52,Scientific Research,22,discover,verb,/dɪˈskʌvɚ/,find,Discover new findings.
+B2,52,Scientific Research,23,document,verb,/ˈdɑkjəˌmɛnt/,record,Document results.
+B2,52,Scientific Research,24,publish,verb,/ˈpʌblɪʃ/,release,Publish research.
+B2,52,Scientific Research,25,peer-review,verb,/ˈpɪr rɪˈvju/,evaluate,Peer-review the paper.
+B2,52,Scientific Research,26,verify,verb,/ˈvɛrəˌfaɪ/,confirm,Verify findings.
+B2,52,Scientific Research,27,test,verb,/ˈtɛst/,check,Test the hypothesis.
+B2,52,Scientific Research,28,measure,verb,/ˈmɛʒɚ/,quantify,Measure variables.
+B2,52,Scientific Research,29,sample,verb,/ˈsæmpəl/,take portion,Sample population.
+B2,52,Scientific Research,30,control,verb,/kənˈtroʊl/,manage,Control variables.
+B2,53,Medical Care,1,healthcare,noun,/ˈhɛlθˌkɛr/,medical services,Access healthcare.
+B2,53,Medical Care,2,treatment,noun,/ˈtritmənt/,medical care,Receive treatment.
+B2,53,Medical Care,3,diagnosis,noun,/ˌdaɪəgˈnoʊsɪs/,identification,Accurate diagnosis.
+B2,53,Medical Care,4,symptom,noun,/ˈsɪmptəm/,sign,Common symptoms.
+B2,53,Medical Care,5,prescription,noun,/prɪˈskrɪpʃən/,medicine order,Fill prescription.
+B2,53,Medical Care,6,surgery,noun,/ˈsɜrdʒəri/,operation,Undergo surgery.
+B2,53,Medical Care,7,therapy,noun,/ˈθɛrəpi/,treatment,Physical therapy.
+B2,53,Medical Care,8,recovery,noun,/rɪˈkʌvəri/,healing,Full recovery.
+B2,53,Medical Care,9,patient,noun,/ˈpeɪʃənt/,sick person,Treat patients.
+B2,53,Medical Care,10,physician,noun,/fɪˈzɪʃən/,doctor,See a physician.
+B2,53,Medical Care,11,medical,adjective,/ˈmɛdɪkəl/,of medicine,Medical care.
+B2,53,Medical Care,12,clinical,adjective,/ˈklɪnɪkəl/,of clinic,Clinical trial.
+B2,53,Medical Care,13,chronic,adjective,/ˈkrɑnɪk/,long-lasting,Chronic condition.
+B2,53,Medical Care,14,acute,adjective,/əˈkjut/,severe,Acute pain.
+B2,53,Medical Care,15,diagnose,verb,/ˈdaɪəgˌnoʊz/,identify,Diagnose the illness.
+B2,53,Medical Care,16,treat,verb,/ˈtrit/,give care,Treat the patient.
+B2,53,Medical Care,17,prescribe,verb,/prɪˈskraɪb/,order medicine,Prescribe medication.
+B2,53,Medical Care,18,examine,verb,/ɪgˈzæmɪn/,check,Examine the patient.
+B2,53,Medical Care,19,operate,verb,/ˈɑpəˌreɪt/,do surgery,Operate on patient.
+B2,53,Medical Care,20,recover,verb,/rɪˈkʌvɚ/,get better,Recover from illness.
+B2,53,Medical Care,21,refer,verb,/rɪˈfɜr/,send to specialist,Refer to doctor.
+B2,53,Medical Care,22,immunize,verb,/ˈɪmjəˌnaɪz/,vaccinate,Immunize children.
+B2,53,Medical Care,23,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate patients.
+B2,53,Medical Care,24,monitor,verb,/ˈmɑnɪtɚ/,track,Monitor health.
+B2,53,Medical Care,25,prevent,verb,/prɪˈvɛnt/,stop,Prevent disease.
+B2,53,Medical Care,26,cure,verb,/ˈkjʊr/,heal,Cure the illness.
+B2,53,Medical Care,27,administer,verb,/ædˈmɪnɪstɚ/,give medicine,Administer treatment.
+B2,53,Medical Care,28,consult,verb,/kənˈsʌlt/,seek advice,Consult a doctor.
+B2,53,Medical Care,29,hospitalize,verb,/ˈhɑspɪtəˌlaɪz/,admit to hospital,Hospitalize patient.
+B2,53,Medical Care,30,discharge,verb,/dɪsˈtʃɑrdʒ/,release,Discharge from hospital.
+B2,54,Agricultural Farming,1,agriculture,noun,/ˈægrɪˌkʌltʃɚ/,farming,Modern agriculture.
+B2,54,Agricultural Farming,2,crop,noun,/ˈkrɑp/,plant grown,Harvest crops.
+B2,54,Agricultural Farming,3,harvest,noun,/ˈhɑrvɪst/,gathering,Good harvest.
+B2,54,Agricultural Farming,4,livestock,noun,/ˈlaɪvˌstɑk/,farm animals,Raise livestock.
+B2,54,Agricultural Farming,5,irrigation,noun,/ˌɪrɪˈgeɪʃən/,watering,Irrigation system.
+B2,54,Agricultural Farming,6,fertilizer,noun,/ˈfɜrtəˌlaɪzɚ/,plant food,Apply fertilizer.
+B2,54,Agricultural Farming,7,pesticide,noun,/ˈpɛstɪˌsaɪd/,bug killer,Use pesticide.
+B2,54,Agricultural Farming,8,yield,noun,/ˈjild/,amount produced,High yield.
+B2,54,Agricultural Farming,9,agricultural,adjective,/ˌægrɪˈkʌltʃərəl/,of farming,Agricultural land.
+B2,54,Agricultural Farming,10,organic,adjective,/ɔrˈgænɪk/,natural,Organic farming.
+B2,54,Agricultural Farming,11,sustainable,adjective,/səˈsteɪnəbəl/,long-term,Sustainable practices.
+B2,54,Agricultural Farming,12,cultivate,verb,/ˈkʌltɪˌveɪt/,grow,Cultivate land.
+B2,54,Agricultural Farming,13,harvest,verb,/ˈhɑrvɪst/,gather,Harvest crops.
+B2,54,Agricultural Farming,14,irrigate,verb,/ˈɪrɪˌgeɪt/,water,Irrigate fields.
+B2,54,Agricultural Farming,15,fertilize,verb,/ˈfɜrtəˌlaɪz/,feed plants,Fertilize soil.
+B2,54,Agricultural Farming,16,plant,verb,/ˈplænt/,put seeds,Plant crops.
+B2,54,Agricultural Farming,17,breed,verb,/ˈbrid/,reproduce,Breed animals.
+B2,54,Agricultural Farming,18,graze,verb,/ˈgreɪz/,eat grass,Cattle graze.
+B2,54,Agricultural Farming,19,plow,verb,/ˈplaʊ/,turn soil,Plow the field.
+B2,54,Agricultural Farming,20,sow,verb,/ˈsoʊ/,plant seeds,Sow seeds.
+B2,54,Agricultural Farming,21,reap,verb,/ˈrip/,cut crops,Reap benefits.
+B2,54,Agricultural Farming,22,rotate,verb,/ˈroʊteɪt/,change,Rotate crops.
+B2,54,Agricultural Farming,23,yield,verb,/ˈjild/,produce,Fields yield crops.
+B2,54,Agricultural Farming,24,process,verb,/ˈprɑsɛs/,prepare,Process products.
+B2,54,Agricultural Farming,25,export,verb,/ɪkˈspɔrt/,send abroad,Export produce.
+B2,55,Industrial Manufacturing,1,manufacturing,noun,/ˌmænjəˈfæktʃɚɪŋ/,making goods,Industrial manufacturing.
+B2,55,Industrial Manufacturing,2,factory,noun,/ˈfæktəri/,production site,Large factory.
+B2,55,Industrial Manufacturing,3,production,noun,/prəˈdʌkʃən/,making,Mass production.
+B2,55,Industrial Manufacturing,4,assembly,noun,/əˈsɛmbli/,putting together,Assembly line.
+B2,55,Industrial Manufacturing,5,machinery,noun,/məˈʃinəri/,machines,Heavy machinery.
+B2,55,Industrial Manufacturing,6,output,noun,/ˈaʊtˌpʊt/,amount made,Daily output.
+B2,55,Industrial Manufacturing,7,quality,noun,/ˈkwɑləti/,standard,Quality control.
+B2,55,Industrial Manufacturing,8,industrial,adjective,/ɪnˈdʌstriəl/,of industry,Industrial zone.
+B2,55,Industrial Manufacturing,9,automated,adjective,/ˈɔtəˌmeɪtɪd/,machine-run,Automated process.
+B2,55,Industrial Manufacturing,10,efficient,adjective,/ɪˈfɪʃənt/,productive,Efficient production.
+B2,55,Industrial Manufacturing,11,manufacture,verb,/ˌmænjəˈfæktʃɚ/,make,Manufacture goods.
+B2,55,Industrial Manufacturing,12,produce,verb,/prəˈdus/,create,Produce items.
+B2,55,Industrial Manufacturing,13,assemble,verb,/əˈsɛmbəl/,put together,Assemble parts.
+B2,55,Industrial Manufacturing,14,automate,verb,/ˈɔtəˌmeɪt/,use machines,Automate process.
+B2,55,Industrial Manufacturing,15,inspect,verb,/ɪnˈspɛkt/,check,Inspect products.
+B2,55,Industrial Manufacturing,16,fabricate,verb,/ˈfæbrɪˌkeɪt/,create,Fabricate components.
+B2,55,Industrial Manufacturing,17,process,verb,/ˈprɑsɛs/,work on,Process materials.
+B2,55,Industrial Manufacturing,18,package,verb,/ˈpækɪdʒ/,wrap,Package goods.
+B2,55,Industrial Manufacturing,19,distribute,verb,/dɪˈstrɪbjut/,send out,Distribute products.
+B2,55,Industrial Manufacturing,20,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline production.
+B2,55,Industrial Manufacturing,21,operate,verb,/ˈɑpəˌreɪt/,run,Operate machinery.
+B2,55,Industrial Manufacturing,22,maintain,verb,/meɪnˈteɪn/,keep working,Maintain equipment.
+B2,55,Industrial Manufacturing,23,optimize,verb,/ˈɑptəˌmaɪz/,improve,Optimize output.
+B2,55,Industrial Manufacturing,24,standardize,verb,/ˈstændɚˌdaɪz/,make uniform,Standardize processes.
+B2,55,Industrial Manufacturing,25,outsource,verb,/ˈaʊtˌsɔrs/,hire outside,Outsource production.
+B2,56,Building Construction,1,construction,noun,/kənˈstrʌkʃən/,building,Under construction.
+B2,56,Building Construction,2,structure,noun,/ˈstrʌktʃɚ/,building,Tall structure.
+B2,56,Building Construction,3,foundation,noun,/faʊnˈdeɪʃən/,base,Strong foundation.
+B2,56,Building Construction,4,blueprint,noun,/ˈbluˌprɪnt/,plan,Review blueprint.
+B2,56,Building Construction,5,contractor,noun,/ˈkɑntræktɚ/,builder,Hire contractor.
+B2,56,Building Construction,6,architect,noun,/ˈɑrkɪˌtɛkt/,designer,Famous architect.
+B2,56,Building Construction,7,permit,noun,/ˈpɜrmɪt/,permission,Building permit.
+B2,56,Building Construction,8,scaffolding,noun,/ˈskæfəldɪŋ/,support frame,Erect scaffolding.
+B2,56,Building Construction,9,structural,adjective,/ˈstrʌktʃərəl/,of structure,Structural damage.
+B2,56,Building Construction,10,residential,adjective,/ˌrɛzɪˈdɛnʃəl/,for living,Residential building.
+B2,56,Building Construction,11,commercial,adjective,/kəˈmɜrʃəl/,for business,Commercial property.
+B2,56,Building Construction,12,construct,verb,/kənˈstrʌkt/,build,Construct building.
+B2,56,Building Construction,13,build,verb,/ˈbɪld/,make,Build a house.
+B2,56,Building Construction,14,design,verb,/dɪˈzaɪn/,plan,Design structure.
+B2,56,Building Construction,15,demolish,verb,/dɪˈmɑlɪʃ/,tear down,Demolish old building.
+B2,56,Building Construction,16,renovate,verb,/ˈrɛnəˌveɪt/,restore,Renovate property.
+B2,56,Building Construction,17,install,verb,/ɪnˈstɔl/,put in,Install fixtures.
+B2,56,Building Construction,18,excavate,verb,/ˈɛkskəˌveɪt/,dig,Excavate site.
+B2,56,Building Construction,19,erect,verb,/ɪˈrɛkt/,put up,Erect structure.
+B2,56,Building Construction,20,inspect,verb,/ɪnˈspɛkt/,check,Inspect site.
+B2,56,Building Construction,21,reinforce,verb,/ˌriɪnˈfɔrs/,strengthen,Reinforce walls.
+B2,56,Building Construction,22,complete,verb,/kəmˈplit/,finish,Complete project.
+B2,56,Building Construction,23,approve,verb,/əˈpruv/,accept,Approve plans.
+B2,56,Building Construction,24,contract,verb,/kənˈtrækt/,hire,Contract builders.
+B2,56,Building Construction,25,estimate,verb,/ˈɛstəˌmeɪt/,calculate cost,Estimate expenses.
+B2,56,Building Construction,26,plan,verb,/ˈplæn/,design,Plan construction.
+B2,56,Building Construction,27,survey,verb,/sɚˈveɪ/,examine,Survey land.
+B2,56,Building Construction,28,zone,verb,/ˈzoʊn/,designate,Zone for residential.
+B2,56,Building Construction,29,comply,verb,/kəmˈplaɪ/,follow rules,Comply with codes.
+B2,56,Building Construction,30,commission,verb,/kəˈmɪʃən/,order,Commission project.
+B2,57,Security,1,security,noun,/sɪˈkjʊrəti/,safety,National security.
+B2,57,Security,2,surveillance,noun,/sɚˈveɪləns/,watching,Video surveillance.
+B2,57,Security,3,protection,noun,/prəˈtɛkʃən/,defense,Data protection.
+B2,57,Security,4,threat,noun,/ˈθrɛt/,danger,Security threat.
+B2,57,Security,5,breach,noun,/ˈbritʃ/,break-in,Security breach.
+B2,57,Security,6,access,noun,/ˈæksɛs/,entry,Restricted access.
+B2,57,Security,7,alarm,noun,/əˈlɑrm/,warning,Trigger alarm.
+B2,57,Security,8,secure,adjective,/sɪˈkjʊr/,safe,Secure location.
+B2,57,Security,9,confidential,adjective,/ˌkɑnfɪˈdɛnʃəl/,secret,Confidential information.
+B2,57,Security,10,vulnerable,adjective,/ˈvʌlnərəbəl/,at risk,Vulnerable system.
+B2,57,Security,11,secure,verb,/sɪˈkjʊr/,make safe,Secure the building.
+B2,57,Security,12,protect,verb,/prəˈtɛkt/,guard,Protect data.
+B2,57,Security,13,monitor,verb,/ˈmɑnɪtɚ/,watch,Monitor activity.
+B2,57,Security,14,detect,verb,/dɪˈtɛkt/,find,Detect threats.
+B2,57,Security,15,prevent,verb,/prɪˈvɛnt/,stop,Prevent breach.
+B2,57,Security,16,encrypt,verb,/ɪnˈkrɪpt/,code,Encrypt data.
+B2,57,Security,17,authenticate,verb,/ɔˈθɛntɪˌkeɪt/,verify,Authenticate users.
+B2,57,Security,18,authorize,verb,/ˈɔθəˌraɪz/,permit,Authorize access.
+B2,57,Security,19,restrict,verb,/rɪˈstrɪkt/,limit,Restrict entry.
+B2,57,Security,20,verify,verb,/ˈvɛrəˌfaɪ/,confirm,Verify identity.
+B2,57,Security,21,guard,verb,/ˈgɑrd/,protect,Guard premises.
+B2,57,Security,22,screen,verb,/ˈskrin/,check,Screen visitors.
+B2,57,Security,23,investigate,verb,/ɪnˈvɛstɪˌgeɪt/,examine,Investigate incident.
+B2,57,Security,24,respond,verb,/rɪˈspɑnd/,react,Respond to threat.
+B2,57,Security,25,enforce,verb,/ɪnˈfɔrs/,apply,Enforce rules.
+B2,58,Crime Prevention,1,crime,noun,/ˈkraɪm/,illegal act,Prevent crime.
+B2,58,Crime Prevention,2,prevention,noun,/prɪˈvɛnʃən/,stopping,Crime prevention.
+B2,58,Crime Prevention,3,criminal,noun,/ˈkrɪmɪnəl/,lawbreaker,Catch criminal.
+B2,58,Crime Prevention,4,victim,noun,/ˈvɪktɪm/,target,Crime victim.
+B2,58,Crime Prevention,5,suspect,noun,/ˈsʌspɛkt/,possible criminal,Prime suspect.
+B2,58,Crime Prevention,6,evidence,noun,/ˈɛvɪdəns/,proof,Collect evidence.
+B2,58,Crime Prevention,7,investigation,noun,/ɪnˌvɛstɪˈgeɪʃən/,inquiry,Police investigation.
+B2,58,Crime Prevention,8,arrest,noun,/əˈrɛst/,detention,Make arrest.
+B2,58,Crime Prevention,9,criminal,adjective,/ˈkrɪmɪnəl/,of crime,Criminal activity.
+B2,58,Crime Prevention,10,illegal,adjective,/ɪˈligəl/,against law,Illegal action.
+B2,58,Crime Prevention,11,suspicious,adjective,/səˈspɪʃəs/,questionable,Suspicious behavior.
+B2,58,Crime Prevention,12,prevent,verb,/prɪˈvɛnt/,stop,Prevent crimes.
+B2,58,Crime Prevention,13,investigate,verb,/ɪnˈvɛstɪˌgeɪt/,examine,Investigate case.
+B2,58,Crime Prevention,14,arrest,verb,/əˈrɛst/,detain,Arrest suspect.
+B2,58,Crime Prevention,15,prosecute,verb,/ˈprɑsɪˌkjut/,take to court,Prosecute criminal.
+B2,58,Crime Prevention,16,convict,verb,/kənˈvɪkt/,find guilty,Convict the accused.
+B2,58,Crime Prevention,17,deter,verb,/dɪˈtɜr/,discourage,Deter crime.
+B2,58,Crime Prevention,18,patrol,verb,/pəˈtroʊl/,guard,Patrol area.
+B2,58,Crime Prevention,19,report,verb,/rɪˈpɔrt/,inform,Report crime.
+B2,58,Crime Prevention,20,witness,verb,/ˈwɪtnəs/,see,Witness crime.
+B2,58,Crime Prevention,21,apprehend,verb,/ˌæprɪˈhɛnd/,catch,Apprehend suspect.
+B2,58,Crime Prevention,22,commit,verb,/kəˈmɪt/,do crime,Commit offense.
+B2,58,Crime Prevention,23,offend,verb,/əˈfɛnd/,break law,Repeat offend.
+B2,58,Crime Prevention,24,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,reform,Rehabilitate offenders.
+B2,58,Crime Prevention,25,sentence,verb,/ˈsɛntəns/,give punishment,Sentence criminal.
+B2,58,Crime Prevention,26,charge,verb,/ˈtʃɑrdʒ/,accuse,Charge with crime.
+B2,58,Crime Prevention,27,detect,verb,/dɪˈtɛkt/,discover,Detect fraud.
+B2,58,Crime Prevention,28,enforce,verb,/ɪnˈfɔrs/,apply law,Enforce laws.
+B2,58,Crime Prevention,29,protect,verb,/prəˈtɛkt/,guard,Protect citizens.
+B2,58,Crime Prevention,30,solve,verb,/ˈsɑlv/,resolve,Solve case.
+B2,59,Legal Justice,1,justice,noun,/ˈdʒʌstɪs/,fairness,Seek justice.
+B2,59,Legal Justice,2,law,noun,/ˈlɔ/,rules,Follow the law.
+B2,59,Legal Justice,3,court,noun,/ˈkɔrt/,legal place,Go to court.
+B2,59,Legal Justice,4,trial,noun,/ˈtraɪəl/,legal hearing,Fair trial.
+B2,59,Legal Justice,5,verdict,noun,/ˈvɜrdɪkt/,decision,Reach verdict.
+B2,59,Legal Justice,6,sentence,noun,/ˈsɛntəns/,punishment,Prison sentence.
+B2,59,Legal Justice,7,lawyer,noun,/ˈlɔjɚ/,legal expert,Hire lawyer.
+B2,59,Legal Justice,8,judge,noun,/ˈdʒʌdʒ/,court official,Fair judge.
+B2,59,Legal Justice,9,jury,noun,/ˈdʒʊri/,decision group,Jury trial.
+B2,59,Legal Justice,10,defendant,noun,/dɪˈfɛndənt/,accused,Defend defendant.
+B2,59,Legal Justice,11,legal,adjective,/ˈligəl/,of law,Legal action.
+B2,59,Legal Justice,12,guilty,adjective,/ˈgɪlti/,responsible,Found guilty.
+B2,59,Legal Justice,13,innocent,adjective,/ˈɪnəsənt/,not guilty,Proven innocent.
+B2,59,Legal Justice,14,sue,verb,/ˈsu/,take to court,Sue for damages.
+B2,59,Legal Justice,15,testify,verb,/ˈtɛstɪˌfaɪ/,give evidence,Testify in court.
+B2,59,Legal Justice,16,appeal,verb,/əˈpil/,request review,Appeal decision.
+B2,59,Legal Justice,17,represent,verb,/ˌrɛprɪˈzɛnt/,speak for,Represent client.
+B2,59,Legal Justice,18,defend,verb,/dɪˈfɛnd/,protect legally,Defend accused.
+B2,59,Legal Justice,19,prosecute,verb,/ˈprɑsɪˌkjut/,bring charges,Prosecute case.
+B2,59,Legal Justice,20,convict,verb,/kənˈvɪkt/,find guilty,Convict defendant.
+B2,59,Legal Justice,21,acquit,verb,/əˈkwɪt/,find not guilty,Acquit the accused.
+B2,59,Legal Justice,22,sentence,verb,/ˈsɛntəns/,give punishment,Sentence harshly.
+B2,59,Legal Justice,23,rule,verb,/ˈrul/,decide,Rule in favor.
+B2,59,Legal Justice,24,plead,verb,/ˈplid/,state case,Plead guilty.
+B2,59,Legal Justice,25,settle,verb,/ˈsɛtəl/,resolve,Settle out of court.
+B2,59,Legal Justice,26,file,verb,/ˈfaɪl/,submit,File lawsuit.
+B2,59,Legal Justice,27,dismiss,verb,/dɪsˈmɪs/,reject,Dismiss case.
+B2,59,Legal Justice,28,overturn,verb,/ˌoʊvɚˈtɜrn/,reverse,Overturn verdict.
+B2,59,Legal Justice,29,enforce,verb,/ɪnˈfɔrs/,apply,Enforce ruling.
+B2,59,Legal Justice,30,uphold,verb,/ʌpˈhoʊld/,maintain,Uphold decision.
+B2,60,Military Operations,1,military,noun,/ˈmɪləˌtɛri/,armed forces,Join military.
+B2,60,Military Operations,2,operation,noun,/ˌɑpəˈreɪʃən/,mission,Military operation.
+B2,60,Military Operations,3,commander,noun,/kəˈmændɚ/,leader,Field commander.
+B2,60,Military Operations,4,troops,noun,/ˈtrups/,soldiers,Deploy troops.
+B2,60,Military Operations,5,strategy,noun,/ˈstrætədʒi/,plan,Military strategy.
+B2,60,Military Operations,6,combat,noun,/ˈkɑmbæt/,fighting,Direct combat.
+B2,60,Military Operations,7,defense,noun,/dɪˈfɛns/,protection,National defense.
+B2,60,Military Operations,8,tactical,adjective,/ˈtæktɪkəl/,strategic,Tactical decision.
+B2,60,Military Operations,9,military,adjective,/ˈmɪləˌtɛri/,of armed forces,Military base.
+B2,60,Military Operations,10,armed,adjective,/ˈɑrmd/,with weapons,Armed forces.
+B2,60,Military Operations,11,deploy,verb,/dɪˈplɔɪ/,position,Deploy forces.
+B2,60,Military Operations,12,defend,verb,/dɪˈfɛnd/,protect,Defend territory.
+B2,60,Military Operations,13,attack,verb,/əˈtæk/,strike,Attack enemy.
+B2,60,Military Operations,14,retreat,verb,/rɪˈtrit/,withdraw,Retreat from battle.
+B2,60,Military Operations,15,command,verb,/kəˈmænd/,lead,Command troops.
+B2,60,Military Operations,16,engage,verb,/ɪnˈgeɪdʒ/,fight,Engage enemy.
+B2,60,Military Operations,17,train,verb,/ˈtreɪn/,prepare,Train soldiers.
+B2,60,Military Operations,18,patrol,verb,/pəˈtroʊl/,guard,Patrol border.
+B2,60,Military Operations,19,evacuate,verb,/ɪˈvækjuˌeɪt/,remove,Evacuate civilians.
+B2,60,Military Operations,20,reinforce,verb,/ˌriɪnˈfɔrs/,strengthen,Reinforce position.
+B2,60,Military Operations,21,capture,verb,/ˈkæptʃɚ/,take,Capture territory.
+B2,60,Military Operations,22,surrender,verb,/səˈrɛndɚ/,give up,Surrender forces.
+B2,60,Military Operations,23,mobilize,verb,/ˈmoʊbəˌlaɪz/,prepare,Mobilize army.
+B2,60,Military Operations,24,coordinate,verb,/koʊˈɔrdəˌneɪt/,organize,Coordinate attack.
+B2,60,Military Operations,25,secure,verb,/sɪˈkjʊr/,make safe,Secure area.
+B2,61,Political Systems,1,politics,noun,/ˈpɑlɪtɪks/,government affairs,Study politics.
+B2,61,Political Systems,2,government,noun,/ˈgʌvɚnmənt/,ruling body,Federal government.
+B2,61,Political Systems,3,democracy,noun,/dɪˈmɑkrəsi/,people rule,Strong democracy.
+B2,61,Political Systems,4,election,noun,/ɪˈlɛkʃən/,voting,Presidential election.
+B2,61,Political Systems,5,policy,noun,/ˈpɑləsi/,rules,Government policy.
+B2,61,Political Systems,6,parliament,noun,/ˈpɑrləmənt/,legislature,National parliament.
+B2,61,Political Systems,7,legislation,noun,/ˌlɛdʒɪˈsleɪʃən/,laws made,New legislation.
+B2,61,Political Systems,8,constitution,noun,/ˌkɑnstɪˈtuʃən/,basic law,Written constitution.
+B2,61,Political Systems,9,political,adjective,/pəˈlɪtɪkəl/,of politics,Political party.
+B2,61,Political Systems,10,democratic,adjective,/ˌdɛməˈkrætɪk/,of democracy,Democratic process.
+B2,61,Political Systems,11,federal,adjective,/ˈfɛdərəl/,of federation,Federal system.
+B2,61,Political Systems,12,govern,verb,/ˈgʌvɚn/,rule,Govern the country.
+B2,61,Political Systems,13,elect,verb,/ɪˈlɛkt/,vote for,Elect leaders.
+B2,61,Political Systems,14,vote,verb,/ˈvoʊt/,choose,Vote in election.
+B2,61,Political Systems,15,campaign,verb,/kæmˈpeɪn/,seek support,Campaign for office.
+B2,61,Political Systems,16,legislate,verb,/ˈlɛdʒɪˌsleɪt/,make laws,Legislate rules.
+B2,61,Political Systems,17,reform,verb,/rɪˈfɔrm/,change,Reform system.
+B2,61,Political Systems,18,oppose,verb,/əˈpoʊz/,resist,Oppose policy.
+B2,61,Political Systems,19,represent,verb,/ˌrɛprɪˈzɛnt/,speak for,Represent constituents.
+B2,61,Political Systems,20,regulate,verb,/ˈrɛgjəˌleɪt/,control,Regulate industry.
+B2,61,Political Systems,21,debate,verb,/dɪˈbeɪt/,discuss,Debate issues.
+B2,61,Political Systems,22,lobby,verb,/ˈlɑbi/,influence,Lobby politicians.
+B2,61,Political Systems,23,ratify,verb,/ˈrætəˌfaɪ/,approve,Ratify treaty.
+B2,61,Political Systems,24,implement,verb,/ˈɪmpləˌmɛnt/,put in place,Implement policy.
+B2,61,Political Systems,25,amend,verb,/əˈmɛnd/,change,Amend constitution.
+B2,61,Political Systems,26,veto,verb,/ˈvitoʊ/,reject,Veto the bill.
+B2,61,Political Systems,27,endorse,verb,/ɪnˈdɔrs/,support,Endorse candidate.
+B2,61,Political Systems,28,overthrow,verb,/ˌoʊvɚˈθroʊ/,remove,Overthrow government.
+B2,61,Political Systems,29,dissolve,verb,/dɪˈzɑlv/,end,Dissolve parliament.
+B2,61,Political Systems,30,inaugurate,verb,/ɪˈnɔgjəˌreɪt/,install,Inaugurate president.
+B2,62,Leadership,1,leadership,noun,/ˈlidɚˌʃɪp/,guiding,Strong leadership.
+B2,62,Leadership,2,leader,noun,/ˈlidɚ/,head person,Team leader.
+B2,62,Leadership,3,authority,noun,/əˈθɔrɪti/,power,Have authority.
+B2,62,Leadership,4,vision,noun,/ˈvɪʒən/,foresight,Clear vision.
+B2,62,Leadership,5,influence,noun,/ˈɪnfluəns/,effect,Great influence.
+B2,62,Leadership,6,decision,noun,/dɪˈsɪʒən/,choice,Make decisions.
+B2,62,Leadership,7,responsibility,noun,/rɪˌspɑnsəˈbɪləti/,duty,Take responsibility.
+B2,62,Leadership,8,influential,adjective,/ˌɪnfluˈɛnʃəl/,powerful,Influential leader.
+B2,62,Leadership,9,decisive,adjective,/dɪˈsaɪsɪv/,determined,Decisive action.
+B2,62,Leadership,10,lead,verb,/ˈlid/,guide,Lead the team.
+B2,62,Leadership,11,inspire,verb,/ɪnˈspaɪɚ/,motivate,Inspire others.
+B2,62,Leadership,12,motivate,verb,/ˈmoʊtɪˌveɪt/,encourage,Motivate staff.
+B2,62,Leadership,13,delegate,verb,/ˈdɛlɪˌgeɪt/,assign,Delegate tasks.
+B2,62,Leadership,14,influence,verb,/ˈɪnfluəns/,affect,Influence decisions.
+B2,62,Leadership,15,empower,verb,/ɪmˈpaʊɚ/,give power,Empower team.
+B2,62,Leadership,16,mentor,verb,/ˈmɛntɔr/,guide,Mentor employees.
+B2,62,Leadership,17,guide,verb,/ˈgaɪd/,direct,Guide the process.
+B2,62,Leadership,18,direct,verb,/dɪˈrɛkt/,lead,Direct operations.
+B2,62,Leadership,19,oversee,verb,/ˌoʊvɚˈsi/,supervise,Oversee project.
+B2,62,Leadership,20,govern,verb,/ˈgʌvɚn/,rule,Govern effectively.
+B2,62,Leadership,21,manage,verb,/ˈmænɪdʒ/,run,Manage team.
+B2,62,Leadership,22,coordinate,verb,/koʊˈɔrdəˌneɪt/,organize,Coordinate efforts.
+B2,62,Leadership,23,strategize,verb,/ˈstrætɪˌdʒaɪz/,plan,Strategize approach.
+B2,62,Leadership,24,communicate,verb,/kəˈmjunɪˌkeɪt/,share,Communicate clearly.
+B2,62,Leadership,25,transform,verb,/trænsˈfɔrm/,change,Transform organization.
+B2,63,Conflict Resolution,1,conflict,noun,/ˈkɑnflɪkt/,disagreement,Resolve conflict.
+B2,63,Conflict Resolution,2,resolution,noun,/ˌrɛzəˈluʃən/,solution,Conflict resolution.
+B2,63,Conflict Resolution,3,dispute,noun,/dɪˈspjut/,argument,Settle dispute.
+B2,63,Conflict Resolution,4,mediation,noun,/ˌmidiˈeɪʃən/,intervention,Seek mediation.
+B2,63,Conflict Resolution,5,negotiation,noun,/nɪˌgoʊʃiˈeɪʃən/,discussion,Peace negotiation.
+B2,63,Conflict Resolution,6,compromise,noun,/ˈkɑmprəˌmaɪz/,middle ground,Reach compromise.
+B2,63,Conflict Resolution,7,peaceful,adjective,/ˈpisfəl/,calm,Peaceful solution.
+B2,63,Conflict Resolution,8,diplomatic,adjective,/ˌdɪpləˈmætɪk/,tactful,Diplomatic approach.
+B2,63,Conflict Resolution,9,resolve,verb,/rɪˈzɑlv/,settle,Resolve issues.
+B2,63,Conflict Resolution,10,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss,Negotiate peace.
+B2,63,Conflict Resolution,11,mediate,verb,/ˈmidiˌeɪt/,intervene,Mediate dispute.
+B2,63,Conflict Resolution,12,reconcile,verb,/ˈrɛkənˌsaɪl/,make peace,Reconcile differences.
+B2,63,Conflict Resolution,13,compromise,verb,/ˈkɑmprəˌmaɪz/,meet halfway,Compromise on terms.
+B2,63,Conflict Resolution,14,settle,verb,/ˈsɛtəl/,resolve,Settle disagreement.
+B2,63,Conflict Resolution,15,confront,verb,/kənˈfrʌnt/,face directly,Confront issues.
+B2,63,Conflict Resolution,16,defuse,verb,/diˈfjuz/,calm down,Defuse tension.
+B2,63,Conflict Resolution,17,arbitrate,verb,/ˈɑrbɪˌtreɪt/,judge,Arbitrate case.
+B2,63,Conflict Resolution,18,agree,verb,/əˈgri/,accept,Agree on terms.
+B2,63,Conflict Resolution,19,disagree,verb,/ˌdɪsəˈgri/,differ,Disagree respectfully.
+B2,63,Conflict Resolution,20,cooperate,verb,/koʊˈɑpəˌreɪt/,work together,Cooperate for peace.
+B2,63,Conflict Resolution,21,address,verb,/əˈdrɛs/,deal with,Address concerns.
+B2,63,Conflict Resolution,22,discuss,verb,/dɪˈskʌs/,talk about,Discuss issues.
+B2,63,Conflict Resolution,23,facilitate,verb,/fəˈsɪlɪˌteɪt/,make easier,Facilitate dialogue.
+B2,63,Conflict Resolution,24,overcome,verb,/ˌoʊvɚˈkʌm/,defeat,Overcome obstacles.
+B2,63,Conflict Resolution,25,bridge,verb,/ˈbrɪdʒ/,connect,Bridge the gap.
+B2,64,Social Welfare,1,welfare,noun,/ˈwɛlˌfɛr/,wellbeing,Social welfare.
+B2,64,Social Welfare,2,benefit,noun,/ˈbɛnɪfɪt/,aid,Government benefit.
+B2,64,Social Welfare,3,assistance,noun,/əˈsɪstəns/,help,Financial assistance.
+B2,64,Social Welfare,4,poverty,noun,/ˈpɑvɚti/,being poor,Reduce poverty.
+B2,64,Social Welfare,5,inequality,noun,/ˌɪnɪˈkwɑləti/,unfairness,Social inequality.
+B2,64,Social Welfare,6,charity,noun,/ˈtʃærɪti/,giving,Donate to charity.
+B2,64,Social Welfare,7,volunteer,noun,/ˌvɑlənˈtɪr/,unpaid helper,Become volunteer.
+B2,64,Social Welfare,8,community,noun,/kəˈmjunəti/,group,Community support.
+B2,64,Social Welfare,9,social,adjective,/ˈsoʊʃəl/,of society,Social services.
+B2,64,Social Welfare,10,homeless,adjective,/ˈhoʊmləs/,without home,Homeless shelter.
+B2,64,Social Welfare,11,disadvantaged,adjective,/ˌdɪsədˈvæntɪdʒd/,less fortunate,Help disadvantaged.
+B2,64,Social Welfare,12,support,verb,/səˈpɔrt/,help,Support families.
+B2,64,Social Welfare,13,assist,verb,/əˈsɪst/,help,Assist individuals.
+B2,64,Social Welfare,14,provide,verb,/prəˈvaɪd/,give,Provide services.
+B2,64,Social Welfare,15,donate,verb,/ˈdoʊneɪt/,give,Donate money.
+B2,64,Social Welfare,16,volunteer,verb,/ˌvɑlənˈtɪr/,help freely,Volunteer time.
+B2,64,Social Welfare,17,advocate,verb,/ˈædvəˌkeɪt/,support,Advocate for change.
+B2,64,Social Welfare,18,fund,verb,/ˈfʌnd/,finance,Fund programs.
+B2,64,Social Welfare,19,empower,verb,/ɪmˈpaʊɚ/,give power,Empower communities.
+B2,64,Social Welfare,20,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate individuals.
+B2,64,Social Welfare,21,integrate,verb,/ˈɪntɪˌgreɪt/,include,Integrate into society.
+B2,64,Social Welfare,22,address,verb,/əˈdrɛs/,deal with,Address needs.
+B2,64,Social Welfare,23,alleviate,verb,/əˈliviˌeɪt/,reduce,Alleviate suffering.
+B2,64,Social Welfare,24,combat,verb,/ˈkɑmbæt/,fight,Combat poverty.
+B2,64,Social Welfare,25,subsidize,verb,/ˈsʌbsɪˌdaɪz/,fund partly,Subsidize housing.
+B2,64,Social Welfare,26,shelter,verb,/ˈʃɛltɚ/,provide home,Shelter homeless.
+B2,64,Social Welfare,27,counsel,verb,/ˈkaʊnsəl/,advise,Counsel individuals.
+B2,64,Social Welfare,28,educate,verb,/ˈɛdʒʊˌkeɪt/,teach,Educate communities.
+B2,64,Social Welfare,29,mobilize,verb,/ˈmoʊbəˌlaɪz/,organize,Mobilize support.
+B2,64,Social Welfare,30,protect,verb,/prəˈtɛkt/,guard,Protect vulnerable.
+B2,65,Religious Beliefs,1,religion,noun,/rɪˈlɪdʒən/,belief system,Practice religion.
+B2,65,Religious Beliefs,2,faith,noun,/ˈfeɪθ/,belief,Strong faith.
+B2,65,Religious Beliefs,3,belief,noun,/bɪˈlif/,conviction,Personal beliefs.
+B2,65,Religious Beliefs,4,worship,noun,/ˈwɜrʃɪp/,devotion,Place of worship.
+B2,65,Religious Beliefs,5,prayer,noun,/ˈprɛr/,spiritual talk,Daily prayer.
+B2,65,Religious Beliefs,6,tradition,noun,/trəˈdɪʃən/,custom,Religious tradition.
+B2,65,Religious Beliefs,7,religious,adjective,/rɪˈlɪdʒəs/,of religion,Religious beliefs.
+B2,65,Religious Beliefs,8,spiritual,adjective,/ˈspɪrɪtʃuəl/,of spirit,Spiritual practice.
+B2,65,Religious Beliefs,9,sacred,adjective,/ˈseɪkrɪd/,holy,Sacred place.
+B2,65,Religious Beliefs,10,devout,adjective,/dɪˈvaʊt/,deeply religious,Devout follower.
+B2,65,Religious Beliefs,11,believe,verb,/bɪˈliv/,have faith,Believe in God.
+B2,65,Religious Beliefs,12,worship,verb,/ˈwɜrʃɪp/,honor,Worship regularly.
+B2,65,Religious Beliefs,13,pray,verb,/ˈpreɪ/,speak spiritually,Pray daily.
+B2,65,Religious Beliefs,14,practice,verb,/ˈpræktɪs/,follow,Practice religion.
+B2,65,Religious Beliefs,15,observe,verb,/əbˈzɜrv/,follow,Observe traditions.
+B2,65,Religious Beliefs,16,celebrate,verb,/ˈsɛləˌbreɪt/,honor,Celebrate holidays.
+B2,65,Religious Beliefs,17,convert,verb,/kənˈvɜrt/,change belief,Convert to faith.
+B2,65,Religious Beliefs,18,bless,verb,/ˈblɛs/,give blessing,Bless the ceremony.
+B2,65,Religious Beliefs,19,meditate,verb,/ˈmɛdɪˌteɪt/,reflect deeply,Meditate daily.
+B2,65,Religious Beliefs,20,respect,verb,/rɪˈspɛkt/,honor,Respect beliefs.
+B2,66,Spirituality,1,spirituality,noun,/ˌspɪrɪtʃuˈæləti/,inner life,Explore spirituality.
+B2,66,Spirituality,2,soul,noun,/ˈsoʊl/,inner self,Nurture the soul.
+B2,66,Spirituality,3,consciousness,noun,/ˈkɑnʃəsnəs/,awareness,Higher consciousness.
+B2,66,Spirituality,4,meditation,noun,/ˌmɛdɪˈteɪʃən/,deep thought,Practice meditation.
+B2,66,Spirituality,5,enlightenment,noun,/ɪnˈlaɪtənmənt/,awakening,Seek enlightenment.
+B2,66,Spirituality,6,mindfulness,noun,/ˈmaɪndfəlnəs/,awareness,Practice mindfulness.
+B2,66,Spirituality,7,spiritual,adjective,/ˈspɪrɪtʃuəl/,of spirit,Spiritual journey.
+B2,66,Spirituality,8,inner,adjective,/ˈɪnɚ/,inside,Inner peace.
+B2,66,Spirituality,9,transcendent,adjective,/trænˈsɛndənt/,beyond normal,Transcendent experience.
+B2,66,Spirituality,10,reflect,verb,/rɪˈflɛkt/,think deeply,Reflect on life.
+B2,66,Spirituality,11,meditate,verb,/ˈmɛdɪˌteɪt/,focus mind,Meditate daily.
+B2,66,Spirituality,12,contemplate,verb,/ˈkɑntəmˌpleɪt/,think deeply,Contemplate meaning.
+B2,66,Spirituality,13,awaken,verb,/əˈweɪkən/,become aware,Awaken spiritually.
+B2,66,Spirituality,14,transcend,verb,/trænˈsɛnd/,go beyond,Transcend limits.
+B2,66,Spirituality,15,connect,verb,/kəˈnɛkt/,join,Connect with self.
+B2,66,Spirituality,16,seek,verb,/ˈsik/,look for,Seek meaning.
+B2,66,Spirituality,17,nurture,verb,/ˈnɜrtʃɚ/,care for,Nurture spirit.
+B2,66,Spirituality,18,heal,verb,/ˈhil/,restore,Heal spiritually.
+B2,66,Spirituality,19,transform,verb,/trænsˈfɔrm/,change,Transform self.
+B2,66,Spirituality,20,embrace,verb,/ɪmˈbreɪs/,accept,Embrace spirituality.
+B2,67,Philosophical Ethics,1,ethics,noun,/ˈɛθɪks/,moral principles,Study ethics.
+B2,67,Philosophical Ethics,2,philosophy,noun,/fɪˈlɑsəfi/,thinking study,Study philosophy.
+B2,67,Philosophical Ethics,3,morality,noun,/məˈræləti/,right and wrong,Question morality.
+B2,67,Philosophical Ethics,4,principle,noun,/ˈprɪnsəpəl/,basic rule,Core principles.
+B2,67,Philosophical Ethics,5,virtue,noun,/ˈvɜrtʃu/,good quality,Practice virtue.
+B2,67,Philosophical Ethics,6,value,noun,/ˈvælju/,worth,Personal values.
+B2,67,Philosophical Ethics,7,ethical,adjective,/ˈɛθɪkəl/,moral,Ethical behavior.
+B2,67,Philosophical Ethics,8,moral,adjective,/ˈmɔrəl/,of right/wrong,Moral decision.
+B2,67,Philosophical Ethics,9,philosophical,adjective,/ˌfɪləˈsɑfɪkəl/,of philosophy,Philosophical question.
+B2,67,Philosophical Ethics,10,virtuous,adjective,/ˈvɜrtʃuəs/,good,Virtuous person.
+B2,67,Philosophical Ethics,11,reason,verb,/ˈrizən/,think logically,Reason carefully.
+B2,67,Philosophical Ethics,12,justify,verb,/ˈdʒʌstəˌfaɪ/,give reasons,Justify actions.
+B2,67,Philosophical Ethics,13,argue,verb,/ˈɑrgjʊ/,discuss,Argue logically.
+B2,67,Philosophical Ethics,14,question,verb,/ˈkwɛstʃən/,ask,Question beliefs.
+B2,67,Philosophical Ethics,15,contemplate,verb,/ˈkɑntəmˌpleɪt/,think deeply,Contemplate ideas.
+B2,67,Philosophical Ethics,16,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze arguments.
+B2,67,Philosophical Ethics,17,interpret,verb,/ɪnˈtɜrprɪt/,explain,Interpret meaning.
+B2,67,Philosophical Ethics,18,evaluate,verb,/ɪˈvæljuˌeɪt/,assess,Evaluate ethics.
+B2,67,Philosophical Ethics,19,challenge,verb,/ˈtʃælɪndʒ/,question,Challenge assumptions.
+B2,67,Philosophical Ethics,20,debate,verb,/dɪˈbeɪt/,discuss,Debate issues.
+B2,67,Philosophical Ethics,21,reflect,verb,/rɪˈflɛkt/,think,Reflect on values.
+B2,67,Philosophical Ethics,22,determine,verb,/dɪˈtɜrmɪn/,decide,Determine right.
+B2,67,Philosophical Ethics,23,uphold,verb,/ʌpˈhoʊld/,maintain,Uphold principles.
+B2,67,Philosophical Ethics,24,apply,verb,/əˈplaɪ/,use,Apply ethics.
+B2,67,Philosophical Ethics,25,distinguish,verb,/dɪˈstɪŋgwɪʃ/,tell apart,Distinguish right from wrong.
+B2,68,Psychology,1,psychology,noun,/saɪˈkɑlədʒi/,mind study,Study psychology.
+B2,68,Psychology,2,behavior,noun,/bɪˈheɪvjɚ/,actions,Human behavior.
+B2,68,Psychology,3,cognition,noun,/kɑgˈnɪʃən/,thinking,Study cognition.
+B2,68,Psychology,4,perception,noun,/pɚˈsɛpʃən/,understanding,Visual perception.
+B2,68,Psychology,5,motivation,noun,/ˌmoʊtɪˈveɪʃən/,drive,Inner motivation.
+B2,68,Psychology,6,personality,noun,/ˌpɜrsəˈnæləti/,character,Personality type.
+B2,68,Psychology,7,subconscious,noun,/sʌbˈkɑnʃəs/,hidden mind,Subconscious mind.
+B2,68,Psychology,8,psychological,adjective,/ˌsaɪkəˈlɑdʒɪkəl/,of mind,Psychological study.
+B2,68,Psychology,9,cognitive,adjective,/ˈkɑgnɪtɪv/,of thinking,Cognitive process.
+B2,68,Psychology,10,behavioral,adjective,/bɪˈheɪvjərəl/,of behavior,Behavioral pattern.
+B2,68,Psychology,11,perceive,verb,/pɚˈsiv/,understand,Perceive reality.
+B2,68,Psychology,12,motivate,verb,/ˈmoʊtɪˌveɪt/,drive,Motivate action.
+B2,68,Psychology,13,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze behavior.
+B2,68,Psychology,14,influence,verb,/ˈɪnfluəns/,affect,Influence thinking.
+B2,68,Psychology,15,observe,verb,/əbˈzɜrv/,watch,Observe patterns.
+B2,68,Psychology,16,interpret,verb,/ɪnˈtɜrprɪt/,explain,Interpret dreams.
+B2,68,Psychology,17,condition,verb,/kənˈdɪʃən/,train,Condition responses.
+B2,68,Psychology,18,reinforce,verb,/ˌriɪnˈfɔrs/,strengthen,Reinforce behavior.
+B2,68,Psychology,19,suppress,verb,/səˈprɛs/,hold back,Suppress emotions.
+B2,68,Psychology,20,recall,verb,/rɪˈkɔl/,remember,Recall memories.
+B2,68,Psychology,21,process,verb,/ˈprɑsɛs/,work through,Process information.
+B2,68,Psychology,22,respond,verb,/rɪˈspɑnd/,react,Respond to stimuli.
+B2,68,Psychology,23,adapt,verb,/əˈdæpt/,adjust,Adapt behavior.
+B2,68,Psychology,24,develop,verb,/dɪˈvɛləp/,grow,Develop personality.
+B2,68,Psychology,25,assess,verb,/əˈsɛs/,evaluate,Assess mental state.
+B2,68,Psychology,26,treat,verb,/ˈtrit/,help,Treat disorders.
+B2,68,Psychology,27,diagnose,verb,/ˈdaɪəgˌnoʊz/,identify,Diagnose conditions.
+B2,68,Psychology,28,counsel,verb,/ˈkaʊnsəl/,advise,Counsel patients.
+B2,68,Psychology,29,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate individuals.
+B2,68,Psychology,30,study,verb,/ˈstʌdi/,research,Study the mind.
+B2,69,Achievement,1,achievement,noun,/əˈtʃivmənt/,accomplishment,Great achievement.
+B2,69,Achievement,2,success,noun,/səkˈsɛs/,winning,Career success.
+B2,69,Achievement,3,goal,noun,/ˈgoʊl/,objective,Reach goal.
+B2,69,Achievement,4,accomplishment,noun,/əˈkɑmplɪʃmənt/,success,Notable accomplishment.
+B2,69,Achievement,5,milestone,noun,/ˈmaɪlˌstoʊn/,marker,Major milestone.
+B2,69,Achievement,6,recognition,noun,/ˌrɛkəgˈnɪʃən/,acknowledgment,Gain recognition.
+B2,69,Achievement,7,award,noun,/əˈwɔrd/,prize,Receive award.
+B2,69,Achievement,8,successful,adjective,/səkˈsɛsfəl/,winning,Successful outcome.
+B2,69,Achievement,9,outstanding,adjective,/aʊtˈstændɪŋ/,excellent,Outstanding performance.
+B2,69,Achievement,10,achieve,verb,/əˈtʃiv/,accomplish,Achieve goals.
+B2,69,Achievement,11,succeed,verb,/səkˈsid/,win,Succeed in life.
+B2,69,Achievement,12,accomplish,verb,/əˈkɑmplɪʃ/,complete,Accomplish tasks.
+B2,69,Achievement,13,attain,verb,/əˈteɪn/,reach,Attain success.
+B2,69,Achievement,14,excel,verb,/ɪkˈsɛl/,be best,Excel in career.
+B2,69,Achievement,15,earn,verb,/ˈɜrn/,get by effort,Earn recognition.
+B2,69,Achievement,16,strive,verb,/ˈstraɪv/,try hard,Strive for excellence.
+B2,69,Achievement,17,pursue,verb,/pɚˈsu/,go after,Pursue dreams.
+B2,69,Achievement,18,realize,verb,/ˈriəˌlaɪz/,achieve,Realize potential.
+B2,69,Achievement,19,fulfill,verb,/fʊlˈfɪl/,complete,Fulfill goals.
+B2,69,Achievement,20,recognize,verb,/ˈrɛkəgˌnaɪz/,acknowledge,Recognize achievement.
+B2,69,Achievement,21,reward,verb,/rɪˈwɔrd/,give prize,Reward success.
+B2,69,Achievement,22,celebrate,verb,/ˈsɛləˌbreɪt/,honor,Celebrate victory.
+B2,69,Achievement,23,dedicate,verb,/ˈdɛdɪˌkeɪt/,commit,Dedicate effort.
+B2,69,Achievement,24,persevere,verb,/ˌpɜrsəˈvɪr/,keep trying,Persevere to success.
+B2,69,Achievement,25,overcome,verb,/ˌoʊvɚˈkʌm/,defeat,Overcome obstacles.
+B2,70,Disasters & Emergency,1,disaster,noun,/dɪˈzæstɚ/,catastrophe,Natural disaster.
+B2,70,Disasters & Emergency,2,emergency,noun,/ɪˈmɜrdʒənsi/,urgent situation,Declare emergency.
+B2,70,Disasters & Emergency,3,crisis,noun,/ˈkraɪsɪs/,critical time,Handle crisis.
+B2,70,Disasters & Emergency,4,evacuation,noun,/ɪˌvækjuˈeɪʃən/,leaving,Mass evacuation.
+B2,70,Disasters & Emergency,5,relief,noun,/rɪˈlif/,aid,Disaster relief.
+B2,70,Disasters & Emergency,6,rescue,noun,/ˈrɛskju/,saving,Rescue mission.
+B2,70,Disasters & Emergency,7,survivor,noun,/sɚˈvaɪvɚ/,one who lives,Find survivors.
+B2,70,Disasters & Emergency,8,catastrophic,adjective,/ˌkætəˈstrɑfɪk/,disastrous,Catastrophic event.
+B2,70,Disasters & Emergency,9,urgent,adjective,/ˈɜrdʒənt/,immediate,Urgent response.
+B2,70,Disasters & Emergency,10,critical,adjective,/ˈkrɪtɪkəl/,crucial,Critical situation.
+B2,70,Disasters & Emergency,11,respond,verb,/rɪˈspɑnd/,react,Respond quickly.
+B2,70,Disasters & Emergency,12,evacuate,verb,/ɪˈvækjuˌeɪt/,leave,Evacuate area.
+B2,70,Disasters & Emergency,13,rescue,verb,/ˈrɛskju/,save,Rescue victims.
+B2,70,Disasters & Emergency,14,recover,verb,/rɪˈkʌvɚ/,regain,Recover from disaster.
+B2,70,Disasters & Emergency,15,survive,verb,/sɚˈvaɪv/,live through,Survive the storm.
+B2,70,Disasters & Emergency,16,prepare,verb,/prɪˈpɛr/,get ready,Prepare for emergencies.
+B2,70,Disasters & Emergency,17,warn,verb,/ˈwɔrn/,alert,Warn residents.
+B2,70,Disasters & Emergency,18,alert,verb,/əˈlɜrt/,notify,Alert authorities.
+B2,70,Disasters & Emergency,19,mobilize,verb,/ˈmoʊbəˌlaɪz/,organize,Mobilize resources.
+B2,70,Disasters & Emergency,20,assist,verb,/əˈsɪst/,help,Assist victims.
+B2,70,Disasters & Emergency,21,shelter,verb,/ˈʃɛltɚ/,protect,Shelter refugees.
+B2,70,Disasters & Emergency,22,restore,verb,/rɪˈstɔr/,bring back,Restore services.
+B2,70,Disasters & Emergency,23,rebuild,verb,/riˈbɪld/,construct again,Rebuild community.
+B2,70,Disasters & Emergency,24,coordinate,verb,/koʊˈɔrdəˌneɪt/,organize,Coordinate efforts.
+B2,70,Disasters & Emergency,25,mitigate,verb,/ˈmɪtɪˌgeɪt/,reduce,Mitigate damage.

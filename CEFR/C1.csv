@@ -1,0 +1,1721 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+C1,1,Time & Measurement,1,noon,noun,/ˈnun/,midday,We will meet at noon.
+C1,1,Time & Measurement,2,timely,adjective,/ˈtaɪmli/,at the right time,A timely intervention saved him.
+C1,1,Time & Measurement,3,await,verb,/əˈweɪt/,wait for,We await your response.
+C1,1,Time & Measurement,4,presently,adverb,/ˈprɛzəntli/,soon,She will arrive presently.
+C1,1,Time & Measurement,5,meantime,noun,/ˈmiˌntaɪm/,intervening time,"In the meantime, study this."
+C1,1,Time & Measurement,6,upcoming,adjective,/ˈʌˌpkʌmɪŋ/,about to happen,The upcoming event is sold out.
+C1,1,Time & Measurement,7,forthcoming,adjective,/ˈfɔˈrθkʌmɪŋ/,about to appear,The forthcoming book is anticipated.
+C1,1,Time & Measurement,8,lengthy,adjective,/ˈlɛŋθi/,very long,A lengthy process awaited us.
+C1,1,Time & Measurement,9,endless,adjective,/ˈɛndləs/,without end,Endless possibilities exist.
+C1,1,Time & Measurement,10,consecutive,adjective,/kəˈnsɛkjətɪv/,following continuously,Three consecutive wins.
+C1,1,Time & Measurement,11,successive,adjective,/səˈksɛsɪv/,following in order,Successive generations improved it.
+C1,1,Time & Measurement,12,imminent,adjective,/ˈɪmənənt/,about to happen,An imminent storm approaches.
+C1,1,Time & Measurement,13,interim,adjective,/ˈɪntɚəm/,temporary,An interim solution was found.
+C1,1,Time & Measurement,14,momentum,noun,/moʊˈmɛntəm/,driving force,The campaign gained momentum.
+C1,1,Time & Measurement,15,succession,noun,/səˈksɛʃən/,sequence,A succession of events followed.
+C1,1,Time & Measurement,16,linger,verb,/ˈlɪŋgɚ/,stay longer,The smell lingered in the room.
+C1,1,Time & Measurement,17,prolong,verb,/prəˈlɔŋ/,extend duration,Do not prolong the meeting.
+C1,1,Time & Measurement,18,elapse,verb,/ɪˈlæps/,pass (time),Two hours elapsed quickly.
+C1,1,Time & Measurement,19,postpone,verb,/poʊstˈpoʊn/,delay,We must postpone the meeting.
+C1,1,Time & Measurement,20,expedite,verb,/ˈɛkspɪˌdaɪt/,speed up,Please expedite the process.
+C1,1,Time & Measurement,21,dimension,noun,/dɪˈmɛnʃən/,measurable extent,Check the dimensions carefully.
+C1,1,Time & Measurement,22,ratio,noun,/ˈreɪʃiˌoʊ/,proportion,The ratio is two to one.
+C1,1,Time & Measurement,23,scope,noun,/ˈskoʊp/,extent,The scope of the project expanded.
+C1,1,Time & Measurement,24,threshold,noun,/ˈθrɛˌʃoʊld/,starting point,We crossed the threshold of success.
+C1,1,Time & Measurement,25,magnitude,noun,/ˈmægnəˌtud/,size or importance,The magnitude of the problem is clear.
+C1,1,Time & Measurement,26,intensity,noun,/ɪˈntɛnsəti/,strength level,The intensity of the workout increased.
+C1,1,Time & Measurement,27,spectrum,noun,/ˈspɛktrəm/,range,A wide spectrum of opinions exists.
+C1,1,Time & Measurement,28,abundance,noun,/əˈbʌndəns/,large quantity,An abundance of resources is available.
+C1,1,Time & Measurement,29,surplus,noun,/ˈsɝpləs/,excess amount,The surplus was donated.
+C1,1,Time & Measurement,30,minimal,adjective,/ˈmɪnəməl/,smallest possible,Minimal effort was required.
+C1,1,Time & Measurement,31,ample,adjective,/ˈæmpəl/,more than enough,Ample time was given.
+C1,1,Time & Measurement,32,scarce,adjective,/ˈskɛrs/,insufficient,Resources became scarce.
+C1,1,Time & Measurement,33,tremendous,adjective,/trəˈmɛndəs/,very large,A tremendous achievement.
+C1,1,Time & Measurement,34,immense,adjective,/ɪˈmɛns/,huge,Immense pressure was applied.
+C1,1,Time & Measurement,35,substantial,adjective,/səˈbstæntʃəl/,considerable,A substantial improvement occurred.
+C1,1,Time & Measurement,36,countless,adjective,/ˈkaʊntləs/,too many to count,Countless stars filled the sky.
+C1,1,Time & Measurement,37,minimize,verb,/ˈmɪnəˌmaɪz/,reduce to minimum,Minimize risks carefully.
+C1,1,Time & Measurement,38,maximize,verb,/ˈmæksəˌmaɪz/,increase to maximum,Maximize your potential.
+C1,1,Time & Measurement,39,quantify,verb,/ˈkwɑntɪˌfaɪ/,express numerically,We need to quantify the results.
+C1,1,Time & Measurement,40,calibrate,verb,/ˈkælɪˌbreɪt/,adjust precisely,Calibrate the instrument.
+C1,2,Position & Space,1,beneath,preposition,/bɪˈniθ/,under,The treasure lay beneath the floor.
+C1,2,Position & Space,2,amid,preposition,/əˈmɪd/,in the middle of,He remained calm amid chaos.
+C1,2,Position & Space,3,midst,noun,/ˈmɪdst/,middle part,In the midst of the crowd.
+C1,2,Position & Space,4,adjacent,adjective,/əˈdʒeɪsənt/,next to,The adjacent room is empty.
+C1,2,Position & Space,5,adjoining,adjective,/əˈdʒɔɪnɪŋ/,sharing a border,Adjoining rooms share a wall.
+C1,2,Position & Space,6,interior,adjective,/ɪˈntɪriɚ/,inner,Interior design is her specialty.
+C1,2,Position & Space,7,exterior,adjective,/ɪˈkstɪriɚ/,outer,The exterior was freshly painted.
+C1,2,Position & Space,8,situated,adjective,/ˈsɪtʃuˌeɪtɪd/,located,The hotel is well situated.
+C1,2,Position & Space,9,atop,preposition,/əˈtɑp/,on top of,The flag flew atop the building.
+C1,2,Position & Space,10,linear,adjective,/ˈlɪniɚ/,in a line,A linear progression occurred.
+C1,2,Position & Space,11,marginal,adjective,/ˈmɑrdʒənəl/,at the edge,Marginal improvements were made.
+C1,2,Position & Space,12,peripheral,adjective,/pɚˈɪfərəl/,on the outer edge,Peripheral vision detected movement.
+C1,2,Position & Space,13,proximate,adjective,/ˈprɑksɪmət/,very near,The proximate cause was clear.
+C1,2,Position & Space,14,width,noun,/ˈwɪdθ/,breadth,Measure the width of the room.
+C1,2,Position & Space,15,span,noun,/ˈspæn/,distance across,The bridge has a long span.
+C1,2,Position & Space,16,verge,noun,/ˈvɝdʒ/,edge,On the verge of a breakthrough.
+C1,2,Position & Space,17,perimeter,noun,/pɚˈɪmətɚ/,outer boundary,Secure the perimeter.
+C1,2,Position & Space,18,vicinity,noun,/vɪˈsɪnəti/,nearby area,He lives in the vicinity.
+C1,2,Position & Space,19,diverge,verb,/dɪˈvɝdʒ/,separate,The paths diverge here.
+C1,2,Position & Space,20,converge,verb,/kənˈvɜrdʒ/,come together,All roads converge at the center.
+C1,2,Position & Space,21,divergent,adjective,/daɪˈvɝdʒənt/,differing,Divergent opinions emerged.
+C1,2,Position & Space,22,convergent,adjective,/kənˈvɜrdʒənt/,meeting at a point,Convergent thinking is useful.
+C1,2,Position & Space,23,lengthen,verb,/ˈlɛŋθən/,make longer,Lengthen the document by two pages.
+C1,2,Position & Space,24,heighten,verb,/ˈhaɪtən/,increase,The tension heightened.
+C1,2,Position & Space,25,widen,verb,/ˈwaɪdən/,make wider,Widen the road for safety.
+C1,2,Position & Space,26,expand,verb,/ɪkˈspænd/,grow larger,The company plans to expand.
+C1,2,Position & Space,27,contract,verb,/kənˈtrækt/,shrink,Muscles contract when cold.
+C1,2,Position & Space,28,compress,verb,/kəmˈprɛs/,squeeze together,Compress the files for upload.
+C1,2,Position & Space,29,displace,verb,/dɪˈspleɪs/,move from position,The flood displaced many people.
+C1,2,Position & Space,30,relocate,verb,/riˈloʊkeɪt/,move to new place,The company will relocate.
+C1,3,Family Relationships,1,spouse,noun,/ˈspaʊs/,husband or wife,She introduced her spouse.
+C1,3,Family Relationships,2,infant,noun,/ˈɪnfənt/,baby,The infant slept peacefully.
+C1,3,Family Relationships,3,offspring,noun,/ˈɔˌfsprɪŋ/,child,Their offspring inherited the estate.
+C1,3,Family Relationships,4,youngster,noun,/ˈjʌŋstɚ/,young person,The youngster showed promise.
+C1,3,Family Relationships,5,juvenile,noun,/ˈdʒuvənəl/,young person,Juvenile behavior is expected.
+C1,3,Family Relationships,6,adolescent,noun,/ˌædəˈlɛsənt/,teenager,The adolescent struggled with identity.
+C1,3,Family Relationships,7,widow,noun,/ˈwɪdoʊ/,woman whose husband died,The widow lived alone.
+C1,3,Family Relationships,8,widower,noun,/ˈwɪdoʊɚ/,man whose wife died,The widower remarried.
+C1,3,Family Relationships,9,orphan,noun,/ˈɔrfən/,child without parents,The orphan was adopted.
+C1,3,Family Relationships,10,sibling,noun,/ˈsɪblɪŋ/,brother or sister,Sibling rivalry is common.
+C1,3,Family Relationships,11,kinship,noun,/ˈkɪnʃɪp/,family connection,Kinship bonds are strong.
+C1,3,Family Relationships,12,ancestry,noun,/ˈænsɛstri/,family descent,She traced her ancestry.
+C1,3,Family Relationships,13,lineage,noun,/ˈlɪniɪdʒ/,family line,His lineage was noble.
+C1,3,Family Relationships,14,descent,noun,/dɪˈsɛnt/,origin,He is of Irish descent.
+C1,3,Family Relationships,15,heir,noun,/ˈɛr/,person who inherits,The heir inherited the fortune.
+C1,3,Family Relationships,16,guardian,noun,/ˈgɑrdiən/,legal protector,The guardian cared for the child.
+C1,3,Family Relationships,17,custody,noun,/ˈkʌstədi/,legal care,She gained custody of the children.
+C1,3,Family Relationships,18,marital,adjective,/ˈmærɪtəl/,of marriage,Marital issues arose.
+C1,3,Family Relationships,19,parental,adjective,/pɚˈɛntəl/,of parents,Parental guidance is advised.
+C1,3,Family Relationships,20,paternal,adjective,/pəˈtɝnəl/,of father,Paternal love is unconditional.
+C1,3,Family Relationships,21,maternal,adjective,/məˈtɝnəl/,of mother,Maternal instincts kicked in.
+C1,3,Family Relationships,22,affection,noun,/əˈfɛkʃən/,fondness,She showed great affection.
+C1,3,Family Relationships,23,neglect,noun,/nəˈglɛkt/,lack of care,Child neglect is a crime.
+C1,3,Family Relationships,24,beloved,adjective,/bɪˈlʌvd/,dearly loved,Her beloved grandmother passed.
+C1,3,Family Relationships,25,lifelong,adjective,/ˈlaɪˈflɔŋ/,lasting all life,A lifelong friendship formed.
+C1,3,Family Relationships,26,upbringing,noun,/ˈʌpˌbrɪŋɪŋ/,childhood care,Her upbringing was strict.
+C1,3,Family Relationships,27,nurture,verb,/ˈnɜrtʃɚ/,care for,Parents nurture their children.
+C1,3,Family Relationships,28,foster,verb,/ˈfɔstɚ/,encourage growth,Foster a love of learning.
+C1,3,Family Relationships,29,estrange,verb,/ɪˈstreɪndʒ/,alienate,The argument estranged them.
+C1,3,Family Relationships,30,reconcile,verb,/ˈrɛkənˌsaɪl/,restore relations,They reconciled after years apart.
+C1,4,Social Connections,1,buddy,noun,/ˈbʌdi/,close friend,He is my best buddy.
+C1,4,Social Connections,2,companion,noun,/kəˈmpænjən/,partner,She was his travel companion.
+C1,4,Social Connections,3,ally,noun,/ˈælaɪ/,supporter,Britain is a key ally.
+C1,4,Social Connections,4,alliance,noun,/əˈlaɪəns/,partnership,They formed a strategic alliance.
+C1,4,Social Connections,5,gathering,noun,/ˈgæðɚɪŋ/,assembly,A family gathering was held.
+C1,4,Social Connections,6,rally,noun,/ˈræli/,mass meeting,Supporters attended the rally.
+C1,4,Social Connections,7,intimate,adjective,/ˈɪntəmət/,very close,They are intimate friends.
+C1,4,Social Connections,8,liaison,noun,/liˈeɪˌzɑn/,connection,He acts as liaison between teams.
+C1,4,Social Connections,9,rapport,noun,/ræˈpɔr/,harmonious relationship,She built rapport with clients.
+C1,4,Social Connections,10,mutual,adjective,/ˈmjutʃəwəl/,shared,They had mutual respect.
+C1,4,Social Connections,11,acquaintance,noun,/əˈkweɪntəns/,person you know,She is a business acquaintance.
+C1,4,Social Connections,12,peer,noun,/ˈpɪr/,equal,Peer review is required.
+C1,4,Social Connections,13,confidant,noun,/ˈkɑnfɪˌdænt/,trusted friend,She was his only confidant.
+C1,4,Social Connections,14,colleague,noun,/ˈkɑliɡ/,coworker,My colleague helped with the project.
+C1,4,Social Connections,15,associate,noun,/əˈsoʊʃiɪt/,partner,He is a business associate.
+C1,4,Social Connections,16,affinity,noun,/əˈfɪnəti/,natural liking,She felt an affinity for the arts.
+C1,4,Social Connections,17,camaraderie,noun,/ˌkɑmɚˈɑdɚi/,friendship,Team camaraderie was strong.
+C1,4,Social Connections,18,solidarity,noun,/ˌsɑlɪˈdærəti/,unity,They showed solidarity.
+C1,4,Social Connections,19,reciprocal,adjective,/rɪˈsɪprəkəl/,mutual,A reciprocal agreement was signed.
+C1,4,Social Connections,20,amiable,adjective,/ˈeɪmiəbəl/,friendly,He has an amiable personality.
+C1,4,Social Connections,21,affiliate,verb,/əˈfɪliˌeɪt/,associate with,The company affiliates with partners.
+C1,4,Social Connections,22,bond,verb,/ˈbɑnd/,form connection,They bonded over shared interests.
+C1,4,Social Connections,23,collaborate,verb,/kəˈlæbəˌreɪt/,work together,Teams collaborate on projects.
+C1,4,Social Connections,24,socialize,verb,/ˈsoʊʃəˌlaɪz/,interact,Employees socialize after work.
+C1,4,Social Connections,25,associate,verb,/əˈsoʊʃiˌeɪt/,connect,I associate this smell with childhood.
+C1,4,Social Connections,26,alienate,verb,/ˈeɪliəˌneɪt/,isolate,His behavior alienated friends.
+C1,4,Social Connections,27,estrange,verb,/ɪˈstreɪndʒ/,separate,The dispute estranged the brothers.
+C1,4,Social Connections,28,reconcile,verb,/ˈrɛkənˌsaɪl/,restore friendship,They reconciled after years.
+C1,4,Social Connections,29,befriend,verb,/bɪˈfrɛnd/,become friends with,She befriended the new student.
+C1,4,Social Connections,30,network,verb,/ˈnɛtˌwɜrk/,make contacts,Network at professional events.
+C1,5,Body Language & Expression,1,nod,verb,/ˈnɑd/,move head in agreement,He nodded in approval.
+C1,5,Body Language & Expression,2,glance,noun,/ˈglæns/,quick look,She took a quick glance.
+C1,5,Body Language & Expression,3,glimpse,noun,/ˈglɪmps/,brief view,I caught a glimpse of him.
+C1,5,Body Language & Expression,4,gaze,noun,/ˈgeɪz/,steady look,Her gaze was intense.
+C1,5,Body Language & Expression,5,stare,verb,/ˈstɛr/,look fixedly,Do not stare at strangers.
+C1,5,Body Language & Expression,6,shrug,verb,/ˈʃrʌg/,raise shoulders,He shrugged indifferently.
+C1,5,Body Language & Expression,7,frown,verb,/ˈfraʊn/,wrinkle brow,She frowned at the news.
+C1,5,Body Language & Expression,8,wink,verb,/ˈwɪŋk/,close one eye,He winked playfully.
+C1,5,Body Language & Expression,9,poise,noun,/ˈpɔɪz/,composure,She handled it with poise.
+C1,5,Body Language & Expression,10,posture,noun,/ˈpɑstʃɚ/,body position,Good posture is important.
+C1,5,Body Language & Expression,11,gesture,noun,/ˈdʒɛstʃɚ/,hand movement,A kind gesture was appreciated.
+C1,5,Body Language & Expression,12,stance,noun,/ˈstæns/,body position,His defensive stance was clear.
+C1,5,Body Language & Expression,13,demeanor,noun,/dɪˈminɚ/,outward manner,Her calm demeanor impressed us.
+C1,5,Body Language & Expression,14,bearing,noun,/ˈbɛrɪŋ/,manner of carrying oneself,He had a dignified bearing.
+C1,5,Body Language & Expression,15,composure,noun,/kəmˈpoʊʒɚ/,calmness,She maintained her composure.
+C1,5,Body Language & Expression,16,fidget,verb,/ˈfɪdʒɪt/,move restlessly,Stop fidgeting in your seat.
+C1,5,Body Language & Expression,17,squint,verb,/ˈskwɪnt/,narrow eyes,He squinted in the sunlight.
+C1,5,Body Language & Expression,18,grimace,verb,/ˈgrɪməs/,facial contortion,She grimaced in pain.
+C1,5,Body Language & Expression,19,clench,verb,/ˈklɛntʃ/,close tightly,He clenched his fists.
+C1,5,Body Language & Expression,20,slouch,verb,/ˈslaʊtʃ/,sit lazily,Do not slouch at your desk.
+C1,5,Body Language & Expression,21,tense,adjective,/ˈtɛns/,stiff,His shoulders were tense.
+C1,5,Body Language & Expression,22,attentive,adjective,/əˈtɛntɪv/,paying attention,The audience was attentive.
+C1,5,Body Language & Expression,23,expressive,adjective,/ɪkˈsprɛsɪv/,showing emotion,Her face is very expressive.
+C1,5,Body Language & Expression,24,impassive,adjective,/ɪmˈpæsɪv/,showing no emotion,His face remained impassive.
+C1,5,Body Language & Expression,25,animated,adjective,/ˈænɪˌmeɪtɪd/,lively,An animated conversation followed.
+C1,6,Clothing & Accessories,1,garment,noun,/ˈgɑrmənt/,piece of clothing,The garment was finely made.
+C1,6,Clothing & Accessories,2,attire,noun,/əˈtaɪɚ/,clothing,Formal attire is required.
+C1,6,Clothing & Accessories,3,apparel,noun,/əˈpærəl/,clothing,Sports apparel is popular.
+C1,6,Clothing & Accessories,4,wardrobe,noun,/ˈwɔrˌdroʊb/,clothes collection,Her wardrobe was extensive.
+C1,6,Clothing & Accessories,5,footwear,noun,/ˈfʊˌtwɛr/,shoes,Proper footwear is required.
+C1,6,Clothing & Accessories,6,accessory,noun,/ækˈsɛsəri/,extra item,The bag was a fashion accessory.
+C1,6,Clothing & Accessories,7,fabric,noun,/ˈfæbrɪk/,cloth material,The fabric is soft and durable.
+C1,6,Clothing & Accessories,8,textile,noun,/ˈtɛkˌstaɪl/,woven material,The textile industry is large.
+C1,6,Clothing & Accessories,9,linen,noun,/ˈlɪnən/,fabric type,Linen is great for summer.
+C1,6,Clothing & Accessories,10,velvet,noun,/ˈvɛlvɪt/,soft fabric,The velvet curtains were elegant.
+C1,6,Clothing & Accessories,11,seam,noun,/ˈsim/,joining line,The seam came undone.
+C1,6,Clothing & Accessories,12,hem,noun,/ˈhɛm/,edge of cloth,The hem needs adjusting.
+C1,6,Clothing & Accessories,13,collar,noun,/ˈkɑlɚ/,neck part,Straighten your collar.
+C1,6,Clothing & Accessories,14,cuff,noun,/ˈkʌf/,sleeve end,The cuffs were too long.
+C1,6,Clothing & Accessories,15,tailor,noun,/ˈteɪlɚ/,clothes maker,The tailor altered the suit.
+C1,6,Clothing & Accessories,16,seamstress,noun,/ˈsiməstrəs/,woman who sews,The seamstress repaired the dress.
+C1,6,Clothing & Accessories,17,tailored,adjective,/ˈteɪlɚd/,custom-fitted,A tailored suit fits perfectly.
+C1,6,Clothing & Accessories,18,stylish,adjective,/ˈstaɪlɪʃ/,fashionable,She always looks stylish.
+C1,6,Clothing & Accessories,19,elegant,adjective,/ˈɛləgənt/,refined,An elegant gown was worn.
+C1,6,Clothing & Accessories,20,casual,adjective,/ˈkæʒuəl/,informal,Casual dress is allowed.
+C1,6,Clothing & Accessories,21,tailor,verb,/ˈteɪlɚ/,make to fit,Tailor the message to the audience.
+C1,6,Clothing & Accessories,22,embroider,verb,/ɪmˈbrɔɪdɚ/,decorate with stitching,She embroidered the cushion.
+C1,6,Clothing & Accessories,23,stitch,verb,/ˈstɪtʃ/,sew,Stitch the torn fabric together.
+C1,6,Clothing & Accessories,24,accessorize,verb,/ækˈsɛsəˌraɪz/,add accessories,Accessorize with a scarf.
+C1,6,Clothing & Accessories,25,don,verb,/ˈdɑn/,put on,She donned her coat and left.
+C1,7,Cooking & Nutrition,1,stir,verb,/ˈstɝ/,mix by moving,Stir the soup gently.
+C1,7,Cooking & Nutrition,2,soak,verb,/ˈsoʊk/,immerse in liquid,Soak the beans overnight.
+C1,7,Cooking & Nutrition,3,blend,verb,/ˈblɛnd/,mix together,Blend the ingredients smoothly.
+C1,7,Cooking & Nutrition,4,simmer,verb,/ˈsɪmɚ/,cook below boiling,Let the sauce simmer for an hour.
+C1,7,Cooking & Nutrition,5,marinate,verb,/ˈmærɪˌneɪt/,soak in seasoning,Marinate the chicken overnight.
+C1,7,Cooking & Nutrition,6,sauté,verb,/sɔˈteɪ/,fry quickly,Sauté the vegetables in butter.
+C1,7,Cooking & Nutrition,7,feast,noun,/ˈfist/,elaborate meal,The feast was magnificent.
+C1,7,Cooking & Nutrition,8,pastry,noun,/ˈpeɪstri/,baked goods,Fresh pastry from the bakery.
+C1,7,Cooking & Nutrition,9,beverage,noun,/ˈbɛvɚɪdʒ/,drink,What beverage would you like?
+C1,7,Cooking & Nutrition,10,cuisine,noun,/kwɪˈzin/,cooking style,Italian cuisine is popular.
+C1,7,Cooking & Nutrition,11,dietary,adjective,/ˈdaɪəˌtɛri/,relating to diet,Dietary restrictions apply.
+C1,7,Cooking & Nutrition,12,gourmet,adjective,/ˈgʊɹˌmeɪ/,high quality food,A gourmet restaurant opened.
+C1,7,Cooking & Nutrition,13,appetizer,noun,/ˈæpəˌtaɪzɚ/,starter dish,We ordered appetizers first.
+C1,7,Cooking & Nutrition,14,cater,verb,/ˈkeɪtɚ/,provide food service,They cater for weddings.
+C1,7,Cooking & Nutrition,15,appetite,noun,/ˈæpəˌtaɪt/,desire for food,She has a healthy appetite.
+C1,7,Cooking & Nutrition,16,intake,noun,/ˈɪˌnteɪk/,amount consumed,Monitor your calorie intake.
+C1,7,Cooking & Nutrition,17,calorie,noun,/ˈkælɚi/,energy unit,Count your calories carefully.
+C1,7,Cooking & Nutrition,18,fiber,noun,/ˈfaɪbɚ/,dietary roughage,Fiber aids digestion.
+C1,7,Cooking & Nutrition,19,digestion,noun,/daɪˈdʒɛstʃən/,food processing,Good digestion is essential.
+C1,7,Cooking & Nutrition,20,nutritious,adjective,/nuˈtrɪʃəs/,nourishing,Eat nutritious foods daily.
+C1,7,Cooking & Nutrition,21,nutritional,adjective,/nuˈtrɪʃənəl/,of nutrition,Check nutritional information.
+C1,7,Cooking & Nutrition,22,protein,noun,/ˈproʊˌtin/,nutrient type,Protein builds muscle.
+C1,7,Cooking & Nutrition,23,carbohydrate,noun,/ˌkɑrboʊˈhaɪˌdreɪt/,energy nutrient,Carbohydrates provide energy.
+C1,7,Cooking & Nutrition,24,supplement,noun,/ˈsʌpləmənt/,additional nutrient,Take vitamin supplements.
+C1,7,Cooking & Nutrition,25,metabolism,noun,/məˈtæbəˌlɪzəm/,body process,A fast metabolism helps.
+C1,7,Cooking & Nutrition,26,obese,adjective,/oʊˈbis/,very overweight,Obesity is a health risk.
+C1,7,Cooking & Nutrition,27,wholesome,adjective,/ˈhoʊlsəm/,health-promoting,Wholesome food is best.
+C1,7,Cooking & Nutrition,28,palatable,adjective,/ˈpælətəbəl/,pleasant to taste,The meal was palatable.
+C1,7,Cooking & Nutrition,29,savory,adjective,/ˈseɪvɚi/,salty/spicy flavor,A savory dish was served.
+C1,7,Cooking & Nutrition,30,delicacy,noun,/ˈdɛlɪkəsi/,special food,Caviar is a delicacy.
+C1,8,Housing & Living,1,dwelling,noun,/ˈdwɛlɪŋ/,home,They built a modest dwelling.
+C1,8,Housing & Living,2,residence,noun,/ˈrɛzɪdəns/,home,Her residence is downtown.
+C1,8,Housing & Living,3,tenant,noun,/ˈtɛnənt/,renter,The tenant pays rent monthly.
+C1,8,Housing & Living,4,landlord,noun,/ˈlæˌndlɔrd/,property owner,The landlord raised the rent.
+C1,8,Housing & Living,5,occupant,noun,/ˈɑkjəpənt/,resident,The occupant fled the fire.
+C1,8,Housing & Living,6,rental,noun,/ˈrɛntəl/,rented property,The rental was affordable.
+C1,8,Housing & Living,7,lease,noun,/ˈlis/,rental contract,Sign the lease agreement.
+C1,8,Housing & Living,8,mortgage,noun,/ˈmɔrgɪdʒ/,home loan,They paid off the mortgage.
+C1,8,Housing & Living,9,renovation,noun,/ˌrɛnəˈveɪʃən/,restoration,The renovation took months.
+C1,8,Housing & Living,10,refurbishment,noun,/riˈfɜrbɪʃmənt/,update,The refurbishment was extensive.
+C1,8,Housing & Living,11,maintenance,noun,/ˈmeɪntənəns/,upkeep,Regular maintenance is needed.
+C1,8,Housing & Living,12,layout,noun,/ˈleɪˌaʊt/,arrangement,The layout is efficient.
+C1,8,Housing & Living,13,clutter,noun,/ˈklʌtɚ/,mess,Clear the clutter from your desk.
+C1,8,Housing & Living,14,residential,adjective,/ˌrɛzɪˈdɛntʃəl/,for living,A residential neighborhood.
+C1,8,Housing & Living,15,suburban,adjective,/səˈbɝbən/,outer city,Suburban life is quieter.
+C1,8,Housing & Living,16,spacious,adjective,/ˈspeɪʃəs/,roomy,A spacious apartment.
+C1,8,Housing & Living,17,furnished,adjective,/ˈfɝnɪʃt/,with furniture,A furnished apartment for rent.
+C1,8,Housing & Living,18,cozy,adjective,/ˈkoʊzi/,warm and comfortable,A cozy living room.
+C1,8,Housing & Living,19,reside,verb,/rɪˈzaɪd/,live,They reside in the suburbs.
+C1,8,Housing & Living,20,relocate,verb,/riˈloʊkeɪt/,move,The company will relocate.
+C1,8,Housing & Living,21,renovate,verb,/ˈrɛnəˌveɪt/,restore,They renovated the kitchen.
+C1,8,Housing & Living,22,refurbish,verb,/riˈfɜrbɪʃ/,update,Refurbish the old furniture.
+C1,8,Housing & Living,23,decorate,verb,/ˈdɛkəˌreɪt/,adorn,Decorate the room tastefully.
+C1,8,Housing & Living,24,furnish,verb,/ˈfɜrnɪʃ/,equip,Furnish the apartment.
+C1,8,Housing & Living,25,accommodate,verb,/əˈkɑməˌdeɪt/,provide space,The hotel accommodates 200 guests.
+C1,8,Housing & Living,26,evict,verb,/ɪˈvɪkt/,force out,The landlord evicted the tenant.
+C1,8,Housing & Living,27,upholstery,noun,/əˈpoʊlstɚi/,fabric covering,Clean the upholstery regularly.
+C1,8,Housing & Living,28,amenity,noun,/əˈmɛnɪti/,facility,The building has many amenities.
+C1,8,Housing & Living,29,premises,noun,/ˈprɛməsəz/,property,No smoking on the premises.
+C1,8,Housing & Living,30,congestion,noun,/kəˈndʒɛstʃən/,overcrowding,Traffic congestion is severe.
+C1,8,Housing & Living,31,aesthetic,adjective,/ɛsˈθɛtɪk/,artistic,Aesthetic appeal matters.
+C1,8,Housing & Living,32,minimalist,adjective,/ˈmɪnɪməlɪst/,simple design,A minimalist style is popular.
+C1,8,Housing & Living,33,ornamental,adjective,/ˌɔrnəˈmɛntəl/,decorative,Ornamental plants adorn the garden.
+C1,8,Housing & Living,34,metropolitan,adjective,/ˌmɛtrəˈpɑlɪtən/,of a city,A metropolitan area.
+C1,8,Housing & Living,35,rustic,adjective,/ˈrʌstɪk/,country style,A rustic cabin in the woods.
+C1,9,Daily Life & Routines,1,ritual,noun,/ˈrɪtʃuəl/,regular practice,Morning coffee is a ritual.
+C1,9,Daily Life & Routines,2,routine,noun,/ruˈtin/,regular procedure,Follow a daily routine.
+C1,9,Daily Life & Routines,3,schedule,noun,/ˈskɛdʒul/,timetable,Check your schedule.
+C1,9,Daily Life & Routines,4,regimen,noun,/ˈrɛdʒɪmən/,systematic plan,A strict exercise regimen.
+C1,9,Daily Life & Routines,5,habit,noun,/ˈhæbɪt/,regular behavior,Breaking bad habits is hard.
+C1,9,Daily Life & Routines,6,customary,adjective,/ˈkʌstəˌmɛri/,usual,A customary handshake.
+C1,9,Daily Life & Routines,7,habitual,adjective,/həˈbɪtʃuəl/,done regularly,Habitual exercise is beneficial.
+C1,9,Daily Life & Routines,8,accustomed,adjective,/əˈkʌstəmd/,used to,She is accustomed to early mornings.
+C1,9,Daily Life & Routines,9,monotonous,adjective,/məˈnɑtənəs/,repetitive,A monotonous job.
+C1,9,Daily Life & Routines,10,sporadic,adjective,/spɚˈædɪk/,irregular,Sporadic attendance is noted.
+C1,9,Daily Life & Routines,11,consistency,noun,/kəˈnsɪstənsi/,regularity,Consistency is key to success.
+C1,9,Daily Life & Routines,12,monotony,noun,/məˈnɑtəni/,lack of variety,The monotony was exhausting.
+C1,9,Daily Life & Routines,13,nap,noun,/ˈnæp/,short sleep,A quick nap refreshes you.
+C1,9,Daily Life & Routines,14,fatigue,noun,/fəˈtig/,tiredness,Fatigue set in after hours of work.
+C1,9,Daily Life & Routines,15,restful,adjective,/ˈrɛstfəl/,peaceful,A restful night of sleep.
+C1,9,Daily Life & Routines,16,lethargic,adjective,/ləˈθɑrdʒɪk/,sluggish,Feeling lethargic today.
+C1,9,Daily Life & Routines,17,nocturnal,adjective,/nɑkˈtɜrnəl/,active at night,Nocturnal animals hunt at night.
+C1,9,Daily Life & Routines,18,tireless,adjective,/ˈtaɪɚləs/,untiring,A tireless worker.
+C1,9,Daily Life & Routines,19,continual,adjective,/kəˈntɪnjuəl/,frequent,Continual interruptions annoyed him.
+C1,9,Daily Life & Routines,20,beforehand,adverb,/bɪˈfɔˌrhænd/,in advance,Prepare beforehand.
+C1,9,Daily Life & Routines,21,punctual,adjective,/ˈpʌŋktʃuəl/,on time,Be punctual for meetings.
+C1,9,Daily Life & Routines,22,intermittent,adjective,/ˌɪntɚˈmɪtənt/,occasional,Intermittent rain is expected.
+C1,9,Daily Life & Routines,23,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline the process.
+C1,9,Daily Life & Routines,24,automate,verb,/ˈɔtəˌmeɪt/,make automatic,Automate repetitive tasks.
+C1,9,Daily Life & Routines,25,prioritize,verb,/praɪˈɔrɪˌtaɪz/,rank by importance,Prioritize your tasks.
+C1,9,Daily Life & Routines,26,multitask,verb,/ˈmʌltɪˌtæsk/,do multiple things,Multitasking reduces efficiency.
+C1,9,Daily Life & Routines,27,delegate,verb,/ˈdɛlɪˌgeɪt/,assign tasks,Delegate responsibilities.
+C1,9,Daily Life & Routines,28,procrastinate,verb,/proʊˈkræstɪˌneɪt/,delay,Do not procrastinate.
+C1,9,Daily Life & Routines,29,optimize,verb,/ˈɑptəˌmaɪz/,improve,Optimize your workflow.
+C1,9,Daily Life & Routines,30,overwork,verb,/ˌoʊvɚˈwɜrk/,work too much,Do not overwork yourself.
+C1,10,Character & Personality,1,virtue,noun,/ˈvɜrtʃu/,good quality,Patience is a virtue.
+C1,10,Character & Personality,2,dignity,noun,/ˈdɪgnəti/,self-respect,Maintain your dignity.
+C1,10,Character & Personality,3,integrity,noun,/ɪˈntɛgrəti/,honesty,A person of integrity.
+C1,10,Character & Personality,4,loyalty,noun,/ˈlɔɪəlti/,faithfulness,Loyalty is valued.
+C1,10,Character & Personality,5,modesty,noun,/ˈmɑdəsti/,humility,She accepted with modesty.
+C1,10,Character & Personality,6,morality,noun,/mɚˈæləti/,ethics,Questions of morality arose.
+C1,10,Character & Personality,7,merit,noun,/ˈmɛrət/,worth,Promotion based on merit.
+C1,10,Character & Personality,8,dedication,noun,/ˌdɛdəˈkeɪʃən/,commitment,Her dedication impressed everyone.
+C1,10,Character & Personality,9,temperament,noun,/ˈtɛmprəmənt/,nature,A calm temperament.
+C1,10,Character & Personality,10,disposition,noun,/ˌdɪspəˈzɪʃən/,tendency,A cheerful disposition.
+C1,10,Character & Personality,11,trait,noun,/ˈtreɪt/,characteristic,A common personality trait.
+C1,10,Character & Personality,12,instinct,noun,/ˈɪnstɪŋkt/,natural tendency,Trust your instincts.
+C1,10,Character & Personality,13,flaw,noun,/ˈflɔ/,imperfection,Everyone has flaws.
+C1,10,Character & Personality,14,quirk,noun,/ˈkwɜrk/,peculiarity,An endearing quirk.
+C1,10,Character & Personality,15,mature,adjective,/məˈtʃʊr/,fully developed,A mature response.
+C1,10,Character & Personality,16,noble,adjective,/ˈnoʊbəl/,honorable,A noble deed.
+C1,10,Character & Personality,17,humble,adjective,/ˈhʌmbəl/,modest,A humble beginning.
+C1,10,Character & Personality,18,trustworthy,adjective,/ˈtrʌˌstwɜrði/,reliable,A trustworthy friend.
+C1,10,Character & Personality,19,conscientious,adjective,/ˌkɑnʃiˈɛnʃəs/,careful,A conscientious worker.
+C1,10,Character & Personality,20,astute,adjective,/əˈstut/,shrewd,An astute observation.
+C1,10,Character & Personality,21,docile,adjective,/ˈdɑsəl/,obedient,A docile student.
+C1,10,Character & Personality,22,headstrong,adjective,/ˈhɛdˌstrɔŋ/,stubborn,A headstrong child.
+C1,10,Character & Personality,23,impulsive,adjective,/ɪmˈpʌlsɪv/,acting quickly,An impulsive decision.
+C1,10,Character & Personality,24,eccentric,adjective,/ɪkˈsɛntrɪk/,unconventional,An eccentric professor.
+C1,10,Character & Personality,25,cynical,adjective,/ˈsɪnɪkəl/,distrustful,A cynical view.
+C1,10,Character & Personality,26,naive,adjective,/naɪˈiv/,inexperienced,A naive assumption.
+C1,10,Character & Personality,27,vicious,adjective,/ˈvɪʃəs/,cruel,A vicious attack.
+C1,10,Character & Personality,28,fierce,adjective,/ˈfɪrs/,intense,Fierce competition.
+C1,10,Character & Personality,29,apathetic,adjective,/ˌæpəˈθɛtɪk/,indifferent,Voter apathy is concerning.
+C1,10,Character & Personality,30,altruistic,adjective,/ˌɔltruˈɪstɪk/,selfless,An altruistic act.
+C1,10,Character & Personality,31,cultivate,verb,/ˈkʌltəˌveɪt/,develop,Cultivate good habits.
+C1,10,Character & Personality,32,embody,verb,/ɪmˈbɑdi/,represent,She embodies excellence.
+C1,10,Character & Personality,33,emulate,verb,/ˈɛmjəˌleɪt/,imitate,Emulate successful people.
+C1,10,Character & Personality,34,exhibit,verb,/ɪgˈzɪbɪt/,display,He exhibited patience.
+C1,10,Character & Personality,35,possess,verb,/pəˈzɛs/,have,She possesses great talent.
+C1,11,Identity,1,ego,noun,/ˈigoʊ/,sense of self,His ego is too big.
+C1,11,Identity,2,essence,noun,/ˈɛsəns/,core nature,The essence of the matter.
+C1,11,Identity,3,conscience,noun,/ˈkɑnʃəns/,moral sense,A guilty conscience.
+C1,11,Identity,4,psyche,noun,/ˈsaɪki/,mind,The human psyche is complex.
+C1,11,Identity,5,autonomy,noun,/ɔˈtɑnəmi/,independence,Personal autonomy matters.
+C1,11,Identity,6,self-esteem,noun,/ˌsɛlfɪˈstim/,self-worth,Build your self-esteem.
+C1,11,Identity,7,self-awareness,noun,/ˌsɛlfəˈwɛrnəs/,knowing oneself,Self-awareness is important.
+C1,11,Identity,8,identity,noun,/aɪˈdɛntəti/,who you are,Cultural identity matters.
+C1,11,Identity,9,individuality,noun,/ˌɪndɪˌvɪdʒuˈæləti/,uniqueness,Express your individuality.
+C1,11,Identity,10,persona,noun,/pɚˈsoʊnə/,public image,His public persona is different.
+C1,11,Identity,11,introspection,noun,/ˌɪntrəˈspɛkʃən/,self-examination,Time for introspection.
+C1,11,Identity,12,orientation,noun,/ˌɔriɛnˈteɪʃən/,direction,Sexual orientation is personal.
+C1,11,Identity,13,perception,noun,/pɚˈsɛpʃən/,view,Self-perception affects behavior.
+C1,11,Identity,14,introspective,adjective,/ˌɪntrəˈspɛktɪv/,self-examining,An introspective person.
+C1,11,Identity,15,authentic,adjective,/ɔˈθɛntɪk/,genuine,Be your authentic self.
+C1,11,Identity,16,distinctive,adjective,/dɪˈstɪŋktɪv/,unique,A distinctive style.
+C1,11,Identity,17,innate,adjective,/ɪˈneɪt/,inborn,Innate talent exists.
+C1,11,Identity,18,inherent,adjective,/ɪnˈhɪrənt/,essential,Inherent qualities.
+C1,11,Identity,19,selfless,adjective,/ˈsɛlflɪs/,unselfish,A selfless act.
+C1,11,Identity,20,selfish,adjective,/ˈsɛlfɪʃ/,self-centered,Selfish behavior is harmful.
+C1,11,Identity,21,define,verb,/dɪˈfaɪn/,describe,Define your values.
+C1,11,Identity,22,identify,verb,/aɪˈdɛntɪˌfaɪ/,recognize,Identify your strengths.
+C1,11,Identity,23,distinguish,verb,/dɪˈstɪŋgwɪʃ/,differentiate,Distinguish yourself from others.
+C1,11,Identity,24,embody,verb,/ɪmˈbɑdi/,represent,Embody your values.
+C1,11,Identity,25,project,verb,/prəˈdʒɛkt/,convey,Project confidence.
+C1,12,Emotions & Feelings,1,bliss,noun,/ˈblɪs/,extreme happiness,Marital bliss.
+C1,12,Emotions & Feelings,2,euphoria,noun,/juˈfɔriə/,intense joy,A feeling of euphoria.
+C1,12,Emotions & Feelings,3,content,adjective,/kənˈtɛnt/,satisfied,She felt content.
+C1,12,Emotions & Feelings,4,thrilled,adjective,/ˈθrɪld/,very excited,Thrilled with the news.
+C1,12,Emotions & Feelings,5,grief,noun,/ˈgrif/,deep sorrow,Overcome with grief.
+C1,12,Emotions & Feelings,6,anguish,noun,/ˈæŋgwɪʃ/,severe pain,Mental anguish is real.
+C1,12,Emotions & Feelings,7,despair,noun,/dɪˈspɛr/,hopelessness,Filled with despair.
+C1,12,Emotions & Feelings,8,dismay,noun,/dɪsˈmeɪ/,distress,To our dismay.
+C1,12,Emotions & Feelings,9,frustration,noun,/frəˈstreɪʃən/,annoyance,Growing frustration.
+C1,12,Emotions & Feelings,10,rage,noun,/ˈreɪdʒ/,intense anger,Filled with rage.
+C1,12,Emotions & Feelings,11,outrage,noun,/ˈaʊtˌreɪdʒ/,extreme anger,Public outrage erupted.
+C1,12,Emotions & Feelings,12,contempt,noun,/kəˈntɛmpt/,scorn,Treated with contempt.
+C1,12,Emotions & Feelings,13,compassion,noun,/kəmˈpæʃən/,sympathy,Show compassion.
+C1,12,Emotions & Feelings,14,empathy,noun,/ˈɛmpəθi/,understanding others,Empathy is essential.
+C1,12,Emotions & Feelings,15,remorse,noun,/rɪˈmɔrs/,regret,He felt remorse.
+C1,12,Emotions & Feelings,16,nostalgia,noun,/nɑˈstældʒə/,longing for past,Nostalgia for childhood.
+C1,12,Emotions & Feelings,17,apprehension,noun,/ˌæprɪˈhɛnʃən/,anxiety,A sense of apprehension.
+C1,12,Emotions & Feelings,18,resentment,noun,/rɪˈzɛntmənt/,bitterness,Deep resentment.
+C1,12,Emotions & Feelings,19,melancholy,noun,/ˈmɛlənˌkɑli/,sadness,A touch of melancholy.
+C1,12,Emotions & Feelings,20,elation,noun,/ɪˈleɪʃən/,great happiness,Elation at the win.
+C1,12,Emotions & Feelings,21,placid,adjective,/ˈplæsəd/,calm,A placid expression.
+C1,12,Emotions & Feelings,22,somber,adjective,/ˈsɑmbɚ/,gloomy,A somber mood.
+C1,12,Emotions & Feelings,23,envious,adjective,/ˈɛnviəs/,jealous,Envious of success.
+C1,12,Emotions & Feelings,24,panicky,adjective,/ˈpænɪki/,fearful,Feeling panicky.
+C1,12,Emotions & Feelings,25,agitated,adjective,/ˈædʒəˌteɪtɪd/,disturbed,She became agitated.
+C1,12,Emotions & Feelings,26,distressed,adjective,/dɪˈstrɛst/,upset,Visibly distressed.
+C1,12,Emotions & Feelings,27,elated,adjective,/ɪˈleɪtɪd/,overjoyed,Elated at the news.
+C1,12,Emotions & Feelings,28,haunt,verb,/ˈhɔnt/,trouble persistently,Memories haunt him.
+C1,12,Emotions & Feelings,29,agonize,verb,/ˈægəˌnaɪz/,suffer,Agonize over decisions.
+C1,12,Emotions & Feelings,30,overwhelm,verb,/ˌoʊvɚˈwɛlm/,overpower,Emotions overwhelmed her.
+C1,12,Emotions & Feelings,31,resent,verb,/rɪˈzɛnt/,feel bitter,Resent the criticism.
+C1,12,Emotions & Feelings,32,lament,verb,/ləˈmɛnt/,mourn,Lament the loss.
+C1,12,Emotions & Feelings,33,yearn,verb,/ˈjɜrn/,long for,Yearn for home.
+C1,12,Emotions & Feelings,34,dread,verb,/ˈdrɛd/,fear greatly,Dread the exam.
+C1,12,Emotions & Feelings,35,soothe,verb,/ˈsuð/,calm,Soothe the crying baby.
+C1,13,Memory & Cognition,1,memory,noun,/ˈmɛmɚi/,recall ability,A good memory is useful.
+C1,13,Memory & Cognition,2,cognition,noun,/kɑgˈnɪʃən/,mental process,Study of cognition.
+C1,13,Memory & Cognition,3,consciousness,noun,/ˈkɑnʃəsnəs/,awareness,Regained consciousness.
+C1,13,Memory & Cognition,4,subconscious,noun,/sʌbˈkɑnʃəs/,hidden mind,The subconscious influences behavior.
+C1,13,Memory & Cognition,5,perception,noun,/pɚˈsɛpʃən/,awareness,Visual perception is key.
+C1,13,Memory & Cognition,6,mentality,noun,/mɛnˈtæləti/,mindset,A positive mentality helps.
+C1,13,Memory & Cognition,7,recall,noun,/rɪˈkɔl/,recollection,Total recall is rare.
+C1,13,Memory & Cognition,8,alert,adjective,/əˈlɜrt/,watchful,Stay alert at all times.
+C1,13,Memory & Cognition,9,cognitive,adjective,/ˈkɑgnɪtɪv/,of thinking,Cognitive development occurs.
+C1,13,Memory & Cognition,10,conscious,adjective,/ˈkɑnʃəs/,aware,A conscious effort.
+C1,13,Memory & Cognition,11,attentive,adjective,/əˈtɛntɪv/,focused,An attentive student.
+C1,13,Memory & Cognition,12,discerning,adjective,/dɪˈsɜrnɪŋ/,showing insight,A discerning observer.
+C1,13,Memory & Cognition,13,perceptive,adjective,/pɚˈsɛptɪv/,insightful,A perceptive comment.
+C1,13,Memory & Cognition,14,forgetful,adjective,/fɚˈgɛtfəl/,prone to forgetting,I am forgetful sometimes.
+C1,13,Memory & Cognition,15,recall,verb,/rɪˈkɔl/,remember,Recall the events clearly.
+C1,13,Memory & Cognition,16,recollect,verb,/ˌrɛkəˈlɛkt/,remember,I cannot recollect his name.
+C1,13,Memory & Cognition,17,memorize,verb,/ˈmɛmɚˌaɪz/,learn by heart,Memorize the vocabulary.
+C1,13,Memory & Cognition,18,retain,verb,/rɪˈteɪn/,keep in memory,Retain important information.
+C1,13,Memory & Cognition,19,perceive,verb,/pɚˈsiv/,become aware,Perceive the difference.
+C1,13,Memory & Cognition,20,discern,verb,/dɪˈsɜrn/,recognize,Discern the truth.
+C1,13,Memory & Cognition,21,grasp,verb,/ˈgræsp/,understand,Grasp the concept quickly.
+C1,13,Memory & Cognition,22,comprehend,verb,/ˌkɑmprɪˈhɛnd/,understand fully,Comprehend the complexity.
+C1,13,Memory & Cognition,23,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze the data carefully.
+C1,13,Memory & Cognition,24,synthesize,verb,/ˈsɪnθəˌsaɪz/,combine,Synthesize the information.
+C1,13,Memory & Cognition,25,visualize,verb,/ˈvɪʒuəˌlaɪz/,imagine,Visualize success.
+C1,14,Motivation,1,motivation,noun,/ˌmoʊtɪˈveɪʃən/,drive,Motivation is key to success.
+C1,14,Motivation,2,aspiration,noun,/ˌæspɚˈeɪʃən/,ambition,Her aspiration is to lead.
+C1,14,Motivation,3,inspiration,noun,/ˌɪnspɚˈeɪʃən/,creative influence,Nature is her inspiration.
+C1,14,Motivation,4,determination,noun,/dɪˌtɜrmɪˈneɪʃən/,resolve,Strong determination wins.
+C1,14,Motivation,5,ambition,noun,/æmˈbɪʃən/,desire to achieve,Boundless ambition.
+C1,14,Motivation,6,incentive,noun,/ɪnˈsɛntɪv/,encouragement,Financial incentives help.
+C1,14,Motivation,7,drive,noun,/ˈdraɪv/,inner motivation,The drive to succeed.
+C1,14,Motivation,8,eager,adjective,/ˈigɚ/,enthusiastic,Eager to learn.
+C1,14,Motivation,9,persistent,adjective,/pɚˈsɪstənt/,determined,Persistent efforts pay off.
+C1,14,Motivation,10,driven,adjective,/ˈdrɪvən/,highly motivated,A driven individual.
+C1,14,Motivation,11,resolute,adjective,/ˈrɛzəˌlut/,determined,Resolute in her decision.
+C1,14,Motivation,12,tenacious,adjective,/tɪˈneɪʃəs/,persistent,A tenacious competitor.
+C1,14,Motivation,13,zealous,adjective,/ˈzɛləs/,enthusiastic,A zealous advocate.
+C1,14,Motivation,14,aspire,verb,/əˈspaɪɚ/,aim high,Aspire to greatness.
+C1,14,Motivation,15,strive,verb,/ˈstraɪv/,work hard,Strive for excellence.
+C1,14,Motivation,16,pursue,verb,/pɚˈsu/,chase,Pursue your dreams.
+C1,14,Motivation,17,motivate,verb,/ˈmoʊtɪˌveɪt/,encourage,Motivate the team.
+C1,14,Motivation,18,inspire,verb,/ɪnˈspaɪɚ/,stimulate,Inspire others to act.
+C1,14,Motivation,19,incentivize,verb,/ɪnˈsɛntɪˌvaɪz/,provide incentive,Incentivize good behavior.
+C1,14,Motivation,20,persevere,verb,/ˌpɜrsəˈvɪr/,continue despite difficulty,Persevere through challenges.
+C1,14,Motivation,21,endeavor,verb,/ɪnˈdɛvɚ/,try hard,Endeavor to improve.
+C1,14,Motivation,22,galvanize,verb,/ˈgælvəˌnaɪz/,shock into action,Galvanize the group.
+C1,14,Motivation,23,spur,verb,/ˈspɜr/,encourage,Spur innovation.
+C1,14,Motivation,24,propel,verb,/prəˈpɛl/,drive forward,Propel the project forward.
+C1,14,Motivation,25,invigorate,verb,/ɪnˈvɪgəˌreɪt/,energize,The speech invigorated us.
+C1,15,Actions & Behavior,1,leap,noun,/ˈlip/,jump,A leap of faith.
+C1,15,Actions & Behavior,2,burst,noun,/ˈbɜrst/,sudden outbreak,A burst of energy.
+C1,15,Actions & Behavior,3,halt,noun,/ˈhɔlt/,stop,Work came to a halt.
+C1,15,Actions & Behavior,4,onset,noun,/ˈɑnˌsɛt/,beginning,The onset of winter.
+C1,15,Actions & Behavior,5,skip,verb,/ˈskɪp/,jump lightly,Skip the boring parts.
+C1,15,Actions & Behavior,6,slam,verb,/ˈslæm/,close forcefully,Slam the door shut.
+C1,15,Actions & Behavior,7,smash,verb,/ˈsmæʃ/,break violently,Smash the record.
+C1,15,Actions & Behavior,8,crush,verb,/ˈkrʌʃ/,compress,Crush the competition.
+C1,15,Actions & Behavior,9,shatter,verb,/ˈʃætɚ/,break into pieces,Dreams shattered.
+C1,15,Actions & Behavior,10,squeeze,verb,/ˈskwiz/,press tightly,Squeeze the lemon.
+C1,15,Actions & Behavior,11,seize,verb,/ˈsiz/,grab,Seize the opportunity.
+C1,15,Actions & Behavior,12,plunge,verb,/ˈplʌndʒ/,dive,Prices plunged.
+C1,15,Actions & Behavior,13,vanish,verb,/ˈvænɪʃ/,disappear,The money vanished.
+C1,15,Actions & Behavior,14,stumble,verb,/ˈstʌmbəl/,trip,Stumble upon the truth.
+C1,15,Actions & Behavior,15,commence,verb,/kəˈmɛns/,begin,Commence the meeting.
+C1,15,Actions & Behavior,16,initiate,verb,/ɪˈnɪʃiˌeɪt/,start,Initiate the process.
+C1,15,Actions & Behavior,17,terminate,verb,/ˈtɜrmɪˌneɪt/,end,Terminate the contract.
+C1,15,Actions & Behavior,18,cease,verb,/ˈsis/,stop,Cease all operations.
+C1,15,Actions & Behavior,19,embark,verb,/ɛmˈbɑrk/,begin journey,Embark on a new venture.
+C1,15,Actions & Behavior,20,accelerate,verb,/ækˈsɛlɚˌeɪt/,speed up,Accelerate growth.
+C1,15,Actions & Behavior,21,execute,verb,/ˈɛksɪˌkjut/,carry out,Execute the plan.
+C1,15,Actions & Behavior,22,implement,verb,/ˈɪmpləˌmɛnt/,put into effect,Implement the changes.
+C1,15,Actions & Behavior,23,render,verb,/ˈrɛndɚ/,cause to be,Rendered speechless.
+C1,15,Actions & Behavior,24,retrieve,verb,/rɪˈtriv/,recover,Retrieve the data.
+C1,15,Actions & Behavior,25,suspend,verb,/səˈspɛnd/,temporarily stop,Suspend operations.
+C1,15,Actions & Behavior,26,resume,verb,/rɪˈzum/,continue,Resume work tomorrow.
+C1,15,Actions & Behavior,27,utilize,verb,/ˈjutəˌlaɪz/,use,Utilize resources wisely.
+C1,15,Actions & Behavior,28,deploy,verb,/dɪˈplɔɪ/,use strategically,Deploy the team.
+C1,15,Actions & Behavior,29,harness,verb,/ˈhɑrnɪs/,control and use,Harness solar energy.
+C1,15,Actions & Behavior,30,exert,verb,/ɪgˈzɜrt/,apply,Exert influence.
+C1,16,Communication,1,dialogue,noun,/ˈdaɪəˌlɔg/,conversation,Open dialogue is important.
+C1,16,Communication,2,discourse,noun,/ˈdɪsˌkɔrs/,formal discussion,Academic discourse.
+C1,16,Communication,3,rhetoric,noun,/ˈrɛtɚɪk/,persuasive speech,Political rhetoric.
+C1,16,Communication,4,jargon,noun,/ˈdʒɑrgən/,specialized language,Technical jargon.
+C1,16,Communication,5,slang,noun,/ˈslæŋ/,informal language,Youth slang changes fast.
+C1,16,Communication,6,assertion,noun,/əˈsɜrʃən/,confident statement,A bold assertion.
+C1,16,Communication,7,contention,noun,/kənˈtɛnʃən/,argument,A point of contention.
+C1,16,Communication,8,clarification,noun,/ˌklærɪfɪˈkeɪʃən/,explanation,Seek clarification.
+C1,16,Communication,9,verbal,adjective,/ˈvɜrbəl/,spoken,Verbal communication.
+C1,16,Communication,10,vocal,adjective,/ˈvoʊkəl/,outspoken,A vocal critic.
+C1,16,Communication,11,articulate,adjective,/ɑrˈtɪkjəlɪt/,well-spoken,An articulate speaker.
+C1,16,Communication,12,eloquent,adjective,/ˈɛləkwənt/,fluent,An eloquent speech.
+C1,16,Communication,13,persuasive,adjective,/pɚˈsweɪsɪv/,convincing,A persuasive argument.
+C1,16,Communication,14,assert,verb,/əˈsɜrt/,state firmly,Assert your rights.
+C1,16,Communication,15,contend,verb,/kənˈtɛnd/,argue,They contend that it is wrong.
+C1,16,Communication,16,articulate,verb,/ɑrˈtɪkjəˌleɪt/,express clearly,Articulate your thoughts.
+C1,16,Communication,17,convey,verb,/kənˈveɪ/,communicate,Convey the message clearly.
+C1,16,Communication,18,clarify,verb,/ˈklærəˌfaɪ/,make clear,Clarify your position.
+C1,16,Communication,19,elaborate,verb,/ɪˈlæbɚˌeɪt/,explain in detail,Please elaborate.
+C1,16,Communication,20,reiterate,verb,/riˈɪtɚˌeɪt/,repeat,Reiterate the main points.
+C1,16,Communication,21,emphasize,verb,/ˈɛmfəˌsaɪz/,stress,Emphasize key ideas.
+C1,16,Communication,22,illustrate,verb,/ˈɪləˌstreɪt/,explain with examples,Illustrate the concept.
+C1,16,Communication,23,paraphrase,verb,/ˈpærəˌfreɪz/,restate,Paraphrase the text.
+C1,16,Communication,24,summarize,verb,/ˈsʌməˌraɪz/,give main points,Summarize the article.
+C1,16,Communication,25,infer,verb,/ɪnˈfɜr/,deduce,Infer meaning from context.
+C1,16,Communication,26,imply,verb,/ɪmˈplaɪ/,suggest indirectly,What are you implying?
+C1,16,Communication,27,allude,verb,/əˈlud/,refer indirectly,Allude to past events.
+C1,16,Communication,28,confer,verb,/kənˈfɜr/,discuss,Confer with colleagues.
+C1,16,Communication,29,negotiate,verb,/nɪˈgoʊʃiˌeɪt/,discuss terms,Negotiate a deal.
+C1,16,Communication,30,mediate,verb,/ˈmidiˌeɪt/,resolve dispute,Mediate the conflict.
+C1,17,Expression & Etiquette,1,courtesy,noun,/ˈkɜrtəsi/,politeness,Common courtesy.
+C1,17,Expression & Etiquette,2,etiquette,noun,/ˈɛtɪˌkɛt/,social rules,Business etiquette.
+C1,17,Expression & Etiquette,3,protocol,noun,/ˈproʊtəˌkɑl/,formal procedure,Follow the protocol.
+C1,17,Expression & Etiquette,4,formality,noun,/fɔrˈmæləti/,ceremony,A mere formality.
+C1,17,Expression & Etiquette,5,discretion,noun,/dɪˈskrɛʃən/,judgment,Use your discretion.
+C1,17,Expression & Etiquette,6,tact,noun,/ˈtækt/,sensitivity,Handle with tact.
+C1,17,Expression & Etiquette,7,decorum,noun,/dɪˈkɔrəm/,proper behavior,Maintain decorum.
+C1,17,Expression & Etiquette,8,propriety,noun,/prəˈpraɪəti/,correctness,A sense of propriety.
+C1,17,Expression & Etiquette,9,tactful,adjective,/ˈtæktfəl/,diplomatic,A tactful response.
+C1,17,Expression & Etiquette,10,diplomatic,adjective,/ˌdɪpləˈmætɪk/,careful in dealings,Diplomatic skills.
+C1,17,Expression & Etiquette,11,cordial,adjective,/ˈkɔrdʒəl/,warm and friendly,A cordial welcome.
+C1,17,Expression & Etiquette,12,gracious,adjective,/ˈgreɪʃəs/,courteous,A gracious host.
+C1,17,Expression & Etiquette,13,refined,adjective,/rɪˈfaɪnd/,cultured,Refined manners.
+C1,17,Expression & Etiquette,14,inappropriate,adjective,/ˌɪnəˈproʊpriɪt/,unsuitable,Inappropriate behavior.
+C1,17,Expression & Etiquette,15,offensive,adjective,/əˈfɛnsɪv/,insulting,Offensive remarks.
+C1,17,Expression & Etiquette,16,apologize,verb,/əˈpɑləˌdʒaɪz/,say sorry,Apologize sincerely.
+C1,17,Expression & Etiquette,17,acknowledge,verb,/ækˈnɑlɪdʒ/,recognize,Acknowledge your mistake.
+C1,17,Expression & Etiquette,18,greet,verb,/ˈgrit/,welcome,Greet guests warmly.
+C1,17,Expression & Etiquette,19,compliment,verb,/ˈkɑmpləˌmɛnt/,praise,Compliment her work.
+C1,17,Expression & Etiquette,20,offend,verb,/əˈfɛnd/,upset,I did not mean to offend.
+C1,17,Expression & Etiquette,21,insult,verb,/ɪnˈsʌlt/,disrespect,Do not insult anyone.
+C1,17,Expression & Etiquette,22,interrupt,verb,/ˌɪntɚˈʌpt/,break in,Do not interrupt.
+C1,17,Expression & Etiquette,23,excuse,verb,/ɪkˈskjuz/,forgive,Please excuse the delay.
+C1,17,Expression & Etiquette,24,suppress,verb,/səˈprɛs/,hold back,Suppress your emotions.
+C1,17,Expression & Etiquette,25,conceal,verb,/kənˈsil/,hide,Conceal your true feelings.
+C1,18,Socializing,1,hospitality,noun,/ˌhɑspɪˈtæləti/,friendly reception,Known for hospitality.
+C1,18,Socializing,2,networking,noun,/ˈnɛˌtwɜrkɪŋ/,making contacts,Business networking.
+C1,18,Socializing,3,gathering,noun,/ˈgæðɚɪŋ/,assembly,A social gathering.
+C1,18,Socializing,4,reception,noun,/rɪˈsɛpʃən/,formal party,A wedding reception.
+C1,18,Socializing,5,function,noun,/ˈfʌŋkʃən/,formal event,A corporate function.
+C1,18,Socializing,6,cocktail,noun,/ˈkɑkˌteɪl/,mixed drink,A cocktail party.
+C1,18,Socializing,7,companionship,noun,/kəmˈpænjənˌʃɪp/,friendship,Value companionship.
+C1,18,Socializing,8,socialization,noun,/ˌsoʊʃəlɪˈzeɪʃən/,social interaction,Important for socialization.
+C1,18,Socializing,9,hospitable,adjective,/ˈhɑspɪtəbəl/,welcoming,A hospitable host.
+C1,18,Socializing,10,sociable,adjective,/ˈsoʊʃəbəl/,friendly,A sociable person.
+C1,18,Socializing,11,gregarious,adjective,/grɪˈgɛriəs/,outgoing,A gregarious personality.
+C1,18,Socializing,12,outgoing,adjective,/ˈaʊtˌgoʊɪŋ/,extroverted,Very outgoing.
+C1,18,Socializing,13,reclusive,adjective,/rɪˈklusɪv/,avoiding company,A reclusive artist.
+C1,18,Socializing,14,mingle,verb,/ˈmɪŋgəl/,mix socially,Mingle with guests.
+C1,18,Socializing,15,socialize,verb,/ˈsoʊʃəˌlaɪz/,interact,Socialize with colleagues.
+C1,18,Socializing,16,entertain,verb,/ˌɛntɚˈteɪn/,host,Entertain guests.
+C1,18,Socializing,17,host,verb,/ˈhoʊst/,organize,Host a party.
+C1,18,Socializing,18,congregate,verb,/ˈkɑŋgrɪˌgeɪt/,gather,People congregate here.
+C1,18,Socializing,19,assemble,verb,/əˈsɛmbəl/,gather together,Guests assembled outside.
+C1,18,Socializing,20,interact,verb,/ˌɪntɚˈækt/,communicate,Interact with others.
+C1,18,Socializing,21,converse,verb,/kənˈvɜrs/,talk,Converse with strangers.
+C1,18,Socializing,22,fraternize,verb,/ˈfrætɚˌnaɪz/,associate,Fraternize with colleagues.
+C1,18,Socializing,23,integrate,verb,/ˈɪntɪˌgreɪt/,blend in,Integrate into society.
+C1,18,Socializing,24,exclude,verb,/ɪkˈsklud/,leave out,Do not exclude anyone.
+C1,18,Socializing,25,isolate,verb,/ˈaɪsəˌleɪt/,separate,Do not isolate yourself.
+C1,19,Descriptions,1,bare,adjective,/ˈbɛr/,minimal,Bare necessities.
+C1,19,Descriptions,2,stark,adjective,/ˈstɑrk/,harsh,A stark contrast.
+C1,19,Descriptions,3,subtle,adjective,/ˈsʌtəl/,understated,A subtle difference.
+C1,19,Descriptions,4,delicate,adjective,/ˈdɛləkət/,fragile,Delicate handling required.
+C1,19,Descriptions,5,fragile,adjective,/ˈfrædʒəl/,easily broken,Fragile goods.
+C1,19,Descriptions,6,robust,adjective,/roʊˈbʌst/,strong,A robust economy.
+C1,19,Descriptions,7,vibrant,adjective,/ˈvaɪbrənt/,lively,Vibrant colors.
+C1,19,Descriptions,8,glorious,adjective,/ˈglɔriəs/,magnificent,A glorious sunset.
+C1,19,Descriptions,9,superb,adjective,/supˈɜrb/,excellent,Superb quality.
+C1,19,Descriptions,10,striking,adjective,/ˈstraɪkɪŋ/,remarkable,A striking resemblance.
+C1,19,Descriptions,11,peculiar,adjective,/pɪˈkjuljɚ/,odd,A peculiar smell.
+C1,19,Descriptions,12,bizarre,adjective,/bɪˈzɑr/,very strange,A bizarre incident.
+C1,19,Descriptions,13,absurd,adjective,/əbˈsɜrd/,ridiculous,An absurd claim.
+C1,19,Descriptions,14,notorious,adjective,/noʊˈtɔriəs/,famous for bad,A notorious criminal.
+C1,19,Descriptions,15,infamous,adjective,/ˈɪnfəməs/,well-known for bad,An infamous act.
+C1,19,Descriptions,16,unprecedented,adjective,/ənˈprɛsɪˌdɛntɪd/,never before,Unprecedented growth.
+C1,19,Descriptions,17,harsh,adjective,/ˈhɑrʃ/,severe,Harsh criticism.
+C1,19,Descriptions,18,brutal,adjective,/ˈbrutəl/,cruel,Brutal honesty.
+C1,19,Descriptions,19,irrelevant,adjective,/ɪˈrɛləvənt/,not relevant,Irrelevant details.
+C1,19,Descriptions,20,superior,adjective,/suˈpɪriɚ/,higher quality,Superior performance.
+C1,19,Descriptions,21,inferior,adjective,/ɪnˈfɪriɚ/,lower quality,Inferior products.
+C1,19,Descriptions,22,worthwhile,adjective,/ˈwɜrθˌwaɪl/,valuable,A worthwhile investment.
+C1,19,Descriptions,23,intriguing,adjective,/ɪnˈtrigɪŋ/,fascinating,An intriguing mystery.
+C1,19,Descriptions,24,compelling,adjective,/kəmˈpɛlɪŋ/,persuasive,A compelling argument.
+C1,19,Descriptions,25,profound,adjective,/prəˈfaʊnd/,deep,A profound impact.
+C1,19,Descriptions,26,trivial,adjective,/ˈtrɪviəl/,unimportant,A trivial matter.
+C1,19,Descriptions,27,mundane,adjective,/mʌnˈdeɪn/,ordinary,Mundane tasks.
+C1,19,Descriptions,28,exotic,adjective,/ɪgˈzɑtɪk/,unusual,Exotic fruits.
+C1,19,Descriptions,29,authentic,adjective,/ɔˈθɛntɪk/,genuine,Authentic cuisine.
+C1,19,Descriptions,30,genuine,adjective,/ˈdʒɛnjuɪn/,real,A genuine smile.
+C1,20,Concepts & Logic,1,reasoning,noun,/ˈrizənɪŋ/,logical thinking,Sound reasoning.
+C1,20,Concepts & Logic,2,logic,noun,/ˈlɑdʒɪk/,rational thinking,Apply logic to the problem.
+C1,20,Concepts & Logic,3,premise,noun,/ˈprɛmɪs/,assumption,The basic premise.
+C1,20,Concepts & Logic,4,hypothesis,noun,/haɪˈpɑθəsɪs/,theory,Test the hypothesis.
+C1,20,Concepts & Logic,5,inference,noun,/ˈɪnfɚəns/,conclusion,Draw an inference.
+C1,20,Concepts & Logic,6,contradiction,noun,/ˌkɑntrəˈdɪkʃən/,inconsistency,A logical contradiction.
+C1,20,Concepts & Logic,7,paradox,noun,/ˈpærəˌdɑks/,apparent contradiction,A curious paradox.
+C1,20,Concepts & Logic,8,analogy,noun,/əˈnælədʒi/,comparison,Draw an analogy.
+C1,20,Concepts & Logic,9,vague,adjective,/ˈveɪg/,unclear,A vague answer.
+C1,20,Concepts & Logic,10,ambiguous,adjective,/æmˈbɪgjuəs/,unclear,An ambiguous statement.
+C1,20,Concepts & Logic,11,explicit,adjective,/ɪkˈsplɪsɪt/,clear,Explicit instructions.
+C1,20,Concepts & Logic,12,implicit,adjective,/ɪmˈplɪsɪt/,implied,An implicit agreement.
+C1,20,Concepts & Logic,13,arbitrary,adjective,/ˈɑrbɪˌtrɛri/,random,An arbitrary decision.
+C1,20,Concepts & Logic,14,rational,adjective,/ˈræʃənəl/,logical,A rational approach.
+C1,20,Concepts & Logic,15,irrational,adjective,/ɪˈræʃənəl/,not logical,Irrational fears.
+C1,20,Concepts & Logic,16,deduce,verb,/dɪˈdus/,conclude,Deduce the answer.
+C1,20,Concepts & Logic,17,infer,verb,/ɪnˈfɜr/,conclude,Infer meaning from context.
+C1,20,Concepts & Logic,18,hypothesize,verb,/haɪˈpɑθəˌsaɪz/,theorize,Hypothesize a solution.
+C1,20,Concepts & Logic,19,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate the theory.
+C1,20,Concepts & Logic,20,refute,verb,/rɪˈfjut/,disprove,Refute the claim.
+C1,20,Concepts & Logic,21,contradict,verb,/ˌkɑntrəˈdɪkt/,oppose,Contradict the statement.
+C1,20,Concepts & Logic,22,substantiate,verb,/səbˈstænʃiˌeɪt/,prove,Substantiate the claim.
+C1,20,Concepts & Logic,23,presume,verb,/prɪˈzum/,assume,I presume you agree.
+C1,20,Concepts & Logic,24,stipulate,verb,/ˈstɪpjəˌleɪt/,specify,Stipulate the conditions.
+C1,20,Concepts & Logic,25,postulate,verb,/ˈpɑstʃəˌleɪt/,assume as true,Postulate a theory.
+C1,21,Abstract Ideas,1,concept,noun,/ˈkɑnsɛpt/,idea,An abstract concept.
+C1,21,Abstract Ideas,2,notion,noun,/ˈnoʊʃən/,idea,A vague notion.
+C1,21,Abstract Ideas,3,realm,noun,/ˈrɛlm/,domain,The realm of possibility.
+C1,21,Abstract Ideas,4,entity,noun,/ˈɛntɪti/,being,A legal entity.
+C1,21,Abstract Ideas,5,essence,noun,/ˈɛsəns/,core,The essence of the argument.
+C1,21,Abstract Ideas,6,phenomenon,noun,/fɪˈnɑmɪˌnɑn/,occurrence,A natural phenomenon.
+C1,21,Abstract Ideas,7,occurrence,noun,/əˈkɜrəns/,event,A common occurrence.
+C1,21,Abstract Ideas,8,emergence,noun,/ɪˈmɜrdʒəns/,appearance,The emergence of new trends.
+C1,21,Abstract Ideas,9,prevalence,noun,/ˈprɛvələns/,commonness,The prevalence of disease.
+C1,21,Abstract Ideas,10,abstract,adjective,/ˈæbstrækt/,theoretical,Abstract thinking.
+C1,21,Abstract Ideas,11,tangible,adjective,/ˈtændʒəbəl/,real,Tangible results.
+C1,21,Abstract Ideas,12,intangible,adjective,/ɪnˈtændʒəbəl/,not physical,Intangible assets.
+C1,21,Abstract Ideas,13,integral,adjective,/ˈɪntɪgrəl/,essential,An integral part.
+C1,21,Abstract Ideas,14,inherent,adjective,/ɪnˈhɪrənt/,built-in,Inherent risks.
+C1,21,Abstract Ideas,15,profound,adjective,/prəˈfaʊnd/,deep,Profound implications.
+C1,21,Abstract Ideas,16,persist,verb,/pɚˈsɪst/,continue,Problems persist.
+C1,21,Abstract Ideas,17,prevail,verb,/prɪˈveɪl/,triumph,Truth will prevail.
+C1,21,Abstract Ideas,18,originate,verb,/əˈrɪdʒɪˌneɪt/,begin,The custom originated here.
+C1,21,Abstract Ideas,19,evolve,verb,/ɪˈvɑlv/,develop,Ideas evolve over time.
+C1,21,Abstract Ideas,20,transcend,verb,/trænˈsɛnd/,go beyond,Transcend boundaries.
+C1,21,Abstract Ideas,21,encompass,verb,/ɪnˈkʌmpəs/,include,The study encompasses many topics.
+C1,21,Abstract Ideas,22,embody,verb,/ɪmˈbɑdi/,represent,Embody the values.
+C1,21,Abstract Ideas,23,manifest,verb,/ˈmænɪˌfɛst/,show,Symptoms manifest early.
+C1,21,Abstract Ideas,24,underlie,verb,/ˌʌndɚˈlaɪ/,be the basis of,Beliefs underlie behavior.
+C1,21,Abstract Ideas,25,entail,verb,/ɪnˈteɪl/,involve,What does it entail?
+C1,21,Abstract Ideas,26,denote,verb,/dɪˈnoʊt/,signify,What does this denote?
+C1,21,Abstract Ideas,27,connote,verb,/kəˈnoʊt/,imply,The word connotes negativity.
+C1,21,Abstract Ideas,28,constitute,verb,/ˈkɑnstɪˌtut/,form,This constitutes a breach.
+C1,21,Abstract Ideas,29,comprise,verb,/kəmˈpraɪz/,consist of,The team comprises experts.
+C1,21,Abstract Ideas,30,resemble,verb,/rɪˈzɛmbəl/,look like,She resembles her mother.
+C1,22,Animals & Wildlife,1,predator,noun,/ˈprɛdətɚ/,hunter,The lion is a predator.
+C1,22,Animals & Wildlife,2,prey,noun,/ˈpreɪ/,hunted animal,The deer became prey.
+C1,22,Animals & Wildlife,3,mammal,noun,/ˈmæməl/,warm-blooded animal,Whales are mammals.
+C1,22,Animals & Wildlife,4,reptile,noun,/ˈrɛptaɪl/,cold-blooded animal,Snakes are reptiles.
+C1,22,Animals & Wildlife,5,species,noun,/ˈspiʃiz/,type of organism,An endangered species.
+C1,22,Animals & Wildlife,6,habitat,noun,/ˈhæbɪˌtæt/,natural home,Forest habitat.
+C1,22,Animals & Wildlife,7,ecosystem,noun,/ˈikoʊˌsɪstəm/,ecological system,A fragile ecosystem.
+C1,22,Animals & Wildlife,8,biodiversity,noun,/ˌbaɪoʊdaɪˈvɜrsəti/,variety of life,Protect biodiversity.
+C1,22,Animals & Wildlife,9,conservation,noun,/ˌkɑnsɚˈveɪʃən/,protection,Wildlife conservation.
+C1,22,Animals & Wildlife,10,extinction,noun,/ɪkˈstɪŋkʃən/,dying out,Facing extinction.
+C1,22,Animals & Wildlife,11,extinct,adjective,/ɪkˈstɪŋkt/,no longer existing,Dinosaurs are extinct.
+C1,22,Animals & Wildlife,12,endangered,adjective,/ɪnˈdeɪndʒɚd/,at risk,Endangered animals.
+C1,22,Animals & Wildlife,13,migratory,adjective,/ˈmaɪgrəˌtɔri/,moving seasonally,Migratory birds.
+C1,22,Animals & Wildlife,14,indigenous,adjective,/ɪnˈdɪdʒənəs/,native,Indigenous species.
+C1,22,Animals & Wildlife,15,domesticate,verb,/dəˈmɛstɪˌkeɪt/,tame,Domesticate animals.
+C1,22,Animals & Wildlife,16,migrate,verb,/ˈmaɪˌgreɪt/,move seasonally,Birds migrate south.
+C1,22,Animals & Wildlife,17,hibernate,verb,/ˈhaɪbɚˌneɪt/,winter sleep,Bears hibernate.
+C1,22,Animals & Wildlife,18,breed,verb,/ˈbrid/,reproduce,Animals breed in spring.
+C1,22,Animals & Wildlife,19,forage,verb,/ˈfɔrɪdʒ/,search for food,Animals forage for food.
+C1,22,Animals & Wildlife,20,prey,verb,/ˈpreɪ/,hunt,Eagles prey on fish.
+C1,22,Animals & Wildlife,21,adapt,verb,/əˈdæpt/,adjust,Species adapt to environments.
+C1,22,Animals & Wildlife,22,thrive,verb,/ˈθraɪv/,flourish,Wildlife thrives here.
+C1,22,Animals & Wildlife,23,conserve,verb,/kənˈsɜrv/,protect,Conserve natural resources.
+C1,22,Animals & Wildlife,24,poach,verb,/ˈpoʊtʃ/,hunt illegally,Poaching is illegal.
+C1,22,Animals & Wildlife,25,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate injured animals.
+C1,23,Nature & Landscapes,1,landscape,noun,/ˈlæˌndskeɪp/,scenery,A beautiful landscape.
+C1,23,Nature & Landscapes,2,terrain,noun,/tɚˈeɪn/,land features,Rough terrain.
+C1,23,Nature & Landscapes,3,vegetation,noun,/ˌvɛdʒɪˈteɪʃən/,plants,Dense vegetation.
+C1,23,Nature & Landscapes,4,wilderness,noun,/ˈwɪldɚnəs/,wild area,Explore the wilderness.
+C1,23,Nature & Landscapes,5,meadow,noun,/ˈmɛdoʊ/,grassy field,Wildflowers in the meadow.
+C1,23,Nature & Landscapes,6,grove,noun,/ˈgroʊv/,small forest,An orange grove.
+C1,23,Nature & Landscapes,7,marsh,noun,/ˈmɑrʃ/,wetland,Birds nest in the marsh.
+C1,23,Nature & Landscapes,8,canyon,noun,/ˈkænjən/,deep valley,The Grand Canyon.
+C1,23,Nature & Landscapes,9,plateau,noun,/plæˈtoʊ/,flat highland,A high plateau.
+C1,23,Nature & Landscapes,10,peninsula,noun,/pɪˈnɪnsələ/,land projection,A narrow peninsula.
+C1,23,Nature & Landscapes,11,scenic,adjective,/ˈsinɪk/,picturesque,Scenic views.
+C1,23,Nature & Landscapes,12,arid,adjective,/ˈærɪd/,very dry,Arid climate.
+C1,23,Nature & Landscapes,13,lush,adjective,/ˈlʌʃ/,abundant,Lush greenery.
+C1,23,Nature & Landscapes,14,barren,adjective,/ˈbærən/,lacking vegetation,Barren land.
+C1,23,Nature & Landscapes,15,fertile,adjective,/ˈfɜrtəl/,productive,Fertile soil.
+C1,23,Nature & Landscapes,16,pristine,adjective,/prɪˈstin/,unspoiled,Pristine beaches.
+C1,23,Nature & Landscapes,17,cultivate,verb,/ˈkʌltɪˌveɪt/,grow crops,Cultivate the land.
+C1,23,Nature & Landscapes,18,irrigate,verb,/ˈɪrɪˌgeɪt/,supply water,Irrigate the fields.
+C1,23,Nature & Landscapes,19,flourish,verb,/ˈflɜrɪʃ/,thrive,Plants flourish here.
+C1,23,Nature & Landscapes,20,erode,verb,/ɪˈroʊd/,wear away,Soil erodes quickly.
+C1,23,Nature & Landscapes,21,bloom,verb,/ˈblum/,flower,Flowers bloom in spring.
+C1,23,Nature & Landscapes,22,wither,verb,/ˈwɪðɚ/,dry up,Plants wither without water.
+C1,23,Nature & Landscapes,23,reclaim,verb,/rɪˈkleɪm/,recover,Reclaim wasteland.
+C1,23,Nature & Landscapes,24,preserve,verb,/prɪˈzɜrv/,protect,Preserve natural habitats.
+C1,23,Nature & Landscapes,25,traverse,verb,/trəˈvɜrs/,cross,Traverse the mountains.
+C1,24,Environment & Climate,1,environment,noun,/ɪnˈvaɪrənmənt/,surroundings,Protect the environment.
+C1,24,Environment & Climate,2,climate,noun,/ˈklaɪmɪt/,weather patterns,Climate change is real.
+C1,24,Environment & Climate,3,atmosphere,noun,/ˈætməsˌfɪr/,air layer,Earth s atmosphere.
+C1,24,Environment & Climate,4,emission,noun,/ɪˈmɪʃən/,gas release,Carbon emissions.
+C1,24,Environment & Climate,5,pollution,noun,/pəˈluʃən/,contamination,Air pollution.
+C1,24,Environment & Climate,6,sustainability,noun,/səˌsteɪnəˈbɪləti/,long-term viability,Focus on sustainability.
+C1,24,Environment & Climate,7,deforestation,noun,/diˌfɔrɪˈsteɪʃən/,tree removal,Stop deforestation.
+C1,24,Environment & Climate,8,conservation,noun,/ˌkɑnsɚˈveɪʃən/,preservation,Energy conservation.
+C1,24,Environment & Climate,9,renewable,adjective,/rɪˈnuəbəl/,replenishable,Renewable energy.
+C1,24,Environment & Climate,10,sustainable,adjective,/səˈsteɪnəbəl/,eco-friendly,Sustainable practices.
+C1,24,Environment & Climate,11,toxic,adjective,/ˈtɑksɪk/,poisonous,Toxic waste.
+C1,24,Environment & Climate,12,biodegradable,adjective,/ˌbaɪoʊdɪˈgreɪdəbəl/,decomposable,Biodegradable packaging.
+C1,24,Environment & Climate,13,ecological,adjective,/ˌikəˈlɑdʒɪkəl/,environmental,Ecological balance.
+C1,24,Environment & Climate,14,pollute,verb,/pəˈlut/,contaminate,Do not pollute rivers.
+C1,24,Environment & Climate,15,contaminate,verb,/kənˈtæmɪˌneɪt/,make impure,Contaminated water.
+C1,24,Environment & Climate,16,deplete,verb,/dɪˈplit/,exhaust,Deplete resources.
+C1,24,Environment & Climate,17,recycle,verb,/riˈsaɪkəl/,reuse materials,Recycle plastic.
+C1,24,Environment & Climate,18,conserve,verb,/kənˈsɜrv/,save,Conserve water.
+C1,24,Environment & Climate,19,mitigate,verb,/ˈmɪtɪˌgeɪt/,reduce,Mitigate climate effects.
+C1,24,Environment & Climate,20,offset,verb,/ˈɔfˌsɛt/,counterbalance,Offset carbon emissions.
+C1,24,Environment & Climate,21,restore,verb,/rɪˈstɔr/,bring back,Restore ecosystems.
+C1,24,Environment & Climate,22,emit,verb,/ɪˈmɪt/,release,Cars emit gases.
+C1,24,Environment & Climate,23,sequester,verb,/sɪˈkwɛstɚ/,capture,Sequester carbon.
+C1,24,Environment & Climate,24,decompose,verb,/ˌdikəmˈpoʊz/,break down,Waste decomposes.
+C1,24,Environment & Climate,25,erode,verb,/ɪˈroʊd/,wear away,Coastlines erode.
+C1,24,Environment & Climate,26,endanger,verb,/ɪnˈdeɪndʒɚ/,put at risk,Pollution endangers wildlife.
+C1,24,Environment & Climate,27,deteriorate,verb,/dɪˈtɪriəˌreɪt/,worsen,Air quality deteriorates.
+C1,24,Environment & Climate,28,sustain,verb,/səˈsteɪn/,maintain,Sustain life on earth.
+C1,24,Environment & Climate,29,footprint,noun,/ˈfʊtˌprɪnt/,impact,Carbon footprint.
+C1,24,Environment & Climate,30,habitat,noun,/ˈhæbɪˌtæt/,natural home,Protect natural habitats.
+C1,25,Weather & Energy,1,forecast,noun,/ˈfɔrˌkæst/,prediction,Weather forecast.
+C1,25,Weather & Energy,2,precipitation,noun,/prɪˌsɪpɪˈteɪʃən/,rain/snow,Heavy precipitation expected.
+C1,25,Weather & Energy,3,humidity,noun,/hjuˈmɪdəti/,moisture,High humidity today.
+C1,25,Weather & Energy,4,drought,noun,/ˈdraʊt/,dry period,Severe drought conditions.
+C1,25,Weather & Energy,5,heatwave,noun,/ˈhitˌweɪv/,hot period,A dangerous heatwave.
+C1,25,Weather & Energy,6,blizzard,noun,/ˈblɪzɚd/,snowstorm,A winter blizzard.
+C1,25,Weather & Energy,7,hurricane,noun,/ˈhɜrɪˌkeɪn/,tropical storm,Hurricane warning issued.
+C1,25,Weather & Energy,8,monsoon,noun,/mɑnˈsun/,seasonal rain,Monsoon season begins.
+C1,25,Weather & Energy,9,solar,adjective,/ˈsoʊlɚ/,of the sun,Solar energy.
+C1,25,Weather & Energy,10,renewable,adjective,/rɪˈnuəbəl/,sustainable,Renewable sources.
+C1,25,Weather & Energy,11,fossil,adjective,/ˈfɑsəl/,from ancient remains,Fossil fuels.
+C1,25,Weather & Energy,12,forecast,verb,/ˈfɔrˌkæst/,predict,Forecast the weather.
+C1,25,Weather & Energy,13,generate,verb,/ˈdʒɛnəˌreɪt/,produce,Generate electricity.
+C1,25,Weather & Energy,14,harness,verb,/ˈhɑrnɪs/,utilize,Harness solar power.
+C1,25,Weather & Energy,15,conserve,verb,/kənˈsɜrv/,save,Conserve energy.
+C1,25,Weather & Energy,16,consume,verb,/kənˈsum/,use up,Consume less energy.
+C1,25,Weather & Energy,17,emit,verb,/ɪˈmɪt/,release,Emit less carbon.
+C1,25,Weather & Energy,18,insulate,verb,/ˈɪnsəˌleɪt/,protect,Insulate homes.
+C1,25,Weather & Energy,19,fluctuate,verb,/ˈflʌktʃuˌeɪt/,vary,Temperatures fluctuate.
+C1,25,Weather & Energy,20,intensify,verb,/ɪnˈtɛnsəˌfaɪ/,strengthen,Storms intensify.
+C1,25,Weather & Energy,21,subside,verb,/səbˈsaɪd/,calm down,Winds subside.
+C1,25,Weather & Energy,22,transmit,verb,/trænzˈmɪt/,send,Transmit electricity.
+C1,25,Weather & Energy,23,grid,noun,/ˈgrɪd/,network,Power grid.
+C1,25,Weather & Energy,24,turbine,noun,/ˈtɜrbɪn/,rotating engine,Wind turbine.
+C1,25,Weather & Energy,25,panel,noun,/ˈpænəl/,flat surface,Solar panel.
+C1,26,Education & Learning,1,curriculum,noun,/kɚˈɪkjələm/,course content,Update the curriculum.
+C1,26,Education & Learning,2,syllabus,noun,/ˈsɪləbəs/,course outline,Review the syllabus.
+C1,26,Education & Learning,3,pedagogy,noun,/ˈpɛdəˌgoʊdʒi/,teaching methods,Modern pedagogy.
+C1,26,Education & Learning,4,tuition,noun,/tuˈɪʃən/,education fee,Tuition fees increased.
+C1,26,Education & Learning,5,scholarship,noun,/ˈskɑlɚˌʃɪp/,academic award,Win a scholarship.
+C1,26,Education & Learning,6,enrollment,noun,/ɪnˈroʊlmənt/,registration,Enrollment is open.
+C1,26,Education & Learning,7,assessment,noun,/əˈsɛsmənt/,evaluation,Continuous assessment.
+C1,26,Education & Learning,8,accreditation,noun,/əˌkrɛdɪˈteɪʃən/,official approval,Seek accreditation.
+C1,26,Education & Learning,9,academic,adjective,/ˌækəˈdɛmɪk/,scholarly,Academic excellence.
+C1,26,Education & Learning,10,vocational,adjective,/voʊˈkeɪʃənəl/,job-related,Vocational training.
+C1,26,Education & Learning,11,rigorous,adjective,/ˈrɪgɚəs/,demanding,Rigorous standards.
+C1,26,Education & Learning,12,compulsory,adjective,/kəmˈpʌlsəri/,mandatory,Compulsory education.
+C1,26,Education & Learning,13,extracurricular,adjective,/ˌɛkstrəkɚˈɪkjələr/,outside curriculum,Extracurricular activities.
+C1,26,Education & Learning,14,enroll,verb,/ɪnˈroʊl/,register,Enroll in the course.
+C1,26,Education & Learning,15,graduate,verb,/ˈgrædʒuˌeɪt/,complete studies,Graduate with honors.
+C1,26,Education & Learning,16,specialize,verb,/ˈspɛʃəˌlaɪz/,focus on,Specialize in law.
+C1,26,Education & Learning,17,mentor,verb,/ˈmɛntɔr/,guide,Mentor young students.
+C1,26,Education & Learning,18,tutor,verb,/ˈtutɚ/,teach privately,Tutor struggling students.
+C1,26,Education & Learning,19,assess,verb,/əˈsɛs/,evaluate,Assess student progress.
+C1,26,Education & Learning,20,accredit,verb,/əˈkrɛdɪt/,officially recognize,Accredit the program.
+C1,26,Education & Learning,21,lecture,verb,/ˈlɛktʃɚ/,give talk,Lecture on history.
+C1,26,Education & Learning,22,seminar,noun,/ˈsɛmɪˌnɑr/,discussion class,Attend the seminar.
+C1,26,Education & Learning,23,dissertation,noun,/ˌdɪsɚˈteɪʃən/,thesis,Write a dissertation.
+C1,26,Education & Learning,24,thesis,noun,/ˈθisɪs/,research paper,Defend your thesis.
+C1,26,Education & Learning,25,plagiarism,noun,/ˈpleɪdʒɚˌɪzəm/,copying work,Avoid plagiarism.
+C1,26,Education & Learning,26,literacy,noun,/ˈlɪtɚəsi/,reading ability,Improve literacy rates.
+C1,26,Education & Learning,27,proficiency,noun,/prəˈfɪʃənsi/,skill level,Language proficiency.
+C1,26,Education & Learning,28,aptitude,noun,/ˈæptɪˌtud/,natural ability,Test aptitude.
+C1,26,Education & Learning,29,comprehension,noun,/ˌkɑmprɪˈhɛnʃən/,understanding,Reading comprehension.
+C1,26,Education & Learning,30,retention,noun,/rɪˈtɛnʃən/,keeping,Student retention rates.
+C1,27,Skills Development,1,competence,noun,/ˈkɑmpɪtəns/,ability,Professional competence.
+C1,27,Skills Development,2,expertise,noun,/ˌɛkspɚˈtiz/,specialized knowledge,Technical expertise.
+C1,27,Skills Development,3,proficiency,noun,/prəˈfɪʃənsi/,skill level,Language proficiency.
+C1,27,Skills Development,4,aptitude,noun,/ˈæptɪˌtud/,natural talent,Aptitude for learning.
+C1,27,Skills Development,5,capability,noun,/ˌkeɪpəˈbɪləti/,ability,Technical capabilities.
+C1,27,Skills Development,6,dexterity,noun,/dɛkˈstɛrɪti/,skill in hands,Manual dexterity.
+C1,27,Skills Development,7,versatility,noun,/ˌvɜrsəˈtɪləti/,adaptability,Show versatility.
+C1,27,Skills Development,8,competent,adjective,/ˈkɑmpɪtənt/,capable,A competent worker.
+C1,27,Skills Development,9,proficient,adjective,/prəˈfɪʃənt/,skilled,Proficient in English.
+C1,27,Skills Development,10,adept,adjective,/əˈdɛpt/,skilled,Adept at problem-solving.
+C1,27,Skills Development,11,versatile,adjective,/ˈvɜrsətəl/,adaptable,A versatile tool.
+C1,27,Skills Development,12,innate,adjective,/ɪˈneɪt/,inborn,Innate ability.
+C1,27,Skills Development,13,hone,verb,/ˈhoʊn/,sharpen,Hone your skills.
+C1,27,Skills Development,14,cultivate,verb,/ˈkʌltɪˌveɪt/,develop,Cultivate talents.
+C1,27,Skills Development,15,acquire,verb,/əˈkwaɪɚ/,gain,Acquire new skills.
+C1,27,Skills Development,16,master,verb,/ˈmæstɚ/,become expert,Master the technique.
+C1,27,Skills Development,17,refine,verb,/rɪˈfaɪn/,improve,Refine your approach.
+C1,27,Skills Development,18,enhance,verb,/ɪnˈhæns/,improve,Enhance capabilities.
+C1,27,Skills Development,19,develop,verb,/dɪˈvɛləp/,grow,Develop expertise.
+C1,27,Skills Development,20,empower,verb,/ɪmˈpaʊɚ/,enable,Empower employees.
+C1,27,Skills Development,21,specialize,verb,/ˈspɛʃəˌlaɪz/,focus,Specialize in a field.
+C1,27,Skills Development,22,adapt,verb,/əˈdæpt/,adjust,Adapt to changes.
+C1,27,Skills Development,23,excel,verb,/ɪkˈsɛl/,be outstanding,Excel in your field.
+C1,27,Skills Development,24,transfer,verb,/trænsˈfɜr/,move,Transfer skills.
+C1,27,Skills Development,25,upskill,verb,/ˈʌpˌskɪl/,improve skills,Upskill employees.
+C1,28,Careers & Employment,1,career,noun,/kɚˈɪr/,profession,Career advancement.
+C1,28,Careers & Employment,2,occupation,noun,/ˌɑkjəˈpeɪʃən/,job,State your occupation.
+C1,28,Careers & Employment,3,profession,noun,/prəˈfɛʃən/,career field,Medical profession.
+C1,28,Careers & Employment,4,vocation,noun,/voʊˈkeɪʃən/,calling,Teaching is her vocation.
+C1,28,Careers & Employment,5,livelihood,noun,/ˈlaɪvliˌhʊd/,means of living,Earn a livelihood.
+C1,28,Careers & Employment,6,workforce,noun,/ˈwɜrkˌfɔrs/,workers,Skilled workforce.
+C1,28,Careers & Employment,7,recruitment,noun,/rɪˈkrutmənt/,hiring,Recruitment drive.
+C1,28,Careers & Employment,8,resignation,noun,/ˌrɛzɪgˈneɪʃən/,quitting,Submit resignation.
+C1,28,Careers & Employment,9,redundancy,noun,/rɪˈdʌndənsi/,job loss,Face redundancy.
+C1,28,Careers & Employment,10,freelance,adjective,/ˈfriˌlæns/,self-employed,Freelance work.
+C1,28,Careers & Employment,11,self-employed,adjective,/ˌsɛlfɪmˈplɔɪd/,own boss,Self-employed workers.
+C1,28,Careers & Employment,12,lucrative,adjective,/ˈlukrətɪv/,profitable,A lucrative career.
+C1,28,Careers & Employment,13,recruit,verb,/rɪˈkrut/,hire,Recruit new staff.
+C1,28,Careers & Employment,14,employ,verb,/ɪmˈplɔɪ/,hire,Employ skilled workers.
+C1,28,Careers & Employment,15,resign,verb,/rɪˈzaɪn/,quit,Resign from the job.
+C1,28,Careers & Employment,16,retire,verb,/rɪˈtaɪɚ/,stop working,Retire early.
+C1,28,Careers & Employment,17,promote,verb,/prəˈmoʊt/,advance,Promote worthy employees.
+C1,28,Careers & Employment,18,demote,verb,/dɪˈmoʊt/,lower rank,Demote for misconduct.
+C1,28,Careers & Employment,19,outsource,verb,/ˈaʊtˌsɔrs/,contract out,Outsource production.
+C1,28,Careers & Employment,20,headhunt,verb,/ˈhɛdˌhʌnt/,recruit executives,Headhunt talent.
+C1,28,Careers & Employment,21,specialize,verb,/ˈspɛʃəˌlaɪz/,focus,Specialize in marketing.
+C1,28,Careers & Employment,22,intern,verb,/ɪnˈtɜrn/,train,Intern at a firm.
+C1,28,Careers & Employment,23,mentor,verb,/ˈmɛntɔr/,guide,Mentor junior staff.
+C1,28,Careers & Employment,24,appraise,verb,/əˈpreɪz/,evaluate,Appraise performance.
+C1,28,Careers & Employment,25,resume,noun,/ˈrɛzʊˌmeɪ/,CV,Submit your resume.
+C1,28,Careers & Employment,26,portfolio,noun,/pɔrtˈfoʊliˌoʊ/,work samples,Build a portfolio.
+C1,28,Careers & Employment,27,credential,noun,/krɪˈdɛnʃəl/,qualification,Check credentials.
+C1,28,Careers & Employment,28,internship,noun,/ˈɪntɜrnˌʃɪp/,training period,Complete an internship.
+C1,28,Careers & Employment,29,apprenticeship,noun,/əˈprɛntɪsˌʃɪp/,training,Start an apprenticeship.
+C1,28,Careers & Employment,30,probation,noun,/proʊˈbeɪʃən/,trial period,On probation.
+C1,29,Office & Workplace,1,workplace,noun,/ˈwɜrkˌpleɪs/,work location,A safe workplace.
+C1,29,Office & Workplace,2,cubicle,noun,/ˈkjubɪkəl/,small office,Work in a cubicle.
+C1,29,Office & Workplace,3,headquarters,noun,/ˈhɛdˌkwɔrtɚz/,main office,Company headquarters.
+C1,29,Office & Workplace,4,premises,noun,/ˈprɛmɪsɪz/,building,Business premises.
+C1,29,Office & Workplace,5,bureaucracy,noun,/bjʊˈrɑkrəsi/,administration,Government bureaucracy.
+C1,29,Office & Workplace,6,hierarchy,noun,/ˈhaɪɚˌɑrki/,ranking system,Corporate hierarchy.
+C1,29,Office & Workplace,7,protocol,noun,/ˈproʊtəˌkɑl/,procedure,Follow protocol.
+C1,29,Office & Workplace,8,corporate,adjective,/ˈkɔrprɪt/,business,Corporate culture.
+C1,29,Office & Workplace,9,administrative,adjective,/ədˈmɪnɪˌstreɪtɪv/,managerial,Administrative duties.
+C1,29,Office & Workplace,10,bureaucratic,adjective,/ˌbjʊrəˈkrætɪk/,procedural,Bureaucratic delays.
+C1,29,Office & Workplace,11,on-site,adjective,/ˈɑnˌsaɪt/,at location,On-site training.
+C1,29,Office & Workplace,12,remote,adjective,/rɪˈmoʊt/,distant,Remote work.
+C1,29,Office & Workplace,13,collaborate,verb,/kəˈlæbəˌreɪt/,work together,Collaborate on projects.
+C1,29,Office & Workplace,14,coordinate,verb,/koʊˈɔrdɪˌneɪt/,organize,Coordinate efforts.
+C1,29,Office & Workplace,15,delegate,verb,/ˈdɛlɪˌgeɪt/,assign,Delegate tasks.
+C1,29,Office & Workplace,16,supervise,verb,/ˈsupɚˌvaɪz/,oversee,Supervise staff.
+C1,29,Office & Workplace,17,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline processes.
+C1,29,Office & Workplace,18,automate,verb,/ˈɔtəˌmeɪt/,mechanize,Automate tasks.
+C1,29,Office & Workplace,19,outsource,verb,/ˈaʊtˌsɔrs/,contract out,Outsource work.
+C1,29,Office & Workplace,20,commute,verb,/kəˈmjut/,travel to work,Commute daily.
+C1,29,Office & Workplace,21,telecommute,verb,/ˈtɛlɪkəˌmjut/,work from home,Telecommute options.
+C1,29,Office & Workplace,22,overtime,noun,/ˈoʊvɚˌtaɪm/,extra hours,Work overtime.
+C1,29,Office & Workplace,23,deadline,noun,/ˈdɛdˌlaɪn/,due date,Meet the deadline.
+C1,29,Office & Workplace,24,workflow,noun,/ˈwɜrkˌfloʊ/,work process,Improve workflow.
+C1,29,Office & Workplace,25,productivity,noun,/ˌproʊdəkˈtɪvɪti/,output rate,Increase productivity.
+C1,30,Business & Management,1,enterprise,noun,/ˈɛntɚˌpraɪz/,business,A new enterprise.
+C1,30,Business & Management,2,corporation,noun,/ˌkɔrpɚˈeɪʃən/,large company,A multinational corporation.
+C1,30,Business & Management,3,subsidiary,noun,/səbˈsɪdiˌɛri/,child company,A foreign subsidiary.
+C1,30,Business & Management,4,stakeholder,noun,/ˈsteɪkˌhoʊldɚ/,interested party,Stakeholder meeting.
+C1,30,Business & Management,5,shareholder,noun,/ˈʃɛrˌhoʊldɚ/,stock owner,Shareholder value.
+C1,30,Business & Management,6,merger,noun,/ˈmɜrdʒɚ/,combination,A corporate merger.
+C1,30,Business & Management,7,acquisition,noun,/ˌækwɪˈzɪʃən/,purchase,Company acquisition.
+C1,30,Business & Management,8,venture,noun,/ˈvɛntʃɚ/,risky project,A joint venture.
+C1,30,Business & Management,9,entrepreneurial,adjective,/ˌɑntrəprəˈnɜriəl/,business-minded,Entrepreneurial spirit.
+C1,30,Business & Management,10,corporate,adjective,/ˈkɔrprɪt/,of a company,Corporate strategy.
+C1,30,Business & Management,11,commercial,adjective,/kəˈmɜrʃəl/,business-related,Commercial success.
+C1,30,Business & Management,12,profitable,adjective,/ˈprɑfɪtəbəl/,earning profit,A profitable business.
+C1,30,Business & Management,13,viable,adjective,/ˈvaɪəbəl/,workable,A viable option.
+C1,30,Business & Management,14,merge,verb,/ˈmɜrdʒ/,combine,Companies merged.
+C1,30,Business & Management,15,acquire,verb,/əˈkwaɪɚ/,obtain,Acquire a company.
+C1,30,Business & Management,16,diversify,verb,/daɪˈvɜrsɪˌfaɪ/,expand variety,Diversify the portfolio.
+C1,30,Business & Management,17,expand,verb,/ɪkˈspænd/,grow,Expand operations.
+C1,30,Business & Management,18,restructure,verb,/riˈstrʌktʃɚ/,reorganize,Restructure the company.
+C1,30,Business & Management,19,downsize,verb,/ˈdaʊnˌsaɪz/,reduce size,Downsize the workforce.
+C1,30,Business & Management,20,outsource,verb,/ˈaʊtˌsɔrs/,contract out,Outsource production.
+C1,30,Business & Management,21,franchise,verb,/ˈfrænˌtʃaɪz/,license,Franchise the brand.
+C1,30,Business & Management,22,supervise,verb,/ˈsupɚˌvaɪz/,oversee,Supervise operations.
+C1,30,Business & Management,23,delegate,verb,/ˈdɛlɪˌgeɪt/,assign,Delegate authority.
+C1,30,Business & Management,24,innovate,verb,/ˈɪnəˌveɪt/,create new,Innovate constantly.
+C1,30,Business & Management,25,optimize,verb,/ˈɑptɪˌmaɪz/,improve,Optimize performance.
+C1,30,Business & Management,26,revenue,noun,/ˈrɛvəˌnu/,income,Increase revenue.
+C1,30,Business & Management,27,turnover,noun,/ˈtɜrnˌoʊvɚ/,sales volume,Annual turnover.
+C1,30,Business & Management,28,overhead,noun,/ˈoʊvɚˌhɛd/,running costs,Reduce overhead.
+C1,30,Business & Management,29,liability,noun,/ˌlaɪəˈbɪləti/,debt,Limit liability.
+C1,30,Business & Management,30,equity,noun,/ˈɛkwɪti/,ownership value,Home equity.
+C1,30,Business & Management,31,dividend,noun,/ˈdɪvɪˌdɛnd/,profit share,Pay dividends.
+C1,30,Business & Management,32,benchmark,noun,/ˈbɛntʃˌmɑrk/,standard,Set a benchmark.
+C1,30,Business & Management,33,strategy,noun,/ˈstrætədʒi/,plan,Business strategy.
+C1,30,Business & Management,34,forecast,noun,/ˈfɔrˌkæst/,prediction,Sales forecast.
+C1,30,Business & Management,35,margin,noun,/ˈmɑrdʒɪn/,profit edge,Profit margin.
+C1,31,Finance & Money,1,finance,noun,/ˈfaɪnæns/,money management,Corporate finance.
+C1,31,Finance & Money,2,capital,noun,/ˈkæpɪtəl/,wealth,Raise capital.
+C1,31,Finance & Money,3,asset,noun,/ˈæsɛt/,valuable item,Company assets.
+C1,31,Finance & Money,4,liability,noun,/ˌlaɪəˈbɪləti/,debt,Financial liabilities.
+C1,31,Finance & Money,5,revenue,noun,/ˈrɛvəˌnu/,income,Increase revenue.
+C1,31,Finance & Money,6,expenditure,noun,/ɪkˈspɛndɪtʃɚ/,spending,Government expenditure.
+C1,31,Finance & Money,7,deficit,noun,/ˈdɛfəsɪt/,shortfall,Budget deficit.
+C1,31,Finance & Money,8,surplus,noun,/ˈsɜrpləs/,excess,Trade surplus.
+C1,31,Finance & Money,9,inflation,noun,/ɪnˈfleɪʃən/,price rise,Control inflation.
+C1,31,Finance & Money,10,recession,noun,/rɪˈsɛʃən/,economic decline,Economic recession.
+C1,31,Finance & Money,11,fiscal,adjective,/ˈfɪskəl/,of finance,Fiscal policy.
+C1,31,Finance & Money,12,monetary,adjective,/ˈmɑnəˌtɛri/,of money,Monetary policy.
+C1,31,Finance & Money,13,solvent,adjective,/ˈsɑlvənt/,able to pay debts,Remain solvent.
+C1,31,Finance & Money,14,insolvent,adjective,/ɪnˈsɑlvənt/,bankrupt,Declared insolvent.
+C1,31,Finance & Money,15,invest,verb,/ɪnˈvɛst/,put money in,Invest wisely.
+C1,31,Finance & Money,16,divest,verb,/daɪˈvɛst/,sell off,Divest holdings.
+C1,31,Finance & Money,17,liquidate,verb,/ˈlɪkwɪˌdeɪt/,sell assets,Liquidate the company.
+C1,31,Finance & Money,18,reimburse,verb,/ˌriɪmˈbɜrs/,pay back,Reimburse expenses.
+C1,31,Finance & Money,19,depreciate,verb,/dɪˈpriʃiˌeɪt/,lose value,Cars depreciate quickly.
+C1,31,Finance & Money,20,appreciate,verb,/əˈpriʃiˌeɪt/,increase value,Property appreciates.
+C1,31,Finance & Money,21,audit,verb,/ˈɔdɪt/,examine accounts,Audit the books.
+C1,31,Finance & Money,22,allocate,verb,/ˈæləˌkeɪt/,distribute,Allocate funds.
+C1,31,Finance & Money,23,subsidize,verb,/ˈsʌbsɪˌdaɪz/,support financially,Subsidize farmers.
+C1,31,Finance & Money,24,portfolio,noun,/pɔrtˈfoʊliˌoʊ/,investment mix,Diversify portfolio.
+C1,31,Finance & Money,25,dividend,noun,/ˈdɪvɪˌdɛnd/,profit share,Pay dividends.
+C1,31,Finance & Money,26,equity,noun,/ˈɛkwɪti/,ownership value,Build equity.
+C1,31,Finance & Money,27,bond,noun,/ˈbɑnd/,debt security,Government bonds.
+C1,31,Finance & Money,28,stock,noun,/ˈstɑk/,shares,Buy stocks.
+C1,31,Finance & Money,29,commodity,noun,/kəˈmɑdəti/,traded good,Commodity prices.
+C1,31,Finance & Money,30,transaction,noun,/trænˈzækʃən/,deal,Financial transaction.
+C1,32,Marketing & Strategy,1,marketing,noun,/ˈmɑrkɪtɪŋ/,promotion,Digital marketing.
+C1,32,Marketing & Strategy,2,branding,noun,/ˈbrændɪŋ/,image creation,Corporate branding.
+C1,32,Marketing & Strategy,3,campaign,noun,/kæmˈpeɪn/,promotion effort,Marketing campaign.
+C1,32,Marketing & Strategy,4,demographics,noun,/ˌdɛməˈgræfɪks/,population stats,Target demographics.
+C1,32,Marketing & Strategy,5,segment,noun,/ˈsɛgmənt/,market portion,Market segment.
+C1,32,Marketing & Strategy,6,niche,noun,/ˈnɪtʃ/,specialized market,Find your niche.
+C1,32,Marketing & Strategy,7,consumer,noun,/kənˈsumɚ/,buyer,Consumer behavior.
+C1,32,Marketing & Strategy,8,competitor,noun,/kəmˈpɛtɪtɚ/,rival,Beat competitors.
+C1,32,Marketing & Strategy,9,promotional,adjective,/prəˈmoʊʃənəl/,advertising,Promotional materials.
+C1,32,Marketing & Strategy,10,competitive,adjective,/kəmˈpɛtɪtɪv/,rival,Competitive advantage.
+C1,32,Marketing & Strategy,11,strategic,adjective,/strəˈtidʒɪk/,planned,Strategic decision.
+C1,32,Marketing & Strategy,12,innovative,adjective,/ˈɪnəˌveɪtɪv/,creative,Innovative approach.
+C1,32,Marketing & Strategy,13,market,verb,/ˈmɑrkɪt/,promote,Market the product.
+C1,32,Marketing & Strategy,14,advertise,verb,/ˈædvɚˌtaɪz/,promote publicly,Advertise online.
+C1,32,Marketing & Strategy,15,promote,verb,/prəˈmoʊt/,publicize,Promote the brand.
+C1,32,Marketing & Strategy,16,target,verb,/ˈtɑrgɪt/,aim at,Target customers.
+C1,32,Marketing & Strategy,17,segment,verb,/sɛgˈmɛnt/,divide,Segment the market.
+C1,32,Marketing & Strategy,18,position,verb,/pəˈzɪʃən/,place,Position the brand.
+C1,32,Marketing & Strategy,19,differentiate,verb,/ˌdɪfɚˈɛnʃiˌeɪt/,distinguish,Differentiate products.
+C1,32,Marketing & Strategy,20,launch,verb,/ˈlɔntʃ/,introduce,Launch a product.
+C1,32,Marketing & Strategy,21,penetrate,verb,/ˈpɛnɪˌtreɪt/,enter,Penetrate the market.
+C1,32,Marketing & Strategy,22,dominate,verb,/ˈdɑmɪˌneɪt/,control,Dominate the industry.
+C1,32,Marketing & Strategy,23,outperform,verb,/ˌaʊtpɚˈfɔrm/,beat,Outperform rivals.
+C1,32,Marketing & Strategy,24,strategy,noun,/ˈstrætədʒi/,plan,Marketing strategy.
+C1,32,Marketing & Strategy,25,tactic,noun,/ˈtæktɪk/,method,Sales tactics.
+C1,32,Marketing & Strategy,26,analytics,noun,/ˌænəˈlɪtɪks/,data analysis,Marketing analytics.
+C1,32,Marketing & Strategy,27,engagement,noun,/ɪnˈgeɪdʒmənt/,interaction,Customer engagement.
+C1,32,Marketing & Strategy,28,conversion,noun,/kənˈvɜrʒən/,sale completion,Conversion rate.
+C1,32,Marketing & Strategy,29,outreach,noun,/ˈaʊtˌritʃ/,reaching out,Customer outreach.
+C1,32,Marketing & Strategy,30,leverage,verb,/ˈlɛvɚɪdʒ/,utilize,Leverage resources.
+C1,33,Leadership,1,leadership,noun,/ˈlidɚʃɪp/,guidance,Strong leadership.
+C1,33,Leadership,2,authority,noun,/əˈθɔrɪti/,power,Exercise authority.
+C1,33,Leadership,3,initiative,noun,/ɪˈnɪʃətɪv/,first action,Take initiative.
+C1,33,Leadership,4,vision,noun,/ˈvɪʒən/,foresight,Clear vision.
+C1,33,Leadership,5,charisma,noun,/kəˈrɪzmə/,appeal,Natural charisma.
+C1,33,Leadership,6,delegation,noun,/ˌdɛlɪˈgeɪʃən/,assigning tasks,Effective delegation.
+C1,33,Leadership,7,decisive,adjective,/dɪˈsaɪsɪv/,determined,Decisive action.
+C1,33,Leadership,8,visionary,adjective,/ˈvɪʒəˌnɛri/,forward-thinking,A visionary leader.
+C1,33,Leadership,9,authoritative,adjective,/əˈθɔrɪˌteɪtɪv/,commanding,Authoritative voice.
+C1,33,Leadership,10,charismatic,adjective,/ˌkærɪˈzmætɪk/,charming,A charismatic speaker.
+C1,33,Leadership,11,influential,adjective,/ˌɪnfluˈɛnʃəl/,powerful,Influential leader.
+C1,33,Leadership,12,lead,verb,/ˈlid/,guide,Lead the team.
+C1,33,Leadership,13,inspire,verb,/ɪnˈspaɪɚ/,motivate,Inspire others.
+C1,33,Leadership,14,motivate,verb,/ˈmoʊtɪˌveɪt/,encourage,Motivate employees.
+C1,33,Leadership,15,delegate,verb,/ˈdɛlɪˌgeɪt/,assign,Delegate tasks.
+C1,33,Leadership,16,empower,verb,/ɪmˈpaʊɚ/,enable,Empower the team.
+C1,33,Leadership,17,mentor,verb,/ˈmɛntɔr/,guide,Mentor junior staff.
+C1,33,Leadership,18,oversee,verb,/ˌoʊvɚˈsi/,supervise,Oversee operations.
+C1,33,Leadership,19,steer,verb,/ˈstɪr/,direct,Steer the company.
+C1,33,Leadership,20,influence,verb,/ˈɪnfluəns/,affect,Influence decisions.
+C1,33,Leadership,21,rally,verb,/ˈræli/,bring together,Rally the troops.
+C1,33,Leadership,22,advocate,verb,/ˈædvəˌkeɪt/,support,Advocate for change.
+C1,33,Leadership,23,pioneer,verb,/ˌpaɪəˈnɪr/,lead the way,Pioneer new methods.
+C1,33,Leadership,24,spearhead,verb,/ˈspɪrˌhɛd/,lead,Spearhead the initiative.
+C1,33,Leadership,25,helm,noun,/ˈhɛlm/,control,At the helm.
+C1,34,Travel & Transport,1,itinerary,noun,/aɪˈtɪnɚˌɛri/,travel plan,Review the itinerary.
+C1,34,Travel & Transport,2,destination,noun,/ˌdɛstɪˈneɪʃən/,end point,Arrival at destination.
+C1,34,Travel & Transport,3,transit,noun,/ˈtrænsɪt/,travel,In transit.
+C1,34,Travel & Transport,4,commute,noun,/kəˈmjut/,daily travel,Long commute.
+C1,34,Travel & Transport,5,expedition,noun,/ˌɛkspɪˈdɪʃən/,journey,Arctic expedition.
+C1,34,Travel & Transport,6,excursion,noun,/ɪkˈskɜrʒən/,day trip,A shore excursion.
+C1,34,Travel & Transport,7,voyage,noun,/ˈvɔɪɪdʒ/,sea journey,A long voyage.
+C1,34,Travel & Transport,8,logistics,noun,/loʊˈdʒɪstɪks/,organization,Travel logistics.
+C1,34,Travel & Transport,9,domestic,adjective,/dəˈmɛstɪk/,within country,Domestic flights.
+C1,34,Travel & Transport,10,outbound,adjective,/ˈaʊtˌbaʊnd/,departing,Outbound journey.
+C1,34,Travel & Transport,11,inbound,adjective,/ˈɪnˌbaʊnd/,arriving,Inbound traffic.
+C1,34,Travel & Transport,12,navigate,verb,/ˈnævɪˌgeɪt/,find way,Navigate the city.
+C1,34,Travel & Transport,13,embark,verb,/ɪmˈbɑrk/,begin journey,Embark on an adventure.
+C1,34,Travel & Transport,14,disembark,verb,/ˌdɪsɪmˈbɑrk/,leave vehicle,Disembark at port.
+C1,34,Travel & Transport,15,commute,verb,/kəˈmjut/,travel daily,Commute to work.
+C1,34,Travel & Transport,16,traverse,verb,/trəˈvɜrs/,cross,Traverse the desert.
+C1,34,Travel & Transport,17,depart,verb,/dɪˈpɑrt/,leave,Depart at noon.
+C1,34,Travel & Transport,18,detour,verb,/ˈdiˌtʊr/,take alternative,Detour around traffic.
+C1,34,Travel & Transport,19,reroute,verb,/riˈrut/,redirect,Reroute the flight.
+C1,34,Travel & Transport,20,expedite,verb,/ˈɛkspɪˌdaɪt/,speed up,Expedite the process.
+C1,34,Travel & Transport,21,passport,noun,/ˈpæsˌpɔrt/,travel document,Renew passport.
+C1,34,Travel & Transport,22,visa,noun,/ˈvizə/,entry permit,Apply for visa.
+C1,34,Travel & Transport,23,customs,noun,/ˈkʌstəmz/,border control,Clear customs.
+C1,34,Travel & Transport,24,layover,noun,/ˈleɪˌoʊvɚ/,stopover,A long layover.
+C1,34,Travel & Transport,25,terminal,noun,/ˈtɜrmɪnəl/,transport station,Airport terminal.
+C1,35,Hobbies & Recreation,1,hobby,noun,/ˈhɑbi/,leisure activity,Photography is my hobby.
+C1,35,Hobbies & Recreation,2,pastime,noun,/ˈpæsˌtaɪm/,leisure activity,A favorite pastime.
+C1,35,Hobbies & Recreation,3,leisure,noun,/ˈliʒɚ/,free time,Leisure activities.
+C1,35,Hobbies & Recreation,4,recreation,noun,/ˌrɛkriˈeɪʃən/,fun activity,Recreation center.
+C1,35,Hobbies & Recreation,5,pursuit,noun,/pɚˈsut/,activity,Leisure pursuits.
+C1,35,Hobbies & Recreation,6,enthusiast,noun,/ɪnˈθuziˌæst/,fan,A music enthusiast.
+C1,35,Hobbies & Recreation,7,amateur,noun,/ˈæmətʃɚ/,non-professional,Amateur photographer.
+C1,35,Hobbies & Recreation,8,recreational,adjective,/ˌrɛkriˈeɪʃənəl/,for fun,Recreational sports.
+C1,35,Hobbies & Recreation,9,leisurely,adjective,/ˈliʒɚli/,relaxed,A leisurely walk.
+C1,35,Hobbies & Recreation,10,avid,adjective,/ˈævɪd/,keen,An avid reader.
+C1,35,Hobbies & Recreation,11,indulge,verb,/ɪnˈdʌldʒ/,enjoy freely,Indulge in hobbies.
+C1,35,Hobbies & Recreation,12,pursue,verb,/pɚˈsu/,follow,Pursue interests.
+C1,35,Hobbies & Recreation,13,dabble,verb,/ˈdæbəl/,try casually,Dabble in art.
+C1,35,Hobbies & Recreation,14,unwind,verb,/ʌnˈwaɪnd/,relax,Unwind after work.
+C1,35,Hobbies & Recreation,15,socialize,verb,/ˈsoʊʃəˌlaɪz/,interact,Socialize at clubs.
+C1,35,Hobbies & Recreation,16,craft,verb,/ˈkræft/,make by hand,Craft jewelry.
+C1,35,Hobbies & Recreation,17,collect,verb,/kəˈlɛkt/,gather,Collect stamps.
+C1,35,Hobbies & Recreation,18,cultivate,verb,/ˈkʌltɪˌveɪt/,develop,Cultivate gardening skills.
+C1,35,Hobbies & Recreation,19,explore,verb,/ɪkˈsplɔr/,discover,Explore new hobbies.
+C1,35,Hobbies & Recreation,20,volunteer,verb,/ˌvɑlənˈtɪr/,help freely,Volunteer at shelters.
+C1,35,Hobbies & Recreation,21,rejuvenate,verb,/rɪˈdʒuvəˌneɪt/,refresh,Hobbies rejuvenate us.
+C1,35,Hobbies & Recreation,22,collector,noun,/kəˈlɛktɚ/,gatherer,Art collector.
+C1,35,Hobbies & Recreation,23,craftsman,noun,/ˈkræftsmən/,skilled maker,Skilled craftsman.
+C1,35,Hobbies & Recreation,24,connoisseur,noun,/ˌkɑnəˈsɜr/,expert,A wine connoisseur.
+C1,35,Hobbies & Recreation,25,aficionado,noun,/əˌfɪʃiəˈnɑdoʊ/,devoted fan,A jazz aficionado.
+C1,36,Sports & Fitness,1,athletics,noun,/æθˈlɛtɪks/,track sports,Athletics competition.
+C1,36,Sports & Fitness,2,stamina,noun,/ˈstæmɪnə/,endurance,Build stamina.
+C1,36,Sports & Fitness,3,endurance,noun,/ɪnˈdʊrəns/,staying power,Endurance training.
+C1,36,Sports & Fitness,4,agility,noun,/əˈdʒɪləti/,quickness,Improve agility.
+C1,36,Sports & Fitness,5,physique,noun,/fɪˈzik/,body build,Athletic physique.
+C1,36,Sports & Fitness,6,regimen,noun,/ˈrɛdʒɪmən/,routine,Fitness regimen.
+C1,36,Sports & Fitness,7,cardiovascular,adjective,/ˌkɑrdioʊˈvæskjəlɚ/,heart-related,Cardiovascular exercise.
+C1,36,Sports & Fitness,8,aerobic,adjective,/ɛˈroʊbɪk/,oxygen-using,Aerobic exercise.
+C1,36,Sports & Fitness,9,strenuous,adjective,/ˈstrɛnjuəs/,demanding,Strenuous workout.
+C1,36,Sports & Fitness,10,rigorous,adjective,/ˈrɪgɚəs/,strict,Rigorous training.
+C1,36,Sports & Fitness,11,competitive,adjective,/kəmˈpɛtɪtɪv/,rivalry,Competitive sports.
+C1,36,Sports & Fitness,12,train,verb,/ˈtreɪn/,practice,Train daily.
+C1,36,Sports & Fitness,13,compete,verb,/kəmˈpit/,contest,Compete in events.
+C1,36,Sports & Fitness,14,excel,verb,/ɪkˈsɛl/,be outstanding,Excel in sports.
+C1,36,Sports & Fitness,15,sprint,verb,/ˈsprɪnt/,run fast,Sprint to the finish.
+C1,36,Sports & Fitness,16,endure,verb,/ɪnˈdʊr/,withstand,Endure the pain.
+C1,36,Sports & Fitness,17,hydrate,verb,/ˈhaɪˌdreɪt/,drink water,Stay hydrated.
+C1,36,Sports & Fitness,18,stretch,verb,/ˈstrɛtʃ/,extend,Stretch before exercise.
+C1,36,Sports & Fitness,19,recuperate,verb,/rɪˈkupɚˌeɪt/,recover,Recuperate after injury.
+C1,36,Sports & Fitness,20,spar,verb,/ˈspɑr/,practice fight,Spar with partner.
+C1,36,Sports & Fitness,21,referee,noun,/ˌrɛfɚˈi/,game official,The referee s decision.
+C1,36,Sports & Fitness,22,tournament,noun,/ˈtɜrnəmənt/,competition,Tennis tournament.
+C1,36,Sports & Fitness,23,championship,noun,/ˈtʃæmpiənˌʃɪp/,title event,World championship.
+C1,36,Sports & Fitness,24,medal,noun,/ˈmɛdəl/,award,Gold medal.
+C1,36,Sports & Fitness,25,podium,noun,/ˈpoʊdiəm/,winners platform,Stand on the podium.
+C1,36,Sports & Fitness,26,feat,noun,/ˈfit/,achievement,Athletic feat.
+C1,36,Sports & Fitness,27,discipline,noun,/ˈdɪsɪplɪn/,sport type,Various disciplines.
+C1,36,Sports & Fitness,28,venue,noun,/ˈvɛnju/,location,Sports venue.
+C1,36,Sports & Fitness,29,league,noun,/ˈlig/,sport group,Football league.
+C1,36,Sports & Fitness,30,rookie,noun,/ˈrʊki/,newcomer,A talented rookie.
+C1,37,Music,1,melody,noun,/ˈmɛlədi/,tune,A beautiful melody.
+C1,37,Music,2,harmony,noun,/ˈhɑrmni/,musical blend,Sing in harmony.
+C1,37,Music,3,rhythm,noun,/ˈrɪðəm/,beat,Feel the rhythm.
+C1,37,Music,4,tempo,noun,/ˈtɛmpoʊ/,speed,Up tempo song.
+C1,37,Music,5,genre,noun,/ˈʒɑnrə/,type,Music genre.
+C1,37,Music,6,repertoire,noun,/ˈrɛpɚˌtwɑr/,collection,Wide repertoire.
+C1,37,Music,7,virtuoso,noun,/ˌvɜrtʃuˈoʊsoʊ/,master musician,A piano virtuoso.
+C1,37,Music,8,melodic,adjective,/məˈlɑdɪk/,tuneful,Melodic voice.
+C1,37,Music,9,rhythmic,adjective,/ˈrɪðmɪk/,having rhythm,Rhythmic pattern.
+C1,37,Music,10,acoustic,adjective,/əˈkustɪk/,non-electric,Acoustic guitar.
+C1,37,Music,11,orchestral,adjective,/ɔrˈkɛstrəl/,of orchestra,Orchestral music.
+C1,37,Music,12,compose,verb,/kəmˈpoʊz/,create music,Compose a song.
+C1,37,Music,13,perform,verb,/pɚˈfɔrm/,play music,Perform live.
+C1,37,Music,14,conduct,verb,/kənˈdʌkt/,lead orchestra,Conduct the symphony.
+C1,37,Music,15,improvise,verb,/ˈɪmprəˌvaɪz/,create spontaneously,Improvise a solo.
+C1,37,Music,16,harmonize,verb,/ˈhɑrməˌnaɪz/,blend sounds,Harmonize voices.
+C1,37,Music,17,rehearse,verb,/rɪˈhɜrs/,practice,Rehearse the piece.
+C1,37,Music,18,orchestrate,verb,/ˈɔrkɪˌstreɪt/,arrange,Orchestrate the music.
+C1,37,Music,19,transcribe,verb,/trænˈskraɪb/,write down,Transcribe the score.
+C1,37,Music,20,amplify,verb,/ˈæmpləˌfaɪ/,make louder,Amplify the sound.
+C1,37,Music,21,symphony,noun,/ˈsɪmfəni/,orchestral work,Symphony orchestra.
+C1,37,Music,22,concerto,noun,/kənˈtʃɜrtoʊ/,solo piece,Piano concerto.
+C1,37,Music,23,sonata,noun,/səˈnɑtə/,music form,Moonlight Sonata.
+C1,37,Music,24,aria,noun,/ˈɑriə/,opera song,A famous aria.
+C1,37,Music,25,ensemble,noun,/ɑnˈsɑmbəl/,music group,Chamber ensemble.
+C1,38,Performing Arts,1,performance,noun,/pɚˈfɔrməns/,show,Live performance.
+C1,38,Performing Arts,2,theater,noun,/ˈθiətɚ/,drama venue,Go to theater.
+C1,38,Performing Arts,3,drama,noun,/ˈdrɑmə/,stage play,Drama production.
+C1,38,Performing Arts,4,choreography,noun,/ˌkɔriˈɑgrəfi/,dance design,Modern choreography.
+C1,38,Performing Arts,5,rehearsal,noun,/rɪˈhɜrsəl/,practice,Dress rehearsal.
+C1,38,Performing Arts,6,premiere,noun,/prɪˈmɪr/,first showing,World premiere.
+C1,38,Performing Arts,7,theatrical,adjective,/θiˈætrɪkəl/,dramatic,Theatrical performance.
+C1,38,Performing Arts,8,dramatic,adjective,/drəˈmætɪk/,expressive,Dramatic interpretation.
+C1,38,Performing Arts,9,choreographed,adjective,/ˈkɔriəˌgræft/,planned movement,Choreographed dance.
+C1,38,Performing Arts,10,perform,verb,/pɚˈfɔrm/,act,Perform on stage.
+C1,38,Performing Arts,11,rehearse,verb,/rɪˈhɜrs/,practice,Rehearse lines.
+C1,38,Performing Arts,12,audition,verb,/ɔˈdɪʃən/,tryout,Audition for roles.
+C1,38,Performing Arts,13,choreograph,verb,/ˈkɔriəˌgræf/,design dance,Choreograph a ballet.
+C1,38,Performing Arts,14,direct,verb,/dɪˈrɛkt/,guide performance,Direct the play.
+C1,38,Performing Arts,15,stage,verb,/ˈsteɪdʒ/,produce,Stage a show.
+C1,38,Performing Arts,16,portray,verb,/pɔrˈtreɪ/,depict,Portray a character.
+C1,38,Performing Arts,17,improvise,verb,/ˈɪmprəˌvaɪz/,act spontaneously,Improvise a scene.
+C1,38,Performing Arts,18,captivate,verb,/ˈkæptɪˌveɪt/,charm,Captivate the audience.
+C1,38,Performing Arts,19,enthrall,verb,/ɪnˈθrɔl/,fascinate,Enthrall viewers.
+C1,38,Performing Arts,20,ovation,noun,/oʊˈveɪʃən/,applause,Standing ovation.
+C1,38,Performing Arts,21,curtain,noun,/ˈkɜrtən/,stage cover,Curtain call.
+C1,38,Performing Arts,22,playwright,noun,/ˈpleɪˌraɪt/,drama writer,Famous playwright.
+C1,38,Performing Arts,23,choreographer,noun,/ˌkɔriˈɑgrəfɚ/,dance creator,Lead choreographer.
+C1,38,Performing Arts,24,understudy,noun,/ˈʌndɚˌstʌdi/,backup actor,The understudy performed.
+C1,38,Performing Arts,25,troupe,noun,/ˈtrup/,performer group,Dance troupe.
+C1,39,Visual Arts,1,art,noun,/ˈɑrt/,creative work,Modern art.
+C1,39,Visual Arts,2,masterpiece,noun,/ˈmæstɚˌpis/,great work,An artistic masterpiece.
+C1,39,Visual Arts,3,canvas,noun,/ˈkænvəs/,painting surface,Oil on canvas.
+C1,39,Visual Arts,4,sculpture,noun,/ˈskʌlptʃɚ/,3D art,Bronze sculpture.
+C1,39,Visual Arts,5,exhibition,noun,/ˌɛksɪˈbɪʃən/,display,Art exhibition.
+C1,39,Visual Arts,6,gallery,noun,/ˈgælɚi/,art space,Visit the gallery.
+C1,39,Visual Arts,7,curator,noun,/kjʊˈreɪtɚ/,collection manager,Museum curator.
+C1,39,Visual Arts,8,aesthetic,adjective,/ɛsˈθɛtɪk/,artistic,Aesthetic value.
+C1,39,Visual Arts,9,abstract,adjective,/ˈæbstrækt/,non-representational,Abstract painting.
+C1,39,Visual Arts,10,contemporary,adjective,/kənˈtɛmpɚˌɛri/,modern,Contemporary art.
+C1,39,Visual Arts,11,avant-garde,adjective,/ˌævɑntˈgɑrd/,experimental,Avant-garde style.
+C1,39,Visual Arts,12,paint,verb,/ˈpeɪnt/,apply color,Paint a portrait.
+C1,39,Visual Arts,13,sculpt,verb,/ˈskʌlpt/,shape,Sculpt in marble.
+C1,39,Visual Arts,14,sketch,verb,/ˈskɛtʃ/,draw quickly,Sketch ideas first.
+C1,39,Visual Arts,15,exhibit,verb,/ɪgˈzɪbɪt/,display,Exhibit artwork.
+C1,39,Visual Arts,16,curate,verb,/ˈkjʊrˌeɪt/,organize,Curate a collection.
+C1,39,Visual Arts,17,portray,verb,/pɔrˈtreɪ/,depict,Portray emotions.
+C1,39,Visual Arts,18,illustrate,verb,/ˈɪləˌstreɪt/,draw,Illustrate a book.
+C1,39,Visual Arts,19,commission,verb,/kəˈmɪʃən/,order artwork,Commission a portrait.
+C1,39,Visual Arts,20,restoration,noun,/ˌrɛstɚˈeɪʃən/,repair,Art restoration.
+C1,39,Visual Arts,21,perspective,noun,/pɚˈspɛktɪv/,viewpoint,Artistic perspective.
+C1,39,Visual Arts,22,composition,noun,/ˌkɑmpəˈzɪʃən/,arrangement,Visual composition.
+C1,39,Visual Arts,23,medium,noun,/ˈmidiəm/,material,Mixed medium.
+C1,39,Visual Arts,24,palette,noun,/ˈpælɪt/,color range,Warm palette.
+C1,39,Visual Arts,25,installation,noun,/ˌɪnstəˈleɪʃən/,art setup,Art installation.
+C1,40,Film & Cinema,1,cinema,noun,/ˈsɪnəmə/,movies,Love of cinema.
+C1,40,Film & Cinema,2,screenplay,noun,/ˈskrinˌpleɪ/,movie script,Write a screenplay.
+C1,40,Film & Cinema,3,footage,noun,/ˈfʊtɪdʒ/,recorded material,Raw footage.
+C1,40,Film & Cinema,4,premiere,noun,/prɪˈmɪr/,first showing,Film premiere.
+C1,40,Film & Cinema,5,blockbuster,noun,/ˈblɑkˌbʌstɚ/,hit movie,Summer blockbuster.
+C1,40,Film & Cinema,6,documentary,noun,/ˌdɑkjəˈmɛntɚi/,fact film,Award-winning documentary.
+C1,40,Film & Cinema,7,cinematography,noun,/ˌsɪnəməˈtɑgrəfi/,camera work,Beautiful cinematography.
+C1,40,Film & Cinema,8,cinematic,adjective,/ˌsɪnəˈmætɪk/,film-like,Cinematic experience.
+C1,40,Film & Cinema,9,direct,verb,/dɪˈrɛkt/,lead production,Direct a film.
+C1,40,Film & Cinema,10,produce,verb,/prəˈdus/,make,Produce movies.
+C1,40,Film & Cinema,11,edit,verb,/ˈɛdɪt/,modify,Edit the footage.
+C1,40,Film & Cinema,12,shoot,verb,/ˈʃut/,film,Shoot on location.
+C1,40,Film & Cinema,13,cast,verb,/ˈkæst/,assign roles,Cast the actors.
+C1,40,Film & Cinema,14,premiere,verb,/prɪˈmɪr/,first show,Premiere at festival.
+C1,40,Film & Cinema,15,screen,verb,/ˈskrin/,show,Screen the movie.
+C1,40,Film & Cinema,16,dub,verb,/ˈdʌb/,add voice,Dub in another language.
+C1,40,Film & Cinema,17,subtitle,verb,/ˈsʌbˌtaɪtəl/,add text,Subtitle the film.
+C1,40,Film & Cinema,18,director,noun,/dɪˈrɛktɚ/,film leader,Famous director.
+C1,40,Film & Cinema,19,producer,noun,/prəˈdusɚ/,film maker,Executive producer.
+C1,40,Film & Cinema,20,cinematographer,noun,/ˌsɪnəməˈtɑgrəfɚ/,camera operator,Award-winning cinematographer.
+C1,40,Film & Cinema,21,soundtrack,noun,/ˈsaʊndˌtræk/,film music,Original soundtrack.
+C1,40,Film & Cinema,22,sequel,noun,/ˈsikwəl/,follow-up,Film sequel.
+C1,40,Film & Cinema,23,franchise,noun,/ˈfrænˌtʃaɪz/,film series,Movie franchise.
+C1,40,Film & Cinema,24,casting,noun,/ˈkæstɪŋ/,actor selection,Casting call.
+C1,40,Film & Cinema,25,cameo,noun,/ˈkæmiˌoʊ/,brief appearance,Celebrity cameo.
+C1,41,Literature,1,literature,noun,/ˈlɪtɚətʃɚ/,written works,Study literature.
+C1,41,Literature,2,prose,noun,/ˈproʊz/,ordinary writing,Write in prose.
+C1,41,Literature,3,poetry,noun,/ˈpoʊətri/,verse,Romantic poetry.
+C1,41,Literature,4,narrative,noun,/ˈnærətɪv/,story,First-person narrative.
+C1,41,Literature,5,metaphor,noun,/ˈmɛtəˌfɔr/,comparison,Use a metaphor.
+C1,41,Literature,6,symbolism,noun,/ˈsɪmbəˌlɪzəm/,representation,Rich symbolism.
+C1,41,Literature,7,allegory,noun,/ˈæləˌgɔri/,symbolic story,Political allegory.
+C1,41,Literature,8,literary,adjective,/ˈlɪtɚˌɛri/,of literature,Literary analysis.
+C1,41,Literature,9,poetic,adjective,/poʊˈɛtɪk/,of poetry,Poetic language.
+C1,41,Literature,10,fictional,adjective,/ˈfɪkʃənəl/,imaginary,Fictional character.
+C1,41,Literature,11,narrate,verb,/ˈnærˌeɪt/,tell story,Narrate events.
+C1,41,Literature,12,compose,verb,/kəmˈpoʊz/,write,Compose poetry.
+C1,41,Literature,13,publish,verb,/ˈpʌblɪʃ/,release,Publish a novel.
+C1,41,Literature,14,interpret,verb,/ɪnˈtɜrprɪt/,explain,Interpret the text.
+C1,41,Literature,15,critique,verb,/krɪˈtik/,analyze,Critique the work.
+C1,41,Literature,16,allude,verb,/əˈlud/,refer,Allude to history.
+C1,41,Literature,17,author,noun,/ˈɔθɚ/,writer,Famous author.
+C1,41,Literature,18,novelist,noun,/ˈnɑvəlɪst/,novel writer,Bestselling novelist.
+C1,41,Literature,19,poet,noun,/ˈpoʊɪt/,verse writer,Celebrated poet.
+C1,41,Literature,20,protagonist,noun,/proʊˈtægənɪst/,main character,The protagonist struggles.
+C1,41,Literature,21,antagonist,noun,/ænˈtægənɪst/,opponent,The antagonist schemes.
+C1,41,Literature,22,theme,noun,/ˈθim/,central idea,The main theme.
+C1,41,Literature,23,plot,noun,/ˈplɑt/,storyline,Complex plot.
+C1,41,Literature,24,genre,noun,/ˈʒɑnrə/,category,Literary genre.
+C1,41,Literature,25,anthology,noun,/ænˈθɑlədʒi/,collection,Poetry anthology.
+C1,42,Media & Journalism,1,media,noun,/ˈmidiə/,communication channels,Mass media.
+C1,42,Media & Journalism,2,journalism,noun,/ˈdʒɜrnəˌlɪzəm/,news reporting,Investigative journalism.
+C1,42,Media & Journalism,3,broadcast,noun,/ˈbrɔdˌkæst/,transmission,Live broadcast.
+C1,42,Media & Journalism,4,correspondent,noun,/ˌkɔrəˈspɑndənt/,reporter,Foreign correspondent.
+C1,42,Media & Journalism,5,editorial,noun,/ˌɛdəˈtɔriəl/,opinion piece,Write an editorial.
+C1,42,Media & Journalism,6,headline,noun,/ˈhɛdˌlaɪn/,news title,Breaking headline.
+C1,42,Media & Journalism,7,coverage,noun,/ˈkʌvɚɪdʒ/,reporting,News coverage.
+C1,42,Media & Journalism,8,journalistic,adjective,/ˌdʒɜrnəˈlɪstɪk/,of journalism,Journalistic standards.
+C1,42,Media & Journalism,9,mainstream,adjective,/ˈmeɪnˌstrim/,conventional,Mainstream media.
+C1,42,Media & Journalism,10,tabloid,adjective,/ˈtæblɔɪd/,sensational,Tabloid press.
+C1,42,Media & Journalism,11,broadcast,verb,/ˈbrɔdˌkæst/,transmit,Broadcast live.
+C1,42,Media & Journalism,12,report,verb,/rɪˈpɔrt/,inform,Report the news.
+C1,42,Media & Journalism,13,publish,verb,/ˈpʌblɪʃ/,release,Publish articles.
+C1,42,Media & Journalism,14,circulate,verb,/ˈsɜrkjəˌleɪt/,spread,Circulate information.
+C1,42,Media & Journalism,15,sensationalize,verb,/sɛnˈseɪʃənəˌlaɪz/,exaggerate,Sensationalize stories.
+C1,42,Media & Journalism,16,censor,verb,/ˈsɛnsɚ/,suppress,Censor content.
+C1,42,Media & Journalism,17,syndicate,verb,/ˈsɪndɪˌkeɪt/,distribute,Syndicate articles.
+C1,42,Media & Journalism,18,publicize,verb,/ˈpʌblɪˌsaɪz/,promote,Publicize events.
+C1,42,Media & Journalism,19,journalist,noun,/ˈdʒɜrnəlɪst/,reporter,Award-winning journalist.
+C1,42,Media & Journalism,20,columnist,noun,/ˈkɑləmnɪst/,opinion writer,Weekly columnist.
+C1,42,Media & Journalism,21,credibility,noun,/ˌkrɛdəˈbɪləti/,trustworthiness,Media credibility.
+C1,42,Media & Journalism,22,bias,noun,/ˈbaɪəs/,prejudice,Media bias.
+C1,42,Media & Journalism,23,transparency,noun,/trænsˈpærənsi/,openness,Demand transparency.
+C1,42,Media & Journalism,24,source,noun,/ˈsɔrs/,information origin,Reliable source.
+C1,42,Media & Journalism,25,outlet,noun,/ˈaʊtˌlɛt/,media channel,News outlet.
+C1,43,Digital Technology,1,technology,noun,/tɛkˈnɑlədʒi/,tech tools,Digital technology.
+C1,43,Digital Technology,2,software,noun,/ˈsɔftˌwɛr/,programs,Software development.
+C1,43,Digital Technology,3,hardware,noun,/ˈhɑrdˌwɛr/,equipment,Upgrade hardware.
+C1,43,Digital Technology,4,algorithm,noun,/ˈælgəˌrɪðəm/,process,Search algorithm.
+C1,43,Digital Technology,5,database,noun,/ˈdeɪtəˌbeɪs/,data storage,Update database.
+C1,43,Digital Technology,6,interface,noun,/ˈɪntɚˌfeɪs/,connection point,User interface.
+C1,43,Digital Technology,7,bandwidth,noun,/ˈbændˌwɪdθ/,data capacity,Limited bandwidth.
+C1,43,Digital Technology,8,encryption,noun,/ɪnˈkrɪpʃən/,data protection,Strong encryption.
+C1,43,Digital Technology,9,digital,adjective,/ˈdɪdʒɪtəl/,electronic,Digital age.
+C1,43,Digital Technology,10,virtual,adjective,/ˈvɜrtʃuəl/,simulated,Virtual reality.
+C1,43,Digital Technology,11,automated,adjective,/ˈɔtəˌmeɪtɪd/,machine-run,Automated process.
+C1,43,Digital Technology,12,wireless,adjective,/ˈwaɪɚlɪs/,without wires,Wireless connection.
+C1,43,Digital Technology,13,download,verb,/ˈdaʊnˌloʊd/,transfer data,Download files.
+C1,43,Digital Technology,14,upload,verb,/ˈʌpˌloʊd/,send data,Upload photos.
+C1,43,Digital Technology,15,encrypt,verb,/ɪnˈkrɪpt/,encode,Encrypt data.
+C1,43,Digital Technology,16,integrate,verb,/ˈɪntəˌgreɪt/,combine,Integrate systems.
+C1,43,Digital Technology,17,optimize,verb,/ˈɑptɪˌmaɪz/,improve,Optimize performance.
+C1,43,Digital Technology,18,debug,verb,/diˈbʌg/,fix errors,Debug the code.
+C1,43,Digital Technology,19,configure,verb,/kənˈfɪgjɚ/,set up,Configure settings.
+C1,43,Digital Technology,20,synchronize,verb,/ˈsɪŋkrəˌnaɪz/,coordinate,Synchronize devices.
+C1,43,Digital Technology,21,cloud,noun,/ˈklaʊd/,online storage,Cloud computing.
+C1,43,Digital Technology,22,server,noun,/ˈsɜrvɚ/,data computer,Web server.
+C1,43,Digital Technology,23,platform,noun,/ˈplætˌfɔrm/,system,Digital platform.
+C1,43,Digital Technology,24,connectivity,noun,/ˌkɑnɛkˈtɪvɪti/,connection ability,Internet connectivity.
+C1,43,Digital Technology,25,cybersecurity,noun,/ˌsaɪbɚsɪˈkjʊrəti/,online security,Cybersecurity threats.
+C1,43,Digital Technology,26,malware,noun,/ˈmælˌwɛr/,harmful software,Detect malware.
+C1,43,Digital Technology,27,backup,noun,/ˈbækˌʌp/,copy,Data backup.
+C1,43,Digital Technology,28,glitch,noun,/ˈglɪtʃ/,minor error,Technical glitch.
+C1,43,Digital Technology,29,upgrade,noun,/ˈʌpˌgreɪd/,improvement,Software upgrade.
+C1,43,Digital Technology,30,compatible,adjective,/kəmˈpætəbəl/,works together,Compatible devices.
+C1,44,Technology & Innovation,1,innovation,noun,/ˌɪnəˈveɪʃən/,new idea,Tech innovation.
+C1,44,Technology & Innovation,2,breakthrough,noun,/ˈbreɪkˌθru/,major advance,Scientific breakthrough.
+C1,44,Technology & Innovation,3,advancement,noun,/ədˈvænsmənt/,progress,Technological advancement.
+C1,44,Technology & Innovation,4,prototype,noun,/ˈproʊtəˌtaɪp/,first model,Build a prototype.
+C1,44,Technology & Innovation,5,patent,noun,/ˈpætənt/,invention right,File a patent.
+C1,44,Technology & Innovation,6,automation,noun,/ˌɔtəˈmeɪʃən/,machine control,Factory automation.
+C1,44,Technology & Innovation,7,artificial,adjective,/ˌɑrtɪˈfɪʃəl/,man-made,Artificial intelligence.
+C1,44,Technology & Innovation,8,cutting-edge,adjective,/ˈkʌtɪŋˌɛdʒ/,advanced,Cutting-edge technology.
+C1,44,Technology & Innovation,9,state-of-the-art,adjective,/ˈsteɪtəvðiˈɑrt/,most modern,State-of-the-art equipment.
+C1,44,Technology & Innovation,10,revolutionary,adjective,/ˌrɛvəˈluʃənˌɛri/,groundbreaking,Revolutionary design.
+C1,44,Technology & Innovation,11,innovate,verb,/ˈɪnəˌveɪt/,create new,Innovate constantly.
+C1,44,Technology & Innovation,12,pioneer,verb,/ˌpaɪəˈnɪr/,lead,Pioneer new methods.
+C1,44,Technology & Innovation,13,advance,verb,/ədˈvæns/,progress,Advance technology.
+C1,44,Technology & Innovation,14,revolutionize,verb,/ˌrɛvəˈluʃəˌnaɪz/,transform,Revolutionize the industry.
+C1,44,Technology & Innovation,15,automate,verb,/ˈɔtəˌmeɪt/,mechanize,Automate tasks.
+C1,44,Technology & Innovation,16,patent,verb,/ˈpætənt/,protect invention,Patent the design.
+C1,44,Technology & Innovation,17,prototype,verb,/ˈproʊtəˌtaɪp/,create model,Prototype the idea.
+C1,44,Technology & Innovation,18,disrupt,verb,/dɪsˈrʌpt/,change radically,Disrupt the market.
+C1,44,Technology & Innovation,19,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline processes.
+C1,44,Technology & Innovation,20,scale,verb,/ˈskeɪl/,expand,Scale the solution.
+C1,44,Technology & Innovation,21,developer,noun,/dɪˈvɛləpɚ/,creator,Software developer.
+C1,44,Technology & Innovation,22,engineer,noun,/ˌɛndʒɪˈnɪr/,technical expert,Tech engineer.
+C1,44,Technology & Innovation,23,entrepreneur,noun,/ˌɑntrəprəˈnɜr/,business starter,Tech entrepreneur.
+C1,44,Technology & Innovation,24,startup,noun,/ˈstɑrtˌʌp/,new company,Tech startup.
+C1,44,Technology & Innovation,25,incubator,noun,/ˈɪnkjəˌbeɪtɚ/,support program,Startup incubator.
+C1,44,Technology & Innovation,26,disruptor,noun,/dɪsˈrʌptɚ/,change agent,Industry disruptor.
+C1,44,Technology & Innovation,27,scalability,noun,/ˌskeɪləˈbɪləti/,expansion ability,Product scalability.
+C1,44,Technology & Innovation,28,feasibility,noun,/ˌfizəˈbɪləti/,practicality,Feasibility study.
+C1,44,Technology & Innovation,29,viability,noun,/ˌvaɪəˈbɪləti/,workability,Commercial viability.
+C1,44,Technology & Innovation,30,sustainability,noun,/səˌsteɪnəˈbɪləti/,long-term viability,Sustainability goals.
+C1,45,Materials & Engineering,1,material,noun,/məˈtɪriəl/,substance,Raw materials.
+C1,45,Materials & Engineering,2,component,noun,/kəmˈpoʊnənt/,part,Key component.
+C1,45,Materials & Engineering,3,structure,noun,/ˈstrʌktʃɚ/,framework,Building structure.
+C1,45,Materials & Engineering,4,mechanism,noun,/ˈmɛkəˌnɪzəm/,system,Complex mechanism.
+C1,45,Materials & Engineering,5,alloy,noun,/ˈælɔɪ/,metal mix,Steel alloy.
+C1,45,Materials & Engineering,6,polymer,noun,/ˈpɑlɪmɚ/,plastic type,Synthetic polymer.
+C1,45,Materials & Engineering,7,composite,noun,/kəmˈpɑzɪt/,combined material,Composite material.
+C1,45,Materials & Engineering,8,structural,adjective,/ˈstrʌktʃɚəl/,of structure,Structural integrity.
+C1,45,Materials & Engineering,9,synthetic,adjective,/sɪnˈθɛtɪk/,man-made,Synthetic fibers.
+C1,45,Materials & Engineering,10,durable,adjective,/ˈdʊrəbəl/,long-lasting,Durable material.
+C1,45,Materials & Engineering,11,reinforced,adjective,/ˌriɪnˈfɔrst/,strengthened,Reinforced concrete.
+C1,45,Materials & Engineering,12,fabricate,verb,/ˈfæbrɪˌkeɪt/,manufacture,Fabricate parts.
+C1,45,Materials & Engineering,13,construct,verb,/kənˈstrʌkt/,build,Construct a bridge.
+C1,45,Materials & Engineering,14,assemble,verb,/əˈsɛmbəl/,put together,Assemble the machine.
+C1,45,Materials & Engineering,15,engineer,verb,/ˌɛndʒɪˈnɪr/,design,Engineer a solution.
+C1,45,Materials & Engineering,16,reinforce,verb,/ˌriɪnˈfɔrs/,strengthen,Reinforce the structure.
+C1,45,Materials & Engineering,17,weld,verb,/ˈwɛld/,join metals,Weld the pieces.
+C1,45,Materials & Engineering,18,mold,verb,/ˈmoʊld/,shape,Mold the plastic.
+C1,45,Materials & Engineering,19,calibrate,verb,/ˈkælɪˌbreɪt/,adjust,Calibrate the instrument.
+C1,45,Materials & Engineering,20,precision,noun,/prɪˈsɪʒən/,accuracy,High precision.
+C1,45,Materials & Engineering,21,specification,noun,/ˌspɛsɪfɪˈkeɪʃən/,requirement,Technical specifications.
+C1,45,Materials & Engineering,22,tolerance,noun,/ˈtɑlɚəns/,acceptable variation,Tight tolerances.
+C1,45,Materials & Engineering,23,prototype,noun,/ˈproʊtəˌtaɪp/,first model,Create a prototype.
+C1,45,Materials & Engineering,24,blueprint,noun,/ˈbluˌprɪnt/,design plan,Follow the blueprint.
+C1,45,Materials & Engineering,25,schematic,noun,/skiˈmætɪk/,diagram,Wiring schematic.
+C1,46,Science & Research,1,science,noun,/ˈsaɪəns/,knowledge field,Scientific research.
+C1,46,Science & Research,2,research,noun,/ˈrisɜrtʃ/,investigation,Conduct research.
+C1,46,Science & Research,3,hypothesis,noun,/haɪˈpɑθəsɪs/,theory,Test the hypothesis.
+C1,46,Science & Research,4,theory,noun,/ˈθɪri/,explanation,Scientific theory.
+C1,46,Science & Research,5,experiment,noun,/ɪkˈspɛrɪmənt/,test,Lab experiment.
+C1,46,Science & Research,6,methodology,noun,/ˌmɛθəˈdɑlədʒi/,approach,Research methodology.
+C1,46,Science & Research,7,variable,noun,/ˈvɛriəbəl/,changing factor,Control variables.
+C1,46,Science & Research,8,correlation,noun,/ˌkɔrəˈleɪʃən/,relationship,Strong correlation.
+C1,46,Science & Research,9,causation,noun,/kɔˈzeɪʃən/,cause,Correlation not causation.
+C1,46,Science & Research,10,empirical,adjective,/ɪmˈpɪrɪkəl/,based on observation,Empirical evidence.
+C1,46,Science & Research,11,theoretical,adjective,/ˌθiəˈrɛtɪkəl/,based on theory,Theoretical framework.
+C1,46,Science & Research,12,quantitative,adjective,/ˈkwɑntɪˌteɪtɪv/,numerical,Quantitative data.
+C1,46,Science & Research,13,qualitative,adjective,/ˈkwɑlɪˌteɪtɪv/,descriptive,Qualitative analysis.
+C1,46,Science & Research,14,hypothesize,verb,/haɪˈpɑθəˌsaɪz/,propose,Hypothesize causes.
+C1,46,Science & Research,15,experiment,verb,/ɪkˈspɛrɪˌmɛnt/,test,Experiment with methods.
+C1,46,Science & Research,16,observe,verb,/əbˈzɜrv/,watch,Observe phenomena.
+C1,46,Science & Research,17,analyze,verb,/ˈænəˌlaɪz/,examine,Analyze results.
+C1,46,Science & Research,18,conclude,verb,/kənˈklud/,determine,Conclude findings.
+C1,46,Science & Research,19,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate results.
+C1,46,Science & Research,20,replicate,verb,/ˈrɛplɪˌkeɪt/,repeat,Replicate the study.
+C1,46,Science & Research,21,publish,verb,/ˈpʌblɪʃ/,release,Publish findings.
+C1,46,Science & Research,22,peer-review,verb,/ˈpɪr rɪˈvju/,evaluate,Peer-review the paper.
+C1,46,Science & Research,23,scientist,noun,/ˈsaɪəntɪst/,researcher,Lead scientist.
+C1,46,Science & Research,24,researcher,noun,/ˈrisɜrtʃɚ/,investigator,Senior researcher.
+C1,46,Science & Research,25,specimen,noun,/ˈspɛsɪmən/,sample,Collect specimens.
+C1,46,Science & Research,26,laboratory,noun,/ˈlæbrəˌtɔri/,research place,Research laboratory.
+C1,46,Science & Research,27,finding,noun,/ˈfaɪndɪŋ/,result,Key findings.
+C1,46,Science & Research,28,breakthrough,noun,/ˈbreɪkˌθru/,major discovery,Scientific breakthrough.
+C1,46,Science & Research,29,peer,noun,/ˈpɪr/,equal,Peer review.
+C1,46,Science & Research,30,journal,noun,/ˈdʒɜrnəl/,publication,Academic journal.
+C1,46,Science & Research,31,citation,noun,/saɪˈteɪʃən/,reference,Proper citation.
+C1,46,Science & Research,32,data,noun,/ˈdeɪtə/,information,Collect data.
+C1,46,Science & Research,33,sample,noun,/ˈsæmpəl/,subset,Random sample.
+C1,46,Science & Research,34,control,noun,/kənˈtroʊl/,comparison group,Control group.
+C1,46,Science & Research,35,bias,noun,/ˈbaɪəs/,prejudice,Avoid bias.
+C1,47,Healthcare & Medicine,1,healthcare,noun,/ˈhɛlθˌkɛr/,medical services,Healthcare system.
+C1,47,Healthcare & Medicine,2,medicine,noun,/ˈmɛdɪsɪn/,treatment,Practice medicine.
+C1,47,Healthcare & Medicine,3,diagnosis,noun,/ˌdaɪəgˈnoʊsɪs/,identification,Accurate diagnosis.
+C1,47,Healthcare & Medicine,4,prognosis,noun,/prɑgˈnoʊsɪs/,prediction,Good prognosis.
+C1,47,Healthcare & Medicine,5,therapy,noun,/ˈθɛrəpi/,treatment,Physical therapy.
+C1,47,Healthcare & Medicine,6,prescription,noun,/prɪˈskrɪpʃən/,drug order,Fill prescription.
+C1,47,Healthcare & Medicine,7,vaccination,noun,/ˌvæksɪˈneɪʃən/,immunization,Flu vaccination.
+C1,47,Healthcare & Medicine,8,symptom,noun,/ˈsɪmptəm/,sign,Common symptoms.
+C1,47,Healthcare & Medicine,9,clinical,adjective,/ˈklɪnɪkəl/,of clinic,Clinical trial.
+C1,47,Healthcare & Medicine,10,preventive,adjective,/prɪˈvɛntɪv/,preventing,Preventive care.
+C1,47,Healthcare & Medicine,11,chronic,adjective,/ˈkrɑnɪk/,long-lasting,Chronic illness.
+C1,47,Healthcare & Medicine,12,acute,adjective,/əˈkjut/,severe,Acute pain.
+C1,47,Healthcare & Medicine,13,diagnose,verb,/ˈdaɪəgˌnoʊz/,identify,Diagnose illness.
+C1,47,Healthcare & Medicine,14,treat,verb,/ˈtrit/,give care,Treat patients.
+C1,47,Healthcare & Medicine,15,prescribe,verb,/prɪˈskraɪb/,order medicine,Prescribe medication.
+C1,47,Healthcare & Medicine,16,vaccinate,verb,/ˈvæksɪˌneɪt/,immunize,Vaccinate children.
+C1,47,Healthcare & Medicine,17,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate patients.
+C1,47,Healthcare & Medicine,18,hospitalize,verb,/ˈhɑspɪtəˌlaɪz/,admit,Hospitalize patient.
+C1,47,Healthcare & Medicine,19,administer,verb,/ædˈmɪnɪstɚ/,give,Administer medicine.
+C1,47,Healthcare & Medicine,20,physician,noun,/fɪˈzɪʃən/,doctor,Primary physician.
+C1,47,Healthcare & Medicine,21,surgeon,noun,/ˈsɜrdʒən/,operation doctor,Skilled surgeon.
+C1,47,Healthcare & Medicine,22,specialist,noun,/ˈspɛʃəlɪst/,expert doctor,Heart specialist.
+C1,47,Healthcare & Medicine,23,practitioner,noun,/prækˈtɪʃənɚ/,medical worker,General practitioner.
+C1,47,Healthcare & Medicine,24,paramedic,noun,/ˌpærəˈmɛdɪk/,emergency responder,The paramedic arrived.
+C1,47,Healthcare & Medicine,25,ward,noun,/ˈwɔrd/,hospital section,Pediatric ward.
+C1,47,Healthcare & Medicine,26,outpatient,noun,/ˈaʊtˌpeɪʃənt/,non-admitted patient,Outpatient care.
+C1,47,Healthcare & Medicine,27,inpatient,noun,/ˈɪnˌpeɪʃənt/,admitted patient,Inpatient treatment.
+C1,47,Healthcare & Medicine,28,dosage,noun,/ˈdoʊsɪdʒ/,medicine amount,Follow the dosage.
+C1,47,Healthcare & Medicine,29,side-effect,noun,/ˈsaɪdɪˌfɛkt/,drug reaction,Possible side-effects.
+C1,47,Healthcare & Medicine,30,recovery,noun,/rɪˈkʌvɚi/,healing,Full recovery.
+C1,48,Illness & Treatment,1,illness,noun,/ˈɪlnɪs/,sickness,Serious illness.
+C1,48,Illness & Treatment,2,disease,noun,/dɪˈziz/,condition,Heart disease.
+C1,48,Illness & Treatment,3,disorder,noun,/dɪsˈɔrdɚ/,dysfunction,Mental disorder.
+C1,48,Illness & Treatment,4,infection,noun,/ɪnˈfɛkʃən/,contamination,Bacterial infection.
+C1,48,Illness & Treatment,5,inflammation,noun,/ˌɪnfləˈmeɪʃən/,swelling,Reduce inflammation.
+C1,48,Illness & Treatment,6,allergy,noun,/ˈælɚdʒi/,sensitivity,Food allergy.
+C1,48,Illness & Treatment,7,epidemic,noun,/ˌɛpɪˈdɛmɪk/,widespread disease,Flu epidemic.
+C1,48,Illness & Treatment,8,pandemic,noun,/pænˈdɛmɪk/,global outbreak,Global pandemic.
+C1,48,Illness & Treatment,9,contagious,adjective,/kənˈteɪdʒəs/,spreading,Contagious disease.
+C1,48,Illness & Treatment,10,infectious,adjective,/ɪnˈfɛkʃəs/,transmissible,Infectious disease.
+C1,48,Illness & Treatment,11,terminal,adjective,/ˈtɜrmɪnəl/,final stage,Terminal illness.
+C1,48,Illness & Treatment,12,malignant,adjective,/məˈlɪgnənt/,cancerous,Malignant tumor.
+C1,48,Illness & Treatment,13,benign,adjective,/bɪˈnaɪn/,non-cancerous,Benign growth.
+C1,48,Illness & Treatment,14,infect,verb,/ɪnˈfɛkt/,contaminate,Infect others.
+C1,48,Illness & Treatment,15,contract,verb,/kənˈtrækt/,catch illness,Contract a virus.
+C1,48,Illness & Treatment,16,relapse,verb,/rɪˈlæps/,worsen again,Relapse after treatment.
+C1,48,Illness & Treatment,17,recover,verb,/rɪˈkʌvɚ/,get better,Recover from illness.
+C1,48,Illness & Treatment,18,deteriorate,verb,/dɪˈtɪriəˌreɪt/,worsen,Health deteriorates.
+C1,48,Illness & Treatment,19,alleviate,verb,/əˈliviˌeɪt/,reduce,Alleviate pain.
+C1,48,Illness & Treatment,20,antibiotics,noun,/ˌæntɪbaɪˈɑtɪks/,bacteria medicine,Prescribe antibiotics.
+C1,48,Illness & Treatment,21,vaccine,noun,/vækˈsin/,preventive shot,COVID vaccine.
+C1,48,Illness & Treatment,22,immune,adjective,/ɪˈmjun/,protected,Immune system.
+C1,48,Illness & Treatment,23,immunity,noun,/ɪˈmjunəti/,protection,Build immunity.
+C1,48,Illness & Treatment,24,remission,noun,/rɪˈmɪʃən/,improvement,Cancer in remission.
+C1,48,Illness & Treatment,25,complication,noun,/ˌkɑmplɪˈkeɪʃən/,problem,Post-surgery complications.
+C1,49,Safety & Security,1,safety,noun,/ˈseɪfti/,being safe,Public safety.
+C1,49,Safety & Security,2,security,noun,/sɪˈkjʊrəti/,protection,National security.
+C1,49,Safety & Security,3,precaution,noun,/prɪˈkɔʃən/,preventive measure,Take precautions.
+C1,49,Safety & Security,4,hazard,noun,/ˈhæzɚd/,danger,Health hazard.
+C1,49,Safety & Security,5,risk,noun,/ˈrɪsk/,danger,Risk assessment.
+C1,49,Safety & Security,6,threat,noun,/ˈθrɛt/,danger,Security threat.
+C1,49,Safety & Security,7,surveillance,noun,/sɚˈveɪləns/,monitoring,Video surveillance.
+C1,49,Safety & Security,8,hazardous,adjective,/ˈhæzɚdəs/,dangerous,Hazardous materials.
+C1,49,Safety & Security,9,vulnerable,adjective,/ˈvʌlnɚəbəl/,at risk,Vulnerable population.
+C1,49,Safety & Security,10,secure,adjective,/sɪˈkjʊr/,safe,Secure location.
+C1,49,Safety & Security,11,preventive,adjective,/prɪˈvɛntɪv/,preventing,Preventive measures.
+C1,49,Safety & Security,12,protect,verb,/prəˈtɛkt/,guard,Protect citizens.
+C1,49,Safety & Security,13,secure,verb,/sɪˈkjʊr/,make safe,Secure the area.
+C1,49,Safety & Security,14,safeguard,verb,/ˈseɪfˌgɑrd/,protect,Safeguard data.
+C1,49,Safety & Security,15,prevent,verb,/prɪˈvɛnt/,stop,Prevent accidents.
+C1,49,Safety & Security,16,monitor,verb,/ˈmɑnɪtɚ/,watch,Monitor activity.
+C1,49,Safety & Security,17,detect,verb,/dɪˈtɛkt/,discover,Detect threats.
+C1,49,Safety & Security,18,evacuate,verb,/ɪˈvækjuˌeɪt/,remove,Evacuate building.
+C1,49,Safety & Security,19,alert,verb,/əˈlɜrt/,warn,Alert authorities.
+C1,49,Safety & Security,20,enforce,verb,/ɪnˈfɔrs/,apply,Enforce regulations.
+C1,49,Safety & Security,21,protocol,noun,/ˈproʊtəˌkɑl/,procedure,Safety protocol.
+C1,49,Safety & Security,22,regulation,noun,/ˌrɛgjəˈleɪʃən/,rule,Safety regulations.
+C1,49,Safety & Security,23,compliance,noun,/kəmˈplaɪəns/,following rules,Ensure compliance.
+C1,49,Safety & Security,24,inspection,noun,/ɪnˈspɛkʃən/,check,Safety inspection.
+C1,49,Safety & Security,25,breach,noun,/ˈbritʃ/,violation,Security breach.
+C1,50,Crime & Law Enforcement,1,crime,noun,/ˈkraɪm/,offense,Violent crime.
+C1,50,Crime & Law Enforcement,2,offense,noun,/əˈfɛns/,wrongdoing,Criminal offense.
+C1,50,Crime & Law Enforcement,3,felony,noun,/ˈfɛləni/,serious crime,Commit felony.
+C1,50,Crime & Law Enforcement,4,fraud,noun,/ˈfrɔd/,deception,Tax fraud.
+C1,50,Crime & Law Enforcement,5,theft,noun,/ˈθɛft/,stealing,Identity theft.
+C1,50,Crime & Law Enforcement,6,assault,noun,/əˈsɔlt/,attack,Physical assault.
+C1,50,Crime & Law Enforcement,7,homicide,noun,/ˈhɑməˌsaɪd/,killing,Homicide case.
+C1,50,Crime & Law Enforcement,8,suspect,noun,/ˈsʌspɛkt/,accused,Prime suspect.
+C1,50,Crime & Law Enforcement,9,perpetrator,noun,/ˈpɜrpəˌtreɪtɚ/,criminal,Catch perpetrator.
+C1,50,Crime & Law Enforcement,10,criminal,adjective,/ˈkrɪmɪnəl/,of crime,Criminal activity.
+C1,50,Crime & Law Enforcement,11,illicit,adjective,/ɪˈlɪsɪt/,illegal,Illicit trade.
+C1,50,Crime & Law Enforcement,12,fraudulent,adjective,/ˈfrɔdʒələnt/,deceptive,Fraudulent claims.
+C1,50,Crime & Law Enforcement,13,commit,verb,/kəˈmɪt/,do crime,Commit a crime.
+C1,50,Crime & Law Enforcement,14,perpetrate,verb,/ˈpɜrpəˌtreɪt/,carry out,Perpetrate fraud.
+C1,50,Crime & Law Enforcement,15,investigate,verb,/ɪnˈvɛstɪˌgeɪt/,examine,Investigate crime.
+C1,50,Crime & Law Enforcement,16,arrest,verb,/əˈrɛst/,detain,Arrest suspect.
+C1,50,Crime & Law Enforcement,17,apprehend,verb,/ˌæprɪˈhɛnd/,catch,Apprehend criminal.
+C1,50,Crime & Law Enforcement,18,prosecute,verb,/ˈprɑsɪˌkjut/,bring charges,Prosecute offenders.
+C1,50,Crime & Law Enforcement,19,convict,verb,/kənˈvɪkt/,find guilty,Convict the accused.
+C1,50,Crime & Law Enforcement,20,incarcerate,verb,/ɪnˈkɑrsəˌreɪt/,imprison,Incarcerate criminals.
+C1,50,Crime & Law Enforcement,21,deter,verb,/dɪˈtɜr/,discourage,Deter crime.
+C1,50,Crime & Law Enforcement,22,detective,noun,/dɪˈtɛktɪv/,investigator,Police detective.
+C1,50,Crime & Law Enforcement,23,prosecutor,noun,/ˈprɑsɪˌkjutɚ/,legal accuser,District prosecutor.
+C1,50,Crime & Law Enforcement,24,enforcement,noun,/ɪnˈfɔrsmənt/,applying law,Law enforcement.
+C1,50,Crime & Law Enforcement,25,jurisdiction,noun,/ˌdʒʊrɪsˈdɪkʃən/,authority area,Police jurisdiction.
+C1,50,Crime & Law Enforcement,26,investigation,noun,/ɪnˌvɛstɪˈgeɪʃən/,inquiry,Criminal investigation.
+C1,50,Crime & Law Enforcement,27,evidence,noun,/ˈɛvɪdəns/,proof,Physical evidence.
+C1,50,Crime & Law Enforcement,28,witness,noun,/ˈwɪtnɪs/,observer,Key witness.
+C1,50,Crime & Law Enforcement,29,conviction,noun,/kənˈvɪkʃən/,guilty verdict,Criminal conviction.
+C1,50,Crime & Law Enforcement,30,sentence,noun,/ˈsɛntəns/,punishment,Prison sentence.
+C1,51,Legal System,1,law,noun,/ˈlɔ/,rule,Follow the law.
+C1,51,Legal System,2,legislation,noun,/ˌlɛdʒɪˈsleɪʃən/,laws,New legislation.
+C1,51,Legal System,3,statute,noun,/ˈstætʃut/,written law,Statute of limitations.
+C1,51,Legal System,4,jurisdiction,noun,/ˌdʒʊrɪsˈdɪkʃən/,authority area,Court jurisdiction.
+C1,51,Legal System,5,verdict,noun,/ˈvɜrdɪkt/,decision,Jury verdict.
+C1,51,Legal System,6,litigation,noun,/ˌlɪtɪˈgeɪʃən/,lawsuit,Costly litigation.
+C1,51,Legal System,7,plaintiff,noun,/ˈpleɪntɪf/,accuser,The plaintiff sued.
+C1,51,Legal System,8,defendant,noun,/dɪˈfɛndənt/,accused,Defend the defendant.
+C1,51,Legal System,9,legal,adjective,/ˈligəl/,of law,Legal advice.
+C1,51,Legal System,10,judicial,adjective,/dʒuˈdɪʃəl/,of courts,Judicial review.
+C1,51,Legal System,11,lawful,adjective,/ˈlɔfəl/,legal,Lawful action.
+C1,51,Legal System,12,unlawful,adjective,/ʌnˈlɔfəl/,illegal,Unlawful conduct.
+C1,51,Legal System,13,sue,verb,/ˈsu/,take to court,Sue for damages.
+C1,51,Legal System,14,litigate,verb,/ˈlɪtɪˌgeɪt/,go to court,Litigate the case.
+C1,51,Legal System,15,testify,verb,/ˈtɛstɪˌfaɪ/,give evidence,Testify in court.
+C1,51,Legal System,16,appeal,verb,/əˈpil/,request review,Appeal the decision.
+C1,51,Legal System,17,acquit,verb,/əˈkwɪt/,find not guilty,Acquit the accused.
+C1,51,Legal System,18,sentence,verb,/ˈsɛntəns/,give punishment,Sentence the criminal.
+C1,51,Legal System,19,indict,verb,/ɪnˈdaɪt/,formally accuse,Indict for fraud.
+C1,51,Legal System,20,adjudicate,verb,/əˈdʒudɪˌkeɪt/,judge,Adjudicate disputes.
+C1,51,Legal System,21,court,noun,/ˈkɔrt/,legal place,Supreme Court.
+C1,51,Legal System,22,judge,noun,/ˈdʒʌdʒ/,court official,Fair judge.
+C1,51,Legal System,23,jury,noun,/ˈdʒʊri/,decision group,Trial by jury.
+C1,51,Legal System,24,attorney,noun,/əˈtɜrni/,lawyer,Defense attorney.
+C1,51,Legal System,25,counsel,noun,/ˈkaʊnsəl/,legal advisor,Legal counsel.
+C1,51,Legal System,26,trial,noun,/ˈtraɪəl/,court case,Criminal trial.
+C1,51,Legal System,27,hearing,noun,/ˈhɪrɪŋ/,court session,Preliminary hearing.
+C1,51,Legal System,28,settlement,noun,/ˈsɛtəlmənt/,agreement,Out-of-court settlement.
+C1,51,Legal System,29,ruling,noun,/ˈrulɪŋ/,decision,Court ruling.
+C1,51,Legal System,30,precedent,noun,/ˈprɛsɪdənt/,earlier example,Set a precedent.
+C1,52,Regulations & Legislation,1,regulation,noun,/ˌrɛgjəˈleɪʃən/,rule,Government regulation.
+C1,52,Regulations & Legislation,2,compliance,noun,/kəmˈplaɪəns/,following rules,Ensure compliance.
+C1,52,Regulations & Legislation,3,policy,noun,/ˈpɑləsi/,guideline,Company policy.
+C1,52,Regulations & Legislation,4,amendment,noun,/əˈmɛndmənt/,change,Constitutional amendment.
+C1,52,Regulations & Legislation,5,provision,noun,/prəˈvɪʒən/,clause,Legal provision.
+C1,52,Regulations & Legislation,6,mandate,noun,/ˈmænˌdeɪt/,order,Government mandate.
+C1,52,Regulations & Legislation,7,regulatory,adjective,/ˈrɛgjəˌlɛtɔri/,of rules,Regulatory body.
+C1,52,Regulations & Legislation,8,mandatory,adjective,/ˈmændəˌtɔri/,required,Mandatory training.
+C1,52,Regulations & Legislation,9,statutory,adjective,/ˈstætʃəˌtɔri/,by law,Statutory requirement.
+C1,52,Regulations & Legislation,10,binding,adjective,/ˈbaɪndɪŋ/,obligatory,Legally binding.
+C1,52,Regulations & Legislation,11,regulate,verb,/ˈrɛgjəˌleɪt/,control,Regulate industry.
+C1,52,Regulations & Legislation,12,legislate,verb,/ˈlɛdʒɪˌsleɪt/,make laws,Legislate reforms.
+C1,52,Regulations & Legislation,13,amend,verb,/əˈmɛnd/,change,Amend the law.
+C1,52,Regulations & Legislation,14,enforce,verb,/ɪnˈfɔrs/,apply,Enforce regulations.
+C1,52,Regulations & Legislation,15,mandate,verb,/ˈmænˌdeɪt/,order,Mandate vaccination.
+C1,52,Regulations & Legislation,16,ratify,verb,/ˈrætəˌfaɪ/,approve,Ratify the treaty.
+C1,52,Regulations & Legislation,17,repeal,verb,/rɪˈpil/,cancel,Repeal the law.
+C1,52,Regulations & Legislation,18,enact,verb,/ɪˈnækt/,make law,Enact legislation.
+C1,52,Regulations & Legislation,19,stipulate,verb,/ˈstɪpjəˌleɪt/,specify,Stipulate conditions.
+C1,52,Regulations & Legislation,20,authorize,verb,/ˈɔθəˌraɪz/,permit,Authorize action.
+C1,52,Regulations & Legislation,21,regulator,noun,/ˈrɛgjəˌleɪtɚ/,controller,Industry regulator.
+C1,52,Regulations & Legislation,22,legislature,noun,/ˈlɛdʒɪsˌleɪtʃɚ/,lawmaking body,State legislature.
+C1,52,Regulations & Legislation,23,statute,noun,/ˈstætʃut/,formal law,By statute.
+C1,52,Regulations & Legislation,24,ordinance,noun,/ˈɔrdɪnəns/,local law,City ordinance.
+C1,52,Regulations & Legislation,25,decree,noun,/dɪˈkri/,official order,Royal decree.
+C1,53,Government & Politics,1,government,noun,/ˈgʌvɚnmənt/,ruling body,Federal government.
+C1,53,Government & Politics,2,politics,noun,/ˈpɑlɪtɪks/,governance,National politics.
+C1,53,Government & Politics,3,democracy,noun,/dɪˈmɑkrəsi/,people rule,Democratic system.
+C1,53,Government & Politics,4,administration,noun,/ədˌmɪnɪˈstreɪʃən/,government,Current administration.
+C1,53,Government & Politics,5,legislature,noun,/ˈlɛdʒɪsˌleɪtʃɚ/,lawmaking body,Bicameral legislature.
+C1,53,Government & Politics,6,constitution,noun,/ˌkɑnstɪˈtuʃən/,fundamental law,Written constitution.
+C1,53,Government & Politics,7,parliament,noun,/ˈpɑrləmənt/,legislature,National parliament.
+C1,53,Government & Politics,8,cabinet,noun,/ˈkæbənɪt/,ministers,Cabinet meeting.
+C1,53,Government & Politics,9,political,adjective,/pəˈlɪtɪkəl/,of politics,Political party.
+C1,53,Government & Politics,10,democratic,adjective,/ˌdɛməˈkrætɪk/,of democracy,Democratic process.
+C1,53,Government & Politics,11,federal,adjective,/ˈfɛdɚəl/,of federation,Federal system.
+C1,53,Government & Politics,12,bipartisan,adjective,/baɪˈpɑrtɪzən/,two party,Bipartisan support.
+C1,53,Government & Politics,13,govern,verb,/ˈgʌvɚn/,rule,Govern the nation.
+C1,53,Government & Politics,14,elect,verb,/ɪˈlɛkt/,vote for,Elect leaders.
+C1,53,Government & Politics,15,campaign,verb,/kæmˈpeɪn/,seek support,Campaign for office.
+C1,53,Government & Politics,16,lobby,verb,/ˈlɑbi/,influence,Lobby politicians.
+C1,53,Government & Politics,17,veto,verb,/ˈvitoʊ/,reject,Veto the bill.
+C1,53,Government & Politics,18,ratify,verb,/ˈrætəˌfaɪ/,approve,Ratify the agreement.
+C1,53,Government & Politics,19,impeach,verb,/ɪmˈpitʃ/,charge official,Impeach the president.
+C1,53,Government & Politics,20,nominate,verb,/ˈnɑmɪˌneɪt/,propose,Nominate a candidate.
+C1,53,Government & Politics,21,senator,noun,/ˈsɛnətɚ/,legislator,State senator.
+C1,53,Government & Politics,22,congressman,noun,/ˈkɑŋgrəsmən/,representative,Elected congressman.
+C1,53,Government & Politics,23,diplomat,noun,/ˈdɪpləˌmæt/,envoy,Career diplomat.
+C1,53,Government & Politics,24,ambassador,noun,/æmˈbæsədɚ/,representative,Foreign ambassador.
+C1,53,Government & Politics,25,bureaucrat,noun,/ˈbjʊrəˌkræt/,official,Government bureaucrat.
+C1,53,Government & Politics,26,election,noun,/ɪˈlɛkʃən/,voting,Presidential election.
+C1,53,Government & Politics,27,referendum,noun,/ˌrɛfɚˈɛndəm/,public vote,National referendum.
+C1,53,Government & Politics,28,ballot,noun,/ˈbælət/,voting paper,Cast a ballot.
+C1,53,Government & Politics,29,poll,noun,/ˈpoʊl/,survey,Opinion poll.
+C1,53,Government & Politics,30,constituent,noun,/kənˈstɪtʃuənt/,voter,Serve constituents.
+C1,53,Government & Politics,31,coalition,noun,/ˌkoʊəˈlɪʃən/,alliance,Form a coalition.
+C1,53,Government & Politics,32,opposition,noun,/ˌɑpəˈzɪʃən/,rival party,Opposition party.
+C1,53,Government & Politics,33,sovereignty,noun,/ˈsɑvrɪnti/,supreme power,National sovereignty.
+C1,53,Government & Politics,34,diplomacy,noun,/dɪˈploʊməsi/,negotiation,Practice diplomacy.
+C1,53,Government & Politics,35,ideology,noun,/ˌaɪdiˈɑlədʒi/,belief system,Political ideology.
+C1,54,Society & Culture,1,society,noun,/səˈsaɪəti/,community,Modern society.
+C1,54,Society & Culture,2,culture,noun,/ˈkʌltʃɚ/,way of life,Cultural heritage.
+C1,54,Society & Culture,3,civilization,noun,/ˌsɪvɪlɪˈzeɪʃən/,advanced society,Ancient civilization.
+C1,54,Society & Culture,4,heritage,noun,/ˈhɛrɪtɪdʒ/,traditions,Cultural heritage.
+C1,54,Society & Culture,5,tradition,noun,/trəˈdɪʃən/,custom,Family tradition.
+C1,54,Society & Culture,6,norm,noun,/ˈnɔrm/,standard,Social norms.
+C1,54,Society & Culture,7,demographic,noun,/ˌdɛməˈgræfɪk/,population group,Target demographic.
+C1,54,Society & Culture,8,societal,adjective,/səˈsaɪɪtəl/,of society,Societal change.
+C1,54,Society & Culture,9,cultural,adjective,/ˈkʌltʃɚəl/,of culture,Cultural event.
+C1,54,Society & Culture,10,ethnic,adjective,/ˈɛθnɪk/,of ethnicity,Ethnic diversity.
+C1,54,Society & Culture,11,multicultural,adjective,/ˌmʌltɪˈkʌltʃɚəl/,many cultures,Multicultural city.
+C1,54,Society & Culture,12,indigenous,adjective,/ɪnˈdɪdʒənəs/,native,Indigenous population.
+C1,54,Society & Culture,13,socialize,verb,/ˈsoʊʃəˌlaɪz/,interact,Socialize at events.
+C1,54,Society & Culture,14,integrate,verb,/ˈɪntɪˌgreɪt/,blend,Integrate into society.
+C1,54,Society & Culture,15,assimilate,verb,/əˈsɪməˌleɪt/,absorb,Assimilate culture.
+C1,54,Society & Culture,16,preserve,verb,/prɪˈzɜrv/,protect,Preserve traditions.
+C1,54,Society & Culture,17,evolve,verb,/ɪˈvɑlv/,develop,Society evolves.
+C1,54,Society & Culture,18,stratify,verb,/ˈstrætəˌfaɪ/,layer,Stratified society.
+C1,54,Society & Culture,19,marginalize,verb,/ˈmɑrdʒənəˌlaɪz/,exclude,Marginalize groups.
+C1,54,Society & Culture,20,class,noun,/ˈklæs/,social level,Middle class.
+C1,54,Society & Culture,21,community,noun,/kəˈmjunɪti/,group,Local community.
+C1,54,Society & Culture,22,identity,noun,/aɪˈdɛntəti/,sense of self,Cultural identity.
+C1,54,Society & Culture,23,diversity,noun,/dɪˈvɜrsəti/,variety,Embrace diversity.
+C1,54,Society & Culture,24,inclusion,noun,/ɪnˈkluʒən/,including all,Social inclusion.
+C1,54,Society & Culture,25,exclusion,noun,/ɪkˈskluʒən/,leaving out,Social exclusion.
+C1,54,Society & Culture,26,inequality,noun,/ˌɪnɪˈkwɑləti/,unfairness,Social inequality.
+C1,54,Society & Culture,27,cohesion,noun,/koʊˈhiʒən/,unity,Social cohesion.
+C1,54,Society & Culture,28,mobility,noun,/moʊˈbɪləti/,movement,Social mobility.
+C1,54,Society & Culture,29,stereotype,noun,/ˈstɛriəˌtaɪp/,fixed image,Avoid stereotypes.
+C1,54,Society & Culture,30,prejudice,noun,/ˈprɛdʒədɪs/,bias,Racial prejudice.
+C1,55,Diversity & Immigration,1,diversity,noun,/dɪˈvɜrsəti/,variety,Cultural diversity.
+C1,55,Diversity & Immigration,2,immigration,noun,/ˌɪmɪˈgreɪʃən/,moving in,Immigration policy.
+C1,55,Diversity & Immigration,3,emigration,noun,/ˌɛmɪˈgreɪʃən/,moving out,Mass emigration.
+C1,55,Diversity & Immigration,4,refugee,noun,/ˌrɛfjʊˈdʒi/,displaced person,Refugee crisis.
+C1,55,Diversity & Immigration,5,asylum,noun,/əˈsaɪləm/,protection,Seek asylum.
+C1,55,Diversity & Immigration,6,immigrant,noun,/ˈɪmɪgrənt/,newcomer,First-generation immigrant.
+C1,55,Diversity & Immigration,7,diverse,adjective,/dɪˈvɜrs/,varied,Diverse population.
+C1,55,Diversity & Immigration,8,inclusive,adjective,/ɪnˈklusɪv/,welcoming all,Inclusive policies.
+C1,55,Diversity & Immigration,9,multicultural,adjective,/ˌmʌltɪˈkʌltʃɚəl/,many cultures,Multicultural society.
+C1,55,Diversity & Immigration,10,immigrate,verb,/ˈɪmɪˌgreɪt/,move in,Immigrate to America.
+C1,55,Diversity & Immigration,11,emigrate,verb,/ˈɛmɪˌgreɪt/,move out,Emigrate from Europe.
+C1,55,Diversity & Immigration,12,integrate,verb,/ˈɪntɪˌgreɪt/,blend in,Integrate immigrants.
+C1,55,Diversity & Immigration,13,assimilate,verb,/əˈsɪməˌleɪt/,adopt culture,Assimilate into society.
+C1,55,Diversity & Immigration,14,naturalize,verb,/ˈnætʃɚəˌlaɪz/,become citizen,Naturalized citizen.
+C1,55,Diversity & Immigration,15,repatriate,verb,/riˈpeɪtriˌeɪt/,return home,Repatriate refugees.
+C1,55,Diversity & Immigration,16,deportation,noun,/ˌdipɔrˈteɪʃən/,sending away,Face deportation.
+C1,55,Diversity & Immigration,17,citizenship,noun,/ˈsɪtɪzənˌʃɪp/,national status,Gain citizenship.
+C1,55,Diversity & Immigration,18,residency,noun,/ˈrɛzɪdənsi/,living status,Permanent residency.
+C1,55,Diversity & Immigration,19,visa,noun,/ˈvizə/,entry permit,Work visa.
+C1,55,Diversity & Immigration,20,integration,noun,/ˌɪntɪˈgreɪʃən/,blending,Cultural integration.
+C1,55,Diversity & Immigration,21,assimilation,noun,/əˌsɪmɪˈleɪʃən/,absorption,Language assimilation.
+C1,55,Diversity & Immigration,22,ethnicity,noun,/ɛθˈnɪsɪti/,racial background,Diverse ethnicities.
+C1,55,Diversity & Immigration,23,heritage,noun,/ˈhɛrɪtɪdʒ/,background,Cultural heritage.
+C1,55,Diversity & Immigration,24,tolerance,noun,/ˈtɑlɚəns/,acceptance,Promote tolerance.
+C1,55,Diversity & Immigration,25,discrimination,noun,/dɪˌskrɪmɪˈneɪʃən/,unfair treatment,Combat discrimination.
+C1,56,Religion & Beliefs,1,religion,noun,/rɪˈlɪdʒən/,faith system,World religions.
+C1,56,Religion & Beliefs,2,faith,noun,/ˈfeɪθ/,belief,Strong faith.
+C1,56,Religion & Beliefs,3,worship,noun,/ˈwɜrʃɪp/,devotion,Place of worship.
+C1,56,Religion & Beliefs,4,spirituality,noun,/ˌspɪrɪtʃuˈæləti/,inner life,Explore spirituality.
+C1,56,Religion & Beliefs,5,doctrine,noun,/ˈdɑktrɪn/,teaching,Religious doctrine.
+C1,56,Religion & Beliefs,6,scripture,noun,/ˈskrɪptʃɚ/,holy text,Study scripture.
+C1,56,Religion & Beliefs,7,religious,adjective,/rɪˈlɪdʒəs/,of religion,Religious beliefs.
+C1,56,Religion & Beliefs,8,spiritual,adjective,/ˈspɪrɪtʃuəl/,of spirit,Spiritual journey.
+C1,56,Religion & Beliefs,9,sacred,adjective,/ˈseɪkrɪd/,holy,Sacred place.
+C1,56,Religion & Beliefs,10,secular,adjective,/ˈsɛkjəlɚ/,non-religious,Secular society.
+C1,56,Religion & Beliefs,11,devout,adjective,/dɪˈvaʊt/,deeply religious,Devout believer.
+C1,56,Religion & Beliefs,12,believe,verb,/bɪˈliv/,have faith,Believe in God.
+C1,56,Religion & Beliefs,13,worship,verb,/ˈwɜrʃɪp/,show devotion,Worship together.
+C1,56,Religion & Beliefs,14,pray,verb,/ˈpreɪ/,speak to God,Pray daily.
+C1,56,Religion & Beliefs,15,meditate,verb,/ˈmɛdɪˌteɪt/,contemplate,Meditate peacefully.
+C1,56,Religion & Beliefs,16,convert,verb,/kənˈvɜrt/,change faith,Convert to Islam.
+C1,56,Religion & Beliefs,17,preach,verb,/ˈpritʃ/,teach religion,Preach the gospel.
+C1,56,Religion & Beliefs,18,congregation,noun,/ˌkɑŋgrɪˈgeɪʃən/,gathering,Church congregation.
+C1,56,Religion & Beliefs,19,clergy,noun,/ˈklɜrdʒi/,religious leaders,The clergy spoke.
+C1,56,Religion & Beliefs,20,ritual,noun,/ˈrɪtʃuəl/,ceremony,Religious ritual.
+C1,56,Religion & Beliefs,21,pilgrimage,noun,/ˈpɪlgrɪmɪdʒ/,holy journey,Make a pilgrimage.
+C1,56,Religion & Beliefs,22,salvation,noun,/sælˈveɪʃən/,deliverance,Seek salvation.
+C1,56,Religion & Beliefs,23,enlightenment,noun,/ɪnˈlaɪtənmənt/,awakening,Spiritual enlightenment.
+C1,56,Religion & Beliefs,24,theology,noun,/θiˈɑlədʒi/,religion study,Study theology.
+C1,56,Religion & Beliefs,25,denomination,noun,/dɪˌnɑmɪˈneɪʃən/,religious group,Different denominations.
+C1,57,History & Documentation,1,history,noun,/ˈhɪstɚi/,past events,World history.
+C1,57,History & Documentation,2,era,noun,/ˈɪrə/,period,New era.
+C1,57,History & Documentation,3,epoch,noun,/ˈɛpɑk/,age,Historic epoch.
+C1,57,History & Documentation,4,civilization,noun,/ˌsɪvɪlɪˈzeɪʃən/,advanced society,Ancient civilization.
+C1,57,History & Documentation,5,archive,noun,/ˈɑrˌkaɪv/,records,National archives.
+C1,57,History & Documentation,6,heritage,noun,/ˈhɛrɪtɪdʒ/,legacy,Cultural heritage.
+C1,57,History & Documentation,7,artifact,noun,/ˈɑrtɪˌfækt/,historical object,Ancient artifact.
+C1,57,History & Documentation,8,historic,adjective,/hɪˈstɔrɪk/,significant,Historic event.
+C1,57,History & Documentation,9,historical,adjective,/hɪˈstɔrɪkəl/,of history,Historical records.
+C1,57,History & Documentation,10,ancient,adjective,/ˈeɪnʃənt/,very old,Ancient ruins.
+C1,57,History & Documentation,11,medieval,adjective,/ˌmidiˈivəl/,middle ages,Medieval period.
+C1,57,History & Documentation,12,document,verb,/ˈdɑkjəˌmɛnt/,record,Document events.
+C1,57,History & Documentation,13,chronicle,verb,/ˈkrɑnɪkəl/,record,Chronicle history.
+C1,57,History & Documentation,14,preserve,verb,/prɪˈzɜrv/,protect,Preserve records.
+C1,57,History & Documentation,15,restore,verb,/rɪˈstɔr/,repair,Restore artifacts.
+C1,57,History & Documentation,16,commemorate,verb,/kəˈmɛməˌreɪt/,honor,Commemorate the event.
+C1,57,History & Documentation,17,trace,verb,/ˈtreɪs/,follow back,Trace origins.
+C1,57,History & Documentation,18,historian,noun,/hɪˈstɔriən/,history expert,Renowned historian.
+C1,57,History & Documentation,19,archaeologist,noun,/ˌɑrkiˈɑlədʒɪst/,artifact expert,Lead archaeologist.
+C1,57,History & Documentation,20,dynasty,noun,/ˈdaɪnəsti/,ruling family,Ming Dynasty.
+C1,57,History & Documentation,21,empire,noun,/ˈɛmpaɪɚ/,large state,Roman Empire.
+C1,57,History & Documentation,22,legacy,noun,/ˈlɛgəsi/,inheritance,Leave a legacy.
+C1,57,History & Documentation,23,monument,noun,/ˈmɑnjəmənt/,memorial,Historic monument.
+C1,57,History & Documentation,24,excavation,noun,/ˌɛkskəˈveɪʃən/,digging,Archaeological excavation.
+C1,57,History & Documentation,25,ancestry,noun,/ˈænsɛstri/,family line,Trace ancestry.
+C1,58,Truth & Ethics,1,truth,noun,/ˈtruθ/,reality,Seek truth.
+C1,58,Truth & Ethics,2,ethics,noun,/ˈɛθɪks/,moral principles,Business ethics.
+C1,58,Truth & Ethics,3,morality,noun,/mɚˈæləti/,right and wrong,Question morality.
+C1,58,Truth & Ethics,4,integrity,noun,/ɪnˈtɛgrəti/,honesty,Personal integrity.
+C1,58,Truth & Ethics,5,honesty,noun,/ˈɑnɪsti/,truthfulness,Value honesty.
+C1,58,Truth & Ethics,6,deception,noun,/dɪˈsɛpʃən/,lying,Avoid deception.
+C1,58,Truth & Ethics,7,ethical,adjective,/ˈɛθɪkəl/,moral,Ethical decision.
+C1,58,Truth & Ethics,8,moral,adjective,/ˈmɔrəl/,of ethics,Moral compass.
+C1,58,Truth & Ethics,9,honest,adjective,/ˈɑnɪst/,truthful,Be honest.
+C1,58,Truth & Ethics,10,deceitful,adjective,/dɪˈsitfəl/,dishonest,Deceitful behavior.
+C1,58,Truth & Ethics,11,genuine,adjective,/ˈdʒɛnjuɪn/,real,Genuine concern.
+C1,58,Truth & Ethics,12,verify,verb,/ˈvɛrəˌfaɪ/,confirm,Verify facts.
+C1,58,Truth & Ethics,13,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate claims.
+C1,58,Truth & Ethics,14,falsify,verb,/ˈfɔlsəˌfaɪ/,fake,Falsify records.
+C1,58,Truth & Ethics,15,deceive,verb,/dɪˈsiv/,mislead,Deceive others.
+C1,58,Truth & Ethics,16,manipulate,verb,/məˈnɪpjəˌleɪt/,control unfairly,Manipulate data.
+C1,58,Truth & Ethics,17,distort,verb,/dɪˈstɔrt/,twist,Distort facts.
+C1,58,Truth & Ethics,18,authenticity,noun,/ˌɔθɛnˈtɪsɪti/,genuineness,Verify authenticity.
+C1,58,Truth & Ethics,19,credibility,noun,/ˌkrɛdəˈbɪləti/,believability,Lose credibility.
+C1,58,Truth & Ethics,20,transparency,noun,/trænsˈpærənsi/,openness,Demand transparency.
+C1,58,Truth & Ethics,21,accountability,noun,/əˌkaʊntəˈbɪləti/,responsibility,Ensure accountability.
+C1,58,Truth & Ethics,22,principle,noun,/ˈprɪnsəpəl/,basic rule,Core principles.
+C1,58,Truth & Ethics,23,virtue,noun,/ˈvɜrtʃu/,good quality,Practice virtue.
+C1,58,Truth & Ethics,24,conscience,noun,/ˈkɑnʃəns/,moral sense,Guilty conscience.
+C1,58,Truth & Ethics,25,dilemma,noun,/dɪˈlɛmə/,difficult choice,Ethical dilemma.
+C1,59,Cause & Effect,1,cause,noun,/ˈkɔz/,reason,Root cause.
+C1,59,Cause & Effect,2,effect,noun,/ɪˈfɛkt/,result,Side effects.
+C1,59,Cause & Effect,3,consequence,noun,/ˈkɑnsɪˌkwɛns/,result,Face consequences.
+C1,59,Cause & Effect,4,outcome,noun,/ˈaʊtˌkʌm/,result,Positive outcome.
+C1,59,Cause & Effect,5,impact,noun,/ˈɪmpækt/,effect,Major impact.
+C1,59,Cause & Effect,6,causal,adjective,/ˈkɔzəl/,of cause,Causal relationship.
+C1,59,Cause & Effect,7,consequential,adjective,/ˌkɑnsɪˈkwɛnʃəl/,significant,Consequential decision.
+C1,59,Cause & Effect,8,cause,verb,/ˈkɔz/,make happen,Cause problems.
+C1,59,Cause & Effect,9,result,verb,/rɪˈzʌlt/,follow from,Result in failure.
+C1,59,Cause & Effect,10,trigger,verb,/ˈtrɪgɚ/,start,Trigger a response.
+C1,59,Cause & Effect,11,influence,verb,/ˈɪnfluəns/,affect,Influence outcomes.
+C1,59,Cause & Effect,12,contribute,verb,/kənˈtrɪbjut/,add to,Contribute to success.
+C1,59,Cause & Effect,13,stem,verb,/ˈstɛm/,originate,Stem from issues.
+C1,59,Cause & Effect,14,attribute,verb,/əˈtrɪbjut/,credit to,Attribute to luck.
+C1,59,Cause & Effect,15,entail,verb,/ɪnˈteɪl/,involve,Entail risks.
+C1,59,Cause & Effect,16,repercussion,noun,/ˌripɚˈkʌʃən/,aftermath,Serious repercussions.
+C1,59,Cause & Effect,17,ramification,noun,/ˌræmɪfɪˈkeɪʃən/,consequence,Legal ramifications.
+C1,59,Cause & Effect,18,implication,noun,/ˌɪmplɪˈkeɪʃən/,consequence,Political implications.
+C1,59,Cause & Effect,19,factor,noun,/ˈfæktɚ/,element,Key factor.
+C1,59,Cause & Effect,20,catalyst,noun,/ˈkætəlɪst/,trigger,Catalyst for change.
+C1,60,Change & Trends,1,change,noun,/ˈtʃeɪndʒ/,alteration,Major change.
+C1,60,Change & Trends,2,trend,noun,/ˈtrɛnd/,pattern,Current trend.
+C1,60,Change & Trends,3,shift,noun,/ˈʃɪft/,change,Paradigm shift.
+C1,60,Change & Trends,4,transformation,noun,/ˌtrænsfɚˈmeɪʃən/,complete change,Digital transformation.
+C1,60,Change & Trends,5,evolution,noun,/ˌɛvəˈluʃən/,gradual change,Natural evolution.
+C1,60,Change & Trends,6,transition,noun,/trænˈzɪʃən/,change period,Smooth transition.
+C1,60,Change & Trends,7,dynamic,adjective,/daɪˈnæmɪk/,changing,Dynamic market.
+C1,60,Change & Trends,8,gradual,adjective,/ˈgrædʒuəl/,slow,Gradual change.
+C1,60,Change & Trends,9,radical,adjective,/ˈrædɪkəl/,extreme,Radical change.
+C1,60,Change & Trends,10,emerging,adjective,/ɪˈmɜrdʒɪŋ/,developing,Emerging trends.
+C1,60,Change & Trends,11,change,verb,/ˈtʃeɪndʒ/,alter,Change approach.
+C1,60,Change & Trends,12,transform,verb,/trænsˈfɔrm/,convert,Transform the company.
+C1,60,Change & Trends,13,evolve,verb,/ɪˈvɑlv/,develop,Ideas evolve.
+C1,60,Change & Trends,14,shift,verb,/ˈʃɪft/,move,Shift focus.
+C1,60,Change & Trends,15,adapt,verb,/əˈdæpt/,adjust,Adapt to change.
+C1,60,Change & Trends,16,modernize,verb,/ˈmɑdɚˌnaɪz/,update,Modernize systems.
+C1,60,Change & Trends,17,revolutionize,verb,/ˌrɛvəˈluʃəˌnaɪz/,transform,Revolutionize industry.
+C1,60,Change & Trends,18,fluctuate,verb,/ˈflʌktʃuˌeɪt/,vary,Prices fluctuate.
+C1,60,Change & Trends,19,stabilize,verb,/ˈsteɪbəˌlaɪz/,make steady,Stabilize economy.
+C1,60,Change & Trends,20,decline,verb,/dɪˈklaɪn/,decrease,Sales decline.
+C1,60,Change & Trends,21,progression,noun,/prəˈgrɛʃən/,advancement,Natural progression.
+C1,60,Change & Trends,22,regression,noun,/rɪˈgrɛʃən/,going back,Avoid regression.
+C1,60,Change & Trends,23,reversal,noun,/rɪˈvɜrsəl/,turnaround,Policy reversal.
+C1,60,Change & Trends,24,momentum,noun,/moʊˈmɛntəm/,force,Gain momentum.
+C1,60,Change & Trends,25,trajectory,noun,/trəˈdʒɛktɚi/,path,Growth trajectory.
+C1,61,Acceptance & Support,1,acceptance,noun,/ækˈsɛptəns/,approval,Gain acceptance.
+C1,61,Acceptance & Support,2,support,noun,/səˈpɔrt/,help,Financial support.
+C1,61,Acceptance & Support,3,endorsement,noun,/ɪnˈdɔrsmənt/,approval,Celebrity endorsement.
+C1,61,Acceptance & Support,4,approval,noun,/əˈpruvəl/,agreement,Seek approval.
+C1,61,Acceptance & Support,5,consensus,noun,/kənˈsɛnsəs/,agreement,Reach consensus.
+C1,61,Acceptance & Support,6,supportive,adjective,/səˈpɔrtɪv/,helpful,Supportive family.
+C1,61,Acceptance & Support,7,favorable,adjective,/ˈfeɪvɚəbəl/,positive,Favorable response.
+C1,61,Acceptance & Support,8,unanimous,adjective,/juˈnænɪməs/,all agreeing,Unanimous decision.
+C1,61,Acceptance & Support,9,accept,verb,/ækˈsɛpt/,agree to,Accept responsibility.
+C1,61,Acceptance & Support,10,support,verb,/səˈpɔrt/,help,Support the cause.
+C1,61,Acceptance & Support,11,endorse,verb,/ɪnˈdɔrs/,approve,Endorse the candidate.
+C1,61,Acceptance & Support,12,approve,verb,/əˈpruv/,agree,Approve the plan.
+C1,61,Acceptance & Support,13,embrace,verb,/ɪmˈbreɪs/,accept eagerly,Embrace change.
+C1,61,Acceptance & Support,14,advocate,verb,/ˈædvəˌkeɪt/,support,Advocate for rights.
+C1,61,Acceptance & Support,15,validate,verb,/ˈvæləˌdeɪt/,confirm,Validate feelings.
+C1,61,Acceptance & Support,16,acknowledge,verb,/ækˈnɑlɪdʒ/,recognize,Acknowledge contributions.
+C1,61,Acceptance & Support,17,recognition,noun,/ˌrɛkəgˈnɪʃən/,acknowledgment,Gain recognition.
+C1,61,Acceptance & Support,18,solidarity,noun,/ˌsɑlɪˈdærəti/,unity,Show solidarity.
+C1,61,Acceptance & Support,19,advocacy,noun,/ˈædvəkəsi/,supporting,Patient advocacy.
+C1,61,Acceptance & Support,20,ally,noun,/ˈælaɪ/,supporter,Strong ally.
+C1,62,Success & Achievement,1,success,noun,/səkˈsɛs/,achievement,Business success.
+C1,62,Success & Achievement,2,achievement,noun,/əˈtʃivmənt/,accomplishment,Great achievement.
+C1,62,Success & Achievement,3,accomplishment,noun,/əˈkɑmplɪʃmənt/,completion,Notable accomplishment.
+C1,62,Success & Achievement,4,milestone,noun,/ˈmaɪlˌstoʊn/,marker,Major milestone.
+C1,62,Success & Achievement,5,triumph,noun,/ˈtraɪʌmf/,victory,Personal triumph.
+C1,62,Success & Achievement,6,breakthrough,noun,/ˈbreɪkˌθru/,major advance,Scientific breakthrough.
+C1,62,Success & Achievement,7,successful,adjective,/səkˈsɛsfəl/,achieving,Successful career.
+C1,62,Success & Achievement,8,accomplished,adjective,/əˈkɑmplɪʃt/,skilled,Accomplished musician.
+C1,62,Success & Achievement,9,prosperous,adjective,/ˈprɑspɚəs/,thriving,Prosperous business.
+C1,62,Success & Achievement,10,achieve,verb,/əˈtʃiv/,accomplish,Achieve goals.
+C1,62,Success & Achievement,11,accomplish,verb,/əˈkɑmplɪʃ/,complete,Accomplish tasks.
+C1,62,Success & Achievement,12,succeed,verb,/səkˈsid/,achieve,Succeed in life.
+C1,62,Success & Achievement,13,excel,verb,/ɪkˈsɛl/,be outstanding,Excel in field.
+C1,62,Success & Achievement,14,prosper,verb,/ˈprɑspɚ/,thrive,Business prospers.
+C1,62,Success & Achievement,15,flourish,verb,/ˈflɜrɪʃ/,thrive,Ideas flourish.
+C1,62,Success & Achievement,16,attain,verb,/əˈteɪn/,reach,Attain goals.
+C1,62,Success & Achievement,17,surpass,verb,/sɚˈpæs/,exceed,Surpass expectations.
+C1,62,Success & Achievement,18,fulfillment,noun,/fʊlˈfɪlmənt/,satisfaction,Job fulfillment.
+C1,62,Success & Achievement,19,prosperity,noun,/prɑˈspɛrəti/,success,Economic prosperity.
+C1,62,Success & Achievement,20,recognition,noun,/ˌrɛkəgˈnɪʃən/,acknowledgment,Gain recognition.
+C1,62,Success & Achievement,21,accolade,noun,/ˈækəˌleɪd/,award,Receive accolades.
+C1,62,Success & Achievement,22,aspiration,noun,/ˌæspɚˈeɪʃən/,ambition,Career aspiration.
+C1,62,Success & Achievement,23,pinnacle,noun,/ˈpɪnəkəl/,peak,Pinnacle of success.
+C1,62,Success & Achievement,24,legacy,noun,/ˈlɛgəsi/,lasting impact,Leave a legacy.
+C1,62,Success & Achievement,25,merit,noun,/ˈmɛrɪt/,worth,Based on merit.

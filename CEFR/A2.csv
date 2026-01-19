@@ -1,0 +1,841 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+A2,1,Connectors & Adverbs,1,while,conjunction,/ˈwaɪl/,during the time that,I read while I wait.
+A2,1,Connectors & Adverbs,2,although,conjunction,/ɔlˈðoʊ/,even if; despite the fact,"Although it rained, we went out."
+A2,1,Connectors & Adverbs,3,however,adverb,/haʊˈɛvɚ/,but; on the other hand,"I was tired. However, I kept working."
+A2,1,Connectors & Adverbs,4,therefore,adverb,/ˈðɛrˌfɔr/,for that reason,"It was raining, therefore I took an umbrella."
+A2,1,Connectors & Adverbs,5,instead,adverb,/ɪnˈstɛd/,in place of something,I had tea instead of coffee.
+A2,1,Connectors & Adverbs,6,also,adverb,/ˈɔlsoʊ/,in addition,He plays guitar. He also sings.
+A2,1,Connectors & Adverbs,7,even,adverb,/ˈivən/,used to add surprise,Even my brother came to the party.
+A2,1,Connectors & Adverbs,8,either,adverb,/ˈiðɚ/,used in negative sentences,I don't like it either.
+A2,1,Connectors & Adverbs,9,neither,adverb,/ˈniðɚ/,not one and not the other,Neither answer is correct.
+A2,1,Connectors & Adverbs,10,whether,conjunction,/ˈwɛðɚ/,if (used for choices),I don't know whether to go.
+A2,1,Connectors & Adverbs,11,among,preposition,/əˈmʌŋ/,in the middle of a group,She was among friends.
+A2,1,Connectors & Adverbs,12,against,preposition,/əˈgɛnst/,in opposition to,We played against a strong team.
+A2,1,Connectors & Adverbs,13,towards,preposition,/təˈwɔrdz/,in the direction of,She walked towards the door.
+A2,1,Connectors & Adverbs,14,within,preposition,/wɪˈðɪn/,inside; not beyond,I will call you within an hour.
+A2,1,Connectors & Adverbs,15,without,preposition,/wɪˈðaʊt/,not having; lacking,I left without my keys.
+A2,1,Connectors & Adverbs,16,during,preposition,/ˈdʊrɪŋ/,throughout a period,I slept during the movie.
+A2,1,Connectors & Adverbs,17,since,preposition,/ˈsɪns/,from a time in the past,I have lived here since 2020.
+A2,1,Connectors & Adverbs,18,until,preposition,/ənˈtɪl/,up to a time,Wait until I come back.
+A2,1,Connectors & Adverbs,19,actually,adverb,/ˈæktʃuəli/,in fact; really,I actually like this song.
+A2,1,Connectors & Adverbs,20,especially,adverb,/ɪˈspɛʃəli/,more than usually,"I love fruit, especially apples."
+A2,1,Connectors & Adverbs,21,exactly,adverb,/ɪgˈzæktli/,precisely; correctly,That is exactly what I mean.
+A2,1,Connectors & Adverbs,22,completely,adverb,/kəmˈplitli/,totally; fully,I completely forgot about it.
+A2,1,Connectors & Adverbs,23,probably,adverb,/ˈprɑbəbli/,most likely,He will probably be late.
+A2,1,Connectors & Adverbs,24,nearly,adverb,/ˈnɪrli/,almost; not quite,I nearly missed the bus.
+A2,1,Connectors & Adverbs,25,hardly,adverb,/ˈhɑrdli/,almost not,I can hardly hear you.
+A2,1,Connectors & Adverbs,26,mainly,adverb,/ˈmeɪnli/,mostly,The food is mainly vegetarian.
+A2,1,Connectors & Adverbs,27,generally,adverb,/ˈdʒɛnɚəli/,usually; in most cases,I generally wake up early.
+A2,1,Connectors & Adverbs,28,obviously,adverb,/ˈɑbviəsli/,clearly; it is easy to see,"Obviously, he was lying."
+A2,1,Connectors & Adverbs,29,possibly,adverb,/ˈpɑsəbli/,perhaps; maybe,Could you possibly help me?
+A2,1,Connectors & Adverbs,30,definitely,adverb,/ˈdɛfənətli/,without doubt,I will definitely be there.
+A2,1,Connectors & Adverbs,31,else,adverb,/ˈɛls/,other; different,What else do you need?
+A2,1,Connectors & Adverbs,32,except,preposition,/ɪkˈsɛpt/,not including,Everyone came except Tom.
+A2,1,Connectors & Adverbs,33,according,preposition,/əˈkɔrdɪŋ/,as stated by,"According to the news, it will rain."
+A2,1,Connectors & Adverbs,34,despite,preposition,/dɪˈspaɪt/,even though,"Despite the rain, we went out."
+A2,1,Connectors & Adverbs,35,regarding,preposition,/rɪˈgɑrdɪŋ/,about; concerning,I have a question regarding the plan.
+A2,2,Time & Daily Life,1,before,preposition,/bɪˈfɔr/,earlier than,I eat before work.
+A2,2,Time & Daily Life,2,after,preposition,/ˈæftɚ/,later than,We went home after the movie.
+A2,2,Time & Daily Life,3,already,adverb,/ɔlˈrɛdi/,before now,I have already eaten.
+A2,2,Time & Daily Life,4,yet,adverb,/ˈjɛt/,until now,I have not finished yet.
+A2,2,Time & Daily Life,5,still,adverb,/ˈstɪl/,continuing until now,She is still working.
+A2,2,Time & Daily Life,6,later,adverb,/ˈleɪtɚ/,at a future time,I will call you later.
+A2,2,Time & Daily Life,7,soon,adverb,/ˈsun/,in a short time,I will be back soon.
+A2,2,Time & Daily Life,8,recently,adverb,/ˈrisəntli/,not long ago,I recently moved here.
+A2,2,Time & Daily Life,9,suddenly,adverb,/ˈsʌdənli/,quickly and unexpectedly,It suddenly started raining.
+A2,2,Time & Daily Life,10,immediately,adverb,/ɪˈmidiətli/,at once; right now,Please come immediately.
+A2,2,Time & Daily Life,11,once,adverb,/ˈwʌns/,one time,I go there once a week.
+A2,2,Time & Daily Life,12,twice,adverb,/ˈtwaɪs/,two times,I called you twice.
+A2,2,Time & Daily Life,13,daily,adjective,/ˈdeɪli/,happening every day,I read the daily news.
+A2,2,Time & Daily Life,14,weekly,adjective,/ˈwikli/,happening every week,We have a weekly meeting.
+A2,2,Time & Daily Life,15,monthly,adjective,/ˈmʌnθli/,happening every month,I pay rent monthly.
+A2,2,Time & Daily Life,16,yearly,adjective,/ˈjɪrli/,happening every year,A yearly checkup.
+A2,2,Time & Daily Life,17,recent,adjective,/ˈrisənt/,happening not long ago,This is a recent photo.
+A2,2,Time & Daily Life,18,future,noun,/ˈfjutʃɚ/,the time that will come,What are your plans for the future?
+A2,2,Time & Daily Life,19,past,noun,/ˈpæst/,the time that has gone,We learn from the past.
+A2,2,Time & Daily Life,20,present,noun,/ˈprɛzənt/,the time now,Live in the present.
+A2,2,Time & Daily Life,21,calendar,noun,/ˈkæləndɚ/,a chart showing days,Mark it on the calendar.
+A2,2,Time & Daily Life,22,schedule,noun,/ˈskɛdʒuːl/,a plan of times,Check the train schedule.
+A2,2,Time & Daily Life,23,diary,noun,/ˈdaɪɚi/,a book to write daily thoughts,She writes in her diary.
+A2,2,Time & Daily Life,24,habit,noun,/ˈhæbɪt/,something you do regularly,Exercise is a good habit.
+A2,2,Time & Daily Life,25,routine,noun,/ruˈtin/,a regular way of doing things,I have a morning routine.
+A2,2,Time & Daily Life,26,lifestyle,noun,/ˈlaɪfˌstaɪl/,the way a person lives,A healthy lifestyle is important.
+A2,2,Time & Daily Life,27,period,noun,/ˈpɪriəd/,a length of time,It was a difficult period.
+A2,2,Time & Daily Life,28,moment,noun,/ˈmoʊmənt/,a very short time,Wait a moment please.
+A2,2,Time & Daily Life,29,occasion,noun,/əˈkeɪʒən/,a special time,A special occasion.
+A2,2,Time & Daily Life,30,century,noun,/ˈsɛntʃəri/,one hundred years,The 21st century.
+A2,2,Time & Daily Life,31,decade,noun,/ˈdɛkeɪd/,ten years,The last decade.
+A2,2,Time & Daily Life,32,midnight,noun,/ˈmɪdˌnaɪt/,twelve oclock at night,We arrived at midnight.
+A2,2,Time & Daily Life,33,noon,noun,/ˈnun/,twelve oclock daytime,Lets meet at noon.
+A2,2,Time & Daily Life,34,dawn,noun,/ˈdɔn/,when the sun comes up,We woke at dawn.
+A2,2,Time & Daily Life,35,sunset,noun,/ˈsʌnˌsɛt/,when the sun goes down,A beautiful sunset.
+A2,2,Time & Daily Life,36,delay,noun,/dɪˈleɪ/,being late,A long delay.
+A2,2,Time & Daily Life,37,rush,noun,/ˈrʌʃ/,hurrying,Morning rush hour.
+A2,2,Time & Daily Life,38,spare,adjective,/ˈspɛr/,extra; free,Spare time.
+A2,2,Time & Daily Life,39,previous,adjective,/ˈpriviəs/,before this one,The previous day.
+A2,2,Time & Daily Life,40,following,adjective,/ˈfɑloʊɪŋ/,the next one,The following week.
+A2,3,Family & Relationships,1,kid,noun,/ˈkɪd/,a child,The kids are playing outside.
+A2,3,Family & Relationships,2,adult,noun,/əˈdʌlt/,a grown-up person,Only adults can enter.
+A2,3,Family & Relationships,3,teenager,noun,/ˈtinˌeɪdʒɚ/,a person aged 13-19,Teenagers like music.
+A2,3,Family & Relationships,4,couple,noun,/ˈkʌpəl/,two people together,They are a nice couple.
+A2,3,Family & Relationships,5,single,adjective,/ˈsɪŋgəl/,not married,He is single.
+A2,3,Family & Relationships,6,married,adjective,/ˈmærid/,having a husband or wife,They got married last year.
+A2,3,Family & Relationships,7,divorced,adjective,/dɪˈvɔrst/,no longer married,Her parents are divorced.
+A2,3,Family & Relationships,8,wedding,noun,/ˈwɛdɪŋ/,a marriage ceremony,The wedding was beautiful.
+A2,3,Family & Relationships,9,relationship,noun,/rɪˈleɪʃənˌʃɪp/,a connection between people,They have a good relationship.
+A2,3,Family & Relationships,10,grandma,noun,/ˈgræmɑ/,grandmother informal,Grandma makes great cookies.
+A2,3,Family & Relationships,11,grandpa,noun,/ˈgrænˌpɑ/,grandfather informal,Grandpa tells great stories.
+A2,3,Family & Relationships,12,grandson,noun,/ˈgrænˌsʌn/,a son of your child,Her grandson is five years old.
+A2,3,Family & Relationships,13,granddaughter,noun,/ˈgrænˌdɔtɚ/,a daughter of your child,My granddaughter visits me often.
+A2,3,Family & Relationships,14,twin,noun,/ˈtwɪn/,one of two children born together,She has a twin brother.
+A2,3,Family & Relationships,15,neighbor,noun,/ˈneɪbɚ/,a person who lives nearby,My neighbor is very friendly.
+A2,3,Family & Relationships,16,guest,noun,/ˈgɛst/,a person you invite,We have guests for dinner.
+A2,3,Family & Relationships,17,guy,noun,/ˈgaɪ/,a man informal,Hes a nice guy.
+A2,3,Family & Relationships,18,lady,noun,/ˈleɪdi/,a woman polite,A lady helped me.
+A2,3,Family & Relationships,19,marry,verb,/ˈmɛri/,to become husband and wife,They will marry next month.
+A2,3,Family & Relationships,20,eldest,adjective,/ˈɛldəst/,oldest in a family,She is the eldest child.
+A2,3,Family & Relationships,21,surname,noun,/ˈsɜrˌneɪm/,family name,Whats your surname?
+A2,3,Family & Relationships,22,invitation,noun,/ˌɪnvɪˈteɪʃən/,a request to come somewhere,I got a wedding invitation.
+A2,3,Family & Relationships,23,memory,noun,/ˈmɛmɚi/,something you remember,I have happy memories of that day.
+A2,3,Family & Relationships,24,generation,noun,/ˌdʒɛnəˈreɪʃən/,people born at similar time,The younger generation uses technology.
+A2,3,Family & Relationships,25,relative,noun,/ˈrɛlətɪv/,a family member,All my relatives came to visit.
+A2,3,Family & Relationships,26,niece,noun,/ˈnis/,daughters of your sibling,My niece is ten years old.
+A2,3,Family & Relationships,27,nephew,noun,/ˈnɛfju/,son of your sibling,My nephew plays football.
+A2,3,Family & Relationships,28,stepmother,noun,/ˈstɛpˌmʌðɚ/,fathers new wife,Her stepmother is kind.
+A2,3,Family & Relationships,29,stepfather,noun,/ˈstɛpˌfɑðɚ/,mothers new husband,His stepfather helped him.
+A2,3,Family & Relationships,30,partner,noun,/ˈpɑrtnɚ/,person you are with,Life partner.
+A2,3,Family & Relationships,31,roommate,noun,/ˈrumˌmeɪt/,person sharing a room,My roommate is from Japan.
+A2,3,Family & Relationships,32,stranger,noun,/ˈstreɪndʒɚ/,a person you dont know,Dont talk to strangers.
+A2,3,Family & Relationships,33,childhood,noun,/ˈtʃaɪldˌhʊd/,time when you are a child,Happy childhood memories.
+A2,3,Family & Relationships,34,adulthood,noun,/əˈdʌltˌhʊd/,time when you are adult,Reaching adulthood.
+A2,3,Family & Relationships,35,friendship,noun,/ˈfrɛndˌʃɪp/,being friends,A strong friendship.
+A2,3,Family & Relationships,36,trust,noun,/ˈtrʌst/,believing in someone,Trust is important.
+A2,3,Family & Relationships,37,respect,noun,/rɪˈspɛkt/,thinking someone is good,Show respect to others.
+A2,3,Family & Relationships,38,love,noun,/ˈlʌv/,strong feeling for someone,Love your family.
+A2,3,Family & Relationships,39,care,noun,/ˈkɛr/,looking after someone,Take care of yourself.
+A2,3,Family & Relationships,40,support,noun,/səˈpɔrt/,help given to someone,Family support is important.
+A2,4,Body & Health,1,neck,noun,/ˈnɛk/,the part between head and body,My neck hurts.
+A2,4,Body & Health,2,shoulder,noun,/ˈʃoʊldɚ/,the top of your arm,She hurt her shoulder.
+A2,4,Body & Health,3,back,noun,/ˈbæk/,the part behind your chest,My back is sore.
+A2,4,Body & Health,4,knee,noun,/ˈni/,the middle part of your leg,She fell on her knee.
+A2,4,Body & Health,5,ankle,noun,/ˈæŋkəl/,the part between leg and foot,He twisted his ankle.
+A2,4,Body & Health,6,finger,noun,/ˈfɪŋgɚ/,one of five parts on your hand,I cut my finger.
+A2,4,Body & Health,7,thumb,noun,/ˈθʌm/,the short thick finger,I hurt my thumb.
+A2,4,Body & Health,8,chin,noun,/ˈtʃɪn/,the bottom of your face,He has a beard on his chin.
+A2,4,Body & Health,9,stomach,noun,/ˈstʌmək/,the part inside where food goes,I have a stomachache.
+A2,4,Body & Health,10,heart,noun,/ˈhɑrt/,the organ that pumps blood,My heart is beating fast.
+A2,4,Body & Health,11,brain,noun,/ˈbreɪn/,the organ in your head for thinking,The brain controls the body.
+A2,4,Body & Health,12,blood,noun,/ˈblʌd/,the red liquid in your body,Blood is red.
+A2,4,Body & Health,13,bone,noun,/ˈboʊn/,the hard parts inside your body,He broke a bone.
+A2,4,Body & Health,14,skin,noun,/ˈskɪn/,the covering of your body,She has soft skin.
+A2,4,Body & Health,15,pain,noun,/ˈpeɪn/,a feeling of hurt,I feel pain in my leg.
+A2,4,Body & Health,16,headache,noun,/ˈhɛdˌeɪk/,pain in your head,I have a headache.
+A2,4,Body & Health,17,toothache,noun,/ˈtuθˌeɪk/,pain in your tooth,I have a toothache.
+A2,4,Body & Health,18,flu,noun,/ˈflu/,a common illness with fever,She has the flu.
+A2,4,Body & Health,19,illness,noun,/ˈɪlnəs/,a disease or sickness,He recovered from his illness.
+A2,4,Body & Health,20,disease,noun,/dɪˈziz/,a serious sickness,Heart disease is serious.
+A2,4,Body & Health,21,injury,noun,/ˈɪndʒɚi/,damage to your body,He has a leg injury.
+A2,4,Body & Health,22,allergy,noun,/ˈælɚdʒi/,a bad reaction to something,She has an allergy to nuts.
+A2,4,Body & Health,23,medicine,noun,/ˈmɛdɪsɪn/,something you take to get better,Take your medicine.
+A2,4,Body & Health,24,drug,noun,/ˈdrʌg/,a medicine or illegal substance,The doctor gave me a new drug.
+A2,4,Body & Health,25,ill,adjective,/ˈɪl/,not feeling well,She is ill today.
+A2,4,Body & Health,26,hurt,verb,/ˈhɜrt/,to feel pain,My leg hurts.
+A2,4,Body & Health,27,weak,adjective,/ˈwik/,not strong,I feel weak today.
+A2,4,Body & Health,28,alive,adjective,/əˈlaɪv/,living; not dead,The plant is still alive.
+A2,4,Body & Health,29,dead,adjective,/ˈdɛd/,not alive,The battery is dead.
+A2,4,Body & Health,30,healthy,adjective,/ˈhɛlθi/,in good health,Eat healthy food.
+A2,4,Body & Health,31,weight,noun,/ˈweɪt/,how heavy something is,I want to lose weight.
+A2,4,Body & Health,32,height,noun,/ˈhaɪt/,how tall something is,What is your height?
+A2,4,Body & Health,33,birth,noun,/ˈbɜrθ/,when a baby is born,The birth of the baby was easy.
+A2,4,Body & Health,34,death,noun,/ˈdɛθ/,when someone dies,His death was sad.
+A2,4,Body & Health,35,danger,noun,/ˈdeɪndʒɚ/,risk of harm,There is no danger here.
+A2,5,Clothes & Accessories,1,shorts,noun,/ˈʃɔrts/,short pants,He wears shorts in summer.
+A2,5,Clothes & Accessories,2,pants,noun,/ˈpænts/,trousers (American English),I bought new pants.
+A2,5,Clothes & Accessories,3,suit,noun,/ˈsut/,jacket and pants worn together,He wears a suit to work.
+A2,5,Clothes & Accessories,4,tie,noun,/ˈtaɪ/,cloth worn around the neck,He wears a blue tie.
+A2,5,Clothes & Accessories,5,belt,noun,/ˈbɛlt/,worn around the waist,I need a new belt.
+A2,5,Clothes & Accessories,6,sock,noun,/ˈsɑk/,worn on your foot inside shoes,I can't find my socks.
+A2,5,Clothes & Accessories,7,uniform,noun,/ˈjunəˌfɔrm/,special clothes for work or school,Students wear uniforms.
+A2,5,Clothes & Accessories,8,pocket,noun,/ˈpɑkət/,a small bag in clothes,Put it in your pocket.
+A2,5,Clothes & Accessories,9,wallet,noun,/ˈwɔlɪt/,a small case for money,My wallet is in my pocket.
+A2,5,Clothes & Accessories,10,purse,noun,/ˈpɜrs/,a bag for women,She carries a purse.
+A2,5,Clothes & Accessories,11,handbag,noun,/ˈhændˌbæg/,a bag carried by hand,She bought a new handbag.
+A2,5,Clothes & Accessories,12,backpack,noun,/ˈbækˌpæk/,a bag worn on the back,Students carry backpacks.
+A2,5,Clothes & Accessories,13,ring,noun,/ˈrɪŋ/,jewelry worn on a finger,She wears a gold ring.
+A2,5,Clothes & Accessories,14,jewelry,noun,/ˈdʒuəlri/,decorative items to wear,She loves gold jewelry.
+A2,5,Clothes & Accessories,15,necklace,noun,/ˈnɛkləs/,jewelry worn around neck,She wears a pearl necklace.
+A2,5,Clothes & Accessories,16,earring,noun,/ˈɪrɪŋ/,jewelry on your ear,She wears gold earrings.
+A2,5,Clothes & Accessories,17,bracelet,noun,/ˈbreɪslət/,jewelry on your wrist,She wears a silver bracelet.
+A2,5,Clothes & Accessories,18,raincoat,noun,/ˈreɪnˌkoʊt/,a coat for rain,Wear your raincoat.
+A2,5,Clothes & Accessories,19,sweater,noun,/ˈswɛtɚ/,a warm top,"Wear a sweater, it is cold."
+A2,5,Clothes & Accessories,20,scarf,noun,/ˈskɑrf/,worn around the neck,She wears a warm scarf.
+A2,5,Clothes & Accessories,21,gloves,noun,/ˈglʌvz/,worn on hands,Wear gloves in winter.
+A2,5,Clothes & Accessories,22,swimsuit,noun,/ˈswɪmˌsut/,worn for swimming,Pack your swimsuit.
+A2,5,Clothes & Accessories,23,sunglasses,noun,/ˈsʌnˌglæsɪz/,glasses for the sun,Wear sunglasses outside.
+A2,5,Clothes & Accessories,24,button,noun,/ˈbʌtən/,a small round thing on clothes,A button fell off my shirt.
+A2,5,Clothes & Accessories,25,zipper,noun,/ˈzɪpɚ/,a fastener on clothes,The zipper is broken.
+A2,5,Clothes & Accessories,26,cotton,noun,/ˈkɑtən/,a soft material,This shirt is cotton.
+A2,5,Clothes & Accessories,27,leather,noun,/ˈlɛðɚ/,material from animal skin,I have leather shoes.
+A2,5,Clothes & Accessories,28,silk,noun,/ˈsɪlk/,a soft shiny material,She wears a silk dress.
+A2,5,Clothes & Accessories,29,wool,noun,/ˈwʊl/,material from sheep,This sweater is wool.
+A2,5,Clothes & Accessories,30,fashion,noun,/ˈfæʃən/,popular style of clothes,She follows fashion.
+A2,5,Clothes & Accessories,31,style,noun,/ˈstaɪl/,a way of looking,I like your style.
+A2,5,Clothes & Accessories,32,fit,verb,/ˈfɪt/,to be the right size,Does this shirt fit?
+A2,5,Clothes & Accessories,33,wear,verb,/ˈwɛr/,to have clothes on,I wear jeans every day.
+A2,5,Clothes & Accessories,34,tight,adjective,/ˈtaɪt/,fitting closely,These pants are too tight.
+A2,5,Clothes & Accessories,35,loose,adjective,/ˈlus/,not tight,I like loose shirts.
+A2,6,Food & Drinks,1,taste,noun,/ˈteɪst/,the flavor of something,This soup has a good taste.
+A2,6,Food & Drinks,2,sweet,adjective,/ˈswit/,containing sugar,This cake is too sweet.
+A2,6,Food & Drinks,3,sour,adjective,/ˈsaʊɚ/,having an acid taste,This lemon is sour.
+A2,6,Food & Drinks,4,spicy,adjective,/ˈspaɪsi/,having a strong hot flavor,This curry is very spicy.
+A2,6,Food & Drinks,5,salty,adjective,/ˈsɔlti/,containing salt,The soup is too salty.
+A2,6,Food & Drinks,6,bitter,adjective,/ˈbɪtɚ/,having a sharp unpleasant taste,This medicine is bitter.
+A2,6,Food & Drinks,7,delicious,adjective,/dɪˈlɪʃəs/,tasting very good,This food is delicious!
+A2,6,Food & Drinks,8,fresh,adjective,/ˈfrɛʃ/,recently made or picked,I love fresh bread.
+A2,6,Food & Drinks,9,frozen,adjective,/ˈfroʊzən/,very cold and hard,We bought frozen pizza.
+A2,6,Food & Drinks,10,pasta,noun,/ˈpɑstə/,Italian food made from flour,I love Italian pasta.
+A2,6,Food & Drinks,11,cereal,noun,/ˈsɪriəl/,food eaten for breakfast,I eat cereal with milk.
+A2,6,Food & Drinks,12,beef,noun,/ˈbif/,meat from a cow,I ordered beef steak.
+A2,6,Food & Drinks,13,pork,noun,/ˈpɔrk/,meat from a pig,Do you eat pork?
+A2,6,Food & Drinks,14,lamb,noun,/ˈlæm/,meat from a young sheep,Lamb is popular in this country.
+A2,6,Food & Drinks,15,ham,noun,/ˈhæm/,meat from a pig leg,I had a ham sandwich.
+A2,6,Food & Drinks,16,steak,noun,/ˈsteɪk/,a thick slice of meat,How would you like your steak?
+A2,6,Food & Drinks,17,sausage,noun,/ˈsɔsɪdʒ/,meat in a tube shape,I had sausages for breakfast.
+A2,6,Food & Drinks,18,seafood,noun,/ˈsiˌfud/,fish and shellfish to eat,This restaurant serves seafood.
+A2,6,Food & Drinks,19,shrimp,noun,/ˈʃrɪmp/,a small sea creature to eat,I love fried shrimp.
+A2,6,Food & Drinks,20,lemon,noun,/ˈlɛmən/,a sour yellow fruit,Add lemon to your tea.
+A2,6,Food & Drinks,21,grape,noun,/ˈgreɪp/,a small round fruit,I bought some grapes.
+A2,6,Food & Drinks,22,pear,noun,/ˈpɛr/,a sweet green fruit,The pear is ripe.
+A2,6,Food & Drinks,23,melon,noun,/ˈmɛlən/,a large sweet fruit,Melon is refreshing.
+A2,6,Food & Drinks,24,mushroom,noun,/ˈmʌʃˌrum/,a type of fungus to eat,I like mushroom soup.
+A2,6,Food & Drinks,25,garlic,noun,/ˈgɑrlɪk/,a plant with strong smell,Add some garlic to the sauce.
+A2,6,Food & Drinks,26,onion,noun,/ˈʌnjən/,a round vegetable with layers,Chop the onion.
+A2,6,Food & Drinks,27,bean,noun,/ˈbin/,an edible seed,I like green beans.
+A2,6,Food & Drinks,28,nut,noun,/ˈnʌt/,a hard-shelled seed,Nuts are healthy snacks.
+A2,6,Food & Drinks,29,honey,noun,/ˈhʌni/,sweet liquid from bees,Add honey to your tea.
+A2,6,Food & Drinks,30,jam,noun,/ˈdʒæm/,fruit spread,I like strawberry jam.
+A2,6,Food & Drinks,31,snack,noun,/ˈsnæk/,a small meal,I need a snack.
+A2,6,Food & Drinks,32,dessert,noun,/dɪˈzɜrt/,sweet food after a meal,What is for dessert?
+A2,6,Food & Drinks,33,yogurt,noun,/ˈjoʊgɚt/,thick creamy food from milk,I eat yogurt for breakfast.
+A2,6,Food & Drinks,34,juice,noun,/ˈdʒus/,liquid from fruit,I drink orange juice.
+A2,6,Food & Drinks,35,lemonade,noun,/ˌlɛməˈneɪd/,a drink made with lemons,I made fresh lemonade.
+A2,7,Cooking & Kitchen,1,cook,verb,/ˈkʊk/,to prepare food by heating,I cook dinner every day.
+A2,7,Cooking & Kitchen,2,boil,verb,/ˈbɔɪl/,to heat water until it bubbles,Boil the water first.
+A2,7,Cooking & Kitchen,3,fry,verb,/ˈfraɪ/,to cook in hot oil,Fry the eggs in butter.
+A2,7,Cooking & Kitchen,4,roast,verb,/ˈroʊst/,to cook in an oven,Roast the chicken for an hour.
+A2,7,Cooking & Kitchen,5,bake,verb,/ˈbeɪk/,to cook bread or cakes,I bake cookies on weekends.
+A2,7,Cooking & Kitchen,6,grill,verb,/ˈgrɪl/,to cook over fire,Grill the fish outside.
+A2,7,Cooking & Kitchen,7,mix,verb,/ˈmɪks/,to combine things together,Mix the flour and eggs.
+A2,7,Cooking & Kitchen,8,chop,verb,/ˈtʃɑp/,to cut into pieces,Chop the vegetables.
+A2,7,Cooking & Kitchen,9,slice,verb,/ˈslaɪs/,to cut into thin pieces,Slice the bread.
+A2,7,Cooking & Kitchen,10,pour,verb,/ˈpɔr/,to make liquid flow,Pour the milk into the bowl.
+A2,7,Cooking & Kitchen,11,stir,verb,/ˈstɜr/,to mix with a spoon,Stir the soup.
+A2,7,Cooking & Kitchen,12,knife,noun,/ˈnaɪf/,a tool for cutting,Use a sharp knife.
+A2,7,Cooking & Kitchen,13,fork,noun,/ˈfɔrk/,a tool for eating,Put the fork on the table.
+A2,7,Cooking & Kitchen,14,spoon,noun,/ˈspun/,a tool for eating soup,Use a spoon for the soup.
+A2,7,Cooking & Kitchen,15,plate,noun,/ˈpleɪt/,a flat dish for food,Put the food on the plate.
+A2,7,Cooking & Kitchen,16,bowl,noun,/ˈboʊl/,a round deep dish,I need a bowl for cereal.
+A2,7,Cooking & Kitchen,17,pan,noun,/ˈpæn/,a metal container for cooking,Heat the pan first.
+A2,7,Cooking & Kitchen,18,pot,noun,/ˈpɑt/,a deep container for cooking,Put water in the pot.
+A2,7,Cooking & Kitchen,19,oven,noun,/ˈʌvən/,a machine for baking,Preheat the oven.
+A2,7,Cooking & Kitchen,20,stove,noun,/ˈstoʊv/,a machine for cooking,Turn on the stove.
+A2,7,Cooking & Kitchen,21,fridge,noun,/ˈfrɪdʒ/,a machine to keep food cold,Put it in the fridge.
+A2,7,Cooking & Kitchen,22,microwave,noun,/ˈmaɪkroʊˌweɪv/,a machine to heat food quickly,Heat it in the microwave.
+A2,7,Cooking & Kitchen,23,recipe,noun,/ˈrɛsəpi/,instructions for cooking,Follow this recipe.
+A2,7,Cooking & Kitchen,24,ingredient,noun,/ɪnˈgridiənt/,a food item used in cooking,What ingredients do we need?
+A2,7,Cooking & Kitchen,25,meal,noun,/ˈmil/,food eaten at one time,Dinner is the main meal.
+A2,7,Cooking & Kitchen,26,sauce,noun,/ˈsɔs/,liquid food to add flavor,Add tomato sauce.
+A2,7,Cooking & Kitchen,27,oil,noun,/ˈɔɪl/,liquid fat for cooking,Add oil to the pan.
+A2,7,Cooking & Kitchen,28,fried,adjective,/ˈfraɪd/,cooked in oil,I like fried chicken.
+A2,7,Cooking & Kitchen,29,grilled,adjective,/ˈgrɪld/,cooked over fire,We had grilled fish.
+A2,7,Cooking & Kitchen,30,raw,adjective,/ˈrɔ/,not cooked,Sushi uses raw fish.
+A2,8,Home & Furniture,1,upstairs,adverb,/ʌpˈstɛrz/,on a higher floor,My bedroom is upstairs.
+A2,8,Home & Furniture,2,downstairs,adverb,/daʊnˈstɛrz/,on a lower floor,The kitchen is downstairs.
+A2,8,Home & Furniture,3,inside,adverb,/ɪnˈsaɪd/,in the inner part,Come inside the house.
+A2,8,Home & Furniture,4,outside,adverb,/aʊtˈsaɪd/,not in a building,The kids are playing outside.
+A2,8,Home & Furniture,5,furniture,noun,/ˈfɜrnɪtʃɚ/,"tables, chairs, beds, etc.",We need new furniture.
+A2,8,Home & Furniture,6,armchair,noun,/ˈɑrmˌtʃɛr/,a comfortable chair with arms,He sat in the armchair.
+A2,8,Home & Furniture,7,drawer,noun,/ˈdrɔr/,a sliding box in furniture,The keys are in the drawer.
+A2,8,Home & Furniture,8,cupboard,noun,/ˈkʌbɚd/,a cabinet with doors,The cups are in the cupboard.
+A2,8,Home & Furniture,9,shelf,noun,/ˈʃɛlf/,a flat surface for storage,Put the books on the shelf.
+A2,8,Home & Furniture,10,pillow,noun,/ˈpɪloʊ/,soft support for your head,I need a soft pillow.
+A2,8,Home & Furniture,11,blanket,noun,/ˈblæŋkət/,a warm cover for bed,I need an extra blanket.
+A2,8,Home & Furniture,12,sheet,noun,/ˈʃit/,thin cloth for a bed,Change the bed sheets.
+A2,8,Home & Furniture,13,towel,noun,/ˈtaʊəl/,cloth for drying,I need a clean towel.
+A2,8,Home & Furniture,14,carpet,noun,/ˈkɑrpɪt/,thick floor covering,The carpet is soft.
+A2,8,Home & Furniture,15,curtain,noun,/ˈkɜrtən/,cloth covering a window,Close the curtains.
+A2,8,Home & Furniture,16,mirror,noun,/ˈmɪrɚ/,glass that shows your image,She looked in the mirror.
+A2,8,Home & Furniture,17,roof,noun,/ˈruf/,the top of a building,The roof is red.
+A2,8,Home & Furniture,18,ceiling,noun,/ˈsilɪŋ/,the top inside a room,The ceiling is white.
+A2,8,Home & Furniture,19,stairs,noun,/ˈstɛrz/,steps between floors,Walk up the stairs.
+A2,8,Home & Furniture,20,balcony,noun,/ˈbælkəni/,a platform outside a window,We sat on the balcony.
+A2,8,Home & Furniture,21,gate,noun,/ˈgeɪt/,a door in a fence,Open the gate.
+A2,8,Home & Furniture,22,fence,noun,/ˈfɛns/,a barrier around a garden,We built a new fence.
+A2,8,Home & Furniture,23,lock,noun,/ˈlɑk/,a device to close a door,Check the lock.
+A2,8,Home & Furniture,24,key,noun,/ˈki/,a metal tool to open locks,Where is my key?
+A2,8,Home & Furniture,25,rent,noun,/ˈrɛnt/,money paid for living somewhere,The rent is expensive.
+A2,8,Home & Furniture,26,landlord,noun,/ˈlændˌlɔrd/,the owner of a rented house,I called the landlord.
+A2,8,Home & Furniture,27,neighbor,noun,/ˈneɪbɚ/,a person living nearby,Our neighbors are nice.
+A2,8,Home & Furniture,28,tidy,adjective,/ˈtaɪdi/,neat and organized,Keep your room tidy.
+A2,8,Home & Furniture,29,messy,adjective,/ˈmɛsi/,not clean or organized,His room is messy.
+A2,8,Home & Furniture,30,cozy,adjective,/ˈkoʊzi/,warm and comfortable,This room is cozy.
+A2,9,Descriptions,1,huge,adjective,/ˈhjudʒ/,very very big,The house is huge.
+A2,9,Descriptions,2,tiny,adjective,/ˈtaɪni/,very very small,The insect is tiny.
+A2,9,Descriptions,3,enormous,adjective,/ɪˈnɔrməs/,extremely large,An enormous crowd gathered.
+A2,9,Descriptions,4,heavy,adjective,/ˈhɛvi/,weighing a lot,This bag is heavy.
+A2,9,Descriptions,5,light,adjective,/ˈlaɪt/,not weighing much,This bag is light.
+A2,9,Descriptions,6,thick,adjective,/ˈθɪk/,wide from one side to other,The book is thick.
+A2,9,Descriptions,7,thin,adjective,/ˈθɪn/,narrow from one side to other,The paper is thin.
+A2,9,Descriptions,8,deep,adjective,/ˈdip/,far from top to bottom,The water is deep.
+A2,9,Descriptions,9,shallow,adjective,/ˈʃæloʊ/,not deep,The pool is shallow.
+A2,9,Descriptions,10,wide,adjective,/ˈwaɪd/,large from side to side,The road is wide.
+A2,9,Descriptions,11,narrow,adjective,/ˈnæroʊ/,small from side to side,The street is narrow.
+A2,9,Descriptions,12,rough,adjective,/ˈrʌf/,not smooth,The road is rough.
+A2,9,Descriptions,13,smooth,adjective,/ˈsmuð/,even; not rough,The table is smooth.
+A2,9,Descriptions,14,soft,adjective,/ˈsɔft/,easy to press,The pillow is soft.
+A2,9,Descriptions,15,sharp,adjective,/ˈʃɑrp/,able to cut easily,"Be careful, the knife is sharp."
+A2,9,Descriptions,16,wet,adjective,/ˈwɛt/,covered with water,The grass is wet.
+A2,9,Descriptions,17,dry,adjective,/ˈdraɪ/,not wet,Wait until the paint is dry.
+A2,9,Descriptions,18,bright,adjective,/ˈbraɪt/,giving a lot of light,The sun is bright.
+A2,9,Descriptions,19,loud,adjective,/ˈlaʊd/,making much noise,The music is too loud.
+A2,9,Descriptions,20,quiet,adjective,/ˈkwaɪət/,making little noise,Please be quiet.
+A2,9,Descriptions,21,noisy,adjective,/ˈnɔɪzi/,making a lot of noise,The street is noisy.
+A2,9,Descriptions,22,excellent,adjective,/ˈɛksələnt/,very good,That is an excellent idea!
+A2,9,Descriptions,23,awful,adjective,/ˈɔfəl/,very bad,The weather is awful.
+A2,9,Descriptions,24,incredible,adjective,/ɪnˈkrɛdəbəl/,hard to believe,The view is incredible.
+A2,9,Descriptions,25,broken,adjective,/ˈbroʊkən/,damaged; not working,The window is broken.
+A2,9,Descriptions,26,empty,adjective,/ˈɛmpti/,with nothing inside,The box is empty.
+A2,9,Descriptions,27,crowded,adjective,/ˈkraʊdɪd/,full of people,The bus is crowded.
+A2,9,Descriptions,28,available,adjective,/əˈveɪləbəl/,able to be used or obtained,Is this seat available?
+A2,9,Descriptions,29,comfortable,adjective,/ˈkʌmfɚtəbəl/,feeling relaxed,This chair is comfortable.
+A2,9,Descriptions,30,modern,adjective,/ˈmɑdɚn/,of the present time,A modern apartment.
+A2,10,Feelings & Personality,1,scared,adjective,/ˈskɛrd/,feeling fear,I am scared of spiders.
+A2,10,Feelings & Personality,2,worried,adjective,/ˈwɜrid/,feeling anxious,I am worried about the exam.
+A2,10,Feelings & Personality,3,nervous,adjective,/ˈnɜrvəs/,feeling anxious before something,I am nervous about the interview.
+A2,10,Feelings & Personality,4,surprised,adjective,/sɚˈpraɪzd/,feeling shock at something,I was surprised to see him.
+A2,10,Feelings & Personality,5,confused,adjective,/kənˈfjuzd/,not understanding,I am confused by the directions.
+A2,10,Feelings & Personality,6,disappointed,adjective,/ˌdɪsəˈpɔɪntɪd/,sad because hopes were not met,I was disappointed by the result.
+A2,10,Feelings & Personality,7,embarrassed,adjective,/ɪmˈbærəst/,feeling ashamed,I was embarrassed by my mistake.
+A2,10,Feelings & Personality,8,jealous,adjective,/ˈdʒɛləs/,wanting what others have,He is jealous of his brother.
+A2,10,Feelings & Personality,9,lonely,adjective,/ˈloʊnli/,feeling alone and sad,She feels lonely sometimes.
+A2,10,Feelings & Personality,10,pleased,adjective,/ˈplizd/,feeling happy about something,I am pleased with the results.
+A2,10,Feelings & Personality,11,proud,adjective,/ˈpraʊd/,feeling good about an achievement,I am proud of my daughter.
+A2,10,Feelings & Personality,12,relaxed,adjective,/rɪˈlækst/,feeling calm and not worried,I feel relaxed on vacation.
+A2,10,Feelings & Personality,13,curious,adjective,/ˈkjʊriəs/,wanting to know things,Children are naturally curious.
+A2,10,Feelings & Personality,14,lazy,adjective,/ˈleɪzi/,not wanting to work,I feel lazy today.
+A2,10,Feelings & Personality,15,clever,adjective,/ˈklɛvɚ/,quick at learning,She is a clever student.
+A2,10,Feelings & Personality,16,stupid,adjective,/ˈstupɪd/,not clever,That was a stupid mistake.
+A2,10,Feelings & Personality,17,serious,adjective,/ˈsɪriəs/,not laughing or joking,He is a serious person.
+A2,10,Feelings & Personality,18,polite,adjective,/pəˈlaɪt/,having good manners,Be polite to others.
+A2,10,Feelings & Personality,19,rude,adjective,/ˈrud/,not polite,That was a rude comment.
+A2,10,Feelings & Personality,20,honest,adjective,/ˈɑnɪst/,telling the truth,She is an honest person.
+A2,10,Feelings & Personality,21,patient,adjective,/ˈpeɪʃənt/,able to wait calmly,"Be patient, it takes time."
+A2,10,Feelings & Personality,22,generous,adjective,/ˈdʒɛnɚəs/,willing to give things,He is very generous.
+A2,10,Feelings & Personality,23,selfish,adjective,/ˈsɛlfɪʃ/,only thinking of yourself,Don't be selfish.
+A2,10,Feelings & Personality,24,shy,adjective,/ˈʃaɪ/,uncomfortable with people,She is shy with strangers.
+A2,10,Feelings & Personality,25,confident,adjective,/ˈkɑnfɪdənt/,feeling sure of yourself,He is confident about his abilities.
+A2,10,Feelings & Personality,26,active,adjective,/ˈæktɪv/,doing things; busy,She is very active.
+A2,10,Feelings & Personality,27,calm,adjective,/ˈkɑm/,not excited or worried,Stay calm and relax.
+A2,10,Feelings & Personality,28,mood,noun,/ˈmud/,how you feel at a time,He is in a good mood.
+A2,10,Feelings & Personality,29,personality,noun,/ˌpɜrsəˈnæləti/,someone's character,She has a great personality.
+A2,10,Feelings & Personality,30,attitude,noun,/ˈætɪˌtud/,the way you think about things,A positive attitude helps.
+A2,11,Common Verbs,1,seem,verb,/ˈsim/,to appear to be,She seems happy today.
+A2,11,Common Verbs,2,appear,verb,/əˈpɪr/,to come into view; to seem,He appears to be sleeping.
+A2,11,Common Verbs,3,suggest,verb,/səˈdʒɛst/,to propose an idea,I suggest we take a break.
+A2,11,Common Verbs,4,complain,verb,/kəmˈpleɪn/,to say you are unhappy,She complained about the noise.
+A2,11,Common Verbs,5,apologize,verb,/əˈpɑləˌdʒaɪz/,to say sorry,I apologize for being late.
+A2,11,Common Verbs,6,argue,verb,/ˈɑrgju/,to disagree with words,They often argue about money.
+A2,11,Common Verbs,7,disagree,verb,/ˌdɪsəˈgri/,to have a different opinion,I disagree with you.
+A2,11,Common Verbs,8,explain,verb,/ɪkˈspleɪn/,to make clear,Can you explain this to me?
+A2,11,Common Verbs,9,describe,verb,/dɪˈskraɪb/,to tell what something is like,Describe your house.
+A2,11,Common Verbs,10,recommend,verb,/ˌrɛkəˈmɛnd/,to suggest as good,I recommend this restaurant.
+A2,11,Common Verbs,11,continue,verb,/kənˈtɪnju/,to keep doing something,Please continue reading.
+A2,11,Common Verbs,12,allow,verb,/əˈlaʊ/,to let someone do something,Dogs are not allowed here.
+A2,11,Common Verbs,13,accept,verb,/əkˈsɛpt/,to take what is offered,I accept your apology.
+A2,11,Common Verbs,14,refuse,verb,/rɪˈfjuz/,to say no to,He refused to help.
+A2,11,Common Verbs,15,avoid,verb,/əˈvɔɪd/,to stay away from,I try to avoid fast food.
+A2,11,Common Verbs,16,enter,verb,/ˈɛntɚ/,to go into a place,Please enter the room.
+A2,11,Common Verbs,17,hide,verb,/ˈhaɪd/,to put out of sight,The cat is hiding under the bed.
+A2,11,Common Verbs,18,disappear,verb,/ˌdɪsəˈpɪr/,to go out of sight,The sun disappeared behind clouds.
+A2,11,Common Verbs,19,attend,verb,/əˈtɛnd/,to be present at,I will attend the meeting.
+A2,11,Common Verbs,20,celebrate,verb,/ˈsɛləˌbreɪt/,to do something special,We celebrate her birthday.
+A2,11,Common Verbs,21,organize,verb,/ˈɔrgəˌnaɪz/,to arrange in order,She organized the event.
+A2,11,Common Verbs,22,arrange,verb,/əˈreɪndʒ/,to put in order; to plan,I will arrange the meeting.
+A2,11,Common Verbs,23,provide,verb,/prəˈvaɪd/,to give what is needed,The hotel provides breakfast.
+A2,11,Common Verbs,24,receive,verb,/rɪˈsiv/,to get something given,I received a letter.
+A2,11,Common Verbs,25,remove,verb,/rɪˈmuv/,to take away,Remove your shoes please.
+A2,11,Common Verbs,26,expect,verb,/ɪkˈspɛkt/,to think something will happen,I expect rain tomorrow.
+A2,11,Common Verbs,27,realize,verb,/ˈriəˌlaɪz/,to understand suddenly,I realized my mistake.
+A2,11,Common Verbs,28,recognize,verb,/ˈrɛkəgˌnaɪz/,to know who someone is,I recognized her voice.
+A2,11,Common Verbs,29,consider,verb,/kənˈsɪdɚ/,to think carefully about,I will consider your offer.
+A2,11,Common Verbs,30,suppose,verb,/səˈpoʊz/,to think; to assume,I suppose you are right.
+A2,11,Common Verbs,31,discover,verb,/dɪˈskʌvɚ/,to find something new,I discovered a new cafe.
+A2,11,Common Verbs,32,notice,verb,/ˈnoʊtɪs/,to see or become aware of,I noticed you changed your hair.
+A2,11,Common Verbs,33,decide,verb,/dɪˈsaɪd/,to make a choice,I decided to stay home.
+A2,11,Common Verbs,34,succeed,verb,/səkˈsid/,to achieve a goal,She succeeded in her exam.
+A2,11,Common Verbs,35,fail,verb,/ˈfeɪl/,to not succeed,I failed the test.
+A2,11,Common Verbs,36,protect,verb,/prəˈtɛkt/,to keep safe,Parents protect their children.
+A2,11,Common Verbs,37,prevent,verb,/prɪˈvɛnt/,to stop something happening,Washing hands prevents illness.
+A2,11,Common Verbs,38,belong,verb,/bɪˈlɔŋ/,to be owned by,This book belongs to me.
+A2,11,Common Verbs,39,depend,verb,/dɪˈpɛnd/,to need something to happen,It depends on the weather.
+A2,11,Common Verbs,40,exist,verb,/ɪgˈzɪst/,to be real or present,Does life exist on Mars?
+A2,12,Communication & Business,1,reply,verb,/rɪˈplaɪ/,to answer,Please reply to my email.
+A2,12,Communication & Business,2,respond,verb,/rɪˈspɑnd/,to react to something,She responded quickly.
+A2,12,Communication & Business,3,request,noun,/rɪˈkwɛst/,asking for something,I made a request for help.
+A2,12,Communication & Business,4,decision,noun,/dɪˈsɪʒən/,a choice made,It was a difficult decision.
+A2,12,Communication & Business,5,choice,noun,/ˈtʃɔɪs/,an option to pick,You have two choices.
+A2,12,Communication & Business,6,chance,noun,/ˈtʃæns/,a possibility,Give me another chance.
+A2,12,Communication & Business,7,advantage,noun,/ədˈvæntɪdʒ/,something good or helpful,Living near work is an advantage.
+A2,12,Communication & Business,8,promise,noun,/ˈprɑmɪs/,saying you will do something,I made a promise to help.
+A2,12,Communication & Business,9,solution,noun,/səˈluʃən/,an answer to a problem,We found a solution.
+A2,12,Communication & Business,10,result,noun,/rɪˈzʌlt/,what happens because of something,The result was good.
+A2,12,Communication & Business,11,cause,noun,/ˈkɔz/,the reason why something happens,What is the cause of the problem?
+A2,12,Communication & Business,12,effect,noun,/ɪˈfɛkt/,a change caused by something,The medicine had no effect.
+A2,12,Communication & Business,13,purpose,noun,/ˈpɜrpəs/,the reason for doing something,What is the purpose of this?
+A2,12,Communication & Business,14,attention,noun,/əˈtɛnʃən/,careful watching or listening,Pay attention to the teacher.
+A2,12,Communication & Business,15,success,noun,/səkˈsɛs/,achieving your goal,The event was a success.
+A2,12,Communication & Business,16,business,noun,/ˈbɪznəs/,commercial activity,He runs his own business.
+A2,12,Communication & Business,17,company,noun,/ˈkʌmpəni/,a business organization,She works for a big company.
+A2,12,Communication & Business,18,customer,noun,/ˈkʌstəmɚ/,a person who buys things,The customer is always right.
+A2,12,Communication & Business,19,client,noun,/ˈklaɪənt/,a person who uses a service,We have many clients.
+A2,12,Communication & Business,20,service,noun,/ˈsɜrvɪs/,help provided,The service here is excellent.
+A2,12,Communication & Business,21,meeting,noun,/ˈmitɪŋ/,people coming together to talk,We have a meeting at 3.
+A2,12,Communication & Business,22,appointment,noun,/əˈpɔɪntmənt/,an arranged time to meet,I have a doctor appointment.
+A2,12,Communication & Business,23,interview,noun,/ˈɪntɚˌvju/,a formal meeting for a job,I have a job interview tomorrow.
+A2,12,Communication & Business,24,project,noun,/ˈprɑdʒɛkt/,a planned piece of work,We are working on a project.
+A2,12,Communication & Business,25,plan,noun,/ˈplæn/,something you decide to do,What are your plans for today?
+A2,12,Communication & Business,26,goal,noun,/ˈgoʊl/,something you want to achieve,My goal is to learn English.
+A2,12,Communication & Business,27,idea,noun,/aɪˈdiə/,a thought in your mind,I have a good idea.
+A2,12,Communication & Business,28,opinion,noun,/əˈpɪnjən/,what you think about something,What is your opinion?
+A2,12,Communication & Business,29,reason,noun,/ˈrizən/,why something happens,What is the reason for this?
+A2,12,Communication & Business,30,fact,noun,/ˈfækt/,something true,That is a fact.
+A2,13,More Adjectives,1,safe,adjective,/ˈseɪf/,not in danger,This place is safe.
+A2,13,More Adjectives,2,dangerous,adjective,/ˈdeɪndʒərəs/,able to cause harm,The road is dangerous.
+A2,13,More Adjectives,3,strange,adjective,/ˈstreɪndʒ/,unusual; odd,That is a strange noise.
+A2,13,More Adjectives,4,normal,adjective,/ˈnɔrməl/,usual; regular,This is normal behavior.
+A2,13,More Adjectives,5,regular,adjective,/ˈrɛgjəlɚ/,happening at the same time,He is a regular customer.
+A2,13,More Adjectives,6,usual,adjective,/ˈjuʒuəl/,happening most times,This is my usual coffee.
+A2,13,More Adjectives,7,unusual,adjective,/ʌnˈjuʒuəl/,not common,That is unusual.
+A2,13,More Adjectives,8,typical,adjective,/ˈtɪpɪkəl/,having the usual features,This is a typical day.
+A2,13,More Adjectives,9,traditional,adjective,/trəˈdɪʃənəl/,following old customs,Traditional food is delicious.
+A2,13,More Adjectives,10,modern,adjective,/ˈmɑdɚn/,of the present time,This is a modern building.
+A2,13,More Adjectives,11,ancient,adjective,/ˈeɪnʃənt/,very old,An ancient temple.
+A2,13,More Adjectives,12,public,adjective,/ˈpʌblɪk/,for everyone,This is a public park.
+A2,13,More Adjectives,13,private,adjective,/ˈpraɪvət/,only for one person,This is a private room.
+A2,13,More Adjectives,14,simple,adjective,/ˈsɪmpəl/,easy to do or understand,The instructions are simple.
+A2,13,More Adjectives,15,difficult,adjective,/ˈdɪfɪˌkʌlt/,hard to do,The test was difficult.
+A2,13,More Adjectives,16,impossible,adjective,/ɪmˈpɑsəbəl/,not able to happen,That is impossible!
+A2,13,More Adjectives,17,possible,adjective,/ˈpɑsəbəl/,able to happen,Is it possible to change?
+A2,13,More Adjectives,18,necessary,adjective,/ˈnɛsəˌsɛri/,needed,It is necessary to practice.
+A2,13,More Adjectives,19,successful,adjective,/səkˈsɛsfəl/,achieving goals,She is a successful writer.
+A2,13,More Adjectives,20,famous,adjective,/ˈfeɪməs/,known by many people,He is a famous actor.
+A2,13,More Adjectives,21,popular,adjective,/ˈpɑpjəlɚ/,liked by many people,This song is very popular.
+A2,13,More Adjectives,22,straight,adjective,/ˈstreɪt/,not curved,Draw a straight line.
+A2,13,More Adjectives,23,round,adjective,/ˈraʊnd/,shaped like a circle,The table is round.
+A2,13,More Adjectives,24,flat,adjective,/ˈflæt/,having no curves or bumps,The ground is flat.
+A2,13,More Adjectives,25,worth,adjective,/ˈwɜrθ/,having a certain value,It is worth trying.
+A2,13,More Adjectives,26,main,adjective,/ˈmeɪn/,most important,This is the main street.
+A2,13,More Adjectives,27,extra,adjective,/ˈɛkstrə/,more than normal,I need extra time.
+A2,13,More Adjectives,28,whole,adjective,/ˈhoʊl/,complete; all of it,I ate the whole cake.
+A2,13,More Adjectives,29,certain,adjective,/ˈsɜrtən/,sure; definite,I am certain about this.
+A2,13,More Adjectives,30,obvious,adjective,/ˈɑbviəs/,easy to see or understand,The answer is obvious.
+A2,14,Animals,1,pet,noun,/ˈpɛt/,an animal kept at home,My pet is a dog.
+A2,14,Animals,2,rabbit,noun,/ˈræbɪt/,a small animal with long ears,The rabbit is eating carrots.
+A2,14,Animals,3,duck,noun,/ˈdʌk/,a bird that swims,Ducks swim in the pond.
+A2,14,Animals,4,bear,noun,/ˈbɛr/,a large wild animal,Bears live in forests.
+A2,14,Animals,5,monkey,noun,/ˈmʌŋki/,an animal that climbs trees,Monkeys like bananas.
+A2,14,Animals,6,frog,noun,/ˈfrɔg/,a small green jumping animal,The frog jumped into water.
+A2,14,Animals,7,snake,noun,/ˈsneɪk/,a long animal without legs,Snakes can be dangerous.
+A2,14,Animals,8,whale,noun,/ˈweɪl/,a very large sea animal,Whales are huge.
+A2,14,Animals,9,shark,noun,/ˈʃɑrk/,a large fish with sharp teeth,Sharks live in the ocean.
+A2,14,Animals,10,tiger,noun,/ˈtaɪgɚ/,a big cat with stripes,Tigers are beautiful.
+A2,14,Animals,11,lion,noun,/ˈlaɪən/,a big cat king of jungle,Lions are strong.
+A2,14,Animals,12,wolf,noun,/ˈwʊlf/,a wild animal like a dog,Wolves hunt in groups.
+A2,14,Animals,13,deer,noun,/ˈdɪr/,an animal with horns,Deer run very fast.
+A2,14,Animals,14,fox,noun,/ˈfɑks/,a wild animal like a dog,The fox is clever.
+A2,14,Animals,15,parrot,noun,/ˈpærət/,a colorful bird that talks,Parrots can talk.
+A2,14,Animals,16,owl,noun,/ˈaʊl/,a bird active at night,Owls hunt at night.
+A2,14,Animals,17,eagle,noun,/ˈigəl/,a large bird of prey,Eagles fly high.
+A2,14,Animals,18,penguin,noun,/ˈpɛŋgwɪn/,a black and white bird,Penguins live in cold places.
+A2,14,Animals,19,dolphin,noun,/ˈdɑlfɪn/,a smart sea animal,Dolphins are friendly.
+A2,14,Animals,20,turtle,noun,/ˈtɜrtəl/,an animal with a shell,Turtles move slowly.
+A2,14,Animals,21,insect,noun,/ˈɪnˌsɛkt/,a small animal with six legs,Insects are everywhere.
+A2,14,Animals,22,butterfly,noun,/ˈbʌtɚˌflaɪ/,a colorful flying insect,Butterflies are beautiful.
+A2,14,Animals,23,bee,noun,/ˈbi/,an insect that makes honey,Bees make honey.
+A2,14,Animals,24,ant,noun,/ˈænt/,a small insect that lives in groups,Ants work hard.
+A2,14,Animals,25,spider,noun,/ˈspaɪdɚ/,animal with eight legs,Spiders make webs.
+A2,14,Animals,26,mouse,noun,/ˈmaʊs/,a small animal like rat,The mouse ran away.
+A2,14,Animals,27,squirrel,noun,/ˈskwɜrəl/,animal that collects nuts,Squirrels live in trees.
+A2,14,Animals,28,camel,noun,/ˈkæməl/,animal in desert,Camels can go without water.
+A2,14,Animals,29,kangaroo,noun,/ˌkæŋgəˈru/,animal that jumps from Australia,Kangaroos jump far.
+A2,14,Animals,30,giraffe,noun,/dʒəˈræf/,tall animal with long neck,Giraffes are very tall.
+A2,14,Animals,31,feather,noun,/ˈfɛðɚ/,the soft covering of a bird,Birds have feathers.
+A2,14,Animals,32,wing,noun,/ˈwɪŋ/,the part birds use to fly,The bird spread its wings.
+A2,14,Animals,33,tail,noun,/ˈteɪl/,the part at the back of animals,The dog wags its tail.
+A2,14,Animals,34,claw,noun,/ˈklɔ/,sharp nails on animal feet,Cats have sharp claws.
+A2,14,Animals,35,fur,noun,/ˈfɜr/,soft hair on animals,The cat has soft fur.
+A2,14,Animals,36,paw,noun,/ˈpɔ/,foot of an animal,The dog hurt its paw.
+A2,14,Animals,37,cage,noun,/ˈkeɪdʒ/,home for pet birds,The bird lives in a cage.
+A2,14,Animals,38,wild,adjective,/ˈwaɪld/,living in nature; not tame,Wild animals are free.
+A2,14,Animals,39,tame,adjective,/ˈteɪm/,not wild; gentle,The rabbit is tame.
+A2,14,Animals,40,endangered,adjective,/ɪnˈdeɪndʒɚd/,at risk of dying out,Pandas are endangered.
+A2,15,Nature & Environment,1,earth,noun,/ˈɜrθ/,our planet,Earth is our home.
+A2,15,Nature & Environment,2,sky,noun,/ˈskaɪ/,the space above us,The sky is blue today.
+A2,15,Nature & Environment,3,ground,noun,/ˈgraʊnd/,the surface of earth,Sit on the ground.
+A2,15,Nature & Environment,4,hill,noun,/ˈhɪl/,a small high area of land,We walked up the hill.
+A2,15,Nature & Environment,5,valley,noun,/ˈvæli/,low land between hills,The river flows through the valley.
+A2,15,Nature & Environment,6,ocean,noun,/ˈoʊʃən/,a very large sea,The ocean is very deep.
+A2,15,Nature & Environment,7,lake,noun,/ˈleɪk/,water surrounded by land,We swam in the lake.
+A2,15,Nature & Environment,8,coast,noun,/ˈkoʊst/,land next to the sea,We live on the coast.
+A2,15,Nature & Environment,9,island,noun,/ˈaɪlənd/,land surrounded by water,Hawaii is an island.
+A2,15,Nature & Environment,10,forest,noun,/ˈfɔrɪst/,a large area with trees,Bears live in the forest.
+A2,15,Nature & Environment,11,desert,noun,/ˈdɛzɚt/,a dry area with sand,Deserts are very hot.
+A2,15,Nature & Environment,12,wave,noun,/ˈweɪv/,moving water in the sea,Big waves hit the beach.
+A2,15,Nature & Environment,13,stone,noun,/ˈstoʊn/,a hard piece of rock,I found a nice stone.
+A2,15,Nature & Environment,14,wood,noun,/ˈwʊd/,material from trees,The table is made of wood.
+A2,15,Nature & Environment,15,metal,noun,/ˈmɛtəl/,a hard shiny material,Gold is a metal.
+A2,15,Nature & Environment,16,planet,noun,/ˈplænɪt/,a large object in space,Mars is a planet.
+A2,15,Nature & Environment,17,moon,noun,/ˈmun/,the object that shines at night,The moon is bright tonight.
+A2,15,Nature & Environment,18,star,noun,/ˈstɑr/,a light in the night sky,I can see many stars.
+A2,15,Nature & Environment,19,environment,noun,/ɪnˈvaɪrənmənt/,the natural world,We must protect the environment.
+A2,15,Nature & Environment,20,nature,noun,/ˈneɪtʃɚ/,"plants, animals, weather",I love being in nature.
+A2,15,Nature & Environment,21,climate,noun,/ˈklaɪmət/,the usual weather of a place,The climate is warm here.
+A2,15,Nature & Environment,22,pollution,noun,/pəˈluʃən/,harmful things in air or water,Air pollution is bad.
+A2,15,Nature & Environment,23,recycle,verb,/riˈsaɪkəl/,to use again,We recycle paper.
+A2,15,Nature & Environment,24,waste,noun,/ˈweɪst/,things thrown away,Reduce waste.
+A2,15,Nature & Environment,25,energy,noun,/ˈɛnɚdʒi/,"power from sun, wind, etc.",Solar energy is clean.
+A2,15,Nature & Environment,26,natural,adjective,/ˈnætʃərəl/,from nature; not made,Natural food is healthy.
+A2,15,Nature & Environment,27,wooden,adjective,/ˈwʊdən/,made of wood,A wooden chair.
+A2,15,Nature & Environment,28,clean,adjective,/ˈklin/,not dirty,The water is clean.
+A2,15,Nature & Environment,29,dirty,adjective,/ˈdɜrti/,not clean,The street is dirty.
+A2,15,Nature & Environment,30,polluted,adjective,/pəˈlutɪd/,made dirty by pollution,The river is polluted.
+A2,16,Education & Learning,1,learning,noun,/ˈlɜrnɪŋ/,getting knowledge,Learning is fun.
+A2,16,Education & Learning,2,education,noun,/ˌɛdʒuˈkeɪʃən/,the process of teaching,Education is important.
+A2,16,Education & Learning,3,knowledge,noun,/ˈnɑlɪdʒ/,what you know,Knowledge is power.
+A2,16,Education & Learning,4,semester,noun,/səˈmɛstɚ/,half of a school year,The semester ends in May.
+A2,16,Education & Learning,5,degree,noun,/dɪˈgri/,a qualification from university,She has a degree in law.
+A2,16,Education & Learning,6,diploma,noun,/dɪˈploʊmə/,a certificate of completion,He received his diploma.
+A2,16,Education & Learning,7,grade,noun,/ˈgreɪd/,a mark for work,I got a good grade.
+A2,16,Education & Learning,8,beginner,noun,/bɪˈgɪnɚ/,someone starting to learn,This class is for beginners.
+A2,16,Education & Learning,9,instructor,noun,/ɪnˈstrʌktɚ/,a person who teaches,The instructor was helpful.
+A2,16,Education & Learning,10,physics,noun,/ˈfɪzɪks/,science of matter and energy,Physics is difficult.
+A2,16,Education & Learning,11,chemistry,noun,/ˈkɛmɪstri/,science of substances,I study chemistry.
+A2,16,Education & Learning,12,biology,noun,/baɪˈɑlədʒi/,science of living things,Biology is interesting.
+A2,16,Education & Learning,13,grammar,noun,/ˈgræmɚ/,rules of language,English grammar is important.
+A2,16,Education & Learning,14,method,noun,/ˈmɛθəd/,a way of doing something,This method works well.
+A2,16,Education & Learning,15,research,noun,/rɪˈsɜrtʃ/,study to find facts,She does research.
+A2,16,Education & Learning,16,experiment,noun,/ɪkˈspɛrɪmənt/,a test to learn something,We did an experiment.
+A2,16,Education & Learning,17,ability,noun,/əˈbɪləti/,skill to do something,She has musical ability.
+A2,16,Education & Learning,18,essay,noun,/ˈɛseɪ/,a short piece of writing,I wrote an essay.
+A2,16,Education & Learning,19,lecture,noun,/ˈlɛktʃɚ/,a talk to teach people,The lecture was interesting.
+A2,16,Education & Learning,20,source,noun,/ˈsɔrs/,where something comes from,Check your sources.
+A2,16,Education & Learning,21,context,noun,/ˈkɑntɛkst/,the situation around something,Understand the context.
+A2,16,Education & Learning,22,folder,noun,/ˈfoʊldɚ/,a cover for papers,Put it in the folder.
+A2,16,Education & Learning,23,lab,noun,/ˈlæb/,a room for experiments,We work in the lab.
+A2,16,Education & Learning,24,error,noun,/ˈɛrɚ/,a mistake,I made an error.
+A2,16,Education & Learning,25,progress,noun,/ˈprɑgrɛs/,moving forward,You are making progress.
+A2,16,Education & Learning,26,review,noun,/rɪˈvju/,looking at again,Do a review before the test.
+A2,16,Education & Learning,27,focus,noun,/ˈfoʊkəs/,attention on something,Focus on your work.
+A2,16,Education & Learning,28,skill,noun,/ˈskɪl/,ability to do well,Reading is an important skill.
+A2,16,Education & Learning,29,practice,noun,/ˈpræktɪs/,doing something often,Practice makes perfect.
+A2,16,Education & Learning,30,improve,verb,/ɪmˈpruv/,to make better,I want to improve my English.
+A2,17,Jobs & Work,1,task,noun,/ˈtæsk/,a piece of work to do,Complete this task.
+A2,17,Jobs & Work,2,experience,noun,/ɪkˈspɪriəns/,knowledge from doing things,She has work experience.
+A2,17,Jobs & Work,3,factory,noun,/ˈfæktəri/,a building for making things,He works in a factory.
+A2,17,Jobs & Work,4,employee,noun,/ɛmˈplɔɪi/,a person who works for pay,The employee arrived early.
+A2,17,Jobs & Work,5,employer,noun,/ɛmˈplɔɪɚ/,a person who hires workers,The employer is fair.
+A2,17,Jobs & Work,6,salary,noun,/ˈsæləri/,money paid for work,The salary is good.
+A2,17,Jobs & Work,7,manager,noun,/ˈmænɪdʒɚ/,person who leads a team,The manager is nice.
+A2,17,Jobs & Work,8,boss,noun,/ˈbɔs/,person in charge,My boss is helpful.
+A2,17,Jobs & Work,9,colleague,noun,/ˈkɑlig/,a person you work with,My colleague helped me.
+A2,17,Jobs & Work,10,dentist,noun,/ˈdɛntɪst/,a tooth doctor,I visited the dentist.
+A2,17,Jobs & Work,11,lawyer,noun,/ˈlɔjɚ/,person who knows law,She is a lawyer.
+A2,17,Jobs & Work,12,engineer,noun,/ˌɛndʒɪˈnɪr/,person who designs things,He is an engineer.
+A2,17,Jobs & Work,13,pilot,noun,/ˈpaɪlət/,person who flies planes,The pilot landed safely.
+A2,17,Jobs & Work,14,professor,noun,/prəˈfɛsɚ/,university teacher,The professor teaches history.
+A2,17,Jobs & Work,15,journalist,noun,/ˈdʒɜrnəlɪst/,person who writes news,The journalist wrote an article.
+A2,17,Jobs & Work,16,secretary,noun,/ˈsɛkrəˌtɛri/,person who helps in office,The secretary answered the phone.
+A2,17,Jobs & Work,17,guide,noun,/ˈgaɪd/,person who shows the way,The guide showed us around.
+A2,17,Jobs & Work,18,career,noun,/kəˈrɪr/,job you do for years,She has a good career.
+A2,17,Jobs & Work,19,profession,noun,/prəˈfɛʃən/,a type of job,Teaching is a profession.
+A2,17,Jobs & Work,20,professional,adj,/prəˈfɛʃənəl/,relating to a job,Be professional at work.
+A2,17,Jobs & Work,21,apply,verb,/əˈplaɪ/,to ask for a job,I will apply for the job.
+A2,17,Jobs & Work,22,hire,verb,/ˈhaɪɚ/,to give someone a job,They will hire new staff.
+A2,17,Jobs & Work,23,retire,verb,/rɪˈtaɪɚ/,to stop working (old age),He will retire next year.
+A2,17,Jobs & Work,24,promote,verb,/prəˈmoʊt/,to give a better job,She was promoted.
+A2,17,Jobs & Work,25,tool,noun,/ˈtul/,thing used for work,A hammer is a tool.
+A2,17,Jobs & Work,26,equipment,noun,/ɪˈkwɪpmənt/,tools needed for work,We need new equipment.
+A2,17,Jobs & Work,27,office,noun,/ˈɔfɪs/,place for desk work,I work in an office.
+A2,17,Jobs & Work,28,conference,noun,/ˈkɑnfərəns/,a meeting for many people,We have a conference.
+A2,17,Jobs & Work,29,interview,noun,/ˈɪntɚvju/,meeting to get a job,I have an interview tomorrow.
+A2,17,Jobs & Work,30,resume,noun,/ˈrɛzəˌmeɪ/,paper about your work history,Send your resume.
+A2,18,Places & Buildings,1,position,noun,/pəˈzɪʃən/,a place or location,What is your position?
+A2,18,Places & Buildings,2,corner,noun,/ˈkɔrnɚ/,where two walls meet,The shop is on the corner.
+A2,18,Places & Buildings,3,side,noun,/ˈsaɪd/,the left or right part,Stay on this side.
+A2,18,Places & Buildings,4,middle,noun,/ˈmɪdəl/,the center,Stand in the middle.
+A2,18,Places & Buildings,5,top,noun,/ˈtɑp/,the highest part,Go to the top.
+A2,18,Places & Buildings,6,bottom,noun,/ˈbɑtəm/,the lowest part,Look at the bottom.
+A2,18,Places & Buildings,7,church,noun,/ˈtʃɜrtʃ/,building for religion,The church is old.
+A2,18,Places & Buildings,8,castle,noun,/ˈkæsəl/,a large old building,We visited a castle.
+A2,18,Places & Buildings,9,palace,noun,/ˈpæləs/,home of a king,The palace is beautiful.
+A2,18,Places & Buildings,10,tower,noun,/ˈtaʊɚ/,a tall building,The tower is tall.
+A2,18,Places & Buildings,11,bridge,noun,/ˈbrɪdʒ/,built over water to cross,Walk over the bridge.
+A2,18,Places & Buildings,12,hall,noun,/ˈhɔl/,a large room,The hall was crowded.
+A2,18,Places & Buildings,13,bar,noun,/ˈbɑr/,place to get drinks,We met at the bar.
+A2,18,Places & Buildings,14,pub,noun,/ˈpʌb/,place to drink beer,The pub is busy.
+A2,18,Places & Buildings,15,cafeteria,noun,/ˌkæfəˈtɪriə/,place to eat at work/school,Eat in the cafeteria.
+A2,18,Places & Buildings,16,site,noun,/ˈsaɪt/,a place for building,This is the construction site.
+A2,18,Places & Buildings,17,playground,noun,/ˈpleɪˌgraʊnd/,place for children to play,Kids play on the playground.
+A2,18,Places & Buildings,18,parking,noun,/ˈpɑrkɪŋ/,space for cars,There is free parking.
+A2,18,Places & Buildings,19,elevator,noun,/ˈɛləˌveɪtɚ/,box that goes up/down,Take the elevator.
+A2,18,Places & Buildings,20,entrance,noun,/ˈɛntrəns/,way into a building,Use the main entrance.
+A2,18,Places & Buildings,21,exit,noun,/ˈɛgzɪt/,way out of a building,The exit is there.
+A2,18,Places & Buildings,22,floor,noun,/ˈflɔr/,level in a building,My office is on the third floor.
+A2,18,Places & Buildings,23,area,noun,/ˈɛriə/,a part of a place,This area is quiet.
+A2,18,Places & Buildings,24,center,noun,/ˈsɛntɚ/,the middle of something,The center of town.
+A2,18,Places & Buildings,25,district,noun,/ˈdɪstrɪkt/,part of a city,The business district.
+A2,18,Places & Buildings,26,neighborhood,noun,/ˈneɪbɚˌhʊd/,area where you live,A nice neighborhood.
+A2,18,Places & Buildings,27,community,noun,/kəˈmjunəti/,people living together,A strong community.
+A2,18,Places & Buildings,28,abroad,adv,/əˈbrɔd/,in another country,She lives abroad.
+A2,18,Places & Buildings,29,local,adj,/ˈloʊkəl/,from nearby,The local shop.
+A2,18,Places & Buildings,30,urban,adj,/ˈɜrbən/,in a city,Urban life is busy.
+A2,19,Shopping & Money,1,pay,verb,/ˈpeɪ/,to give money for something,I will pay now.
+A2,19,Shopping & Money,2,cash,noun,/ˈkæʃ/,money in notes/coins,I have no cash.
+A2,19,Shopping & Money,3,save,verb,/ˈseɪv/,to keep money,Save money for later.
+A2,19,Shopping & Money,4,earn,verb,/ˈɜrn/,to get money from work,She earns a good salary.
+A2,19,Shopping & Money,5,spend,verb,/ˈspɛnd/,to use money,I spend too much.
+A2,19,Shopping & Money,6,borrow,verb,/ˈbɑroʊ/,to take and return later,Can I borrow this?
+A2,19,Shopping & Money,7,lend,verb,/ˈlɛnd/,to give and get back later,I can lend you money.
+A2,19,Shopping & Money,8,cost,noun,/ˈkɔst/,price of something,What is the cost?
+A2,19,Shopping & Money,9,price,noun,/ˈpraɪs/,money needed to buy,The price is high.
+A2,19,Shopping & Money,10,sale,noun,/ˈseɪl/,selling at lower price,There is a sale today.
+A2,19,Shopping & Money,11,discount,noun,/ˈdɪskaʊnt/,money off the price,I got a discount.
+A2,19,Shopping & Money,12,offer,noun,/ˈɔfɚ/,a special deal,This is a good offer.
+A2,19,Shopping & Money,13,gift,noun,/ˈgɪft/,something given free,A birthday gift.
+A2,19,Shopping & Money,14,quality,noun,/ˈkwɑləti/,how good something is,Good quality products.
+A2,19,Shopping & Money,15,quantity,noun,/ˈkwɑntəti/,how much there is,A large quantity.
+A2,19,Shopping & Money,16,amount,noun,/əˈmaʊnt/,how much of something,A small amount.
+A2,19,Shopping & Money,17,bank,noun,/ˈbæŋk/,place to keep money,Go to the bank.
+A2,19,Shopping & Money,18,account,noun,/əˈkaʊnt/,money kept at a bank,Open an account.
+A2,19,Shopping & Money,19,credit,noun,/ˈkrɛdɪt/,"buying now, paying later",Pay by credit card.
+A2,19,Shopping & Money,20,receipt,noun,/rɪˈsit/,paper showing you paid,Keep your receipt.
+A2,19,Shopping & Money,21,customer,noun,/ˈkʌstəmɚ/,person who buys,The customer is happy.
+A2,19,Shopping & Money,22,item,noun,/ˈaɪtəm/,one thing,Each item costs $5.
+A2,19,Shopping & Money,23,product,noun,/ˈprɑdəkt/,thing made to sell,A new product.
+A2,19,Shopping & Money,24,brand,noun,/ˈbrænd/,name of a product,A famous brand.
+A2,19,Shopping & Money,25,bargain,noun,/ˈbɑrgən/,something cheap,What a bargain!
+A2,19,Shopping & Money,26,expensive,adj,/ɪkˈspɛnsɪv/,costing a lot,Too expensive.
+A2,19,Shopping & Money,27,cheap,adj,/ˈtʃip/,not costing much,Very cheap.
+A2,19,Shopping & Money,28,free,adj,/ˈfri/,costing nothing,It is free.
+A2,19,Shopping & Money,29,afford,verb,/əˈfɔrd/,to have enough money,I cannot afford it.
+A2,19,Shopping & Money,30,exchange,verb,/ɪksˈtʃeɪndʒ/,to give and get another,Can I exchange this?
+A2,20,Travel & Transport,1,fly,verb,/ˈflaɪ/,to travel by plane,I fly to Paris.
+A2,20,Travel & Transport,2,drive,verb,/ˈdraɪv/,to control a car,She drives to work.
+A2,20,Travel & Transport,3,ride,verb,/ˈraɪd/,to sit on and move,I ride a bike.
+A2,20,Travel & Transport,4,cross,verb,/ˈkrɔs/,to go to the other side,Cross the street.
+A2,20,Travel & Transport,5,direction,noun,/dəˈrɛkʃən/,the way to go,What direction?
+A2,20,Travel & Transport,6,route,noun,/ˈrut/,the path to follow,Take this route.
+A2,20,Travel & Transport,7,distance,noun,/ˈdɪstəns/,how far away,A short distance.
+A2,20,Travel & Transport,8,ship,noun,/ˈʃɪp/,a large boat,The ship sailed.
+A2,20,Travel & Transport,9,truck,noun,/ˈtrʌk/,a large vehicle for goods,A big truck.
+A2,20,Travel & Transport,10,van,noun,/ˈvæn/,a small truck,Load the van.
+A2,20,Travel & Transport,11,cab,noun,/ˈkæb/,a taxi,Take a cab.
+A2,20,Travel & Transport,12,metro,noun,/ˈmɛtroʊ/,underground train,Take the metro.
+A2,20,Travel & Transport,13,railway,noun,/ˈreɪlˌweɪ/,tracks for trains,The railway station.
+A2,20,Travel & Transport,14,motorcycle,noun,/ˈmoʊtɚˌsaɪkəl/,a two-wheel vehicle,He rides a motorcycle.
+A2,20,Travel & Transport,15,wheel,noun,/ˈwil/,round part that turns,The wheel is flat.
+A2,20,Travel & Transport,16,engine,noun,/ˈɛndʒən/,machine that makes power,The engine is loud.
+A2,20,Travel & Transport,17,vehicle,noun,/ˈviɪkəl/,thing for traveling,A motor vehicle.
+A2,20,Travel & Transport,18,passenger,noun,/ˈpæsəndʒɚ/,person traveling,The passenger waited.
+A2,20,Travel & Transport,19,luggage,noun,/ˈlʌgɪdʒ/,bags for travel,Take your luggage.
+A2,20,Travel & Transport,20,suitcase,noun,/ˈsutˌkeɪs/,a bag with a handle,Pack your suitcase.
+A2,20,Travel & Transport,21,tour,noun,/ˈtʊr/,a trip to see places,A city tour.
+A2,20,Travel & Transport,22,tourism,noun,/ˈtʊrɪzəm/,traveling for fun,Tourism is important.
+A2,20,Travel & Transport,23,adventure,noun,/ædˈvɛntʃɚ/,an exciting trip,An adventure!
+A2,20,Travel & Transport,24,foreign,adj,/ˈfɔrən/,from another country,A foreign language.
+A2,20,Travel & Transport,25,transport,noun,/ˈtrænspɔrt/,ways to travel,Public transport.
+A2,20,Travel & Transport,26,platform,noun,/ˈplætˌfɔrm/,where you wait for train,Platform 5.
+A2,20,Travel & Transport,27,ticket,noun,/ˈtɪkɪt/,paper to travel,Buy a ticket.
+A2,20,Travel & Transport,28,delay,noun,/dɪˈleɪ/,being late,A long delay.
+A2,20,Travel & Transport,29,arrival,noun,/əˈraɪvəl/,when you come,The arrival time.
+A2,20,Travel & Transport,30,departure,noun,/dɪˈpɑrtʃɚ/,when you leave,The departure gate.
+A2,21,Weather & Seasons,1,sunny,adj,/ˈsʌni/,with sun shining,A sunny day.
+A2,21,Weather & Seasons,2,cloudy,adj,/ˈklaʊdi/,with many clouds,It is cloudy.
+A2,21,Weather & Seasons,3,windy,adj,/ˈwɪndi/,with strong wind,Very windy today.
+A2,21,Weather & Seasons,4,rainy,adj,/ˈreɪni/,with rain,A rainy day.
+A2,21,Weather & Seasons,5,foggy,adj,/ˈfɔgi/,"hard to see, misty",Foggy morning.
+A2,21,Weather & Seasons,6,stormy,adj,/ˈstɔrmi/,with storms,Stormy weather.
+A2,21,Weather & Seasons,7,cloud,noun,/ˈklaʊd/,white thing in sky,Dark clouds.
+A2,21,Weather & Seasons,8,wind,noun,/ˈwɪnd/,air moving,Strong wind.
+A2,21,Weather & Seasons,9,fog,noun,/ˈfɔg/,thick mist,Heavy fog.
+A2,21,Weather & Seasons,10,storm,noun,/ˈstɔrm/,bad weather with wind,A big storm.
+A2,21,Weather & Seasons,11,thunder,noun,/ˈθʌndɚ/,loud noise in storm,I heard thunder.
+A2,21,Weather & Seasons,12,lightning,noun,/ˈlaɪtnɪŋ/,flash of light in storm,Lightning is bright.
+A2,21,Weather & Seasons,13,temperature,noun,/ˈtɛmprətʃɚ/,hot or cold level,High temperature.
+A2,21,Weather & Seasons,14,degree,noun,/dɪˈgri/,unit of temperature,30 degrees.
+A2,21,Weather & Seasons,15,heat,noun,/ˈhit/,being hot,The heat is strong.
+A2,21,Weather & Seasons,16,freeze,verb,/ˈfriz/,to become ice,Water will freeze.
+A2,21,Weather & Seasons,17,melt,verb,/ˈmɛlt/,to become liquid,Ice will melt.
+A2,21,Weather & Seasons,18,shine,verb,/ˈʃaɪn/,to give light,The sun shines.
+A2,21,Weather & Seasons,19,forecast,noun,/ˈfɔrˌkæst/,what weather will be,Check the forecast.
+A2,21,Weather & Seasons,20,climate,noun,/ˈklaɪmət/,usual weather of a place,A warm climate.
+A2,21,Weather & Seasons,21,bright,adj,/ˈbraɪt/,giving light,Bright sunshine.
+A2,21,Weather & Seasons,22,mild,adj,/ˈmaɪld/,not too hot or cold,Mild weather.
+A2,21,Weather & Seasons,23,wet,adj,/ˈwɛt/,covered with water,Wet and cold.
+A2,21,Weather & Seasons,24,dry,adj,/ˈdraɪ/,not wet,Dry weather.
+A2,21,Weather & Seasons,25,cool,adj,/ˈkul/,a little cold,Cool breeze.
+A2,21,Weather & Seasons,26,warm,adj,/ˈwɔrm/,a little hot,Warm sunshine.
+A2,21,Weather & Seasons,27,humid,adj,/ˈhjumɪd/,with water in air,Very humid.
+A2,21,Weather & Seasons,28,icy,adj,/ˈaɪsi/,covered with ice,Icy roads.
+A2,21,Weather & Seasons,29,snowy,adj,/ˈsnoʊi/,with snow,A snowy day.
+A2,21,Weather & Seasons,30,clear,adj,/ˈklɪr/,no clouds,A clear sky.
+A2,22,Entertainment & Hobbies,1,fun,noun,/ˈfʌn/,enjoyment,We had fun.
+A2,22,Entertainment & Hobbies,2,joke,noun,/ˈdʒoʊk/,something funny,A funny joke.
+A2,22,Entertainment & Hobbies,3,fishing,noun,/ˈfɪʃɪŋ/,catching fish,I like fishing.
+A2,22,Entertainment & Hobbies,4,camping,noun,/ˈkæmpɪŋ/,sleeping in a tent,We went camping.
+A2,22,Entertainment & Hobbies,5,hiking,noun,/ˈhaɪkɪŋ/,walking in nature,Hiking is healthy.
+A2,22,Entertainment & Hobbies,6,drawing,noun,/ˈdrɔɪŋ/,making pictures,I like drawing.
+A2,22,Entertainment & Hobbies,7,painting,noun,/ˈpeɪntɪŋ/,using paint to make art,A beautiful painting.
+A2,22,Entertainment & Hobbies,8,photography,noun,/fəˈtɑgrəfi/,taking photos,I love photography.
+A2,22,Entertainment & Hobbies,9,cartoon,noun,/kɑrˈtun/,a funny drawing,Kids watch cartoons.
+A2,22,Entertainment & Hobbies,10,comedy,noun,/ˈkɑmədi/,something funny,A comedy movie.
+A2,22,Entertainment & Hobbies,11,drama,noun,/ˈdrɑmə/,a serious play,A drama series.
+A2,22,Entertainment & Hobbies,12,fiction,noun,/ˈfɪkʃən/,made-up stories,I read fiction.
+A2,22,Entertainment & Hobbies,13,audience,noun,/ˈɔdiəns/,people watching,A large audience.
+A2,22,Entertainment & Hobbies,14,gallery,noun,/ˈgæləri/,place for art,An art gallery.
+A2,22,Entertainment & Hobbies,15,museum,noun,/mjuˈziəm/,place for old things,Visit the museum.
+A2,22,Entertainment & Hobbies,16,concert,noun,/ˈkɑnsɚt/,live music show,A great concert.
+A2,22,Entertainment & Hobbies,17,fan,noun,/ˈfæn/,someone who likes something,A football fan.
+A2,22,Entertainment & Hobbies,18,celebrity,noun,/səˈlɛbrəti/,a famous person,A celebrity.
+A2,22,Entertainment & Hobbies,19,hero,noun,/ˈhɪroʊ/,a brave person,He is my hero.
+A2,22,Entertainment & Hobbies,20,favorite,noun,/ˈfeɪvərɪt/,the one you like most,My favorite movie.
+A2,22,Entertainment & Hobbies,21,collect,verb,/kəˈlɛkt/,to get many of something,I collect stamps.
+A2,22,Entertainment & Hobbies,22,relax,verb,/rɪˈlæks/,to rest and be calm,Relax at home.
+A2,22,Entertainment & Hobbies,23,entertain,verb,/ˌɛntɚˈteɪn/,to make people happy,Shows entertain us.
+A2,22,Entertainment & Hobbies,24,skateboard,noun,/ˈskeɪtˌbɔrd/,board with wheels,Ride a skateboard.
+A2,22,Entertainment & Hobbies,25,puzzle,noun,/ˈpʌzəl/,a game to solve,A jigsaw puzzle.
+A2,22,Entertainment & Hobbies,26,chess,noun,/ˈtʃɛs/,a board game,Play chess.
+A2,22,Entertainment & Hobbies,27,hobby,noun,/ˈhɑbi/,activity for fun,My hobby is reading.
+A2,22,Entertainment & Hobbies,28,leisure,noun,/ˈliʒɚ/,free time,Leisure activities.
+A2,22,Entertainment & Hobbies,29,outdoor,adj,/ˈaʊtˌdɔr/,outside a building,Outdoor activities.
+A2,22,Entertainment & Hobbies,30,indoor,adj,/ˈɪnˌdɔr/,inside a building,Indoor games.
+A2,23,Sports & Fitness,1,fit,adj,/ˈfɪt/,in good health,Stay fit.
+A2,23,Sports & Fitness,2,score,noun,/ˈskɔr/,points in a game,The final score.
+A2,23,Sports & Fitness,3,race,noun,/ˈreɪs/,competition of speed,A running race.
+A2,23,Sports & Fitness,4,match,noun,/ˈmætʃ/,a sports game,A football match.
+A2,23,Sports & Fitness,5,championship,noun,/ˈtʃæmpiənˌʃɪp/,competition for best,The world championship.
+A2,23,Sports & Fitness,6,soccer,noun,/ˈsɑkɚ/,football (American term),Play soccer.
+A2,23,Sports & Fitness,7,basketball,noun,/ˈbæskətˌbɔl/,ball game with baskets,Play basketball.
+A2,23,Sports & Fitness,8,volleyball,noun,/ˈvɑliˌbɔl/,hit ball over net,Beach volleyball.
+A2,23,Sports & Fitness,9,badminton,noun,/ˈbædˌmɪntən/,game with rackets,Play badminton.
+A2,23,Sports & Fitness,10,golf,noun,/ˈgɑlf/,game with clubs and ball,Play golf.
+A2,23,Sports & Fitness,11,hockey,noun,/ˈhɑki/,game on ice,Ice hockey.
+A2,23,Sports & Fitness,12,sailing,noun,/ˈseɪlɪŋ/,traveling on boat,Go sailing.
+A2,23,Sports & Fitness,13,surfing,noun,/ˈsɜrfɪŋ/,riding waves,Try surfing.
+A2,23,Sports & Fitness,14,skiing,noun,/ˈskiɪŋ/,sliding on snow,Go skiing.
+A2,23,Sports & Fitness,15,skating,noun,/ˈskeɪtɪŋ/,sliding on ice,Ice skating.
+A2,23,Sports & Fitness,16,athlete,noun,/ˈæθˌlit/,sports person,A great athlete.
+A2,23,Sports & Fitness,17,coach,noun,/ˈkoʊtʃ/,person who trains,The coach helped us.
+A2,23,Sports & Fitness,18,runner,noun,/ˈrʌnɚ/,person who runs,A fast runner.
+A2,23,Sports & Fitness,19,winner,noun,/ˈwɪnɚ/,person who wins,The winner celebrated.
+A2,23,Sports & Fitness,20,loser,noun,/ˈluzɚ/,person who loses,Not a loser.
+A2,23,Sports & Fitness,21,team,noun,/ˈtim/,group playing together,A great team.
+A2,23,Sports & Fitness,22,player,noun,/ˈpleɪɚ/,person in a game,A good player.
+A2,23,Sports & Fitness,23,track,noun,/ˈtræk/,path for running,A running track.
+A2,23,Sports & Fitness,24,racket,noun,/ˈrækɪt/,used to hit balls,A tennis racket.
+A2,23,Sports & Fitness,25,training,noun,/ˈtreɪnɪŋ/,practice for sport,Training is hard.
+A2,23,Sports & Fitness,26,cycling,noun,/ˈsaɪklɪŋ/,riding a bicycle,Cycling is good.
+A2,23,Sports & Fitness,27,exercise,noun,/ˈɛksɚˌsaɪz/,physical activity,Daily exercise.
+A2,23,Sports & Fitness,28,compete,verb,/kəmˈpit/,to try to win,We compete today.
+A2,23,Sports & Fitness,29,beat,verb,/ˈbit/,to win against,We beat them.
+A2,23,Sports & Fitness,30,lose,verb,/ˈluz/,to not win,We might lose.
+A2,24,Music & Arts,1,musical,adj,/ˈmjuzɪkəl/,related to music,Musical talent.
+A2,24,Music & Arts,2,record,noun,/ˈrɛkɚd/,saved music,A new record.
+A2,24,Music & Arts,3,song,noun,/ˈsɔŋ/,music with words,A beautiful song.
+A2,24,Music & Arts,4,band,noun,/ˈbænd/,group of musicians,A rock band.
+A2,24,Music & Arts,5,pop,noun,/ˈpɑp/,popular music,Pop music.
+A2,24,Music & Arts,6,rock,noun,/ˈrɑk/,loud music type,Rock music.
+A2,24,Music & Arts,7,jazz,noun,/ˈdʒæz/,music type,I love jazz.
+A2,24,Music & Arts,8,classical,adj,/ˈklæsɪkəl/,traditional music,Classical music.
+A2,24,Music & Arts,9,musician,noun,/mjuˈzɪʃən/,person who plays music,A talented musician.
+A2,24,Music & Arts,10,singer,noun,/ˈsɪŋɚ/,person who sings,A famous singer.
+A2,24,Music & Arts,11,pianist,noun,/piˈænɪst/,person who plays piano,A great pianist.
+A2,24,Music & Arts,12,instrument,noun,/ˈɪnstrəmənt/,tool for making music,A musical instrument.
+A2,24,Music & Arts,13,violin,noun,/ˌvaɪəˈlɪn/,string instrument,She plays violin.
+A2,24,Music & Arts,14,drum,noun,/ˈdrʌm/,you hit to make sound,Play the drums.
+A2,24,Music & Arts,15,stage,noun,/ˈsteɪdʒ/,where performers stand,On stage.
+A2,24,Music & Arts,16,performance,noun,/pɚˈfɔrməns/,show for people,A great performance.
+A2,24,Music & Arts,17,perform,verb,/pɚˈfɔrm/,to do for audience,They perform tonight.
+A2,24,Music & Arts,18,artist,noun,/ˈɑrtɪst/,person who makes art,A talented artist.
+A2,24,Music & Arts,19,art,noun,/ˈɑrt/,creative work,Modern art.
+A2,24,Music & Arts,20,sculpture,noun,/ˈskʌlptʃɚ/,art made of stone,A marble sculpture.
+A2,24,Music & Arts,21,exhibition,noun,/ˌɛksɪˈbɪʃən/,show of art,An art exhibition.
+A2,24,Music & Arts,22,creative,adj,/kriˈeɪtɪv/,having new ideas,A creative person.
+A2,24,Music & Arts,23,talent,noun,/ˈtælənt/,natural ability,Great talent.
+A2,24,Music & Arts,24,rhythm,noun,/ˈrɪðəm/,regular beat,Feel the rhythm.
+A2,24,Music & Arts,25,melody,noun,/ˈmɛlədi/,tune of music,A beautiful melody.
+A2,24,Music & Arts,26,lyrics,noun,/ˈlɪrɪks/,words of a song,Nice lyrics.
+A2,24,Music & Arts,27,compose,verb,/kəmˈpoʊz/,to write music,He composes music.
+A2,24,Music & Arts,28,design,noun,/dɪˈzaɪn/,a plan or drawing,Good design.
+A2,24,Music & Arts,29,dance,noun,/ˈdæns/,moving to music,A beautiful dance.
+A2,24,Music & Arts,30,style,noun,/ˈstaɪl/,a way of doing art,Unique style.
+A2,25,Technology & Internet,1,data,noun,/ˈdeɪtə/,information,Save the data.
+A2,25,Technology & Internet,2,system,noun,/ˈsɪstəm/,a set of parts working,A computer system.
+A2,25,Technology & Internet,3,code,noun,/ˈkoʊd/,computer instructions,Write code.
+A2,25,Technology & Internet,4,program,noun,/ˈproʊgræm/,computer software,A new program.
+A2,25,Technology & Internet,5,network,noun,/ˈnɛtˌwɜrk/,connected computers,A fast network.
+A2,25,Technology & Internet,6,device,noun,/dɪˈvaɪs/,electronic tool,A new device.
+A2,25,Technology & Internet,7,laptop,noun,/ˈlæpˌtɑp/,portable computer,Use my laptop.
+A2,25,Technology & Internet,8,tablet,noun,/ˈtæblət/,flat computer,A tablet computer.
+A2,25,Technology & Internet,9,smartphone,noun,/ˈsmɑrtˌfoʊn/,phone with internet,My smartphone.
+A2,25,Technology & Internet,10,screen,noun,/ˈskrin/,display part,A big screen.
+A2,25,Technology & Internet,11,keyboard,noun,/ˈkiˌbɔrd/,keys for typing,Type on keyboard.
+A2,25,Technology & Internet,12,mouse,noun,/ˈmaʊs/,clicking device,Click the mouse.
+A2,25,Technology & Internet,13,website,noun,/ˈwɛbˌsaɪt/,page on internet,Visit the website.
+A2,25,Technology & Internet,14,link,noun,/ˈlɪŋk/,connection to another page,Click the link.
+A2,25,Technology & Internet,15,app,noun,/ˈæp/,phone program,Download the app.
+A2,25,Technology & Internet,16,download,verb,/ˈdaʊnˌloʊd/,get from internet,Download the file.
+A2,25,Technology & Internet,17,upload,verb,/ˈʌpˌloʊd/,send to internet,Upload photos.
+A2,25,Technology & Internet,18,search,verb,/ˈsɜrtʃ/,look for on internet,Search online.
+A2,25,Technology & Internet,19,click,verb,/ˈklɪk/,press with mouse,Click here.
+A2,25,Technology & Internet,20,user,noun,/ˈjuzɚ/,person using device,A new user.
+A2,25,Technology & Internet,21,password,noun,/ˈpæsˌwɜrd/,secret word,Enter password.
+A2,25,Technology & Internet,22,connect,verb,/kəˈnɛkt/,join together,Connect to wifi.
+A2,25,Technology & Internet,23,online,adj,/ˈɔnˌlaɪn/,on the internet,Buy online.
+A2,25,Technology & Internet,24,offline,adj,/ˈɔfˌlaɪn/,not on internet,Work offline.
+A2,25,Technology & Internet,25,digital,adj,/ˈdɪdʒɪtəl/,using computers,Digital camera.
+A2,25,Technology & Internet,26,electronic,adj,/ɪˌlɛkˈtrɑnɪk/,using electricity,Electronic device.
+A2,25,Technology & Internet,27,technology,noun,/tɛkˈnɑlədʒi/,using science for tools,New technology.
+A2,25,Technology & Internet,28,software,noun,/ˈsɔftˌwɛr/,computer programs,Install software.
+A2,25,Technology & Internet,29,hardware,noun,/ˈhɑrdˌwɛr/,computer parts,Buy hardware.
+A2,25,Technology & Internet,30,update,noun,/ˈʌpˌdeɪt/,new version,An app update.
+A2,26,Society & Culture,1,law,noun,/ˈlɔ/,rules of country,Follow the law.
+A2,26,Society & Culture,2,power,noun,/ˈpaʊɚ/,control or strength,Political power.
+A2,26,Society & Culture,3,control,noun,/kənˈtroʊl/,being in charge,Under control.
+A2,26,Society & Culture,4,role,noun,/ˈroʊl/,part you play,An important role.
+A2,26,Society & Culture,5,government,noun,/ˈgʌvɚnmənt/,people who run country,The government.
+A2,26,Society & Culture,6,president,noun,/ˈprɛzɪdənt/,leader of country,The president.
+A2,26,Society & Culture,7,king,noun,/ˈkɪŋ/,male ruler,The king.
+A2,26,Society & Culture,8,queen,noun,/ˈkwin/,female ruler,The queen.
+A2,26,Society & Culture,9,leader,noun,/ˈlidɚ/,person in charge,A good leader.
+A2,26,Society & Culture,10,society,noun,/səˈsaɪəti/,people living together,Modern society.
+A2,26,Society & Culture,11,population,noun,/ˌpɑpjəˈleɪʃən/,all people in area,Large population.
+A2,26,Society & Culture,12,organization,noun,/ˌɔrgənəˈzeɪʃən/,group with purpose,An organization.
+A2,26,Society & Culture,13,industry,noun,/ˈɪndəstri/,making things to sell,The car industry.
+A2,26,Society & Culture,14,army,noun,/ˈɑrmi/,soldiers,The army.
+A2,26,Society & Culture,15,peace,noun,/ˈpis/,no war,World peace.
+A2,26,Society & Culture,16,war,noun,/ˈwɔr/,fighting between countries,End the war.
+A2,26,Society & Culture,17,tradition,noun,/trəˈdɪʃən/,old customs,A family tradition.
+A2,26,Society & Culture,18,culture,noun,/ˈkʌltʃɚ/,way of life,Japanese culture.
+A2,26,Society & Culture,19,religion,noun,/rɪˈlɪdʒən/,belief in god,Many religions.
+A2,26,Society & Culture,20,freedom,noun,/ˈfridəm/,being free,Freedom is important.
+A2,26,Society & Culture,21,right,noun,/ˈraɪt/,what you can do,Human rights.
+A2,26,Society & Culture,22,crime,noun,/ˈkraɪm/,breaking the law,A serious crime.
+A2,26,Society & Culture,23,vote,verb,/ˈvoʊt/,choose by voting,Vote for president.
+A2,26,Society & Culture,24,citizen,noun,/ˈsɪtɪzən/,member of country,A citizen.
+A2,26,Society & Culture,25,community,noun,/kəˈmjunəti/,people in one area,Our community.
+A2,26,Society & Culture,26,charity,noun,/ˈtʃærəti/,helping others,Give to charity.
+A2,26,Society & Culture,27,media,noun,/ˈmidiə/,"TV, news, internet",Social media.
+A2,26,Society & Culture,28,news,noun,/ˈnuz/,new information,Watch the news.
+A2,26,Society & Culture,29,event,noun,/ɪˈvɛnt/,something that happens,A big event.
+A2,26,Society & Culture,30,ceremony,noun,/ˈsɛrəˌmoʊni/,formal event,A wedding ceremony.

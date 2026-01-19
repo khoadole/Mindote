@@ -1,0 +1,1516 @@
+level,topic_order,topic,temp_order,temp,pos,phonetic,definition,example
+C2,1,Time & Duration,1,elapse,verb,/ɪˈlæps/,pass by,Three years elapsed.
+C2,1,Time & Duration,2,recur,verb,/rɪˈkɜr/,happen again,The problem recurred.
+C2,1,Time & Duration,3,ephemeral,adjective,/ɪˈfɛmɚəl/,short-lived,Ephemeral joys of childhood.
+C2,1,Time & Duration,4,transient,adjective,/ˈtrænʒənt/,temporary,A transient moment of joy.
+C2,1,Time & Duration,5,perpetual,adjective,/pɚˈpɛtʃuəl/,continuing forever,Perpetual motion is impossible.
+C2,1,Time & Duration,6,perennial,adjective,/pɚˈɛniəl/,lasting indefinitely,A perennial favorite.
+C2,1,Time & Duration,7,interlude,noun,/ˈɪntɚˌlud/,intervening period,A brief interlude of peace.
+C2,1,Time & Duration,8,hiatus,noun,/haɪˈeɪtəs/,pause,A hiatus in production.
+C2,1,Time & Duration,9,respite,noun,/ˈrɛspɪt/,temporary relief,A brief respite from work.
+C2,1,Time & Duration,10,lull,noun,/ˈlʌl/,calm period,A lull in the storm.
+C2,1,Time & Duration,11,millennium,noun,/məˈlɛniəm/,1000 years,The new millennium began.
+C2,1,Time & Duration,12,epoch,noun,/ˈɛpɑk/,historical period,A new epoch in history.
+C2,1,Time & Duration,13,aeon,noun,/ˈiən/,long period,It seemed to take aeons.
+C2,1,Time & Duration,14,instantaneous,adjective,/ˌɪnstənˈteɪniəs/,immediate,Instantaneous relief.
+C2,1,Time & Duration,15,belated,adjective,/bɪˈleɪtɪd/,late,Belated congratulations.
+C2,1,Time & Duration,16,protracted,adjective,/proʊˈtræktɪd/,prolonged,A protracted dispute.
+C2,1,Time & Duration,17,bygone,adjective,/ˈbaɪˌgɔn/,past,Bygone eras.
+C2,1,Time & Duration,18,antiquated,adjective,/ˈæntɪˌkweɪtɪd/,outdated,Antiquated laws.
+C2,1,Time & Duration,19,abide,verb,/əˈbaɪd/,remain,Abide by the rules.
+C2,1,Time & Duration,20,tarry,verb,/ˈtæri/,stay longer,Do not tarry.
+C2,1,Time & Duration,21,forestall,verb,/fɔrˈstɔl/,prevent,Forestall disaster.
+C2,1,Time & Duration,22,expedite,verb,/ˈɛkspɪˌdaɪt/,speed up,Expedite the process.
+C2,1,Time & Duration,23,perpetuate,verb,/pɚˈpɛtʃuˌeɪt/,make permanent,Perpetuate a myth.
+C2,1,Time & Duration,24,protract,verb,/proʊˈtrækt/,prolong,Protract negotiations.
+C2,1,Time & Duration,25,bide,verb,/ˈbaɪd/,wait,Bide your time.
+C2,2,Quantity & Size,1,myriad,adjective,/ˈmɪriəd/,countless,Myriad possibilities.
+C2,2,Quantity & Size,2,copious,adjective,/ˈkoʊpiəs/,abundant,Copious notes.
+C2,2,Quantity & Size,3,profuse,adjective,/prəˈfjus/,excessive,Profuse apologies.
+C2,2,Quantity & Size,4,scant,adjective,/ˈskænt/,barely sufficient,Scant evidence.
+C2,2,Quantity & Size,5,meager,adjective,/ˈmigɚ/,inadequate,Meager rations.
+C2,2,Quantity & Size,6,paltry,adjective,/ˈpɔltri/,trivially small,A paltry sum.
+C2,2,Quantity & Size,7,minuscule,adjective,/ˈmɪnɪˌskjul/,extremely small,Minuscule details.
+C2,2,Quantity & Size,8,colossal,adjective,/kəˈlɑsəl/,enormous,A colossal building.
+C2,2,Quantity & Size,9,gargantuan,adjective,/gɑrˈgæntʃuən/,gigantic,A gargantuan task.
+C2,2,Quantity & Size,10,monumental,adjective,/ˌmɑnjəˈmɛntəl/,massive,Monumental effort.
+C2,2,Quantity & Size,11,modicum,noun,/ˈmɑdɪkəm/,small amount,A modicum of respect.
+C2,2,Quantity & Size,12,plethora,noun,/ˈplɛθɚə/,excess,A plethora of options.
+C2,2,Quantity & Size,13,dearth,noun,/ˈdɜrθ/,scarcity,A dearth of talent.
+C2,2,Quantity & Size,14,surfeit,noun,/ˈsɜrfɪt/,excess,A surfeit of food.
+C2,2,Quantity & Size,15,smattering,noun,/ˈsmætɚɪŋ/,small amount,A smattering of applause.
+C2,2,Quantity & Size,16,iota,noun,/aɪˈoʊtə/,tiny amount,Not one iota of truth.
+C2,2,Quantity & Size,17,pittance,noun,/ˈpɪtəns/,very small amount,Paid a pittance.
+C2,2,Quantity & Size,18,proliferate,verb,/prəˈlɪfɚˌeɪt/,increase rapidly,Weeds proliferate.
+C2,2,Quantity & Size,19,amass,verb,/əˈmæs/,gather,Amass wealth.
+C2,2,Quantity & Size,20,dwindle,verb,/ˈdwɪndəl/,decrease,Resources dwindled.
+C2,2,Quantity & Size,21,diminish,verb,/dɪˈmɪnɪʃ/,reduce,Enthusiasm diminished.
+C2,2,Quantity & Size,22,augment,verb,/ɔgˈmɛnt/,increase,Augment income.
+C2,2,Quantity & Size,23,curtail,verb,/kɚˈteɪl/,reduce,Curtail expenses.
+C2,2,Quantity & Size,24,brim,verb,/ˈbrɪm/,be full,Eyes brimmed with tears.
+C2,2,Quantity & Size,25,teem,verb,/ˈtim/,be abundant,Streets teeming with life.
+C2,3,Shapes & Structures,1,oblique,adjective,/oʊˈblik/,slanting,Oblique angle.
+C2,3,Shapes & Structures,2,askew,adjective,/əˈskju/,crooked,The picture hung askew.
+C2,3,Shapes & Structures,3,contorted,adjective,/kənˈtɔrtɪd/,twisted,Contorted expressions.
+C2,3,Shapes & Structures,4,convoluted,adjective,/ˈkɑnvəˌlutɪd/,complex,Convoluted reasoning.
+C2,3,Shapes & Structures,5,serpentine,adjective,/ˈsɜrpənˌtin/,winding,A serpentine road.
+C2,3,Shapes & Structures,6,sinuous,adjective,/ˈsɪnjuəs/,curved,Sinuous movements.
+C2,3,Shapes & Structures,7,angular,adjective,/ˈæŋgjəlɚ/,having angles,Angular features.
+C2,3,Shapes & Structures,8,symmetrical,adjective,/sɪˈmɛtrɪkəl/,balanced,Symmetrical design.
+C2,3,Shapes & Structures,9,amorphous,adjective,/əˈmɔrfəs/,shapeless,Amorphous mass.
+C2,3,Shapes & Structures,10,truncated,adjective,/ˈtrʌŋˌkeɪtɪd/,shortened,Truncated version.
+C2,3,Shapes & Structures,11,tapered,adjective,/ˈteɪpɚd/,narrowing,Tapered edges.
+C2,3,Shapes & Structures,12,concave,adjective,/kɑnˈkeɪv/,curved inward,Concave lens.
+C2,3,Shapes & Structures,13,convex,adjective,/kɑnˈvɛks/,curved outward,Convex surface.
+C2,3,Shapes & Structures,14,rift,noun,/ˈrɪft/,split,A rift in relations.
+C2,3,Shapes & Structures,15,fissure,noun,/ˈfɪʃɚ/,crack,Deep fissures.
+C2,3,Shapes & Structures,16,crevice,noun,/ˈkrɛvɪs/,narrow opening,Hidden in the crevice.
+C2,3,Shapes & Structures,17,protrusion,noun,/proʊˈtruʒən/,something sticking out,A bony protrusion.
+C2,3,Shapes & Structures,18,contort,verb,/kənˈtɔrt/,twist,Contort the body.
+C2,3,Shapes & Structures,19,distend,verb,/dɪˈstɛnd/,swell,Stomach distended.
+C2,3,Shapes & Structures,20,taper,verb,/ˈteɪpɚ/,narrow gradually,The road tapers off.
+C2,3,Shapes & Structures,21,undulate,verb,/ˈʌndʒəˌleɪt/,move in waves,Hills undulating.
+C2,3,Shapes & Structures,22,bisect,verb,/baɪˈsɛkt/,divide in two,Bisect the angle.
+C2,3,Shapes & Structures,23,splinter,verb,/ˈsplɪntɚ/,break into pieces,Wood splintered.
+C2,3,Shapes & Structures,24,mesh,verb,/ˈmɛʃ/,fit together,Gears mesh smoothly.
+C2,3,Shapes & Structures,25,interlock,verb,/ˌɪntɚˈlɑk/,connect together,Interlocking pieces.
+C2,4,Location & Position,1,vicinity,noun,/vəˈsɪnəti/,nearby area,In the vicinity.
+C2,4,Location & Position,2,proximity,noun,/prɑkˈsɪməti/,nearness,Close proximity.
+C2,4,Location & Position,3,periphery,noun,/pɚˈɪfɚi/,outer edge,On the periphery.
+C2,4,Location & Position,4,threshold,noun,/ˈθrɛʃˌhoʊld/,entrance,Cross the threshold.
+C2,4,Location & Position,5,juncture,noun,/ˈdʒʌŋktʃɚ/,point in time,At this juncture.
+C2,4,Location & Position,6,brink,noun,/ˈbrɪŋk/,edge,On the brink of disaster.
+C2,4,Location & Position,7,frontier,noun,/frənˈtɪr/,boundary,The final frontier.
+C2,4,Location & Position,8,vantage,noun,/ˈvæntɪdʒ/,advantageous position,Vantage point.
+C2,4,Location & Position,9,stratosphere,noun,/ˈstrætəˌsfɪr/,upper atmosphere,Prices hit the stratosphere.
+C2,4,Location & Position,10,proximate,adjective,/ˈprɑksəmət/,nearest,Proximate cause.
+C2,4,Location & Position,11,adjacent,adjective,/əˈdʒeɪsənt/,next to,Adjacent rooms.
+C2,4,Location & Position,12,contiguous,adjective,/kənˈtɪgjuəs/,sharing boundary,Contiguous states.
+C2,4,Location & Position,13,ensconced,adjective,/ɪnˈskɑnst/,settled securely,Ensconced in comfort.
+C2,4,Location & Position,14,strewn,adjective,/ˈstrun/,scattered,Debris strewn everywhere.
+C2,4,Location & Position,15,pinpoint,verb,/ˈpɪnˌpɔɪnt/,locate exactly,Pinpoint the source.
+C2,4,Location & Position,16,straddle,verb,/ˈstrædəl/,sit astride,Straddle the fence.
+C2,4,Location & Position,17,entrench,verb,/ɪnˈtrɛntʃ/,establish firmly,Deeply entrenched beliefs.
+C2,4,Location & Position,18,permeate,verb,/ˈpɜrmiˌeɪt/,spread through,Smoke permeated the room.
+C2,4,Location & Position,19,pervade,verb,/pɚˈveɪd/,spread throughout,Fear pervaded the city.
+C2,4,Location & Position,20,encroach,verb,/ɪnˈkroʊtʃ/,intrude,Encroach on territory.
+C2,4,Location & Position,21,abut,verb,/əˈbʌt/,border on,Properties abutting the river.
+C2,4,Location & Position,22,adjoin,verb,/əˈdʒɔɪn/,be next to,Adjoining rooms.
+C2,4,Location & Position,23,juxtapose,verb,/ˌdʒʌkstəˈpoʊz/,place side by side,Juxtapose ideas.
+C2,4,Location & Position,24,superimpose,verb,/ˌsupɚɪmˈpoʊz/,place on top,Superimpose images.
+C2,4,Location & Position,25,overlay,verb,/ˌoʊvɚˈleɪ/,cover,Overlay with gold.
+C2,5,Buildings & Spaces,1,edifice,noun,/ˈɛdəfɪs/,large building,An imposing edifice.
+C2,5,Buildings & Spaces,2,facade,noun,/fəˈsɑd/,front of building,An elegant facade.
+C2,5,Buildings & Spaces,3,alcove,noun,/ˈælˌkoʊv/,recessed space,A small alcove.
+C2,5,Buildings & Spaces,4,vestibule,noun,/ˈvɛstɪˌbjul/,entrance hall,Wait in the vestibule.
+C2,5,Buildings & Spaces,5,atrium,noun,/ˈeɪtriəm/,central court,The hotel atrium.
+C2,5,Buildings & Spaces,6,rotunda,noun,/roʊˈtʌndə/,circular room,The Capitol rotunda.
+C2,5,Buildings & Spaces,7,parapet,noun,/ˈpærəpɪt/,low wall,Walk along the parapet.
+C2,5,Buildings & Spaces,8,turret,noun,/ˈtɜrɪt/,small tower,Castle turrets.
+C2,5,Buildings & Spaces,9,rampart,noun,/ˈræmpɑrt/,defensive wall,Ancient ramparts.
+C2,5,Buildings & Spaces,10,acreage,noun,/ˈeɪkɚɪdʒ/,land area,Large acreage.
+C2,5,Buildings & Spaces,11,palatial,adjective,/pəˈleɪʃəl/,like a palace,Palatial mansion.
+C2,5,Buildings & Spaces,12,ornate,adjective,/ɔrˈneɪt/,elaborately decorated,Ornate ceilings.
+C2,5,Buildings & Spaces,13,austere,adjective,/ɔˈstɪr/,severely simple,Austere decor.
+C2,5,Buildings & Spaces,14,dilapidated,adjective,/dɪˈlæpɪˌdeɪtɪd/,in disrepair,A dilapidated house.
+C2,5,Buildings & Spaces,15,ramshackle,adjective,/ˈræmˌʃækəl/,poorly built,A ramshackle shed.
+C2,5,Buildings & Spaces,16,cavernous,adjective,/ˈkævɚnəs/,large and empty,Cavernous warehouse.
+C2,5,Buildings & Spaces,17,capacious,adjective,/kəˈpeɪʃəs/,spacious,A capacious room.
+C2,5,Buildings & Spaces,18,renovate,verb,/ˈrɛnəˌveɪt/,restore,Renovate the building.
+C2,5,Buildings & Spaces,19,refurbish,verb,/riˈfɜrbɪʃ/,redecorate,Refurbish the office.
+C2,5,Buildings & Spaces,20,demolish,verb,/dɪˈmɑlɪʃ/,destroy,Demolish the old factory.
+C2,5,Buildings & Spaces,21,raze,verb,/ˈreɪz/,completely destroy,Raze to the ground.
+C2,5,Buildings & Spaces,22,erect,verb,/ɪˈrɛkt/,build,Erect a monument.
+C2,5,Buildings & Spaces,23,buttress,verb,/ˈbʌtrɪs/,support,Buttress the wall.
+C2,5,Buildings & Spaces,24,fortify,verb,/ˈfɔrtɪˌfaɪ/,strengthen,Fortify defenses.
+C2,5,Buildings & Spaces,25,clad,verb,/ˈklæd/,cover,Walls clad in marble.
+C2,6,Social Relationships,1,kinship,noun,/ˈkɪnʃɪp/,family connection,A sense of kinship.
+C2,6,Social Relationships,2,affinity,noun,/əˈfɪnəti/,natural liking,An affinity for music.
+C2,6,Social Relationships,3,camaraderie,noun,/ˌkɑmɚˈɑdɚi/,friendship,Team camaraderie.
+C2,6,Social Relationships,4,rapport,noun,/ræˈpɔr/,harmonious relation,Build rapport.
+C2,6,Social Relationships,5,benefactor,noun,/ˈbɛnəˌfæktɚ/,helper,A generous benefactor.
+C2,6,Social Relationships,6,confidant,noun,/ˈkɑnfɪˌdænt/,trusted friend,Her closest confidant.
+C2,6,Social Relationships,7,compatriot,noun,/kəmˈpeɪtriət/,fellow citizen,A fellow compatriot.
+C2,6,Social Relationships,8,cohort,noun,/ˈkoʊˌhɔrt/,group,A cohort of students.
+C2,6,Social Relationships,9,clique,noun,/ˈklik/,exclusive group,A social clique.
+C2,6,Social Relationships,10,amiable,adjective,/ˈeɪmiəbəl/,friendly,An amiable disposition.
+C2,6,Social Relationships,11,affable,adjective,/ˈæfəbəl/,approachable,An affable manner.
+C2,6,Social Relationships,12,gregarious,adjective,/grɪˈgɛriəs/,sociable,A gregarious personality.
+C2,6,Social Relationships,13,convivial,adjective,/kənˈvɪviəl/,festive,Convivial atmosphere.
+C2,6,Social Relationships,14,reclusive,adjective,/rɪˈklusɪv/,withdrawn,A reclusive artist.
+C2,6,Social Relationships,15,estranged,adjective,/ɪˈstreɪndʒd/,alienated,Estranged from family.
+C2,6,Social Relationships,16,fraternize,verb,/ˈfrætɚˌnaɪz/,associate,Fraternize with colleagues.
+C2,6,Social Relationships,17,consort,verb,/kənˈsɔrt/,associate,Consort with criminals.
+C2,6,Social Relationships,18,ostracize,verb,/ˈɑstrəˌsaɪz/,exclude,Ostracized by peers.
+C2,6,Social Relationships,19,shun,verb,/ˈʃʌn/,avoid,Shunned by society.
+C2,6,Social Relationships,20,endear,verb,/ɪnˈdɪr/,make beloved,Endear oneself.
+C2,6,Social Relationships,21,ingratiate,verb,/ɪnˈgreɪʃiˌeɪt/,gain favor,Ingratiate with the boss.
+C2,6,Social Relationships,22,liaise,verb,/liˈeɪz/,communicate,Liaise between teams.
+C2,6,Social Relationships,23,patronize,verb,/ˈpeɪtrəˌnaɪz/,treat condescendingly,Don t patronize me.
+C2,6,Social Relationships,24,reciprocate,verb,/rɪˈsɪprəˌkeɪt/,return favor,Reciprocate kindness.
+C2,6,Social Relationships,25,bequeath,verb,/bɪˈkwiθ/,leave in will,Bequeath fortune.
+C2,7,Conversation & Discourse,1,rhetoric,noun,/ˈrɛtɚɪk/,persuasive speech,Political rhetoric.
+C2,7,Conversation & Discourse,2,diatribe,noun,/ˈdaɪəˌtraɪb/,bitter attack,A lengthy diatribe.
+C2,7,Conversation & Discourse,3,tirade,noun,/ˈtaɪˌreɪd/,long angry speech,An angry tirade.
+C2,7,Conversation & Discourse,4,harangue,noun,/həˈræŋ/,pompous speech,A political harangue.
+C2,7,Conversation & Discourse,5,parlance,noun,/ˈpɑrləns/,manner of speaking,In legal parlance.
+C2,7,Conversation & Discourse,6,vernacular,noun,/vɚˈnækjəlɚ/,local language,Local vernacular.
+C2,7,Conversation & Discourse,7,tacit,adjective,/ˈtæsɪt/,understood,Tacit agreement.
+C2,7,Conversation & Discourse,8,taciturn,adjective,/ˈtæsɪˌtɜrn/,reserved,A taciturn man.
+C2,7,Conversation & Discourse,9,eloquent,adjective,/ˈɛləkwənt/,well-spoken,Eloquent speech.
+C2,7,Conversation & Discourse,10,cogent,adjective,/ˈkoʊdʒənt/,convincing,Cogent argument.
+C2,7,Conversation & Discourse,11,pithy,adjective,/ˈpɪθi/,concise,A pithy remark.
+C2,7,Conversation & Discourse,12,verbose,adjective,/vɜrˈboʊs/,wordy,Verbose writing.
+C2,7,Conversation & Discourse,13,loquacious,adjective,/loʊˈkweɪʃəs/,talkative,A loquacious guest.
+C2,7,Conversation & Discourse,14,articulate,verb,/ɑrˈtɪkjəˌleɪt/,express clearly,Articulate thoughts.
+C2,7,Conversation & Discourse,15,expound,verb,/ɪkˈspaʊnd/,explain in detail,Expound theories.
+C2,7,Conversation & Discourse,16,pontificate,verb,/pɑnˈtɪfɪˌkeɪt/,speak pompously,Pontificate on politics.
+C2,7,Conversation & Discourse,17,berate,verb,/bɪˈreɪt/,scold harshly,Berate employees.
+C2,7,Conversation & Discourse,18,rebuke,verb,/rɪˈbjuk/,criticize sharply,Rebuke misconduct.
+C2,7,Conversation & Discourse,19,admonish,verb,/ædˈmɑnɪʃ/,warn,Admonish gently.
+C2,7,Conversation & Discourse,20,cajole,verb,/kəˈdʒoʊl/,persuade,Cajole into agreeing.
+C2,7,Conversation & Discourse,21,quip,verb,/ˈkwɪp/,make witty remark,He quipped back.
+C2,7,Conversation & Discourse,22,retort,verb,/rɪˈtɔrt/,reply sharply,She retorted angrily.
+C2,7,Conversation & Discourse,23,interject,verb,/ˌɪntɚˈdʒɛkt/,interrupt,Interject a comment.
+C2,7,Conversation & Discourse,24,insinuate,verb,/ɪnˈsɪnjuˌeɪt/,suggest indirectly,Insinuate wrongdoing.
+C2,7,Conversation & Discourse,25,divulge,verb,/dɪˈvʌldʒ/,reveal secrets,Divulge information.
+C2,8,Vision & Appearance,1,glow,noun,/ˈgloʊ/,soft light,A warm glow.
+C2,8,Vision & Appearance,2,shimmer,verb,/ˈʃɪmɚ/,shine softly,Stars shimmered.
+C2,8,Vision & Appearance,3,glimmer,verb,/ˈglɪmɚ/,shine faintly,Hope glimmered.
+C2,8,Vision & Appearance,4,glint,verb,/ˈglɪnt/,flash briefly,Eyes glinted.
+C2,8,Vision & Appearance,5,gleam,verb,/ˈglim/,shine brightly,Metal gleamed.
+C2,8,Vision & Appearance,6,dazzling,adjective,/ˈdæzəlɪŋ/,brilliantly bright,Dazzling lights.
+C2,8,Vision & Appearance,7,luminous,adjective,/ˈlumɪnəs/,giving off light,Luminous dial.
+C2,8,Vision & Appearance,8,radiant,adjective,/ˈreɪdiənt/,shining brightly,Radiant smile.
+C2,8,Vision & Appearance,9,resplendent,adjective,/rɪˈsplɛndənt/,splendid,Resplendent attire.
+C2,8,Vision & Appearance,10,iridescent,adjective,/ˌɪrɪˈdɛsənt/,multicolored,Iridescent wings.
+C2,8,Vision & Appearance,11,opaque,adjective,/oʊˈpeɪk/,not transparent,Opaque glass.
+C2,8,Vision & Appearance,12,translucent,adjective,/trænsˈlusənt/,semi-transparent,Translucent skin.
+C2,8,Vision & Appearance,13,vivid,adjective,/ˈvɪvɪd/,intensely bright,Vivid colors.
+C2,8,Vision & Appearance,14,pallid,adjective,/ˈpælɪd/,pale,Pallid complexion.
+C2,8,Vision & Appearance,15,sallow,adjective,/ˈsæloʊ/,yellowish,Sallow skin.
+C2,8,Vision & Appearance,16,wan,adjective,/ˈwɑn/,pale from illness,A wan smile.
+C2,8,Vision & Appearance,17,lurid,adjective,/ˈlʊrɪd/,glaringly vivid,Lurid details.
+C2,8,Vision & Appearance,18,gaudy,adjective,/ˈgɔdi/,tastelessly showy,Gaudy decorations.
+C2,8,Vision & Appearance,19,garish,adjective,/ˈgɛrɪʃ/,overly bright,Garish makeup.
+C2,8,Vision & Appearance,20,glare,verb,/ˈglɛr/,stare angrily,Glare at someone.
+C2,8,Vision & Appearance,21,squint,verb,/ˈskwɪnt/,narrow eyes,Squint in sunlight.
+C2,8,Vision & Appearance,22,peer,verb,/ˈpɪr/,look closely,Peer into darkness.
+C2,8,Vision & Appearance,23,glimpse,verb,/ˈglɪmps/,see briefly,Glimpse a figure.
+C2,8,Vision & Appearance,24,discern,verb,/dɪˈsɜrn/,perceive,Discern the truth.
+C2,8,Vision & Appearance,25,behold,verb,/bɪˈhoʊld/,see,Behold the beauty.
+C2,8,Vision & Appearance,26,obscure,verb,/əbˈskjʊr/,hide,Clouds obscured the sun.
+C2,8,Vision & Appearance,27,eclipse,verb,/ɪˈklɪps/,overshadow,Eclipse achievements.
+C2,8,Vision & Appearance,28,manifest,adjective,/ˈmænɪˌfɛst/,obvious,Manifest differences.
+C2,8,Vision & Appearance,29,palpable,adjective,/ˈpælpəbəl/,easily perceived,Palpable tension.
+C2,8,Vision & Appearance,30,imperceptible,adjective,/ˌɪmpɚˈsɛptɪbəl/,unnoticeable,Imperceptible changes.
+C2,9,Style & Aesthetics,1,elegance,noun,/ˈɛləgəns/,refined grace,Timeless elegance.
+C2,9,Style & Aesthetics,2,finesse,noun,/fɪˈnɛs/,delicate skill,Handle with finesse.
+C2,9,Style & Aesthetics,3,panache,noun,/pəˈnæʃ/,flamboyant style,Done with panache.
+C2,9,Style & Aesthetics,4,opulence,noun,/ˈɑpjələns/,luxuriousness,Palace opulence.
+C2,9,Style & Aesthetics,5,austerity,noun,/ɔˈstɛrəti/,simplicity,Design austerity.
+C2,9,Style & Aesthetics,6,exquisite,adjective,/ɪkˈskwɪzɪt/,beautifully made,Exquisite craftsmanship.
+C2,9,Style & Aesthetics,7,impeccable,adjective,/ɪmˈpɛkəbəl/,flawless,Impeccable taste.
+C2,9,Style & Aesthetics,8,resplendent,adjective,/rɪˈsplɛndənt/,dazzling,Resplendent beauty.
+C2,9,Style & Aesthetics,9,ostentatious,adjective,/ˌɑstɛnˈteɪʃəs/,showy,Ostentatious display.
+C2,9,Style & Aesthetics,10,flamboyant,adjective,/flæmˈbɔɪənt/,colorful,Flamboyant style.
+C2,9,Style & Aesthetics,11,gauche,adjective,/ˈgoʊʃ/,lacking grace,A gauche remark.
+C2,9,Style & Aesthetics,12,dowdy,adjective,/ˈdaʊdi/,unfashionable,Dowdy clothes.
+C2,9,Style & Aesthetics,13,shabby,adjective,/ˈʃæbi/,worn out,Shabby furniture.
+C2,9,Style & Aesthetics,14,tacky,adjective,/ˈtæki/,tasteless,Tacky decorations.
+C2,9,Style & Aesthetics,15,quaint,adjective,/ˈkweɪnt/,charmingly old,A quaint village.
+C2,9,Style & Aesthetics,16,ornate,adjective,/ɔrˈneɪt/,elaborately decorated,Ornate design.
+C2,9,Style & Aesthetics,17,understated,adjective,/ˌʌndɚˈsteɪtɪd/,subtle,Understated elegance.
+C2,9,Style & Aesthetics,18,adorn,verb,/əˈdɔrn/,decorate,Adorn with jewels.
+C2,9,Style & Aesthetics,19,embellish,verb,/ɪmˈbɛlɪʃ/,decorate,Embellish the story.
+C2,9,Style & Aesthetics,20,bedeck,verb,/bɪˈdɛk/,adorn lavishly,Bedecked with flowers.
+C2,9,Style & Aesthetics,21,accentuate,verb,/ækˈsɛntʃuˌeɪt/,emphasize,Accentuate features.
+C2,9,Style & Aesthetics,22,flaunt,verb,/ˈflɔnt/,show off,Flaunt wealth.
+C2,9,Style & Aesthetics,23,tarnish,verb,/ˈtɑrnɪʃ/,dim luster,Tarnish reputation.
+C2,9,Style & Aesthetics,24,wilt,verb,/ˈwɪlt/,droop,Flowers wilted.
+C2,9,Style & Aesthetics,25,languish,verb,/ˈlæŋgwɪʃ/,lose vitality,Languish in obscurity.
+C2,10,Character Virtues,1,integrity,noun,/ɪnˈtɛgrəti/,honesty,Personal integrity.
+C2,10,Character Virtues,2,fortitude,noun,/ˈfɔrtɪˌtud/,courage,Mental fortitude.
+C2,10,Character Virtues,3,tenacity,noun,/təˈnæsɪti/,persistence,Remarkable tenacity.
+C2,10,Character Virtues,4,prudence,noun,/ˈprudəns/,careful judgment,Exercise prudence.
+C2,10,Character Virtues,5,sagacity,noun,/səˈgæsɪti/,wisdom,Political sagacity.
+C2,10,Character Virtues,6,benevolence,noun,/bəˈnɛvələns/,kindness,Acts of benevolence.
+C2,10,Character Virtues,7,magnanimity,noun,/ˌmægnəˈnɪməti/,generosity,Show magnanimity.
+C2,10,Character Virtues,8,virtuosity,noun,/ˌvɜrtʃuˈɑsəti/,great skill,Musical virtuosity.
+C2,10,Character Virtues,9,stalwart,adjective,/ˈstɔlwɚt/,loyal and strong,A stalwart supporter.
+C2,10,Character Virtues,10,steadfast,adjective,/ˈstɛˌdfæst/,unwavering,Steadfast commitment.
+C2,10,Character Virtues,11,resolute,adjective,/ˈrɛzəˌlut/,determined,Resolute in purpose.
+C2,10,Character Virtues,12,diligent,adjective,/ˈdɪlɪdʒənt/,hardworking,Diligent efforts.
+C2,10,Character Virtues,13,scrupulous,adjective,/ˈskrupjələs/,conscientious,Scrupulous honesty.
+C2,10,Character Virtues,14,unassuming,adjective,/ˌʌnəˈsumɪŋ/,modest,An unassuming manner.
+C2,10,Character Virtues,15,judicious,adjective,/dʒuˈdɪʃəs/,sensible,Judicious decision.
+C2,10,Character Virtues,16,magnanimous,adjective,/mægˈnænəməs/,generous,A magnanimous gesture.
+C2,10,Character Virtues,17,benevolent,adjective,/bəˈnɛvələnt/,kind,A benevolent ruler.
+C2,10,Character Virtues,18,sagacious,adjective,/səˈgeɪʃəs/,wise,Sagacious advice.
+C2,10,Character Virtues,19,astute,adjective,/əˈstut/,shrewd,An astute observer.
+C2,10,Character Virtues,20,adroit,adjective,/əˈdrɔɪt/,skillful,An adroit negotiator.
+C2,10,Character Virtues,21,deft,adjective,/ˈdɛft/,nimble,Deft movements.
+C2,10,Character Virtues,22,persevere,verb,/ˌpɜrsəˈvɪr/,persist,Persevere through hardship.
+C2,10,Character Virtues,23,endure,verb,/ɪnˈdʊr/,withstand,Endure suffering.
+C2,10,Character Virtues,24,prevail,verb,/prɪˈveɪl/,triumph,Justice will prevail.
+C2,10,Character Virtues,25,excel,verb,/ɪkˈsɛl/,surpass,Excel in studies.
+C2,10,Character Virtues,26,thrive,verb,/ˈθraɪv/,flourish,Thrive under pressure.
+C2,10,Character Virtues,27,exemplify,verb,/ɪgˈzɛmpləˌfaɪ/,serve as example,Exemplify courage.
+C2,10,Character Virtues,28,embody,verb,/ɪmˈbɑdi/,represent,Embody excellence.
+C2,10,Character Virtues,29,uphold,verb,/ʌpˈhoʊld/,maintain,Uphold principles.
+C2,10,Character Virtues,30,vindicate,verb,/ˈvɪndɪˌkeɪt/,clear of blame,Vindicate reputation.
+C2,11,Character Flaws,1,hubris,noun,/ˈhjubrɪs/,excessive pride,His hubris led to downfall.
+C2,11,Character Flaws,2,vanity,noun,/ˈvænəti/,excessive pride,False vanity.
+C2,11,Character Flaws,3,avarice,noun,/ˈævɚɪs/,greed,Consumed by avarice.
+C2,11,Character Flaws,4,malice,noun,/ˈmælɪs/,ill will,Act with malice.
+C2,11,Character Flaws,5,spite,noun,/ˈspaɪt/,malicious intent,Out of spite.
+C2,11,Character Flaws,6,duplicity,noun,/duˈplɪsɪti/,deception,Political duplicity.
+C2,11,Character Flaws,7,arrogant,adjective,/ˈærəgənt/,overbearing,An arrogant attitude.
+C2,11,Character Flaws,8,pompous,adjective,/ˈpɑmpəs/,self-important,Pompous speech.
+C2,11,Character Flaws,9,conceited,adjective,/kənˈsitɪd/,vain,A conceited person.
+C2,11,Character Flaws,10,obstinate,adjective,/ˈɑbstənət/,stubborn,Obstinate refusal.
+C2,11,Character Flaws,11,petulant,adjective,/ˈpɛtʃələnt/,childishly sulky,A petulant reply.
+C2,11,Character Flaws,12,vindictive,adjective,/vɪnˈdɪktɪv/,vengeful,Vindictive actions.
+C2,11,Character Flaws,13,callous,adjective,/ˈkæləs/,insensitive,Callous disregard.
+C2,11,Character Flaws,14,insidious,adjective,/ɪnˈsɪdiəs/,subtly harmful,Insidious influence.
+C2,11,Character Flaws,15,nefarious,adjective,/nɪˈfɛriəs/,wicked,Nefarious schemes.
+C2,11,Character Flaws,16,slothful,adjective,/ˈsloʊθfəl/,lazy,Slothful habits.
+C2,11,Character Flaws,17,covet,verb,/ˈkʌvɪt/,desire eagerly,Covet wealth.
+C2,11,Character Flaws,18,flaunt,verb,/ˈflɔnt/,show off,Flaunt riches.
+C2,11,Character Flaws,19,belittle,verb,/bɪˈlɪtəl/,disparage,Belittle efforts.
+C2,11,Character Flaws,20,demean,verb,/dɪˈmin/,degrade,Demean oneself.
+C2,11,Character Flaws,21,deride,verb,/dɪˈraɪd/,mock,Deride attempts.
+C2,11,Character Flaws,22,malign,verb,/məˈlaɪn/,speak ill of,Malign reputation.
+C2,11,Character Flaws,23,disparage,verb,/dɪˈspærɪdʒ/,criticize unfairly,Disparage achievements.
+C2,11,Character Flaws,24,vilify,verb,/ˈvɪlɪˌfaɪ/,defame,Vilify opponents.
+C2,11,Character Flaws,25,scorn,verb,/ˈskɔrn/,contempt,Scorn advice.
+C2,12,Negative Personality,1,insolence,noun,/ˈɪnsələns/,rudeness,Extreme insolence.
+C2,12,Negative Personality,2,impudence,noun,/ˈɪmpjədəns/,impertinence,Bold impudence.
+C2,12,Negative Personality,3,audacity,noun,/ɔˈdæsɪti/,bold nerve,The audacity to lie.
+C2,12,Negative Personality,4,apathy,noun,/ˈæpəθi/,lack of interest,Public apathy.
+C2,12,Negative Personality,5,complacency,noun,/kəmˈpleɪsənsi/,self-satisfaction,Dangerous complacency.
+C2,12,Negative Personality,6,insolent,adjective,/ˈɪnsələnt/,disrespectful,Insolent behavior.
+C2,12,Negative Personality,7,impudent,adjective,/ˈɪmpjədənt/,impertinent,An impudent child.
+C2,12,Negative Personality,8,audacious,adjective,/ɔˈdeɪʃəs/,bold,An audacious plan.
+C2,12,Negative Personality,9,brazen,adjective,/ˈbreɪzən/,bold and shameless,Brazen lies.
+C2,12,Negative Personality,10,truculent,adjective,/ˈtrʌkjələnt/,aggressive,A truculent attitude.
+C2,12,Negative Personality,11,belligerent,adjective,/bəˈlɪdʒɚənt/,hostile,Belligerent tone.
+C2,12,Negative Personality,12,cantankerous,adjective,/kænˈtæŋkɚəs/,bad-tempered,A cantankerous old man.
+C2,12,Negative Personality,13,churlish,adjective,/ˈtʃɜrlɪʃ/,rude,Churlish response.
+C2,12,Negative Personality,14,sullen,adjective,/ˈsʌlən/,moody,Sullen silence.
+C2,12,Negative Personality,15,morose,adjective,/mɚˈoʊs/,gloomy,Morose mood.
+C2,12,Negative Personality,16,recalcitrant,adjective,/rɪˈkælsɪtrənt/,stubbornly defiant,Recalcitrant student.
+C2,12,Negative Personality,17,obstreperous,adjective,/əbˈstrɛpɚəs/,unruly,Obstreperous crowd.
+C2,12,Negative Personality,18,flout,verb,/ˈflaʊt/,openly defy,Flout the rules.
+C2,12,Negative Personality,19,sneer,verb,/ˈsnɪr/,express contempt,Sneer at efforts.
+C2,12,Negative Personality,20,snarl,verb,/ˈsnɑrl/,growl angrily,Snarl a response.
+C2,12,Negative Personality,21,bristle,verb,/ˈbrɪsəl/,react angrily,Bristle at criticism.
+C2,12,Negative Personality,22,scoff,verb,/ˈskɑf/,mock,Scoff at ideas.
+C2,12,Negative Personality,23,jeer,verb,/ˈdʒɪr/,mock loudly,The crowd jeered.
+C2,12,Negative Personality,24,taunt,verb,/ˈtɔnt/,provoke,Taunt opponents.
+C2,12,Negative Personality,25,gloat,verb,/ˈgloʊt/,relish triumph,Gloat over victory.
+C2,13,Emotions & Feelings,1,anguish,noun,/ˈæŋgwɪʃ/,severe distress,Mental anguish.
+C2,13,Emotions & Feelings,2,torment,noun,/ˈtɔrˌmɛnt/,severe suffering,Emotional torment.
+C2,13,Emotions & Feelings,3,agony,noun,/ˈægəni/,extreme pain,Agony of defeat.
+C2,13,Emotions & Feelings,4,despair,noun,/dɪˈspɛr/,hopelessness,Depths of despair.
+C2,13,Emotions & Feelings,5,melancholy,noun,/ˈmɛlənˌkɑli/,sadness,Autumn melancholy.
+C2,13,Emotions & Feelings,6,woe,noun,/ˈwoʊ/,grief,Tales of woe.
+C2,13,Emotions & Feelings,7,elation,noun,/ɪˈleɪʃən/,great joy,Feel elation.
+C2,13,Emotions & Feelings,8,rapture,noun,/ˈræptʃɚ/,ecstatic joy,Scenes of rapture.
+C2,13,Emotions & Feelings,9,euphoria,noun,/juˈfɔriə/,intense happiness,A sense of euphoria.
+C2,13,Emotions & Feelings,10,serenity,noun,/səˈrɛnɪti/,calmness,Inner serenity.
+C2,13,Emotions & Feelings,11,tranquility,noun,/træŋˈkwɪləti/,peacefulness,Lake tranquility.
+C2,13,Emotions & Feelings,12,wistful,adjective,/ˈwɪstfəl/,sadly longing,Wistful memories.
+C2,13,Emotions & Feelings,13,forlorn,adjective,/fɚˈlɔrn/,sad and lonely,A forlorn expression.
+C2,13,Emotions & Feelings,14,bereft,adjective,/bɪˈrɛft/,deprived,Bereft of hope.
+C2,13,Emotions & Feelings,15,desolate,adjective,/ˈdɛsələt/,lonely and sad,A desolate landscape.
+C2,13,Emotions & Feelings,16,distraught,adjective,/dɪˈstrɔt/,deeply upset,Distraught parents.
+C2,13,Emotions & Feelings,17,exuberant,adjective,/ɪgˈzubɚənt/,joyfully enthusiastic,Exuberant celebration.
+C2,13,Emotions & Feelings,18,ebullient,adjective,/ɪˈbʌliənt/,cheerfully energetic,Ebullient mood.
+C2,13,Emotions & Feelings,19,effervescent,adjective,/ˌɛfɚˈvɛsənt/,vivacious,Effervescent personality.
+C2,13,Emotions & Feelings,20,rue,verb,/ˈru/,feel regret,Rue the day.
+C2,13,Emotions & Feelings,21,lament,verb,/ləˈmɛnt/,mourn,Lament the loss.
+C2,13,Emotions & Feelings,22,pine,verb,/ˈpaɪn/,yearn,Pine for home.
+C2,13,Emotions & Feelings,23,yearn,verb,/ˈjɜrn/,long for,Yearn for freedom.
+C2,13,Emotions & Feelings,24,languish,verb,/ˈlæŋgwɪʃ/,lose vitality,Languish in prison.
+C2,13,Emotions & Feelings,25,brood,verb,/ˈbrud/,think moodily,Brood over problems.
+C2,13,Emotions & Feelings,26,wallow,verb,/ˈwɑloʊ/,indulge in,Wallow in self-pity.
+C2,13,Emotions & Feelings,27,bask,verb,/ˈbæsk/,enjoy,Bask in glory.
+C2,13,Emotions & Feelings,28,exult,verb,/ɪgˈzʌlt/,rejoice,Exult in victory.
+C2,13,Emotions & Feelings,29,relish,verb,/ˈrɛlɪʃ/,enjoy greatly,Relish the moment.
+C2,13,Emotions & Feelings,30,revel,verb,/ˈrɛvəl/,take delight,Revel in success.
+C2,14,Inner Feelings,1,introspection,noun,/ˌɪntrəˈspɛkʃən/,self-examination,Deep introspection.
+C2,14,Inner Feelings,2,catharsis,noun,/kəˈθɑrsɪs/,emotional release,Experience catharsis.
+C2,14,Inner Feelings,3,solace,noun,/ˈsɑləs/,comfort,Find solace.
+C2,14,Inner Feelings,4,consolation,noun,/ˌkɑnsəˈleɪʃən/,comfort,Small consolation.
+C2,14,Inner Feelings,5,empathy,noun,/ˈɛmpəθi/,understanding feelings,Show empathy.
+C2,14,Inner Feelings,6,compassion,noun,/kəmˈpæʃən/,sympathy,Deep compassion.
+C2,14,Inner Feelings,7,remorse,noun,/rɪˈmɔrs/,deep regret,Feel remorse.
+C2,14,Inner Feelings,8,contrition,noun,/kəˈntrɪʃən/,repentance,Express contrition.
+C2,14,Inner Feelings,9,repentant,adjective,/rɪˈpɛntənt/,feeling regret,A repentant sinner.
+C2,14,Inner Feelings,10,contrite,adjective,/kənˈtraɪt/,remorseful,Contrite apology.
+C2,14,Inner Feelings,11,penitent,adjective,/ˈpɛnɪtənt/,feeling sorry,A penitent criminal.
+C2,14,Inner Feelings,12,stoic,adjective,/ˈstoʊɪk/,unemotional,Stoic acceptance.
+C2,14,Inner Feelings,13,placid,adjective,/ˈplæsɪd/,calm,Placid demeanor.
+C2,14,Inner Feelings,14,serene,adjective,/sɚˈin/,peaceful,Serene expression.
+C2,14,Inner Feelings,15,sanguine,adjective,/ˈsæŋgwɪn/,optimistic,Sanguine outlook.
+C2,14,Inner Feelings,16,introspective,adjective,/ˌɪntrəˈspɛktɪv/,self-analyzing,Introspective person.
+C2,14,Inner Feelings,17,console,verb,/kənˈsoʊl/,comfort,Console the grieving.
+C2,14,Inner Feelings,18,assuage,verb,/əˈsweɪdʒ/,ease,Assuage fears.
+C2,14,Inner Feelings,19,mollify,verb,/ˈmɑlɪˌfaɪ/,soothe,Mollify anger.
+C2,14,Inner Feelings,20,placate,verb,/ˈpleɪkeɪt/,pacify,Placate critics.
+C2,14,Inner Feelings,21,appease,verb,/əˈpiz/,satisfy,Appease demands.
+C2,14,Inner Feelings,22,commiserate,verb,/kəˈmɪzəˌreɪt/,sympathize,Commiserate with friends.
+C2,14,Inner Feelings,23,resent,verb,/rɪˈzɛnt/,feel bitter,Resent the intrusion.
+C2,14,Inner Feelings,24,repent,verb,/rɪˈpɛnt/,feel sorry,Repent sins.
+C2,14,Inner Feelings,25,atone,verb,/əˈtoʊn/,make amends,Atone for mistakes.
+C2,15,Emotional Reactions,1,incredulity,noun,/ˌɪnkrɪˈduləti/,disbelief,Stared in incredulity.
+C2,15,Emotional Reactions,2,consternation,noun,/ˌkɑnstɚˈneɪʃən/,dismay,Caused consternation.
+C2,15,Emotional Reactions,3,chagrin,noun,/ʃəˈgrɪn/,embarrassed annoyance,Much to his chagrin.
+C2,15,Emotional Reactions,4,mortification,noun,/ˌmɔrtɪfɪˈkeɪʃən/,humiliation,Deep mortification.
+C2,15,Emotional Reactions,5,trepidation,noun,/ˌtrɛpɪˈdeɪʃən/,fear,With trepidation.
+C2,15,Emotional Reactions,6,incredulous,adjective,/ɪnˈkrɛdʒələs/,disbelieving,An incredulous look.
+C2,15,Emotional Reactions,7,aghast,adjective,/əˈgæst/,horrified,Stood aghast.
+C2,15,Emotional Reactions,8,appalled,adjective,/əˈpɔld/,dismayed,Utterly appalled.
+C2,15,Emotional Reactions,9,flabbergasted,adjective,/ˈflæbɚˌgæstɪd/,astonished,Completely flabbergasted.
+C2,15,Emotional Reactions,10,nonplussed,adjective,/nɑnˈplʌst/,bewildered,Left nonplussed.
+C2,15,Emotional Reactions,11,dumbfounded,adjective,/ˈdʌmˌfaʊndɪd/,speechless,Stood dumbfounded.
+C2,15,Emotional Reactions,12,mortified,adjective,/ˈmɔrtɪˌfaɪd/,deeply embarrassed,Felt mortified.
+C2,15,Emotional Reactions,13,elated,adjective,/ɪˈleɪtɪd/,extremely happy,Elated at the news.
+C2,15,Emotional Reactions,14,ecstatic,adjective,/ɪkˈstætɪk/,overjoyed,Ecstatic fans.
+C2,15,Emotional Reactions,15,rapturous,adjective,/ˈræptʃɚəs/,expressing ecstasy,Rapturous applause.
+C2,15,Emotional Reactions,16,appall,verb,/əˈpɔl/,horrify,Appalled by behavior.
+C2,15,Emotional Reactions,17,astound,verb,/əˈstaʊnd/,shock greatly,Astound the world.
+C2,15,Emotional Reactions,18,bewilder,verb,/bɪˈwɪldɚ/,confuse,Bewildered by choices.
+C2,15,Emotional Reactions,19,disconcert,verb,/ˌdɪskənˈsɜrt/,unsettle,Disconcerted guests.
+C2,15,Emotional Reactions,20,unnerve,verb,/ʌnˈnɜrv/,make nervous,Unnerved by stares.
+C2,15,Emotional Reactions,21,startle,verb,/ˈstɑrtəl/,surprise,Startled awake.
+C2,15,Emotional Reactions,22,stun,verb,/ˈstʌn/,shock,Stunned silence.
+C2,15,Emotional Reactions,23,exasperate,verb,/ɪgˈzæspɚˌeɪt/,irritate intensely,Exasperated by delays.
+C2,15,Emotional Reactions,24,infuriate,verb,/ɪnˈfjʊriˌeɪt/,enrage,Infuriated by lies.
+C2,15,Emotional Reactions,25,fluster,verb,/ˈflʌstɚ/,agitate,Easily flustered.
+C2,16,Anger & Hatred,1,wrath,noun,/ˈræθ/,intense anger,Divine wrath.
+C2,16,Anger & Hatred,2,fury,noun,/ˈfjʊri/,wild anger,Flew into a fury.
+C2,16,Anger & Hatred,3,ire,noun,/ˈaɪɚ/,anger,Provoke ire.
+C2,16,Anger & Hatred,4,animosity,noun,/ˌænɪˈmɑsɪti/,hostility,Deep animosity.
+C2,16,Anger & Hatred,5,antipathy,noun,/ænˈtɪpəθi/,strong dislike,Mutual antipathy.
+C2,16,Anger & Hatred,6,rancor,noun,/ˈræŋkɚ/,bitterness,Spoke without rancor.
+C2,16,Anger & Hatred,7,vitriol,noun,/ˈvɪtriəl/,cruel criticism,Political vitriol.
+C2,16,Anger & Hatred,8,venom,noun,/ˈvɛnəm/,malice,Spoke with venom.
+C2,16,Anger & Hatred,9,wrathful,adjective,/ˈræθfəl/,extremely angry,Wrathful response.
+C2,16,Anger & Hatred,10,incensed,adjective,/ɪnˈsɛnst/,enraged,Incensed by insults.
+C2,16,Anger & Hatred,11,irate,adjective,/aɪˈreɪt/,very angry,An irate customer.
+C2,16,Anger & Hatred,12,livid,adjective,/ˈlɪvɪd/,furious,Absolutely livid.
+C2,16,Anger & Hatred,13,vitriolic,adjective,/ˌvɪtriˈɑlɪk/,bitterly scathing,Vitriolic attack.
+C2,16,Anger & Hatred,14,venomous,adjective,/ˈvɛnəməs/,malicious,Venomous remarks.
+C2,16,Anger & Hatred,15,acrimonious,adjective,/ˌækrɪˈmoʊniəs/,bitter,Acrimonious dispute.
+C2,16,Anger & Hatred,16,enrage,verb,/ɪnˈreɪdʒ/,make furious,Enraged by betrayal.
+C2,16,Anger & Hatred,17,incense,verb,/ɪnˈsɛns/,infuriate,Incensed the crowd.
+C2,16,Anger & Hatred,18,rankle,verb,/ˈræŋkəl/,cause resentment,Still rankles today.
+C2,16,Anger & Hatred,19,fume,verb,/ˈfjum/,be angry,Fuming with anger.
+C2,16,Anger & Hatred,20,seethe,verb,/ˈsið/,boil with anger,Seethed silently.
+C2,16,Anger & Hatred,21,simmer,verb,/ˈsɪmɚ/,be barely controlled,Anger simmered.
+C2,16,Anger & Hatred,22,loathe,verb,/ˈloʊð/,hate intensely,Loathe dishonesty.
+C2,16,Anger & Hatred,23,abhor,verb,/æbˈhɔr/,detest,Abhor violence.
+C2,16,Anger & Hatred,24,despise,verb,/dɪˈspaɪz/,hate,Despise injustice.
+C2,16,Anger & Hatred,25,detest,verb,/dɪˈtɛst/,hate,Detest hypocrisy.
+C2,17,Calm & Serenity,1,equanimity,noun,/ˌikwəˈnɪməti/,calmness,Maintain equanimity.
+C2,17,Calm & Serenity,2,composure,noun,/kəmˈpoʊʒɚ/,self-control,Keep composure.
+C2,17,Calm & Serenity,3,poise,noun,/ˈpɔɪz/,graceful calm,Handle with poise.
+C2,17,Calm & Serenity,4,repose,noun,/rɪˈpoʊz/,rest,A state of repose.
+C2,17,Calm & Serenity,5,respite,noun,/ˈrɛspɪt/,relief,Brief respite.
+C2,17,Calm & Serenity,6,lull,noun,/ˈlʌl/,calm period,A lull in the storm.
+C2,17,Calm & Serenity,7,tranquil,adjective,/ˈtræŋkwəl/,calm,Tranquil waters.
+C2,17,Calm & Serenity,8,serene,adjective,/sɚˈin/,peaceful,Serene atmosphere.
+C2,17,Calm & Serenity,9,placid,adjective,/ˈplæsɪd/,calm,Placid lake.
+C2,17,Calm & Serenity,10,unperturbed,adjective,/ˌʌnpɚˈtɜrbd/,calm,Remained unperturbed.
+C2,17,Calm & Serenity,11,unruffled,adjective,/ʌnˈrʌfəld/,not disturbed,Unruffled demeanor.
+C2,17,Calm & Serenity,12,imperturbable,adjective,/ˌɪmpɚˈtɜrbəbəl/,unflappable,Imperturbable calm.
+C2,17,Calm & Serenity,13,nonchalant,adjective,/ˌnɑnʃəˈlɑnt/,casually calm,Nonchalant attitude.
+C2,17,Calm & Serenity,14,mellow,adjective,/ˈmɛloʊ/,relaxed,Mellow mood.
+C2,17,Calm & Serenity,15,soothe,verb,/ˈsuð/,calm,Soothe the baby.
+C2,17,Calm & Serenity,16,pacify,verb,/ˈpæsɪˌfaɪ/,calm down,Pacify the crowd.
+C2,17,Calm & Serenity,17,tranquilize,verb,/ˈtræŋkwəˌlaɪz/,make calm,Tranquilize the animal.
+C2,17,Calm & Serenity,18,sedate,verb,/sɪˈdeɪt/,calm with drugs,Sedate the patient.
+C2,17,Calm & Serenity,19,allay,verb,/əˈleɪ/,relieve,Allay concerns.
+C2,17,Calm & Serenity,20,quell,verb,/ˈkwɛl/,suppress,Quell fears.
+C2,17,Calm & Serenity,21,subside,verb,/səbˈsaɪd/,calm down,Anger subsided.
+C2,17,Calm & Serenity,22,abate,verb,/əˈbeɪt/,lessen,Storm abated.
+C2,17,Calm & Serenity,23,ebb,verb,/ˈɛb/,recede,Enthusiasm ebbed.
+C2,17,Calm & Serenity,24,wane,verb,/ˈweɪn/,decrease,Interest waned.
+C2,17,Calm & Serenity,25,languish,verb,/ˈlæŋgwɪʃ/,lose vigor,Languish in peace.
+C2,18,Motivation & Desire,1,impetus,noun,/ˈɪmpɪtəs/,driving force,Provide impetus.
+C2,18,Motivation & Desire,2,impulsion,noun,/ɪmˈpʌlʃən/,urge,Act on impulsion.
+C2,18,Motivation & Desire,3,zeal,noun,/ˈzil/,enthusiasm,Religious zeal.
+C2,18,Motivation & Desire,4,fervor,noun,/ˈfɜrvɚ/,passion,Speak with fervor.
+C2,18,Motivation & Desire,5,ardor,noun,/ˈɑrdɚ/,enthusiasm,Youthful ardor.
+C2,18,Motivation & Desire,6,voracity,noun,/vɚˈæsɪti/,greed,Read with voracity.
+C2,18,Motivation & Desire,7,insatiable,adjective,/ɪnˈseɪʃəbəl/,cannot be satisfied,Insatiable appetite.
+C2,18,Motivation & Desire,8,voracious,adjective,/vɔˈreɪʃəs/,extremely eager,Voracious reader.
+C2,18,Motivation & Desire,9,zealous,adjective,/ˈzɛləs/,enthusiastic,Zealous supporters.
+C2,18,Motivation & Desire,10,fervent,adjective,/ˈfɜrvənt/,passionate,Fervent hope.
+C2,18,Motivation & Desire,11,ardent,adjective,/ˈɑrdənt/,passionate,Ardent admirer.
+C2,18,Motivation & Desire,12,avid,adjective,/ˈævɪd/,keen,Avid collector.
+C2,18,Motivation & Desire,13,crave,verb,/ˈkreɪv/,desire intensely,Crave attention.
+C2,18,Motivation & Desire,14,covet,verb,/ˈkʌvɪt/,desire eagerly,Covet possessions.
+C2,18,Motivation & Desire,15,yearn,verb,/ˈjɜrn/,long for,Yearn for freedom.
+C2,18,Motivation & Desire,16,aspire,verb,/əˈspaɪɚ/,seek to attain,Aspire to greatness.
+C2,18,Motivation & Desire,17,strive,verb,/ˈstraɪv/,try hard,Strive for excellence.
+C2,18,Motivation & Desire,18,propel,verb,/prəˈpɛl/,drive forward,Propelled by ambition.
+C2,18,Motivation & Desire,19,galvanize,verb,/ˈgælvəˌnaɪz/,shock into action,Galvanized into action.
+C2,18,Motivation & Desire,20,invigorate,verb,/ɪnˈvɪgɚˌeɪt/,energize,Invigorated by success.
+C2,18,Motivation & Desire,21,entice,verb,/ɪnˈtaɪs/,attract,Enticed by rewards.
+C2,18,Motivation & Desire,22,allure,verb,/əˈlʊr/,attract,Allured by glamour.
+C2,18,Motivation & Desire,23,tantalize,verb,/ˈtæntəˌlaɪz/,tease,Tantalized by aroma.
+C2,18,Motivation & Desire,24,beguile,verb,/bɪˈgaɪl/,charm,Beguiled by beauty.
+C2,18,Motivation & Desire,25,captivate,verb,/ˈkæptɪˌveɪt/,fascinate,Captivated audiences.
+C2,19,Resilience,1,resilience,noun,/rɪˈzɪliəns/,ability to recover,Show resilience.
+C2,19,Resilience,2,fortitude,noun,/ˈfɔrtɪˌtud/,courage,Mental fortitude.
+C2,19,Resilience,3,perseverance,noun,/ˌpɜrsəˈvɪrəns/,persistence,Require perseverance.
+C2,19,Resilience,4,tenacity,noun,/təˈnæsɪti/,determination,Remarkable tenacity.
+C2,19,Resilience,5,grit,noun,/ˈgrɪt/,courage,True grit.
+C2,19,Resilience,6,mettle,noun,/ˈmɛtəl/,courage,Test your mettle.
+C2,19,Resilience,7,resilient,adjective,/rɪˈzɪliənt/,recovering easily,Resilient economy.
+C2,19,Resilience,8,stalwart,adjective,/ˈstɔlwɚt/,loyal and strong,Stalwart defender.
+C2,19,Resilience,9,steadfast,adjective,/ˈstɛdˌfæst/,unwavering,Steadfast support.
+C2,19,Resilience,10,indomitable,adjective,/ɪnˈdɑmɪtəbəl/,unconquerable,Indomitable spirit.
+C2,19,Resilience,11,unyielding,adjective,/ʌnˈjildɪŋ/,firm,Unyielding resolve.
+C2,19,Resilience,12,unflinching,adjective,/ʌnˈflɪntʃɪŋ/,not wavering,Unflinching courage.
+C2,19,Resilience,13,unfaltering,adjective,/ʌnˈfɔltɚɪŋ/,steady,Unfaltering commitment.
+C2,19,Resilience,14,persevere,verb,/ˌpɜrsəˈvɪr/,persist,Persevere through difficulties.
+C2,19,Resilience,15,endure,verb,/ɪnˈdʊr/,withstand,Endure hardship.
+C2,19,Resilience,16,withstand,verb,/wɪðˈstænd/,resist,Withstand pressure.
+C2,19,Resilience,17,weather,verb,/ˈwɛðɚ/,survive,Weather the storm.
+C2,19,Resilience,18,surmount,verb,/sɚˈmaʊnt/,overcome,Surmount obstacles.
+C2,19,Resilience,19,prevail,verb,/prɪˈveɪl/,triumph,Truth will prevail.
+C2,19,Resilience,20,rebound,verb,/rɪˈbaʊnd/,recover,Rebound from setback.
+C2,19,Resilience,21,recuperate,verb,/rɪˈkupɚˌeɪt/,recover,Recuperate from illness.
+C2,19,Resilience,22,rally,verb,/ˈræli/,recover,Rally from defeat.
+C2,19,Resilience,23,bolster,verb,/ˈboʊlstɚ/,support,Bolster confidence.
+C2,19,Resilience,24,buttress,verb,/ˈbʌtrɪs/,strengthen,Buttress arguments.
+C2,19,Resilience,25,fortify,verb,/ˈfɔrtɪˌfaɪ/,strengthen,Fortify defenses.
+C2,20,Speech & Expression,1,eloquence,noun,/ˈɛləkwəns/,fluent speech,Natural eloquence.
+C2,20,Speech & Expression,2,oratory,noun,/ˈɔrətɔri/,public speaking,Political oratory.
+C2,20,Speech & Expression,3,diction,noun,/ˈdɪkʃən/,word choice,Clear diction.
+C2,20,Speech & Expression,4,cadence,noun,/ˈkeɪdəns/,rhythm,Speech cadence.
+C2,20,Speech & Expression,5,intonation,noun,/ˌɪntəˈneɪʃən/,pitch variation,Rising intonation.
+C2,20,Speech & Expression,6,inflection,noun,/ɪnˈflɛkʃən/,voice modulation,Voice inflection.
+C2,20,Speech & Expression,7,nuance,noun,/ˈnuˌɑns/,subtle difference,Catch nuances.
+C2,20,Speech & Expression,8,innuendo,noun,/ˌɪnjuˈɛndoʊ/,indirect suggestion,Sexual innuendo.
+C2,20,Speech & Expression,9,eloquent,adjective,/ˈɛləkwənt/,well-spoken,Eloquent speaker.
+C2,20,Speech & Expression,10,articulate,adjective,/ɑrˈtɪkjəlɪt/,clear-spoken,Articulate presenter.
+C2,20,Speech & Expression,11,erudite,adjective,/ˈɛrjəˌdaɪt/,learned,Erudite scholar.
+C2,20,Speech & Expression,12,laconic,adjective,/ləˈkɑnɪk/,using few words,Laconic reply.
+C2,20,Speech & Expression,13,terse,adjective,/ˈtɜrs/,brief,Terse message.
+C2,20,Speech & Expression,14,succinct,adjective,/səkˈsɪŋkt/,concise,Succinct summary.
+C2,20,Speech & Expression,15,verbose,adjective,/vɜrˈboʊs/,wordy,Verbose explanation.
+C2,20,Speech & Expression,16,expound,verb,/ɪkˈspaʊnd/,explain in detail,Expound theories.
+C2,20,Speech & Expression,17,elucidate,verb,/ɪˈlusɪˌdeɪt/,clarify,Elucidate the point.
+C2,20,Speech & Expression,18,articulate,verb,/ɑrˈtɪkjəˌleɪt/,express clearly,Articulate feelings.
+C2,20,Speech & Expression,19,enunciate,verb,/ɪˈnʌnsiˌeɪt/,pronounce clearly,Enunciate words.
+C2,20,Speech & Expression,20,declaim,verb,/dɪˈkleɪm/,speak dramatically,Declaim poetry.
+C2,20,Speech & Expression,21,orate,verb,/ˈɔreɪt/,speak formally,Orate at length.
+C2,20,Speech & Expression,22,quip,verb,/ˈkwɪp/,make witty remark,Quick to quip.
+C2,20,Speech & Expression,23,jest,verb,/ˈdʒɛst/,joke,Said in jest.
+C2,20,Speech & Expression,24,banter,verb,/ˈbæntɚ/,exchange witty remarks,Friendly banter.
+C2,20,Speech & Expression,25,muse,verb,/ˈmjuz/,ponder,Mused aloud.
+C2,20,Speech & Expression,26,pontificate,verb,/pɑnˈtɪfɪˌkeɪt/,speak pompously,Pontificate on politics.
+C2,20,Speech & Expression,27,ramble,verb,/ˈræmbəl/,talk aimlessly,Rambled on endlessly.
+C2,20,Speech & Expression,28,drone,verb,/ˈdroʊn/,speak monotonously,Droned on.
+C2,20,Speech & Expression,29,mumble,verb,/ˈmʌmbəl/,speak indistinctly,Mumbled apology.
+C2,20,Speech & Expression,30,stammer,verb,/ˈstæmɚ/,speak haltingly,Stammered nervously.
+C2,21,Language & Meaning,1,semantics,noun,/sɪˈmæntɪks/,meaning study,Study semantics.
+C2,21,Language & Meaning,2,syntax,noun,/ˈsɪnˌtæks/,sentence structure,Complex syntax.
+C2,21,Language & Meaning,3,etymology,noun,/ˌɛtɪˈmɑlədʒi/,word origin,Word etymology.
+C2,21,Language & Meaning,4,lexicon,noun,/ˈlɛksɪˌkɑn/,vocabulary,Expand the lexicon.
+C2,21,Language & Meaning,5,vernacular,noun,/vɚˈnækjəlɚ/,local dialect,Local vernacular.
+C2,21,Language & Meaning,6,parlance,noun,/ˈpɑrləns/,manner of speaking,In legal parlance.
+C2,21,Language & Meaning,7,colloquial,adjective,/kəˈloʊkwiəl/,informal,Colloquial speech.
+C2,21,Language & Meaning,8,idiomatic,adjective,/ˌɪdiəˈmætɪk/,natural expression,Idiomatic phrases.
+C2,21,Language & Meaning,9,archaic,adjective,/ɑrˈkeɪɪk/,old-fashioned,Archaic language.
+C2,21,Language & Meaning,10,obsolete,adjective,/ˌɑbsəˈlit/,outdated,Obsolete terms.
+C2,21,Language & Meaning,11,connote,verb,/kəˈnoʊt/,suggest,The word connotes danger.
+C2,21,Language & Meaning,12,denote,verb,/dɪˈnoʊt/,indicate,Red denotes danger.
+C2,21,Language & Meaning,13,allude,verb,/əˈlud/,refer indirectly,Allude to history.
+C2,21,Language & Meaning,14,construe,verb,/kənˈstru/,interpret,Construe meaning.
+C2,21,Language & Meaning,15,misconstrue,verb,/ˌmɪskənˈstru/,misinterpret,Misconstrue intentions.
+C2,21,Language & Meaning,16,paraphrase,verb,/ˈpærəˌfreɪz/,restate,Paraphrase the text.
+C2,21,Language & Meaning,17,transliterate,verb,/trænsˈlɪtɚˌeɪt/,convert script,Transliterate names.
+C2,21,Language & Meaning,18,denotation,noun,/ˌdinoʊˈteɪʃən/,literal meaning,Word denotation.
+C2,21,Language & Meaning,19,connotation,noun,/ˌkɑnəˈteɪʃən/,implied meaning,Negative connotation.
+C2,21,Language & Meaning,20,allusion,noun,/əˈluʒən/,indirect reference,Literary allusion.
+C2,21,Language & Meaning,21,euphemism,noun,/ˈjufəˌmɪzəm/,mild expression,Use a euphemism.
+C2,21,Language & Meaning,22,hyperbole,noun,/haɪˈpɜrbəli/,exaggeration,Pure hyperbole.
+C2,21,Language & Meaning,23,metaphor,noun,/ˈmɛtəˌfɔr/,comparison,Extended metaphor.
+C2,21,Language & Meaning,24,simile,noun,/ˈsɪməli/,like comparison,Use a simile.
+C2,21,Language & Meaning,25,oxymoron,noun,/ˌɑksɪˈmɔrˌɑn/,contradictory terms,A clever oxymoron.
+C2,22,Actions & Behaviors,1,perpetrate,verb,/ˈpɜrpɪˌtreɪt/,commit,Perpetrate a crime.
+C2,22,Actions & Behaviors,2,instigate,verb,/ˈɪnstɪˌgeɪt/,provoke,Instigate trouble.
+C2,22,Actions & Behaviors,3,exacerbate,verb,/ɪgˈzæsɚˌbeɪt/,worsen,Exacerbate problems.
+C2,22,Actions & Behaviors,4,mitigate,verb,/ˈmɪtɪˌgeɪt/,lessen,Mitigate risks.
+C2,22,Actions & Behaviors,5,ameliorate,verb,/əˈmiljəˌreɪt/,improve,Ameliorate conditions.
+C2,22,Actions & Behaviors,6,alleviate,verb,/əˈliviˌeɪt/,relieve,Alleviate suffering.
+C2,22,Actions & Behaviors,7,extricate,verb,/ˈɛkstrɪˌkeɪt/,free,Extricate from trouble.
+C2,22,Actions & Behaviors,8,obviate,verb,/ˈɑbviˌeɪt/,prevent,Obviate the need.
+C2,22,Actions & Behaviors,9,preclude,verb,/prɪˈklud/,prevent,Preclude possibility.
+C2,22,Actions & Behaviors,10,circumvent,verb,/ˌsɜrkəmˈvɛnt/,avoid,Circumvent rules.
+C2,22,Actions & Behaviors,11,impede,verb,/ɪmˈpid/,hinder,Impede progress.
+C2,22,Actions & Behaviors,12,thwart,verb,/ˈθwɔrt/,frustrate,Thwart plans.
+C2,22,Actions & Behaviors,13,stymie,verb,/ˈstaɪmi/,hinder,Stymied by obstacles.
+C2,22,Actions & Behaviors,14,hamper,verb,/ˈhæmpɚ/,hinder,Hamper efforts.
+C2,22,Actions & Behaviors,15,encumber,verb,/ɪnˈkʌmbɚ/,burden,Encumbered by debt.
+C2,22,Actions & Behaviors,16,expedite,verb,/ˈɛkspɪˌdaɪt/,speed up,Expedite processing.
+C2,22,Actions & Behaviors,17,facilitate,verb,/fəˈsɪlɪˌteɪt/,make easier,Facilitate discussion.
+C2,22,Actions & Behaviors,18,galvanize,verb,/ˈgælvəˌnaɪz/,shock into action,Galvanize support.
+C2,22,Actions & Behaviors,19,precipitate,verb,/prɪˈsɪpɪˌteɪt/,cause suddenly,Precipitate a crisis.
+C2,22,Actions & Behaviors,20,catalyze,verb,/ˈkætəˌlaɪz/,trigger,Catalyze change.
+C2,22,Actions & Behaviors,21,engender,verb,/ɪnˈdʒɛndɚ/,cause,Engender trust.
+C2,22,Actions & Behaviors,22,spawn,verb,/ˈspɔn/,produce,Spawn new ideas.
+C2,22,Actions & Behaviors,23,beget,verb,/bɪˈgɛt/,cause,Violence begets violence.
+C2,22,Actions & Behaviors,24,elicit,verb,/ɪˈlɪsɪt/,draw out,Elicit a response.
+C2,22,Actions & Behaviors,25,evoke,verb,/ɪˈvoʊk/,bring to mind,Evoke memories.
+C2,23,Motion & Movement,1,meander,verb,/miˈændɚ/,wander,River meandered.
+C2,23,Motion & Movement,2,amble,verb,/ˈæmbəl/,walk slowly,Amble through park.
+C2,23,Motion & Movement,3,saunter,verb,/ˈsɔntɚ/,walk leisurely,Sauntered down street.
+C2,23,Motion & Movement,4,trudge,verb,/ˈtrʌdʒ/,walk heavily,Trudged through snow.
+C2,23,Motion & Movement,5,traipse,verb,/ˈtreɪps/,walk wearily,Traipsed around town.
+C2,23,Motion & Movement,6,scamper,verb,/ˈskæmpɚ/,run playfully,Children scampered.
+C2,23,Motion & Movement,7,scurry,verb,/ˈskɜri/,hurry,Mice scurried away.
+C2,23,Motion & Movement,8,lurch,verb,/ˈlɜrtʃ/,move unsteadily,The ship lurched.
+C2,23,Motion & Movement,9,stagger,verb,/ˈstægɚ/,walk unsteadily,Staggered out.
+C2,23,Motion & Movement,10,totter,verb,/ˈtɑtɚ/,walk shakily,Tottered forward.
+C2,23,Motion & Movement,11,propel,verb,/prəˈpɛl/,drive forward,Wind propelled the boat.
+C2,23,Motion & Movement,12,catapult,verb,/ˈkætəˌpʌlt/,launch,Catapulted to fame.
+C2,23,Motion & Movement,13,hurtle,verb,/ˈhɜrtəl/,move rapidly,Hurtling toward disaster.
+C2,23,Motion & Movement,14,careen,verb,/kəˈrin/,swerve,Car careened off road.
+C2,23,Motion & Movement,15,ricochet,verb,/ˈrɪkəˌʃeɪ/,bounce off,Bullet ricocheted.
+C2,23,Motion & Movement,16,gyrate,verb,/ˈdʒaɪˌreɪt/,rotate,Dancers gyrated.
+C2,23,Motion & Movement,17,oscillate,verb,/ˈɑsɪˌleɪt/,swing back and forth,Pendulum oscillated.
+C2,23,Motion & Movement,18,undulate,verb,/ˈʌndʒəˌleɪt/,move wavelike,Hills undulated.
+C2,23,Motion & Movement,19,pulsate,verb,/ˈpʌlˌseɪt/,throb,Music pulsated.
+C2,23,Motion & Movement,20,reverberate,verb,/rɪˈvɜrbəˌreɪt/,echo,Sound reverberated.
+C2,23,Motion & Movement,21,cascade,verb,/kæˈskeɪd/,fall in stages,Water cascaded down.
+C2,23,Motion & Movement,22,gush,verb,/ˈgʌʃ/,flow rapidly,Water gushed out.
+C2,23,Motion & Movement,23,percolate,verb,/ˈpɜrkəˌleɪt/,filter through,Coffee percolated.
+C2,23,Motion & Movement,24,seep,verb,/ˈsip/,ooze,Water seeped in.
+C2,23,Motion & Movement,25,ooze,verb,/ˈuz/,seep slowly,Blood oozed.
+C2,24,Ideas & Concepts,1,paradigm,noun,/ˈpærəˌdaɪm/,model,New paradigm.
+C2,24,Ideas & Concepts,2,tenet,noun,/ˈtɛnɪt/,principle,Core tenets.
+C2,24,Ideas & Concepts,3,axiom,noun,/ˈæksiəm/,self-evident truth,An axiom of logic.
+C2,24,Ideas & Concepts,4,premise,noun,/ˈprɛmɪs/,assumption,Basic premise.
+C2,24,Ideas & Concepts,5,precept,noun,/ˈprisɛpt/,rule of conduct,Moral precepts.
+C2,24,Ideas & Concepts,6,postulate,noun,/ˈpɑstʃəlɪt/,assumption,Scientific postulate.
+C2,24,Ideas & Concepts,7,archetype,noun,/ˈɑrkɪˌtaɪp/,original model,Classic archetype.
+C2,24,Ideas & Concepts,8,paradox,noun,/ˈpærəˌdɑks/,contradiction,A curious paradox.
+C2,24,Ideas & Concepts,9,dichotomy,noun,/daɪˈkɑtəmi/,division,False dichotomy.
+C2,24,Ideas & Concepts,10,anomaly,noun,/əˈnɑməli/,irregularity,Statistical anomaly.
+C2,24,Ideas & Concepts,11,idiosyncratic,adjective,/ˌɪdioʊsɪnˈkrætɪk/,peculiar,Idiosyncratic style.
+C2,24,Ideas & Concepts,12,paradigmatic,adjective,/ˌpærədɪgˈmætɪk/,serving as model,Paradigmatic example.
+C2,24,Ideas & Concepts,13,antithetical,adjective,/ˌæntɪˈθɛtɪkəl/,directly opposed,Antithetical views.
+C2,24,Ideas & Concepts,14,paradoxical,adjective,/ˌpærəˈdɑksɪkəl/,contradictory,Paradoxical situation.
+C2,24,Ideas & Concepts,15,postulate,verb,/ˈpɑstʃəˌleɪt/,assume,Postulate a theory.
+C2,24,Ideas & Concepts,16,hypothesize,verb,/haɪˈpɑθəˌsaɪz/,theorize,Hypothesize causes.
+C2,24,Ideas & Concepts,17,surmise,verb,/sɚˈmaɪz/,suppose,We can only surmise.
+C2,24,Ideas & Concepts,18,extrapolate,verb,/ɪkˈstræpəˌleɪt/,infer,Extrapolate from data.
+C2,24,Ideas & Concepts,19,synthesize,verb,/ˈsɪnθəˌsaɪz/,combine,Synthesize ideas.
+C2,24,Ideas & Concepts,20,crystallize,verb,/ˈkrɪstəˌlaɪz/,become clear,Ideas crystallized.
+C2,24,Ideas & Concepts,21,conceptualize,verb,/kɑnˈsɛptʃuəˌlaɪz/,form concept,Conceptualize the design.
+C2,24,Ideas & Concepts,22,epitomize,verb,/ɪˈpɪtəˌmaɪz/,exemplify,Epitomize excellence.
+C2,24,Ideas & Concepts,23,encapsulate,verb,/ɪnˈkæpsəˌleɪt/,summarize,Encapsulate the idea.
+C2,24,Ideas & Concepts,24,embody,verb,/ɪmˈbɑdi/,represent,Embody the spirit.
+C2,24,Ideas & Concepts,25,espouse,verb,/ɪˈspaʊz/,adopt,Espouse a cause.
+C2,25,Thoughts & Beliefs,1,conviction,noun,/kənˈvɪkʃən/,firm belief,Deep conviction.
+C2,25,Thoughts & Beliefs,2,tenet,noun,/ˈtɛnɪt/,principle,Religious tenets.
+C2,25,Thoughts & Beliefs,3,dogma,noun,/ˈdɔgmə/,fixed belief,Political dogma.
+C2,25,Thoughts & Beliefs,4,creed,noun,/ˈkrid/,belief system,Personal creed.
+C2,25,Thoughts & Beliefs,5,skepticism,noun,/ˈskɛptɪˌsɪzəm/,doubt,Healthy skepticism.
+C2,25,Thoughts & Beliefs,6,cynicism,noun,/ˈsɪnɪˌsɪzəm/,distrust,Growing cynicism.
+C2,25,Thoughts & Beliefs,7,dogmatic,adjective,/dɔgˈmætɪk/,opinionated,Dogmatic views.
+C2,25,Thoughts & Beliefs,8,skeptical,adjective,/ˈskɛptɪkəl/,doubtful,Skeptical audience.
+C2,25,Thoughts & Beliefs,9,credulous,adjective,/ˈkrɛdʒələs/,too trusting,Credulous believers.
+C2,25,Thoughts & Beliefs,10,dubious,adjective,/ˈdubiəs/,doubtful,Dubious claims.
+C2,25,Thoughts & Beliefs,11,orthodox,adjective,/ˈɔrθəˌdɑks/,conventional,Orthodox views.
+C2,25,Thoughts & Beliefs,12,heretical,adjective,/həˈrɛtɪkəl/,against beliefs,Heretical ideas.
+C2,25,Thoughts & Beliefs,13,conjecture,verb,/kənˈdʒɛktʃɚ/,guess,Only conjecture.
+C2,25,Thoughts & Beliefs,14,surmise,verb,/sɚˈmaɪz/,suppose,I can only surmise.
+C2,25,Thoughts & Beliefs,15,speculate,verb,/ˈspɛkjəˌleɪt/,theorize,Speculate about causes.
+C2,25,Thoughts & Beliefs,16,ponder,verb,/ˈpɑndɚ/,think deeply,Ponder the question.
+C2,25,Thoughts & Beliefs,17,ruminate,verb,/ˈrumɪˌneɪt/,think deeply,Ruminate on problems.
+C2,25,Thoughts & Beliefs,18,muse,verb,/ˈmjuz/,reflect,Mused aloud.
+C2,25,Thoughts & Beliefs,19,contemplate,verb,/ˈkɑntəmˌpleɪt/,consider,Contemplate options.
+C2,25,Thoughts & Beliefs,20,deliberate,verb,/dɪˈlɪbɚˌeɪt/,consider carefully,Deliberate at length.
+C2,25,Thoughts & Beliefs,21,reckon,verb,/ˈrɛkən/,believe,I reckon so.
+C2,25,Thoughts & Beliefs,22,deem,verb,/ˈdim/,consider,Deemed necessary.
+C2,25,Thoughts & Beliefs,23,surmount,verb,/sɚˈmaʊnt/,overcome,Surmount doubts.
+C2,25,Thoughts & Beliefs,24,dispel,verb,/dɪˈspɛl/,drive away,Dispel myths.
+C2,25,Thoughts & Beliefs,25,debunk,verb,/dɪˈbʌŋk/,expose falseness,Debunk theories.
+C2,26,Learning & Cognition,1,erudition,noun,/ˌɛrjəˈdɪʃən/,learning,Show erudition.
+C2,26,Learning & Cognition,2,acumen,noun,/əˈkjumən/,sharpness,Business acumen.
+C2,26,Learning & Cognition,3,discernment,noun,/dɪˈsɜrnmənt/,judgment,Show discernment.
+C2,26,Learning & Cognition,4,perspicacity,noun,/ˌpɜrspɪˈkæsɪti/,keen insight,Remarkable perspicacity.
+C2,26,Learning & Cognition,5,sagacity,noun,/səˈgæsɪti/,wisdom,Political sagacity.
+C2,26,Learning & Cognition,6,cognizance,noun,/ˈkɑgnɪzəns/,awareness,Take cognizance.
+C2,26,Learning & Cognition,7,erudite,adjective,/ˈɛrjəˌdaɪt/,learned,Erudite scholar.
+C2,26,Learning & Cognition,8,perspicacious,adjective,/ˌpɜrspɪˈkeɪʃəs/,perceptive,Perspicacious observer.
+C2,26,Learning & Cognition,9,astute,adjective,/əˈstut/,shrewd,Astute analysis.
+C2,26,Learning & Cognition,10,discerning,adjective,/dɪˈsɜrnɪŋ/,perceptive,Discerning taste.
+C2,26,Learning & Cognition,11,cognizant,adjective,/ˈkɑgnɪzənt/,aware,Fully cognizant.
+C2,26,Learning & Cognition,12,prescient,adjective,/ˈprɛʃənt/,foreseeing,Prescient warning.
+C2,26,Learning & Cognition,13,assimilate,verb,/əˈsɪməˌleɪt/,absorb,Assimilate information.
+C2,26,Learning & Cognition,14,distill,verb,/dɪˈstɪl/,extract essence,Distill ideas.
+C2,26,Learning & Cognition,15,scrutinize,verb,/ˈskrutəˌnaɪz/,examine closely,Scrutinize details.
+C2,26,Learning & Cognition,16,peruse,verb,/pɚˈuz/,read carefully,Peruse the document.
+C2,26,Learning & Cognition,17,fathom,verb,/ˈfæðəm/,understand,Cannot fathom why.
+C2,26,Learning & Cognition,18,ascertain,verb,/ˌæsɚˈteɪn/,find out,Ascertain the facts.
+C2,26,Learning & Cognition,19,discern,verb,/dɪˈsɜrn/,perceive,Discern patterns.
+C2,26,Learning & Cognition,20,glean,verb,/ˈglin/,collect,Glean information.
+C2,26,Learning & Cognition,21,edify,verb,/ˈɛdɪˌfaɪ/,instruct,Edify the audience.
+C2,26,Learning & Cognition,22,inculcate,verb,/ɪnˈkʌlˌkeɪt/,instill,Inculcate values.
+C2,26,Learning & Cognition,23,imbue,verb,/ɪmˈbju/,inspire,Imbued with enthusiasm.
+C2,26,Learning & Cognition,24,pedagogy,noun,/ˈpɛdəˌgoʊdʒi/,teaching,Modern pedagogy.
+C2,26,Learning & Cognition,25,didactic,adjective,/daɪˈdæktɪk/,instructive,Didactic purpose.
+C2,26,Learning & Cognition,26,empirical,adjective,/ɛmˈpɪrɪkəl/,based on observation,Empirical evidence.
+C2,26,Learning & Cognition,27,theoretical,adjective,/ˌθiɚˈɛtɪkəl/,based on theory,Theoretical framework.
+C2,26,Learning & Cognition,28,innate,adjective,/ɪˈneɪt/,inborn,Innate ability.
+C2,26,Learning & Cognition,29,intuitive,adjective,/ɪnˈtuɪtɪv/,instinctive,Intuitive understanding.
+C2,26,Learning & Cognition,30,visceral,adjective,/ˈvɪsɚəl/,instinctive,Visceral reaction.
+C2,27,Judgments & Evaluation,1,appraisal,noun,/əˈpreɪzəl/,assessment,Critical appraisal.
+C2,27,Judgments & Evaluation,2,critique,noun,/krɪˈtik/,detailed analysis,Scholarly critique.
+C2,27,Judgments & Evaluation,3,scrutiny,noun,/ˈskrutəni/,close examination,Under scrutiny.
+C2,27,Judgments & Evaluation,4,arbiter,noun,/ˈɑrbɪtɚ/,judge,Arbiter of taste.
+C2,27,Judgments & Evaluation,5,arbiter,noun,/ˈɑrbɪtɚ/,judge,Arbiter of disputes.
+C2,27,Judgments & Evaluation,6,discerning,adjective,/dɪˈsɜrnɪŋ/,showing judgment,Discerning critic.
+C2,27,Judgments & Evaluation,7,judicious,adjective,/dʒuˈdɪʃəs/,wise,Judicious decision.
+C2,27,Judgments & Evaluation,8,stringent,adjective,/ˈstrɪndʒənt/,strict,Stringent standards.
+C2,27,Judgments & Evaluation,9,exacting,adjective,/ɪgˈzæktɪŋ/,demanding,Exacting requirements.
+C2,27,Judgments & Evaluation,10,meticulous,adjective,/məˈtɪkjələs/,very careful,Meticulous attention.
+C2,27,Judgments & Evaluation,11,assiduous,adjective,/əˈsɪdʒuəs/,diligent,Assiduous effort.
+C2,27,Judgments & Evaluation,12,adjudicate,verb,/əˈdʒudɪˌkeɪt/,judge,Adjudicate disputes.
+C2,27,Judgments & Evaluation,13,arbitrate,verb,/ˈɑrbɪˌtreɪt/,judge,Arbitrate conflicts.
+C2,27,Judgments & Evaluation,14,appraise,verb,/əˈpreɪz/,assess,Appraise value.
+C2,27,Judgments & Evaluation,15,evaluate,verb,/ɪˈvæljuˌeɪt/,assess,Evaluate performance.
+C2,27,Judgments & Evaluation,16,scrutinize,verb,/ˈskrutəˌnaɪz/,examine closely,Scrutinize claims.
+C2,27,Judgments & Evaluation,17,censure,verb,/ˈsɛnʃɚ/,criticize severely,Censure conduct.
+C2,27,Judgments & Evaluation,18,commend,verb,/kəˈmɛnd/,praise,Commend efforts.
+C2,27,Judgments & Evaluation,19,extol,verb,/ɪkˈstoʊl/,praise highly,Extol virtues.
+C2,27,Judgments & Evaluation,20,laud,verb,/ˈlɔd/,praise,Laud achievements.
+C2,27,Judgments & Evaluation,21,deprecate,verb,/ˈdɛprɪˌkeɪt/,express disapproval,Deprecate violence.
+C2,27,Judgments & Evaluation,22,disparage,verb,/dɪˈspærɪdʒ/,belittle,Disparage competitors.
+C2,27,Judgments & Evaluation,23,denigrate,verb,/ˈdɛnɪˌgreɪt/,criticize unfairly,Denigrate reputation.
+C2,27,Judgments & Evaluation,24,impugn,verb,/ɪmˈpjun/,attack integrity,Impugn motives.
+C2,27,Judgments & Evaluation,25,vindicate,verb,/ˈvɪndɪˌkeɪt/,clear of blame,Vindicated by evidence.
+C2,28,Truth & Reality,1,veracity,noun,/vɚˈæsɪti/,truthfulness,Question veracity.
+C2,28,Truth & Reality,2,verisimilitude,noun,/ˌvɛrɪsɪˈmɪlɪˌtud/,appearance of truth,Adds verisimilitude.
+C2,28,Truth & Reality,3,authenticity,noun,/ˌɔθɛnˈtɪsɪti/,genuineness,Verify authenticity.
+C2,28,Truth & Reality,4,validity,noun,/vəˈlɪdɪti/,soundness,Test validity.
+C2,28,Truth & Reality,5,fallacy,noun,/ˈfæləsi/,false reasoning,Logical fallacy.
+C2,28,Truth & Reality,6,veritable,adjective,/ˈvɛrɪtəbəl/,genuine,A veritable feast.
+C2,28,Truth & Reality,7,bona fide,adjective,/ˈboʊnə ˈfaɪd/,genuine,Bona fide expert.
+C2,28,Truth & Reality,8,spurious,adjective,/ˈspjʊriəs/,false,Spurious claims.
+C2,28,Truth & Reality,9,specious,adjective,/ˈspiʃəs/,deceptively attractive,Specious argument.
+C2,28,Truth & Reality,10,fallacious,adjective,/fəˈleɪʃəs/,based on false reasoning,Fallacious logic.
+C2,28,Truth & Reality,11,apocryphal,adjective,/əˈpɑkrɪfəl/,of doubtful authenticity,Apocryphal story.
+C2,28,Truth & Reality,12,tangible,adjective,/ˈtændʒɪbəl/,real,Tangible results.
+C2,28,Truth & Reality,13,substantiate,verb,/səbˈstænʃiˌeɪt/,prove,Substantiate claims.
+C2,28,Truth & Reality,14,corroborate,verb,/kɚˈɑbɚˌeɪt/,confirm,Corroborate testimony.
+C2,28,Truth & Reality,15,validate,verb,/ˈvælɪˌdeɪt/,confirm,Validate findings.
+C2,28,Truth & Reality,16,authenticate,verb,/ɔˈθɛntɪˌkeɪt/,verify,Authenticate documents.
+C2,28,Truth & Reality,17,refute,verb,/rɪˈfjut/,disprove,Refute allegations.
+C2,28,Truth & Reality,18,rebut,verb,/rɪˈbʌt/,argue against,Rebut criticism.
+C2,28,Truth & Reality,19,debunk,verb,/dɪˈbʌŋk/,expose as false,Debunk myths.
+C2,28,Truth & Reality,20,negate,verb,/nɪˈgeɪt/,nullify,Negate the effect.
+C2,28,Truth & Reality,21,contradict,verb,/ˌkɑntrəˈdɪkt/,deny,Contradict testimony.
+C2,28,Truth & Reality,22,repudiate,verb,/rɪˈpjudiˌeɪt/,reject,Repudiate claims.
+C2,28,Truth & Reality,23,recant,verb,/rɪˈkænt/,withdraw,Recant statement.
+C2,28,Truth & Reality,24,retract,verb,/rɪˈtrækt/,take back,Retract comments.
+C2,28,Truth & Reality,25,disavow,verb,/ˌdɪsəˈvaʊ/,deny,Disavow involvement.
+C2,29,Lies & Deception,1,duplicity,noun,/duˈplɪsɪti/,deceitfulness,Political duplicity.
+C2,29,Lies & Deception,2,subterfuge,noun,/ˈsʌbtɚˌfjudʒ/,deceit,Use subterfuge.
+C2,29,Lies & Deception,3,chicanery,noun,/ʃɪˈkeɪnɚi/,trickery,Legal chicanery.
+C2,29,Lies & Deception,4,guile,noun,/ˈgaɪl/,cunning,Full of guile.
+C2,29,Lies & Deception,5,artifice,noun,/ˈɑrtɪfɪs/,clever trick,Resort to artifice.
+C2,29,Lies & Deception,6,ruse,noun,/ˈruz/,trick,A clever ruse.
+C2,29,Lies & Deception,7,charlatan,noun,/ˈʃɑrlətən/,fraud,Exposed as a charlatan.
+C2,29,Lies & Deception,8,surreptitious,adjective,/ˌsɜrəpˈtɪʃəs/,secretive,Surreptitious glance.
+C2,29,Lies & Deception,9,clandestine,adjective,/klænˈdɛstɪn/,secret,Clandestine meeting.
+C2,29,Lies & Deception,10,covert,adjective,/ˈkoʊvɚt/,hidden,Covert operation.
+C2,29,Lies & Deception,11,furtive,adjective,/ˈfɜrtɪv/,stealthy,Furtive looks.
+C2,29,Lies & Deception,12,insidious,adjective,/ɪnˈsɪdiəs/,subtly harmful,Insidious threat.
+C2,29,Lies & Deception,13,disingenuous,adjective,/ˌdɪsɪnˈdʒɛnjuəs/,insincere,Disingenuous remarks.
+C2,29,Lies & Deception,14,beguile,verb,/bɪˈgaɪl/,deceive,Beguiled by charms.
+C2,29,Lies & Deception,15,dupe,verb,/ˈdup/,trick,Duped into believing.
+C2,29,Lies & Deception,16,hoodwink,verb,/ˈhʊˌdwɪŋk/,deceive,Hoodwinked investors.
+C2,29,Lies & Deception,17,bamboozle,verb,/bæmˈbuzəl/,trick,Bamboozled customers.
+C2,29,Lies & Deception,18,delude,verb,/dɪˈlud/,deceive,Delude oneself.
+C2,29,Lies & Deception,19,feign,verb,/ˈfeɪn/,pretend,Feign ignorance.
+C2,29,Lies & Deception,20,dissemble,verb,/dɪˈsɛmbəl/,hide feelings,Dissemble intentions.
+C2,29,Lies & Deception,21,fabricate,verb,/ˈfæbrɪˌkeɪt/,invent falsely,Fabricate evidence.
+C2,29,Lies & Deception,22,falsify,verb,/ˈfɔlsɪˌfaɪ/,make false,Falsify records.
+C2,29,Lies & Deception,23,forge,verb,/ˈfɔrdʒ/,counterfeit,Forge signatures.
+C2,29,Lies & Deception,24,counterfeit,verb,/ˈkaʊntɚˌfɪt/,fake,Counterfeit money.
+C2,29,Lies & Deception,25,plagiarize,verb,/ˈpleɪdʒɚˌaɪz/,copy,Plagiarize work.
+C2,30,Certainty & Fate,1,inevitability,noun,/ɪˌnɛvɪtəˈbɪləti/,unavoidability,Accept inevitability.
+C2,30,Certainty & Fate,2,predestination,noun,/priˌdɛstɪˈneɪʃən/,predetermined fate,Belief in predestination.
+C2,30,Certainty & Fate,3,providence,noun,/ˈprɑvɪdəns/,divine care,Divine providence.
+C2,30,Certainty & Fate,4,kismet,noun,/ˈkɪzˌmɛt/,fate,Called it kismet.
+C2,30,Certainty & Fate,5,destiny,noun,/ˈdɛstəni/,predetermined course,Fulfill destiny.
+C2,30,Certainty & Fate,6,inevitable,adjective,/ɪnˈɛvɪtəbəl/,unavoidable,Inevitable conclusion.
+C2,30,Certainty & Fate,7,inexorable,adjective,/ɪnˈɛksɚəbəl/,unstoppable,Inexorable decline.
+C2,30,Certainty & Fate,8,immutable,adjective,/ɪˈmjutəbəl/,unchangeable,Immutable laws.
+C2,30,Certainty & Fate,9,incontrovertible,adjective,/ˌɪnkɑntrəˈvɜrtɪbəl/,undeniable,Incontrovertible evidence.
+C2,30,Certainty & Fate,10,irrefutable,adjective,/ˌɪrɪˈfjutəbəl/,undeniable,Irrefutable proof.
+C2,30,Certainty & Fate,11,indubitable,adjective,/ɪnˈduːbɪtəbəl/,certain,Indubitable truth.
+C2,30,Certainty & Fate,12,unequivocal,adjective,/ˌʌnɪˈkwɪvəkəl/,clear,Unequivocal response.
+C2,30,Certainty & Fate,13,categorical,adjective,/ˌkætəˈgɔrɪkəl/,absolute,Categorical denial.
+C2,30,Certainty & Fate,14,predestine,verb,/priˈdɛstɪn/,determine beforehand,Predestined to fail.
+C2,30,Certainty & Fate,15,foreordain,verb,/ˌfɔrɔrˈdeɪn/,predetermine,Events foreordained.
+C2,30,Certainty & Fate,16,portend,verb,/pɔrˈtɛnd/,foreshadow,Portend trouble.
+C2,30,Certainty & Fate,17,presage,verb,/ˈprɛsɪdʒ/,foreshadow,Presage disaster.
+C2,30,Certainty & Fate,18,augur,verb,/ˈɔgɚ/,predict,Augur well.
+C2,30,Certainty & Fate,19,bode,verb,/ˈboʊd/,be an omen,Bode ill.
+C2,30,Certainty & Fate,20,foreshadow,verb,/fɔrˈʃædoʊ/,predict,Foreshadow events.
+C2,30,Certainty & Fate,21,herald,verb,/ˈhɛrəld/,announce,Herald change.
+C2,30,Certainty & Fate,22,presume,verb,/prɪˈzum/,assume,Presume innocence.
+C2,30,Certainty & Fate,23,surmise,verb,/sɚˈmaɪz/,guess,Can only surmise.
+C2,30,Certainty & Fate,24,conjecture,verb,/kənˈdʒɛktʃɚ/,speculate,We can conjecture.
+C2,30,Certainty & Fate,25,postulate,verb,/ˈpɑstʃəˌleɪt/,assume,Postulate a theory.
+C2,31,Animal Behavior,1,predator,noun,/ˈprɛdətɚ/,hunter,Natural predator.
+C2,31,Animal Behavior,2,prey,noun,/ˈpreɪ/,hunted animal,Stalk its prey.
+C2,31,Animal Behavior,3,carnivore,noun,/ˈkɑrnɪˌvɔr/,meat-eater,A fierce carnivore.
+C2,31,Animal Behavior,4,herbivore,noun,/ˈhɜrbɪˌvɔr/,plant-eater,Gentle herbivore.
+C2,31,Animal Behavior,5,omnivore,noun,/ˈɑmnɪˌvɔr/,eats everything,Bears are omnivores.
+C2,31,Animal Behavior,6,habitat,noun,/ˈhæbɪˌtæt/,natural home,Natural habitat.
+C2,31,Animal Behavior,7,nocturnal,adjective,/nɑkˈtɜrnəl/,night-active,Nocturnal animals.
+C2,31,Animal Behavior,8,diurnal,adjective,/daɪˈɜrnəl/,day-active,Diurnal creatures.
+C2,31,Animal Behavior,9,migratory,adjective,/ˈmaɪgrəˌtɔri/,moving seasonally,Migratory birds.
+C2,31,Animal Behavior,10,feral,adjective,/ˈfɪrəl/,wild,Feral cats.
+C2,31,Animal Behavior,11,docile,adjective,/ˈdɑsəl/,tame,Docile by nature.
+C2,31,Animal Behavior,12,forage,verb,/ˈfɔrɪdʒ/,search for food,Foraging for berries.
+C2,31,Animal Behavior,13,hibernate,verb,/ˈhaɪbɚˌneɪt/,winter sleep,Bears hibernate.
+C2,31,Animal Behavior,14,migrate,verb,/ˈmaɪˌgreɪt/,move seasonally,Birds migrate south.
+C2,31,Animal Behavior,15,prowl,verb,/ˈpraʊl/,move stealthily,Prowling for prey.
+C2,31,Animal Behavior,16,stalk,verb,/ˈstɔk/,pursue stealthily,Stalk prey silently.
+C2,31,Animal Behavior,17,pounce,verb,/ˈpaʊns/,leap suddenly,Pounce on prey.
+C2,31,Animal Behavior,18,burrow,verb,/ˈbɜroʊ/,dig hole,Rabbits burrow underground.
+C2,31,Animal Behavior,19,camouflage,verb,/ˈkæməˌflɑʒ/,disguise,Camouflage in leaves.
+C2,31,Animal Behavior,20,domesticate,verb,/dəˈmɛstɪˌkeɪt/,tame,Domesticate animals.
+C2,31,Animal Behavior,21,instinct,noun,/ˈɪnstɪŋkt/,innate behavior,Survival instinct.
+C2,31,Animal Behavior,22,pecking,noun,/ˈpɛkɪŋ/,rank order,Pecking order.
+C2,31,Animal Behavior,23,dominance,noun,/ˈdɑmɪnəns/,control,Establish dominance.
+C2,31,Animal Behavior,24,symbiosis,noun,/ˌsɪmbiˈoʊsɪs/,mutual benefit,Perfect symbiosis.
+C2,31,Animal Behavior,25,parasitism,noun,/ˈpærəsɪˌtɪzəm/,one-sided benefit,Example of parasitism.
+C2,32,Wild Animals,1,fauna,noun,/ˈfɔnə/,animal life,Local fauna.
+C2,32,Wild Animals,2,mammal,noun,/ˈmæməl/,warm-blooded animal,Marine mammal.
+C2,32,Wild Animals,3,reptile,noun,/ˈrɛptaɪl/,cold-blooded animal,Desert reptile.
+C2,32,Wild Animals,4,amphibian,noun,/æmˈfɪbiən/,dual-life animal,Endangered amphibian.
+C2,32,Wild Animals,5,primate,noun,/ˈpraɪˌmeɪt/,monkey-like animal,Intelligent primate.
+C2,32,Wild Animals,6,marsupial,noun,/mɑrˈsupiəl/,pouched mammal,Australian marsupial.
+C2,32,Wild Animals,7,rodent,noun,/ˈroʊdənt/,gnawing mammal,Common rodent.
+C2,32,Wild Animals,8,raptor,noun,/ˈræptɚ/,bird of prey,Powerful raptor.
+C2,32,Wild Animals,9,venomous,adjective,/ˈvɛnəməs/,poisonous,Venomous snake.
+C2,32,Wild Animals,10,extinct,adjective,/ɪkˈstɪŋkt/,no longer existing,Extinct species.
+C2,32,Wild Animals,11,endangered,adjective,/ɪnˈdeɪndʒɚd/,at risk,Endangered wildlife.
+C2,32,Wild Animals,12,indigenous,adjective,/ɪnˈdɪdʒənəs/,native,Indigenous species.
+C2,32,Wild Animals,13,aquatic,adjective,/əˈkwætɪk/,water-dwelling,Aquatic creatures.
+C2,32,Wild Animals,14,terrestrial,adjective,/tɚˈɛstriəl/,land-dwelling,Terrestrial species.
+C2,32,Wild Animals,15,arboreal,adjective,/ɑrˈbɔriəl/,tree-dwelling,Arboreal primates.
+C2,32,Wild Animals,16,breed,verb,/ˈbrid/,reproduce,Breed in captivity.
+C2,32,Wild Animals,17,spawn,verb,/ˈspɔn/,produce eggs,Fish spawn upstream.
+C2,32,Wild Animals,18,molt,verb,/ˈmoʊlt/,shed skin,Snakes molt regularly.
+C2,32,Wild Animals,19,slither,verb,/ˈslɪðɚ/,slide,Snakes slither.
+C2,32,Wild Animals,20,lumber,verb,/ˈlʌmbɚ/,move heavily,Bears lumber along.
+C2,32,Wild Animals,21,plumage,noun,/ˈplumɪdʒ/,bird feathers,Colorful plumage.
+C2,32,Wild Animals,22,antler,noun,/ˈæntlɚ/,deer horn,Large antlers.
+C2,32,Wild Animals,23,mane,noun,/ˈmeɪn/,neck hair,Lions mane.
+C2,32,Wild Animals,24,tusk,noun,/ˈtʌsk/,long tooth,Elephant tusks.
+C2,32,Wild Animals,25,claw,noun,/ˈklɔ/,sharp nail,Sharp claws.
+C2,33,Nature & Environment,1,ecosystem,noun,/ˈikoʊˌsɪstəm/,ecological system,Fragile ecosystem.
+C2,33,Nature & Environment,2,biodiversity,noun,/ˌbaɪoʊdaɪˈvɜrsɪti/,variety of life,Rich biodiversity.
+C2,33,Nature & Environment,3,biome,noun,/ˈbaɪˌoʊm/,major habitat,Tropical biome.
+C2,33,Nature & Environment,4,flora,noun,/ˈflɔrə/,plant life,Native flora.
+C2,33,Nature & Environment,5,foliage,noun,/ˈfoʊliɪdʒ/,leaves,Dense foliage.
+C2,33,Nature & Environment,6,canopy,noun,/ˈkænəpi/,treetop layer,Forest canopy.
+C2,33,Nature & Environment,7,verdant,adjective,/ˈvɜrdənt/,green,Verdant valleys.
+C2,33,Nature & Environment,8,lush,adjective,/ˈlʌʃ/,rich growth,Lush vegetation.
+C2,33,Nature & Environment,9,arid,adjective,/ˈærɪd/,dry,Arid climate.
+C2,33,Nature & Environment,10,barren,adjective,/ˈbærən/,unproductive,Barren landscape.
+C2,33,Nature & Environment,11,pristine,adjective,/prɪˈstin/,unspoiled,Pristine wilderness.
+C2,33,Nature & Environment,12,sustainable,adjective,/səˈsteɪnəbəl/,maintainable,Sustainable practices.
+C2,33,Nature & Environment,13,flourish,verb,/ˈflɜrɪʃ/,thrive,Plants flourish.
+C2,33,Nature & Environment,14,germinate,verb,/ˈdʒɜrməˌneɪt/,sprout,Seeds germinate.
+C2,33,Nature & Environment,15,pollinate,verb,/ˈpɑləˌneɪt/,fertilize plants,Bees pollinate.
+C2,33,Nature & Environment,16,erode,verb,/ɪˈroʊd/,wear away,Cliffs erode slowly.
+C2,33,Nature & Environment,17,deplete,verb,/dɪˈplit/,exhaust,Deplete resources.
+C2,33,Nature & Environment,18,replenish,verb,/rɪˈplɛnɪʃ/,refill,Replenish stocks.
+C2,33,Nature & Environment,19,conserve,verb,/kənˈsɜrv/,protect,Conserve water.
+C2,33,Nature & Environment,20,preserve,verb,/prɪˈzɜrv/,maintain,Preserve habitats.
+C2,33,Nature & Environment,21,erosion,noun,/ɪˈroʊʒən/,wearing away,Soil erosion.
+C2,33,Nature & Environment,22,deforestation,noun,/diˌfɔrɪˈsteɪʃən/,tree removal,Stop deforestation.
+C2,33,Nature & Environment,23,desertification,noun,/dɪˌzɜrtɪfɪˈkeɪʃən/,becoming desert,Combat desertification.
+C2,33,Nature & Environment,24,watershed,noun,/ˈwɔtɚˌʃɛd/,drainage area,Protect the watershed.
+C2,33,Nature & Environment,25,aquifer,noun,/ˈækwɪfɚ/,underground water,Underground aquifer.
+C2,33,Nature & Environment,26,estuary,noun,/ˈɛstʃuˌɛri/,river mouth,Coastal estuary.
+C2,33,Nature & Environment,27,tributary,noun,/ˈtrɪbjəˌtɛri/,branch river,Major tributary.
+C2,33,Nature & Environment,28,delta,noun,/ˈdɛltə/,river deposit,River delta.
+C2,33,Nature & Environment,29,tundra,noun,/ˈtʌndrə/,frozen plain,Arctic tundra.
+C2,33,Nature & Environment,30,taiga,noun,/ˈtaɪgə/,boreal forest,Siberian taiga.
+C2,34,Geography & Travel,1,terrain,noun,/tɚˈeɪn/,land type,Rugged terrain.
+C2,34,Geography & Travel,2,topography,noun,/təˈpɑgrəfi/,land features,Varied topography.
+C2,34,Geography & Travel,3,archipelago,noun,/ˌɑrkɪˈpɛləˌgoʊ/,island chain,Pacific archipelago.
+C2,34,Geography & Travel,4,peninsula,noun,/pəˈnɪnsələ/,land projection,Korean peninsula.
+C2,34,Geography & Travel,5,isthmus,noun,/ˈɪsθməs/,narrow land strip,Panama isthmus.
+C2,34,Geography & Travel,6,fjord,noun,/ˈfjɔrd/,sea inlet,Norwegian fjord.
+C2,34,Geography & Travel,7,atoll,noun,/ˈætɔl/,ring island,Coral atoll.
+C2,34,Geography & Travel,8,summit,noun,/ˈsʌmɪt/,peak,Mountain summit.
+C2,34,Geography & Travel,9,ravine,noun,/rəˈvin/,deep valley,Steep ravine.
+C2,34,Geography & Travel,10,gorge,noun,/ˈgɔrdʒ/,narrow valley,Deep gorge.
+C2,34,Geography & Travel,11,precipice,noun,/ˈprɛsɪpɪs/,cliff edge,Sheer precipice.
+C2,34,Geography & Travel,12,crevasse,noun,/krɪˈvæs/,deep crack,Glacier crevasse.
+C2,34,Geography & Travel,13,traverse,verb,/trəˈvɜrs/,cross,Traverse the mountain.
+C2,34,Geography & Travel,14,circumnavigate,verb,/ˌsɜrkəmˈnævɪˌgeɪt/,sail around,Circumnavigate the globe.
+C2,34,Geography & Travel,15,embark,verb,/ɪmˈbɑrk/,begin journey,Embark on adventure.
+C2,34,Geography & Travel,16,disembark,verb,/ˌdɪsɪmˈbɑrk/,leave vessel,Disembark at port.
+C2,34,Geography & Travel,17,sojourn,verb,/ˈsoʊdʒɜrn/,stay temporarily,Sojourn in Paris.
+C2,34,Geography & Travel,18,nomadic,adjective,/noʊˈmædɪk/,wandering,Nomadic tribes.
+C2,34,Geography & Travel,19,itinerant,adjective,/aɪˈtɪnɚənt/,traveling,Itinerant workers.
+C2,34,Geography & Travel,20,peripatetic,adjective,/ˌpɛrɪpəˈtɛtɪk/,wandering,Peripatetic lifestyle.
+C2,34,Geography & Travel,21,treacherous,adjective,/ˈtrɛtʃɚəs/,dangerous,Treacherous roads.
+C2,34,Geography & Travel,22,expedition,noun,/ˌɛkspɪˈdɪʃən/,journey,Arctic expedition.
+C2,34,Geography & Travel,23,odyssey,noun,/ˈɑdɪsi/,long journey,Personal odyssey.
+C2,34,Geography & Travel,24,pilgrimage,noun,/ˈpɪlgrɪmɪdʒ/,sacred journey,Make a pilgrimage.
+C2,34,Geography & Travel,25,wayfarer,noun,/ˈweɪˌfɛrɚ/,traveler,Weary wayfarer.
+C2,35,Liquids & Flow,1,torrent,noun,/ˈtɔrənt/,rushing stream,Torrent of water.
+C2,35,Liquids & Flow,2,deluge,noun,/ˈdɛljudʒ/,flood,A deluge of rain.
+C2,35,Liquids & Flow,3,cascade,noun,/kæˈskeɪd/,waterfall,Water cascade.
+C2,35,Liquids & Flow,4,eddy,noun,/ˈɛdi/,circular current,River eddy.
+C2,35,Liquids & Flow,5,ripple,noun,/ˈrɪpəl/,small wave,Water ripples.
+C2,35,Liquids & Flow,6,viscous,adjective,/ˈvɪskəs/,thick liquid,Viscous fluid.
+C2,35,Liquids & Flow,7,turbulent,adjective,/ˈtɜrbjələnt/,agitated,Turbulent waters.
+C2,35,Liquids & Flow,8,stagnant,adjective,/ˈstægnənt/,not flowing,Stagnant pond.
+C2,35,Liquids & Flow,9,brackish,adjective,/ˈbrækɪʃ/,slightly salty,Brackish water.
+C2,35,Liquids & Flow,10,gush,verb,/ˈgʌʃ/,flow rapidly,Water gushed out.
+C2,35,Liquids & Flow,11,spurt,verb,/ˈspɜrt/,shoot out,Blood spurted.
+C2,35,Liquids & Flow,12,trickle,verb,/ˈtrɪkəl/,flow slowly,Water trickled.
+C2,35,Liquids & Flow,13,seep,verb,/ˈsip/,ooze through,Water seeped in.
+C2,35,Liquids & Flow,14,percolate,verb,/ˈpɜrkəˌleɪt/,filter through,Coffee percolates.
+C2,35,Liquids & Flow,15,saturate,verb,/ˈsætʃɚˌeɪt/,soak completely,Saturate the soil.
+C2,35,Liquids & Flow,16,inundate,verb,/ˈɪnənˌdeɪt/,flood,Inundated with requests.
+C2,35,Liquids & Flow,17,submerge,verb,/səbˈmɜrdʒ/,plunge under,Submerge in water.
+C2,35,Liquids & Flow,18,immerse,verb,/ɪˈmɜrs/,dip completely,Immerse in liquid.
+C2,35,Liquids & Flow,19,dilute,verb,/daɪˈlut/,make weaker,Dilute the solution.
+C2,35,Liquids & Flow,20,congeal,verb,/kənˈdʒil/,solidify,Blood congealed.
+C2,35,Liquids & Flow,21,coagulate,verb,/koʊˈægjəˌleɪt/,clot,Blood coagulates.
+C2,35,Liquids & Flow,22,evaporate,verb,/ɪˈvæpəˌreɪt/,turn to vapor,Water evaporates.
+C2,35,Liquids & Flow,23,condense,verb,/kənˈdɛns/,become liquid,Steam condenses.
+C2,35,Liquids & Flow,24,distill,verb,/dɪˈstɪl/,purify by heating,Distill water.
+C2,35,Liquids & Flow,25,precipitate,verb,/prɪˈsɪpɪˌteɪt/,cause to fall,Clouds precipitate rain.
+C2,36,Materials & Properties,1,alloy,noun,/ˈælɔɪ/,metal mixture,Steel alloy.
+C2,36,Materials & Properties,2,polymer,noun,/ˈpɑlɪmɚ/,large molecule,Synthetic polymer.
+C2,36,Materials & Properties,3,composite,noun,/kəmˈpɑzɪt/,combined material,Carbon composite.
+C2,36,Materials & Properties,4,substrate,noun,/ˈsʌbˌstreɪt/,base layer,Apply to substrate.
+C2,36,Materials & Properties,5,residue,noun,/ˈrɛzɪˌdu/,remaining matter,Remove residue.
+C2,36,Materials & Properties,6,malleable,adjective,/ˈmæliəbəl/,easily shaped,Malleable metal.
+C2,36,Materials & Properties,7,pliable,adjective,/ˈplaɪəbəl/,bendable,Pliable material.
+C2,36,Materials & Properties,8,brittle,adjective,/ˈbrɪtəl/,easily broken,Brittle bones.
+C2,36,Materials & Properties,9,porous,adjective,/ˈpɔrəs/,having holes,Porous surface.
+C2,36,Materials & Properties,10,inert,adjective,/ɪˈnɜrt/,chemically inactive,Inert gas.
+C2,36,Materials & Properties,11,corrosive,adjective,/kɚˈoʊsɪv/,damaging,Corrosive acid.
+C2,36,Materials & Properties,12,abrasive,adjective,/əˈbreɪsɪv/,rough,Abrasive surface.
+C2,36,Materials & Properties,13,temper,verb,/ˈtɛmpɚ/,strengthen,Temper steel.
+C2,36,Materials & Properties,14,anneal,verb,/əˈnil/,heat-treat,Anneal the metal.
+C2,36,Materials & Properties,15,forge,verb,/ˈfɔrdʒ/,shape by heating,Forge iron.
+C2,36,Materials & Properties,16,weld,verb,/ˈwɛld/,join metals,Weld together.
+C2,36,Materials & Properties,17,solder,verb,/ˈsɑdɚ/,join with alloy,Solder wires.
+C2,36,Materials & Properties,18,corrode,verb,/kəˈroʊd/,rust away,Metal corrodes.
+C2,36,Materials & Properties,19,oxidize,verb,/ˈɑksɪˌdaɪz/,combine with oxygen,Iron oxidizes.
+C2,36,Materials & Properties,20,calcify,verb,/ˈkælsɪˌfaɪ/,harden,Arteries calcify.
+C2,36,Materials & Properties,21,petrify,verb,/ˈpɛtrɪˌfaɪ/,turn to stone,Petrified wood.
+C2,36,Materials & Properties,22,crystallize,verb,/ˈkrɪstəˌlaɪz/,form crystals,Sugar crystallizes.
+C2,36,Materials & Properties,23,disintegrate,verb,/dɪsˈɪntɪˌgreɪt/,break apart,Material disintegrates.
+C2,36,Materials & Properties,24,decompose,verb,/ˌdikəmˈpoʊz/,rot,Leaves decompose.
+C2,36,Materials & Properties,25,synthesize,verb,/ˈsɪnθəˌsaɪz/,create artificially,Synthesize compounds.
+C2,37,Buildings & Architecture,1,edifice,noun,/ˈɛdɪfɪs/,imposing building,Grand edifice.
+C2,37,Buildings & Architecture,2,spire,noun,/ˈspaɪɚ/,pointed top,Church spire.
+C2,37,Buildings & Architecture,3,cupola,noun,/ˈkjupələ/,dome,Building cupola.
+C2,37,Buildings & Architecture,4,portico,noun,/ˈpɔrtɪˌkoʊ/,covered entrance,Grand portico.
+C2,37,Buildings & Architecture,5,colonnade,noun,/ˌkɑləˈneɪd/,row of columns,Marble colonnade.
+C2,37,Buildings & Architecture,6,buttress,noun,/ˈbʌtrɪs/,support structure,Flying buttress.
+C2,37,Buildings & Architecture,7,gargoyle,noun,/ˈgɑrˌgɔɪl/,carved figure,Stone gargoyle.
+C2,37,Buildings & Architecture,8,baroque,adjective,/bɚˈoʊk/,ornate style,Baroque architecture.
+C2,37,Buildings & Architecture,9,neoclassical,adjective,/ˌnioʊˈklæsɪkəl/,classical revival,Neoclassical design.
+C2,37,Buildings & Architecture,10,gothic,adjective,/ˈgɑθɪk/,medieval style,Gothic cathedral.
+C2,37,Buildings & Architecture,11,modernist,adjective,/ˈmɑdɚnɪst/,modern style,Modernist building.
+C2,37,Buildings & Architecture,12,minimalist,adjective,/ˈmɪnɪməlɪst/,simple style,Minimalist design.
+C2,37,Buildings & Architecture,13,erect,verb,/ɪˈrɛkt/,build,Erect a monument.
+C2,37,Buildings & Architecture,14,demolish,verb,/dɪˈmɑlɪʃ/,tear down,Demolish old buildings.
+C2,37,Buildings & Architecture,15,renovate,verb,/ˈrɛnəˌveɪt/,restore,Renovate the house.
+C2,37,Buildings & Architecture,16,refurbish,verb,/riˈfɜrbɪʃ/,redecorate,Refurbish the office.
+C2,37,Buildings & Architecture,17,retrofit,verb,/ˈrɛtroʊˌfɪt/,upgrade,Retrofit older buildings.
+C2,37,Buildings & Architecture,18,dwelling,noun,/ˈdwɛlɪŋ/,residence,Modest dwelling.
+C2,37,Buildings & Architecture,19,abode,noun,/əˈboʊd/,home,Humble abode.
+C2,37,Buildings & Architecture,20,domicile,noun,/ˈdɑmɪˌsaɪl/,residence,Legal domicile.
+C2,37,Buildings & Architecture,21,tenement,noun,/ˈtɛnɪmənt/,apartment building,Old tenement.
+C2,37,Buildings & Architecture,22,rampart,noun,/ˈræmpɑrt/,defensive wall,Castle rampart.
+C2,37,Buildings & Architecture,23,citadel,noun,/ˈsɪtədəl/,fortress,Ancient citadel.
+C2,37,Buildings & Architecture,24,bastion,noun,/ˈbæstʃən/,stronghold,Bastion of freedom.
+C2,37,Buildings & Architecture,25,pinnacle,noun,/ˈpɪnɪkəl/,peak feature,Ornate pinnacles.
+C2,38,Research & Study,1,hypothesis,noun,/haɪˈpɑθəsɪs/,proposed explanation,Test hypothesis.
+C2,38,Research & Study,2,methodology,noun,/ˌmɛθəˈdɑlədʒi/,research method,Research methodology.
+C2,38,Research & Study,3,empirical,adjective,/ɛmˈpɪrɪkəl/,based on observation,Empirical data.
+C2,38,Research & Study,4,qualitative,adjective,/ˈkwɑlɪˌteɪtɪv/,descriptive,Qualitative analysis.
+C2,38,Research & Study,5,quantitative,adjective,/ˈkwɑntɪˌteɪtɪv/,numerical,Quantitative data.
+C2,38,Research & Study,6,rigorous,adjective,/ˈrɪgɚəs/,thorough,Rigorous testing.
+C2,38,Research & Study,7,longitudinal,adjective,/ˌlɑndʒɪˈtudnəl/,over time,Longitudinal study.
+C2,38,Research & Study,8,hypothesize,verb,/haɪˈpɑθəˌsaɪz/,propose,Scientists hypothesize.
+C2,38,Research & Study,9,postulate,verb,/ˈpɑstʃəˌleɪt/,assume,Postulate a theory.
+C2,38,Research & Study,10,corroborate,verb,/kɚˈɑbəˌreɪt/,confirm,Corroborate findings.
+C2,38,Research & Study,11,replicate,verb,/ˈrɛplɪˌkeɪt/,repeat,Replicate results.
+C2,38,Research & Study,12,extrapolate,verb,/ɪkˈstræpəˌleɪt/,extend,Extrapolate from data.
+C2,38,Research & Study,13,interpolate,verb,/ɪnˈtɜrpəˌleɪt/,estimate between,Interpolate values.
+C2,38,Research & Study,14,calibrate,verb,/ˈkæləˌbreɪt/,adjust precisely,Calibrate instruments.
+C2,38,Research & Study,15,synthesize,verb,/ˈsɪnθəˌsaɪz/,combine,Synthesize findings.
+C2,38,Research & Study,16,dissertation,noun,/ˌdɪsɚˈteɪʃən/,thesis,Doctoral dissertation.
+C2,38,Research & Study,17,treatise,noun,/ˈtritɪs/,formal essay,Write a treatise.
+C2,38,Research & Study,18,monograph,noun,/ˈmɑnəˌgræf/,specialized study,Academic monograph.
+C2,38,Research & Study,19,peer-review,noun,/ˈpɪr rɪˌvju/,expert evaluation,Peer-review process.
+C2,38,Research & Study,20,citation,noun,/saɪˈteɪʃən/,reference,Proper citation.
+C2,38,Research & Study,21,abstract,noun,/ˈæbˌstrækt/,summary,Paper abstract.
+C2,38,Research & Study,22,appendix,noun,/əˈpɛndɪks/,supplement,In the appendix.
+C2,38,Research & Study,23,bibliography,noun,/ˌbɪbliˈɑgrəfi/,source list,Include bibliography.
+C2,38,Research & Study,24,specimen,noun,/ˈspɛsɪmən/,sample,Collect specimens.
+C2,38,Research & Study,25,variable,noun,/ˈvɛriəbəl/,changing factor,Control variables.
+C2,39,Planning & Strategy,1,stratagem,noun,/ˈstrætədʒəm/,clever scheme,Military stratagem.
+C2,39,Planning & Strategy,2,gambit,noun,/ˈgæmbɪt/,opening move,Bold gambit.
+C2,39,Planning & Strategy,3,ploy,noun,/ˈplɔɪ/,maneuver,Marketing ploy.
+C2,39,Planning & Strategy,4,contingency,noun,/kənˈtɪndʒənsi/,possible event,Contingency plan.
+C2,39,Planning & Strategy,5,blueprint,noun,/ˈbluˌprɪnt/,plan,Blueprint for success.
+C2,39,Planning & Strategy,6,tactical,adjective,/ˈtæktɪkəl/,strategic,Tactical decision.
+C2,39,Planning & Strategy,7,methodical,adjective,/məˈθɑdɪkəl/,systematic,Methodical approach.
+C2,39,Planning & Strategy,8,premeditated,adjective,/priˈmɛdɪˌteɪtɪd/,planned,Premeditated action.
+C2,39,Planning & Strategy,9,orchestrate,verb,/ˈɔrkɪˌstreɪt/,arrange,Orchestrate events.
+C2,39,Planning & Strategy,10,mastermind,verb,/ˈmæstɚˌmaɪnd/,plan cleverly,Mastermind the scheme.
+C2,39,Planning & Strategy,11,devise,verb,/dɪˈvaɪz/,invent,Devise a plan.
+C2,39,Planning & Strategy,12,formulate,verb,/ˈfɔrmjəˌleɪt/,develop,Formulate strategy.
+C2,39,Planning & Strategy,13,implement,verb,/ˈɪmpləˌmɛnt/,put into action,Implement changes.
+C2,39,Planning & Strategy,14,execute,verb,/ˈɛksɪˌkjut/,carry out,Execute the plan.
+C2,39,Planning & Strategy,15,coordinate,verb,/koʊˈɔrdənˌeɪt/,organize,Coordinate efforts.
+C2,39,Planning & Strategy,16,prioritize,verb,/praɪˈɔrɪˌtaɪz/,rank,Prioritize tasks.
+C2,39,Planning & Strategy,17,calibrate,verb,/ˈkæləˌbreɪt/,fine-tune,Calibrate the approach.
+C2,39,Planning & Strategy,18,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline operations.
+C2,39,Planning & Strategy,19,optimize,verb,/ˈɑptɪˌmaɪz/,improve,Optimize performance.
+C2,39,Planning & Strategy,20,anticipate,verb,/ænˈtɪsɪˌpeɪt/,expect,Anticipate problems.
+C2,39,Planning & Strategy,21,foresee,verb,/fɔrˈsi/,predict,Foresee difficulties.
+C2,39,Planning & Strategy,22,preempt,verb,/priˈɛmpt/,prevent,Preempt objections.
+C2,39,Planning & Strategy,23,outmaneuver,verb,/ˌaʊtməˈnuvɚ/,outdo,Outmaneuver rivals.
+C2,39,Planning & Strategy,24,circumvent,verb,/ˌsɜrkəmˈvɛnt/,avoid,Circumvent obstacles.
+C2,39,Planning & Strategy,25,thwart,verb,/ˈθwɔrt/,prevent,Thwart competitors.
+C2,40,Systems & Methods,1,paradigm,noun,/ˈpærəˌdaɪm/,model,New paradigm.
+C2,40,Systems & Methods,2,protocol,noun,/ˈproʊtəˌkɑl/,procedure,Follow protocol.
+C2,40,Systems & Methods,3,algorithm,noun,/ˈælgəˌrɪðəm/,step-by-step process,Search algorithm.
+C2,40,Systems & Methods,4,heuristic,noun,/hjʊˈrɪstɪk/,rule of thumb,Apply heuristics.
+C2,40,Systems & Methods,5,framework,noun,/ˈfreɪmˌwɜrk/,structure,Theoretical framework.
+C2,40,Systems & Methods,6,systematic,adjective,/ˌsɪstəˈmætɪk/,methodical,Systematic approach.
+C2,40,Systems & Methods,7,holistic,adjective,/hoʊˈlɪstɪk/,comprehensive,Holistic view.
+C2,40,Systems & Methods,8,iterative,adjective,/ˈɪtɚˌeɪtɪv/,repetitive,Iterative process.
+C2,40,Systems & Methods,9,modular,adjective,/ˈmɑdʒəlɚ/,component-based,Modular design.
+C2,40,Systems & Methods,10,scalable,adjective,/ˈskeɪləbəl/,expandable,Scalable solution.
+C2,40,Systems & Methods,11,implement,verb,/ˈɪmpləˌmɛnt/,put into effect,Implement the system.
+C2,40,Systems & Methods,12,integrate,verb,/ˈɪntəˌgreɪt/,combine,Integrate systems.
+C2,40,Systems & Methods,13,synchronize,verb,/ˈsɪŋkrəˌnaɪz/,coordinate,Synchronize processes.
+C2,40,Systems & Methods,14,standardize,verb,/ˈstændɚˌdaɪz/,make uniform,Standardize procedures.
+C2,40,Systems & Methods,15,automate,verb,/ˈɔtəˌmeɪt/,make automatic,Automate tasks.
+C2,40,Systems & Methods,16,reconfigure,verb,/ˌrikənˈfɪgjɚ/,rearrange,Reconfigure settings.
+C2,40,Systems & Methods,17,overhaul,verb,/ˈoʊvɚˌhɔl/,renovate,Overhaul the system.
+C2,40,Systems & Methods,18,interface,noun,/ˈɪntɚˌfeɪs/,connection point,User interface.
+C2,40,Systems & Methods,19,infrastructure,noun,/ˈɪnfrəˌstrʌktʃɚ/,basic systems,National infrastructure.
+C2,40,Systems & Methods,20,hierarchy,noun,/ˈhaɪɚˌɑrki/,ranking system,Corporate hierarchy.
+C2,40,Systems & Methods,21,taxonomy,noun,/tækˈsɑnəmi/,classification system,Biological taxonomy.
+C2,40,Systems & Methods,22,matrix,noun,/ˈmeɪtrɪks/,array,Data matrix.
+C2,40,Systems & Methods,23,parameter,noun,/pɚˈæmɪtɚ/,variable,Set parameters.
+C2,40,Systems & Methods,24,benchmark,noun,/ˈbɛntʃˌmɑrk/,standard,Industry benchmark.
+C2,40,Systems & Methods,25,metric,noun,/ˈmɛtrɪk/,measurement,Performance metrics.
+C2,41,Processes & Changes,1,metamorphosis,noun,/ˌmɛtəˈmɔrfəsɪs/,transformation,Complete metamorphosis.
+C2,41,Processes & Changes,2,transmutation,noun,/ˌtrænzmjuˈteɪʃən/,change in form,Alchemical transmutation.
+C2,41,Processes & Changes,3,permutation,noun,/ˌpɜrmjuˈteɪʃən/,variation,Various permutations.
+C2,41,Processes & Changes,4,flux,noun,/ˈflʌks/,continuous change,In a state of flux.
+C2,41,Processes & Changes,5,volatile,adjective,/ˈvɑlətəl/,unstable,Volatile market.
+C2,41,Processes & Changes,6,transient,adjective,/ˈtrænʒənt/,temporary,Transient phase.
+C2,41,Processes & Changes,7,nascent,adjective,/ˈneɪsənt/,emerging,Nascent industry.
+C2,41,Processes & Changes,8,incipient,adjective,/ɪnˈsɪpiənt/,beginning,Incipient stages.
+C2,41,Processes & Changes,9,metamorphose,verb,/ˌmɛtəˈmɔrˌfoʊz/,transform,Metamorphose into.
+C2,41,Processes & Changes,10,transmute,verb,/trænsˈmjut/,change form,Transmute base metals.
+C2,41,Processes & Changes,11,mutate,verb,/ˈmjuˌteɪt/,change genetically,Viruses mutate.
+C2,41,Processes & Changes,12,evolve,verb,/ɪˈvɑlv/,develop gradually,Species evolve.
+C2,41,Processes & Changes,13,regress,verb,/rɪˈgrɛs/,go back,Regress to earlier state.
+C2,41,Processes & Changes,14,deteriorate,verb,/dɪˈtɪriɚˌeɪt/,worsen,Conditions deteriorate.
+C2,41,Processes & Changes,15,atrophy,verb,/ˈætrəfi/,waste away,Muscles atrophy.
+C2,41,Processes & Changes,16,stagnate,verb,/ˈstægˌneɪt/,become inactive,Economy stagnates.
+C2,41,Processes & Changes,17,ossify,verb,/ˈɑsɪˌfaɪ/,become rigid,Attitudes ossify.
+C2,41,Processes & Changes,18,coalesce,verb,/ˌkoʊəˈlɛs/,merge,Ideas coalesce.
+C2,41,Processes & Changes,19,amalgamate,verb,/əˈmælgəˌmeɪt/,combine,Amalgamate companies.
+C2,41,Processes & Changes,20,bifurcate,verb,/ˈbaɪfɚˌkeɪt/,divide into two,The road bifurcates.
+C2,41,Processes & Changes,21,splinter,verb,/ˈsplɪntɚ/,break apart,Party splintered.
+C2,41,Processes & Changes,22,fragment,verb,/ˈfrægˌmɛnt/,break into pieces,Society fragmented.
+C2,41,Processes & Changes,23,disintegrate,verb,/dɪsˈɪntɪˌgreɪt/,break apart,Empire disintegrated.
+C2,41,Processes & Changes,24,regenerate,verb,/riˈdʒɛnəˌreɪt/,renew,Tissue regenerates.
+C2,41,Processes & Changes,25,proliferate,verb,/prəˈlɪfɚˌeɪt/,multiply,Cells proliferate.
+C2,42,Cause & Effect,1,catalyst,noun,/ˈkætəlɪst/,trigger,Catalyst for change.
+C2,42,Cause & Effect,2,impetus,noun,/ˈɪmpɪtəs/,driving force,Provide impetus.
+C2,42,Cause & Effect,3,ramification,noun,/ˌræmɪfɪˈkeɪʃən/,consequence,Far-reaching ramifications.
+C2,42,Cause & Effect,4,repercussion,noun,/ˌripɚˈkʌʃən/,aftereffect,Serious repercussions.
+C2,42,Cause & Effect,5,causative,adjective,/ˈkɔzətɪv/,causing,Causative factors.
+C2,42,Cause & Effect,6,consequential,adjective,/ˌkɑnsɪˈkwɛnʃəl/,significant,Consequential decision.
+C2,42,Cause & Effect,7,precipitate,verb,/prɪˈsɪpɪˌteɪt/,cause suddenly,Precipitate a crisis.
+C2,42,Cause & Effect,8,catalyze,verb,/ˈkætəˌlaɪz/,trigger,Catalyze change.
+C2,42,Cause & Effect,9,engender,verb,/ɪnˈdʒɛndɚ/,cause,Engender trust.
+C2,42,Cause & Effect,10,spawn,verb,/ˈspɔn/,produce,Spawn new ideas.
+C2,42,Cause & Effect,11,elicit,verb,/ɪˈlɪsɪt/,draw out,Elicit a response.
+C2,42,Cause & Effect,12,provoke,verb,/prəˈvoʊk/,cause,Provoke a reaction.
+C2,42,Cause & Effect,13,instigate,verb,/ˈɪnstɪˌgeɪt/,start,Instigate trouble.
+C2,42,Cause & Effect,14,incite,verb,/ɪnˈsaɪt/,stir up,Incite violence.
+C2,42,Cause & Effect,15,foment,verb,/foʊˈmɛnt/,promote,Foment unrest.
+C2,42,Cause & Effect,16,exacerbate,verb,/ɪgˈzæsɚˌbeɪt/,worsen,Exacerbate problems.
+C2,42,Cause & Effect,17,aggravate,verb,/ˈægɹəˌveɪt/,make worse,Aggravate the situation.
+C2,42,Cause & Effect,18,mitigate,verb,/ˈmɪtɪˌgeɪt/,lessen,Mitigate damage.
+C2,42,Cause & Effect,19,offset,verb,/ˈɔfˌsɛt/,counterbalance,Offset losses.
+C2,42,Cause & Effect,20,counteract,verb,/ˌkaʊntɚˈækt/,neutralize,Counteract effects.
+C2,42,Cause & Effect,21,negate,verb,/nɪˈgeɪt/,nullify,Negate benefits.
+C2,42,Cause & Effect,22,neutralize,verb,/ˈnutrəˌlaɪz/,cancel out,Neutralize threats.
+C2,42,Cause & Effect,23,obviate,verb,/ˈɑbviˌeɪt/,prevent,Obviate the need.
+C2,42,Cause & Effect,24,preclude,verb,/prɪˈklud/,prevent,Preclude possibility.
+C2,42,Cause & Effect,25,avert,verb,/əˈvɜrt/,prevent,Avert disaster.
+C2,43,Money & Economy,1,capital,noun,/ˈkæpɪtəl/,wealth,Raise capital.
+C2,43,Money & Economy,2,liquidity,noun,/lɪˈkwɪdəti/,cash availability,Improve liquidity.
+C2,43,Money & Economy,3,solvency,noun,/ˈsɑlvənsi/,ability to pay,Question solvency.
+C2,43,Money & Economy,4,insolvency,noun,/ɪnˈsɑlvənsi/,bankruptcy,Face insolvency.
+C2,43,Money & Economy,5,equity,noun,/ˈɛkwɪti/,ownership value,Home equity.
+C2,43,Money & Economy,6,dividend,noun,/ˈdɪvɪˌdɛnd/,share profit,Pay dividends.
+C2,43,Money & Economy,7,lucrative,adjective,/ˈlukrətɪv/,profitable,Lucrative deal.
+C2,43,Money & Economy,8,solvent,adjective,/ˈsɑlvənt/,able to pay,Remain solvent.
+C2,43,Money & Economy,9,affluent,adjective,/ˈæfluənt/,wealthy,Affluent neighborhood.
+C2,43,Money & Economy,10,indigent,adjective,/ˈɪndɪdʒənt/,very poor,Help the indigent.
+C2,43,Money & Economy,11,pecuniary,adjective,/pɪˈkjuniˌɛri/,financial,Pecuniary interests.
+C2,43,Money & Economy,12,amass,verb,/əˈmæs/,accumulate,Amass wealth.
+C2,43,Money & Economy,13,accrue,verb,/əˈkru/,accumulate,Interest accrues.
+C2,43,Money & Economy,14,liquidate,verb,/ˈlɪkwɪˌdeɪt/,convert to cash,Liquidate assets.
+C2,43,Money & Economy,15,divest,verb,/daɪˈvɛst/,sell off,Divest holdings.
+C2,43,Money & Economy,16,remunerate,verb,/rɪˈmjunəˌreɪt/,pay,Remunerate fairly.
+C2,43,Money & Economy,17,reimburse,verb,/ˌriɪmˈbɜrs/,repay,Reimburse expenses.
+C2,43,Money & Economy,18,subsidize,verb,/ˈsʌbsɪˌdaɪz/,support financially,Subsidize farmers.
+C2,43,Money & Economy,19,depreciate,verb,/dɪˈpriʃiˌeɪt/,decrease value,Cars depreciate.
+C2,43,Money & Economy,20,appreciate,verb,/əˈpriʃiˌeɪt/,increase value,Property appreciates.
+C2,43,Money & Economy,21,embargo,noun,/ɪmˈbɑrgoʊ/,trade ban,Trade embargo.
+C2,43,Money & Economy,22,tariff,noun,/ˈtærɪf/,import tax,Import tariffs.
+C2,43,Money & Economy,23,subsidy,noun,/ˈsʌbsɪdi/,financial aid,Government subsidy.
+C2,43,Money & Economy,24,collateral,noun,/kəˈlætɚəl/,security,Loan collateral.
+C2,43,Money & Economy,25,foreclosure,noun,/fɔrˈkloʊʒɚ/,property seizure,Face foreclosure.
+C2,43,Money & Economy,26,arbitrage,noun,/ˈɑrbɪˌtrɑʒ/,profit from price difference,Currency arbitrage.
+C2,43,Money & Economy,27,windfall,noun,/ˈwɪndˌfɔl/,unexpected gain,Financial windfall.
+C2,43,Money & Economy,28,debacle,noun,/dɪˈbɑkəl/,disaster,Financial debacle.
+C2,43,Money & Economy,29,bailout,noun,/ˈbeɪˌlaʊt/,rescue,Bank bailout.
+C2,43,Money & Economy,30,austerity,noun,/ɔˈstɛrɪti/,economic restriction,Austerity measures.
+C2,44,Technology & Innovation,1,innovation,noun,/ˌɪnəˈveɪʃən/,new idea,Technological innovation.
+C2,44,Technology & Innovation,2,paradigm,noun,/ˈpærəˌdaɪm/,model,Paradigm shift.
+C2,44,Technology & Innovation,3,obsolescence,noun,/ˌɑbsəˈlɛsəns/,becoming outdated,Planned obsolescence.
+C2,44,Technology & Innovation,4,cutting-edge,adjective,/ˈkʌtɪŋˌɛdʒ/,advanced,Cutting-edge technology.
+C2,44,Technology & Innovation,5,state-of-the-art,adjective,/ˌsteɪtəvðiˈɑrt/,most modern,State-of-the-art equipment.
+C2,44,Technology & Innovation,6,obsolete,adjective,/ˌɑbsəˈlit/,outdated,Obsolete technology.
+C2,44,Technology & Innovation,7,pioneering,adjective,/ˌpaɪəˈnɪrɪŋ/,innovative,Pioneering research.
+C2,44,Technology & Innovation,8,innovate,verb,/ˈɪnəˌveɪt/,create new,Constantly innovate.
+C2,44,Technology & Innovation,9,pioneer,verb,/ˌpaɪəˈnɪr/,lead,Pioneer new methods.
+C2,44,Technology & Innovation,10,revolutionize,verb,/ˌrɛvəˈluʃəˌnaɪz/,transform,Revolutionize the industry.
+C2,44,Technology & Innovation,11,digitize,verb,/ˈdɪdʒɪˌtaɪz/,convert to digital,Digitize records.
+C2,44,Technology & Innovation,12,automate,verb,/ˈɔtəˌmeɪt/,make automatic,Automate processes.
+C2,44,Technology & Innovation,13,streamline,verb,/ˈstrimˌlaɪn/,make efficient,Streamline operations.
+C2,44,Technology & Innovation,14,optimize,verb,/ˈɑptɪˌmaɪz/,improve,Optimize performance.
+C2,44,Technology & Innovation,15,prototype,verb,/ˈproʊtəˌtaɪp/,create model,Prototype the design.
+C2,44,Technology & Innovation,16,iterate,verb,/ˈɪtəˌreɪt/,repeat,Iterate designs.
+C2,44,Technology & Innovation,17,calibrate,verb,/ˈkæləˌbreɪt/,adjust precisely,Calibrate instruments.
+C2,44,Technology & Innovation,18,algorithm,noun,/ˈælgəˌrɪðəm/,process,Complex algorithm.
+C2,44,Technology & Innovation,19,interface,noun,/ˈɪntɚˌfeɪs/,connection,User interface.
+C2,44,Technology & Innovation,20,bandwidth,noun,/ˈbændˌwɪdθ/,data capacity,Limited bandwidth.
+C2,44,Technology & Innovation,21,latency,noun,/ˈleɪtənsi/,delay,Low latency.
+C2,44,Technology & Innovation,22,scalability,noun,/ˌskeɪləˈbɪləti/,expansion ability,System scalability.
+C2,44,Technology & Innovation,23,interoperability,noun,/ˌɪntɚˌɑpɚəˈbɪləti/,compatibility,Ensure interoperability.
+C2,44,Technology & Innovation,24,virtualization,noun,/ˌvɜrtʃuələˈzeɪʃən/,creating virtual version,Server virtualization.
+C2,44,Technology & Innovation,25,encryption,noun,/ɪnˈkrɪpʃən/,data encoding,Data encryption.
+C2,45,Physical Health,1,ailment,noun,/ˈeɪlmənt/,illness,Minor ailment.
+C2,45,Physical Health,2,malady,noun,/ˈmælədi/,disease,Chronic malady.
+C2,45,Physical Health,3,affliction,noun,/əˈflɪkʃən/,suffering,Painful affliction.
+C2,45,Physical Health,4,pathology,noun,/pəˈθɑlədʒi/,disease study,Study pathology.
+C2,45,Physical Health,5,chronic,adjective,/ˈkrɑnɪk/,long-lasting,Chronic condition.
+C2,45,Physical Health,6,acute,adjective,/əˈkjut/,severe,Acute pain.
+C2,45,Physical Health,7,congenital,adjective,/kənˈdʒɛnɪtəl/,from birth,Congenital defect.
+C2,45,Physical Health,8,degenerative,adjective,/dɪˈdʒɛnɚətɪv/,deteriorating,Degenerative disease.
+C2,45,Physical Health,9,debilitating,adjective,/dɪˈbɪlɪˌteɪtɪŋ/,weakening,Debilitating illness.
+C2,45,Physical Health,10,asymptomatic,adjective,/ˌeɪsɪmptəˈmætɪk/,without symptoms,Asymptomatic carrier.
+C2,45,Physical Health,11,afflict,verb,/əˈflɪkt/,cause suffering,Disease afflicts millions.
+C2,45,Physical Health,12,debilitate,verb,/dɪˈbɪlɪˌteɪt/,weaken,Debilitated by illness.
+C2,45,Physical Health,13,incapacitate,verb,/ˌɪnkəˈpæsɪˌteɪt/,disable,Incapacitated by injury.
+C2,45,Physical Health,14,recuperate,verb,/rɪˈkupɚˌeɪt/,recover,Recuperate from surgery.
+C2,45,Physical Health,15,convalesce,verb,/ˌkɑnvəˈlɛs/,recover,Convalesce at home.
+C2,45,Physical Health,16,rehabilitate,verb,/ˌrihəˈbɪlɪˌteɪt/,restore,Rehabilitate patients.
+C2,45,Physical Health,17,inoculate,verb,/ɪˈnɑkjəˌleɪt/,vaccinate,Inoculate against disease.
+C2,45,Physical Health,18,prognosis,noun,/prɑgˈnoʊsɪs/,prediction,Good prognosis.
+C2,45,Physical Health,19,diagnosis,noun,/ˌdaɪəgˈnoʊsɪs/,identification,Accurate diagnosis.
+C2,45,Physical Health,20,symptom,noun,/ˈsɪmptəm/,sign,Common symptoms.
+C2,45,Physical Health,21,remission,noun,/rɪˈmɪʃən/,temporary recovery,Cancer in remission.
+C2,45,Physical Health,22,relapse,noun,/ˈriˌlæps/,return of illness,Suffered a relapse.
+C2,45,Physical Health,23,epidemic,noun,/ˌɛpɪˈdɛmɪk/,widespread disease,Flu epidemic.
+C2,45,Physical Health,24,pandemic,noun,/pænˈdɛmɪk/,global outbreak,Global pandemic.
+C2,45,Physical Health,25,contagion,noun,/kənˈteɪdʒən/,disease spread,Fear of contagion.
+C2,46,Medical Care,1,palliative,adjective,/ˈpæliˌeɪtɪv/,relieving pain,Palliative care.
+C2,46,Medical Care,2,therapeutic,adjective,/ˌθɛrəˈpjutɪk/,healing,Therapeutic benefits.
+C2,46,Medical Care,3,prophylactic,adjective,/ˌproʊfəˈlæktɪk/,preventive,Prophylactic treatment.
+C2,46,Medical Care,4,invasive,adjective,/ɪnˈveɪsɪv/,entering body,Invasive procedure.
+C2,46,Medical Care,5,benign,adjective,/bɪˈnaɪn/,not harmful,Benign tumor.
+C2,46,Medical Care,6,malignant,adjective,/məˈlɪgnənt/,cancerous,Malignant growth.
+C2,46,Medical Care,7,diagnose,verb,/ˈdaɪəgˌnoʊz/,identify,Diagnose the condition.
+C2,46,Medical Care,8,prescribe,verb,/prɪˈskraɪb/,order medicine,Prescribe medication.
+C2,46,Medical Care,9,administer,verb,/ædˈmɪnɪstɚ/,give,Administer medicine.
+C2,46,Medical Care,10,anesthetize,verb,/əˈnɛsθəˌtaɪz/,numb,Anesthetize the patient.
+C2,46,Medical Care,11,resuscitate,verb,/rɪˈsʌsɪˌteɪt/,revive,Resuscitate the patient.
+C2,46,Medical Care,12,intubate,verb,/ˈɪntjuˌbeɪt/,insert tube,Intubate for surgery.
+C2,46,Medical Care,13,cauterize,verb,/ˈkɔtɚˌaɪz/,burn to heal,Cauterize the wound.
+C2,46,Medical Care,14,suture,verb,/ˈsutʃɚ/,stitch,Suture the incision.
+C2,46,Medical Care,15,biopsy,noun,/ˈbaɪˌɑpsi/,tissue sample,Perform a biopsy.
+C2,46,Medical Care,16,anesthesia,noun,/ˌænɪsˈθiʒə/,numbness,Under anesthesia.
+C2,46,Medical Care,17,dosage,noun,/ˈdoʊsɪdʒ/,medicine amount,Correct dosage.
+C2,46,Medical Care,18,regimen,noun,/ˈrɛdʒɪmən/,treatment plan,Strict regimen.
+C2,46,Medical Care,19,contraindication,noun,/ˌkɑntrəˌɪndɪˈkeɪʃən/,reason not to use,No contraindications.
+C2,46,Medical Care,20,triage,noun,/triˈɑʒ/,priority sorting,Emergency triage.
+C2,46,Medical Care,21,transplant,noun,/ˈtrænsˌplænt/,organ transfer,Heart transplant.
+C2,46,Medical Care,22,prosthesis,noun,/prɑsˈθisɪs/,artificial limb,Fitted with prosthesis.
+C2,46,Medical Care,23,implant,noun,/ˈɪmˌplænt/,inserted device,Dental implant.
+C2,46,Medical Care,24,catheter,noun,/ˈkæθɪtɚ/,tube device,Insert catheter.
+C2,46,Medical Care,25,defibrillator,noun,/diˈfɪbrɪˌleɪtɚ/,heart device,Use defibrillator.
+C2,47,Art & Creativity,1,aesthetic,noun,/ɛsˈθɛtɪk/,artistic principle,Modern aesthetic.
+C2,47,Art & Creativity,2,virtuoso,noun,/ˌvɜrtʃuˈoʊsoʊ/,master performer,Piano virtuoso.
+C2,47,Art & Creativity,3,prodigy,noun,/ˈprɑdɪdʒi/,gifted child,Musical prodigy.
+C2,47,Art & Creativity,4,magnum opus,noun,/ˌmægnəm ˈoʊpəs/,masterpiece,His magnum opus.
+C2,47,Art & Creativity,5,oeuvre,noun,/ˈœvrə/,body of work,His entire oeuvre.
+C2,47,Art & Creativity,6,evocative,adjective,/ɪˈvɑkətɪv/,suggestive,Evocative imagery.
+C2,47,Art & Creativity,7,avant-garde,adjective,/ˌævɑntˈgɑrd/,experimental,Avant-garde art.
+C2,47,Art & Creativity,8,kitsch,adjective,/ˈkɪtʃ/,tasteless art,Kitsch decorations.
+C2,47,Art & Creativity,9,sublime,adjective,/səˈblaɪm/,awe-inspiring,Sublime beauty.
+C2,47,Art & Creativity,10,whimsical,adjective,/ˈwɪmzɪkəl/,playfully fanciful,Whimsical design.
+C2,47,Art & Creativity,11,evoke,verb,/ɪˈvoʊk/,bring to mind,Evoke emotions.
+C2,47,Art & Creativity,12,conjure,verb,/ˈkɑndʒɚ/,bring to mind,Conjure images.
+C2,47,Art & Creativity,13,imbue,verb,/ɪmˈbju/,inspire,Imbued with meaning.
+C2,47,Art & Creativity,14,render,verb,/ˈrɛndɚ/,depict,Render in oils.
+C2,47,Art & Creativity,15,sculpt,verb,/ˈskʌlpt/,carve,Sculpt in marble.
+C2,47,Art & Creativity,16,improvise,verb,/ˈɪmprəˌvaɪz/,create spontaneously,Improvise a solo.
+C2,47,Art & Creativity,17,inspiration,noun,/ˌɪnspɪˈreɪʃən/,creative stimulus,Find inspiration.
+C2,47,Art & Creativity,18,muse,noun,/ˈmjuz/,inspiration source,His artistic muse.
+C2,47,Art & Creativity,19,repertoire,noun,/ˈrɛpɚˌtwɑr/,range of works,Extensive repertoire.
+C2,47,Art & Creativity,20,motif,noun,/moʊˈtif/,recurring theme,Floral motif.
+C2,47,Art & Creativity,21,tableau,noun,/tæˈbloʊ/,scene,Vivid tableau.
+C2,47,Art & Creativity,22,pastiche,noun,/pæˈstiʃ/,imitation,Artistic pastiche.
+C2,47,Art & Creativity,23,medium,noun,/ˈmidiəm/,artistic material,Oil as medium.
+C2,47,Art & Creativity,24,palette,noun,/ˈpælɪt/,color range,Limited palette.
+C2,47,Art & Creativity,25,brushstroke,noun,/ˈbrʌʃˌstroʊk/,paint mark,Bold brushstrokes.
+C2,48,Sounds & Music,1,cacophony,noun,/kæˈkɑfəni/,harsh noise,Urban cacophony.
+C2,48,Sounds & Music,2,clamor,noun,/ˈklæmɚ/,loud noise,Public clamor.
+C2,48,Sounds & Music,3,din,noun,/ˈdɪn/,loud noise,Above the din.
+C2,48,Sounds & Music,4,resonance,noun,/ˈrɛzənəns/,deep sound,Voice resonance.
+C2,48,Sounds & Music,5,timbre,noun,/ˈtæmbɚ/,sound quality,Unique timbre.
+C2,48,Sounds & Music,6,sonorous,adjective,/ˈsɑnɚəs/,deep-sounding,Sonorous voice.
+C2,48,Sounds & Music,7,melodious,adjective,/məˈloʊdiəs/,pleasant-sounding,Melodious tune.
+C2,48,Sounds & Music,8,discordant,adjective,/dɪˈskɔrdənt/,inharmonious,Discordant notes.
+C2,48,Sounds & Music,9,strident,adjective,/ˈstraɪdənt/,harsh,Strident voice.
+C2,48,Sounds & Music,10,shrill,adjective,/ˈʃrɪl/,high-pitched,Shrill whistle.
+C2,48,Sounds & Music,11,reverberate,verb,/rɪˈvɜrbəˌreɪt/,echo,Sound reverberated.
+C2,48,Sounds & Music,12,resonate,verb,/ˈrɛzəˌneɪt/,produce sound,Words resonate.
+C2,48,Sounds & Music,13,crescendo,verb,/krəˈʃɛndoʊ/,increase volume,Music crescendoed.
+C2,48,Sounds & Music,14,diminuendo,noun,/dɪˌmɪnjuˈɛndoʊ/,decrease volume,Gradual diminuendo.
+C2,48,Sounds & Music,15,syncopation,noun,/ˌsɪŋkəˈpeɪʃən/,off-beat rhythm,Jazz syncopation.
+C2,48,Sounds & Music,16,dissonance,noun,/ˈdɪsənəns/,lack of harmony,Musical dissonance.
+C2,48,Sounds & Music,17,harmony,noun,/ˈhɑrməni/,pleasing combination,Perfect harmony.
+C2,48,Sounds & Music,18,refrain,noun,/rɪˈfreɪn/,repeated section,Catchy refrain.
+C2,48,Sounds & Music,19,overture,noun,/ˈoʊvɚˌtʃʊr/,opening piece,Orchestra overture.
+C2,48,Sounds & Music,20,cadence,noun,/ˈkeɪdəns/,rhythm,Speech cadence.
+C2,48,Sounds & Music,21,staccato,adjective,/stəˈkɑtoʊ/,short and detached,Staccato notes.
+C2,48,Sounds & Music,22,legato,adjective,/lɪˈgɑtoʊ/,smooth,Legato passage.
+C2,48,Sounds & Music,23,fortissimo,adverb,/fɔrˈtɪsɪˌmoʊ/,very loudly,Play fortissimo.
+C2,48,Sounds & Music,24,pianissimo,adverb,/ˌpiəˈnɪsɪˌmoʊ/,very softly,Play pianissimo.
+C2,48,Sounds & Music,25,tempo,noun,/ˈtɛmˌpoʊ/,speed,Fast tempo.
+C2,49,Authority & Influence,1,hegemony,noun,/hɪˈdʒɛməni/,dominance,Cultural hegemony.
+C2,49,Authority & Influence,2,dominion,noun,/dəˈmɪnjən/,control,Under their dominion.
+C2,49,Authority & Influence,3,sovereignty,noun,/ˈsɑvrɪnti/,supreme power,National sovereignty.
+C2,49,Authority & Influence,4,clout,noun,/ˈklaʊt/,influence,Political clout.
+C2,49,Authority & Influence,5,sway,noun,/ˈsweɪ/,influence,Hold sway.
+C2,49,Authority & Influence,6,authoritative,adjective,/əˈθɔrɪˌteɪtɪv/,commanding,Authoritative voice.
+C2,49,Authority & Influence,7,autocratic,adjective,/ˌɔtəˈkrætɪk/,dictatorial,Autocratic rule.
+C2,49,Authority & Influence,8,draconian,adjective,/drəˈkoʊniən/,harsh,Draconian measures.
+C2,49,Authority & Influence,9,tyrannical,adjective,/tɪˈrænɪkəl/,oppressive,Tyrannical regime.
+C2,49,Authority & Influence,10,despotic,adjective,/dɪˈspɑtɪk/,dictatorial,Despotic ruler.
+C2,49,Authority & Influence,11,subjugate,verb,/ˈsʌbdʒəˌgeɪt/,conquer,Subjugate peoples.
+C2,49,Authority & Influence,12,dominate,verb,/ˈdɑmɪˌneɪt/,control,Dominate the market.
+C2,49,Authority & Influence,13,coerce,verb,/koʊˈɜrs/,force,Coerce compliance.
+C2,49,Authority & Influence,14,compel,verb,/kəmˈpɛl/,force,Compel obedience.
+C2,49,Authority & Influence,15,mandate,verb,/ˈmænˌdeɪt/,order,Mandate changes.
+C2,49,Authority & Influence,16,decree,verb,/dɪˈkri/,order officially,Decreed by law.
+C2,49,Authority & Influence,17,sanction,verb,/ˈsæŋkʃən/,authorize,Sanction the action.
+C2,49,Authority & Influence,18,usurp,verb,/juˈsɜrp/,seize power,Usurp the throne.
+C2,49,Authority & Influence,19,depose,verb,/dɪˈpoʊz/,remove from power,Depose the king.
+C2,49,Authority & Influence,20,abdicate,verb,/ˈæbdɪˌkeɪt/,give up power,Abdicate the throne.
+C2,49,Authority & Influence,21,oligarchy,noun,/ˈɑlɪˌgɑrki/,rule by few,Economic oligarchy.
+C2,49,Authority & Influence,22,plutocracy,noun,/pluˈtɑkrəsi/,rule by wealthy,Corporate plutocracy.
+C2,49,Authority & Influence,23,fiefdom,noun,/ˈfifdəm/,controlled territory,Personal fiefdom.
+C2,49,Authority & Influence,24,protectorate,noun,/prəˈtɛktɚɪt/,controlled territory,Colonial protectorate.
+C2,49,Authority & Influence,25,vassal,noun,/ˈvæsəl/,subordinate,Vassal state.
+C2,50,Leadership,1,vanguard,noun,/ˈvænˌgɑrd/,forefront,At the vanguard.
+C2,50,Leadership,2,figurehead,noun,/ˈfɪgjɚˌhɛd/,nominal leader,Mere figurehead.
+C2,50,Leadership,3,demagogue,noun,/ˈdɛməˌgɑg/,rabble-rouser,Political demagogue.
+C2,50,Leadership,4,maverick,noun,/ˈmævɚɪk/,independent person,Industry maverick.
+C2,50,Leadership,5,visionary,noun,/ˈvɪʒəˌnɛri/,forward-thinker,Tech visionary.
+C2,50,Leadership,6,charismatic,adjective,/ˌkærɪzˈmætɪk/,inspiring,Charismatic leader.
+C2,50,Leadership,7,benevolent,adjective,/bəˈnɛvələnt/,kind,Benevolent leader.
+C2,50,Leadership,8,indomitable,adjective,/ɪnˈdɑmɪtəbəl/,unbeatable,Indomitable spirit.
+C2,50,Leadership,9,intrepid,adjective,/ɪnˈtrɛpɪd/,fearless,Intrepid explorer.
+C2,50,Leadership,10,exemplary,adjective,/ɪgˈzɛmplɚi/,model,Exemplary conduct.
+C2,50,Leadership,11,spearhead,verb,/ˈspɪrˌhɛd/,lead,Spearhead the campaign.
+C2,50,Leadership,12,helm,verb,/ˈhɛlm/,lead,Helm the company.
+C2,50,Leadership,13,galvanize,verb,/ˈgælvəˌnaɪz/,inspire,Galvanize supporters.
+C2,50,Leadership,14,mobilize,verb,/ˈmoʊbɪˌlaɪz/,organize,Mobilize resources.
+C2,50,Leadership,15,rally,verb,/ˈræli/,gather support,Rally the troops.
+C2,50,Leadership,16,delegate,verb,/ˈdɛlɪˌgeɪt/,assign,Delegate responsibility.
+C2,50,Leadership,17,empower,verb,/ɪmˈpaʊɚ/,authorize,Empower employees.
+C2,50,Leadership,18,mentor,verb,/ˈmɛnˌtɔr/,guide,Mentor young leaders.
+C2,50,Leadership,19,stewardship,noun,/ˈstuɚdˌʃɪp/,management,Environmental stewardship.
+C2,50,Leadership,20,tenure,noun,/ˈtɛnjɚ/,time in office,During his tenure.
+C2,50,Leadership,21,mandate,noun,/ˈmænˌdeɪt/,authority,Electoral mandate.
+C2,50,Leadership,22,constituency,noun,/kənˈstɪtʃuənsi/,supporters,Serve the constituency.
+C2,50,Leadership,23,coalition,noun,/ˌkoʊəˈlɪʃən/,alliance,Form a coalition.
+C2,50,Leadership,24,caucus,noun,/ˈkɔkəs/,political group,Party caucus.
+C2,50,Leadership,25,electorate,noun,/ɪˈlɛktɚɪt/,voters,The electorate decides.
+C2,51,Impact & Influence,1,impetus,noun,/ˈɪmpɪtəs/,force,Provide impetus.
+C2,51,Impact & Influence,2,leverage,noun,/ˈlɛvɚɪdʒ/,power,Use leverage.
+C2,51,Impact & Influence,3,repercussion,noun,/ˌripɚˈkʌʃən/,consequence,Serious repercussions.
+C2,51,Impact & Influence,4,reverberations,noun,/rɪˌvɜrbəˈreɪʃənz/,effects,Political reverberations.
+C2,51,Impact & Influence,5,pivotal,adjective,/ˈpɪvətəl/,crucial,Pivotal moment.
+C2,51,Impact & Influence,6,seminal,adjective,/ˈsɛmɪnəl/,groundbreaking,Seminal work.
+C2,51,Impact & Influence,7,paramount,adjective,/ˈpɛrəˌmaʊnt/,supreme,Of paramount importance.
+C2,51,Impact & Influence,8,pervasive,adjective,/pɚˈveɪsɪv/,widespread,Pervasive influence.
+C2,51,Impact & Influence,9,impinge,verb,/ɪmˈpɪndʒ/,affect,Impinge on rights.
+C2,51,Impact & Influence,10,permeate,verb,/ˈpɜrmiˌeɪt/,spread through,Permeate society.
+C2,51,Impact & Influence,11,pervade,verb,/pɚˈveɪd/,spread throughout,Fear pervades.
+C2,51,Impact & Influence,12,resonate,verb,/ˈrɛzəˌneɪt/,have impact,Ideas resonate.
+C2,51,Impact & Influence,13,reverberate,verb,/rɪˈvɜrbəˌreɪt/,have lasting effect,Effects reverberate.
+C2,51,Impact & Influence,14,precipitate,verb,/prɪˈsɪpɪˌteɪt/,cause,Precipitate change.
+C2,51,Impact & Influence,15,galvanize,verb,/ˈgælvəˌnaɪz/,stimulate,Galvanize action.
+C2,51,Impact & Influence,16,catalyze,verb,/ˈkætəˌlaɪz/,trigger,Catalyze progress.
+C2,51,Impact & Influence,17,propel,verb,/prəˈpɛl/,drive forward,Propel to fame.
+C2,51,Impact & Influence,18,spearhead,verb,/ˈspɪrˌhɛd/,lead,Spearhead change.
+C2,51,Impact & Influence,19,instigate,verb,/ˈɪnstɪˌgeɪt/,initiate,Instigate reform.
+C2,51,Impact & Influence,20,propagate,verb,/ˈprɑpəˌgeɪt/,spread,Propagate ideas.
+C2,51,Impact & Influence,21,disseminate,verb,/dɪˈsɛmɪˌneɪt/,spread widely,Disseminate information.
+C2,51,Impact & Influence,22,ramification,noun,/ˌræmɪfɪˈkeɪʃən/,consequence,Legal ramifications.
+C2,51,Impact & Influence,23,implication,noun,/ˌɪmplɪˈkeɪʃən/,effect,Serious implications.
+C2,51,Impact & Influence,24,fallout,noun,/ˈfɔlˌaʊt/,aftermath,Political fallout.
+C2,51,Impact & Influence,25,catalyst,noun,/ˈkætəlɪst/,trigger,Catalyst for change.
+C2,52,Law & Justice,1,jurisprudence,noun,/ˌdʒʊrɪsˈprudəns/,legal theory,Study jurisprudence.
+C2,52,Law & Justice,2,jurisdiction,noun,/ˌdʒʊrɪsˈdɪkʃən/,legal authority,Outside jurisdiction.
+C2,52,Law & Justice,3,litigation,noun,/ˌlɪtɪˈgeɪʃən/,lawsuit,Costly litigation.
+C2,52,Law & Justice,4,arbitration,noun,/ˌɑrbɪˈtreɪʃən/,dispute resolution,Binding arbitration.
+C2,52,Law & Justice,5,adjudication,noun,/əˌdʒudɪˈkeɪʃən/,legal decision,Final adjudication.
+C2,52,Law & Justice,6,litigious,adjective,/lɪˈtɪdʒəs/,prone to lawsuits,Litigious society.
+C2,52,Law & Justice,7,punitive,adjective,/ˈpjunətɪv/,punishing,Punitive damages.
+C2,52,Law & Justice,8,exculpatory,adjective,/ɪksˈkʌlpəˌtɔri/,clearing blame,Exculpatory evidence.
+C2,52,Law & Justice,9,inculpatory,adjective,/ɪnˈkʌlpəˌtɔri/,incriminating,Inculpatory statements.
+C2,52,Law & Justice,10,litigate,verb,/ˈlɪtɪˌgeɪt/,take to court,Litigate the case.
+C2,52,Law & Justice,11,adjudicate,verb,/əˈdʒudɪˌkeɪt/,judge,Adjudicate disputes.
+C2,52,Law & Justice,12,arbitrate,verb,/ˈɑrbɪˌtreɪt/,settle dispute,Arbitrate between parties.
+C2,52,Law & Justice,13,exonerate,verb,/ɪgˈzɑnɚˌeɪt/,clear of blame,Exonerate the accused.
+C2,52,Law & Justice,14,absolve,verb,/əbˈzɑlv/,free from blame,Absolve of guilt.
+C2,52,Law & Justice,15,indict,verb,/ɪnˈdaɪt/,formally accuse,Indicted for fraud.
+C2,52,Law & Justice,16,arraign,verb,/əˈreɪn/,bring to court,Arraigned on charges.
+C2,52,Law & Justice,17,prosecute,verb,/ˈprɑsɪˌkjut/,bring charges,Prosecute offenders.
+C2,52,Law & Justice,18,subpoena,verb,/səˈpinə/,summon to court,Subpoena witnesses.
+C2,52,Law & Justice,19,statute,noun,/ˈstætʃut/,law,Federal statute.
+C2,52,Law & Justice,20,precedent,noun,/ˈprɛsɪdənt/,earlier example,Set precedent.
+C2,52,Law & Justice,21,verdict,noun,/ˈvɜrdɪkt/,decision,Guilty verdict.
+C2,52,Law & Justice,22,acquittal,noun,/əˈkwɪtəl/,not guilty finding,Won acquittal.
+C2,52,Law & Justice,23,plaintiff,noun,/ˈpleɪntɪf/,accuser,The plaintiff sued.
+C2,52,Law & Justice,24,defendant,noun,/dɪˈfɛndənt/,accused,The defendant pleaded.
+C2,52,Law & Justice,25,deposition,noun,/ˌdɛpəˈzɪʃən/,testimony,Give a deposition.
+C2,52,Law & Justice,26,affidavit,noun,/ˌæfɪˈdeɪvɪt/,sworn statement,Sign an affidavit.
+C2,52,Law & Justice,27,injunction,noun,/ɪnˈdʒʌŋkʃən/,court order,Seek an injunction.
+C2,52,Law & Justice,28,tort,noun,/ˈtɔrt/,civil wrong,Tort law.
+C2,52,Law & Justice,29,culpability,noun,/ˌkʌlpəˈbɪləti/,blame,Admit culpability.
+C2,52,Law & Justice,30,malfeasance,noun,/mælˈfizəns/,wrongdoing,Corporate malfeasance.
+C2,53,Culture & Traditions,1,heritage,noun,/ˈhɛrɪtɪdʒ/,tradition,Cultural heritage.
+C2,53,Culture & Traditions,2,lineage,noun,/ˈlɪniɪdʒ/,ancestry,Noble lineage.
+C2,53,Culture & Traditions,3,mores,noun,/ˈmɔrˌeɪz/,customs,Social mores.
+C2,53,Culture & Traditions,4,ethos,noun,/ˈiθˌɑs/,character,Company ethos.
+C2,53,Culture & Traditions,5,zeitgeist,noun,/ˈtsaɪtˌgaɪst/,spirit of the time,Capture the zeitgeist.
+C2,53,Culture & Traditions,6,vernacular,noun,/vɚˈnækjəlɚ/,local language,Local vernacular.
+C2,53,Culture & Traditions,7,indigenous,adjective,/ɪnˈdɪdʒənəs/,native,Indigenous peoples.
+C2,53,Culture & Traditions,8,ancestral,adjective,/ænˈsɛstrəl/,inherited,Ancestral home.
+C2,53,Culture & Traditions,9,archetypal,adjective,/ˌɑrkɪˈtaɪpəl/,quintessential,Archetypal hero.
+C2,53,Culture & Traditions,10,sacrosanct,adjective,/ˈsækroʊˌsæŋkt/,sacred,Sacrosanct traditions.
+C2,53,Culture & Traditions,11,enshrined,adjective,/ɪnˈʃraɪnd/,preserved,Enshrined in law.
+C2,53,Culture & Traditions,12,perpetuate,verb,/pɚˈpɛtʃuˌeɪt/,continue,Perpetuate traditions.
+C2,53,Culture & Traditions,13,venerate,verb,/ˈvɛnɚˌeɪt/,revere,Venerate ancestors.
+C2,53,Culture & Traditions,14,commemorate,verb,/kəˈmɛməˌreɪt/,honor,Commemorate the event.
+C2,53,Culture & Traditions,15,enshrine,verb,/ɪnˈʃraɪn/,preserve,Enshrine in memory.
+C2,53,Culture & Traditions,16,assimilate,verb,/əˈsɪməˌleɪt/,absorb,Assimilate cultures.
+C2,53,Culture & Traditions,17,acculturate,verb,/əˈkʌltʃɚˌeɪt/,adopt culture,Acculturate immigrants.
+C2,53,Culture & Traditions,18,folklore,noun,/ˈfoʊkˌlɔr/,traditions,Rich folklore.
+C2,53,Culture & Traditions,19,mythology,noun,/mɪˈθɑlədʒi/,myths,Greek mythology.
+C2,53,Culture & Traditions,20,ritual,noun,/ˈrɪtʃuəl/,ceremony,Ancient ritual.
+C2,53,Culture & Traditions,21,taboo,noun,/tæˈbu/,prohibition,Social taboo.
+C2,53,Culture & Traditions,22,relic,noun,/ˈrɛlɪk/,artifact,Historical relic.
+C2,53,Culture & Traditions,23,heirloom,noun,/ˈɛrˌlum/,family treasure,Family heirloom.
+C2,53,Culture & Traditions,24,diaspora,noun,/daɪˈæspɚə/,dispersion,African diaspora.
+C2,53,Culture & Traditions,25,nomad,noun,/ˈnoʊmæd/,wanderer,Desert nomads.
+C2,54,Conflict & Tension,1,animosity,noun,/ˌænɪˈmɑsɪti/,hostility,Deep animosity.
+C2,54,Conflict & Tension,2,enmity,noun,/ˈɛnmɪti/,hatred,Ancient enmity.
+C2,54,Conflict & Tension,3,discord,noun,/ˈdɪskɔrd/,disagreement,Sow discord.
+C2,54,Conflict & Tension,4,strife,noun,/ˈstraɪf/,conflict,Civil strife.
+C2,54,Conflict & Tension,5,acrimony,noun,/ˈækrɪˌmoʊni/,bitterness,Bitter acrimony.
+C2,54,Conflict & Tension,6,contentious,adjective,/kənˈtɛnʃəs/,controversial,Contentious issue.
+C2,54,Conflict & Tension,7,fractious,adjective,/ˈfrækʃəs/,quarrelsome,Fractious debate.
+C2,54,Conflict & Tension,8,acrimonious,adjective,/ˌækrɪˈmoʊniəs/,bitter,Acrimonious divorce.
+C2,54,Conflict & Tension,9,bellicose,adjective,/ˈbɛlɪˌkoʊs/,warlike,Bellicose rhetoric.
+C2,54,Conflict & Tension,10,belligerent,adjective,/bəˈlɪdʒɚənt/,hostile,Belligerent attitude.
+C2,54,Conflict & Tension,11,antagonize,verb,/ænˈtægəˌnaɪz/,provoke,Antagonize opponents.
+C2,54,Conflict & Tension,12,exacerbate,verb,/ɪgˈzæsɚˌbeɪt/,worsen,Exacerbate tensions.
+C2,54,Conflict & Tension,13,inflame,verb,/ɪnˈfleɪm/,provoke,Inflame passions.
+C2,54,Conflict & Tension,14,escalate,verb,/ˈɛskəˌleɪt/,intensify,Tensions escalate.
+C2,54,Conflict & Tension,15,embroil,verb,/ɪmˈbrɔɪl/,involve in conflict,Embroiled in scandal.
+C2,54,Conflict & Tension,16,reconcile,verb,/ˈrɛkənˌsaɪl/,restore harmony,Reconcile differences.
+C2,54,Conflict & Tension,17,mediate,verb,/ˈmidiˌeɪt/,intervene,Mediate disputes.
+C2,54,Conflict & Tension,18,impasse,noun,/ˈɪmˌpæs/,deadlock,Reach an impasse.
+C2,54,Conflict & Tension,19,standoff,noun,/ˈstændˌɔf/,stalemate,Tense standoff.
+C2,54,Conflict & Tension,20,schism,noun,/ˈskɪzəm/,division,Church schism.
+C2,54,Conflict & Tension,21,rupture,noun,/ˈrʌptʃɚ/,break,Diplomatic rupture.
+C2,54,Conflict & Tension,22,rift,noun,/ˈrɪft/,split,Political rift.
+C2,54,Conflict & Tension,23,feud,noun,/ˈfjud/,prolonged quarrel,Family feud.
+C2,54,Conflict & Tension,24,vendetta,noun,/vɛnˈdɛtə/,revenge campaign,Personal vendetta.
+C2,54,Conflict & Tension,25,détente,noun,/deɪˈtɑnt/,easing of tensions,Period of détente.
+C2,55,Problems & Failures,1,debacle,noun,/dɪˈbɑkəl/,disaster,Total debacle.
+C2,55,Problems & Failures,2,fiasco,noun,/fiˈæskoʊ/,complete failure,PR fiasco.
+C2,55,Problems & Failures,3,quagmire,noun,/ˈkwægˌmaɪɚ/,difficult situation,Political quagmire.
+C2,55,Problems & Failures,4,morass,noun,/mɚˈæs/,complicated situation,Legal morass.
+C2,55,Problems & Failures,5,pitfall,noun,/ˈpɪtˌfɔl/,hidden danger,Avoid pitfalls.
+C2,55,Problems & Failures,6,setback,noun,/ˈsɛtˌbæk/,obstacle,Major setback.
+C2,55,Problems & Failures,7,predicament,noun,/prɪˈdɪkəmənt/,difficult situation,Awkward predicament.
+C2,55,Problems & Failures,8,untenable,adjective,/ʌnˈtɛnəbəl/,indefensible,Untenable position.
+C2,55,Problems & Failures,9,insurmountable,adjective,/ˌɪnsɚˈmaʊntəbəl/,impossible to overcome,Insurmountable odds.
+C2,55,Problems & Failures,10,intractable,adjective,/ɪnˈtræktəbəl/,stubborn,Intractable problem.
+C2,55,Problems & Failures,11,falter,verb,/ˈfɔltɚ/,hesitate,Courage faltered.
+C2,55,Problems & Failures,12,flounder,verb,/ˈflaʊndɚ/,struggle,Flounder in confusion.
+C2,55,Problems & Failures,13,founder,verb,/ˈfaʊndɚ/,fail,Plans foundered.
+C2,55,Problems & Failures,14,stumble,verb,/ˈstʌmbəl/,make mistake,Stumbled badly.
+C2,55,Problems & Failures,15,bungle,verb,/ˈbʌŋgəl/,mishandle,Bungled the operation.
+C2,55,Problems & Failures,16,botch,verb,/ˈbɑtʃ/,spoil,Botched the job.
+C2,55,Problems & Failures,17,mishandle,verb,/mɪsˈhændəl/,manage poorly,Mishandled the crisis.
+C2,55,Problems & Failures,18,miscarry,verb,/mɪsˈkæri/,fail,Plans miscarried.
+C2,55,Problems & Failures,19,backfire,verb,/ˈbækˌfaɪɚ/,produce opposite effect,Strategy backfired.
+C2,55,Problems & Failures,20,unravel,verb,/ʌnˈrævəl/,fall apart,Plans unraveled.
+C2,55,Problems & Failures,21,shortcoming,noun,/ˈʃɔrtˌkʌmɪŋ/,deficiency,Personal shortcomings.
+C2,55,Problems & Failures,22,deficiency,noun,/dɪˈfɪʃənsi/,lack,Nutritional deficiency.
+C2,55,Problems & Failures,23,impediment,noun,/ɪmˈpɛdɪmənt/,obstacle,Speech impediment.
+C2,55,Problems & Failures,24,stumbling block,noun,/ˈstʌmblɪŋ ˌblɑk/,obstacle,Major stumbling block.
+C2,55,Problems & Failures,25,hindrance,noun,/ˈhɪndrəns/,obstruction,Without hindrance.
+C2,56,Hardship & Struggle,1,adversity,noun,/ˈædvɚsɪti/,hardship,Overcome adversity.
+C2,56,Hardship & Struggle,2,tribulation,noun,/ˌtrɪbjəˈleɪʃən/,suffering,Trials and tribulations.
+C2,56,Hardship & Struggle,3,ordeal,noun,/ɔrˈdil/,painful experience,Terrible ordeal.
+C2,56,Hardship & Struggle,4,plight,noun,/ˈplaɪt/,difficult situation,Tragic plight.
+C2,56,Hardship & Struggle,5,duress,noun,/dʊˈrɛs/,compulsion,Under duress.
+C2,56,Hardship & Struggle,6,arduous,adjective,/ˈɑrdʒuəs/,difficult,Arduous journey.
+C2,56,Hardship & Struggle,7,grueling,adjective,/ˈgruəlɪŋ/,exhausting,Grueling schedule.
+C2,56,Hardship & Struggle,8,harrowing,adjective,/ˈhæroʊɪŋ/,distressing,Harrowing experience.
+C2,56,Hardship & Struggle,9,daunting,adjective,/ˈdɔntɪŋ/,intimidating,Daunting task.
+C2,56,Hardship & Struggle,10,formidable,adjective,/fɔrˈmɪdəbəl/,challenging,Formidable opponent.
+C2,56,Hardship & Struggle,11,endure,verb,/ɪnˈdʊr/,withstand,Endure hardship.
+C2,56,Hardship & Struggle,12,persevere,verb,/ˌpɜrsəˈvɪr/,persist,Persevere through.
+C2,56,Hardship & Struggle,13,surmount,verb,/sɚˈmaʊnt/,overcome,Surmount obstacles.
+C2,56,Hardship & Struggle,14,grapple,verb,/ˈgræpəl/,struggle with,Grapple with issues.
+C2,56,Hardship & Struggle,15,contend,verb,/kənˈtɛnd/,struggle,Contend with problems.
+C2,56,Hardship & Struggle,16,toil,verb,/ˈtɔɪl/,work hard,Toil endlessly.
+C2,56,Hardship & Struggle,17,trudge,verb,/ˈtrʌdʒ/,walk wearily,Trudge forward.
+C2,56,Hardship & Struggle,18,slog,verb,/ˈslɑg/,work hard,Slog through.
+C2,56,Hardship & Struggle,19,eke,verb,/ˈik/,make with difficulty,Eke out a living.
+C2,56,Hardship & Struggle,20,scrape,verb,/ˈskreɪp/,barely manage,Scrape by.
+C2,56,Hardship & Struggle,21,subsist,verb,/səbˈsɪst/,survive barely,Subsist on little.
+C2,56,Hardship & Struggle,22,privation,noun,/praɪˈveɪʃən/,deprivation,Years of privation.
+C2,56,Hardship & Struggle,23,destitution,noun,/ˌdɛstɪˈtuʃən/,extreme poverty,Utter destitution.
+C2,56,Hardship & Struggle,24,squalor,noun,/ˈskwɑlɚ/,filth,Live in squalor.
+C2,56,Hardship & Struggle,25,austerity,noun,/ɔˈstɛrɪti/,hardship,Times of austerity.
+C2,57,Confusion & Chaos,1,pandemonium,noun,/ˌpændəˈmoʊniəm/,chaos,Complete pandemonium.
+C2,57,Confusion & Chaos,2,bedlam,noun,/ˈbɛdˌlæm/,chaos,Utter bedlam.
+C2,57,Confusion & Chaos,3,mayhem,noun,/ˈmeɪˌhɛm/,chaos,Cause mayhem.
+C2,57,Confusion & Chaos,4,turmoil,noun,/ˈtɜrˌmɔɪl/,confusion,Emotional turmoil.
+C2,57,Confusion & Chaos,5,disarray,noun,/ˌdɪsəˈreɪ/,disorder,In complete disarray.
+C2,57,Confusion & Chaos,6,tumultuous,adjective,/tuˈmʌltʃuəs/,chaotic,Tumultuous times.
+C2,57,Confusion & Chaos,7,chaotic,adjective,/keɪˈɑtɪk/,disorderly,Chaotic situation.
+C2,57,Confusion & Chaos,8,haphazard,adjective,/hæpˈhæzɚd/,random,Haphazard approach.
+C2,57,Confusion & Chaos,9,frenetic,adjective,/frɪˈnɛtɪk/,frantic,Frenetic pace.
+C2,57,Confusion & Chaos,10,frenzied,adjective,/ˈfrɛnzid/,wild,Frenzied activity.
+C2,57,Confusion & Chaos,11,befuddle,verb,/bɪˈfʌdəl/,confuse,Befuddled by complexity.
+C2,57,Confusion & Chaos,12,bewilder,verb,/bɪˈwɪldɚ/,confuse,Bewildered audience.
+C2,57,Confusion & Chaos,13,discombobulate,verb,/ˌdɪskəmˈbɑbjəˌleɪt/,confuse,Completely discombobulated.
+C2,57,Confusion & Chaos,14,disorient,verb,/dɪsˈɔriˌɛnt/,confuse,Disoriented by change.
+C2,57,Confusion & Chaos,15,flummox,verb,/ˈflʌməks/,perplex,Flummoxed the experts.
+C2,57,Confusion & Chaos,16,muddle,verb,/ˈmʌdəl/,confuse,Muddle through.
+C2,57,Confusion & Chaos,17,confound,verb,/kənˈfaʊnd/,confuse,Confound expectations.
+C2,57,Confusion & Chaos,18,perplex,verb,/pɚˈplɛks/,puzzle,Perplexed by behavior.
+C2,57,Confusion & Chaos,19,quandary,noun,/ˈkwɑndɚi/,dilemma,In a quandary.
+C2,57,Confusion & Chaos,20,conundrum,noun,/kəˈnʌndrəm/,puzzle,Moral conundrum.
+C2,57,Confusion & Chaos,21,enigma,noun,/ɪˈnɪgmə/,mystery,Remains an enigma.
+C2,57,Confusion & Chaos,22,labyrinth,noun,/ˈlæbɚˌɪnθ/,maze,Labyrinth of rules.
+C2,57,Confusion & Chaos,23,morass,noun,/mɚˈæs/,confusion,Bureaucratic morass.
+C2,57,Confusion & Chaos,24,maelstrom,noun,/ˈmeɪlˌstrɑm/,turmoil,Political maelstrom.
+C2,57,Confusion & Chaos,25,vortex,noun,/ˈvɔrtɛks/,whirlpool,Vortex of activity.
+C2,58,Destruction,1,devastation,noun,/ˌdɛvəˈsteɪʃən/,destruction,Total devastation.
+C2,58,Destruction,2,annihilation,noun,/əˌnaɪəˈleɪʃən/,complete destruction,Nuclear annihilation.
+C2,58,Destruction,3,obliteration,noun,/əˌblɪtɚˈeɪʃən/,total destruction,Complete obliteration.
+C2,58,Destruction,4,carnage,noun,/ˈkɑrnɪdʒ/,slaughter,Bloody carnage.
+C2,58,Destruction,5,havoc,noun,/ˈhævək/,destruction,Wreak havoc.
+C2,58,Destruction,6,cataclysmic,adjective,/ˌkætəˈklɪzmɪk/,destructive,Cataclysmic event.
+C2,58,Destruction,7,apocalyptic,adjective,/əˌpɑkəˈlɪptɪk/,world-ending,Apocalyptic vision.
+C2,58,Destruction,8,ruinous,adjective,/ˈruɪnəs/,destructive,Ruinous policy.
+C2,58,Destruction,9,devastating,adjective,/ˈdɛvəˌsteɪtɪŋ/,destructive,Devastating blow.
+C2,58,Destruction,10,ravage,verb,/ˈrævɪdʒ/,destroy,Ravaged by war.
+C2,58,Destruction,11,devastate,verb,/ˈdɛvəˌsteɪt/,destroy,Devastate the economy.
+C2,58,Destruction,12,annihilate,verb,/əˈnaɪəˌleɪt/,destroy completely,Annihilate the enemy.
+C2,58,Destruction,13,obliterate,verb,/əˈblɪtɚˌeɪt/,destroy totally,Obliterate evidence.
+C2,58,Destruction,14,decimate,verb,/ˈdɛsɪˌmeɪt/,destroy large part,Decimate populations.
+C2,58,Destruction,15,demolish,verb,/dɪˈmɑlɪʃ/,destroy,Demolish buildings.
+C2,58,Destruction,16,raze,verb,/ˈreɪz/,destroy completely,Raze to the ground.
+C2,58,Destruction,17,wreck,verb,/ˈrɛk/,destroy,Wreck the car.
+C2,58,Destruction,18,sabotage,verb,/ˈsæbəˌtɑʒ/,deliberately destroy,Sabotage efforts.
+C2,58,Destruction,19,vandalize,verb,/ˈvændəˌlaɪz/,damage,Vandalize property.
+C2,58,Destruction,20,desecrate,verb,/ˈdɛsɪˌkreɪt/,violate,Desecrate the memorial.
+C2,58,Destruction,21,aftermath,noun,/ˈæftɚˌmæθ/,consequence,Aftermath of war.
+C2,58,Destruction,22,rubble,noun,/ˈrʌbəl/,debris,Reduced to rubble.
+C2,58,Destruction,23,debris,noun,/dəˈbri/,wreckage,Clear the debris.
+C2,58,Destruction,24,wreckage,noun,/ˈrɛkɪdʒ/,remains,Plane wreckage.
+C2,58,Destruction,25,cataclysm,noun,/ˈkætəˌklɪzəm/,disaster,Natural cataclysm.
+C2,59,Intensity,1,vehemence,noun,/ˈviəməns/,intensity,With vehemence.
+C2,59,Intensity,2,fervor,noun,/ˈfɜrvɚ/,passion,Religious fervor.
+C2,59,Intensity,3,ardor,noun,/ˈɑrdɚ/,enthusiasm,Youthful ardor.
+C2,59,Intensity,4,zeal,noun,/ˈzil/,enthusiasm,Missionary zeal.
+C2,59,Intensity,5,vehement,adjective,/ˈviəmənt/,forceful,Vehement denial.
+C2,59,Intensity,6,fervent,adjective,/ˈfɜrvənt/,passionate,Fervent supporter.
+C2,59,Intensity,7,ardent,adjective,/ˈɑrdənt/,passionate,Ardent believer.
+C2,59,Intensity,8,zealous,adjective,/ˈzɛləs/,enthusiastic,Zealous advocate.
+C2,59,Intensity,9,avid,adjective,/ˈævɪd/,keen,Avid reader.
+C2,59,Intensity,10,voracious,adjective,/vɔˈreɪʃəs/,eager,Voracious appetite.
+C2,59,Intensity,11,insatiable,adjective,/ɪnˈseɪʃəbəl/,never satisfied,Insatiable curiosity.
+C2,59,Intensity,12,unrelenting,adjective,/ˌʌnrɪˈlɛntɪŋ/,constant,Unrelenting pressure.
+C2,59,Intensity,13,relentless,adjective,/rɪˈlɛntləs/,persistent,Relentless pursuit.
+C2,59,Intensity,14,implacable,adjective,/ɪmˈplækəbəl/,unappeasable,Implacable enemy.
+C2,59,Intensity,15,unwavering,adjective,/ʌnˈweɪvɚɪŋ/,steady,Unwavering commitment.
+C2,59,Intensity,16,intensify,verb,/ɪnˈtɛnsɪˌfaɪ/,increase,Intensify efforts.
+C2,59,Intensity,17,heighten,verb,/ˈhaɪtən/,increase,Heighten awareness.
+C2,59,Intensity,18,amplify,verb,/ˈæmplɪˌfaɪ/,increase,Amplify the signal.
+C2,59,Intensity,19,magnify,verb,/ˈmægnɪˌfaɪ/,enlarge,Magnify problems.
+C2,59,Intensity,20,exacerbate,verb,/ɪgˈzæsɚˌbeɪt/,worsen,Exacerbate issues.
+C2,59,Intensity,21,aggravate,verb,/ˈægɹəˌveɪt/,worsen,Aggravate the situation.
+C2,59,Intensity,22,escalate,verb,/ˈɛskəˌleɪt/,intensify,Tensions escalate.
+C2,59,Intensity,23,fervency,noun,/ˈfɜrvənsi/,passion,Speak with fervency.
+C2,59,Intensity,24,intensity,noun,/ɪnˈtɛnsɪti/,strength,Extreme intensity.
+C2,59,Intensity,25,vigor,noun,/ˈvɪgɚ/,energy,Attack with vigor.

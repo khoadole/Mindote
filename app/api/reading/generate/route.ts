@@ -130,19 +130,17 @@ export async function POST(request: NextRequest) {
 
     // Only check limits for free users
     if (!isPremium) {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      const usage = await prisma.aIUsage.findUnique({
+      // Get current usage count from AILog
+      const aiLog = await prisma.aILog.findUnique({
         where: {
-          userId_date: {
+          userId_feature: {
             userId,
-            date: today,
+            feature: "reading",
           },
         },
       });
 
-      const currentUsage = usage?.count || 0;
+      const currentUsage = aiLog?.totalTokens || 0;
 
       // For now, share the same quota with word fill (3 per day total)
       if (currentUsage >= FREE_DAILY_READING_LIMIT) {
@@ -276,37 +274,41 @@ Format as JSON:
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      const usage = await prisma.aIUsage.findUnique({
+      // Log this AI usage
+      await prisma.aILog.upsert({
         where: {
-          userId_date: {
+          userId_feature: {
             userId,
-            date: today,
-          },
-        },
-      });
-
-      const currentUsage = usage?.count || 0;
-
-      await prisma.aIUsage.upsert({
-        where: {
-          userId_date: {
-            userId,
-            date: today,
+            feature: "reading",
           },
         },
         update: {
-          count: {
+          totalTokens: {
             increment: 1,
           },
         },
         create: {
           userId,
-          date: today,
-          count: 1,
+          feature: "reading",
+          model: "gpt-4o-mini",
+          inputTokens: 0,
+          outputTokens: 0,
+          totalTokens: 1, // Use totalTokens as counter
+          cost: 0,
         },
       });
 
-      remainingUses = FREE_DAILY_READING_LIMIT - (currentUsage + 1);
+      // Get updated count
+      const aiLog = await prisma.aILog.findUnique({
+        where: {
+          userId_feature: {
+            userId,
+            feature: "reading",
+          },
+        },
+      });
+
+      remainingUses = FREE_DAILY_READING_LIMIT - (aiLog?.totalTokens || 0);
     }
 
     return NextResponse.json({

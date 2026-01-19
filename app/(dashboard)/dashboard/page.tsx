@@ -6,7 +6,10 @@ import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
 import { useReadingPassages } from "@/hooks/use-reading";
-import { getDifficultyFromCefr, getTranslationKeyFromCefr } from "@/lib/difficulty-levels";
+import {
+  getDifficultyFromCefr,
+  getTranslationKeyFromCefr,
+} from "@/lib/difficulty-levels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -44,7 +47,7 @@ const AddWordModal = dynamic(
     import("@/components/modals/add-word-modal").then((mod) => ({
       default: mod.AddWordModal,
     })),
-  { ssr: false }
+  { ssr: false },
 );
 
 const CreateCollectionModal = dynamic(
@@ -52,7 +55,7 @@ const CreateCollectionModal = dynamic(
     import("@/components/modals/create-collection-modal").then((mod) => ({
       default: mod.CreateCollectionModal,
     })),
-  { ssr: false }
+  { ssr: false },
 );
 
 export default function Dashboard() {
@@ -96,7 +99,7 @@ export default function Dashboard() {
 
     const totalPassages = readingPassages.length;
     const completedPassages = readingPassages.filter(
-      (p) => p._count && p._count.attempts > 0
+      (p) => p._count && p._count.attempts > 0,
     ).length;
 
     // Extract unique words used in passages
@@ -127,37 +130,40 @@ export default function Dashboard() {
 
   return (
     <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      
-
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-
-
         {/* Main Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - PRIMARY CTA (2/3 width on desktop) */}
           <div className="lg:col-span-2 space-y-6">
             {/* 🎯 HERO CARD: Create Reading Passage - PRIMARY CTA */}
-            <div
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-blue-600 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group"
-              style={{ animationDelay: "100ms" }}
-            >
+            {/* ✅ LCP FIX: Removed animationDelay to allow immediate paint */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-blue-600 p-8 md:p-10 shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl animate-in fade-in slide-in-from-bottom-4 group">
               {/* Background decoration - Grid Pattern */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-              
+
               {/* Large decorative yellow circle in top-right corner */}
-              <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-25" style={{ backgroundColor: "#FFD93D" }} />
-              
+              <div
+                className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-25"
+                style={{ backgroundColor: "#FFD93D" }}
+              />
+
               {/* Decorative floating circles */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-300/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "1s" }} />
-              
+              <div
+                className="absolute bottom-0 left-0 w-48 h-48 bg-blue-300/10 rounded-full blur-2xl animate-float"
+                style={{ animationDelay: "1s" }}
+              />
+
               {/* Dot pattern accent */}
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-60" />
 
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Text Content */}
                 <div className="flex-1 text-white space-y-4">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-2 text-white" style={{ backgroundColor: "#383a42" }}>
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-2 text-white"
+                    style={{ backgroundColor: "#383a42" }}
+                  >
                     <Sparkles className="h-4 w-4" />
                     {t("dashboard.yourLearningPath")}
                   </div>
@@ -166,27 +172,34 @@ export default function Dashboard() {
                     {t("dashboard.createReadingPassage")}
                   </h2>
 
-                  <p className="text-white/90 text-base leading-relaxed"
-                    dangerouslySetInnerHTML={{
-                      __html: passageMetrics.wordsReadyForPassages > 0
-                        ? t("dashboard.wordsReady", { count: passageMetrics.wordsReadyForPassages })
-                        : t("dashboard.learnWordsFirst")
-                    }}
-                  />
+                  {/* ✅ LCP FIX: Show static text immediately, then update with data */}
+                  <p className="text-white/90 text-base leading-relaxed">
+                    {passageMetrics.wordsReadyForPassages > 0
+                      ? t("dashboard.wordsReady", {
+                          count: passageMetrics.wordsReadyForPassages,
+                        })
+                      : t("dashboard.learnWordsFirst")}
+                  </p>
 
-                  {/* Mini Stats */}
-                  <div className="flex flex-wrap gap-4 text-sm text-white"
-                    dangerouslySetInnerHTML={{
-                      __html: `
-                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl" style="background-color: #383a42">
-                          ${t("dashboard.passagesCreated", { count: passageMetrics.totalPassages })}
-                        </div>
-                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl" style="background-color: #383a42">
-                          ${t("dashboard.completed", { count: passageMetrics.completedPassages })}
-                        </div>
-                      `
-                    }}
-                  />
+                  {/* ✅ LCP FIX: Removed dangerouslySetInnerHTML for cleaner React rendering */}
+                  <div className="flex flex-wrap gap-4 text-sm text-white">
+                    <div
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl"
+                      style={{ backgroundColor: "#383a42" }}
+                    >
+                      {t("dashboard.passagesCreated", {
+                        count: passageMetrics.totalPassages,
+                      })}
+                    </div>
+                    <div
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl"
+                      style={{ backgroundColor: "#383a42" }}
+                    >
+                      {t("dashboard.completed", {
+                        count: passageMetrics.completedPassages,
+                      })}
+                    </div>
+                  </div>
 
                   <Button
                     size="lg"
@@ -216,81 +229,83 @@ export default function Dashboard() {
 
             {/* Contextual Learning Progress - Shows connection between vocab and passages */}
             <div
-                className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
-                style={{ animationDelay: "200ms" }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <Brain className="h-5 w-5 text-primary" />
-                    <h3 className="text-lg font-semibold">
-                      {t("dashboard.vocabularyMasteryJourney")}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    {passageMetrics.wordsInPassages > 0 && (
-                      <span className="text-primary font-semibold">
-                        {t("dashboard.wordsInPassages", { count: passageMetrics.wordsInPassages })}
-                      </span>
-                    )}
-                  </p>
+              className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+              style={{ animationDelay: "200ms" }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <Brain className="h-5 w-5 text-primary" />
+                  <h3 className="text-lg font-semibold">
+                    {t("dashboard.vocabularyMasteryJourney")}
+                  </h3>
                 </div>
+                <p className="text-sm text-muted-foreground">
+                  {passageMetrics.wordsInPassages > 0 && (
+                    <span className="text-primary font-semibold">
+                      {t("dashboard.wordsInPassages", {
+                        count: passageMetrics.wordsInPassages,
+                      })}
+                    </span>
+                  )}
+                </p>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <WordStageCard
-                    title={t("dashboard.new")}
-                    count={stats?.newWords || 0}
-                    total={totalWords}
-                    icon={Sparkles}
-                    gradient="bg-[#86EFAC]"
-                    iconColor="bg-[#86EFAC]"
-                    description={t("dashboard.newDescription")}
-                    onClick={() => {
-                      console.log("Navigate to new words");
-                    }}
-                  />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <WordStageCard
+                  title={t("dashboard.new")}
+                  count={stats?.newWords || 0}
+                  total={totalWords}
+                  icon={Sparkles}
+                  gradient="bg-[#86EFAC]"
+                  iconColor="bg-[#86EFAC]"
+                  description={t("dashboard.newDescription")}
+                  onClick={() => {
+                    console.log("Navigate to new words");
+                  }}
+                />
 
-                  <WordStageCard
-                    title={t("dashboard.learning")}
-                    count={stats?.learningWords || 0}
-                    total={totalWords}
-                    icon={GraduationCap}
-                    gradient="bg-[#FCD34D]"
-                    iconColor="bg-[#FCD34D]"
-                    description={t("dashboard.learningDescription")}
-                    onClick={() => {
-                      console.log("Navigate to learning words");
-                    }}
-                  />
+                <WordStageCard
+                  title={t("dashboard.learning")}
+                  count={stats?.learningWords || 0}
+                  total={totalWords}
+                  icon={GraduationCap}
+                  gradient="bg-[#FCD34D]"
+                  iconColor="bg-[#FCD34D]"
+                  description={t("dashboard.learningDescription")}
+                  onClick={() => {
+                    console.log("Navigate to learning words");
+                  }}
+                />
 
-                  <WordStageCard
-                    title={t("dashboard.familiar")}
-                    count={stats?.familiarWords || 0}
-                    total={totalWords}
-                    icon={Award}
-                    gradient="bg-[#FF9F7C]"
-                    iconColor="bg-[#FF9F7C]"
-                    description={t("dashboard.familiarDescription")}
-                    onClick={() => {
-                      console.log("Navigate to familiar words");
-                    }}
-                  />
+                <WordStageCard
+                  title={t("dashboard.familiar")}
+                  count={stats?.familiarWords || 0}
+                  total={totalWords}
+                  icon={Award}
+                  gradient="bg-[#FF9F7C]"
+                  iconColor="bg-[#FF9F7C]"
+                  description={t("dashboard.familiarDescription")}
+                  onClick={() => {
+                    console.log("Navigate to familiar words");
+                  }}
+                />
 
-                  <WordStageCard
-                    title={t("dashboard.master")}
-                    count={stats?.masterWords || 0}
-                    total={totalWords}
-                    icon={Trophy}
-                    gradient="bg-[#C4B5FD]"
-                    iconColor="bg-[#C4B5FD]"
-                    description={t("dashboard.masterDescription")}
-                    onClick={() => {
-                      console.log("Navigate to master words");
-                    }}
-                  />
-                </div>
+                <WordStageCard
+                  title={t("dashboard.master")}
+                  count={stats?.masterWords || 0}
+                  total={totalWords}
+                  icon={Trophy}
+                  gradient="bg-[#C4B5FD]"
+                  iconColor="bg-[#C4B5FD]"
+                  description={t("dashboard.masterDescription")}
+                  onClick={() => {
+                    console.log("Navigate to master words");
+                  }}
+                />
+              </div>
 
-                {/* Helper text connecting vocab to passages */}
-                {/* <div className="mt-4 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+              {/* Helper text connecting vocab to passages */}
+              {/* <div className="mt-4 p-4 bg-primary/5 border border-primary/20 rounded-xl">
                   <p className="text-sm text-muted-foreground flex items-center gap-2">
                     <Target className="h-4 w-4 text-primary" />
                     <span>
@@ -300,7 +315,7 @@ export default function Dashboard() {
                     </span>
                   </p>
                 </div> */}
-              </div>
+            </div>
           </div>
 
           {/* Right Column - Secondary Actions & Stats */}
@@ -379,7 +394,9 @@ export default function Dashboard() {
                               variant="outline"
                               className="text-xs px-1.5 py-0 h-5"
                             >
-                              {t(`reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`)}
+                              {t(
+                                `reading.difficultyLevels.${getTranslationKeyFromCefr(passage.level)}.label`,
+                              )}
                             </Badge>
                             <span className="text-xs text-muted-foreground">
                               •
@@ -416,7 +433,10 @@ export default function Dashboard() {
                       {t("dashboard.createFirstPassage")}
                     </p>
                     <Link href="/reading">
-                      <Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white">
+                      <Button
+                        size="sm"
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
+                      >
                         <Sparkles className="h-3 w-3 mr-1" />
                         {t("dashboard.createPassage")}
                       </Button>
@@ -576,20 +596,28 @@ export default function Dashboard() {
                   {recentCollections.map((collection, index) => {
                     const isHex = collection.color?.startsWith("#");
                     const color = collection.color || "#3B82F6";
-                    const CollectionIcon = getIconComponent(collection.icon || "Layers");
-                    
+                    const CollectionIcon = getIconComponent(
+                      collection.icon || "Layers",
+                    );
+
                     return (
                       <Link
                         key={collection.id}
                         href={`/collections/${collection.id}`}
                       >
-                        <div 
-                          className={`group flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg ${!isHex ? `${color} bg-opacity-40` : ''}`}
-                          style={isHex ? { backgroundColor: `${color}66` } : undefined}
+                        <div
+                          className={`group flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-lg ${!isHex ? `${color} bg-opacity-40` : ""}`}
+                          style={
+                            isHex
+                              ? { backgroundColor: `${color}66` }
+                              : undefined
+                          }
                         >
                           <div
-                            className={`h-12 w-12 rounded-xl shrink-0 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform ${!isHex ? color : ''}`}
-                            style={isHex ? { backgroundColor: color } : undefined}
+                            className={`h-12 w-12 rounded-xl shrink-0 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform ${!isHex ? color : ""}`}
+                            style={
+                              isHex ? { backgroundColor: color } : undefined
+                            }
                           >
                             <CollectionIcon className="h-6 w-6 text-white" />
                           </div>

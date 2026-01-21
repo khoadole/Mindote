@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
             remainingUses: 0,
             isPremium: false,
           },
-          { status: 429 }
+          { status: 429 },
         );
       }
     }
@@ -118,7 +118,7 @@ The user prefers the "${partOfSpeech}" form of this word.
           role: "system",
           content: `You are a helpful multilingual language assistant. Given a word, phrase, or idiom, provide:
 1. The term (cleaned up if needed) in ${termLang?.name || "English"}
-2. A clear, concise definition in ${defLang?.name || "English"}
+2. A definition in ${defLang?.name || "English"} with this EXACT format: "short meaning/translation - detailed explanation"
 3. A natural example sentence in ${
             exampleLang?.name || "English"
           } using the term
@@ -135,6 +135,14 @@ IMPORTANT LANGUAGE INSTRUCTIONS:
           }
 - Keep the term in the example sentence even if the example is in a different language
 
+CRITICAL DEFINITION FORMAT:
+- ALWAYS use format: "short meaning - detailed definition"
+- The short meaning comes FIRST, then a hyphen " - ", then the detailed explanation
+- Examples:
+  * For "apple" in Vietnamese: "quả táo - Một loại quả tròn, thường có màu đỏ, xanh hoặc vàng, có vị ngọt và giòn"
+  * For "serendipity" in Vietnamese: "sự may mắn tình cờ - Việc tình cờ phát hiện ra điều thú vị hoặc có giá trị mà không cố ý tìm kiếm"
+  * For "ephemeral" in Vietnamese: "phù du, thoáng qua - Tồn tại trong thời gian rất ngắn, không lâu dài"
+
 PHONETIC FORMAT FOR ${termLang?.name || "English"}:
 - Use ${phoneticFormat}
 - Examples:
@@ -147,7 +155,7 @@ PHONETIC FORMAT FOR ${termLang?.name || "English"}:
 Respond ONLY with valid JSON in this exact format:
 {
   "term": "the word/phrase in ${termLang?.name}",
-  "definition": "clear definition in ${defLang?.name}",
+  "definition": "short meaning - detailed definition in ${defLang?.name}",
   "example": "example sentence in ${exampleLang?.name} using the term",
   "phonetic": "pronunciation in appropriate format for ${termLang?.name}",
   "partOfSpeech": "noun|verb|adjective|etc"
@@ -242,10 +250,10 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
       message: isPremium
         ? "Unlimited AI fills available"
         : remainingUses > 0
-        ? `${remainingUses} AI fill${
-            remainingUses === 1 ? "" : "s"
-          } remaining today`
-        : "Last AI fill for today! Upgrade for unlimited access.",
+          ? `${remainingUses} AI fill${
+              remainingUses === 1 ? "" : "s"
+            } remaining today`
+          : "Last AI fill for today! Upgrade for unlimited access.",
     });
   } catch (error: any) {
     console.error("AI Fill Error:", error);
@@ -254,14 +262,14 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
     if (error?.status === 401) {
       return NextResponse.json(
         { error: "Invalid OpenAI API key" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     if (error?.status === 429) {
       return NextResponse.json(
         { error: "OpenAI rate limit reached. Please try again later." },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -270,7 +278,7 @@ Keep definitions concise and examples natural. If it's a phrase or idiom, mark p
         error: "Failed to generate AI content",
         message: error.message || "Unknown error occurred",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -324,7 +332,7 @@ export async function GET(request: NextRequest) {
     console.error("Check usage error:", error);
     return NextResponse.json(
       { error: "Failed to check usage" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

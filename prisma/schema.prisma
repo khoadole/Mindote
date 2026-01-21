@@ -23,6 +23,7 @@ model User {
   setting       Setting?
   subscriptions Subscription[]
   aiLogs        AILog[]
+  aiUsages      AIUsage[]
 
   @@index([email])
   @@map("users")
@@ -212,6 +213,17 @@ model AILog {
   @@id([userId, feature])
   @@index([createdAt])
   @@map("ai_logs")
+}
+
+model AIUsage {
+  userId String   @map("user_id") @db.Uuid
+  date   DateTime @db.Date
+  count  Int      @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, date])
+  @@map("ai_usages")
 }
 
 // ============================================

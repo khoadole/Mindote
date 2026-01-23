@@ -187,17 +187,19 @@ export default function Dashboard() {
                       className="flex items-center gap-2 px-3 py-2 rounded-xl"
                       style={{ backgroundColor: "#383a42" }}
                     >
+                      <strong>{passageMetrics.totalPassages}</strong>{" "}
                       {t("dashboard.passagesCreated", {
                         count: passageMetrics.totalPassages,
-                      })}
+                      }).replace(/^<strong>\d+<\/strong>\s*/, "")}
                     </div>
                     <div
                       className="flex items-center gap-2 px-3 py-2 rounded-xl"
                       style={{ backgroundColor: "#383a42" }}
                     >
+                      <strong>{passageMetrics.completedPassages}</strong>{" "}
                       {t("dashboard.completed", {
                         count: passageMetrics.completedPassages,
-                      })}
+                      }).replace(/^<strong>\d+<\/strong>\s*/, "")}
                     </div>
                   </div>
 

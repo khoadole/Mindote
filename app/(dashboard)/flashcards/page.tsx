@@ -42,7 +42,7 @@ const FlashcardPlayer = dynamic(
         </div>
       );
     },
-  }
+  },
 );
 
 export default function FlashcardsPage() {
@@ -65,7 +65,7 @@ export default function FlashcardsPage() {
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>(
-    collectionParam || "all"
+    collectionParam || "all",
   );
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
   const [isStudying, setIsStudying] = useState(false);
@@ -108,6 +108,13 @@ export default function FlashcardsPage() {
 
   const studyWords = getStudyWords();
 
+  // Auto-start if coming from collection page
+  useEffect(() => {
+    if (collectionParam && !mode && studyWords.length > 0 && !isStudying) {
+      setIsStudying(true);
+    }
+  }, [collectionParam, mode, studyWords.length, isStudying]);
+
   const handleStartStudy = () => {
     if (studyWords.length === 0) {
       toast({
@@ -123,7 +130,10 @@ export default function FlashcardsPage() {
   const handleStudyComplete = (results: { correct: number; again: number }) => {
     toast({
       title: t("flashcards.sessionComplete"),
-      description: t("flashcards.sessionResults", { correct: results.correct, again: results.again }),
+      description: t("flashcards.sessionResults", {
+        correct: results.correct,
+        again: results.again,
+      }),
     });
 
     // If in review mode, go back to dashboard or collection
@@ -269,19 +279,26 @@ export default function FlashcardsPage() {
               <Card className="hover:shadow-md transition-shadow">
                 <CardHeader>
                   <CardTitle>
-                    {mode === "review" ? t("flashcards.reviewSettings") : t("flashcards.studySettings")}
+                    {mode === "review"
+                      ? t("flashcards.reviewSettings")
+                      : t("flashcards.studySettings")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {mode !== "review" && !collectionParam && (
+                  {mode !== "review" && (
                     <div className="space-y-2">
-                      <Label htmlFor="scope">{t("flashcards.studyScope")}</Label>
+                      <Label htmlFor="scope">
+                        {t("flashcards.studyScope")}
+                      </Label>
                       <Select
                         value={selectedScope}
                         onValueChange={setSelectedScope}
+                        disabled={!!collectionParam}
                       >
                         <SelectTrigger className="truncate">
-                          <SelectValue placeholder={t("flashcards.selectScope")} />
+                          <SelectValue
+                            placeholder={t("flashcards.selectScope")}
+                          />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">
@@ -299,7 +316,7 @@ export default function FlashcardsPage() {
                               >
                                 {collection.name} (
                                 {words?.filter(
-                                  (w) => w.collectionId === collection.id
+                                  (w) => w.collectionId === collection.id,
                                 ).length || 0}
                                 )
                               </span>
@@ -316,7 +333,9 @@ export default function FlashcardsPage() {
                       checked={shuffleEnabled}
                       onCheckedChange={setShuffleEnabled}
                     />
-                    <Label htmlFor="shuffle">{t("flashcards.shuffleCards")}</Label>
+                    <Label htmlFor="shuffle">
+                      {t("flashcards.shuffleCards")}
+                    </Label>
                   </div>
 
                   <Button
@@ -325,7 +344,9 @@ export default function FlashcardsPage() {
                     disabled={studyWords.length === 0}
                   >
                     <Play className="h-4 w-4 mr-2" />
-                    {mode === "review" ? t("flashcards.startReview") : t("flashcards.startStudySession")}
+                    {mode === "review"
+                      ? t("flashcards.startReview")
+                      : t("flashcards.startStudySession")}
                   </Button>
                 </CardContent>
               </Card>
@@ -349,7 +370,9 @@ export default function FlashcardsPage() {
                           {t("flashcards.readyToStudy")}
                         </h3>
                         <p className="text-muted-foreground mb-4">
-                          {t("flashcards.cardsReady", { count: studyWords.length })}
+                          {t("flashcards.cardsReady", {
+                            count: studyWords.length,
+                          })}
                         </p>
                         <div className="flex flex-wrap gap-2 justify-center">
                           {studyWords.slice(0, 5).map((word) => (

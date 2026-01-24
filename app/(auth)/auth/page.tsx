@@ -19,8 +19,12 @@ import { useAuth } from "@/lib/auth";
 import { getAuthErrorMessage } from "@/lib/auth-helpers";
 import { BookOpen, Mail, Lock, User, ArrowLeft, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useRedirectIfAuthenticated } from "@/hooks/use-auth-guard";
 
 export default function AuthPage() {
+  // ⚡ Auto-redirect if already authenticated
+  useRedirectIfAuthenticated();
+
   const {
     signIn,
     signUp,
@@ -106,7 +110,7 @@ export default function AuthPage() {
       const { error, data } = await signUp(
         signUpData.email,
         signUpData.password,
-        signUpData.username
+        signUpData.username,
       );
 
       if (error) {
@@ -154,7 +158,7 @@ export default function AuthPage() {
 
       const { error } = await resetPassword(
         email,
-        redirectTo ? { redirectTo } : undefined
+        redirectTo ? { redirectTo } : undefined,
       );
 
       if (error) {
@@ -249,7 +253,9 @@ export default function AuthPage() {
                   <BookOpen className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <CardTitle className="text-2xl font-bold">Welcome to Mindote</CardTitle>
+              <CardTitle className="text-2xl font-bold">
+                Welcome to Mindote
+              </CardTitle>
               <CardDescription>
                 Start your vocabulary learning journey today
               </CardDescription>
@@ -332,7 +338,11 @@ export default function AuthPage() {
                         Forgot password?
                       </Button>
                     </div>
-                    <Button type="submit" className="w-full font-semibold" disabled={loading}>
+                    <Button
+                      type="submit"
+                      className="w-full font-semibold"
+                      disabled={loading}
+                    >
                       {loading ? (
                         <>
                           <Loader2 className="h-4 w-4 mr-2 animate-spin" />

@@ -28,6 +28,7 @@ import { useTheme } from "@/lib/theme-provider";
 import { useTranslation } from "@/lib/i18n-provider";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useRedirectIfAuthenticated } from "@/hooks/use-auth-guard";
 
 // Highlight Features with Screenshots
 const highlightFeatures = [
@@ -123,6 +124,9 @@ const faqs = [
 ];
 
 export default function LandingPage() {
+  // ⚡ Auto-redirect authenticated users to dashboard
+  useRedirectIfAuthenticated();
+
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -175,7 +179,9 @@ export default function LandingPage() {
               )}
             </Button>
             <Link href="/auth">
-              <Button className="rounded-full px-6">{t("landing.getStarted")}</Button>
+              <Button className="rounded-full px-6">
+                {t("landing.getStarted")}
+              </Button>
             </Link>
           </div>
         </div>
@@ -239,7 +245,9 @@ export default function LandingPage() {
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 10K+
               </div>
-              <div className="text-sm text-muted-foreground">{t("landing.wordsLearned")}</div>
+              <div className="text-sm text-muted-foreground">
+                {t("landing.wordsLearned")}
+              </div>
             </div>
             <div className="text-center space-y-1">
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
@@ -253,7 +261,9 @@ export default function LandingPage() {
               <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 95%
               </div>
-              <div className="text-sm text-muted-foreground">{t("landing.successRate")}</div>
+              <div className="text-sm text-muted-foreground">
+                {t("landing.successRate")}
+              </div>
             </div>
           </div>
         </div>

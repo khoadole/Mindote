@@ -4,7 +4,19 @@ import type React from "react";
 import { useState } from "react";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
+import { useRequireAuth } from "@/hooks/use-auth-guard";
+import { AuthLoadingSpinner } from "@/components/auth-loading";
 
+/**
+ * ⚡ PERFORMANCE OPTIMIZED: Dashboard Layout
+ *
+ * Changes:
+ * - Uses client-side auth guard (no middleware blocking)
+ * - Shows loading spinner during auth check
+ * - Auth state cached by React Query (5min cache)
+ *
+ * Result: Instant navigation between dashboard pages
+ */
 export default function DashboardLayout({
   children,
 }: {
@@ -12,9 +24,16 @@ export default function DashboardLayout({
 }) {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
+  // ⚡ Client-side auth check - cached for 5 minutes
+  const { isLoading } = useRequireAuth();
+
+  // Show loading spinner during initial auth check
+  if (isLoading) {
+    return <AuthLoadingSpinner />;
+  }
+
   return (
     <div className="flex h-screen bg-background overflow-hidden p-0 md:p-3 gap-0 md:gap-3">
-
       {/* Mobile Sidebar Overlay */}
       {isMobileSidebarOpen && (
         <div
@@ -45,7 +64,6 @@ export default function DashboardLayout({
         <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
-
     </div>
   );
 }

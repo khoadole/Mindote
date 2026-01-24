@@ -67,7 +67,7 @@ const PASSAGE_TYPES = [
 ];
 
 export default function ReadingPage() {
-  const { t, locale } = useTranslation();
+  const { t, language } = useTranslation();
   const router = useRouter();
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: passages, isLoading: passagesLoading } = useReadingPassages();
@@ -78,7 +78,8 @@ export default function ReadingPage() {
   const [level, setLevel] = useState<string>("Intermediate");
   const [passageType, setPassageType] = useState<string>("story");
   const [questionType, setQuestionType] = useState<string>("multiple-choice");
-  const [language, setLanguage] = useState<string>(DEFAULT_LANGUAGE);
+  const [contentLanguage, setContentLanguage] =
+    useState<string>(DEFAULT_LANGUAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 4;
   const MAX_WORDS = 20;
@@ -140,7 +141,7 @@ export default function ReadingPage() {
       level: getCefrCode(level) as any,
       passageType: passageType as any,
       questionType: questionType as any,
-      language,
+      language: contentLanguage,
     };
 
     if (selectedWordIds.length > 0) {
@@ -391,7 +392,7 @@ export default function ReadingPage() {
                         >
                           <SelectTrigger>
                             <SelectValue>
-                              {getQuestionTypeLabel(questionType, locale)}
+                              {getQuestionTypeLabel(questionType, language)}
                             </SelectValue>
                           </SelectTrigger>
                           <SelectContent className="max-h-[400px]">
@@ -399,10 +400,13 @@ export default function ReadingPage() {
                               <SelectItem key={type.value} value={type.value}>
                                 <div className="py-1">
                                   <div className="font-medium text-sm">
-                                    {getQuestionTypeLabel(type.value, locale)}
+                                    {getQuestionTypeLabel(type.value, language)}
                                   </div>
                                   <div className="text-xs text-muted-foreground mt-0.5">
-                                    {getQuestionTypeDescription(type.value, locale)}
+                                    {getQuestionTypeDescription(
+                                      type.value,
+                                      language,
+                                    )}
                                   </div>
                                 </div>
                               </SelectItem>
@@ -416,7 +420,10 @@ export default function ReadingPage() {
 
                       <div className="space-y-2">
                         <Label>{t("reading.language")}</Label>
-                        <Select value={language} onValueChange={setLanguage}>
+                        <Select
+                          value={contentLanguage}
+                          onValueChange={setContentLanguage}
+                        >
                           <SelectTrigger>
                             <SelectValue />
                           </SelectTrigger>
@@ -425,7 +432,7 @@ export default function ReadingPage() {
                               <SelectItem key={lang.code} value={lang.code}>
                                 <div className="flex items-center gap-2">
                                   <span>{lang.flag}</span>
-                                  <span>{lang.name}</span>
+                                  <span>{lang.nativeName}</span>
                                 </div>
                               </SelectItem>
                             ))}

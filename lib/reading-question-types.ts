@@ -356,7 +356,7 @@ export const IELTS_QUESTION_TYPES: QuestionType[] = [
  */
 export function getQuestionTypeLabel(
   typeValue: string,
-  locale: string = "en"
+  locale: string = "en",
 ): string {
   const type = IELTS_QUESTION_TYPES.find((t) => t.value === typeValue);
   if (!type) return typeValue;
@@ -370,7 +370,7 @@ export function getQuestionTypeLabel(
  */
 export function getQuestionTypeDescription(
   typeValue: string,
-  locale: string = "en"
+  locale: string = "en",
 ): string {
   const type = IELTS_QUESTION_TYPES.find((t) => t.value === typeValue);
   if (!type) return "";

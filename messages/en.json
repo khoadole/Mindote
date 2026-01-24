@@ -528,6 +528,8 @@
     },
     "language": "Language",
     "languageDescription": "Language for the reading passage content",
+    "questionType": "Question Type",
+    "questionTypeHint": "Choose the type of IELTS Reading questions to practice",
     "generating": "Generating...",
     "aiWillCreate": "AI will create a passage using your vocabulary words",
     "howItWorks": "How it works",

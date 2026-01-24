@@ -12,6 +12,11 @@ import {
   getTranslationKeyFromCefr,
 } from "@/lib/difficulty-levels";
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/lib/languages";
+import {
+  IELTS_QUESTION_TYPES,
+  getQuestionTypeLabel,
+  getQuestionTypeDescription,
+} from "@/lib/reading-question-types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -62,7 +67,7 @@ const PASSAGE_TYPES = [
 ];
 
 export default function ReadingPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const router = useRouter();
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: passages, isLoading: passagesLoading } = useReadingPassages();
@@ -72,6 +77,7 @@ export default function ReadingPage() {
   const [selectedWordIds, setSelectedWordIds] = useState<string[]>([]);
   const [level, setLevel] = useState<string>("Intermediate");
   const [passageType, setPassageType] = useState<string>("story");
+  const [questionType, setQuestionType] = useState<string>("multiple-choice");
   const [language, setLanguage] = useState<string>(DEFAULT_LANGUAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 4;
@@ -133,6 +139,7 @@ export default function ReadingPage() {
       collectionId: selectedCollection,
       level: getCefrCode(level) as any,
       passageType: passageType as any,
+      questionType: questionType as any,
       language,
     };
 
@@ -373,6 +380,38 @@ export default function ReadingPage() {
                             ))}
                           </SelectContent>
                         </Select>
+                      </div>
+
+                      {/* Question Type Selector */}
+                      <div className="space-y-2">
+                        <Label>{t("reading.questionType")}</Label>
+                        <Select
+                          value={questionType}
+                          onValueChange={setQuestionType}
+                        >
+                          <SelectTrigger>
+                            <SelectValue>
+                              {getQuestionTypeLabel(questionType, locale)}
+                            </SelectValue>
+                          </SelectTrigger>
+                          <SelectContent className="max-h-[400px]">
+                            {IELTS_QUESTION_TYPES.map((type) => (
+                              <SelectItem key={type.value} value={type.value}>
+                                <div className="py-1">
+                                  <div className="font-medium text-sm">
+                                    {getQuestionTypeLabel(type.value, locale)}
+                                  </div>
+                                  <div className="text-xs text-muted-foreground mt-0.5">
+                                    {getQuestionTypeDescription(type.value, locale)}
+                                  </div>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <p className="text-xs text-muted-foreground">
+                          {t("reading.questionTypeHint")}
+                        </p>
                       </div>
 
                       <div className="space-y-2">

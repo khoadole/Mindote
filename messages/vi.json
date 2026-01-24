@@ -512,6 +512,8 @@
     },
     "language": "Ngôn ngữ",
     "languageDescription": "Ngôn ngữ cho nội dung đoạn văn đọc",
+    "questionType": "Loại câu hỏi",
+    "questionTypeHint": "Chọn loại câu hỏi IELTS Reading để luyện tập",
     "generating": "Đang tạo...",
     "aiWillCreate": "AI sẽ tạo đoạn văn sử dụng từ vựng của bạn",
     "howItWorks": "Cách hoạt động",

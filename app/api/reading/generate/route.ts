@@ -4,6 +4,7 @@ import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
 import { logAIUsage } from "@/lib/ai-logger";
+import { getQuestionTypeDetails } from "@/lib/reading-question-types";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -16,6 +17,7 @@ interface GenerateReadingRequest {
   selectedWordIds?: string[]; // Optional: specific word IDs to use (max 20)
   level?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   passageType?: "story" | "article" | "essay" | "news";
+  questionType?: string; // IELTS question type
   language?: string;
 }
 
@@ -45,6 +47,7 @@ export async function POST(request: NextRequest) {
       selectedWordIds,
       level = "B1",
       passageType = "story",
+      questionType = "multiple-choice",
       language = "en",
     } = body;
 
@@ -175,6 +178,15 @@ export async function POST(request: NextRequest) {
     };
     const languageName = languageNames[language] || "English";
 
+    // Get question type details for AI prompt
+    const questionTypeDetails = getQuestionTypeDetails(questionType);
+    const questionInstructions =
+      questionTypeDetails?.aiPrompt ||
+      "Create 5 multiple choice questions with 4 options (A, B, C, D) each.";
+    const questionFormat =
+      questionTypeDetails?.instructions ||
+      "Select the best answer for each question.";
+
     // Generate reading passage with AI
     const prompt = `Create an engaging ${level} level ${languageName} reading passage (250-350 words) that naturally incorporates these vocabulary words: ${wordList}.
 
@@ -184,7 +196,12 @@ Requirements:
 - Use 70-80% of the provided words naturally in context
 - Appropriate difficulty for ${level} CEFR level
 - Make it interesting and educational
-- Include 5 comprehension questions in ${languageName} (multiple choice with 4 options each)
+
+Question Type: ${questionTypeDetails?.label || "Multiple Choice"}
+Instructions: ${questionInstructions}
+
+Create 5 questions in ${languageName} following these guidelines:
+${questionFormat}
 
 Format as JSON:
 {
@@ -199,7 +216,9 @@ Format as JSON:
       "explanation": "..."
     }
   ]
-}`;
+}
+
+Note: Adapt the question format based on the question type. For True/False/Not Given, use options like "A. True", "B. False", "C. Not Given". For Yes/No/Not Given, use "A. Yes", "B. No", "C. Not Given". For sentence completion or short answer, provide the answer directly in correctAnswer field.`;
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -207,7 +226,7 @@ Format as JSON:
         {
           role: "system",
           content:
-            "You are an expert multilingual content creator specializing in creating engaging reading passages for language learners at different proficiency levels. You can create content in multiple languages while maintaining appropriate difficulty levels.",
+            "You are an expert IELTS Reading test creator and multilingual content specialist. You create authentic reading passages with various question types (Multiple Choice, True/False/Not Given, Matching Headings, Sentence Completion, etc.) for language learners at different proficiency levels. You can create content in multiple languages while maintaining appropriate difficulty levels and authentic IELTS-style questions.",
         },
         {
           role: "user",

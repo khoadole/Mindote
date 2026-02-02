@@ -352,7 +352,6 @@ export function PricingPlans() {
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground">
-                    {plan.id === 'basic' && t('components.billing.forever')}
                     {plan.id === 'monthly' && t('components.billing.perMonth')}
                     {plan.id === 'yearly' && t('components.billing.perYear')}
                   </span>

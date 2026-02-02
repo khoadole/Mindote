@@ -5,6 +5,7 @@ import prisma from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 /**
+ * curl -X POST http://localhost:3000/api/sync-plans
  * POST /api/sync-plans
  *
  * Sync plans from Lemon Squeezy to database

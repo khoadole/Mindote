@@ -26,27 +26,40 @@ import { useTranslation } from "@/lib/i18n-provider";
 
 const PLANS = [
   {
+    id: "basic",
+    name: "Basic",
+    price: "$0",
+    period: "forever",
+    variantId: 0, // Free plan
+    features: [
+      "ai_reset_3_times", // AI features reset daily, 3 times
+      "create_collections",
+      "flashcards_quiz",
+      "basic_vocabulary",
+    ],
+  },
+  {
     id: "monthly",
     name: "Monthly",
-    price: "$5.99",
+    price: "$3.99",
     period: "per month",
     variantId: parseInt(
       process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_MONTHLY || "1087650"
     ),
     features: [
-      "Unlimited AI word fills",
-      "Unlimited reading generation",
-      "Advanced analytics & insights",
-      "Early access to new features",
-      "Priority support",
-      "All core features included",
+      "unlimited_ai_fills",
+      "unlimited_reading",
+      "advanced_analytics",
+      "early_access",
+      "priority_support",
+      "all_basic_features",
     ],
   },
   {
     id: "yearly",
     name: "Yearly",
-    price: "$35.88",
-    pricePerMonth: "$2.99",
+    price: "$23.88",
+    pricePerMonth: "$1.99",
     period: "per year",
     variantId: parseInt(
       process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_YEARLY || "1087727"
@@ -54,11 +67,12 @@ const PLANS = [
     savings: "Save 50%",
     popular: true,
     features: [
-      "Everything in Monthly",
-      "Priority support",
-      "Early access to beta features",
-      "Exclusive community access",
-      "Annual savings guarantee",
+      "unlimited_ai_fills",
+      "unlimited_reading",
+      "advanced_analytics",
+      "early_access",
+      "priority_support",
+      "all_basic_features",
     ],
   },
 ];
@@ -112,7 +126,8 @@ export function PricingPlans() {
         setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
         setActiveSubscription(activeSubscriptions[0]);
       } else {
-        setCurrentPlanVariantId(null);
+        // Set to 0 (Basic plan) for free users
+        setCurrentPlanVariantId(0);
         setActiveSubscription(null);
       }
       setSubscriptionsLoading(false);
@@ -186,8 +201,8 @@ export function PricingPlans() {
         setCurrentPlanVariantId(activeSubscriptions[0].plan.variantId);
         setActiveSubscription(activeSubscriptions[0]);
       } else {
-        // Reset state if no active subscription found
-        setCurrentPlanVariantId(null);
+        // Set to 0 (Basic plan) for free users
+        setCurrentPlanVariantId(0);
         setActiveSubscription(null);
       }
     } catch (error) {
@@ -205,18 +220,23 @@ export function PricingPlans() {
   };
 
   const getCurrentPlanName = () => {
-    if (!currentPlanVariantId) return "";
+    if (!currentPlanVariantId) return t('components.billing.basic');
     const plan = PLANS.find((p) => p.variantId === currentPlanVariantId);
     if (!plan) return t('components.billing.currentPlan');
-    return plan.id === 'monthly' ? t('components.billing.monthly') : t('components.billing.yearly');
+    if (plan.id === 'basic') return t('components.billing.basic');
+    if (plan.id === 'monthly') return t('components.billing.monthly');
+    return t('components.billing.yearly');
   };
 
   const handlePlanClick = (plan: (typeof PLANS)[0]) => {
     // If current plan, do nothing
     if (currentPlanVariantId === plan.variantId) return;
 
+    // If clicking Basic plan (free), do nothing as users can't downgrade to free
+    if (plan.id === "basic") return;
+
     // If no active subscription (free user), go straight to checkout
-    if (!activeSubscription) {
+    if (!activeSubscription || currentPlanVariantId === 0) {
       handleSubscribe(plan.id, plan.variantId);
       return;
     }
@@ -291,11 +311,11 @@ export function PricingPlans() {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {PLANS.map((plan) => (
           <Card
             key={plan.id}
-            className={`relative ${
+            className={`relative flex flex-col min-h-[550px] ${
               plan.popular
                 ? "border-purple-500 shadow-lg shadow-purple-500/20"
                 : ""
@@ -311,7 +331,11 @@ export function PricingPlans() {
 
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
-                <span>{plan.id === 'monthly' ? t('components.billing.monthly') : t('components.billing.yearly')}</span>
+                <span>
+                  {plan.id === 'basic' && t('components.billing.basic')}
+                  {plan.id === 'monthly' && t('components.billing.monthly')}
+                  {plan.id === 'yearly' && t('components.billing.yearly')}
+                </span>
                 {plan.savings && (
                   <Badge
                     variant="secondary"
@@ -323,11 +347,15 @@ export function PricingPlans() {
               </CardTitle>
             </CardHeader>
 
-            <CardContent className="space-y-6">
+            <CardContent className="flex flex-col flex-1 space-y-6">
               <div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-muted-foreground">{plan.id === 'monthly' ? t('components.billing.perMonth') : t('components.billing.perYear')}</span>
+                  <span className="text-muted-foreground">
+                    {plan.id === 'basic' && t('components.billing.forever')}
+                    {plan.id === 'monthly' && t('components.billing.perMonth')}
+                    {plan.id === 'yearly' && t('components.billing.perYear')}
+                  </span>
                 </div>
                 {plan.pricePerMonth && (
                   <p className="text-sm text-muted-foreground mt-1">
@@ -336,26 +364,21 @@ export function PricingPlans() {
                 )}
               </div>
 
-              <ul className="space-y-3">
-                {(plan.id === 'monthly' ? [
-                  t('components.billing.features.unlimitedAiFills'),
-                  t('components.billing.features.unlimitedReading'),
-                  t('components.billing.features.advancedAnalytics'),
-                  t('components.billing.features.earlyAccess'),
-                  t('components.billing.features.prioritySupport'),
-                  t('components.billing.features.allCoreFeatures'),
-                ] : [
-                  t('components.billing.features.everythingInMonthly'),
-                  t('components.billing.features.prioritySupport'),
-                  t('components.billing.features.earlyBetaAccess'),
-                  t('components.billing.features.exclusiveCommunity'),
-                  t('components.billing.features.annualSavings'),
-                ]).map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{feature}</span>
-                  </li>
-                ))}
+              <ul className="space-y-3 flex-1">
+                {plan.features.map((featureKey, index) => {
+                  const translationKey = `components.billing.features.${featureKey}`;
+                  const featureText = t(translationKey);
+                  const isAiFeature = featureKey.includes('ai') || featureKey.includes('unlimited');
+                  
+                  return (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className={`text-sm ${isAiFeature ? 'font-semibold' : ''}`}>
+                        {featureText}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
 
               <Button

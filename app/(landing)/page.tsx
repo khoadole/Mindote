@@ -14,7 +14,6 @@ import {
   BookOpen,
   Brain,
   CheckCircle,
-  Youtube,
   Zap,
   BookOpenCheck,
   Moon,
@@ -29,6 +28,7 @@ import { useTranslation } from "@/lib/i18n-provider";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useRedirectIfAuthenticated } from "@/hooks/use-auth-guard";
+import { AnimatedBackground } from "@/components/landing/animated-background";
 
 // Highlight Features with Screenshots
 const highlightFeatures = [
@@ -63,12 +63,6 @@ const highlightFeatures = [
 
 // Additional Features
 const additionalFeatures = [
-  {
-    icon: Youtube,
-    title: "YouTube Integration",
-    description:
-      "Learn from real content. Extract vocabulary from YouTube videos with transcripts and timestamps.",
-  },
   {
     icon: Target,
     title: "Smart Progress Tracking",
@@ -107,14 +101,9 @@ const faqs = [
       "Spaced repetition is a scientifically proven learning technique where you review information at increasing intervals. This method is proven to improve long-term retention by up to 200% compared to traditional studying.",
   },
   {
-    question: "Can I learn from YouTube videos?",
-    answer:
-      "Absolutely! Mindote integrates with YouTube to extract vocabulary from video transcripts. You can learn words in context, see timestamps, and build your collection from real English content.",
-  },
-  {
     question: "How is Mindote different from other vocabulary apps?",
     answer:
-      "Mindote combines multiple learning methods in one platform: flashcards, quizzes, reading practice, and YouTube integration. It's designed specifically for serious learners who want a comprehensive, systematic approach to vocabulary building.",
+      "Mindote combines multiple learning methods in one platform: flashcards, quizzes, and reading practice. It's designed specifically for serious learners who want a comprehensive, systematic approach to vocabulary building.",
   },
   {
     question: "Do I need to download anything?",
@@ -148,47 +137,49 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
-      {/* Background Gradient - REMOVED for pure white */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" /> */}
-      {/* Header */}
-      <header className="bg-background border-b border-border/40">
-        {" "}
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Image
-              src="/logo.png"
-              alt="Mindote Logo"
-              width={48}
-              height={48}
-              className="h-12 w-12"
-            />
-            <h1 className="text-2xl font-bold text-foreground">Mindote</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="rounded-full"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-            <Link href="/auth">
-              <Button className="rounded-full px-6">
-                {t("landing.getStarted")}
+      {/* Animated Particles Background */}
+      <AnimatedBackground />
+      
+      {/* Header with Glassmorphism */}
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+        <div className="backdrop-blur-xl bg-background/60 border border-border/50 shadow-2xl rounded-full px-6 py-3 ring-1 ring-white/10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Image
+                src="/logo.png"
+                alt="Mindote Logo"
+                width={48}
+                height={48}
+                className="h-12 w-12"
+              />
+              <h1 className="text-2xl font-bold text-foreground">Mindote</h1>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className="rounded-full"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
               </Button>
-            </Link>
+              <Link href="/auth">
+                <Button className="rounded-full px-6">
+                  {t("landing.getStarted")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 lg:py-28">
+      <section className="container mx-auto px-4 py-20 lg:py-28 mt-20">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4 animate-fade-in-down">
             <Sparkles className="h-4 w-4" />
@@ -377,7 +368,7 @@ export default function LandingPage() {
           </div>
 
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children ${
+            className={`grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children ${
               additionalFeaturesRef.isVisible ? "is-visible" : ""
             }`}
           >

@@ -20,6 +20,7 @@ import { getAuthErrorMessage } from "@/lib/auth-helpers";
 import { BookOpen, Mail, Lock, User, ArrowLeft, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useRedirectIfAuthenticated } from "@/hooks/use-auth-guard";
+import { AnimatedBackground } from "@/components/landing/animated-background";
 
 export default function AuthPage() {
   // ⚡ Auto-redirect if already authenticated
@@ -224,29 +225,34 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <BookOpen className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Mindote</span>
-          </Link>
-          <Link href="/">
-            <Button variant="ghost" className="cursor-pointer">
-              Back to Home
-            </Button>
-          </Link>
+      {/* Animated Particles Background */}
+      <AnimatedBackground />
+      
+      {/* Header with Glassmorphism */}
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+        <div className="backdrop-blur-xl bg-background/60 border rounded-full px-6 py-3 ring-1 ring-white/10">
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            >
+              <BookOpen className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold">Mindote</span>
+            </Link>
+            <Link href="/">
+              <Button variant="ghost" className="rounded-full">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
         </div>
       </header>
 
       {/* Auth Form */}
-      <div className="container mx-auto px-4 py-20 flex items-center justify-center">
+      <div className="container mx-auto px-4 py-20 flex items-center justify-center relative z-10">
         <div className="w-full max-w-md">
-          <Card className="border-border/50 shadow-lg">
+          <Card className="border-border/50 shadow-lg relative z-10 bg-background">
             <CardHeader className="text-center">
               <div className="flex justify-center mb-4">
                 <div className="p-3 rounded-full bg-primary/10">

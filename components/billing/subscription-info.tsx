@@ -31,18 +31,7 @@ import { useToast } from "@/hooks/use-toast";
 import { formatDistanceToNow, format } from "date-fns";
 import { useTranslation } from "@/lib/i18n-provider";
 
-import {
-  enUS,
-  vi,
-  de,
-  es,
-  fr,
-  it,
-  ja,
-  ko,
-  pt,
-  zhCN,
-} from "date-fns/locale";
+import { enUS, vi, de, es, fr, it, ja, ko, pt, zhCN } from "date-fns/locale";
 
 const locales: Record<string, any> = {
   en: enUS,
@@ -69,17 +58,21 @@ export function SubscriptionInfo() {
 
   // Helper function to translate interval
   const getIntervalText = (interval: string) => {
-    if (interval === 'month') return t('components.billing.perMonth');
-    if (interval === 'year') return t('components.billing.perYear');
+    if (interval === "month") return t("components.billing.perMonth");
+    if (interval === "year") return t("components.billing.perYear");
     return interval;
   };
 
   // Helper function to translate status
   const getStatusText = (status: string) => {
-    if (status === 'active' || status === 'Active') return t('components.billing.active');
-    if (status === 'paused' || status === 'Paused') return t('components.billing.paused');
-    if (status === 'cancelled' || status === 'Cancelled') return t('components.billing.cancelled');
-    if (status === 'on_trial' || status === 'On Trial') return t('components.billing.onTrial');
+    if (status === "active" || status === "Active")
+      return t("components.billing.active");
+    if (status === "paused" || status === "Paused")
+      return t("components.billing.paused");
+    if (status === "cancelled" || status === "Cancelled")
+      return t("components.billing.cancelled");
+    if (status === "on_trial" || status === "On Trial")
+      return t("components.billing.onTrial");
     return status;
   };
 
@@ -100,7 +93,7 @@ export function SubscriptionInfo() {
       const retryInterval = setInterval(async () => {
         retries++;
         console.log(
-          `[Billing] Retry ${retries}/${maxRetries} - checking for new subscription...`
+          `[Billing] Retry ${retries}/${maxRetries} - checking for new subscription...`,
         );
         await loadSubscriptions();
 
@@ -116,18 +109,18 @@ export function SubscriptionInfo() {
   const loadSubscriptions = async () => {
     try {
       // Use fetch API with cache: 'no-store' to bypass all Next.js caching
-      const response = await fetch('/api/subscriptions', {
-        cache: 'no-store',
+      const response = await fetch("/api/subscriptions", {
+        cache: "no-store",
         headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          Pragma: "no-cache",
         },
       });
-      
+
       if (!response.ok) {
-        throw new Error('Failed to fetch subscriptions');
+        throw new Error("Failed to fetch subscriptions");
       }
-      
+
       const data = await response.json();
       const subs = data.subscriptions || [];
       setSubscriptions(subs);
@@ -137,7 +130,7 @@ export function SubscriptionInfo() {
       window.dispatchEvent(
         new CustomEvent("subscription-updated", {
           detail: { subscriptions: subs },
-        })
+        }),
       );
     } catch (error: any) {
       console.error("Failed to load subscriptions:", error);
@@ -153,8 +146,8 @@ export function SubscriptionInfo() {
     router.refresh();
     await loadSubscriptions();
     toast({
-      title: t('components.billing.refreshed'),
-      description: t('components.billing.subscriptionStatusUpdated'),
+      title: t("components.billing.refreshed"),
+      description: t("components.billing.subscriptionStatusUpdated"),
     });
   };
 
@@ -167,8 +160,8 @@ export function SubscriptionInfo() {
       }
     } catch (error: any) {
       toast({
-        title: t('components.billing.error'),
-        description: t('components.billing.failedToOpenPortal'),
+        title: t("components.billing.error"),
+        description: t("components.billing.failedToOpenPortal"),
         variant: "destructive",
       });
     } finally {
@@ -177,7 +170,7 @@ export function SubscriptionInfo() {
   };
 
   const handleCancelSubscription = async (subscriptionId: string) => {
-    if (!confirm(t('components.billing.cancelConfirm'))) {
+    if (!confirm(t("components.billing.cancelConfirm"))) {
       return;
     }
 
@@ -185,14 +178,14 @@ export function SubscriptionInfo() {
       setActionLoading(true);
       await cancelSub(subscriptionId);
       toast({
-        title: t('components.billing.success'),
-        description: t('components.billing.subscriptionCancelled'),
+        title: t("components.billing.success"),
+        description: t("components.billing.subscriptionCancelled"),
       });
       await loadSubscriptions();
     } catch (error: any) {
       toast({
-        title: t('components.billing.error'),
-        description: error.message || t('components.billing.failedToCancel'),
+        title: t("components.billing.error"),
+        description: error.message || t("components.billing.failedToCancel"),
         variant: "destructive",
       });
     } finally {
@@ -202,28 +195,28 @@ export function SubscriptionInfo() {
 
   const handlePauseSubscription = async (
     subscriptionId: string,
-    isPaused: boolean
+    isPaused: boolean,
   ) => {
     try {
       setActionLoading(true);
       if (isPaused) {
         await unpauseSubscription(subscriptionId);
         toast({
-          title: t('components.billing.success'),
-          description: t('components.billing.subscriptionResumed'),
+          title: t("components.billing.success"),
+          description: t("components.billing.subscriptionResumed"),
         });
       } else {
         await pauseSubscription(subscriptionId);
         toast({
-          title: t('components.billing.success'),
-          description: t('components.billing.subscriptionPaused'),
+          title: t("components.billing.success"),
+          description: t("components.billing.subscriptionPaused"),
         });
       }
       await loadSubscriptions();
     } catch (error: any) {
       toast({
-        title: t('components.billing.error'),
-        description: error.message || t('components.billing.failedToUpdate'),
+        title: t("components.billing.error"),
+        description: error.message || t("components.billing.failedToUpdate"),
         variant: "destructive",
       });
     } finally {
@@ -245,9 +238,16 @@ export function SubscriptionInfo() {
   const now = new Date();
   console.log("[Billing] All subscriptions:", subscriptions);
   console.log("[Billing] Current time:", now.toISOString());
-  
+
   const activeSubscription = subscriptions.find((sub) => {
-    console.log("[Billing] Checking sub:", sub.id, "status:", sub.status, "endsAt:", sub.endsAt);
+    console.log(
+      "[Billing] Checking sub:",
+      sub.id,
+      "status:",
+      sub.status,
+      "endsAt:",
+      sub.endsAt,
+    );
     if (sub.status === "active" || sub.status === "on_trial") {
       console.log("[Billing] Found active subscription:", sub.id);
       return true;
@@ -255,20 +255,28 @@ export function SubscriptionInfo() {
     // Include cancelled subscriptions that haven't expired yet
     if (sub.status === "cancelled" && sub.endsAt) {
       const isValid = new Date(sub.endsAt) > now;
-      console.log("[Billing] Cancelled sub valid:", isValid, "endsAt:", sub.endsAt);
+      console.log(
+        "[Billing] Cancelled sub valid:",
+        isValid,
+        "endsAt:",
+        sub.endsAt,
+      );
       return isValid;
     }
     return false;
   });
-  
-  console.log("[Billing] Active subscription found:", activeSubscription ? activeSubscription.id : "none");
+
+  console.log(
+    "[Billing] Active subscription found:",
+    activeSubscription ? activeSubscription.id : "none",
+  );
 
   if (!activeSubscription) {
     return (
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>{t('components.billing.currentSubscription')}</CardTitle>
+            <CardTitle>{t("components.billing.currentSubscription")}</CardTitle>
             <Button
               variant="ghost"
               size="sm"
@@ -278,7 +286,7 @@ export function SubscriptionInfo() {
               <RefreshCw
                 className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`}
               />
-              {t('components.billing.refresh')}
+              {t("components.billing.refresh")}
             </Button>
           </div>
         </CardHeader>
@@ -286,13 +294,13 @@ export function SubscriptionInfo() {
           <div className="flex flex-col items-center justify-center py-8 text-center">
             <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
             <h3 className="text-lg font-semibold mb-2">
-              {t('components.billing.noActiveSubscription')}
+              {t("components.billing.noActiveSubscription")}
             </h3>
             <p className="text-muted-foreground mb-4">
-              {t('components.billing.noActiveSubscriptionDesc')}
+              {t("components.billing.noActiveSubscriptionDesc")}
             </p>
             <p className="text-xs text-muted-foreground">
-              {t('components.billing.justPaidHint')}
+              {t("components.billing.justPaidHint")}
             </p>
           </div>
         </CardContent>
@@ -307,10 +315,11 @@ export function SubscriptionInfo() {
           <CardTitle className="flex items-center gap-2">
             <Crown className="h-5 w-5 text-yellow-500" />
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-              {activeSubscription.plan.productName || t('components.billing.premiumPlan')}
+              {activeSubscription.plan.productName ||
+                t("components.billing.premiumPlan")}
             </span>
             <Badge variant="default" className="bg-green-600 dark:bg-green-500">
-              {t('components.billing.active')}
+              {t("components.billing.active")}
             </Badge>
           </CardTitle>
           <div className="flex items-center gap-2">
@@ -335,18 +344,18 @@ export function SubscriptionInfo() {
                   onClick={() =>
                     handleManageBilling(activeSubscription.lemonSqueezyId)
                   }
-                  className="hover:bg-primary/10 focus:bg-primary/10 text-foreground dark:text-white cursor-pointer"
+                  className="hover:bg-primary/10 focus:bg-primary/10 text-foreground hover:text-foreground focus:text-foreground dark:text-white dark:hover:text-white dark:focus:text-white cursor-pointer"
                 >
                   <CreditCard className="h-4 w-4 mr-2" />
-                  {t('components.billing.manageBilling')}
+                  {t("components.billing.manageBilling")}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() =>
                     handleCancelSubscription(activeSubscription.lemonSqueezyId)
                   }
-                  className="text-primary hover:bg-primary/10 focus:bg-primary/10 hover:text-white focus:text-white cursor-pointer"
+                  className="text-foreground hover:bg-primary/10 focus:bg-primary/10 hover:text-foreground focus:text-foreground dark:text-white dark:hover:text-white dark:focus:text-white cursor-pointer"
                 >
-                  {t('components.billing.cancelSubscription')}
+                  {t("components.billing.cancelSubscription")}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -356,15 +365,17 @@ export function SubscriptionInfo() {
       <CardContent className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-muted-foreground">{t('components.billing.status')}</p>
+            <p className="text-sm text-muted-foreground">
+              {t("components.billing.status")}
+            </p>
             <div className="flex items-center gap-2 mt-1">
               <Badge
                 variant={
                   activeSubscription.status === "active"
                     ? "default"
                     : activeSubscription.status === "on_trial"
-                    ? "secondary"
-                    : "outline"
+                      ? "secondary"
+                      : "outline"
                 }
                 className={
                   activeSubscription.status === "active"
@@ -375,16 +386,23 @@ export function SubscriptionInfo() {
                 {getStatusText(activeSubscription.statusFormatted)}
               </Badge>
               {activeSubscription.isPaused && (
-                <Badge variant="outline">{t('components.billing.paused')}</Badge>
+                <Badge variant="outline">
+                  {t("components.billing.paused")}
+                </Badge>
               )}
             </div>
           </div>
           <div className="text-right">
-            <p className="text-sm text-muted-foreground">{t('components.billing.price')}</p>
+            <p className="text-sm text-muted-foreground">
+              {t("components.billing.price")}
+            </p>
             <p className="text-2xl font-bold">
               ${(parseInt(activeSubscription.price) / 100).toFixed(2)}
               <span className="text-sm font-normal text-muted-foreground">
-                /{activeSubscription.plan.interval === 'month' ? t('components.billing.month') : t('components.billing.year')}
+                /
+                {activeSubscription.plan.interval === "month"
+                  ? t("components.billing.month")
+                  : t("components.billing.year")}
               </span>
             </p>
           </div>
@@ -394,9 +412,17 @@ export function SubscriptionInfo() {
           <div className="flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4 text-green-500" />
             <span>
-              <strong>{t('components.billing.renews')}:</strong>{" "}
-              {format(new Date(activeSubscription.renewsAt), "PPP", { locale: locales[language] || enUS })} (
-              {t('components.billing.inTime', { time: formatDistanceToNow(new Date(activeSubscription.renewsAt), { locale: locales[language] || enUS }) })}
+              <strong>{t("components.billing.renews")}:</strong>{" "}
+              {format(new Date(activeSubscription.renewsAt), "PPP", {
+                locale: locales[language] || enUS,
+              })}{" "}
+              (
+              {t("components.billing.inTime", {
+                time: formatDistanceToNow(
+                  new Date(activeSubscription.renewsAt),
+                  { locale: locales[language] || enUS },
+                ),
+              })}
               )
             </span>
           </div>
@@ -407,8 +433,10 @@ export function SubscriptionInfo() {
             <div className="flex items-center gap-2 text-sm text-orange-500">
               <AlertCircle className="h-4 w-4" />
               <span>
-                <strong>{t('components.billing.expires')}:</strong>{" "}
-                {format(new Date(activeSubscription.endsAt), "PPP", { locale: locales[language] || enUS })}
+                <strong>{t("components.billing.expires")}:</strong>{" "}
+                {format(new Date(activeSubscription.endsAt), "PPP", {
+                  locale: locales[language] || enUS,
+                })}
               </span>
             </div>
           )}
@@ -418,12 +446,10 @@ export function SubscriptionInfo() {
             <div className="flex items-center gap-2 text-sm text-blue-500">
               <AlertCircle className="h-4 w-4" />
               <span>
-                <strong>{t('components.billing.trialEnds')}:</strong>{" "}
-                {format(
-                  new Date(activeSubscription.trialEndsAt),
-                  "PPP",
-                  { locale: locales[language] || enUS }
-                )}
+                <strong>{t("components.billing.trialEnds")}:</strong>{" "}
+                {format(new Date(activeSubscription.trialEndsAt), "PPP", {
+                  locale: locales[language] || enUS,
+                })}
               </span>
             </div>
           )}

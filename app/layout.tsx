@@ -48,6 +48,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Mindote Team" }],
   creator: "Mindote",
   publisher: "Mindote",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   robots: {
     index: true,
     follow: true,

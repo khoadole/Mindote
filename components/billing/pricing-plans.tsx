@@ -41,7 +41,7 @@ const PLANS = [
   {
     id: "monthly",
     name: "Monthly",
-    price: "$3.99",
+    price: "$2.99",
     period: "per month",
     variantId: parseInt(
       process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_MONTHLY || "1087650"
@@ -58,8 +58,8 @@ const PLANS = [
   {
     id: "yearly",
     name: "Yearly",
-    price: "$23.88",
-    pricePerMonth: "$1.99",
+    price: "$17.88",
+    pricePerMonth: "$1.49",
     period: "per year",
     variantId: parseInt(
       process.env.NEXT_PUBLIC_LEMON_SQUEEZY_VARIANT_ID_YEARLY || "1087727"

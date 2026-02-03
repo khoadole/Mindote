@@ -62,10 +62,10 @@ export function UpgradePlanModal({
       variantId: VARIANT_IDS.monthly,
     },
     yearly: {
-      price: "$1.99",
+      price: "$1.49",
       period: "per month",
       savings: "Save 50%",
-      annualPrice: "$23.88",
+      annualPrice: "$17.88",
       variantId: VARIANT_IDS.yearly,
     },
   };

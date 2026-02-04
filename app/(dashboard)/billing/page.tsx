@@ -12,15 +12,7 @@ export default function BillingPage() {
 
   return (
     <div className="container max-w-6xl mx-auto py-8 px-4 bg-white dark:bg-background min-h-screen">
-      <div className="space-y-8">
-        {/* Header */}
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t('components.billing.title')}</h1>
-          <p className="text-muted-foreground mt-2">
-            {t('components.billing.subtitle')}
-          </p>
-        </div>
-
+      <div className="space-y-4">
         {/* Current Subscription */}
         <Suspense fallback={<SubscriptionSkeleton />}>
           <SubscriptionInfo />

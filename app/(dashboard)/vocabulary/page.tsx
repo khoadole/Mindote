@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookOpen, ChevronRight, Loader2 } from "lucide-react";
+import { 
+  Loader2, 
+  GraduationCap,
+} from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 
 interface CEFRLevel {
   level: string;
@@ -10,25 +14,59 @@ interface CEFRLevel {
   wordCount: number;
 }
 
-const levelColors: Record<string, string> = {
-  A1: "from-green-500 to-emerald-600",
-  A2: "from-teal-500 to-cyan-600",
-  B1: "from-blue-500 to-indigo-600",
-  B2: "from-purple-500 to-violet-600",
-  C1: "from-orange-500 to-red-600",
-  C2: "from-rose-500 to-pink-600",
-};
-
-const levelDescriptions: Record<string, string> = {
-  A1: "Beginner",
-  A2: "Elementary",
-  B1: "Intermediate",
-  B2: "Upper Intermediate",
-  C1: "Advanced",
-  C2: "Proficient",
+const levelConfig: Record<string, { 
+  color: string; 
+  bgColor: string;
+  borderColor: string;
+  description: string;
+  emoji: string;
+}> = {
+  A1: { 
+    color: "text-emerald-600 dark:text-emerald-400", 
+    bgColor: "bg-emerald-50 dark:bg-emerald-950/30",
+    borderColor: "border-emerald-200 dark:border-emerald-800/50 hover:border-emerald-400 dark:hover:border-emerald-600",
+    description: "Beginner",
+    emoji: "🌱"
+  },
+  A2: { 
+    color: "text-teal-600 dark:text-teal-400", 
+    bgColor: "bg-teal-50 dark:bg-teal-950/30",
+    borderColor: "border-teal-200 dark:border-teal-800/50 hover:border-teal-400 dark:hover:border-teal-600",
+    description: "Elementary",
+    emoji: "🌿"
+  },
+  B1: { 
+    color: "text-blue-600 dark:text-blue-400", 
+    bgColor: "bg-blue-50 dark:bg-blue-950/30",
+    borderColor: "border-blue-200 dark:border-blue-800/50 hover:border-blue-400 dark:hover:border-blue-600",
+    description: "Intermediate",
+    emoji: "📚"
+  },
+  B2: { 
+    color: "text-violet-600 dark:text-violet-400", 
+    bgColor: "bg-violet-50 dark:bg-violet-950/30",
+    borderColor: "border-violet-200 dark:border-violet-800/50 hover:border-violet-400 dark:hover:border-violet-600",
+    description: "Upper Intermediate",
+    emoji: "🎯"
+  },
+  C1: { 
+    color: "text-orange-600 dark:text-orange-400", 
+    bgColor: "bg-orange-50 dark:bg-orange-950/30",
+    borderColor: "border-orange-200 dark:border-orange-800/50 hover:border-orange-400 dark:hover:border-orange-600",
+    description: "Advanced",
+    emoji: "⭐"
+  },
+  C2: { 
+    color: "text-rose-600 dark:text-rose-400", 
+    bgColor: "bg-rose-50 dark:bg-rose-950/30",
+    borderColor: "border-rose-200 dark:border-rose-800/50 hover:border-rose-400 dark:hover:border-rose-600",
+    description: "Proficient",
+    emoji: "👑"
+  },
 };
 
 export default function VocabularyPage() {
+  const { t } = useTranslation();
   const [levels, setLevels] = useState<CEFRLevel[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,6 +85,8 @@ export default function VocabularyPage() {
     fetchLevels();
   }, []);
 
+  const totalWords = levels.reduce((sum, level) => sum + level.wordCount, 0);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
@@ -56,66 +96,63 @@ export default function VocabularyPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold flex items-center gap-3">
-          <BookOpen className="w-8 h-8" />
-          CEFR Vocabulary
-        </h1>
-        <p className="text-muted-foreground mt-2">
-          Learn vocabulary organized by CEFR levels from A1 (Beginner) to C2
-          (Proficient)
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {levels.map((level) => (
-          <Link
-            key={level.level}
-            href={`/vocabulary/${level.level.toLowerCase()}`}
-            className="group block"
-          >
-            <div
-              className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${levelColors[level.level]} p-6 text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl`}
-            >
-              <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white/10" />
-              <div className="absolute -right-8 top-8 h-16 w-16 rounded-full bg-white/5" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-4xl font-bold">{level.level}</h2>
-                    <p className="text-white/80 text-sm mt-1">
-                      {levelDescriptions[level.level]}
-                    </p>
-                  </div>
-                  <ChevronRight className="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                </div>
-
-                <div className="mt-6 flex gap-6 text-sm">
-                  <div>
-                    <p className="text-white/70">Topics</p>
-                    <p className="text-2xl font-semibold">{level.topicCount}</p>
-                  </div>
-                  <div>
-                    <p className="text-white/70">Words</p>
-                    <p className="text-2xl font-semibold">{level.wordCount}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {levels.every((l) => l.wordCount === 0) && (
-        <div className="mt-8 p-6 bg-amber-500/10 border border-amber-500/30 rounded-lg">
-          <p className="text-amber-600 dark:text-amber-400">
-            ⚠️ No vocabulary data found. Please run the import script to
-            populate the database.
-          </p>
+    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen transition-all duration-300">
+      <div className="max-w-6xl mx-auto space-y-8">
+        {/* Header */}
+        <div className="animate-in fade-in slide-in-from-top-4">
+          <h1 className="text-3xl font-bold flex items-center gap-3 text-gray-900 dark:text-white">
+            <GraduationCap className="w-8 h-8 text-primary" />
+            CEFR
+          </h1>
         </div>
-      )}
+
+        {/* CEFR Levels - Horizontal Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "50ms" }}>
+          {levels.map((level, index) => {
+            const config = levelConfig[level.level];
+            
+            return (
+              <Link
+                key={level.level}
+                href={`/vocabulary/${level.level.toLowerCase()}`}
+                className="group block animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <div
+                  className={`flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${config.bgColor} ${config.borderColor}`}
+                >
+                  {/* Emoji & Level */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-4xl">{config.emoji}</span>
+                    <div>
+                      <h3 className={`text-2xl font-bold ${config.color}`}>{level.level}</h3>
+                      <p className="text-xs text-muted-foreground">{config.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-12 w-px bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
+
+                  {/* Stats */}
+                  <div className="flex-1 text-center">
+                    <p className="text-2xl font-bold text-gray-900 dark:text-white">{level.wordCount.toLocaleString()}</p>
+                    <p className="text-xs text-muted-foreground">{t("dashboard.words") || "words"}</p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Empty state */}
+        {levels.every((l) => l.wordCount === 0) && (
+          <div className="p-6 bg-amber-500/10 border border-amber-500/30 rounded-xl">
+            <p className="text-amber-600 dark:text-amber-400">
+              ⚠️ No vocabulary data found. Please run the import script to populate the database.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

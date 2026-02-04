@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useCollections } from "@/hooks/use-collections";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,7 +56,20 @@ export default function CollectionsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
   const [colorFilter, setColorFilter] = useState<string | null>(null);
+  const [addWordModalOpen, setAddWordModalOpen] = useState(false);
   const ITEMS_PER_PAGE = 9;
+  
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  
+  // Open Add Word modal if URL has ?addWord=true
+  useEffect(() => {
+    if (searchParams.get("addWord") === "true") {
+      setAddWordModalOpen(true);
+      // Clean up URL
+      router.replace("/collections", { scroll: false });
+    }
+  }, [searchParams, router]);
 
   // Fixed color options (same as create-collection-modal)
   const colorOptions = [
@@ -141,34 +155,6 @@ export default function CollectionsPage() {
       </div> */}
 
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-          <div>
-            <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
-              {t("collections.title")}
-            </h1>
-            <p className="text-muted-foreground text-lg flex items-center gap-2">
-              <Layers className="h-5 w-5 text-primary" />
-              {t("collections.subtitle")}
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <AddWordModal
-              trigger={
-                <Button
-                  variant="outline"
-                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] border-transparent transition-all hover:scale-105 shadow-lg font-semibold hover:opacity-90"
-                  style={{ color: "white" }}
-                  data-shortcut="add-word"
-                >
-                  <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
-                </Button>
-              }
-            />
-            <CreateCollectionModal />
-          </div>
-        </div>
-
         {/* Toolbar */}
         <div
           className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500 fill-mode-both"
@@ -182,6 +168,25 @@ export default function CollectionsPage() {
               onChange={(e) => handleSearchChange(e.target.value)}
               className="pl-11 h-12 rounded-2xl border-2 focus:border-primary/50 bg-card/50"
             />
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-3">
+            <AddWordModal
+              open={addWordModalOpen}
+              onOpenChange={setAddWordModalOpen}
+              trigger={
+                <Button
+                  variant="outline"
+                  className="flex items-center gap-2 rounded-2xl border-2 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] border-transparent transition-all hover:scale-105 shadow-lg font-semibold hover:opacity-90 h-12"
+                  style={{ color: "white" }}
+                  data-shortcut="add-word"
+                >
+                  <Plus className="h-4 w-4" />✨ {t("collections.addWord")}
+                </Button>
+              }
+            />
+            <CreateCollectionModal />
           </div>
 
           {/* Sort Button */}
@@ -275,7 +280,7 @@ export default function CollectionsPage() {
 
         {/* Collections Grid */}
         {filteredCollections.length === 0 ? (
-          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 border-indigo-200/50 dark:border-indigo-800/30">
+          <Card className="border-2 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-blue-200/50 dark:border-blue-800/30 shadow-lg">
             <div className="text-center py-16">
               <div className="mx-auto w-20 h-20 bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 rounded-3xl flex items-center justify-center mb-6 animate-float">
                 <Layers className="h-10 w-10 text-primary" />
@@ -316,36 +321,43 @@ export default function CollectionsPage() {
                     href={`/collections/${collection.id}`}
                   >
                     <Card
-                      className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group ${
-                        !isHex ? `${colorClass} bg-opacity-40` : ""
-                      }`}
-                      style={
-                        isHex ? { backgroundColor: `${color}66` } : undefined
-                      }
+                      className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both h-full border-0 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group overflow-hidden relative rounded-3xl"
                     >
-                      <CardHeader>
-                        <div className="flex items-center justify-between gap-3 mb-3">
+                      {/* Gradient Background */}
+                      <div 
+                        className="absolute inset-0 opacity-90 group-hover:opacity-100 transition-opacity rounded-3xl"
+                        style={{ 
+                          background: isHex 
+                            ? `linear-gradient(135deg, ${color}dd 0%, ${color}88 100%)`
+                            : undefined 
+                        }}
+                      />
+                      
+                      {/* Decorative circles */}
+                      <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/10" />
+                      <div className="absolute -left-4 -bottom-4 w-24 h-24 rounded-full bg-white/5" />
+                      
+                      <CardHeader className="relative z-10 pb-3">
+                        <div className="flex items-start justify-between gap-3 mb-2">
                           <div
-                            className={`h-14 w-14 rounded-2xl shrink-0 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform ${
-                              !isHex ? colorClass : ""
-                            }`}
-                            style={
-                              isHex ? { backgroundColor: color } : undefined
-                            }
+                            className="h-14 w-14 rounded-xl shrink-0 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform bg-white/95 dark:bg-gray-900/95"
                           >
                             {(() => {
                               const CollectionIcon = getIconComponent(
                                 collection.icon || "Layers"
                               );
                               return (
-                                <CollectionIcon className="h-7 w-7 text-white" />
+                                <CollectionIcon 
+                                  className="h-7 w-7" 
+                                  style={{ color: isHex ? color : undefined }}
+                                />
                               );
                             })()}
                           </div>
                           {collection.difficultyLevel && (
                             <Badge
                               variant="secondary"
-                              className="bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md border-0 font-semibold"
+                              className="bg-white/95 text-gray-900 dark:bg-gray-900/95 dark:text-white shadow-md border-0 font-semibold"
                             >
                               {t(
                                 getDifficultyLabelKey(
@@ -356,32 +368,25 @@ export default function CollectionsPage() {
                           )}
                         </div>
                         <CardTitle
-                          className={`text-xl truncate text-foreground group-hover:opacity-80 transition-opacity`}
-                          style={isHex ? { color: "inherit" } : undefined}
+                          className="text-lg font-bold drop-shadow-sm line-clamp-2 min-h-[3rem] text-gray-900 dark:text-white"
                         >
                           {collection.name}
                         </CardTitle>
                       </CardHeader>
-                      <CardContent>
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-2">
-                            <BookOpen className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-2xl font-bold text-foreground">
+                      <CardContent className="relative z-10 pt-0">
+                        <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm">
+                          <BookOpen className="h-4 w-4" style={{ color: isHex ? color : undefined }} />
+                          <div>
+                            <span className="text-xl font-bold text-gray-900 dark:text-white">
                               {wordCount}
                             </span>
-                            <span className="text-sm text-muted-foreground">
+                            <span className="text-xs text-muted-foreground ml-1.5">
                               {t("collections.wordsLabel")}
                             </span>
                           </div>
-                          {/* <Badge
-                            variant="secondary"
-                            className="text-xs bg-white/95 hover:bg-white text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white shadow-md font-semibold border-0"
-                          >
-                            {Math.round(masteryPercent)}% {t("collections.mastered")}
-                          </Badge> */}
                         </div>
 
-                        <p className="text-xs text-muted-foreground flex items-center gap-1">
+                        <p className="text-[10px] flex items-center gap-1 mt-2 text-gray-700 dark:text-white/70">
                           <TrendingUp className="h-3 w-3" />
                           {t("collections.created")}{" "}
                           {new Date(collection.createdAt).toLocaleDateString()}

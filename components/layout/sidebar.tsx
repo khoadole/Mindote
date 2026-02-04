@@ -7,7 +7,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
-  BookOpen,
+  Home,
   Layers,
   Candy as Cards,
   CheckCircle,
@@ -16,10 +16,12 @@ import {
   X,
   Sparkles,
   ChevronRight,
+  ChevronDown,
   FileText,
   Crown,
   HelpCircle,
   GraduationCap,
+  Dumbbell,
 } from "lucide-react";
 
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
@@ -28,9 +30,9 @@ import { OnboardingModal } from "@/components/modals/onboarding-modal";
 
 const navigation = [
   {
-    name: "Dashboard",
+    name: "Home",
     href: "/dashboard",
-    icon: BookOpen,
+    icon: Home,
     color: "text-indigo-400",
   },
   {
@@ -41,12 +43,25 @@ const navigation = [
     badge: "AI",
   },
   {
-    name: "Flashcards",
-    href: "/flashcards",
-    icon: Cards,
+    name: "Practice",
+    icon: Dumbbell,
     color: "text-pink-400",
+    isGroup: true,
+    children: [
+      {
+        name: "Flashcards",
+        href: "/flashcards",
+        icon: Cards,
+        color: "text-pink-400",
+      },
+      {
+        name: "Quiz",
+        href: "/quiz",
+        icon: CheckCircle,
+        color: "text-green-400",
+      },
+    ],
   },
-  { name: "Quiz", href: "/quiz", icon: CheckCircle, color: "text-green-400" },
   {
     name: "Reading",
     href: "/reading",
@@ -71,6 +86,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const { t } = useTranslation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [practiceExpanded, setPracticeExpanded] = useState(true);
 
   // ✅ Initialize from cache immediately to avoid blocking render
   const [hasActiveSubscription, setHasActiveSubscription] = useState(() => {
@@ -274,11 +290,131 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
         {/* ✅ PERFORMANCE: prefetch={false} to avoid unnecessary prefetch requests */}
         <nav className="flex-1 px-3 space-y-2 overflow-y-auto">
           {navigation.map((item) => {
+            // Handle grouped items (Practice)
+            if (item.isGroup && item.children) {
+              const isGroupActive = item.children.some(
+                (child) => pathname === child.href
+              );
+              return (
+                <div key={item.name} className="space-y-1">
+                  <Button
+                    variant="ghost"
+                    onClick={() => !isCollapsed && setPracticeExpanded(!practiceExpanded)}
+                    className={cn(
+                      "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
+                      isGroupActive
+                        ? "bg-[#3B82F6]/10 text-[#3B82F6]"
+                        : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
+                      isCollapsed
+                        ? "justify-center h-12 w-12 p-0"
+                        : "justify-start h-12 pl-6",
+                    )}
+                  >
+                    <item.icon
+                      className={cn(
+                        "h-5 w-5 transition-all duration-300 relative z-10",
+                        isGroupActive ? "text-[#3B82F6]" : item.color,
+                        !isCollapsed && "mr-3",
+                      )}
+                    />
+                    {!isCollapsed && (
+                      <>
+                        <span className="transition-all duration-300 font-medium relative z-10 flex-1 text-left">
+                          {t(`sidebar.${item.name.toLowerCase()}`)}
+                        </span>
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform duration-200",
+                            practiceExpanded ? "rotate-0" : "-rotate-90"
+                          )}
+                        />
+                      </>
+                    )}
+                  </Button>
+
+                  {/* Children items */}
+                  {!isCollapsed && practiceExpanded && (
+                    <div className="ml-4 space-y-1 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                      {item.children.map((child) => {
+                        const isChildActive = pathname === child.href;
+                        return (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            prefetch={false}
+                            onClick={() => onMobileClose?.()}
+                          >
+                            <Button
+                              variant="ghost"
+                              className={cn(
+                                "w-full transition-all duration-300 rounded-xl relative overflow-hidden justify-start h-10 pl-4",
+                                isChildActive
+                                  ? "bg-[#3B82F6] text-white shadow-lg shadow-[#3B82F6]/30 hover:bg-[#3B82F6] hover:text-white"
+                                  : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
+                              )}
+                            >
+                              <child.icon
+                                className={cn(
+                                  "h-4 w-4 transition-all duration-300 relative z-10 mr-2",
+                                  isChildActive ? "text-white" : child.color,
+                                )}
+                              />
+                              <span className="transition-all duration-300 font-medium relative z-10 text-sm">
+                                {t(`sidebar.${child.name.toLowerCase()}`)}
+                              </span>
+                              {isChildActive && (
+                                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 animate-shimmer" />
+                              )}
+                            </Button>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Collapsed state - show children on hover */}
+                  {isCollapsed && (
+                    <div className="space-y-1">
+                      {item.children.map((child) => {
+                        const isChildActive = pathname === child.href;
+                        return (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            prefetch={false}
+                            onClick={() => onMobileClose?.()}
+                          >
+                            <Button
+                              variant="ghost"
+                              className={cn(
+                                "transition-all duration-300 rounded-xl relative overflow-hidden justify-center h-10 w-10 p-0",
+                                isChildActive
+                                  ? "bg-[#3B82F6] text-white shadow-lg shadow-[#3B82F6]/30 hover:bg-[#3B82F6] hover:text-white"
+                                  : "hover:bg-blue-50 dark:hover:bg-white/[0.03] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
+                              )}
+                            >
+                              <child.icon
+                                className={cn(
+                                  "h-4 w-4 transition-all duration-300",
+                                  isChildActive ? "text-white" : child.color,
+                                )}
+                              />
+                            </Button>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            // Regular navigation items
             const isActive = pathname === item.href;
             return (
               <Link
                 key={item.name}
-                href={item.href}
+                href={item.href!}
                 prefetch={false}
                 onClick={() => onMobileClose?.()}
               >

@@ -17,12 +17,21 @@
     "viewAll": "View all",
     "saving": "Saving...",
     "selectAll": "Select All",
-    "clearAll": "Clear All"
+    "clearAll": "Clear All",
+    "comingSoon": "Coming Soon"
+  },
+  "vocabulary": {
+    "pageDescription": "Explore vocabulary sets to expand your language skills",
+    "availableSets": "Vocabulary Sets",
+    "levels": "Levels",
+    "totalWords": "Total Words",
+    "cefrLevels": "CEFR Levels"
   },
   "sidebar": {
     "tagline": "Learn smarter",
-    "dashboard": "Dashboard",
+    "home": "Home",
     "collections": "Collections",
+    "practice": "Practice",
     "flashcards": "Flashcards",
     "quiz": "Quiz",
     "reading": "Reading",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Your Learning Path",
     "viewAll": "View all",
     "word": "word",
-    "words": "words"
+    "words": "words",
+    "progress": "Progress",
+    "quickAccess": "Quick Access",
+    "addWord": "Add Word",
+    "practiceNow": "Practice",
+    "readingPractice": "Reading Practice",
+    "vocabularySets": "Vocabulary Sets",
+    "viewVocabulary": "View Vocabulary",
+    "streakCalendar": "Streak Calendar",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "totalWords": "Total Words"
   },
   "collections": {
     "title": "Collections",

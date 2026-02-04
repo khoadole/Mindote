@@ -28,6 +28,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import {
   BookOpen,
@@ -81,6 +88,7 @@ export default function ReadingPage() {
   const [contentLanguage, setContentLanguage] =
     useState<string>(DEFAULT_LANGUAGE);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
   const ITEMS_PER_PAGE = 4;
   const MAX_WORDS = 20;
 
@@ -170,9 +178,31 @@ export default function ReadingPage() {
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t("common.back")}
             </Button>
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-bold">{t("reading.title")}</h1>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <BookOpen className="h-8 w-8 text-primary" />
+                <h1 className="text-4xl font-bold">{t("reading.title")}</h1>
+              </div>
+              <Dialog open={showHowItWorks} onOpenChange={setShowHowItWorks}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    {t("reading.howItWorks")}
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>{t("reading.howItWorks")}</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-3 text-sm text-muted-foreground">
+                    <p>{t("reading.chooseCollectionStep", { count: 5 })}</p>
+                    <p>{t("reading.selectDifficultyStep")}</p>
+                    <p>{t("reading.aiGeneratesStep")}</p>
+                    <p>{t("reading.readAnswerStep")}</p>
+                    <p>{t("reading.trackProgressStep")}</p>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
@@ -470,22 +500,6 @@ export default function ReadingPage() {
                       </p>
                     </>
                   )}
-                </CardContent>
-              </Card>
-
-              {/* Info Card */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">
-                    {t("reading.howItWorks")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-muted-foreground">
-                  <p>{t("reading.chooseCollectionStep", { count: 5 })}</p>
-                  <p>{t("reading.selectDifficultyStep")}</p>
-                  <p>{t("reading.aiGeneratesStep")}</p>
-                  <p>{t("reading.readAnswerStep")}</p>
-                  <p>{t("reading.trackProgressStep")}</p>
                 </CardContent>
               </Card>
             </div>

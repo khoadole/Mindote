@@ -17,12 +17,21 @@
     "viewAll": "Xem tất cả",
     "saving": "Đang lưu...",
     "selectAll": "Chọn tất cả",
-    "clearAll": "Bỏ chọn"
+    "clearAll": "Bỏ chọn",
+    "comingSoon": "Sắp ra mắt"
+  },
+  "vocabulary": {
+    "pageDescription": "Khám phá các bộ từ vựng để mở rộng kỹ năng ngôn ngữ",
+    "availableSets": "Bộ từ vựng",
+    "levels": "Cấp độ",
+    "totalWords": "Tổng từ",
+    "cefrLevels": "Cấp độ CEFR"
   },
   "sidebar": {
     "tagline": "Học thông minh hơn",
-    "dashboard": "Bảng điều khiển",
+    "home": "Trang chủ",
     "collections": "Bộ sưu tập",
+    "practice": "Luyện tập",
     "flashcards": "Thẻ ghi nhớ",
     "quiz": "Trắc nghiệm",
     "reading": "Luyện đọc",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Lộ trình học tập của bạn",
     "viewAll": "Xem tất cả",
     "word": "từ",
-    "words": "từ"
+    "words": "từ",
+    "progress": "Tiến độ",
+    "quickAccess": "Truy cập nhanh",
+    "addWord": "Thêm từ",
+    "practiceNow": "Luyện tập",
+    "readingPractice": "Luyện đọc",
+    "vocabularySets": "Bộ từ vựng có sẵn",
+    "viewVocabulary": "Xem từ vựng",
+    "streakCalendar": "Lịch streak",
+    "mon": "T2",
+    "tue": "T3",
+    "wed": "T4",
+    "thu": "T5",
+    "fri": "T6",
+    "sat": "T7",
+    "sun": "CN",
+    "totalWords": "Tổng số từ"
   },
   "landing": {
     "aiPowered": "Học từ vựng với AI",

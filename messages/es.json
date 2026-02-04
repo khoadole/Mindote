@@ -16,12 +16,21 @@
     "and": "y",
     "viewAll": "Ver todo",
     "selectAll": "Seleccionar todo",
-    "clearAll": "Borrar todo"
+    "clearAll": "Borrar todo",
+    "comingSoon": "Próximamente"
+  },
+  "vocabulary": {
+    "pageDescription": "Explora conjuntos de vocabulario para ampliar tus habilidades lingüísticas",
+    "availableSets": "Conjuntos de Vocabulario",
+    "levels": "Niveles",
+    "totalWords": "Total de Palabras",
+    "cefrLevels": "Niveles CEFR"
   },
   "sidebar": {
     "tagline": "Aprende más inteligentemente",
-    "dashboard": "Panel",
+    "home": "Inicio",
     "collections": "Colecciones",
+    "practice": "Práctica",
     "flashcards": "Tarjetas",
     "quiz": "Cuestionario",
     "reading": "Lectura",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Tu camino de aprendizaje",
     "viewAll": "Ver todo",
     "word": "palabra",
-    "words": "palabras"
+    "words": "palabras",
+    "progress": "Progreso",
+    "quickAccess": "Acceso rápido",
+    "addWord": "Añadir palabra",
+    "practiceNow": "Practicar",
+    "readingPractice": "Práctica de lectura",
+    "vocabularySets": "Conjuntos de vocabulario",
+    "viewVocabulary": "Ver vocabulario",
+    "streakCalendar": "Calendario de racha",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mié",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Sáb",
+    "sun": "Dom",
+    "totalWords": "Palabras totales"
   },
   "collections": {
     "title": "Colecciones",

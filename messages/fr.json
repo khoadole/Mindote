@@ -16,12 +16,21 @@
     "and": "et",
     "viewAll": "Voir tout",
     "selectAll": "Tout sélectionner",
-    "clearAll": "Tout effacer"
+    "clearAll": "Tout effacer",
+    "comingSoon": "Bientôt disponible"
+  },
+  "vocabulary": {
+    "pageDescription": "Explorez des ensembles de vocabulaire pour améliorer vos compétences linguistiques",
+    "availableSets": "Ensembles de Vocabulaire",
+    "levels": "Niveaux",
+    "totalWords": "Total de Mots",
+    "cefrLevels": "Niveaux CEFR"
   },
   "sidebar": {
     "tagline": "Apprendre plus intelligemment",
-    "dashboard": "Tableau de bord",
+    "home": "Accueil",
     "collections": "Collections",
+    "practice": "Pratique",
     "flashcards": "Cartes mémoire",
     "quiz": "Quiz",
     "reading": "Lecture",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Votre parcours d'apprentissage",
     "viewAll": "Voir tout",
     "word": "mot",
-    "words": "mots"
+    "words": "mots",
+    "progress": "Progrès",
+    "quickAccess": "Accès rapide",
+    "addWord": "Ajouter un mot",
+    "practiceNow": "Pratiquer",
+    "readingPractice": "Pratique de lecture",
+    "vocabularySets": "Ensembles de vocabulaire",
+    "viewVocabulary": "Voir le vocabulaire",
+    "streakCalendar": "Calendrier de série",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "sun": "Dim",
+    "totalWords": "Total des mots"
   },
   "collections": {
     "title": "Collections",

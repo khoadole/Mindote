@@ -16,12 +16,21 @@
     "and": "和",
     "viewAll": "查看全部",
     "selectAll": "全选",
-    "clearAll": "清除"
+    "clearAll": "清除",
+    "comingSoon": "即将推出"
+  },
+  "vocabulary": {
+    "pageDescription": "探索词汇集以扩展您的语言技能",
+    "availableSets": "词汇集",
+    "levels": "级别",
+    "totalWords": "总词数",
+    "cefrLevels": "CEFR级别"
   },
   "sidebar": {
     "tagline": "更智能地学习",
-    "dashboard": "仪表板",
+    "home": "首页",
     "collections": "收藏集",
+    "practice": "练习",
     "flashcards": "闪卡",
     "quiz": "测验",
     "reading": "阅读",
@@ -134,7 +143,24 @@
     "wordsInPassages": "{{count}}个单词在文章中使用",
     "yourLearningPath": "您的学习路径",
     "viewAll": "查看全部",
-    "word": "单词"
+    "word": "单词",
+    "words": "单词",
+    "progress": "进度",
+    "quickAccess": "快速访问",
+    "addWord": "添加单词",
+    "practiceNow": "练习",
+    "readingPractice": "阅读练习",
+    "vocabularySets": "词汇集",
+    "viewVocabulary": "查看词汇",
+    "streakCalendar": "连续日历",
+    "mon": "周一",
+    "tue": "周二",
+    "wed": "周三",
+    "thu": "周四",
+    "fri": "周五",
+    "sat": "周六",
+    "sun": "周日",
+    "totalWords": "总单词数"
   },
   "landing": {
     "aiPowered": "AI 驱动的词汇学习",

@@ -16,12 +16,21 @@
     "and": "e",
     "viewAll": "Ver tudo",
     "selectAll": "Selecionar tudo",
-    "clearAll": "Limpar tudo"
+    "clearAll": "Limpar tudo",
+    "comingSoon": "Em breve"
+  },
+  "vocabulary": {
+    "pageDescription": "Explore conjuntos de vocabulário para expandir suas habilidades linguísticas",
+    "availableSets": "Conjuntos de Vocabulário",
+    "levels": "Níveis",
+    "totalWords": "Total de Palavras",
+    "cefrLevels": "Níveis CEFR"
   },
   "sidebar": {
     "tagline": "Aprenda de forma mais inteligente",
-    "dashboard": "Painel",
+    "home": "Início",
     "collections": "Coleções",
+    "practice": "Prática",
     "flashcards": "Flashcards",
     "quiz": "Quiz",
     "reading": "Leitura",
@@ -134,7 +143,24 @@
     "wordsInPassages": "{{count}} palavras usadas em passagens",
     "yourLearningPath": "Seu caminho de aprendizado",
     "viewAll": "Ver tudo",
-    "word": "palavra"
+    "word": "palavra",
+    "words": "palavras",
+    "progress": "Progresso",
+    "quickAccess": "Acesso rápido",
+    "addWord": "Adicionar palavra",
+    "practiceNow": "Praticar",
+    "readingPractice": "Prática de leitura",
+    "vocabularySets": "Conjuntos de vocabulário",
+    "viewVocabulary": "Ver vocabulário",
+    "streakCalendar": "Calendário de sequência",
+    "mon": "Seg",
+    "tue": "Ter",
+    "wed": "Qua",
+    "thu": "Qui",
+    "fri": "Sex",
+    "sat": "Sáb",
+    "sun": "Dom",
+    "totalWords": "Total de palavras"
   },
   "landing": {
     "aiPowered": "Aprendizado de Vocabulário com IA",

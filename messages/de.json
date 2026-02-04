@@ -16,12 +16,21 @@
     "and": "und",
     "viewAll": "Alle anzeigen",
     "selectAll": "Alle auswählen",
-    "clearAll": "Auswahl aufheben"
+    "clearAll": "Auswahl aufheben",
+    "comingSoon": "Demnächst"
+  },
+  "vocabulary": {
+    "pageDescription": "Erkunden Sie Vokabelsätze, um Ihre Sprachkenntnisse zu erweitern",
+    "availableSets": "Vokabelsätze",
+    "levels": "Stufen",
+    "totalWords": "Gesamtwörter",
+    "cefrLevels": "CEFR-Stufen"
   },
   "sidebar": {
     "tagline": "Intelligenter lernen",
-    "dashboard": "Dashboard",
+    "home": "Startseite",
     "collections": "Sammlungen",
+    "practice": "Übung",
     "flashcards": "Karteikarten",
     "quiz": "Quiz",
     "reading": "Lesen",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Ihr Lernpfad",
     "viewAll": "Alle anzeigen",
     "word": "Wort",
-    "words": "Wörter"
+    "words": "Wörter",
+    "progress": "Fortschritt",
+    "quickAccess": "Schnellzugriff",
+    "addWord": "Wort hinzufügen",
+    "practiceNow": "Üben",
+    "readingPractice": "Leseübung",
+    "vocabularySets": "Wortschatz-Sets",
+    "viewVocabulary": "Wortschatz anzeigen",
+    "streakCalendar": "Streak-Kalender",
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "sun": "So",
+    "totalWords": "Gesamtwörter"
   },
   "collections": {
     "title": "Sammlungen",

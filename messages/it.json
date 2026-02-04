@@ -16,12 +16,21 @@
     "and": "e",
     "viewAll": "Vedi tutto",
     "selectAll": "Seleziona tutto",
-    "clearAll": "Cancella tutto"
+    "clearAll": "Cancella tutto",
+    "comingSoon": "Prossimamente"
+  },
+  "vocabulary": {
+    "pageDescription": "Esplora insiemi di vocabolario per espandere le tue abilità linguistiche",
+    "availableSets": "Insiemi di Vocabolario",
+    "levels": "Livelli",
+    "totalWords": "Parole Totali",
+    "cefrLevels": "Livelli CEFR"
   },
   "sidebar": {
     "tagline": "Impara in modo più intelligente",
-    "dashboard": "Dashboard",
+    "home": "Home",
     "collections": "Collezioni",
+    "practice": "Pratica",
     "flashcards": "Flashcard",
     "quiz": "Quiz",
     "reading": "Lettura",
@@ -135,7 +144,23 @@
     "yourLearningPath": "Il tuo percorso di apprendimento",
     "viewAll": "Vedi tutto",
     "word": "parola",
-    "words": "parole"
+    "words": "parole",
+    "progress": "Progresso",
+    "quickAccess": "Accesso rapido",
+    "addWord": "Aggiungi parola",
+    "practiceNow": "Pratica",
+    "readingPractice": "Pratica di lettura",
+    "vocabularySets": "Set di vocabolario",
+    "viewVocabulary": "Visualizza vocabolario",
+    "streakCalendar": "Calendario serie",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Gio",
+    "fri": "Ven",
+    "sat": "Sab",
+    "sun": "Dom",
+    "totalWords": "Parole totali"
   },
   "collections": {
     "title": "Collezioni",

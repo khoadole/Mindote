@@ -16,12 +16,21 @@
     "and": "および",
     "viewAll": "すべて表示",
     "selectAll": "すべて選択",
-    "clearAll": "選択解除"
+    "clearAll": "選択解除",
+    "comingSoon": "近日公開"
+  },
+  "vocabulary": {
+    "pageDescription": "語彙セットを探索して言語スキルを拡張する",
+    "availableSets": "語彙セット",
+    "levels": "レベル",
+    "totalWords": "総単語数",
+    "cefrLevels": "CEFRレベル"
   },
   "sidebar": {
     "tagline": "スマートに学ぶ",
-    "dashboard": "ダッシュボード",
+    "home": "ホーム",
     "collections": "コレクション",
+    "practice": "練習",
     "flashcards": "フラッシュカード",
     "quiz": "クイズ",
     "reading": "読解",
@@ -134,7 +143,24 @@
     "wordsInPassages": "間{{count}}個の単語がパッセージで使用されました",
     "yourLearningPath": "あなたの学習経路",
     "viewAll": "すべて表示",
-    "word": "単語"
+    "word": "単語",
+    "words": "単語",
+    "progress": "進捗",
+    "quickAccess": "クイックアクセス",
+    "addWord": "単語を追加",
+    "practiceNow": "練習",
+    "readingPractice": "読解練習",
+    "vocabularySets": "語彙セット",
+    "viewVocabulary": "語彙を表示",
+    "streakCalendar": "連続カレンダー",
+    "mon": "月",
+    "tue": "火",
+    "wed": "水",
+    "thu": "木",
+    "fri": "金",
+    "sat": "土",
+    "sun": "日",
+    "totalWords": "合計単語数"
   },
   "collections": {
     "title": "コレクション",

@@ -16,12 +16,21 @@
     "and": "및",
     "viewAll": "모두 보기",
     "selectAll": "모두 선택",
-    "clearAll": "모두 해제"
+    "clearAll": "모두 해제",
+    "comingSoon": "출시 예정"
+  },
+  "vocabulary": {
+    "pageDescription": "어휘 세트를 탐색하여 언어 능력을 확장하세요",
+    "availableSets": "어휘 세트",
+    "levels": "레벨",
+    "totalWords": "총 단어 수",
+    "cefrLevels": "CEFR 레벨"
   },
   "sidebar": {
     "tagline": "더 스마트하게 배우기",
-    "dashboard": "대시보드",
+    "home": "홈",
     "collections": "컬렉션",
+    "practice": "연습",
     "flashcards": "플래시카드",
     "quiz": "퀴즈",
     "reading": "읽기",
@@ -134,7 +143,24 @@
     "wordsInPassages": "{{count}}개의 단어가 패시지에 사용됨",
     "yourLearningPath": "당신의 학습 경로",
     "viewAll": "모두 보기",
-    "word": "단어"
+    "word": "단어",
+    "words": "단어",
+    "progress": "진행 상황",
+    "quickAccess": "빠른 접근",
+    "addWord": "단어 추가",
+    "practiceNow": "연습",
+    "readingPractice": "읽기 연습",
+    "vocabularySets": "어휘 세트",
+    "viewVocabulary": "어휘 보기",
+    "streakCalendar": "연속 캘린더",
+    "mon": "월",
+    "tue": "화",
+    "wed": "수",
+    "thu": "목",
+    "fri": "금",
+    "sat": "토",
+    "sun": "일",
+    "totalWords": "총 단어 수"
   },
   "landing": {
     "aiPowered": "AI 기반 어휘 학습",

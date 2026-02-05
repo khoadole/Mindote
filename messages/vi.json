@@ -18,14 +18,30 @@
     "saving": "Đang lưu...",
     "selectAll": "Chọn tất cả",
     "clearAll": "Bỏ chọn",
-    "comingSoon": "Sắp ra mắt"
+    "comingSoon": "Sắp ra mắt",
+    "signIn": "Đăng nhập",
+    "upgrade": "Nâng cấp"
   },
   "vocabulary": {
     "pageDescription": "Khám phá các bộ từ vựng để mở rộng kỹ năng ngôn ngữ",
     "availableSets": "Bộ từ vựng",
     "levels": "Cấp độ",
     "totalWords": "Tổng từ",
-    "cefrLevels": "Cấp độ CEFR"
+    "cefrLevels": "Cấp độ CEFR",
+    "learned": "Đã học",
+    "levelProgress": "Tiến độ cấp độ",
+    "loginToUnlock": "Đăng nhập để mở khóa tất cả chủ đề",
+    "upgradeToPremium": "Nâng cấp Premium để mở khóa tất cả chủ đề",
+    "upgradeToAccess": "Nâng cấp Premium để truy cập tất cả chủ đề từ vựng và theo dõi tiến độ học tập.",
+    "freePreview": "Xem trước miễn phí: 2 chủ đề đầu tiên mỗi cấp",
+    "signInRequired": "Đăng nhập",
+    "premium": "Premium",
+    "topicLocked": "Chủ đề bị khóa",
+    "signInToAccess": "Đăng nhập để truy cập tất cả chủ đề từ vựng và theo dõi tiến độ học tập.",
+    "signInToTrack": "Đăng nhập để theo dõi tiến độ học tập",
+    "markAsLearned": "Đánh dấu đã học",
+    "markAsUnlearned": "Đánh dấu chưa học",
+    "listen": "Nghe phát âm"
   },
   "sidebar": {
     "tagline": "Học thông minh hơn",
@@ -41,7 +57,8 @@
     "premiumActive": "Premium đang hoạt động",
     "upgradePlan": "Nâng cấp gói",
     "settings": "Cài đặt",
-    "help": "Trợ giúp"
+    "help": "Trợ giúp",
+    "signOut": "Đăng xuất"
   },
   "onboarding": {
     "welcome": "Chào mừng đến với Mindote!",
@@ -71,7 +88,8 @@
     "subtitle": "Sẵn sàng mở rộng vốn từ vựng?",
     "searchPlaceholder": "Tìm kiếm từ... (/)",
     "noResults": "Không tìm thấy từ nào phù hợp với \"{{query}}\"",
-    "signOut": "Đăng xuất"
+    "signOut": "Đăng xuất",
+    "memberSince": "Thành viên từ"
   },
   "settings": {
     "title": "Cài đặt",
@@ -739,7 +757,7 @@
         "basic_vocabulary": "Từ vựng cơ bản",
         "unlimited_ai_fills": "Điền từ AI không giới hạn",
         "unlimited_reading": "Tạo bài đọc không giới hạn",
-        "advanced_analytics": "Phân tích & thống kê nâng cao",
+        "advanced_vocabulary": "Từ vựng không giới hạn",
         "early_access": "Truy cập sớm tính năng mới",
         "priority_support": "Hỗ trợ ưu tiên",
         "all_basic_features": "Tất cả tính năng cơ bản"

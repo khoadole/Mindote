@@ -49,7 +49,7 @@ const PLANS = [
     features: [
       "unlimited_ai_fills",
       "unlimited_reading",
-      "advanced_analytics",
+      "advanced_vocabulary",
       "early_access",
       "priority_support",
       "all_basic_features",
@@ -69,7 +69,7 @@ const PLANS = [
     features: [
       "unlimited_ai_fills",
       "unlimited_reading",
-      "advanced_analytics",
+      "advanced_vocabulary",
       "early_access",
       "priority_support",
       "all_basic_features",
@@ -367,12 +367,12 @@ export function PricingPlans() {
                 {plan.features.map((featureKey, index) => {
                   const translationKey = `components.billing.features.${featureKey}`;
                   const featureText = t(translationKey);
-                  const isAiFeature = featureKey.includes('ai') || featureKey.includes('unlimited');
+                  const isHighlightedFeature = featureKey.includes('ai') || featureKey.includes('unlimited') || featureKey.includes('advanced_vocabulary');
                   
                   return (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className={`text-sm ${isAiFeature ? 'font-semibold' : ''}`}>
+                      <span className={`text-sm ${isHighlightedFeature ? 'font-semibold' : ''}`}>
                         {featureText}
                       </span>
                     </li>

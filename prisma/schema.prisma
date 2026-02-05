@@ -24,6 +24,7 @@ model User {
   subscriptions Subscription[]
   aiLogs        AILog[]
   aiUsages      AIUsage[]
+  cefrProgress  CEFRWordProgress[]
 
   @@index([email])
   @@map("users")
@@ -257,9 +258,27 @@ model CEFRWord {
   createdAt  DateTime  @default(now()) @map("created_at")
 
   topic      CEFRTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  learnedBy  CEFRWordProgress[]
 
   @@unique([topicId, order])
   @@index([topicId])
   @@index([term])
   @@map("cefr_words")
+}
+
+// Track user's learning progress for CEFR words
+model CEFRWordProgress {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  wordId    String   @map("word_id") @db.Uuid
+  learned   Boolean  @default(true)
+  learnedAt DateTime @default(now()) @map("learned_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word      CEFRWord @relation(fields: [wordId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, wordId])
+  @@index([userId])
+  @@index([wordId])
+  @@map("cefr_word_progress")
 }

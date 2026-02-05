@@ -18,14 +18,30 @@
     "saving": "Saving...",
     "selectAll": "Select All",
     "clearAll": "Clear All",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "signIn": "Sign In",
+    "upgrade": "Upgrade"
   },
   "vocabulary": {
     "pageDescription": "Explore vocabulary sets to expand your language skills",
     "availableSets": "Vocabulary Sets",
     "levels": "Levels",
     "totalWords": "Total Words",
-    "cefrLevels": "CEFR Levels"
+    "cefrLevels": "CEFR Levels",
+    "learned": "Learned",
+    "levelProgress": "Level Progress",
+    "loginToUnlock": "Sign in to unlock all topics",
+    "upgradeToPremium": "Upgrade to Premium to unlock all topics",
+    "upgradeToAccess": "Upgrade to Premium to access all vocabulary topics and track your learning progress.",
+    "freePreview": "Free preview: First 2 topics per level",
+    "signInRequired": "Sign in",
+    "premium": "Premium",
+    "topicLocked": "Topic Locked",
+    "signInToAccess": "Sign in to access all vocabulary topics and track your learning progress.",
+    "signInToTrack": "Sign in to track your learning progress",
+    "markAsLearned": "Mark as learned",
+    "markAsUnlearned": "Mark as not learned",
+    "listen": "Listen to pronunciation"
   },
   "sidebar": {
     "tagline": "Learn smarter",
@@ -41,7 +57,8 @@
     "premiumActive": "Premium Active",
     "upgradePlan": "Upgrade Plan",
     "settings": "Settings",
-    "help": "Help"
+    "help": "Help",
+    "signOut": "Sign out"
   },
   "onboarding": {
     "welcome": "Welcome to Mindote!",
@@ -71,7 +88,8 @@
     "subtitle": "Ready to expand your vocabulary?",
     "searchPlaceholder": "Search words... (/)",
     "noResults": "No words found matching \"{{query}}\"",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "memberSince": "Member since"
   },
   "settings": {
     "title": "Settings",
@@ -753,7 +771,7 @@
         "basic_vocabulary": "Basic vocabulary",
         "unlimited_ai_fills": "Unlimited AI word fills",
         "unlimited_reading": "Unlimited reading generation",
-        "advanced_analytics": "Advanced analytics & insights",
+        "advanced_vocabulary": "Unlimited vocabulary",
         "early_access": "Early access to new features",
         "priority_support": "Priority support",
         "all_basic_features": "All basic features included"

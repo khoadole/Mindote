@@ -7,6 +7,8 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
+import { useCEFRProgress, getProgressPercentage } from "@/hooks/use-cefr-progress";
+import { Progress } from "@/components/ui/progress";
 
 interface CEFRLevel {
   level: string;
@@ -69,6 +71,7 @@ export default function VocabularyPage() {
   const { t } = useTranslation();
   const [levels, setLevels] = useState<CEFRLevel[]>([]);
   const [loading, setLoading] = useState(true);
+  const { data: progressData, isLoading: progressLoading } = useCEFRProgress();
 
   useEffect(() => {
     async function fetchLevels() {
@@ -86,6 +89,12 @@ export default function VocabularyPage() {
   }, []);
 
   const totalWords = levels.reduce((sum, level) => sum + level.wordCount, 0);
+  
+  // Get learned count for a level
+  const getLevelProgress = (level: string) => {
+    if (!progressData?.progress?.[level]) return 0;
+    return progressData.progress[level].learnedCount;
+  };
 
   if (loading) {
     return (
@@ -110,6 +119,8 @@ export default function VocabularyPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "50ms" }}>
           {levels.map((level, index) => {
             const config = levelConfig[level.level];
+            const learnedCount = getLevelProgress(level.level);
+            const progressPercent = getProgressPercentage(learnedCount, level.wordCount);
             
             return (
               <Link
@@ -119,25 +130,45 @@ export default function VocabularyPage() {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div
-                  className={`flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${config.bgColor} ${config.borderColor}`}
+                  className={`flex flex-col gap-3 p-5 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${config.bgColor} ${config.borderColor}`}
                 >
-                  {/* Emoji & Level */}
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl">{config.emoji}</span>
-                    <div>
-                      <h3 className={`text-2xl font-bold ${config.color}`}>{level.level}</h3>
-                      <p className="text-xs text-muted-foreground">{config.description}</p>
+                  <div className="flex items-center gap-4">
+                    {/* Emoji & Level */}
+                    <div className="flex items-center gap-3">
+                      <span className="text-4xl">{config.emoji}</span>
+                      <div>
+                        <h3 className={`text-2xl font-bold ${config.color}`}>{level.level}</h3>
+                        <p className="text-xs text-muted-foreground">{config.description}</p>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="h-12 w-px bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
+
+                    {/* Stats */}
+                    <div className="flex-1 text-center">
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">{level.wordCount.toLocaleString()}</p>
+                      <p className="text-xs text-muted-foreground">{t("dashboard.words") || "words"}</p>
                     </div>
                   </div>
 
-                  {/* Divider */}
-                  <div className="h-12 w-px bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
-
-                  {/* Stats */}
-                  <div className="flex-1 text-center">
-                    <p className="text-2xl font-bold text-gray-900 dark:text-white">{level.wordCount.toLocaleString()}</p>
-                    <p className="text-xs text-muted-foreground">{t("dashboard.words") || "words"}</p>
-                  </div>
+                  {/* Progress Bar */}
+                  {progressData?.authenticated && (
+                    <div className="space-y-1">
+                      <div className="flex justify-between text-xs">
+                        <span className="text-muted-foreground">
+                          {t("vocabulary.learned") || "Learned"}
+                        </span>
+                        <span className={`font-medium ${config.color}`}>
+                          {learnedCount}/{level.wordCount} ({progressPercent}%)
+                        </span>
+                      </div>
+                      <Progress 
+                        value={progressPercent} 
+                        className="h-2"
+                      />
+                    </div>
+                  )}
                 </div>
               </Link>
             );

@@ -47,7 +47,7 @@ export default function Dashboard() {
     const days = [];
     const today = new Date();
     const dayNames = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-    
+
     for (let i = 6; i >= 0; i--) {
       const date = new Date(today);
       date.setDate(today.getDate() - i);
@@ -55,7 +55,7 @@ export default function Dashboard() {
         day: dayNames[date.getDay()],
         date: date.getDate(),
         isToday: i === 0,
-        hasActivity: i === 0 || (currentStreak > i), // Show flame for streak days
+        hasActivity: i === 0 || currentStreak > i, // Show flame for streak days
       });
     }
     return days;
@@ -66,7 +66,12 @@ export default function Dashboard() {
     { level: "A1", name: "Beginner", color: "bg-green-500", words: 500 },
     { level: "A2", name: "Elementary", color: "bg-lime-500", words: 1000 },
     { level: "B1", name: "Intermediate", color: "bg-yellow-500", words: 2000 },
-    { level: "B2", name: "Upper-Intermediate", color: "bg-orange-500", words: 4000 },
+    {
+      level: "B2",
+      name: "Upper-Intermediate",
+      color: "bg-orange-500",
+      words: 4000,
+    },
     { level: "C1", name: "Advanced", color: "bg-red-500", words: 8000 },
     { level: "C2", name: "Proficiency", color: "bg-purple-500", words: 16000 },
   ];
@@ -74,10 +79,8 @@ export default function Dashboard() {
   return (
     <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-        
         {/* ROW 1: Progress + Streak + Quick Review */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          
           {/* Progress Card - Contains 4 word stages */}
           <Card className="border-2 rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/50 dark:border-blue-800/30 animate-in fade-in slide-in-from-bottom-4">
             <CardHeader className="pb-3">
@@ -89,30 +92,52 @@ export default function Dashboard() {
             <CardContent className="pt-0">
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-green-500">{stats?.newWords || 0}</div>
-                  <div className="text-xs text-muted-foreground">{t("dashboard.new")}</div>
+                  <div className="text-2xl font-bold text-green-500">
+                    {stats?.newWords || 0}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("dashboard.new")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-yellow-500">{stats?.learningWords || 0}</div>
-                  <div className="text-xs text-muted-foreground">{t("dashboard.learning")}</div>
+                  <div className="text-2xl font-bold text-yellow-500">
+                    {stats?.learningWords || 0}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("dashboard.learning")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-orange-500">{stats?.familiarWords || 0}</div>
-                  <div className="text-xs text-muted-foreground">{t("dashboard.familiar")}</div>
+                  <div className="text-2xl font-bold text-orange-500">
+                    {stats?.familiarWords || 0}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("dashboard.familiar")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-purple-500">{stats?.masterWords || 0}</div>
-                  <div className="text-xs text-muted-foreground">{t("dashboard.master")}</div>
+                  <div className="text-2xl font-bold text-purple-500">
+                    {stats?.masterWords || 0}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("dashboard.master")}
+                  </div>
                 </div>
               </div>
               <div className="mt-3 text-center text-sm text-muted-foreground">
-                {t("dashboard.totalWords")}: <span className="font-semibold text-foreground">{totalWords}</span>
+                {t("dashboard.totalWords")}:{" "}
+                <span className="font-semibold text-foreground">
+                  {totalWords}
+                </span>
               </div>
             </CardContent>
           </Card>
 
           {/* Streak Calendar Card */}
-          <Card className="border-2 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/50 dark:border-orange-800/30 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "100ms" }}>
+          <Card
+            className="border-2 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/50 dark:border-orange-800/30 animate-in fade-in slide-in-from-bottom-4"
+            style={{ animationDelay: "100ms" }}
+          >
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
                 <Flame className="h-5 w-5 text-orange-500" />
@@ -140,14 +165,18 @@ export default function Dashboard() {
                       {day.hasActivity ? (
                         <Flame className="h-4 w-4 text-white" />
                       ) : (
-                        <span className="text-xs text-gray-500">{day.date}</span>
+                        <span className="text-xs text-gray-500">
+                          {day.date}
+                        </span>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
               <div className="text-center">
-                <span className="text-2xl font-bold text-orange-500">{currentStreak}</span>
+                <span className="text-2xl font-bold text-orange-500">
+                  {currentStreak}
+                </span>
                 <span className="text-sm text-muted-foreground ml-2">
                   {t("dashboard.dayStreak", { count: currentStreak })}
                 </span>
@@ -156,7 +185,10 @@ export default function Dashboard() {
           </Card>
 
           {/* Quick Review Card */}
-          <Card className="border-2 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/50 dark:border-purple-800/30 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "200ms" }}>
+          <Card
+            className="border-2 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/50 dark:border-purple-800/30 animate-in fade-in slide-in-from-bottom-4"
+            style={{ animationDelay: "200ms" }}
+          >
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
                 <Zap className="h-5 w-5 text-purple-500" />
@@ -187,7 +219,10 @@ export default function Dashboard() {
                 disabled={dueCount === 0}
               >
                 {dueCount > 0 ? (
-                  <Link href="/flashcards?mode=review" className="flex items-center gap-2">
+                  <Link
+                    href="/flashcards?mode=review"
+                    className="flex items-center gap-2"
+                  >
                     <Cards className="h-4 w-4" />
                     {t("dashboard.startFlashcards")}
                   </Link>
@@ -203,7 +238,10 @@ export default function Dashboard() {
         </div>
 
         {/* ROW 2: Quick Access */}
-        <Card className="border-2 rounded-2xl bg-card animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "300ms" }}>
+        <Card
+          className="border-2 rounded-2xl bg-card animate-in fade-in slide-in-from-bottom-4"
+          style={{ animationDelay: "300ms" }}
+        >
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
@@ -221,7 +259,9 @@ export default function Dashboard() {
                   <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Plus className="h-5 w-5 text-green-600 dark:text-green-400" />
                   </div>
-                  <span className="text-sm font-medium">{t("dashboard.addWord")}</span>
+                  <span className="text-sm font-medium">
+                    {t("dashboard.addWord")}
+                  </span>
                 </Button>
               </Link>
 
@@ -234,7 +274,9 @@ export default function Dashboard() {
                   <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Dumbbell className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                   </div>
-                  <span className="text-sm font-medium">{t("dashboard.practiceNow")}</span>
+                  <span className="text-sm font-medium">
+                    {t("dashboard.practiceNow")}
+                  </span>
                 </Button>
               </Link>
 
@@ -247,7 +289,9 @@ export default function Dashboard() {
                   <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                   </div>
-                  <span className="text-sm font-medium">{t("dashboard.readingPractice")}</span>
+                  <span className="text-sm font-medium">
+                    {t("dashboard.readingPractice")}
+                  </span>
                 </Button>
               </Link>
             </div>
@@ -255,14 +299,21 @@ export default function Dashboard() {
         </Card>
 
         {/* ROW 3: Vocabulary Sets (CEFR Levels) */}
-        <Card className="border-2 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/50 dark:border-teal-800/30 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "400ms" }}>
+        <Card
+          className="border-2 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/50 dark:border-teal-800/30 animate-in fade-in slide-in-from-bottom-4"
+          style={{ animationDelay: "400ms" }}
+        >
           <CardHeader className="flex flex-row items-center justify-between pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
               <GraduationCap className="h-5 w-5 text-teal-600" />
               {t("dashboard.vocabularySets")}
             </CardTitle>
             <Link href="/vocabulary">
-              <Button variant="ghost" size="sm" className="rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/30">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/30"
+              >
                 {t("dashboard.viewVocabulary")}
                 <ArrowRight className="h-4 w-4 ml-1" />
               </Button>
@@ -271,13 +322,19 @@ export default function Dashboard() {
           <CardContent className="pt-0">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               {cefrLevels.map((level) => (
-                <Link key={level.level} href={`/vocabulary?level=${level.level}`}>
+                <Link
+                  key={level.level}
+                  href={`/vocabulary?level=${level.level}`}
+                >
                   <div className="group bg-white dark:bg-gray-800/50 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer text-center">
-                    <div className={`w-12 h-12 rounded-full ${level.color} mx-auto mb-2 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`w-12 h-12 rounded-full ${level.color} mx-auto mb-2 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform`}
+                    >
                       {level.level}
                     </div>
-                    <div className="text-sm font-semibold text-foreground">{level.name}</div>
-                    <div className="text-xs text-muted-foreground">{level.words.toLocaleString()} {t("dashboard.words")}</div>
+                    <div className="text-sm font-semibold text-foreground">
+                      {level.name}
+                    </div>
                   </div>
                 </Link>
               ))}

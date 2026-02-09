@@ -2,13 +2,18 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { 
-  Loader2, 
+import {
+  Loader2,
   GraduationCap,
+  Clock,
+  Users,
+  MessageSquare,
 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
-import { useCEFRProgress, getProgressPercentage } from "@/hooks/use-cefr-progress";
-import { Progress } from "@/components/ui/progress";
+import {
+  useCEFRProgress,
+  getProgressPercentage,
+} from "@/hooks/use-cefr-progress";
 
 interface CEFRLevel {
   level: string;
@@ -16,54 +21,37 @@ interface CEFRLevel {
   wordCount: number;
 }
 
-const levelConfig: Record<string, { 
-  color: string; 
-  bgColor: string;
-  borderColor: string;
-  description: string;
-  emoji: string;
-}> = {
-  A1: { 
-    color: "text-emerald-600 dark:text-emerald-400", 
-    bgColor: "bg-emerald-50 dark:bg-emerald-950/30",
-    borderColor: "border-emerald-200 dark:border-emerald-800/50 hover:border-emerald-400 dark:hover:border-emerald-600",
+// Clean, academic-style configuration - Study4 inspired
+const levelConfig: Record<
+  string,
+  {
+    description: string;
+    fullName: string;
+  }
+> = {
+  A1: {
     description: "Beginner",
-    emoji: "🌱"
+    fullName: "A1 - Beginner",
   },
-  A2: { 
-    color: "text-teal-600 dark:text-teal-400", 
-    bgColor: "bg-teal-50 dark:bg-teal-950/30",
-    borderColor: "border-teal-200 dark:border-teal-800/50 hover:border-teal-400 dark:hover:border-teal-600",
+  A2: {
     description: "Elementary",
-    emoji: "🌿"
+    fullName: "A2 - Elementary",
   },
-  B1: { 
-    color: "text-blue-600 dark:text-blue-400", 
-    bgColor: "bg-blue-50 dark:bg-blue-950/30",
-    borderColor: "border-blue-200 dark:border-blue-800/50 hover:border-blue-400 dark:hover:border-blue-600",
+  B1: {
     description: "Intermediate",
-    emoji: "📚"
+    fullName: "B1 - Intermediate",
   },
-  B2: { 
-    color: "text-violet-600 dark:text-violet-400", 
-    bgColor: "bg-violet-50 dark:bg-violet-950/30",
-    borderColor: "border-violet-200 dark:border-violet-800/50 hover:border-violet-400 dark:hover:border-violet-600",
+  B2: {
     description: "Upper Intermediate",
-    emoji: "🎯"
+    fullName: "B2 - Upper Intermediate",
   },
-  C1: { 
-    color: "text-orange-600 dark:text-orange-400", 
-    bgColor: "bg-orange-50 dark:bg-orange-950/30",
-    borderColor: "border-orange-200 dark:border-orange-800/50 hover:border-orange-400 dark:hover:border-orange-600",
+  C1: {
     description: "Advanced",
-    emoji: "⭐"
+    fullName: "C1 - Advanced",
   },
-  C2: { 
-    color: "text-rose-600 dark:text-rose-400", 
-    bgColor: "bg-rose-50 dark:bg-rose-950/30",
-    borderColor: "border-rose-200 dark:border-rose-800/50 hover:border-rose-400 dark:hover:border-rose-600",
+  C2: {
     description: "Proficient",
-    emoji: "👑"
+    fullName: "C2 - Proficient",
   },
 };
 
@@ -71,7 +59,7 @@ export default function VocabularyPage() {
   const { t } = useTranslation();
   const [levels, setLevels] = useState<CEFRLevel[]>([]);
   const [loading, setLoading] = useState(true);
-  const { data: progressData, isLoading: progressLoading } = useCEFRProgress();
+  const { data: progressData } = useCEFRProgress();
 
   useEffect(() => {
     async function fetchLevels() {
@@ -88,8 +76,6 @@ export default function VocabularyPage() {
     fetchLevels();
   }, []);
 
-  const totalWords = levels.reduce((sum, level) => sum + level.wordCount, 0);
-  
   // Get learned count for a level
   const getLevelProgress = (level: string) => {
     if (!progressData?.progress?.[level]) return 0;
@@ -105,70 +91,87 @@ export default function VocabularyPage() {
   }
 
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen transition-all duration-300">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen transition-all duration-300">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="animate-in fade-in slide-in-from-top-4">
-          <h1 className="text-3xl font-bold flex items-center gap-3 text-gray-900 dark:text-white">
-            <GraduationCap className="w-8 h-8 text-primary" />
-            CEFR
+          <h1 className="text-2xl font-semibold flex items-center gap-2.5 text-gray-800 dark:text-white">
+            <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            CEFR Vocabulary
           </h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Common European Framework of Reference for Languages
+          </p>
         </div>
 
-        {/* CEFR Levels - Horizontal Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: "50ms" }}>
+        {/* CEFR Levels - Study4 Style Grid */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-4"
+          style={{ animationDelay: "50ms" }}
+        >
           {levels.map((level, index) => {
             const config = levelConfig[level.level];
             const learnedCount = getLevelProgress(level.level);
-            const progressPercent = getProgressPercentage(learnedCount, level.wordCount);
-            
+            const progressPercent = getProgressPercentage(
+              learnedCount,
+              level.wordCount,
+            );
+
             return (
               <Link
                 key={level.level}
                 href={`/vocabulary/${level.level.toLowerCase()}`}
                 className="group block animate-in fade-in slide-in-from-bottom-4"
-                style={{ animationDelay: `${index * 50}ms` }}
+                style={{ animationDelay: `${index * 40}ms` }}
               >
-                <div
-                  className={`flex flex-col gap-3 p-5 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${config.bgColor} ${config.borderColor}`}
-                >
-                  <div className="flex items-center gap-4">
-                    {/* Emoji & Level */}
-                    <div className="flex items-center gap-3">
-                      <span className="text-4xl">{config.emoji}</span>
-                      <div>
-                        <h3 className={`text-2xl font-bold ${config.color}`}>{level.level}</h3>
-                        <p className="text-xs text-muted-foreground">{config.description}</p>
-                      </div>
+                <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md transition-all duration-200">
+                  {/* Card Content */}
+                  <div className="flex-1 p-4">
+                    {/* Level Title */}
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-base leading-tight mb-2">
+                      {config.fullName}
+                    </h3>
+
+                    {/* Stats Row */}
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        {level.topicCount} topics
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Users className="w-3.5 h-3.5" />
+                        {level.wordCount.toLocaleString()} words
+                      </span>
                     </div>
 
-                    {/* Divider */}
-                    <div className="h-12 w-px bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
+                    {/* Progress info - only show if authenticated */}
+                    {progressData?.authenticated && (
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                        <span className="flex items-center gap-1">
+                          <MessageSquare className="w-3.5 h-3.5" />
+                          Learned: {learnedCount}/{level.wordCount} (
+                          {progressPercent}%)
+                        </span>
+                      </div>
+                    )}
 
-                    {/* Stats */}
-                    <div className="flex-1 text-center">
-                      <p className="text-2xl font-bold text-gray-900 dark:text-white">{level.wordCount.toLocaleString()}</p>
-                      <p className="text-xs text-muted-foreground">{t("dashboard.words") || "words"}</p>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                        CEFR
+                      </span>
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                        {config.description}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Progress Bar */}
-                  {progressData?.authenticated && (
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-muted-foreground">
-                          {t("vocabulary.learned") || "Learned"}
-                        </span>
-                        <span className={`font-medium ${config.color}`}>
-                          {learnedCount}/{level.wordCount} ({progressPercent}%)
-                        </span>
-                      </div>
-                      <Progress 
-                        value={progressPercent} 
-                        className="h-2"
-                      />
+                  {/* Chi tiết Button */}
+                  <div className="px-4 pb-4">
+                    <div className="w-full py-2 text-center text-sm font-medium text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 rounded-lg group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                      Chi tiết
                     </div>
-                  )}
+                  </div>
                 </div>
               </Link>
             );
@@ -177,9 +180,10 @@ export default function VocabularyPage() {
 
         {/* Empty state */}
         {levels.every((l) => l.wordCount === 0) && (
-          <div className="p-6 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-            <p className="text-amber-600 dark:text-amber-400">
-              ⚠️ No vocabulary data found. Please run the import script to populate the database.
+          <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+            <p className="text-amber-700 dark:text-amber-400 text-sm">
+              No vocabulary data found. Please run the import script to populate
+              the database.
             </p>
           </div>
         )}

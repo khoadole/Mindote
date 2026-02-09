@@ -3,11 +3,24 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Loader2, Volume2, BookOpen, Sparkles, Check, Lock } from "lucide-react";
+import {
+  ArrowLeft,
+  Loader2,
+  Volume2,
+  BookOpen,
+  Check,
+  Lock,
+  Clock,
+  Users,
+  GraduationCap,
+} from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
-import { useCEFRProgress, useToggleWordLearned, getProgressPercentage } from "@/hooks/use-cefr-progress";
+import {
+  useCEFRProgress,
+  useToggleWordLearned,
+  getProgressPercentage,
+} from "@/hooks/use-cefr-progress";
 import { useAuth } from "@/lib/auth";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,55 +40,23 @@ interface TopicData {
   name: string;
 }
 
-const levelConfig: Record<string, { 
-  color: string; 
-  bgColor: string;
-  borderColor: string;
-  iconBg: string;
-  cardBorder: string;
-}> = {
-  A1: { 
-    color: "text-emerald-600 dark:text-emerald-400", 
-    bgColor: "bg-emerald-50 dark:bg-emerald-950/30",
-    borderColor: "border-emerald-200 dark:border-emerald-800/50",
-    iconBg: "bg-emerald-500",
-    cardBorder: "hover:border-emerald-300 dark:hover:border-emerald-700",
+// Clean, academic-style configuration - Study4 inspired
+const levelConfig: Record<
+  string,
+  {
+    description: string;
+    fullName: string;
+  }
+> = {
+  A1: { description: "Beginner", fullName: "A1 - Beginner" },
+  A2: { description: "Elementary", fullName: "A2 - Elementary" },
+  B1: { description: "Intermediate", fullName: "B1 - Intermediate" },
+  B2: {
+    description: "Upper Intermediate",
+    fullName: "B2 - Upper Intermediate",
   },
-  A2: { 
-    color: "text-teal-600 dark:text-teal-400", 
-    bgColor: "bg-teal-50 dark:bg-teal-950/30",
-    borderColor: "border-teal-200 dark:border-teal-800/50",
-    iconBg: "bg-teal-500",
-    cardBorder: "hover:border-teal-300 dark:hover:border-teal-700",
-  },
-  B1: { 
-    color: "text-blue-600 dark:text-blue-400", 
-    bgColor: "bg-blue-50 dark:bg-blue-950/30",
-    borderColor: "border-blue-200 dark:border-blue-800/50",
-    iconBg: "bg-blue-500",
-    cardBorder: "hover:border-blue-300 dark:hover:border-blue-700",
-  },
-  B2: { 
-    color: "text-violet-600 dark:text-violet-400", 
-    bgColor: "bg-violet-50 dark:bg-violet-950/30",
-    borderColor: "border-violet-200 dark:border-violet-800/50",
-    iconBg: "bg-violet-500",
-    cardBorder: "hover:border-violet-300 dark:hover:border-violet-700",
-  },
-  C1: { 
-    color: "text-orange-600 dark:text-orange-400", 
-    bgColor: "bg-orange-50 dark:bg-orange-950/30",
-    borderColor: "border-orange-200 dark:border-orange-800/50",
-    iconBg: "bg-orange-500",
-    cardBorder: "hover:border-orange-300 dark:hover:border-orange-700",
-  },
-  C2: { 
-    color: "text-rose-600 dark:text-rose-400", 
-    bgColor: "bg-rose-50 dark:bg-rose-950/30",
-    borderColor: "border-rose-200 dark:border-rose-800/50",
-    iconBg: "bg-rose-500",
-    cardBorder: "hover:border-rose-300 dark:hover:border-rose-700",
-  },
+  C1: { description: "Advanced", fullName: "C1 - Advanced" },
+  C2: { description: "Proficient", fullName: "C2 - Proficient" },
 };
 
 export default function TopicWordsPage() {
@@ -92,8 +73,8 @@ export default function TopicWordsPage() {
   const [loading, setLoading] = useState(true);
   const [topicIndex, setTopicIndex] = useState<number>(0);
   const [hasSubscription, setHasSubscription] = useState(false);
-  
-  const { data: progressData, isLoading: progressLoading } = useCEFRProgress();
+
+  const { data: progressData } = useCEFRProgress();
   const toggleWordLearned = useToggleWordLearned();
 
   // Check subscription status
@@ -117,10 +98,12 @@ export default function TopicWordsPage() {
   }, []);
 
   // Get all learned word IDs for this level
-  const learnedWordIds = new Set(progressData?.progress?.[level]?.wordIds || []);
-  
+  const learnedWordIds = new Set(
+    progressData?.progress?.[level]?.wordIds || [],
+  );
+
   // Calculate topic progress
-  const learnedCount = words.filter(w => learnedWordIds.has(w.id)).length;
+  const learnedCount = words.filter((w) => learnedWordIds.has(w.id)).length;
   const progressPercent = getProgressPercentage(learnedCount, words.length);
 
   useEffect(() => {
@@ -155,12 +138,12 @@ export default function TopicWordsPage() {
       router.push("/sign-in");
       return;
     }
-    
+
     const isLearned = learnedWordIds.has(wordId);
     toggleWordLearned.mutate({ wordId, learned: !isLearned });
   };
 
-  // Check if topic is locked (only premium users get full access, free users get first 2 topics)
+  // Check if topic is locked
   const isLocked = !hasSubscription && topicIndex >= 2;
 
   if (loading) {
@@ -173,43 +156,44 @@ export default function TopicWordsPage() {
 
   if (!topic) {
     return (
-      <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen">
-        <p className="text-center text-muted-foreground">Topic not found.</p>
+      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen">
+        <p className="text-center text-gray-500 dark:text-gray-400">
+          Topic not found.
+        </p>
       </div>
     );
   }
 
-  // Show locked state for non-authenticated users on topics beyond first 2
+  // Show locked state
   if (isLocked) {
     return (
-      <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen transition-all duration-300">
+      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen transition-all duration-300">
         <div className="max-w-4xl mx-auto space-y-6">
           <Link
             href={`/vocabulary/${level.toLowerCase()}`}
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             {t("common.back") || "Back"}
           </Link>
 
           <div className="text-center py-16">
-            <div className="w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-950/50 mx-auto flex items-center justify-center mb-6">
-              <Lock className="w-10 h-10 text-amber-600 dark:text-amber-400" />
+            <div className="w-16 h-16 rounded-full bg-amber-50 dark:bg-amber-900/20 mx-auto flex items-center justify-center mb-4">
+              <Lock className="w-8 h-8 text-amber-600 dark:text-amber-400" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {t("vocabulary.topicLocked") || "Topic Locked"}
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              {user 
-                ? (t("vocabulary.upgradeToAccess") || "Upgrade to Premium to access all vocabulary topics and track your learning progress.")
-                : (t("vocabulary.signInToAccess") || "Sign in to access all vocabulary topics and track your learning progress.")
-              }
+            <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto text-sm">
+              {user
+                ? "Upgrade to Premium to access all vocabulary topics."
+                : "Sign in to access all vocabulary topics."}
             </p>
-            <Button onClick={() => router.push(user ? "/billing" : "/sign-in")} size="lg">
-              {user 
-                ? (t("common.upgrade") || "Upgrade")
-                : (t("common.signIn") || "Sign In")
-              }
+            <Button
+              onClick={() => router.push(user ? "/billing" : "/sign-in")}
+              size="default"
+            >
+              {user ? "Upgrade" : "Sign In"}
             </Button>
           </div>
         </div>
@@ -218,111 +202,123 @@ export default function TopicWordsPage() {
   }
 
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen transition-all duration-300">
+    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen transition-all duration-300">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Back Button */}
         <Link
           href={`/vocabulary/${level.toLowerCase()}`}
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors animate-in fade-in slide-in-from-left-4"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           {t("common.back") || "Back"}
         </Link>
 
-        {/* Header */}
-        <div className={`p-6 rounded-2xl border-2 ${config.bgColor} ${config.borderColor} animate-in fade-in slide-in-from-top-4`}>
-          <div className="flex items-center gap-3 mb-2">
-            <span className={`px-3 py-1 rounded-lg text-sm font-bold ${config.iconBg} text-white`}>
-              {level}
-            </span>
-            <span className="text-muted-foreground">•</span>
-            <span className="text-muted-foreground flex items-center gap-1">
-              <Sparkles className="w-4 h-4" />
-              {words.length} {t("dashboard.words") || "words"}
-            </span>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{topic.name}</h1>
-          
-          {/* Progress Bar */}
-          {progressData?.authenticated && (
-            <div className="mt-4 space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">
-                  {t("vocabulary.learned") || "Learned"}
+        {/* Header - Clean Study4 Style */}
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 animate-in fade-in slide-in-from-top-4">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0">
+              <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                  {level}
                 </span>
-                <span className={`font-medium ${config.color}`}>
-                  {learnedCount}/{words.length} ({progressPercent}%)
+                <span className="text-xs text-gray-400">•</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  {config.description}
                 </span>
               </div>
-              <Progress value={progressPercent} className="h-2" />
+              <h1 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                {topic.name}
+              </h1>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
+                <span className="flex items-center gap-1">
+                  <Users className="w-4 h-4" />
+                  {words.length} words
+                </span>
+                {progressData?.authenticated && (
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    Learned: {learnedCount}/{words.length} ({progressPercent}%)
+                  </span>
+                )}
+              </div>
             </div>
-          )}
+          </div>
         </div>
 
         {/* Login prompt for non-authenticated users */}
         {!user && !authLoading && (
-          <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl">
+          <div className="p-4 bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 rounded-lg">
             <div className="flex items-center gap-3">
-              <Check className="w-5 h-5 text-primary" />
+              <Check className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <div className="flex-1">
-                <p className="text-sm font-medium">
-                  {t("vocabulary.signInToTrack") || "Sign in to track your learning progress"}
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  Sign in to track your learning progress
                 </p>
               </div>
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 variant="outline"
                 onClick={() => router.push("/sign-in")}
                 className="shrink-0"
               >
-                {t("common.signIn") || "Sign In"}
+                Sign In
               </Button>
             </div>
           </div>
         )}
 
-        {/* Words List */}
-        <div className="space-y-4">
+        {/* Words List - Clean Card Style */}
+        <div className="space-y-3">
+          <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            Words
+          </h2>
+
           {words.map((word, index) => {
             const isLearned = learnedWordIds.has(word.id);
-            
+
             return (
               <div
                 key={word.id}
                 className={cn(
-                  "p-5 rounded-2xl bg-card border-2 transition-all duration-300 hover:shadow-md animate-in fade-in slide-in-from-bottom-4",
-                  isLearned 
-                    ? `${config.bgColor} ${config.borderColor}` 
-                    : `border-gray-100 dark:border-gray-800 ${config.cardBorder}`
+                  "p-4 bg-white dark:bg-gray-900 rounded-lg border transition-all duration-200 animate-in fade-in slide-in-from-bottom-4",
+                  isLearned
+                    ? "border-green-200 dark:border-green-800/50 bg-green-50/50 dark:bg-green-900/10"
+                    : "border-gray-200 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800",
                 )}
-                style={{ animationDelay: `${index * 30}ms` }}
+                style={{ animationDelay: `${index * 20}ms` }}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <h3 className={`text-xl font-bold ${config.color}`}>{word.term}</h3>
-                      <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-lg font-medium">
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        {word.term}
+                      </h3>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
                         {word.pos}
                       </span>
                       {isLearned && (
-                        <span className="text-xs font-medium px-2 py-1 rounded-lg bg-green-100 dark:bg-green-950/50 text-green-600 dark:text-green-400 flex items-center gap-1">
+                        <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center gap-0.5">
                           <Check className="w-3 h-3" />
-                          {t("vocabulary.learned") || "Learned"}
+                          Learned
                         </span>
                       )}
                     </div>
 
                     {word.phonetic && (
-                      <p className="text-muted-foreground text-sm mt-1 font-mono">
+                      <p className="text-gray-500 dark:text-gray-400 text-sm font-mono mb-2">
                         {word.phonetic}
                       </p>
                     )}
 
-                    <p className="mt-3 text-gray-700 dark:text-gray-300">{word.definition}</p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      {word.definition}
+                    </p>
 
                     {word.example && (
-                      <div className={`mt-3 p-3 rounded-xl ${config.bgColor} border ${config.borderColor}`}>
-                        <p className="text-sm text-muted-foreground italic">
+                      <div className="mt-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 italic">
                           "{word.example}"
                         </p>
                       </div>
@@ -333,28 +329,27 @@ export default function TopicWordsPage() {
                     {/* Speak Button */}
                     <button
                       onClick={() => speak(word.term)}
-                      className={`p-3 rounded-xl ${config.iconBg} text-white hover:opacity-90 transition-all hover:scale-105 shadow-md`}
-                      title={t("vocabulary.listen") || "Listen to pronunciation"}
+                      className="p-2.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors"
+                      title="Listen to pronunciation"
                     >
-                      <Volume2 className="w-5 h-5" />
+                      <Volume2 className="w-4 h-4" />
                     </button>
-                    
+
                     {/* Mark as Learned Button */}
                     <button
                       onClick={() => handleToggleLearned(word.id)}
                       disabled={toggleWordLearned.isPending}
                       className={cn(
-                        "p-3 rounded-xl transition-all hover:scale-105 shadow-md",
+                        "p-2.5 rounded-lg transition-colors",
                         isLearned
                           ? "bg-green-500 text-white hover:bg-green-600"
-                          : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-green-500 hover:text-white"
+                          : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-green-900/30 hover:text-green-600 dark:hover:text-green-400",
                       )}
-                      title={isLearned 
-                        ? (t("vocabulary.markAsUnlearned") || "Mark as not learned")
-                        : (t("vocabulary.markAsLearned") || "Mark as learned")
+                      title={
+                        isLearned ? "Mark as not learned" : "Mark as learned"
                       }
                     >
-                      <Check className="w-5 h-5" />
+                      <Check className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -365,9 +360,9 @@ export default function TopicWordsPage() {
 
         {/* Empty State */}
         {words.length === 0 && (
-          <div className="text-center py-12 text-muted-foreground">
-            <BookOpen className="w-12 h-12 mx-auto mb-4 opacity-50" />
-            <p>No words found in this topic.</p>
+          <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+            <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-50" />
+            <p className="text-sm">No words found in this topic.</p>
           </div>
         )}
       </div>

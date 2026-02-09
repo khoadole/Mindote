@@ -3,12 +3,23 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, ChevronRight, Loader2, Target, Sparkles, Lock, Crown } from "lucide-react";
+import {
+  ArrowLeft,
+  BookOpen,
+  ChevronRight,
+  Loader2,
+  Clock,
+  Users,
+  Lock,
+  Crown,
+  GraduationCap,
+} from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
-import { useCEFRProgress, getProgressPercentage } from "@/hooks/use-cefr-progress";
-import { Progress } from "@/components/ui/progress";
+import {
+  useCEFRProgress,
+  getProgressPercentage,
+} from "@/hooks/use-cefr-progress";
 import { useAuth } from "@/lib/auth";
-import { Button } from "@/components/ui/button";
 
 interface Topic {
   id: string;
@@ -17,62 +28,23 @@ interface Topic {
   wordCount: number;
 }
 
-const levelConfig: Record<string, { 
-  color: string; 
-  bgColor: string;
-  borderColor: string;
-  iconBg: string;
-  description: string;
-  emoji: string;
-}> = {
-  A1: { 
-    color: "text-emerald-600 dark:text-emerald-400", 
-    bgColor: "bg-emerald-50 dark:bg-emerald-950/30",
-    borderColor: "border-emerald-200 dark:border-emerald-800/50",
-    iconBg: "bg-emerald-500",
-    description: "Beginner",
-    emoji: "🌱"
-  },
-  A2: { 
-    color: "text-teal-600 dark:text-teal-400", 
-    bgColor: "bg-teal-50 dark:bg-teal-950/30",
-    borderColor: "border-teal-200 dark:border-teal-800/50",
-    iconBg: "bg-teal-500",
-    description: "Elementary",
-    emoji: "🌿"
-  },
-  B1: { 
-    color: "text-blue-600 dark:text-blue-400", 
-    bgColor: "bg-blue-50 dark:bg-blue-950/30",
-    borderColor: "border-blue-200 dark:border-blue-800/50",
-    iconBg: "bg-blue-500",
-    description: "Intermediate",
-    emoji: "📚"
-  },
-  B2: { 
-    color: "text-violet-600 dark:text-violet-400", 
-    bgColor: "bg-violet-50 dark:bg-violet-950/30",
-    borderColor: "border-violet-200 dark:border-violet-800/50",
-    iconBg: "bg-violet-500",
+// Clean, academic-style configuration - Study4 inspired
+const levelConfig: Record<
+  string,
+  {
+    description: string;
+    fullName: string;
+  }
+> = {
+  A1: { description: "Beginner", fullName: "A1 - Beginner" },
+  A2: { description: "Elementary", fullName: "A2 - Elementary" },
+  B1: { description: "Intermediate", fullName: "B1 - Intermediate" },
+  B2: {
     description: "Upper Intermediate",
-    emoji: "🎯"
+    fullName: "B2 - Upper Intermediate",
   },
-  C1: { 
-    color: "text-orange-600 dark:text-orange-400", 
-    bgColor: "bg-orange-50 dark:bg-orange-950/30",
-    borderColor: "border-orange-200 dark:border-orange-800/50",
-    iconBg: "bg-orange-500",
-    description: "Advanced",
-    emoji: "⭐"
-  },
-  C2: { 
-    color: "text-rose-600 dark:text-rose-400", 
-    bgColor: "bg-rose-50 dark:bg-rose-950/30",
-    borderColor: "border-rose-200 dark:border-rose-800/50",
-    iconBg: "bg-rose-500",
-    description: "Proficient",
-    emoji: "👑"
-  },
+  C1: { description: "Advanced", fullName: "C1 - Advanced" },
+  C2: { description: "Proficient", fullName: "C2 - Proficient" },
 };
 
 export default function LevelPage() {
@@ -81,7 +53,7 @@ export default function LevelPage() {
   const router = useRouter();
   const level = (params.level as string)?.toUpperCase();
   const config = levelConfig[level] || levelConfig.A1;
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
 
   const [topics, setTopics] = useState<Topic[]>([]);
   const [loading, setLoading] = useState(true);
@@ -92,7 +64,6 @@ export default function LevelPage() {
   useEffect(() => {
     async function checkSubscription() {
       try {
-        // Check from cache first
         const cached = localStorage.getItem("mindote-subscription-cache");
         if (cached) {
           const { active, timestamp } = JSON.parse(cached);
@@ -101,7 +72,6 @@ export default function LevelPage() {
             return;
           }
         }
-        // If no cache or expired, assume free user for safety
         setHasSubscription(false);
       } catch {
         setHasSubscription(false);
@@ -126,24 +96,19 @@ export default function LevelPage() {
   }, [level]);
 
   const totalWords = topics.reduce((sum, t) => sum + t.wordCount, 0);
-  
-  // Get total learned words for this level
+
   const getLevelProgress = () => {
     if (!progressData?.progress?.[level]) return 0;
     return progressData.progress[level].learnedCount;
   };
-  
-  // Get learned count for a specific topic
+
   const getTopicProgress = (topicId: string) => {
     if (!progressData?.progress?.[level]?.byTopic?.[topicId]) return 0;
     return progressData.progress[level].byTopic[topicId];
   };
 
-  // Check if topic is locked (only premium users get full access, free users get first 2 topics)
   const isTopicLocked = (index: number) => {
-    // If user has active subscription, unlock all
     if (hasSubscription) return false;
-    // For all other users (free registered or not logged in), only first 2 topics are unlocked
     return index >= 2;
   };
 
@@ -159,140 +124,114 @@ export default function LevelPage() {
   const progressPercent = getProgressPercentage(learnedCount, totalWords);
 
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen transition-all duration-300">
+    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen transition-all duration-300">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Back Button */}
         <Link
           href="/vocabulary"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors animate-in fade-in slide-in-from-left-4"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          {t("common.back") || "Back"}
+          {t("common.back") || "Back to CEFR"}
         </Link>
 
-        {/* Header */}
-        <div className={`p-6 rounded-2xl border-2 ${config.bgColor} ${config.borderColor} animate-in fade-in slide-in-from-top-4`}>
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-5xl">{config.emoji}</span>
-            <div className="flex-1">
-              <div className="flex items-center gap-3">
-                <h1 className={`text-4xl font-bold ${config.color}`}>{level}</h1>
-                <span className="text-lg text-muted-foreground">• {config.description}</span>
-              </div>
-              <div className="flex items-center gap-4 mt-2 text-muted-foreground">
+        {/* Header - Clean Study4 Style */}
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 animate-in fade-in slide-in-from-top-4">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0">
+              <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                {config.fullName}
+              </h1>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
                 <span className="flex items-center gap-1">
-                  <Target className="w-4 h-4" />
+                  <Clock className="w-4 h-4" />
                   {topics.length} topics
                 </span>
                 <span className="flex items-center gap-1">
-                  <Sparkles className="w-4 h-4" />
-                  {totalWords.toLocaleString()} {t("dashboard.words") || "words"}
+                  <Users className="w-4 h-4" />
+                  {totalWords.toLocaleString()} words
                 </span>
+                {progressData?.authenticated && (
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    Learned: {learnedCount}/{totalWords} ({progressPercent}%)
+                  </span>
+                )}
               </div>
             </div>
           </div>
-          
-          {/* Progress Bar for Level */}
-          {progressData?.authenticated && (
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">
-                  {t("vocabulary.levelProgress") || "Level Progress"}
-                </span>
-                <span className={`font-medium ${config.color}`}>
-                  {learnedCount}/{totalWords} ({progressPercent}%)
-                </span>
-              </div>
-              <Progress value={progressPercent} className="h-2.5" />
-            </div>
-          )}
         </div>
 
-        {/* Topics List */}
+        {/* Topics List - Clean Card Style */}
         <div className="space-y-3">
+          <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            Topics
+          </h2>
+
           {topics.map((topic, index) => {
             const locked = isTopicLocked(index);
             const topicLearnedCount = getTopicProgress(topic.id);
-            const topicProgressPercent = getProgressPercentage(topicLearnedCount, topic.wordCount);
-            
+            const topicProgressPercent = getProgressPercentage(
+              topicLearnedCount,
+              topic.wordCount,
+            );
+
             if (locked) {
               return (
                 <button
                   key={topic.id}
                   onClick={() => router.push(user ? "/billing" : "/sign-in")}
-                  className="group block animate-in fade-in slide-in-from-bottom-4 opacity-60 w-full"
-                  style={{ animationDelay: `${index * 30}ms` }}
+                  className="group block w-full text-left animate-in fade-in slide-in-from-bottom-4"
+                  style={{ animationDelay: `${index * 25}ms` }}
                 >
-                  <div className="flex items-center gap-4 p-4 rounded-2xl border-2 bg-muted/30 border-gray-200 dark:border-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
-                    {/* Lock Icon */}
-                    <div className="w-10 h-10 rounded-xl bg-gray-400 dark:bg-gray-600 flex items-center justify-center text-white shrink-0">
-                      <Lock className="w-5 h-5" />
+                  <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 opacity-60 hover:opacity-80 transition-opacity">
+                    <div className="w-8 h-8 rounded bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm font-medium shrink-0">
+                      <Lock className="w-4 h-4" />
                     </div>
-
-                    {/* Topic Info */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-500 dark:text-gray-400 truncate">
+                      <h3 className="font-medium text-gray-500 dark:text-gray-400 truncate text-sm">
                         {topic.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {topic.wordCount} {t("dashboard.words") || "words"}
+                      <p className="text-xs text-gray-400 dark:text-gray-500">
+                        {topic.wordCount} words
                       </p>
                     </div>
-
-                    {/* Locked Badge */}
-                    <div className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/50 px-2 py-1 rounded-lg shrink-0">
+                    <div className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded shrink-0">
                       <Crown className="w-3 h-3" />
-                      {user 
-                        ? (t("vocabulary.premium") || "Premium")
-                        : (t("vocabulary.signInRequired") || "Sign in")
-                      }
+                      {user ? "Premium" : "Sign in"}
                     </div>
                   </div>
                 </button>
               );
             }
-            
+
             return (
               <Link
                 key={topic.id}
                 href={`/vocabulary/${level.toLowerCase()}/${topic.id}`}
                 className="group block animate-in fade-in slide-in-from-bottom-4"
-                style={{ animationDelay: `${index * 30}ms` }}
+                style={{ animationDelay: `${index * 25}ms` }}
               >
-                <div className={`flex flex-col gap-2 p-4 rounded-2xl border-2 transition-all duration-300 hover:shadow-md hover:scale-[1.01] bg-card hover:${config.bgColor} border-gray-100 dark:border-gray-800 hover:${config.borderColor}`}>
-                  <div className="flex items-center gap-4">
-                    {/* Order Number */}
-                    <div className={`w-10 h-10 rounded-xl ${config.iconBg} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
-                      {index + 1}
-                    </div>
-
-                    {/* Topic Info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 dark:text-white truncate group-hover:text-primary transition-colors">
-                        {topic.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {topic.wordCount} {t("dashboard.words") || "words"}
-                      </p>
-                    </div>
-
-                    {/* Progress Badge */}
-                    {progressData?.authenticated && topicLearnedCount > 0 && (
-                      <div className={`text-xs font-medium px-2 py-1 rounded-lg ${config.bgColor} ${config.color} shrink-0`}>
-                        {topicProgressPercent}%
-                      </div>
-                    )}
-
-                    {/* Arrow */}
-                    <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+                <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-sm transition-all">
+                  <div className="w-8 h-8 rounded bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-sm font-medium shrink-0">
+                    {index + 1}
                   </div>
-                  
-                  {/* Progress Bar */}
-                  {progressData?.authenticated && topicLearnedCount > 0 && (
-                    <div className="ml-14">
-                      <Progress value={topicProgressPercent} className="h-1.5" />
-                    </div>
-                  )}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-medium text-gray-900 dark:text-white truncate text-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      {topic.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      {topic.wordCount} words
+                      {progressData?.authenticated && topicLearnedCount > 0 && (
+                        <span className="ml-2 text-indigo-600 dark:text-indigo-400">
+                          • {topicProgressPercent}% learned
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all shrink-0" />
                 </div>
               </Link>
             );
@@ -301,9 +240,9 @@ export default function LevelPage() {
 
         {/* Empty State */}
         {topics.length === 0 && (
-          <div className="text-center py-12 text-muted-foreground">
-            <BookOpen className="w-12 h-12 mx-auto mb-4 opacity-50" />
-            <p>No topics found for this level.</p>
+          <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+            <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-50" />
+            <p className="text-sm">No topics found for this level.</p>
           </div>
         )}
       </div>

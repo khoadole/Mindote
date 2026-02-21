@@ -40,7 +40,11 @@
     "premiumActive": "高级版已激活",
     "upgradePlan": "升级计划",
     "settings": "设置",
-    "help": "帮助"
+    "help": "帮助",
+    "signOut": "退出登录",
+    "sectionStudy": "学习",
+    "sectionLibrary": "资料库",
+    "sectionAccount": "账户"
   },
   "onboarding": {
     "welcome": "欢迎来到Mindote!",

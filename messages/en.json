@@ -58,7 +58,10 @@
     "upgradePlan": "Upgrade Plan",
     "settings": "Settings",
     "help": "Help",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "sectionStudy": "STUDY",
+    "sectionLibrary": "LIBRARY",
+    "sectionAccount": "ACCOUNT"
   },
   "onboarding": {
     "welcome": "Welcome to Mindote!",

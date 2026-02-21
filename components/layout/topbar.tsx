@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Search, User, X, Menu, LogOut, Calendar, Settings } from "lucide-react";
+import {
+  Search,
+  User,
+  X,
+  Menu,
+  LogOut,
+  Calendar,
+  Settings,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -18,7 +26,13 @@ import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
 import { useAuth } from "@/lib/auth";
-import { cn, getUserDisplayName, getUserAvatarUrl, getUserInitials, formatDate } from "@/lib/utils";
+import {
+  cn,
+  getUserDisplayName,
+  getUserAvatarUrl,
+  getUserInitials,
+  formatDate,
+} from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n-provider";
 
 interface TopbarProps {
@@ -43,7 +57,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
   // Filter words based on search query
   const filteredWords = searchQuery.trim()
     ? (words || []).filter((word) =>
-        word.term.toLowerCase().includes(searchQuery.toLowerCase().trim())
+        word.term.toLowerCase().includes(searchQuery.toLowerCase().trim()),
       )
     : [];
 
@@ -72,7 +86,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
   useEffect(() => {
     if (selectedIndex >= 0 && dropdownRef.current) {
       const selectedElement = dropdownRef.current.querySelector(
-        `[data-index="${selectedIndex}"]`
+        `[data-index="${selectedIndex}"]`,
       ) as HTMLElement;
       if (selectedElement) {
         selectedElement.scrollIntoView({
@@ -176,7 +190,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                 "w-64 lg:w-80 pl-11 pr-10 h-11 rounded-2xl transition-all duration-300",
                 "border border-border/40",
                 "focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10",
-                "bg-muted/50 hover:bg-muted/70"
+                "bg-muted/50 hover:bg-muted/70",
               )}
             />
             {searchQuery && (
@@ -203,7 +217,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                       "w-full px-4 py-3 text-left transition-colors border-b border-border last:border-b-0 flex items-start justify-between gap-2",
                       selectedIndex === index
                         ? "bg-primary/10 border-l-2 border-l-primary"
-                        : "hover:bg-muted"
+                        : "hover:bg-muted",
                     )}
                   >
                     <div className="flex-1 min-w-0">
@@ -243,7 +257,7 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
               </div>
             )}
           </div>
-          
+
           {/* Streak Badge */}
           <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200/50 dark:border-orange-800/30 text-orange-600 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors">
             <span className="text-lg leading-none">🔥</span>
@@ -263,9 +277,9 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                   className="relative flex items-center gap-2 px-2 md:px-4 py-2 rounded-2xl hover:bg-muted/50 transition-all"
                 >
                   <Avatar className="h-9 w-9 border-2 border-primary/20">
-                    <AvatarImage 
-                      src={getUserAvatarUrl(user) || undefined} 
-                      alt={getUserDisplayName(user)} 
+                    <AvatarImage
+                      src={getUserAvatarUrl(user) || undefined}
+                      alt={getUserDisplayName(user)}
                     />
                     <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
                       {getUserInitials(user)}
@@ -276,14 +290,17 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                   </span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-72 p-0 rounded-2xl shadow-xl">
+              <DropdownMenuContent
+                align="end"
+                className="w-72 p-0 rounded-2xl shadow-xl"
+              >
                 {/* User Profile Header */}
                 <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-t-2xl">
                   <div className="flex items-center gap-3">
                     <Avatar className="h-14 w-14 border-2 border-white shadow-md">
-                      <AvatarImage 
-                        src={getUserAvatarUrl(user) || undefined} 
-                        alt={getUserDisplayName(user)} 
+                      <AvatarImage
+                        src={getUserAvatarUrl(user) || undefined}
+                        alt={getUserDisplayName(user)}
                       />
                       <AvatarFallback className="bg-primary text-white font-semibold text-lg">
                         {getUserInitials(user)}
@@ -299,29 +316,36 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                       <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
                         <Calendar className="h-3 w-3" />
                         <span>
-                          {user?.created_at 
-                            ? formatDate(user.created_at) 
+                          {user?.created_at
+                            ? formatDate(user.created_at)
                             : t("topbar.memberSince")}
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 <DropdownMenuSeparator className="m-0" />
-                
+
                 <div className="p-2">
-                  <DropdownMenuItem 
+                  <DropdownMenuItem
                     className="rounded-xl cursor-pointer px-3 py-2.5 focus:bg-primary/10 focus:text-primary"
                     onClick={() => router.push("/settings")}
                   >
                     <Settings className="mr-2 h-4 w-4" />
                     <span>{t("sidebar.settings")}</span>
                   </DropdownMenuItem>
-                  
-                  <DropdownMenuItem 
+
+                  <DropdownMenuItem
                     className="rounded-xl cursor-pointer px-3 py-2.5 text-red-600 focus:text-red-600 focus:bg-red-50 dark:focus:bg-red-950/30"
-                    onClick={() => signOut()}
+                    onClick={async () => {
+                      try {
+                        await signOut();
+                        window.location.href = "/";
+                      } catch (error) {
+                        console.error("Error signing out:", error);
+                      }
+                    }}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>{t("sidebar.signOut")}</span>

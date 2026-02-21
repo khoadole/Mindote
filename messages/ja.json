@@ -40,7 +40,11 @@
     "premiumActive": "プレミアム有効",
     "upgradePlan": "プランをアップグレード",
     "settings": "設定",
-    "help": "ヘルプ"
+    "help": "ヘルプ",
+    "signOut": "ログアウト",
+    "sectionStudy": "学習",
+    "sectionLibrary": "ライブラリ",
+    "sectionAccount": "アカウント"
   },
   "onboarding": {
     "welcome": "Mindoteへようこそ!",

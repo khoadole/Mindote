@@ -40,7 +40,11 @@
     "premiumActive": "Premium Ativo",
     "upgradePlan": "Atualizar Plano",
     "settings": "Configurações",
-    "help": "Ajuda"
+    "help": "Ajuda",
+    "signOut": "Sair",
+    "sectionStudy": "ESTUDO",
+    "sectionLibrary": "BIBLIOTECA",
+    "sectionAccount": "CONTA"
   },
   "onboarding": {
     "welcome": "Bem-vindo ao Mindote!",

@@ -58,7 +58,10 @@
     "upgradePlan": "Nâng cấp gói",
     "settings": "Cài đặt",
     "help": "Trợ giúp",
-    "signOut": "Đăng xuất"
+    "signOut": "Đăng xuất",
+    "sectionStudy": "HỌC TẬP",
+    "sectionLibrary": "THƯ VIỆN",
+    "sectionAccount": "TÀI KHOẢN"
   },
   "onboarding": {
     "welcome": "Chào mừng đến với Mindote!",

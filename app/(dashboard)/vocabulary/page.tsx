@@ -96,7 +96,7 @@ export default function VocabularyPage() {
         {/* Header */}
         <div className="animate-in fade-in slide-in-from-top-4">
           <h1 className="text-2xl font-semibold flex items-center gap-2.5 text-gray-800 dark:text-white">
-            <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             CEFR Vocabulary
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -124,7 +124,7 @@ export default function VocabularyPage() {
                 className="group block animate-in fade-in slide-in-from-bottom-4"
                 style={{ animationDelay: `${index * 40}ms` }}
               >
-                <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md transition-all duration-200">
+                <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200">
                   {/* Card Content */}
                   <div className="flex-1 p-4">
                     {/* Level Title */}
@@ -157,7 +157,7 @@ export default function VocabularyPage() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
                         CEFR
                       </span>
                       <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
@@ -168,7 +168,7 @@ export default function VocabularyPage() {
 
                   {/* Chi tiết Button */}
                   <div className="px-4 pb-4">
-                    <div className="w-full py-2 text-center text-sm font-medium text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 rounded-lg group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                    <div className="w-full py-2 text-center text-sm font-medium text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 rounded-lg group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors">
                       Chi tiết
                     </div>
                   </div>

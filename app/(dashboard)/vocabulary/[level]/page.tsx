@@ -138,8 +138,8 @@ export default function LevelPage() {
         {/* Header - Clean Study4 Style */}
         <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 animate-in fade-in slide-in-from-top-4">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0">
-              <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
+              <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div className="flex-1 min-w-0">
               <h1 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
@@ -155,7 +155,7 @@ export default function LevelPage() {
                   {totalWords.toLocaleString()} words
                 </span>
                 {progressData?.authenticated && (
-                  <span className="text-indigo-600 dark:text-indigo-400">
+                  <span className="text-blue-600 dark:text-blue-400">
                     Learned: {learnedCount}/{totalWords} ({progressPercent}%)
                   </span>
                 )}
@@ -214,24 +214,24 @@ export default function LevelPage() {
                 className="group block animate-in fade-in slide-in-from-bottom-4"
                 style={{ animationDelay: `${index * 25}ms` }}
               >
-                <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-sm transition-all">
-                  <div className="w-8 h-8 rounded bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-sm font-medium shrink-0">
+                <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-sm transition-all">
+                  <div className="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 text-sm font-medium shrink-0">
                     {index + 1}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-gray-900 dark:text-white truncate text-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    <h3 className="font-medium text-gray-900 dark:text-white truncate text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {topic.name}
                     </h3>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       {topic.wordCount} words
                       {progressData?.authenticated && topicLearnedCount > 0 && (
-                        <span className="ml-2 text-indigo-600 dark:text-indigo-400">
+                        <span className="ml-2 text-blue-600 dark:text-blue-400">
                           • {topicProgressPercent}% learned
                         </span>
                       )}
                     </p>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all shrink-0" />
+                  <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all shrink-0" />
                 </div>
               </Link>
             );

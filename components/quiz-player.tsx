@@ -16,6 +16,7 @@ import { useAppStore } from "@/lib/store";
 import type { Word } from "@/lib/types";
 import { CheckCircle, X, RotateCcw } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getPosBadgeClassName } from "@/lib/pos-colors";
 
 interface QuizQuestion {
   word: Word;
@@ -77,7 +78,7 @@ export function QuizPlayer({
             .map((w) => w.definition);
 
           const options = [word.definition, ...distractors].sort(
-            () => Math.random() - 0.5
+            () => Math.random() - 0.5,
           );
 
           return {
@@ -173,7 +174,9 @@ export function QuizPlayer({
                 {currentQuestion.word.term}
               </h2>
               {currentQuestion.word.partOfSpeech && (
-                <Badge variant="outline" className="text-sm shrink-0">
+                <Badge
+                  className={`text-sm shrink-0 ${getPosBadgeClassName(currentQuestion.word.partOfSpeech)}`}
+                >
                   {currentQuestion.word.partOfSpeech}
                 </Badge>
               )}
@@ -185,7 +188,9 @@ export function QuizPlayer({
             )}
           </div>
 
-          <p className="text-center text-lg mb-6">{t("quizPlayer.whatDoesWordMean")}</p>
+          <p className="text-center text-lg mb-6">
+            {t("quizPlayer.whatDoesWordMean")}
+          </p>
 
           <div className="space-y-2">
             {currentQuestion.options?.map((option, index) => (
@@ -259,9 +264,14 @@ export function QuizPlayer({
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>
-              {t("quizPlayer.questionOf", { current: currentIndex + 1, total: questions.length })}
+              {t("quizPlayer.questionOf", {
+                current: currentIndex + 1,
+                total: questions.length,
+              })}
             </span>
-            <span>{t("quizPlayer.complete", { percent: Math.round(progress) })}</span>
+            <span>
+              {t("quizPlayer.complete", { percent: Math.round(progress) })}
+            </span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
@@ -297,7 +307,9 @@ export function QuizPlayer({
                     <X className="h-5 w-5 text-red-600" />
                   )}
                   <span className="font-semibold">
-                    {currentQuestion.isCorrect ? t("quizPlayer.correct") : t("quizPlayer.incorrect")}
+                    {currentQuestion.isCorrect
+                      ? t("quizPlayer.correct")
+                      : t("quizPlayer.incorrect")}
                   </span>
                 </div>
 
@@ -311,13 +323,18 @@ export function QuizPlayer({
                 )}
 
                 <div className="mt-3">
-                  <p className="text-sm font-medium">{t("quizPlayer.definition")}</p>
+                  <p className="text-sm font-medium">
+                    {t("quizPlayer.definition")}
+                  </p>
                   <p className="text-sm text-muted-foreground break-all">
                     {currentQuestion.word.definition}
                   </p>
                 </div>
 
-                <Button onClick={handleNext} className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
+                <Button
+                  onClick={handleNext}
+                  className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
+                >
                   {currentIndex < questions.length - 1
                     ? t("quizPlayer.nextQuestion")
                     : t("quizPlayer.finishQuiz")}
@@ -329,7 +346,11 @@ export function QuizPlayer({
 
         {/* Exit button */}
         <div className="text-center">
-          <Button variant="ghost" onClick={onExit} className="bg-destructive/10 hover:bg-destructive/20 text-destructive rounded-full">
+          <Button
+            variant="ghost"
+            onClick={onExit}
+            className="bg-destructive/10 hover:bg-destructive/20 text-destructive rounded-full"
+          >
             {t("quizPlayer.exitQuiz")}
           </Button>
         </div>
@@ -347,7 +368,10 @@ export function QuizPlayer({
                 {Math.round((results.score / results.total) * 100)}%
               </div>
               <p className="text-muted-foreground">
-                {t("quizPlayer.outOfCorrect", { score: results.score, total: results.total })}
+                {t("quizPlayer.outOfCorrect", {
+                  score: results.score,
+                  total: results.total,
+                })}
               </p>
             </div>
 
@@ -356,13 +380,17 @@ export function QuizPlayer({
                 <div className="text-xl font-semibold text-green-500">
                   {results.score}
                 </div>
-                <p className="text-xs text-muted-foreground">{t("quizPlayer.correctLabel")}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("quizPlayer.correctLabel")}
+                </p>
               </div>
               <div>
                 <div className="text-xl font-semibold text-red-500">
                   {results.total - results.score}
                 </div>
-                <p className="text-xs text-muted-foreground">{t("quizPlayer.incorrectLabel")}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("quizPlayer.incorrectLabel")}
+                </p>
               </div>
             </div>
 

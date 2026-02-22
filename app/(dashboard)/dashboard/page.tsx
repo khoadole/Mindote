@@ -26,15 +26,12 @@ import { useTranslation } from "@/lib/i18n-provider";
 
 export default function Dashboard() {
   const { t } = useTranslation();
-  // ✅ Parallel fetching - all queries run simultaneously
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: stats, isLoading: statsLoading } = useUserStats();
   const { data: dueCount = 0, isLoading: dueLoading } = useDueCount();
 
-  // Enable keyboard shortcuts
   useKeyboardShortcuts();
 
-  // Update streak on dashboard load
   useEffect(() => {
     updateUserStreakAction();
   }, []);
@@ -42,7 +39,6 @@ export default function Dashboard() {
   const totalWords = stats?.totalWords || 0;
   const currentStreak = stats?.currentStreak || 0;
 
-  // Get last 7 days for streak calendar
   const streakDays = useMemo(() => {
     const days = [];
     const today = new Date();
@@ -55,25 +51,19 @@ export default function Dashboard() {
         day: dayNames[date.getDay()],
         date: date.getDate(),
         isToday: i === 0,
-        hasActivity: i === 0 || currentStreak > i, // Show flame for streak days
+        hasActivity: i === 0 || currentStreak > i,
       });
     }
     return days;
   }, [currentStreak]);
 
-  // CEFR vocabulary sets
   const cefrLevels = [
-    { level: "A1", name: "Beginner", color: "bg-green-500", words: 500 },
-    { level: "A2", name: "Elementary", color: "bg-lime-500", words: 1000 },
-    { level: "B1", name: "Intermediate", color: "bg-yellow-500", words: 2000 },
-    {
-      level: "B2",
-      name: "Upper-Intermediate",
-      color: "bg-orange-500",
-      words: 4000,
-    },
-    { level: "C1", name: "Advanced", color: "bg-red-500", words: 8000 },
-    { level: "C2", name: "Proficiency", color: "bg-purple-500", words: 16000 },
+    { level: "A1", name: "Beginner", color: "bg-green-500" },
+    { level: "A2", name: "Elementary", color: "bg-lime-500" },
+    { level: "B1", name: "Intermediate", color: "bg-yellow-500" },
+    { level: "B2", name: "Upper-Intermediate", color: "bg-orange-500" },
+    { level: "C1", name: "Advanced", color: "bg-red-500" },
+    { level: "C2", name: "Proficiency", color: "bg-purple-500" },
   ];
 
   return (
@@ -81,7 +71,7 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* ROW 1: Progress + Streak + Quick Review */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {/* Progress Card - Contains 4 word stages */}
+          {/* Progress Card */}
           <Card className="border-2 rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/50 dark:border-blue-800/30 animate-in fade-in slide-in-from-bottom-4">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
@@ -250,7 +240,6 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent className="pt-0">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {/* Add Word - Navigate to collections with modal open */}
               <Link href="/collections?addWord=true">
                 <Button
                   variant="outline"
@@ -265,7 +254,6 @@ export default function Dashboard() {
                 </Button>
               </Link>
 
-              {/* Practice */}
               <Link href="/flashcards">
                 <Button
                   variant="outline"
@@ -280,7 +268,6 @@ export default function Dashboard() {
                 </Button>
               </Link>
 
-              {/* Reading Practice */}
               <Link href="/reading">
                 <Button
                   variant="outline"
@@ -324,7 +311,7 @@ export default function Dashboard() {
               {cefrLevels.map((level) => (
                 <Link
                   key={level.level}
-                  href={`/vocabulary?level=${level.level}`}
+                  href={`/vocabulary/${level.level.toLowerCase()}`}
                 >
                   <div className="group bg-white dark:bg-gray-800/50 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer text-center">
                     <div

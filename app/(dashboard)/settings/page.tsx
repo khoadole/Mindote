@@ -146,7 +146,9 @@ export default function SettingsPage() {
                   <SelectContent>
                     <SelectItem value="light">{t("settings.light")}</SelectItem>
                     <SelectItem value="dark">{t("settings.dark")}</SelectItem>
-                    <SelectItem value="system">{t("settings.system")}</SelectItem>
+                    <SelectItem value="system">
+                      {t("settings.system")}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
                 <p className="text-sm text-muted-foreground">
@@ -395,7 +397,9 @@ export default function SettingsPage() {
               <Separator />
 
               <div className="space-y-2">
-                <h4 className="font-medium">{t("settings.keyboardShortcuts")}</h4>
+                <h4 className="font-medium">
+                  {t("settings.keyboardShortcuts")}
+                </h4>
                 <div className="space-y-1 text-sm text-muted-foreground">
                   <div className="flex justify-between">
                     <span>{t("settings.addWord")}</span>

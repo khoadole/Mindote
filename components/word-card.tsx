@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useTextToSpeech } from "@/hooks/use-text-to-speech";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getPosBadgeClassName } from "@/lib/pos-colors";
 
 interface WordCardProps {
   word: Word & {
@@ -36,7 +37,12 @@ interface WordCardProps {
   showCollection?: boolean; // Whether to show collection badge (default: true)
 }
 
-export function WordCard({ word, onEdit, onDelete, showCollection = true }: WordCardProps) {
+export function WordCard({
+  word,
+  onEdit,
+  onDelete,
+  showCollection = true,
+}: WordCardProps) {
   const { t } = useTranslation();
   const [showDetails, setShowDetails] = useState(false);
   const collection = word.collection;
@@ -95,7 +101,9 @@ export function WordCard({ word, onEdit, onDelete, showCollection = true }: Word
                   </Badge>
                 )}
                 {word.partOfSpeech && (
-                  <Badge className="text-xs shrink-0 rounded-lg bg-primary/10 text-primary border-primary/20 truncate max-w-[100px]">
+                  <Badge
+                    className={`text-xs shrink-0 rounded-lg truncate max-w-[100px] ${getPosBadgeClassName(word.partOfSpeech)}`}
+                  >
                     {word.partOfSpeech}
                   </Badge>
                 )}
@@ -109,9 +117,15 @@ export function WordCard({ word, onEdit, onDelete, showCollection = true }: Word
                 <div className="flex items-center gap-2 mt-auto">
                   <div
                     className={`h-2 w-2 rounded-full shrink-0 ${
-                      !collection.color?.startsWith("#") ? (collection.color || "bg-primary") : ""
+                      !collection.color?.startsWith("#")
+                        ? collection.color || "bg-primary"
+                        : ""
                     }`}
-                    style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
+                    style={
+                      collection.color?.startsWith("#")
+                        ? { backgroundColor: collection.color }
+                        : undefined
+                    }
                   />
                   <Badge
                     variant="secondary"
@@ -188,7 +202,9 @@ export function WordCard({ word, onEdit, onDelete, showCollection = true }: Word
                     </Badge>
                   )}
                   {word.partOfSpeech && (
-                    <Badge className="rounded-lg bg-primary/10 text-primary border-primary/20">
+                    <Badge
+                      className={`rounded-lg ${getPosBadgeClassName(word.partOfSpeech)}`}
+                    >
                       {word.partOfSpeech}
                     </Badge>
                   )}
@@ -229,14 +245,22 @@ export function WordCard({ word, onEdit, onDelete, showCollection = true }: Word
               <div className="flex items-center gap-2 p-3 rounded-xl bg-card">
                 <div
                   className={`h-8 w-8 rounded-lg ${
-                    !collection.color?.startsWith("#") ? (collection.color || "bg-primary") : ""
+                    !collection.color?.startsWith("#")
+                      ? collection.color || "bg-primary"
+                      : ""
                   } flex items-center justify-center`}
-                  style={collection.color?.startsWith("#") ? { backgroundColor: collection.color } : undefined}
+                  style={
+                    collection.color?.startsWith("#")
+                      ? { backgroundColor: collection.color }
+                      : undefined
+                  }
                 >
                   <Layers className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{t("word.collection")}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t("word.collection")}
+                  </p>
                   <p className="font-medium">{collection.name}</p>
                 </div>
               </div>

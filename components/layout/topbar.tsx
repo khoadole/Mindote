@@ -34,6 +34,7 @@ import {
   formatDate,
 } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getPosBadgeClassName } from "@/lib/pos-colors";
 
 interface TopbarProps {
   onMobileMenuClick?: () => void;
@@ -226,7 +227,9 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
                           {word.term}
                         </span>
                         {word.partOfSpeech && (
-                          <Badge variant="outline" className="text-xs shrink-0">
+                          <Badge
+                            className={`text-xs shrink-0 ${getPosBadgeClassName(word.partOfSpeech)}`}
+                          >
                             {word.partOfSpeech}
                           </Badge>
                         )}

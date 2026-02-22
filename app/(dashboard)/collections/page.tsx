@@ -136,12 +136,12 @@ export default function CollectionsPage() {
   );
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen transition-all duration-300">
+    <div className="p-4 md:p-8 bg-gray-50/70 dark:bg-background min-h-screen transition-all duration-300">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="animate-in fade-in slide-in-from-top-4">
-          <h1 className="text-2xl font-semibold flex items-center gap-2.5 text-gray-800 dark:text-white">
-            <Layers className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          <h1 className="text-2xl font-semibold flex items-center gap-2.5 text-gray-700 dark:text-white">
+            <Layers className="w-6 h-6 text-blue-500 dark:text-blue-400" />
             {t("collections.title") || "Bộ sưu tập"}
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -163,7 +163,7 @@ export default function CollectionsPage() {
               placeholder={t("collections.searchCollections")}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
-              className="pl-10 h-10 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 rounded-lg focus:border-blue-300 dark:focus:border-blue-700"
+              className="pl-10 h-10 bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800 rounded-lg focus:border-blue-200 dark:focus:border-blue-700"
             />
           </div>
 
@@ -176,8 +176,8 @@ export default function CollectionsPage() {
               size="sm"
               className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all ${
                 sortOrder
-                  ? "bg-blue-50 border-blue-200 text-blue-600 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
-                  : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
+                  ? "bg-blue-50/60 border-blue-200/80 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
+                  : "bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800"
               }`}
             >
               {sortOrder === "desc" ? (
@@ -201,8 +201,8 @@ export default function CollectionsPage() {
                 size="sm"
                 className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all ${
                   colorFilter
-                    ? "bg-blue-50 border-blue-200 text-blue-600 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
-                    : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
+                    ? "bg-blue-50/60 border-blue-200/80 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
+                    : "bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800"
                 }`}
                 onClick={() => setColorDropdownOpen((p) => !p)}
               >
@@ -227,7 +227,7 @@ export default function CollectionsPage() {
                 </button>
               )}
               {colorDropdownOpen && (
-                <div className="absolute top-12 left-0 z-[100] bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl p-3 min-w-[180px]">
+                <div className="absolute top-12 left-0 z-[100] bg-white/95 dark:bg-gray-900 rounded-xl border border-gray-200/80 dark:border-gray-700 shadow-xl p-3 min-w-[180px]">
                   <p className="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wide">
                     Màu sắc
                   </p>
@@ -258,7 +258,7 @@ export default function CollectionsPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-10 rounded-lg border bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 flex items-center gap-1.5"
+                  className="h-10 rounded-lg border bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800 flex items-center gap-1.5"
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />
@@ -277,7 +277,7 @@ export default function CollectionsPage() {
         {/* Collections Grid */}
         {filteredCollections.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-blue-50/60 dark:bg-blue-900/20 flex items-center justify-center mb-4">
               <Layers className="h-8 w-8 text-blue-500 dark:text-blue-400" />
             </div>
             <h3 className="text-base font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -310,24 +310,24 @@ export default function CollectionsPage() {
                     className="group block animate-in fade-in slide-in-from-bottom-4"
                     style={{ animationDelay: `${index * 40}ms` }}
                   >
-                    <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200">
+                    <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-border hover:shadow-md transition-all duration-200">
                       {/* Card Content */}
-                      <div className="flex-1 p-4">
+                      <div className="flex-1 p-5">
                         {/* Icon + Title row */}
-                        <div className="flex items-start gap-3 mb-3">
+                        <div className="flex items-center gap-3 mb-3">
                           <div
-                            className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                            className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                             style={{
                               backgroundColor: isHex ? `${color}20` : undefined,
                             }}
                           >
                             <CollectionIcon
-                              className="h-5 w-5"
+                              className="h-6 w-6"
                               style={{ color: isHex ? color : undefined }}
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-gray-900 dark:text-white text-sm leading-tight line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            <h3 className="font-bold text-gray-800 dark:text-white text-lg leading-tight line-clamp-2 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                               {collection.name}
                             </h3>
                             {collection.difficultyLevel && (
@@ -343,7 +343,7 @@ export default function CollectionsPage() {
                         </div>
 
                         {/* Stats */}
-                        <div className="flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap text-sm text-gray-500 dark:text-gray-400">
                           <span className="flex items-center gap-1">
                             <BookOpen className="w-3.5 h-3.5" />
                             {wordCount.toLocaleString()}{" "}
@@ -356,30 +356,10 @@ export default function CollectionsPage() {
                             ).toLocaleDateString()}
                           </span>
                         </div>
-
-                        {/* Color dot tag */}
-                        <div className="flex gap-1.5 mt-3">
-                          <span
-                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium"
-                            style={{
-                              backgroundColor: isHex ? `${color}15` : undefined,
-                              color: isHex ? color : undefined,
-                            }}
-                          >
-                            <span
-                              className="w-1.5 h-1.5 rounded-full"
-                              style={{
-                                backgroundColor: isHex ? color : undefined,
-                              }}
-                            />
-                            {t("sidebar.collections") || "bộ sưu tập"}
-                          </span>
-                        </div>
                       </div>
 
-                      {/* Bottom CTA */}
-                      <div className="px-4 pb-4">
-                        <div className="w-full py-2 text-center text-sm font-medium text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 rounded-lg group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors">
+                      <div className="px-5 pb-5">
+                        <div className="w-full py-2.5 text-center text-sm font-medium text-blue-500 dark:text-blue-400 border border-blue-200/70 dark:border-blue-800 rounded-lg group-hover:bg-blue-50/40 dark:group-hover:bg-blue-900/20 transition-colors">
                           Chi tiết
                         </div>
                       </div>
@@ -399,7 +379,7 @@ export default function CollectionsPage() {
                     setCurrentPage((prev) => Math.max(prev - 1, 1))
                   }
                   disabled={currentPage === 1}
-                  className="rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
+                  className="rounded-full bg-white/80 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 text-gray-500 dark:text-gray-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
                   <ChevronLeft className="h-4 w-4 sm:mr-1" />
                   <span className="hidden sm:inline">
@@ -421,8 +401,8 @@ export default function CollectionsPage() {
                           onClick={() => setCurrentPage(page as number)}
                           className={`rounded-full w-8 h-8 p-0 text-sm ${
                             currentPage === page
-                              ? "bg-blue-600 text-white hover:bg-blue-700"
-                              : "bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300"
+                              ? "bg-blue-500 text-white hover:bg-blue-600"
+                              : "bg-white/80 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 text-gray-500 dark:text-gray-300"
                           }`}
                         >
                           {page}
@@ -439,7 +419,7 @@ export default function CollectionsPage() {
                     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                   }
                   disabled={currentPage === totalPages}
-                  className="rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
+                  className="rounded-full bg-white/80 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 text-gray-500 dark:text-gray-300 w-8 h-8 p-0 sm:w-auto sm:h-auto sm:px-4 sm:py-2"
                 >
                   <span className="hidden sm:inline">
                     {t("collections.next")}

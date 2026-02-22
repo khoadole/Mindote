@@ -33,6 +33,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTextToSpeech } from "@/hooks/use-text-to-speech";
 import { useTranslation } from "@/lib/i18n-provider";
+import { getPosBadgeClassName } from "@/lib/pos-colors";
 
 interface FlashcardPlayerProps {
   words: Word[];
@@ -201,7 +202,9 @@ export function FlashcardPlayer({
 
       toast({
         title: t("flashcardPlayer.progressSaved"),
-        description: t("flashcardPlayer.wordsUpdated", { count: reviewResults.length }),
+        description: t("flashcardPlayer.wordsUpdated", {
+          count: reviewResults.length,
+        }),
       });
 
       onComplete(results);
@@ -264,7 +267,9 @@ export function FlashcardPlayer({
 
         toast({
           title: t("flashcardPlayer.progressSaved"),
-          description: t("flashcardPlayer.wordsUpdated", { count: reviewResults.length }),
+          description: t("flashcardPlayer.wordsUpdated", {
+            count: reviewResults.length,
+          }),
         });
       }
 
@@ -293,9 +298,14 @@ export function FlashcardPlayer({
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>
-              {t("flashcardPlayer.cardOf", { current: currentIndex + 1, total: shuffledWords.length })}
+              {t("flashcardPlayer.cardOf", {
+                current: currentIndex + 1,
+                total: shuffledWords.length,
+              })}
             </span>
-            <span>{t("flashcardPlayer.complete", { percent: Math.round(progress) })}</span>
+            <span>
+              {t("flashcardPlayer.complete", { percent: Math.round(progress) })}
+            </span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
@@ -334,7 +344,11 @@ export function FlashcardPlayer({
                               speak(currentWord.term);
                             }
                           }}
-                          title={isSpeaking ? t("flashcardPlayer.stopSpeaking") : t("flashcardPlayer.speakWord")}
+                          title={
+                            isSpeaking
+                              ? t("flashcardPlayer.stopSpeaking")
+                              : t("flashcardPlayer.speakWord")
+                          }
                         >
                           {isSpeaking ? (
                             <VolumeX className="h-4 w-4 text-primary animate-pulse" />
@@ -345,7 +359,9 @@ export function FlashcardPlayer({
                       </div>
                     )}
                     {currentWord.partOfSpeech && (
-                      <Badge variant="outline" className="text-sm">
+                      <Badge
+                        className={`text-sm ${getPosBadgeClassName(currentWord.partOfSpeech)}`}
+                      >
                         {currentWord.partOfSpeech}
                       </Badge>
                     )}
@@ -365,7 +381,9 @@ export function FlashcardPlayer({
                       {currentWord.term}
                     </h3>
                     {currentWord.partOfSpeech && (
-                      <Badge variant="outline" className="text-sm shrink-0">
+                      <Badge
+                        className={`text-sm shrink-0 ${getPosBadgeClassName(currentWord.partOfSpeech)}`}
+                      >
                         {currentWord.partOfSpeech}
                       </Badge>
                     )}
@@ -422,7 +440,9 @@ export function FlashcardPlayer({
               >
                 <X className="h-4 w-4" />
                 {t("flashcardPlayer.again")}
-                <span className="text-xs opacity-70">{t("flashcardPlayer.now")}</span>
+                <span className="text-xs opacity-70">
+                  {t("flashcardPlayer.now")}
+                </span>
               </Button>
               <Button
                 variant="outline"
@@ -432,7 +452,9 @@ export function FlashcardPlayer({
               >
                 <ThumbsUp className="h-4 w-4" />
                 {t("flashcardPlayer.good")}
-                <span className="text-xs opacity-70">{t("flashcardPlayer.oneToDays")}</span>
+                <span className="text-xs opacity-70">
+                  {t("flashcardPlayer.oneToDays")}
+                </span>
               </Button>
               <Button
                 onClick={() => handleAnswer(5)}
@@ -441,7 +463,9 @@ export function FlashcardPlayer({
               >
                 <Zap className="h-4 w-4" />
                 {t("flashcardPlayer.easy")}
-                <span className="text-xs opacity-70">{t("flashcardPlayer.plusThirtyPercent")}</span>
+                <span className="text-xs opacity-70">
+                  {t("flashcardPlayer.plusThirtyPercent")}
+                </span>
               </Button>
             </div>
           )}
@@ -459,7 +483,11 @@ export function FlashcardPlayer({
 
         {/* Exit button */}
         <div className="text-center">
-          <Button variant="ghost" onClick={onExit} className="hover:bg-indigo-50 dark:hover:bg-indigo-950/20">
+          <Button
+            variant="ghost"
+            onClick={onExit}
+            className="hover:bg-indigo-50 dark:hover:bg-indigo-950/20"
+          >
             {t("flashcardPlayer.exitStudySession")}
           </Button>
         </div>

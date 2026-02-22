@@ -100,7 +100,7 @@ export default function VocabularyPage() {
             CEFR Vocabulary
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-            Common European Framework of Reference for Languages
+            {t("vocabulary.pageDescription")}
           </p>
         </div>
 

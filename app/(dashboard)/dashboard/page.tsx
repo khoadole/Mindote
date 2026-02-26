@@ -72,7 +72,7 @@ export default function Dashboard() {
         {/* ROW 1: Progress + Streak + Quick Review */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Progress Card */}
-          <Card className="border-2 rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/50 dark:border-blue-800/30 animate-in fade-in slide-in-from-bottom-4">
+          <Card className="border rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
                 <Trophy className="h-5 w-5 text-primary" />
@@ -125,7 +125,7 @@ export default function Dashboard() {
 
           {/* Streak Calendar Card */}
           <Card
-            className="border-2 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/50 dark:border-orange-800/30 animate-in fade-in slide-in-from-bottom-4"
+            className="border rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/60 dark:border-orange-800/30 border-b-[3px] border-b-orange-300 dark:border-b-orange-700 shadow-[0_2px_8px_-2px_rgba(249,115,22,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(249,115,22,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
             style={{ animationDelay: "100ms" }}
           >
             <CardHeader className="pb-3">
@@ -176,7 +176,7 @@ export default function Dashboard() {
 
           {/* Quick Review Card */}
           <Card
-            className="border-2 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/50 dark:border-purple-800/30 animate-in fade-in slide-in-from-bottom-4"
+            className="border rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/60 dark:border-purple-800/30 border-b-[3px] border-b-purple-300 dark:border-b-purple-700 shadow-[0_2px_8px_-2px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(168,85,247,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
             style={{ animationDelay: "200ms" }}
           >
             <CardHeader className="pb-3">
@@ -229,7 +229,7 @@ export default function Dashboard() {
 
         {/* ROW 2: Quick Access */}
         <Card
-          className="border-2 rounded-2xl bg-card animate-in fade-in slide-in-from-bottom-4"
+          className="border rounded-2xl bg-card border-b-[3px] border-b-gray-200 dark:border-b-gray-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
           style={{ animationDelay: "300ms" }}
         >
           <CardHeader className="pb-3">
@@ -287,7 +287,7 @@ export default function Dashboard() {
 
         {/* ROW 3: Vocabulary Sets (CEFR Levels) */}
         <Card
-          className="border-2 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/50 dark:border-teal-800/30 animate-in fade-in slide-in-from-bottom-4"
+          className="border rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/60 dark:border-teal-800/30 border-b-[3px] border-b-teal-300 dark:border-b-teal-700 shadow-[0_2px_8px_-2px_rgba(20,184,166,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(20,184,166,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
           style={{ animationDelay: "400ms" }}
         >
           <CardHeader className="flex flex-row items-center justify-between pb-3">

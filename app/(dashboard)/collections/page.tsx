@@ -174,10 +174,10 @@ export default function CollectionsPage() {
               variant="outline"
               onClick={handleSortToggle}
               size="sm"
-              className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all ${
+              className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all border-b-[2px] ${
                 sortOrder
-                  ? "bg-blue-50/60 border-blue-200/80 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
-                  : "bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800"
+                  ? "bg-blue-50/60 border-blue-200/80 border-b-blue-400 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:border-b-blue-600 dark:text-blue-400"
+                  : "bg-white/80 dark:bg-gray-900 border-gray-200/80 border-b-gray-300 dark:border-gray-800 dark:border-b-gray-600"
               }`}
             >
               {sortOrder === "desc" ? (
@@ -199,10 +199,10 @@ export default function CollectionsPage() {
               <Button
                 variant="outline"
                 size="sm"
-                className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all ${
+                className={`h-10 rounded-lg border flex items-center gap-1.5 transition-all border-b-[2px] ${
                   colorFilter
-                    ? "bg-blue-50/60 border-blue-200/80 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400"
-                    : "bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800"
+                    ? "bg-blue-50/60 border-blue-200/80 border-b-blue-400 text-blue-500 dark:bg-blue-900/20 dark:border-blue-800 dark:border-b-blue-600 dark:text-blue-400"
+                    : "bg-white/80 dark:bg-gray-900 border-gray-200/80 border-b-gray-300 dark:border-gray-800 dark:border-b-gray-600"
                 }`}
                 onClick={() => setColorDropdownOpen((p) => !p)}
               >
@@ -258,7 +258,7 @@ export default function CollectionsPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-10 rounded-lg border bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800 flex items-center gap-1.5"
+                  className="h-10 rounded-lg border bg-white/80 dark:bg-gray-900 border-gray-200/80 dark:border-gray-800 border-b-[2px] border-b-blue-300 dark:border-b-blue-700 flex items-center gap-1.5"
                   data-shortcut="add-word"
                 >
                   <Plus className="h-4 w-4" />
@@ -310,7 +310,19 @@ export default function CollectionsPage() {
                     className="group block animate-in fade-in slide-in-from-bottom-4"
                     style={{ animationDelay: `${index * 40}ms` }}
                   >
-                    <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-border hover:shadow-md transition-all duration-200">
+                    <div
+                      className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-border/60 border-b-[3px] hover:-translate-y-0.5 transition-all duration-200"
+                      style={{
+                        borderBottomColor: color,
+                        boxShadow: `0 2px 8px -2px ${color}20, 0 1px 3px -1px rgba(0,0,0,0.05)`,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = `0 4px 16px -4px ${color}35, 0 2px 6px -2px rgba(0,0,0,0.08)`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = `0 2px 8px -2px ${color}20, 0 1px 3px -1px rgba(0,0,0,0.05)`;
+                      }}
+                    >
                       {/* Card Content */}
                       <div className="flex-1 p-5">
                         {/* Icon + Title row */}

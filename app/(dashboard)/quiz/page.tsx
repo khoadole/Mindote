@@ -47,7 +47,7 @@ const QuizPlayer = dynamic(
         </div>
       );
     },
-  }
+  },
 );
 
 export default function QuizPage() {
@@ -66,7 +66,7 @@ export default function QuizPage() {
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>(
-    collectionParam || "all"
+    collectionParam || "all",
   );
   const [questionCount, setQuestionCount] = useState<number>(10);
   const [questionType, setQuestionType] = useState<
@@ -138,7 +138,11 @@ export default function QuizPage() {
     const percentage = Math.round((results.score / results.total) * 100);
     toast({
       title: t("quiz.quizComplete"),
-      description: t("quiz.scoreResult", { percentage, score: results.score, total: results.total }),
+      description: t("quiz.scoreResult", {
+        percentage,
+        score: results.score,
+        total: results.total,
+      }),
     });
     setIsQuizzing(false);
   };
@@ -163,11 +167,11 @@ export default function QuizPage() {
     return (
       <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
         <QuizPlayer
-            words={validQuizWords as any}
-            mode={questionType}
-            onComplete={handleQuizComplete}
-            onExit={handleExit}
-          />
+          words={validQuizWords as any}
+          mode={questionType}
+          onComplete={handleQuizComplete}
+          onExit={handleExit}
+        />
       </div>
     );
   }
@@ -198,7 +202,9 @@ export default function QuizPage() {
               <CheckCircle className="h-8 w-8 text-primary" />
               <h1 className="text-4xl font-bold">
                 {collectionParam && specificCollection
-                  ? t("quiz.quizWithCollection", { name: specificCollection.name })
+                  ? t("quiz.quizWithCollection", {
+                      name: specificCollection.name,
+                    })
                   : t("quiz.title")}
               </h1>
             </div>
@@ -210,7 +216,7 @@ export default function QuizPage() {
               className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
               style={{ animationDelay: "100ms" }}
             >
-              <Card className="hover:shadow-md transition-shadow">
+              <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200">
                 <CardHeader>
                   <CardTitle>{t("quiz.quizSettings")}</CardTitle>
                 </CardHeader>
@@ -221,7 +227,7 @@ export default function QuizPage() {
                       value={questionType}
                       onValueChange={(value) =>
                         setQuestionType(
-                          value as "multiple-choice" | "fill-blank"
+                          value as "multiple-choice" | "fill-blank",
                         )
                       }
                     >
@@ -251,7 +257,9 @@ export default function QuizPage() {
                       onValueChange={setSelectedScope}
                     >
                       <SelectTrigger className="truncate">
-                        <SelectValue placeholder={t("flashcards.selectScope")} />
+                        <SelectValue
+                          placeholder={t("flashcards.selectScope")}
+                        />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all" className="truncate">
@@ -269,7 +277,7 @@ export default function QuizPage() {
                             >
                               {collection.name} (
                               {words?.filter(
-                                (w) => w.collectionId === collection.id
+                                (w) => w.collectionId === collection.id,
                               ).length || 0}
                               )
                             </span>
@@ -290,7 +298,8 @@ export default function QuizPage() {
                   {questionType === "fill-blank" &&
                     validQuizWords.length < quizWords.length && (
                       <p className="text-xs text-muted-foreground text-center">
-                        {validQuizWords.length} / {quizWords.length} {t("quiz.words")}
+                        {validQuizWords.length} / {quizWords.length}{" "}
+                        {t("quiz.words")}
                       </p>
                     )}
                 </CardContent>
@@ -302,7 +311,7 @@ export default function QuizPage() {
               className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
               style={{ animationDelay: "200ms" }}
             >
-              <Card className="hover:shadow-md transition-shadow">
+              <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200">
                 <CardHeader>
                   <CardTitle>{t("quiz.quizPreview")}</CardTitle>
                 </CardHeader>
@@ -355,7 +364,7 @@ export default function QuizPage() {
                                 <p className="mb-2 break-words">
                                   {validQuizWords[0]?.example?.replace(
                                     new RegExp(validQuizWords[0]?.term, "gi"),
-                                    "_____"
+                                    "_____",
                                   ) ||
                                     "Example: She picked a shiny red _____ from the tree."}
                                 </p>
@@ -411,7 +420,10 @@ export default function QuizPage() {
                         {questionType === "fill-blank"
                           ? t("quiz.currentlyValid", {
                               count: validQuizWords.length,
-                              word: validQuizWords.length === 1 ? t("quiz.word") : t("quiz.words")
+                              word:
+                                validQuizWords.length === 1
+                                  ? t("quiz.word")
+                                  : t("quiz.words"),
                             })
                           : `${t("quiz.needAtLeastTwoWords")} ${
                               selectedScope === "all"

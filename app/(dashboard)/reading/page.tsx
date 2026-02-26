@@ -190,16 +190,37 @@ export default function ReadingPage() {
                     {t("reading.howItWorks")}
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="sm:max-w-md">
                   <DialogHeader>
-                    <DialogTitle>{t("reading.howItWorks")}</DialogTitle>
+                    <DialogTitle className="text-xl font-bold">
+                      {t("reading.howItWorks")}
+                    </DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-3 text-sm text-muted-foreground">
-                    <p>{t("reading.chooseCollectionStep", { count: 5 })}</p>
-                    <p>{t("reading.selectDifficultyStep")}</p>
-                    <p>{t("reading.aiGeneratesStep")}</p>
-                    <p>{t("reading.readAnswerStep")}</p>
-                    <p>{t("reading.trackProgressStep")}</p>
+                  <div className="space-y-0 pt-2">
+                    {[
+                      {
+                        step: 1,
+                        text: t("reading.chooseCollectionStep", { count: 5 }),
+                      },
+                      { step: 2, text: t("reading.selectDifficultyStep") },
+                      { step: 3, text: t("reading.aiGeneratesStep") },
+                      { step: 4, text: t("reading.readAnswerStep") },
+                      { step: 5, text: t("reading.trackProgressStep") },
+                    ].map((item, index) => (
+                      <div key={item.step} className="flex items-start gap-4">
+                        <div className="flex flex-col items-center">
+                          <div className="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                            {item.step}
+                          </div>
+                          {index < 4 && (
+                            <div className="w-0.5 h-6 bg-blue-200 dark:bg-blue-800" />
+                          )}
+                        </div>
+                        <p className="text-base font-medium text-foreground pt-1.5 pb-4">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </DialogContent>
               </Dialog>
@@ -210,7 +231,7 @@ export default function ReadingPage() {
             {/* Generation Form */}
             <div className="lg:col-span-1 space-y-6">
               <Card
-                className="animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
+                className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
                 style={{ animationDelay: "100ms" }}
               >
                 <CardHeader>
@@ -509,7 +530,7 @@ export default function ReadingPage() {
               className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
               style={{ animationDelay: "200ms" }}
             >
-              <Card>
+              <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <FileText className="h-5 w-5" />

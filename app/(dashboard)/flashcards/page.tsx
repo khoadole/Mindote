@@ -276,7 +276,7 @@ export default function FlashcardsPage() {
               className="lg:col-span-1 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
               style={{ animationDelay: "100ms" }}
             >
-              <Card className="hover:shadow-md transition-shadow">
+              <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200">
                 <CardHeader>
                   <CardTitle>
                     {mode === "review"
@@ -357,7 +357,7 @@ export default function FlashcardsPage() {
               className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-500 fill-mode-both"
               style={{ animationDelay: "200ms" }}
             >
-              <Card className="hover:shadow-md transition-shadow">
+              <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200">
                 <CardHeader>
                   <CardTitle>{t("flashcards.preview")}</CardTitle>
                 </CardHeader>

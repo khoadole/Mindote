@@ -73,14 +73,14 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
           setDifficultyLevel("");
           setOpen(false);
         },
-      }
+      },
     );
   };
 
   const defaultTrigger = (
     <Button
       variant="outline"
-      className="flex items-center gap-2 rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all hover:scale-105 font-semibold"
+      className="flex items-center gap-2 rounded-2xl border-2 border-gray-300 dark:border-gray-600 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all hover:scale-105 font-semibold"
     >
       <Plus className="h-4 w-4" />
       {t("collections.newCollection")}
@@ -142,10 +142,14 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="difficulty">{t("collections.difficultyLevelLabel")}</Label>
+            <Label htmlFor="difficulty">
+              {t("collections.difficultyLevelLabel")}
+            </Label>
             <Select value={difficultyLevel} onValueChange={setDifficultyLevel}>
               <SelectTrigger>
-                <SelectValue placeholder={t("collections.difficultyLevelPlaceholder")} />
+                <SelectValue
+                  placeholder={t("collections.difficultyLevelPlaceholder")}
+                />
               </SelectTrigger>
               <SelectContent>
                 {DIFFICULTY_LEVELS.map((level) => (
@@ -178,7 +182,7 @@ export function CreateCollectionModal({ trigger }: CreateCollectionModalProps) {
               {createCollectionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      {t("collections.creating")}
+                  {t("collections.creating")}
                 </>
               ) : (
                 t("collections.createCollection")

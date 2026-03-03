@@ -33,7 +33,9 @@ import {
   Dumbbell,
   LogOut,
   ChevronsUpDown,
+  BookOpenText,
 } from "lucide-react";
+import { DictionaryModal } from "@/components/modals/dictionary-modal";
 
 import { useAuth } from "@/lib/auth";
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
@@ -113,6 +115,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [practiceExpanded, setPracticeExpanded] = useState(true);
   const [userPopoverOpen, setUserPopoverOpen] = useState(false);
+  const [dictionaryOpen, setDictionaryOpen] = useState(false);
 
   // ✅ Initialize from cache immediately to avoid blocking render
   const [hasActiveSubscription, setHasActiveSubscription] = useState(() => {
@@ -494,6 +497,30 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           {/* STUDY Section */}
           {renderSectionTitle(t("sidebar.sectionStudy"))}
           <div className="space-y-1">
+            {/* Dictionary Lookup Button — First item */}
+            <Button
+              variant="ghost"
+              onClick={() => setDictionaryOpen(true)}
+              className={cn(
+                "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
+                "hover:bg-violet-500/10 dark:hover:bg-violet-500/10 text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-300",
+                isCollapsed
+                  ? "justify-center h-11 w-11 p-0"
+                  : "justify-start h-11 pl-6",
+              )}
+            >
+              <BookOpenText
+                className={cn(
+                  "h-[18px] w-[18px] transition-all duration-300 relative z-10 text-violet-400",
+                  !isCollapsed && "mr-3",
+                )}
+              />
+              {!isCollapsed && (
+                <span className="transition-all duration-300 font-medium relative z-10 text-[13px]">
+                  {t("sidebar.dictionary")}
+                </span>
+              )}
+            </Button>
             {studySection.map((item) => renderNavItem(item))}
           </div>
 
@@ -509,6 +536,12 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             {accountSection.map((item) => renderNavItem(item))}
           </div>
         </nav>
+
+        {/* Dictionary Modal */}
+        <DictionaryModal
+          open={dictionaryOpen}
+          onOpenChange={setDictionaryOpen}
+        />
 
         {/* Bottom Section - User Profile */}
         <div className="p-3 border-t border-sidebar-border">

@@ -59,6 +59,7 @@
     "settings": "Cài đặt",
     "help": "Trợ giúp",
     "signOut": "Đăng xuất",
+    "dictionary": "Tra từ",
     "sectionStudy": "HỌC TẬP",
     "sectionLibrary": "THƯ VIỆN",
     "sectionAccount": "TÀI KHOẢN"
@@ -839,5 +840,22 @@
       "speechError": "Lỗi giọng nói",
       "errorOccurred": "Đã xảy ra lỗi khi đọc"
     }
+  },
+  "dictionary": {
+    "title": "Tra từ điển",
+    "searchPlaceholder": "Nhập từ cần tra cứu...",
+    "search": "Tra cứu",
+    "searching": "Đang tìm kiếm...",
+    "notFound": "Không tìm thấy từ",
+    "notFoundHint": "Kiểm tra chính tả hoặc thử từ khác.",
+    "apiError": "Đã xảy ra lỗi",
+    "apiErrorHint": "Vui lòng thử lại sau.",
+    "emptyTitle": "Tra cứu bất kỳ từ nào",
+    "emptySubtitle": "Nhập từ và nhấn Enter để xem định nghĩa, phát âm và ví dụ.",
+    "pressEnter": "Nhấn Enter để tìm kiếm",
+    "synonyms": "Từ đồng nghĩa",
+    "antonyms": "Từ trái nghĩa",
+    "source": "Nguồn",
+    "poweredBy": "Cung cấp bởi Free Dictionary API"
   }
 }

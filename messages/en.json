@@ -59,6 +59,7 @@
     "settings": "Settings",
     "help": "Help",
     "signOut": "Sign out",
+    "dictionary": "Dictionary",
     "sectionStudy": "STUDY",
     "sectionLibrary": "LIBRARY",
     "sectionAccount": "ACCOUNT"
@@ -857,5 +858,22 @@
       "speechError": "Speech Error",
       "errorOccurred": "An error occurred while speaking"
     }
+  },
+  "dictionary": {
+    "title": "Dictionary",
+    "searchPlaceholder": "Type a word to look up...",
+    "search": "Search",
+    "searching": "Looking up...",
+    "notFound": "Word not found",
+    "notFoundHint": "Check the spelling or try a different word.",
+    "apiError": "Something went wrong",
+    "apiErrorHint": "Please try again later.",
+    "emptyTitle": "Look up any word",
+    "emptySubtitle": "Type a word and press Enter to see its definition, pronunciation, and examples.",
+    "pressEnter": "Press Enter to search",
+    "synonyms": "Synonyms",
+    "antonyms": "Antonyms",
+    "source": "Source",
+    "poweredBy": "Powered by Free Dictionary API"
   }
 }

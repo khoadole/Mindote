@@ -44,7 +44,8 @@
     "signOut": "Abmelden",
     "sectionStudy": "LERNEN",
     "sectionLibrary": "BIBLIOTHEK",
-    "sectionAccount": "KONTO"
+    "sectionAccount": "KONTO",
+    "dictionary": "Wörterbuch"
   },
   "onboarding": {
     "welcome": "Willkommen bei Mindote!",
@@ -812,5 +813,22 @@
       "speechError": "Sprachfehler",
       "errorOccurred": "Beim Sprechen ist ein Fehler aufgetreten"
     }
+  },
+  "dictionary": {
+    "title": "Wörterbuch",
+    "searchPlaceholder": "Wort eingeben...",
+    "search": "Suchen",
+    "searching": "Wird gesucht...",
+    "notFound": "Wort nicht gefunden",
+    "notFoundHint": "Überprüfe die Rechtschreibung oder versuche ein anderes Wort.",
+    "apiError": "Etwas ist schiefgelaufen",
+    "apiErrorHint": "Bitte versuche es später erneut.",
+    "emptyTitle": "Beliebiges Wort nachschlagen",
+    "emptySubtitle": "Gib ein Wort ein und drücke Enter, um Definition, Aussprache und Beispiele zu sehen.",
+    "pressEnter": "Drücke Enter zum Suchen",
+    "synonyms": "Synonyme",
+    "antonyms": "Antonyme",
+    "source": "Quelle",
+    "poweredBy": "Bereitgestellt von Free Dictionary API"
   }
 }

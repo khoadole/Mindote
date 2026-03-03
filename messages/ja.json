@@ -44,7 +44,8 @@
     "signOut": "ログアウト",
     "sectionStudy": "学習",
     "sectionLibrary": "ライブラリ",
-    "sectionAccount": "アカウント"
+    "sectionAccount": "アカウント",
+    "dictionary": "辞書"
   },
   "onboarding": {
     "welcome": "Mindoteへようこそ!",
@@ -752,5 +753,22 @@
       "failedToUpdate": "サブスクリプションを更新できませんでした",
       "failedToCheckout": "チェックアウトを開始できませんでした。もう一度お試しください。"
     }
+  },
+  "dictionary": {
+    "title": "辞書",
+    "searchPlaceholder": "単語を入力...",
+    "search": "検索",
+    "searching": "検索中...",
+    "notFound": "単語が見つかりません",
+    "notFoundHint": "スペルを確認するか、別の単語を試してください。",
+    "apiError": "エラーが発生しました",
+    "apiErrorHint": "後でもう一度お試しください。",
+    "emptyTitle": "任意の単語を検索",
+    "emptySubtitle": "単語を入力してEnterキーを押すと、定義、発音、例文が表示されます。",
+    "pressEnter": "Enterキーで検索",
+    "synonyms": "同義語",
+    "antonyms": "対義語",
+    "source": "出典",
+    "poweredBy": "Free Dictionary API 提供"
   }
 }

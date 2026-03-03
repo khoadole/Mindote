@@ -44,7 +44,8 @@
     "signOut": "Se déconnecter",
     "sectionStudy": "ÉTUDE",
     "sectionLibrary": "BIBLIOTHÈQUE",
-    "sectionAccount": "COMPTE"
+    "sectionAccount": "COMPTE",
+    "dictionary": "Dictionnaire"
   },
   "onboarding": {
     "welcome": "Bienvenue sur Mindote!",
@@ -751,5 +752,22 @@
       "failedToUpdate": "Impossible de mettre à jour l'abonnement",
       "failedToCheckout": "Impossible de démarrer le paiement. Veuillez réessayer."
     }
+  },
+  "dictionary": {
+    "title": "Dictionnaire",
+    "searchPlaceholder": "Tapez un mot...",
+    "search": "Chercher",
+    "searching": "Recherche en cours...",
+    "notFound": "Mot introuvable",
+    "notFoundHint": "Vérifiez l'orthographe ou essayez un autre mot.",
+    "apiError": "Une erreur est survenue",
+    "apiErrorHint": "Veuillez réessayer plus tard.",
+    "emptyTitle": "Rechercher n'importe quel mot",
+    "emptySubtitle": "Tapez un mot et appuyez sur Entrée pour voir sa définition, prononciation et exemples.",
+    "pressEnter": "Appuyez sur Entrée pour chercher",
+    "synonyms": "Synonymes",
+    "antonyms": "Antonymes",
+    "source": "Source",
+    "poweredBy": "Fourni par Free Dictionary API"
   }
 }

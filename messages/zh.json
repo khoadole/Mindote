@@ -44,7 +44,8 @@
     "signOut": "退出登录",
     "sectionStudy": "学习",
     "sectionLibrary": "资料库",
-    "sectionAccount": "账户"
+    "sectionAccount": "账户",
+    "dictionary": "词典"
   },
   "onboarding": {
     "welcome": "欢迎来到Mindote!",
@@ -759,5 +760,22 @@
       "failedToUpdate": "无法更新订阅",
       "failedToCheckout": "无法开始支付。请重试。"
     }
+  },
+  "dictionary": {
+    "title": "词典",
+    "searchPlaceholder": "输入要查找的单词...",
+    "search": "搜索",
+    "searching": "搜索中...",
+    "notFound": "未找到该词",
+    "notFoundHint": "请检查拼写或尝试其他单词。",
+    "apiError": "出现错误",
+    "apiErrorHint": "请稍后重试。",
+    "emptyTitle": "查找任意单词",
+    "emptySubtitle": "输入单词并按 Enter 查看定义、发音和例句。",
+    "pressEnter": "按 Enter 搜索",
+    "synonyms": "同义词",
+    "antonyms": "反义词",
+    "source": "来源",
+    "poweredBy": "由 Free Dictionary API 提供"
   }
 }

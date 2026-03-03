@@ -44,7 +44,8 @@
     "signOut": "로그아웃",
     "sectionStudy": "학습",
     "sectionLibrary": "라이브러리",
-    "sectionAccount": "계정"
+    "sectionAccount": "계정",
+    "dictionary": "사전"
   },
   "onboarding": {
     "welcome": "Mindote에 오신 것을 환영합니다!",
@@ -759,5 +760,22 @@
       "failedToUpdate": "구독을 업데이트할 수 없습니다",
       "failedToCheckout": "결제를 시작할 수 없습니다. 다시 시도해주세요."
     }
+  },
+  "dictionary": {
+    "title": "사전",
+    "searchPlaceholder": "단어를 입력하세요...",
+    "search": "검색",
+    "searching": "검색 중...",
+    "notFound": "단어를 찾을 수 없습니다",
+    "notFoundHint": "맞춤법을 확인하거나 다른 단어를 시도해 보세요.",
+    "apiError": "오류가 발생했습니다",
+    "apiErrorHint": "나중에 다시 시도해 주세요.",
+    "emptyTitle": "아무 단어나 검색하세요",
+    "emptySubtitle": "단어를 입력하고 Enter를 눌러 정의, 발음 및 예문을 확인하세요.",
+    "pressEnter": "Enter를 눌러 검색",
+    "synonyms": "동의어",
+    "antonyms": "반의어",
+    "source": "출처",
+    "poweredBy": "Free Dictionary API 제공"
   }
 }

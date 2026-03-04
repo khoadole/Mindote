@@ -72,7 +72,7 @@ export default function Dashboard() {
         {/* ROW 1: Progress + Streak + Quick Review */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Progress Card */}
-          <Card className="border rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4">
+          <Card className="border rounded-3xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
                 <Trophy className="h-5 w-5 text-primary" />
@@ -81,7 +81,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
                   <div className="text-2xl font-bold text-green-500">
                     {stats?.newWords || 0}
                   </div>
@@ -89,7 +89,7 @@ export default function Dashboard() {
                     {t("dashboard.new")}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
                   <div className="text-2xl font-bold text-yellow-500">
                     {stats?.learningWords || 0}
                   </div>
@@ -97,7 +97,7 @@ export default function Dashboard() {
                     {t("dashboard.learning")}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
                   <div className="text-2xl font-bold text-orange-500">
                     {stats?.familiarWords || 0}
                   </div>
@@ -105,7 +105,7 @@ export default function Dashboard() {
                     {t("dashboard.familiar")}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-xl p-3 text-center border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
                   <div className="text-2xl font-bold text-purple-500">
                     {stats?.masterWords || 0}
                   </div>
@@ -125,7 +125,7 @@ export default function Dashboard() {
 
           {/* Streak Calendar Card */}
           <Card
-            className="border rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/60 dark:border-orange-800/30 border-b-[3px] border-b-orange-300 dark:border-b-orange-700 shadow-[0_2px_8px_-2px_rgba(249,115,22,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(249,115,22,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
+            className="border rounded-3xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/60 dark:border-orange-800/30 border-b-[3px] border-b-orange-300 dark:border-b-orange-700 shadow-[0_2px_8px_-2px_rgba(249,115,22,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(249,115,22,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
             style={{ animationDelay: "100ms" }}
           >
             <CardHeader className="pb-3">
@@ -176,7 +176,7 @@ export default function Dashboard() {
 
           {/* Quick Review Card */}
           <Card
-            className="border rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/60 dark:border-purple-800/30 border-b-[3px] border-b-purple-300 dark:border-b-purple-700 shadow-[0_2px_8px_-2px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(168,85,247,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
+            className="border rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/60 dark:border-purple-800/30 border-b-[3px] border-b-purple-300 dark:border-b-purple-700 shadow-[0_2px_8px_-2px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(168,85,247,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
             style={{ animationDelay: "200ms" }}
           >
             <CardHeader className="pb-3">
@@ -203,7 +203,7 @@ export default function Dashboard() {
                 )}
               </div>
               <Button
-                className="w-full mt-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-xl disabled:opacity-50"
+                className="w-full mt-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-2xl disabled:opacity-50"
                 size="sm"
                 asChild={dueCount > 0}
                 disabled={dueCount === 0}
@@ -229,7 +229,7 @@ export default function Dashboard() {
 
         {/* ROW 2: Quick Access */}
         <Card
-          className="border rounded-2xl bg-card border-b-[3px] border-b-gray-200 dark:border-b-gray-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
+          className="border rounded-3xl bg-card border-b-[3px] border-b-gray-200 dark:border-b-gray-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
           style={{ animationDelay: "300ms" }}
         >
           <CardHeader className="pb-3">
@@ -243,7 +243,7 @@ export default function Dashboard() {
               <Link href="/collections?addWord=true">
                 <Button
                   variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
+                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Plus className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -257,7 +257,7 @@ export default function Dashboard() {
               <Link href="/flashcards">
                 <Button
                   variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
+                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Dumbbell className="h-5 w-5 text-pink-600 dark:text-pink-400" />
@@ -271,7 +271,7 @@ export default function Dashboard() {
               <Link href="/reading">
                 <Button
                   variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
+                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
@@ -287,7 +287,7 @@ export default function Dashboard() {
 
         {/* ROW 3: Vocabulary Sets (CEFR Levels) */}
         <Card
-          className="border rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/60 dark:border-teal-800/30 border-b-[3px] border-b-teal-300 dark:border-b-teal-700 shadow-[0_2px_8px_-2px_rgba(20,184,166,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(20,184,166,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
+          className="border rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/60 dark:border-teal-800/30 border-b-[3px] border-b-teal-300 dark:border-b-teal-700 shadow-[0_2px_8px_-2px_rgba(20,184,166,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(20,184,166,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
           style={{ animationDelay: "400ms" }}
         >
           <CardHeader className="flex flex-row items-center justify-between pb-3">
@@ -299,7 +299,7 @@ export default function Dashboard() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/30"
+                className="rounded-2xl hover:bg-teal-100 dark:hover:bg-teal-900/30"
               >
                 {t("dashboard.viewVocabulary")}
                 <ArrowRight className="h-4 w-4 ml-1" />
@@ -313,7 +313,7 @@ export default function Dashboard() {
                   key={level.level}
                   href={`/vocabulary/${level.level.toLowerCase()}`}
                 >
-                  <div className="group bg-white dark:bg-gray-800/50 rounded-xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer text-center">
+                  <div className="group bg-white dark:bg-gray-800/50 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer text-center">
                     <div
                       className={`w-12 h-12 rounded-full ${level.color} mx-auto mb-2 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform`}
                     >

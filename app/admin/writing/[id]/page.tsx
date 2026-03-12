@@ -1,6 +1,5 @@
 "use client";
 
-import { use } from "react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Loader2, PenLine } from "lucide-react";
@@ -13,9 +12,9 @@ import type { WritingPassage } from "@/lib/types";
 export default function EditPassagePage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = use(params);
+  const { id } = params;
   const router = useRouter();
   const updateMutation = useAdminUpdatePassage();
 

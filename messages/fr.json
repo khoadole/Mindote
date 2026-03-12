@@ -755,10 +755,10 @@
       "tabVietnam": "Vietnam (₫)",
       "payosAccessUntil": "Accès jusqu'au",
       "payosOneTimeNote": "Paiement unique · Pas de renouvellement automatique",
-      "payosSave": "Économisez ~34%",
+      "payosSave": "Économisez ~50%",
       "payosOnlyPerMonth": "Seulement {{price}}/mois",
       "payosActiveNotice": "Abonnement actif – {{time}} restants. Le renouvellement prolongera la période d'accès.",
-      "payosPayNow": "Payer maintenant (PayOS)",
+      "payosPayNow": "Payer maintenant",
       "payosRenew": "Renouveler le plan",
       "payosPaymentMethods": "Virement bancaire · Code QR · Banque en ligne",
       "processingPayos": "Redirection vers PayOS..."

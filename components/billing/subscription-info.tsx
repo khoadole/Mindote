@@ -307,9 +307,6 @@ export function SubscriptionInfo() {
             <Badge variant="default" className="bg-green-600 dark:bg-green-500">
               {t("components.billing.active")}
             </Badge>
-            {payos && (
-              <Badge variant="outline" className="text-xs">PayOS</Badge>
-            )}
           </CardTitle>
 
           <div className="flex items-center gap-2">

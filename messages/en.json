@@ -809,10 +809,10 @@
       "tabVietnam": "Vietnam (₫)",
       "payosAccessUntil": "Access until",
       "payosOneTimeNote": "One-time payment · No automatic renewal",
-      "payosSave": "Save ~34%",
+      "payosSave": "Save ~50%",
       "payosOnlyPerMonth": "Only {{price}}/month",
       "payosActiveNotice": "Active subscription – {{time}} remaining. Renewing will extend the access period.",
-      "payosPayNow": "Pay Now (PayOS)",
+      "payosPayNow": "Pay Now",
       "payosRenew": "Renew Plan",
       "payosPaymentMethods": "Bank transfer · QR Code · Internet Banking",
       "processingPayos": "Redirecting to PayOS..."

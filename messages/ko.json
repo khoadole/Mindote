@@ -763,10 +763,10 @@
       "tabVietnam": "베트남 (₫)",
       "payosAccessUntil": "이용 기간",
       "payosOneTimeNote": "단건 결제 · 자동 갱신 없음",
-      "payosSave": "약 34% 절약",
+      "payosSave": "약 50% 절약",
       "payosOnlyPerMonth": "{{price}}/월",
       "payosActiveNotice": "활성 구독 – {{time}} 남음. 갱신하면 이용 기간이 연장됩니다.",
-      "payosPayNow": "지금 결제 (PayOS)",
+      "payosPayNow": "지금 결제",
       "payosRenew": "플랜 갱신",
       "payosPaymentMethods": "계좌이체 · QR 코드 · 인터넷뱅킹",
       "processingPayos": "PayOS로 이동 중..."

@@ -10,7 +10,6 @@ import { createPayOSPayment } from "@/app/actions/payos";
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "@/lib/i18n-provider";
-import { formatDistanceToNow } from "date-fns";
 
 // ─── Plan definitions (mirrors PAYOS_PLANS in lib/payos.ts) ──────────────────
 
@@ -144,23 +143,8 @@ export function PayOSPlans() {
     return activePayOSSub.plan?.interval === (planId === "monthly" ? "month" : "year");
   }
 
-  function getRemainingTime(): string {
-    if (!activePayOSSub?.endsAt) return "";
-    return formatDistanceToNow(new Date(activePayOSSub.endsAt));
-  }
-
   return (
-    <div className="space-y-4">
-      {/* Active PayOS subscription notice */}
-      {activePayOSSub && (
-        <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-4 text-sm text-blue-700 dark:text-blue-400">
-          {t("components.billing.payosActiveNotice", {
-            time: getRemainingTime(),
-          })}
-        </div>
-      )}
-
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid md:grid-cols-2 gap-6">
         {PAYOS_UI_PLANS.map((plan) => {
           const current = isCurrentPlan(plan.id);
 
@@ -276,7 +260,6 @@ export function PayOSPlans() {
             </Card>
           );
         })}
-      </div>
     </div>
   );
 }

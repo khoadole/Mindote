@@ -763,10 +763,10 @@
       "tabVietnam": "Vietnã (₫)",
       "payosAccessUntil": "Acesso até",
       "payosOneTimeNote": "Pagamento único · Sem renovação automática",
-      "payosSave": "Economize ~34%",
+      "payosSave": "Economize ~50%",
       "payosOnlyPerMonth": "Apenas {{price}}/mês",
       "payosActiveNotice": "Assinatura ativa – {{time}} restantes. A renovação estenderá o período de acesso.",
-      "payosPayNow": "Pagar agora (PayOS)",
+      "payosPayNow": "Pagar agora",
       "payosRenew": "Renovar plano",
       "payosPaymentMethods": "Transferência bancária · Código QR · Internet Banking",
       "processingPayos": "Redirecionando para PayOS..."

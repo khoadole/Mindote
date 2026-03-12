@@ -763,10 +763,10 @@
       "tabVietnam": "越南 (₫)",
       "payosAccessUntil": "访问截止日期",
       "payosOneTimeNote": "一次性付款 · 无自动续费",
-      "payosSave": "节省约34%",
+      "payosSave": "节省约50%",
       "payosOnlyPerMonth": "仅 {{price}}/月",
       "payosActiveNotice": "订阅有效 – 剩余{{time}}。续订将延长访问时间。",
-      "payosPayNow": "立即支付 (PayOS)",
+      "payosPayNow": "立即支付",
       "payosRenew": "续订方案",
       "payosPaymentMethods": "银行转账 · 二维码 · 网上银行",
       "processingPayos": "正在跳转到PayOS..."

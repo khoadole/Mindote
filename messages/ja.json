@@ -756,10 +756,10 @@
       "tabVietnam": "ベトナム (₫)",
       "payosAccessUntil": "アクセス期限",
       "payosOneTimeNote": "一回払い・自動更新なし",
-      "payosSave": "約34%お得",
+      "payosSave": "約50%お得",
       "payosOnlyPerMonth": "{{price}}/月のみ",
       "payosActiveNotice": "アクティブなサブスクリプション – 残り{{time}}。更新するとアクセス期間が延長されます。",
-      "payosPayNow": "今すぐ支払う (PayOS)",
+      "payosPayNow": "今すぐ支払う",
       "payosRenew": "プランを更新",
       "payosPaymentMethods": "銀行振込・QRコード・インターネットバンキング",
       "processingPayos": "PayOSへリダイレクト中..."

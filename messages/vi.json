@@ -791,10 +791,10 @@
       "tabVietnam": "Việt Nam (₫)",
       "payosAccessUntil": "Truy cập đến",
       "payosOneTimeNote": "Thanh toán một lần · Không gia hạn tự động",
-      "payosSave": "Tiết kiệm ~34%",
+      "payosSave": "Tiết kiệm ~50%",
       "payosOnlyPerMonth": "Chỉ {{price}}/tháng",
       "payosActiveNotice": "Gói đang hoạt động – còn {{time}}. Gia hạn sẽ kéo dài thêm thời gian truy cập.",
-      "payosPayNow": "Thanh toán ngay (PayOS)",
+      "payosPayNow": "Thanh toán ngay",
       "payosRenew": "Gia hạn gói",
       "payosPaymentMethods": "Chuyển khoản · QR Code · Internet Banking",
       "processingPayos": "Đang chuyển đến PayOS..."

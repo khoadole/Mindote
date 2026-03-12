@@ -19,13 +19,14 @@ model User {
   currentStreak Int            @default(0) @map("current_streak")
   lastLoginDate DateTime?      @map("last_login_date")
   longestStreak Int            @default(0) @map("longest_streak")
-  collections   Collection[]
-  setting       Setting?
-  subscriptions Subscription[]
-  payosOrders   PayOSOrder[]
-  aiLogs        AILog[]
-  aiUsages      AIUsage[]
-  cefrProgress  CEFRWordProgress[]
+  collections     Collection[]
+  setting         Setting?
+  subscriptions   Subscription[]
+  payosOrders     PayOSOrder[]
+  aiLogs          AILog[]
+  aiUsages        AIUsage[]
+  cefrProgress    CEFRWordProgress[]
+  writingAttempts WritingAttempt[]
 
   @@index([email])
   @@map("users")
@@ -307,4 +308,53 @@ model CEFRWordProgress {
   @@index([userId])
   @@index([wordId])
   @@map("cefr_word_progress")
+}
+
+// ============================================
+// WRITING PRACTICE TABLES
+// ============================================
+
+// Pre-curated writing passages managed by admin
+model WritingPassage {
+  id               String           @id @default(uuid()) @db.Uuid
+  title            String                            // Vietnamese title shown to user
+  titleEn          String?          @map("title_en") // English reference title (admin use)
+  sourceText       String           @map("source_text")   // The Vietnamese prompt
+  referenceText    String?          @map("reference_text") // Sample English answer (always shown)
+  level            String                            // "A1"|"A2"|"B1"|"B2"|"C1"|"C2"
+  topic            String                            // e.g., "Travel", "Environment"
+  tags             String[]
+  targetWordCount  Int              @default(100) @map("target_word_count")
+  estimatedMinutes Int              @default(10)  @map("estimated_minutes")
+  isPublished      Boolean          @default(true) @map("is_published")
+  order            Int              @default(0)
+  vocabularyHints  Json?            @map("vocabulary_hints") // future: [{word, definition}]
+  grammarFocus     String?          @map("grammar_focus")    // future: "Past Perfect"
+  createdAt        DateTime         @default(now()) @map("created_at")
+  updatedAt        DateTime         @updatedAt @map("updated_at")
+  attempts         WritingAttempt[]
+
+  @@index([level])
+  @@index([topic])
+  @@index([isPublished, level])
+  @@map("writing_passages")
+}
+
+// User's writing attempts — keep last 3 per (userId, passageId) via app logic
+model WritingAttempt {
+  id          String         @id @default(uuid()) @db.Uuid
+  userId      String         @map("user_id") @db.Uuid
+  passageId   String         @map("passage_id") @db.Uuid
+  userText    String         @map("user_text")
+  aiResult    Json?          @map("ai_result")
+  score       Float?                               // aiResult.overallScore for quick sorting
+  completedAt DateTime       @default(now()) @map("completed_at")
+  updatedAt   DateTime       @updatedAt @map("updated_at")
+
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  passage WritingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@index([userId, passageId])
+  @@index([userId, completedAt])
+  @@map("writing_attempts")
 }

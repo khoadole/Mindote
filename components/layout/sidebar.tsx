@@ -34,6 +34,7 @@ import {
   LogOut,
   ChevronsUpDown,
   BookOpenText,
+  PenLine,
 } from "lucide-react";
 import { DictionaryModal } from "@/components/modals/dictionary-modal";
 
@@ -54,6 +55,13 @@ const studySection = [
     href: "/reading",
     icon: FileText,
     color: "text-amber-400",
+    badge: "NEW",
+  },
+  {
+    name: "Writing",
+    href: "/writing",
+    icon: PenLine,
+    color: "text-purple-400",
     badge: "NEW",
   },
   {
@@ -297,8 +305,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                           isChildActive ? "text-white" : child.color,
                         )}
                       />
-                      <span className="transition-all duration-300 font-medium relative z-10 text-[13px]">
+                      <span className="transition-all duration-300 font-medium relative z-10 text-[13px] flex items-center gap-2">
                         {t(`sidebar.${child.name.toLowerCase()}`)}
+                        {child.badge && (
+                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
+                            {t("sidebar.new")}
+                          </span>
+                        )}
                       </span>
                       {isChildActive && (
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 animate-shimmer" />

@@ -444,8 +444,14 @@ export default function QuizPage() {
                           )}
                         <Button
                           variant="outline"
-                          onClick={() => router.push("/collections")}
-                          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-all hover:scale-105 shadow-lg border-0"
+                          onClick={() =>
+                            router.push(
+                              selectedScope !== "all"
+                                ? `/collections/${selectedScope}`
+                                : "/collections",
+                            )
+                          }
+                          className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-transparent dark:to-transparent border-transparent dark:border-border text-white dark:text-foreground font-semibold hover:from-blue-600 hover:to-cyan-600 dark:hover:border-primary dark:hover:bg-primary/5 transition-all hover:scale-105 shadow-lg dark:shadow-sm"
                         >
                           {t("quiz.goToCollections")}
                         </Button>

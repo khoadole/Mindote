@@ -758,7 +758,18 @@
       "subscriptionResumed": "구독이 성공적으로 재개되었습니다",
       "subscriptionPaused": "구독이 성공적으로 일시정지되었습니다",
       "failedToUpdate": "구독을 업데이트할 수 없습니다",
-      "failedToCheckout": "결제를 시작할 수 없습니다. 다시 시도해주세요."
+      "failedToCheckout": "결제를 시작할 수 없습니다. 다시 시도해주세요.",
+      "tabInternational": "국제 (USD)",
+      "tabVietnam": "베트남 (₫)",
+      "payosAccessUntil": "이용 기간",
+      "payosOneTimeNote": "단건 결제 · 자동 갱신 없음",
+      "payosSave": "약 34% 절약",
+      "payosOnlyPerMonth": "{{price}}/월",
+      "payosActiveNotice": "활성 구독 – {{time}} 남음. 갱신하면 이용 기간이 연장됩니다.",
+      "payosPayNow": "지금 결제 (PayOS)",
+      "payosRenew": "플랜 갱신",
+      "payosPaymentMethods": "계좌이체 · QR 코드 · 인터넷뱅킹",
+      "processingPayos": "PayOS로 이동 중..."
     }
   },
   "dictionary": {

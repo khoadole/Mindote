@@ -751,7 +751,18 @@
       "subscriptionResumed": "サブスクリプションが正常に再開されました",
       "subscriptionPaused": "サブスクリプションが正常に一時停止されました",
       "failedToUpdate": "サブスクリプションを更新できませんでした",
-      "failedToCheckout": "チェックアウトを開始できませんでした。もう一度お試しください。"
+      "failedToCheckout": "チェックアウトを開始できませんでした。もう一度お試しください。",
+      "tabInternational": "海外 (USD)",
+      "tabVietnam": "ベトナム (₫)",
+      "payosAccessUntil": "アクセス期限",
+      "payosOneTimeNote": "一回払い・自動更新なし",
+      "payosSave": "約34%お得",
+      "payosOnlyPerMonth": "{{price}}/月のみ",
+      "payosActiveNotice": "アクティブなサブスクリプション – 残り{{time}}。更新するとアクセス期間が延長されます。",
+      "payosPayNow": "今すぐ支払う (PayOS)",
+      "payosRenew": "プランを更新",
+      "payosPaymentMethods": "銀行振込・QRコード・インターネットバンキング",
+      "processingPayos": "PayOSへリダイレクト中..."
     }
   },
   "dictionary": {

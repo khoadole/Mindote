@@ -758,7 +758,18 @@
       "subscriptionResumed": "订阅已成功恢复",
       "subscriptionPaused": "订阅已成功暂停",
       "failedToUpdate": "无法更新订阅",
-      "failedToCheckout": "无法开始支付。请重试。"
+      "failedToCheckout": "无法开始支付。请重试。",
+      "tabInternational": "国际 (USD)",
+      "tabVietnam": "越南 (₫)",
+      "payosAccessUntil": "访问截止日期",
+      "payosOneTimeNote": "一次性付款 · 无自动续费",
+      "payosSave": "节省约34%",
+      "payosOnlyPerMonth": "仅 {{price}}/月",
+      "payosActiveNotice": "订阅有效 – 剩余{{time}}。续订将延长访问时间。",
+      "payosPayNow": "立即支付 (PayOS)",
+      "payosRenew": "续订方案",
+      "payosPaymentMethods": "银行转账 · 二维码 · 网上银行",
+      "processingPayos": "正在跳转到PayOS..."
     }
   },
   "dictionary": {

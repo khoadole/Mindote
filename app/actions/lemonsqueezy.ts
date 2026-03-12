@@ -258,6 +258,23 @@ export async function storeWebhookEvent(eventName: string, body: any) {
 }
 
 /**
+ * Mark a webhook event as processed (or record a processing error).
+ * Used by both the LemonSqueezy and PayOS webhook handlers.
+ */
+export async function updateWebhookEventProcessed(
+  webhookEventId: string,
+  error: string | null
+) {
+  await prisma.webhookEvent.update({
+    where: { id: webhookEventId },
+    data: {
+      processed: true,
+      processingError: error,
+    },
+  });
+}
+
+/**
  * Process a webhook event from the database
  */
 export async function processWebhookEvent(webhookEventId: string) {
@@ -352,13 +369,7 @@ export async function processWebhookEvent(webhookEventId: string) {
   }
 
   // Update the webhook event in the database
-  await prisma.webhookEvent.update({
-    where: { id: webhookEventId },
-    data: {
-      processed: true,
-      processingError: processingError || null,
-    },
-  });
+  await updateWebhookEventProcessed(webhookEventId, processingError || null);
 
   // Revalidate billing page to show updated subscription
   revalidatePath("/billing");
@@ -565,6 +576,10 @@ export async function changePlan(subscriptionId: string, newVariantId: number) {
     throw new Error(`Subscription #${subscriptionId} not found.`);
   }
 
+  if (!subscription.lemonSqueezyId) {
+    throw new Error(`Subscription #${subscriptionId} is not a LemonSqueezy subscription.`);
+  }
+
   // Get the new plan details
   const newPlan = await prisma.plan.findFirst({
     where: { variantId: newVariantId },
@@ -607,7 +622,11 @@ export async function changePlan(subscriptionId: string, newVariantId: number) {
 }
 
 /**
- * Check if user has active subscription
+ * Check if user has active subscription (LemonSqueezy or PayOS).
+ *
+ * LemonSqueezy: trust the `status` field — LS sends webhooks on expiry.
+ * PayOS: also check `endsAt > now` — no auto-cancel webhook, so the status
+ *        stays "active" in the DB until we check the date.
  */
 export async function hasActiveSubscription() {
   const userId = await getUserId();
@@ -616,12 +635,24 @@ export async function hasActiveSubscription() {
     return false;
   }
 
+  const now = new Date();
+
   const subscription = await prisma.subscription.findFirst({
     where: {
       userId,
-      status: {
-        in: ["active", "on_trial"],
-      },
+      OR: [
+        // LemonSqueezy: trust status (LS manages lifecycle via webhooks)
+        {
+          provider: "lemonsqueezy",
+          status: { in: ["active", "on_trial"] },
+        },
+        // PayOS: status is always "active" in DB — check endsAt explicitly
+        {
+          provider: "payos",
+          status: "active",
+          endsAt: { gt: now.toISOString() },
+        },
+      ],
     },
   });
 

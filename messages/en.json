@@ -804,7 +804,18 @@
       "redirectingToCheckout": "Redirecting to checkout...",
       "preparingCheckout": "Please wait while we prepare your checkout session.",
       "checkoutReady": "Checkout ready!",
-      "redirectingToPayment": "Redirecting you to the payment page..."
+      "redirectingToPayment": "Redirecting you to the payment page...",
+      "tabInternational": "International (USD)",
+      "tabVietnam": "Vietnam (₫)",
+      "payosAccessUntil": "Access until",
+      "payosOneTimeNote": "One-time payment · No automatic renewal",
+      "payosSave": "Save ~34%",
+      "payosOnlyPerMonth": "Only {{price}}/month",
+      "payosActiveNotice": "Active subscription – {{time}} remaining. Renewing will extend the access period.",
+      "payosPayNow": "Pay Now (PayOS)",
+      "payosRenew": "Renew Plan",
+      "payosPaymentMethods": "Bank transfer · QR Code · Internet Banking",
+      "processingPayos": "Redirecting to PayOS..."
     }
   },
   "hooks": {

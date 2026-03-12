@@ -751,7 +751,18 @@
       "subscriptionResumed": "Suscripción reanudada exitosamente",
       "subscriptionPaused": "Suscripción pausada exitosamente",
       "failedToUpdate": "No se pudo actualizar la suscripción",
-      "failedToCheckout": "No se pudo iniciar el pago. Inténtalo de nuevo."
+      "failedToCheckout": "No se pudo iniciar el pago. Inténtalo de nuevo.",
+      "tabInternational": "Internacional (USD)",
+      "tabVietnam": "Vietnam (₫)",
+      "payosAccessUntil": "Acceso hasta",
+      "payosOneTimeNote": "Pago único · Sin renovación automática",
+      "payosSave": "Ahorra ~34%",
+      "payosOnlyPerMonth": "Solo {{price}}/mes",
+      "payosActiveNotice": "Suscripción activa – {{time}} restantes. La renovación extenderá el período de acceso.",
+      "payosPayNow": "Pagar ahora (PayOS)",
+      "payosRenew": "Renovar plan",
+      "payosPaymentMethods": "Transferencia bancaria · Código QR · Banca en línea",
+      "processingPayos": "Redirigiendo a PayOS..."
     }
   },
   "dictionary": {

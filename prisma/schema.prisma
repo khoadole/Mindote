@@ -22,6 +22,7 @@ model User {
   collections   Collection[]
   setting       Setting?
   subscriptions Subscription[]
+  payosOrders   PayOSOrder[]
   aiLogs        AILog[]
   aiUsages      AIUsage[]
   cefrProgress  CEFRWordProgress[]
@@ -158,8 +159,10 @@ model Plan {
 
 model Subscription {
   id                 String   @id @default(uuid()) @db.Uuid
-  lemonSqueezyId     String   @unique @map("lemon_squeezy_id")
-  orderId            Int      @map("order_id")
+  provider           String   @default("lemonsqueezy") // "lemonsqueezy" | "payos"
+  lemonSqueezyId     String?  @unique @map("lemon_squeezy_id")
+  payosOrderCode     String?  @unique @map("payos_order_code")
+  orderId            Int?     @map("order_id")
   name               String
   email              String
   status             String
@@ -182,6 +185,7 @@ model Subscription {
   @@index([userId])
   @@index([lemonSqueezyId])
   @@index([status])
+  @@index([provider])
   @@map("subscriptions")
 }
 
@@ -196,6 +200,28 @@ model WebhookEvent {
   @@index([eventName])
   @@index([processed])
   @@map("webhook_events")
+}
+
+// Tracks each PayOS payment intent from creation to completion
+model PayOSOrder {
+  id              String   @id @default(uuid()) @db.Uuid
+  orderCode       String   @unique @map("order_code")
+  userId          String   @map("user_id") @db.Uuid
+  planType        String   @map("plan_type") // "monthly" | "yearly"
+  amount          Int      // amount in VND
+  status          String   @default("PENDING") // PENDING | PAID | CANCELLED | EXPIRED
+  paymentLinkId   String?  @map("payment_link_id")
+  checkoutUrl     String?  @map("checkout_url")
+  webhookData     Json?    @map("webhook_data")
+  processingError String?  @map("processing_error")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([orderCode])
+  @@index([status])
+  @@map("payos_orders")
 }
 
 model AILog {

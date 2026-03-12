@@ -22,6 +22,7 @@ import {
   Loader2,
   RefreshCw,
   Crown,
+  Clock,
 } from "lucide-react";
 import {
   getSubscriptionURLs,
@@ -48,6 +49,30 @@ const locales: Record<string, any> = {
   zh: zhCN,
 };
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/**
+ * Formats a subscription price based on provider.
+ * - LemonSqueezy: price in cents → "$X.XX"
+ * - PayOS: price in VND → "XX.XXX₫"
+ */
+function formatPrice(price: string, provider: string): string {
+  const amount = parseInt(price, 10);
+  if (isNaN(amount)) return price;
+
+  if (provider === "payos") {
+    return amount.toLocaleString("vi-VN") + "₫";
+  }
+
+  return "$" + (amount / 100).toFixed(2);
+}
+
+function isPayOS(sub: any): boolean {
+  return sub?.provider === "payos";
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export function SubscriptionInfo() {
   const [subscriptions, setSubscriptions] = useState<any[]>([]);
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
@@ -60,28 +85,23 @@ export function SubscriptionInfo() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Helper function to translate interval
+  const locale = locales[language] || enUS;
+
   const getIntervalText = (interval: string) => {
     if (interval === "month") return t("components.billing.perMonth");
     if (interval === "year") return t("components.billing.perYear");
     return interval;
   };
 
-  // Helper function to translate status
   const getStatusText = (status: string) => {
-    if (status === "active" || status === "Active")
-      return t("components.billing.active");
-    if (status === "paused" || status === "Paused")
-      return t("components.billing.paused");
-    if (status === "cancelled" || status === "Cancelled")
-      return t("components.billing.cancelled");
-    if (status === "on_trial" || status === "On Trial")
-      return t("components.billing.onTrial");
+    if (status === "active" || status === "Active") return t("components.billing.active");
+    if (status === "paused" || status === "Paused") return t("components.billing.paused");
+    if (status === "cancelled" || status === "Cancelled") return t("components.billing.cancelled");
+    if (status === "on_trial" || status === "On Trial") return t("components.billing.onTrial");
     return status;
   };
 
   useEffect(() => {
-    // Load user profile
     const loadUserProfile = async () => {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
@@ -91,36 +111,28 @@ export function SubscriptionInfo() {
           user.user_metadata?.display_name ||
           user.user_metadata?.full_name ||
           user.user_metadata?.name ||
-          user.email?.split('@')[0] ||
+          user.email?.split("@")[0] ||
           null
         );
       }
     };
+
     loadUserProfile();
     loadSubscriptions();
 
-    // Auto-refresh khi vừa thanh toán xong (check URL params hoặc referrer)
     const isFromCheckout =
       document.referrer.includes("lemonsqueezy") ||
       searchParams.get("checkout") === "success";
 
     if (isFromCheckout) {
-      // Force router refresh to bypass Next.js Router Cache
       router.refresh();
-      // Retry loading a few times to wait for webhook processing
       let retries = 0;
       const maxRetries = 5;
       const retryInterval = setInterval(async () => {
         retries++;
-        console.log(
-          `[Billing] Retry ${retries}/${maxRetries} - checking for new subscription...`,
-        );
         await loadSubscriptions();
-
-        if (retries >= maxRetries) {
-          clearInterval(retryInterval);
-        }
-      }, 3000); // Check every 3 seconds
+        if (retries >= maxRetries) clearInterval(retryInterval);
+      }, 3000);
 
       return () => clearInterval(retryInterval);
     }
@@ -128,32 +140,22 @@ export function SubscriptionInfo() {
 
   const loadSubscriptions = async () => {
     try {
-      // Use fetch API with cache: 'no-store' to bypass all Next.js caching
       const response = await fetch("/api/subscriptions", {
         cache: "no-store",
-        headers: {
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-        },
+        headers: { "Cache-Control": "no-cache, no-store, must-revalidate", Pragma: "no-cache" },
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch subscriptions");
-      }
+      if (!response.ok) throw new Error("Failed to fetch subscriptions");
 
       const data = await response.json();
       const subs = data.subscriptions || [];
       setSubscriptions(subs);
-      console.log("[Billing] Loaded subscriptions:", subs.length);
 
-      // Emit custom event để đồng bộ với PricingPlans component
       window.dispatchEvent(
-        new CustomEvent("subscription-updated", {
-          detail: { subscriptions: subs },
-        }),
+        new CustomEvent("subscription-updated", { detail: { subscriptions: subs } })
       );
     } catch (error: any) {
-      console.error("Failed to load subscriptions:", error);
+      console.error("[SubscriptionInfo] Load error:", error);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -162,7 +164,6 @@ export function SubscriptionInfo() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    // Force router refresh to bypass Next.js Router Cache
     router.refresh();
     await loadSubscriptions();
     toast({
@@ -171,14 +172,14 @@ export function SubscriptionInfo() {
     });
   };
 
+  // ── LemonSqueezy-specific actions ──────────────────────────────────────────
+
   const handleManageBilling = async (subscriptionId: string) => {
     try {
       setActionLoading(true);
       const urls = await getSubscriptionURLs(subscriptionId);
-      if (urls?.customer_portal) {
-        window.open(urls.customer_portal, "_blank");
-      }
-    } catch (error: any) {
+      if (urls?.customer_portal) window.open(urls.customer_portal, "_blank");
+    } catch {
       toast({
         title: t("components.billing.error"),
         description: t("components.billing.failedToOpenPortal"),
@@ -190,10 +191,7 @@ export function SubscriptionInfo() {
   };
 
   const handleCancelSubscription = async (subscriptionId: string) => {
-    if (!confirm(t("components.billing.cancelConfirm"))) {
-      return;
-    }
-
+    if (!confirm(t("components.billing.cancelConfirm"))) return;
     try {
       setActionLoading(true);
       await cancelSub(subscriptionId);
@@ -213,24 +211,15 @@ export function SubscriptionInfo() {
     }
   };
 
-  const handlePauseSubscription = async (
-    subscriptionId: string,
-    isPaused: boolean,
-  ) => {
+  const handlePauseSubscription = async (subscriptionId: string, isPaused: boolean) => {
     try {
       setActionLoading(true);
       if (isPaused) {
         await unpauseSubscription(subscriptionId);
-        toast({
-          title: t("components.billing.success"),
-          description: t("components.billing.subscriptionResumed"),
-        });
+        toast({ title: t("components.billing.success"), description: t("components.billing.subscriptionResumed") });
       } else {
         await pauseSubscription(subscriptionId);
-        toast({
-          title: t("components.billing.success"),
-          description: t("components.billing.subscriptionPaused"),
-        });
+        toast({ title: t("components.billing.success"), description: t("components.billing.subscriptionPaused") });
       }
       await loadSubscriptions();
     } catch (error: any) {
@@ -244,6 +233,8 @@ export function SubscriptionInfo() {
     }
   };
 
+  // ── Render ─────────────────────────────────────────────────────────────────
+
   if (loading) {
     return (
       <Card>
@@ -254,42 +245,22 @@ export function SubscriptionInfo() {
     );
   }
 
-  // Filter active subscriptions (including cancelled but not yet expired)
   const now = new Date();
-  console.log("[Billing] All subscriptions:", subscriptions);
-  console.log("[Billing] Current time:", now.toISOString());
 
   const activeSubscription = subscriptions.find((sub) => {
-    console.log(
-      "[Billing] Checking sub:",
-      sub.id,
-      "status:",
-      sub.status,
-      "endsAt:",
-      sub.endsAt,
-    );
     if (sub.status === "active" || sub.status === "on_trial") {
-      console.log("[Billing] Found active subscription:", sub.id);
+      // PayOS: also gate on endsAt (no automatic status update from their side)
+      if (sub.provider === "payos" && sub.endsAt) {
+        return new Date(sub.endsAt) > now;
+      }
       return true;
     }
-    // Include cancelled subscriptions that haven't expired yet
+    // LemonSqueezy cancelled-but-not-yet-expired
     if (sub.status === "cancelled" && sub.endsAt) {
-      const isValid = new Date(sub.endsAt) > now;
-      console.log(
-        "[Billing] Cancelled sub valid:",
-        isValid,
-        "endsAt:",
-        sub.endsAt,
-      );
-      return isValid;
+      return new Date(sub.endsAt) > now;
     }
     return false;
   });
-
-  console.log(
-    "[Billing] Active subscription found:",
-    activeSubscription ? activeSubscription.id : "none",
-  );
 
   if (!activeSubscription) {
     return (
@@ -297,15 +268,8 @@ export function SubscriptionInfo() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>{t("components.billing.currentSubscription")}</CardTitle>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleRefresh}
-              disabled={refreshing}
-            >
-              <RefreshCw
-                className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`}
-              />
+            <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
+              <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
               {t("components.billing.refresh")}
             </Button>
           </div>
@@ -313,20 +277,17 @@ export function SubscriptionInfo() {
         <CardContent>
           <div className="flex flex-col items-center justify-center py-8 text-center">
             <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">
-              {t("components.billing.noActiveSubscription")}
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              {t("components.billing.noActiveSubscriptionDesc")}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              {t("components.billing.justPaidHint")}
-            </p>
+            <h3 className="text-lg font-semibold mb-2">{t("components.billing.noActiveSubscription")}</h3>
+            <p className="text-muted-foreground mb-4">{t("components.billing.noActiveSubscriptionDesc")}</p>
+            <p className="text-xs text-muted-foreground">{t("components.billing.justPaidHint")}</p>
           </div>
         </CardContent>
       </Card>
     );
   }
+
+  const payos = isPayOS(activeSubscription);
+  const priceFormatted = formatPrice(activeSubscription.price, activeSubscription.provider);
 
   return (
     <Card className="border-green-500/50 bg-green-500/5">
@@ -341,92 +302,89 @@ export function SubscriptionInfo() {
             )}
             <Crown className="h-5 w-5 text-yellow-500" />
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-              {activeSubscription.plan.productName ||
-                t("components.billing.premiumPlan")}
+              {activeSubscription.plan.productName || t("components.billing.premiumPlan")}
             </span>
             <Badge variant="default" className="bg-green-600 dark:bg-green-500">
               {t("components.billing.active")}
             </Badge>
+            {payos && (
+              <Badge variant="outline" className="text-xs">PayOS</Badge>
+            )}
           </CardTitle>
+
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleRefresh}
-              disabled={refreshing}
-            >
-              <RefreshCw
-                className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
-              />
+            <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
+              <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger disabled={actionLoading}>
-                <span className="inline-flex items-center justify-center h-9 w-9 rounded-md hover:bg-primary/10 cursor-pointer">
-                  <MoreVertical className="h-4 w-4" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="z-50">
-                <DropdownMenuItem
-                  onClick={() =>
-                    handleManageBilling(activeSubscription.lemonSqueezyId)
-                  }
-                  className="hover:bg-primary/10 focus:bg-primary/10 text-foreground hover:text-foreground focus:text-foreground dark:text-white dark:hover:text-white dark:focus:text-white cursor-pointer"
-                >
-                  <CreditCard className="h-4 w-4 mr-2" />
-                  {t("components.billing.manageBilling")}
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() =>
-                    handleCancelSubscription(activeSubscription.lemonSqueezyId)
-                  }
-                  className="text-foreground hover:bg-primary/10 focus:bg-primary/10 hover:text-foreground focus:text-foreground dark:text-white dark:hover:text-white dark:focus:text-white cursor-pointer"
-                >
-                  {t("components.billing.cancelSubscription")}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+
+            {/* LemonSqueezy-only management menu */}
+            {!payos && (
+              <DropdownMenu>
+                <DropdownMenuTrigger disabled={actionLoading}>
+                  <span className="inline-flex items-center justify-center h-9 w-9 rounded-md hover:bg-primary/10 cursor-pointer">
+                    <MoreVertical className="h-4 w-4" />
+                  </span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="z-50">
+                  <DropdownMenuItem
+                    onClick={() => handleManageBilling(activeSubscription.lemonSqueezyId)}
+                    className="hover:bg-primary/10 focus:bg-primary/10 text-foreground cursor-pointer"
+                  >
+                    <CreditCard className="h-4 w-4 mr-2" />
+                    {t("components.billing.manageBilling")}
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onClick={() => handlePauseSubscription(activeSubscription.lemonSqueezyId, activeSubscription.isPaused)}
+                    className="text-foreground hover:bg-primary/10 focus:bg-primary/10 cursor-pointer"
+                  >
+                    {activeSubscription.isPaused
+                      ? t("components.billing.resumeSubscription")
+                      : t("components.billing.pauseSubscription")}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => handleCancelSubscription(activeSubscription.lemonSqueezyId)}
+                    className="text-foreground hover:bg-primary/10 focus:bg-primary/10 cursor-pointer"
+                  >
+                    {t("components.billing.cancelSubscription")}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         </div>
       </CardHeader>
+
       <CardContent className="space-y-4">
+        {/* Status + Price row */}
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-muted-foreground">
-              {t("components.billing.status")}
-            </p>
+            <p className="text-sm text-muted-foreground">{t("components.billing.status")}</p>
             <div className="flex items-center gap-2 mt-1">
               <Badge
                 variant={
                   activeSubscription.status === "active"
                     ? "default"
                     : activeSubscription.status === "on_trial"
-                      ? "secondary"
-                      : "outline"
+                    ? "secondary"
+                    : "outline"
                 }
-                className={
-                  activeSubscription.status === "active"
-                    ? "bg-green-600 dark:bg-green-500"
-                    : ""
-                }
+                className={activeSubscription.status === "active" ? "bg-green-600 dark:bg-green-500" : ""}
               >
-                {getStatusText(activeSubscription.statusFormatted)}
+                {payos ? t("components.billing.active") : getStatusText(activeSubscription.statusFormatted)}
               </Badge>
-              {activeSubscription.isPaused && (
-                <Badge variant="outline">
-                  {t("components.billing.paused")}
-                </Badge>
+              {!payos && activeSubscription.isPaused && (
+                <Badge variant="outline">{t("components.billing.paused")}</Badge>
               )}
             </div>
           </div>
+
           <div className="text-right">
-            <p className="text-sm text-muted-foreground">
-              {t("components.billing.price")}
-            </p>
+            <p className="text-sm text-muted-foreground">{t("components.billing.price")}</p>
             <p className="text-2xl font-bold">
-              ${(parseInt(activeSubscription.price) / 100).toFixed(2)}
+              {priceFormatted}
               <span className="text-sm font-normal text-muted-foreground">
-                /
-                {activeSubscription.plan.interval === "month"
+                /{activeSubscription.plan.interval === "month"
                   ? t("components.billing.month")
                   : t("components.billing.year")}
               </span>
@@ -434,51 +392,62 @@ export function SubscriptionInfo() {
           </div>
         </div>
 
-        {activeSubscription.renewsAt && (
+        {/* LemonSqueezy: renews at */}
+        {!payos && activeSubscription.renewsAt && (
           <div className="flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4 text-green-500" />
             <span>
               <strong>{t("components.billing.renews")}:</strong>{" "}
-              {format(new Date(activeSubscription.renewsAt), "PPP", {
-                locale: locales[language] || enUS,
-              })}{" "}
-              (
-              {t("components.billing.inTime", {
-                time: formatDistanceToNow(
-                  new Date(activeSubscription.renewsAt),
-                  { locale: locales[language] || enUS },
-                ),
-              })}
-              )
+              {format(new Date(activeSubscription.renewsAt), "PPP", { locale })}{" "}
+              ({t("components.billing.inTime", {
+                time: formatDistanceToNow(new Date(activeSubscription.renewsAt), { locale }),
+              })})
             </span>
           </div>
         )}
 
-        {activeSubscription.endsAt &&
-          activeSubscription.status === "cancelled" && (
-            <div className="flex items-center gap-2 text-sm text-orange-500">
-              <AlertCircle className="h-4 w-4" />
-              <span>
-                <strong>{t("components.billing.expires")}:</strong>{" "}
-                {format(new Date(activeSubscription.endsAt), "PPP", {
-                  locale: locales[language] || enUS,
-                })}
-              </span>
-            </div>
-          )}
+        {/* PayOS: access until */}
+        {payos && activeSubscription.endsAt && (
+          <div className="flex items-center gap-2 text-sm">
+            <Clock className="h-4 w-4 text-blue-500" />
+            <span>
+              <strong>{t("components.billing.payosAccessUntil")}:</strong>{" "}
+              {format(new Date(activeSubscription.endsAt), "PPP", { locale })}{" "}
+              ({t("components.billing.inTime", {
+                time: formatDistanceToNow(new Date(activeSubscription.endsAt), { locale }),
+              })})
+            </span>
+          </div>
+        )}
 
-        {activeSubscription.trialEndsAt &&
-          activeSubscription.status === "on_trial" && (
-            <div className="flex items-center gap-2 text-sm text-blue-500">
-              <AlertCircle className="h-4 w-4" />
-              <span>
-                <strong>{t("components.billing.trialEnds")}:</strong>{" "}
-                {format(new Date(activeSubscription.trialEndsAt), "PPP", {
-                  locale: locales[language] || enUS,
-                })}
-              </span>
-            </div>
-          )}
+        {/* LemonSqueezy cancelled but not expired */}
+        {!payos && activeSubscription.endsAt && activeSubscription.status === "cancelled" && (
+          <div className="flex items-center gap-2 text-sm text-orange-500">
+            <AlertCircle className="h-4 w-4" />
+            <span>
+              <strong>{t("components.billing.expires")}:</strong>{" "}
+              {format(new Date(activeSubscription.endsAt), "PPP", { locale })}
+            </span>
+          </div>
+        )}
+
+        {/* LemonSqueezy trial */}
+        {!payos && activeSubscription.trialEndsAt && activeSubscription.status === "on_trial" && (
+          <div className="flex items-center gap-2 text-sm text-blue-500">
+            <AlertCircle className="h-4 w-4" />
+            <span>
+              <strong>{t("components.billing.trialEnds")}:</strong>{" "}
+              {format(new Date(activeSubscription.trialEndsAt), "PPP", { locale })}
+            </span>
+          </div>
+        )}
+
+        {/* PayOS: informational note about one-time payment */}
+        {payos && (
+          <p className="text-xs text-muted-foreground">
+            {t("components.billing.payosOneTimeNote")}
+          </p>
+        )}
       </CardContent>
     </Card>
   );

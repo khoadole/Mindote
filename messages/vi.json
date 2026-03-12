@@ -786,7 +786,18 @@
       "subscriptionResumed": "Đã khôi phục gói đăng ký thành công",
       "subscriptionPaused": "Đã tạm dừng gói đăng ký thành công",
       "failedToUpdate": "Không thể cập nhật gói đăng ký",
-      "failedToCheckout": "Không thể bắt đầu thanh toán. Vui lòng thử lại."
+      "failedToCheckout": "Không thể bắt đầu thanh toán. Vui lòng thử lại.",
+      "tabInternational": "Quốc tế (USD)",
+      "tabVietnam": "Việt Nam (₫)",
+      "payosAccessUntil": "Truy cập đến",
+      "payosOneTimeNote": "Thanh toán một lần · Không gia hạn tự động",
+      "payosSave": "Tiết kiệm ~34%",
+      "payosOnlyPerMonth": "Chỉ {{price}}/tháng",
+      "payosActiveNotice": "Gói đang hoạt động – còn {{time}}. Gia hạn sẽ kéo dài thêm thời gian truy cập.",
+      "payosPayNow": "Thanh toán ngay (PayOS)",
+      "payosRenew": "Gia hạn gói",
+      "payosPaymentMethods": "Chuyển khoản · QR Code · Internet Banking",
+      "processingPayos": "Đang chuyển đến PayOS..."
     }
   },
   "hooks": {

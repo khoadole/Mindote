@@ -641,12 +641,18 @@ export async function hasActiveSubscription() {
     where: {
       userId,
       OR: [
-        // LemonSqueezy: trust status (LS manages lifecycle via webhooks)
+        // LemonSqueezy active/trial: trust status (LS manages lifecycle via webhooks)
         {
           provider: "lemonsqueezy",
           status: { in: ["active", "on_trial"] },
         },
-        // PayOS: status is always "active" in DB — check endsAt explicitly
+        // LemonSqueezy cancelled but paid period not yet expired
+        {
+          provider: "lemonsqueezy",
+          status: "cancelled",
+          endsAt: { gt: now.toISOString() },
+        },
+        // PayOS: status stays "active" in DB — check endsAt explicitly (no auto-cancel webhook)
         {
           provider: "payos",
           status: "active",

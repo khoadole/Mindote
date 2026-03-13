@@ -194,9 +194,26 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const checkSubscription = async () => {
     try {
       const subscriptions = await getUserSubscriptions();
-      const active = subscriptions.some(
-        (sub: any) => sub.status === "active" || sub.status === "on_trial",
-      );
+      const now = new Date();
+      const active = subscriptions.some((sub: any) => {
+        if (sub.status === "on_trial") return true;
+        if (sub.status === "active") {
+          // PayOS subscriptions: also verify endsAt since there's no auto-cancel webhook
+          if (sub.provider === "payos" && sub.endsAt) {
+            return new Date(sub.endsAt) > now;
+          }
+          return true;
+        }
+        // LemonSqueezy cancelled but paid period still running
+        if (
+          sub.status === "cancelled" &&
+          sub.provider === "lemonsqueezy" &&
+          sub.endsAt
+        ) {
+          return new Date(sub.endsAt) > now;
+        }
+        return false;
+      });
       setHasActiveSubscription(active);
       try {
         localStorage.setItem(

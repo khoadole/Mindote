@@ -133,20 +133,15 @@ export async function POST(request: NextRequest) {
 
     // Only check limits for free users
     if (!isPremium) {
-      // Get current usage count from AILog
-      const aiLog = await prisma.aILog.findUnique({
-        where: {
-          userId_feature: {
-            userId,
-            feature: "reading",
-          },
-        },
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const usage = await prisma.aIUsage.findUnique({
+        where: { userId_date: { userId, date: today } },
       });
 
-      const currentUsage = aiLog?.totalTokens || 0;
-
-      // For now, share the same quota with word fill (3 per day total)
-      if (currentUsage >= FREE_DAILY_READING_LIMIT) {
+      // Shared daily pool with other AI features (fill-word, extract-vocabulary, writing)
+      if ((usage?.count ?? 0) >= FREE_DAILY_READING_LIMIT) {
         return NextResponse.json(
           {
             error: "Daily limit reached",
@@ -293,41 +288,21 @@ Note: Adapt the question format based on the question type. For True/False/Not G
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      // Log this AI usage
-      await prisma.aILog.upsert({
-        where: {
-          userId_feature: {
-            userId,
-            feature: "reading",
-          },
-        },
-        update: {
-          totalTokens: {
-            increment: 1,
-          },
-        },
-        create: {
-          userId,
-          feature: "reading",
-          model: "gpt-4o-mini",
-          inputTokens: 0,
-          outputTokens: 0,
-          totalTokens: 1, // Use totalTokens as counter
-          cost: 0,
-        },
+      // Increment shared daily AI usage counter
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      await prisma.aIUsage.upsert({
+        where: { userId_date: { userId, date: today } },
+        update: { count: { increment: 1 } },
+        create: { userId, date: today, count: 1 },
       });
 
-      // Get updated count
-      const aiLog = await prisma.aILog.findUnique({
-        where: {
-          userId_feature: {
-            userId,
-            feature: "reading",
-          },
-        },
+      const updated = await prisma.aIUsage.findUnique({
+        where: { userId_date: { userId, date: today } },
       });
 
-      remainingUses = FREE_DAILY_READING_LIMIT - (aiLog?.totalTokens || 0);
+      remainingUses = FREE_DAILY_READING_LIMIT - (updated?.count ?? 0);
     }
 
     return NextResponse.json({

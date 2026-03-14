@@ -940,6 +940,10 @@
     "referenceNote": "Compare this with your own writing. There are many valid ways to express the same ideas!",
     "attemptLabel": "Attempt",
     "writingPlaceholder": "Write your English response here…",
-    "yourSubmission": "Your submission"
+    "yourSubmission": "Your submission",
+    "cardMinutes": "{min}m",
+    "cardWords": "~{count} words",
+    "cardDone": "{count}× done",
+    "pageSubtitle": "Read a Vietnamese prompt → Write in English → Get feedback"
   }
 }

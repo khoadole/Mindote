@@ -781,5 +781,11 @@
     "antonyms": "対義語",
     "source": "出典",
     "poweredBy": "Free Dictionary API 提供"
+  },
+  "writing": {
+    "cardMinutes": "{min}分",
+    "cardWords": "~{count}語",
+    "cardDone": "{count}回完了",
+    "pageSubtitle": "ベトナム語のプロンプトを読む → 英語で書く → フィードバックをもらう"
   }
 }

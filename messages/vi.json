@@ -920,6 +920,10 @@
     "referenceNote": "Hãy so sánh với bài viết của bạn. Có nhiều cách diễn đạt đúng cho cùng một ý tưởng!",
     "attemptLabel": "Lần",
     "writingPlaceholder": "Viết câu trả lời tiếng Anh của bạn ở đây…",
-    "yourSubmission": "Bài bạn đã nộp"
+    "yourSubmission": "Bài bạn đã nộp",
+    "cardMinutes": "{min} phút",
+    "cardWords": "~{count} từ",
+    "cardDone": "{count}× lần",
+    "pageSubtitle": "Đọc gợi ý tiếng Việt → Viết bằng tiếng Anh → Nhận phản hồi"
   }
 }

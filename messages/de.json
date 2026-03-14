@@ -841,5 +841,11 @@
     "antonyms": "Antonyme",
     "source": "Quelle",
     "poweredBy": "Bereitgestellt von Free Dictionary API"
+  },
+  "writing": {
+    "cardMinutes": "{min}m",
+    "cardWords": "~{count} Wörter",
+    "cardDone": "{count}× erledigt",
+    "pageSubtitle": "Vietnamesischen Prompt lesen → Auf Englisch schreiben → Feedback erhalten"
   }
 }

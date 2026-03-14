@@ -788,5 +788,11 @@
     "antonyms": "反义词",
     "source": "来源",
     "poweredBy": "由 Free Dictionary API 提供"
+  },
+  "writing": {
+    "cardMinutes": "{min}分钟",
+    "cardWords": "~{count}词",
+    "cardDone": "{count}次完成",
+    "pageSubtitle": "阅读越南语提示 → 用英语写作 → 获得反馈"
   }
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { PenLine, Search, Filter, Loader2 } from "lucide-react";
+import { PenLine, Search, Filter, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "@/lib/i18n-provider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,18 +36,32 @@ const TOPICS = [
   "Science",
 ];
 
+const PAGE_SIZE = 9;
+
 export default function WritingPage() {
+  const { t } = useTranslation();
   const [selectedPassage, setSelectedPassage] =
     useState<WritingPassage | null>(null);
   const [levelFilter, setLevelFilter] = useState<string>("");
   const [topicFilter, setTopicFilter] = useState<string>("");
   const [search, setSearch] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { data: passages, isLoading } = useWritingPassages({
     level: levelFilter || undefined,
     topic: topicFilter || undefined,
     search: search || undefined,
   });
+
+  const totalPages = passages ? Math.ceil(passages.length / PAGE_SIZE) : 1;
+  const paginatedPassages = passages?.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
+
+  function resetPage() {
+    setCurrentPage(1);
+  }
 
   if (selectedPassage) {
     return (
@@ -69,9 +84,9 @@ export default function WritingPage() {
           <div className="flex items-center gap-2">
             <PenLine className="h-8 w-8 text-purple-500" />
             <div>
-              <h1 className="text-3xl font-bold">Writing Practice</h1>
+              <h1 className="text-3xl font-bold">{t("writing.title")}</h1>
               <p className="text-sm text-muted-foreground mt-0.5">
-                Read a Vietnamese prompt → Write in English → Get feedback
+                {t("writing.pageSubtitle")}
               </p>
             </div>
           </div>
@@ -89,7 +104,7 @@ export default function WritingPage() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => { setSearch(e.target.value); resetPage(); }}
               placeholder="Search passages…"
               className="pl-9"
             />
@@ -97,7 +112,7 @@ export default function WritingPage() {
 
           <Select
             value={levelFilter || "all"}
-            onValueChange={(v) => setLevelFilter(v === "all" ? "" : v)}
+            onValueChange={(v) => { setLevelFilter(v === "all" ? "" : v); resetPage(); }}
           >
             <SelectTrigger className="w-36">
               <Filter className="h-4 w-4 mr-2 text-muted-foreground" />
@@ -115,7 +130,7 @@ export default function WritingPage() {
 
           <Select
             value={topicFilter || "all"}
-            onValueChange={(v) => setTopicFilter(v === "all" ? "" : v)}
+            onValueChange={(v) => { setTopicFilter(v === "all" ? "" : v); resetPage(); }}
           >
             <SelectTrigger className="w-44">
               <SelectValue placeholder="Topic" />
@@ -138,6 +153,7 @@ export default function WritingPage() {
                 setLevelFilter("");
                 setTopicFilter("");
                 setSearch("");
+                resetPage();
               }}
             >
               Clear
@@ -148,7 +164,7 @@ export default function WritingPage() {
         {/* Passage Grid */}
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => (
+            {Array.from({ length: PAGE_SIZE }).map((_, i) => (
               <div
                 key={i}
                 className="h-36 rounded-xl border bg-muted/50 animate-pulse"
@@ -170,20 +186,47 @@ export default function WritingPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {passages.map((passage, idx) => (
-              <div
-                key={passage.id}
-                className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-                style={{ animationDelay: `${idx * 50}ms` }}
-              >
-                <PassageCard
-                  passage={passage}
-                  onClick={() => setSelectedPassage(passage)}
-                />
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {paginatedPassages!.map((passage, idx) => (
+                <div
+                  key={passage.id}
+                  className="animate-in fade-in slide-in-from-bottom-4 duration-500"
+                  style={{ animationDelay: `${idx * 50}ms` }}
+                >
+                  <PassageCard
+                    passage={passage}
+                    onClick={() => setSelectedPassage(passage)}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-3 pt-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => p - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  {currentPage} / {totalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => p + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </div>
     </div>

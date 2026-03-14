@@ -780,5 +780,11 @@
     "antonyms": "Antonymes",
     "source": "Source",
     "poweredBy": "Fourni par Free Dictionary API"
+  },
+  "writing": {
+    "cardMinutes": "{min}m",
+    "cardWords": "~{count} mots",
+    "cardDone": "{count}× fait",
+    "pageSubtitle": "Lire le prompt en vietnamien → Écrire en anglais → Recevoir des retours"
   }
 }

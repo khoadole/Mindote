@@ -289,8 +289,6 @@ Note: Adapt the question format based on the question type. For True/False/Not G
       today.setHours(0, 0, 0, 0);
 
       // Increment shared daily AI usage counter
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
 
       await prisma.aIUsage.upsert({
         where: { userId_date: { userId, date: today } },

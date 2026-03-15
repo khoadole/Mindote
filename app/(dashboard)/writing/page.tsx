@@ -90,9 +90,6 @@ export default function WritingPage() {
               </p>
             </div>
           </div>
-          <span className="ml-2 px-2 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
-            NEW
-          </span>
         </div>
 
         {/* Filters */}
@@ -105,7 +102,7 @@ export default function WritingPage() {
             <Input
               value={search}
               onChange={(e) => { setSearch(e.target.value); resetPage(); }}
-              placeholder="Search passages…"
+              placeholder={t("writing.searchPassages")}
               className="pl-9"
             />
           </div>
@@ -116,10 +113,10 @@ export default function WritingPage() {
           >
             <SelectTrigger className="w-36">
               <Filter className="h-4 w-4 mr-2 text-muted-foreground" />
-              <SelectValue placeholder="Level" />
+              <SelectValue placeholder={t("writing.levelPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Levels</SelectItem>
+              <SelectItem value="all">{t("writing.filterAll")}</SelectItem>
               {LEVELS.map((l) => (
                 <SelectItem key={l} value={l}>
                   {l}
@@ -133,10 +130,10 @@ export default function WritingPage() {
             onValueChange={(v) => { setTopicFilter(v === "all" ? "" : v); resetPage(); }}
           >
             <SelectTrigger className="w-44">
-              <SelectValue placeholder="Topic" />
+              <SelectValue placeholder={t("writing.topicPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Topics</SelectItem>
+              <SelectItem value="all">{t("writing.filterAllTopics")}</SelectItem>
               {TOPICS.map((t) => (
                 <SelectItem key={t} value={t}>
                   {t}
@@ -156,7 +153,7 @@ export default function WritingPage() {
                 resetPage();
               }}
             >
-              Clear
+              {t("writing.clearFilters")}
             </Button>
           )}
         </div>

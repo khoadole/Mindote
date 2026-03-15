@@ -785,6 +785,11 @@
     "cardMinutes": "{min}m",
     "cardWords": "~{count} parole",
     "cardDone": "{count}× fatto",
-    "pageSubtitle": "Leggere il prompt in vietnamita → Scrivere in inglese → Ricevere feedback"
+    "pageSubtitle": "Leggere il prompt in vietnamita → Scrivere in inglese → Ricevere feedback",
+    "searchPassages": "Cerca esercizi…",
+    "levelPlaceholder": "Livello",
+    "topicPlaceholder": "Argomento",
+    "filterAllTopics": "Tutti gli argomenti",
+    "clearFilters": "Cancella"
   }
 }

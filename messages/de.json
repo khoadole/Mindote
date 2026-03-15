@@ -846,6 +846,11 @@
     "cardMinutes": "{min}m",
     "cardWords": "~{count} Wörter",
     "cardDone": "{count}× erledigt",
-    "pageSubtitle": "Vietnamesischen Prompt lesen → Auf Englisch schreiben → Feedback erhalten"
+    "pageSubtitle": "Vietnamesischen Prompt lesen → Auf Englisch schreiben → Feedback erhalten",
+    "searchPassages": "Übungen suchen…",
+    "levelPlaceholder": "Niveau",
+    "topicPlaceholder": "Thema",
+    "filterAllTopics": "Alle Themen",
+    "clearFilters": "Zurücksetzen"
   }
 }

@@ -786,6 +786,11 @@
     "cardMinutes": "{min}分",
     "cardWords": "~{count}語",
     "cardDone": "{count}回完了",
-    "pageSubtitle": "ベトナム語のプロンプトを読む → 英語で書く → フィードバックをもらう"
+    "pageSubtitle": "ベトナム語のプロンプトを読む → 英語で書く → フィードバックをもらう",
+    "searchPassages": "練習を検索…",
+    "levelPlaceholder": "レベル",
+    "topicPlaceholder": "トピック",
+    "filterAllTopics": "すべてのトピック",
+    "clearFilters": "クリア"
   }
 }

@@ -924,6 +924,11 @@
     "cardMinutes": "{min} phút",
     "cardWords": "~{count} từ",
     "cardDone": "{count}× lần",
-    "pageSubtitle": "Đọc gợi ý tiếng Việt → Viết bằng tiếng Anh → Nhận phản hồi"
+    "pageSubtitle": "Đọc gợi ý tiếng Việt → Viết bằng tiếng Anh → Nhận phản hồi",
+    "searchPassages": "Tìm kiếm bài viết…",
+    "levelPlaceholder": "Cấp độ",
+    "topicPlaceholder": "Chủ đề",
+    "filterAllTopics": "Tất cả chủ đề",
+    "clearFilters": "Xóa bộ lọc"
   }
 }

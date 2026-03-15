@@ -944,6 +944,11 @@
     "cardMinutes": "{min}m",
     "cardWords": "~{count} words",
     "cardDone": "{count}× done",
-    "pageSubtitle": "Read a Vietnamese prompt → Write in English → Get feedback"
+    "pageSubtitle": "Read a Vietnamese prompt → Write in English → Get feedback",
+    "searchPassages": "Search passages…",
+    "levelPlaceholder": "Level",
+    "topicPlaceholder": "Topic",
+    "filterAllTopics": "All Topics",
+    "clearFilters": "Clear"
   }
 }

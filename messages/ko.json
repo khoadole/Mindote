@@ -793,6 +793,11 @@
     "cardMinutes": "{min}분",
     "cardWords": "~{count} 단어",
     "cardDone": "{count}× 완료",
-    "pageSubtitle": "베트남어 프롬프트 읽기 → 영어로 작성 → 피드백 받기"
+    "pageSubtitle": "베트남어 프롬프트 읽기 → 영어로 작성 → 피드백 받기",
+    "searchPassages": "연습 검색…",
+    "levelPlaceholder": "레벨",
+    "topicPlaceholder": "주제",
+    "filterAllTopics": "모든 주제",
+    "clearFilters": "지우기"
   }
 }

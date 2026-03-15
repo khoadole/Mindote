@@ -793,6 +793,11 @@
     "cardMinutes": "{min}分钟",
     "cardWords": "~{count}词",
     "cardDone": "{count}次完成",
-    "pageSubtitle": "阅读越南语提示 → 用英语写作 → 获得反馈"
+    "pageSubtitle": "阅读越南语提示 → 用英语写作 → 获得反馈",
+    "searchPassages": "搜索练习…",
+    "levelPlaceholder": "级别",
+    "topicPlaceholder": "主题",
+    "filterAllTopics": "所有主题",
+    "clearFilters": "清除"
   }
 }

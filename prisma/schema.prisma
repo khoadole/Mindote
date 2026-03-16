@@ -27,6 +27,8 @@ model User {
   aiUsages        AIUsage[]
   cefrProgress    CEFRWordProgress[]
   writingAttempts WritingAttempt[]
+  chatSessions    ChatSession[]
+  chatUsages      ChatUsage[]
 
   @@index([email])
   @@map("users")
@@ -358,4 +360,43 @@ model WritingAttempt {
   @@index([userId, passageId])
   @@index([userId, completedAt])
   @@map("writing_attempts")
+}
+
+// ============================================
+// CHATBOT TABLES
+// ============================================
+
+model ChatSession {
+  id        String        @id @default(uuid()) @db.Uuid
+  userId    String        @map("user_id") @db.Uuid
+  title     String
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+  messages  ChatMessage[]
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id        String      @id @default(uuid()) @db.Uuid
+  sessionId String      @map("session_id") @db.Uuid
+  role      String      // "user" | "assistant"
+  content   String
+  createdAt DateTime    @default(now()) @map("created_at")
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt])
+  @@map("chat_messages")
+}
+
+model ChatUsage {
+  userId String   @map("user_id") @db.Uuid
+  date   DateTime @db.Date
+  count  Int      @default(0)
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, date])
+  @@map("chat_usages")
 }

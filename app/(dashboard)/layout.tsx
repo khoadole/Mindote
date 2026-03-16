@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
 import { useRequireAuth } from "@/hooks/use-auth-guard";
 import { AuthLoadingSpinner } from "@/components/auth-loading";
+import { ChatbotWidget } from "@/components/chatbot/chatbot-widget";
 
 /**
  * ⚡ PERFORMANCE OPTIMIZED: Dashboard Layout
@@ -64,6 +65,9 @@ export default function DashboardLayout({
         <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
+
+      {/* Floating Chatbot Widget */}
+      <ChatbotWidget />
     </div>
   );
 }

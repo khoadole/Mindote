@@ -930,5 +930,17 @@
     "topicPlaceholder": "Chủ đề",
     "filterAllTopics": "Tất cả chủ đề",
     "clearFilters": "Xóa bộ lọc"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "Hỏi về từ vựng, ngữ pháp...",
+    "send": "Gửi",
+    "newChat": "Chat mới",
+    "emptyState": "Hỏi tôi về từ vựng, ngữ pháp, luyện viết, hay bất kỳ điều gì liên quan đến tiếng Anh!",
+    "limitReached": "Đã hết 5 lượt chat miễn phí hôm nay. Nâng cấp Premium để dùng không giới hạn.",
+    "remaining": "Còn {{count}} tin nhắn hôm nay",
+    "errorMessage": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "thinking": "Đang xử lý...",
+    "tooltip": "Chat với Mindote AI"
   }
 }

@@ -950,5 +950,17 @@
     "topicPlaceholder": "Topic",
     "filterAllTopics": "All Topics",
     "clearFilters": "Clear"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "Ask about vocabulary, grammar...",
+    "send": "Send",
+    "newChat": "New Chat",
+    "emptyState": "Ask me about vocabulary, grammar, writing, or anything English!",
+    "limitReached": "Daily limit reached. Upgrade for unlimited chats.",
+    "remaining": "{{count}} messages left today",
+    "errorMessage": "Something went wrong. Please try again.",
+    "thinking": "Thinking...",
+    "tooltip": "Chat with Mindote AI"
   }
 }

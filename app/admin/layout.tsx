@@ -4,7 +4,7 @@ import type React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PenLine, Settings, Shield, Users } from "lucide-react";
+import { PenLine, Settings, Shield, Users, BookOpen } from "lucide-react";
 
 export default function AdminLayout({
   children,
@@ -41,8 +41,8 @@ export default function AdminLayout({
 
   const navItems = [
     { label: "Writing Passages", href: "/admin/writing", icon: PenLine },
+    { label: "Vocabulary", href: "/admin/vocabulary", icon: BookOpen },
     { label: "Users", href: "/admin/users", icon: Users },
-    // Future admin sections added here
   ];
 
   return (

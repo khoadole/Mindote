@@ -40,6 +40,7 @@ export async function GET(
         id: topic.id,
         order: topic.order,
         name: topic.name,
+        isFree: topic.isFree,
       },
       words: topic.words.map((word) => ({
         id: word.id,

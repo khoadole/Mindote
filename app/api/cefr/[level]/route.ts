@@ -32,6 +32,7 @@ export async function GET(
       id: topic.id,
       order: topic.order,
       name: topic.name,
+      isFree: topic.isFree,
       wordCount: topic._count.words,
     }));
 

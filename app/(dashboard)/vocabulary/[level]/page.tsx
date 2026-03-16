@@ -25,6 +25,7 @@ interface Topic {
   id: string;
   order: number;
   name: string;
+  isFree: boolean;
   wordCount: number;
 }
 
@@ -107,9 +108,9 @@ export default function LevelPage() {
     return progressData.progress[level].byTopic[topicId];
   };
 
-  const isTopicLocked = (index: number) => {
+  const isTopicLocked = (topic: Topic) => {
     if (hasSubscription) return false;
-    return index >= 2;
+    return !topic.isFree;
   };
 
   if (loading) {
@@ -171,7 +172,7 @@ export default function LevelPage() {
           </h2>
 
           {topics.map((topic, index) => {
-            const locked = isTopicLocked(index);
+            const locked = isTopicLocked(topic);
             const topicLearnedCount = getTopicProgress(topic.id);
             const topicProgressPercent = getProgressPercentage(
               topicLearnedCount,

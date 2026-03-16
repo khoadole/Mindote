@@ -38,6 +38,7 @@ interface TopicData {
   id: string;
   order: number;
   name: string;
+  isFree: boolean;
 }
 
 // Clean, academic-style configuration - Study4 inspired
@@ -71,7 +72,6 @@ export default function TopicWordsPage() {
   const [topic, setTopic] = useState<TopicData | null>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
-  const [topicIndex, setTopicIndex] = useState<number>(0);
   const [hasSubscription, setHasSubscription] = useState(false);
 
   const { data: progressData } = useCEFRProgress();
@@ -113,7 +113,6 @@ export default function TopicWordsPage() {
         const data = await res.json();
         setTopic(data.topic || null);
         setWords(data.words || []);
-        setTopicIndex(data.topic?.order || 0);
       } catch (error) {
         console.error("Error fetching words:", error);
       } finally {
@@ -144,7 +143,7 @@ export default function TopicWordsPage() {
   };
 
   // Check if topic is locked
-  const isLocked = !hasSubscription && topicIndex >= 2;
+  const isLocked = !hasSubscription && !(topic?.isFree ?? true);
 
   if (loading) {
     return (

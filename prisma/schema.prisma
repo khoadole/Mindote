@@ -263,6 +263,7 @@ model CEFRTopic {
   level     String     // A1, A2, B1, B2, C1, C2
   order     Int        // topic_order từ CSV
   name      String     // topic name
+  isFree    Boolean    @default(false) @map("is_free")
   createdAt DateTime   @default(now()) @map("created_at")
 
   words     CEFRWord[]

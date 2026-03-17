@@ -21,70 +21,6 @@ import { useEffect, useMemo } from "react";
 import { updateUserStreakAction } from "@/app/actions/settings";
 import { useTranslation } from "@/lib/i18n-provider";
 
-// SVG Donut Ring — compact, Claude-style
-function DonutRing({
-  value,
-  total,
-  size = 60,
-  strokeWidth = 4,
-}: {
-  value: number;
-  total: number;
-  size?: number;
-  strokeWidth?: number;
-}) {
-  const radius = (size - strokeWidth * 2) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const percent = total > 0 ? Math.min(value / total, 1) : 0;
-  const dashOffset = circumference - percent * circumference;
-  const center = size / 2;
-
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      <circle
-        cx={center}
-        cy={center}
-        r={radius}
-        fill="none"
-        strokeWidth={strokeWidth}
-        className="stroke-stone-100 dark:stroke-muted"
-      />
-      <circle
-        cx={center}
-        cy={center}
-        r={radius}
-        fill="none"
-        strokeWidth={strokeWidth}
-        strokeDasharray={circumference}
-        strokeDashoffset={dashOffset}
-        strokeLinecap="round"
-        transform={`rotate(-90 ${center} ${center})`}
-        className="stroke-emerald-500 transition-all duration-700"
-      />
-      <text
-        x={center}
-        y={center - 2}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        className="fill-stone-800 dark:fill-foreground"
-        style={{ fontSize: 12, fontWeight: 800 }}
-      >
-        {Math.round(percent * 100)}%
-      </text>
-      <text
-        x={center}
-        y={center + 9}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        className="fill-stone-400 dark:fill-muted-foreground"
-        style={{ fontSize: 7.5 }}
-      >
-        mastered
-      </text>
-    </svg>
-  );
-}
-
 // Card wrapper — ấm, Claude-style
 function Panel({
   children,
@@ -226,19 +162,16 @@ export default function Dashboard() {
         {/* ROW 1: Top 3 panels */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-          {/* PROGRESS — total + donut + 2×2 stats */}
+          {/* PROGRESS — total + 2×2 stats */}
           <Panel className="p-5">
             <SectionLabel icon={Trophy}>{t("dashboard.progress")}</SectionLabel>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <div className="text-4xl font-black text-stone-900 dark:text-foreground leading-none">
-                  {totalWords}
-                </div>
-                <div className="text-xs text-stone-400 dark:text-muted-foreground mt-1">
-                  {t("dashboard.totalWords")}
-                </div>
+            <div className="mb-4">
+              <div className="text-4xl font-black text-stone-900 dark:text-foreground leading-none">
+                {totalWords}
               </div>
-              <DonutRing value={masteredWords} total={totalWords} size={60} />
+              <div className="text-xs text-stone-400 dark:text-muted-foreground mt-1">
+                {t("dashboard.totalWords")}
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {statItems.map((s) => (

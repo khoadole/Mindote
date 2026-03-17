@@ -799,5 +799,17 @@
     "topicPlaceholder": "주제",
     "filterAllTopics": "모든 주제",
     "clearFilters": "지우기"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "어휘, 문법에 대해 질문하세요...",
+    "send": "전송",
+    "newChat": "새 채팅",
+    "emptyState": "어휘, 문법, 작문, 영어에 관한 모든 것을 물어보세요!",
+    "limitReached": "오늘의 무료 메시지를 모두 사용했습니다. 프리미엄으로 업그레이드하세요.",
+    "remaining": "오늘 {{count}}개의 메시지가 남았습니다",
+    "errorMessage": "오류가 발생했습니다. 다시 시도해 주세요.",
+    "thinking": "생각 중...",
+    "tooltip": "Mindote AI와 채팅"
   }
 }

@@ -799,5 +799,17 @@
     "topicPlaceholder": "Tópico",
     "filterAllTopics": "Todos os tópicos",
     "clearFilters": "Limpar"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "Pergunte sobre vocabulário, gramática...",
+    "send": "Enviar",
+    "newChat": "Novo chat",
+    "emptyState": "Pergunte-me sobre vocabulário, gramática, escrita ou qualquer coisa relacionada ao inglês!",
+    "limitReached": "Limite diário atingido. Atualize para premium para chats ilimitados.",
+    "remaining": "{{count}} mensagens restantes hoje",
+    "errorMessage": "Algo deu errado. Por favor, tente novamente.",
+    "thinking": "Pensando...",
+    "tooltip": "Conversar com Mindote AI"
   }
 }

@@ -799,5 +799,17 @@
     "topicPlaceholder": "主题",
     "filterAllTopics": "所有主题",
     "clearFilters": "清除"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "询问词汇、语法...",
+    "send": "发送",
+    "newChat": "新对话",
+    "emptyState": "问我任何关于词汇、语法、写作或英语学习的问题！",
+    "limitReached": "今日免费消息已用完。升级高级版以无限制使用。",
+    "remaining": "今日还剩 {{count}} 条消息",
+    "errorMessage": "出错了，请重试。",
+    "thinking": "思考中...",
+    "tooltip": "与 Mindote AI 对话"
   }
 }

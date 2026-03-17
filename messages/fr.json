@@ -791,5 +791,17 @@
     "topicPlaceholder": "Sujet",
     "filterAllTopics": "Tous les sujets",
     "clearFilters": "Effacer"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "Posez des questions sur le vocabulaire, la grammaire...",
+    "send": "Envoyer",
+    "newChat": "Nouvelle discussion",
+    "emptyState": "Posez-moi des questions sur le vocabulaire, la grammaire, la rédaction ou tout ce qui concerne l'anglais !",
+    "limitReached": "Limite quotidienne atteinte. Passez à la version premium pour des discussions illimitées.",
+    "remaining": "{{count}} messages restants aujourd'hui",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer.",
+    "thinking": "Réflexion en cours...",
+    "tooltip": "Discuter avec Mindote AI"
   }
 }

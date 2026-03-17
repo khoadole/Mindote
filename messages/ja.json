@@ -792,5 +792,17 @@
     "topicPlaceholder": "トピック",
     "filterAllTopics": "すべてのトピック",
     "clearFilters": "クリア"
+  },
+  "chat": {
+    "title": "Mindote AI",
+    "placeholder": "語彙・文法について質問する...",
+    "send": "送信",
+    "newChat": "新しいチャット",
+    "emptyState": "語彙、文法、ライティング、英語に関することなど何でも聞いてください！",
+    "limitReached": "本日の無料メッセージを使い切りました。プレミアムにアップグレードして無制限に使いましょう。",
+    "remaining": "本日残り {{count}} 件のメッセージ",
+    "errorMessage": "エラーが発生しました。もう一度お試しください。",
+    "thinking": "考え中...",
+    "tooltip": "Mindote AI とチャット"
   }
 }

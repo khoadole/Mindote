@@ -1,33 +1,173 @@
 "use client";
 
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
-import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
-  BookOpen,
   Plus,
   Candy as Cards,
   Flame,
   Zap,
-  Sparkles,
   GraduationCap,
   ArrowRight,
   FileText,
   Dumbbell,
   Trophy,
+  CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo } from "react";
 import { updateUserStreakAction } from "@/app/actions/settings";
 import { useTranslation } from "@/lib/i18n-provider";
 
+// SVG Donut Ring — compact, Claude-style
+function DonutRing({
+  value,
+  total,
+  size = 60,
+  strokeWidth = 4,
+}: {
+  value: number;
+  total: number;
+  size?: number;
+  strokeWidth?: number;
+}) {
+  const radius = (size - strokeWidth * 2) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const percent = total > 0 ? Math.min(value / total, 1) : 0;
+  const dashOffset = circumference - percent * circumference;
+  const center = size / 2;
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <circle
+        cx={center}
+        cy={center}
+        r={radius}
+        fill="none"
+        strokeWidth={strokeWidth}
+        className="stroke-stone-100 dark:stroke-muted"
+      />
+      <circle
+        cx={center}
+        cy={center}
+        r={radius}
+        fill="none"
+        strokeWidth={strokeWidth}
+        strokeDasharray={circumference}
+        strokeDashoffset={dashOffset}
+        strokeLinecap="round"
+        transform={`rotate(-90 ${center} ${center})`}
+        className="stroke-emerald-500 transition-all duration-700"
+      />
+      <text
+        x={center}
+        y={center - 2}
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="fill-stone-800 dark:fill-foreground"
+        style={{ fontSize: 12, fontWeight: 800 }}
+      >
+        {Math.round(percent * 100)}%
+      </text>
+      <text
+        x={center}
+        y={center + 9}
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="fill-stone-400 dark:fill-muted-foreground"
+        style={{ fontSize: 7.5 }}
+      >
+        mastered
+      </text>
+    </svg>
+  );
+}
+
+// Card wrapper — ấm, Claude-style
+function Panel({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`bg-white dark:bg-card rounded-2xl border border-stone-200 dark:border-border shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 transition-all duration-200 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+// Section label — Claude editorial style
+function SectionLabel({
+  icon: Icon,
+  children,
+}: {
+  icon?: React.ComponentType<{ className?: string }>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-center gap-1.5 mb-4">
+      {Icon && <Icon className="h-3 w-3 text-stone-400 dark:text-muted-foreground" />}
+      <span className="text-[10px] font-semibold text-stone-400 dark:text-muted-foreground uppercase tracking-widest">
+        {children}
+      </span>
+    </div>
+  );
+}
+
+const CEFR_LEVELS = [
+  {
+    level: "A1",
+    name: "Beginner",
+    iconBg: "bg-teal-100 dark:bg-teal-900/40",
+    iconText: "text-teal-700 dark:text-teal-300",
+    hoverCard: "hover:border-teal-200 dark:hover:border-teal-700/60",
+  },
+  {
+    level: "A2",
+    name: "Elementary",
+    iconBg: "bg-cyan-100 dark:bg-cyan-900/40",
+    iconText: "text-cyan-700 dark:text-cyan-300",
+    hoverCard: "hover:border-cyan-200 dark:hover:border-cyan-700/60",
+  },
+  {
+    level: "B1",
+    name: "Intermediate",
+    iconBg: "bg-blue-100 dark:bg-blue-900/40",
+    iconText: "text-blue-700 dark:text-blue-300",
+    hoverCard: "hover:border-blue-200 dark:hover:border-blue-700/60",
+  },
+  {
+    level: "B2",
+    name: "Upper-Int.",
+    iconBg: "bg-violet-100 dark:bg-violet-900/40",
+    iconText: "text-violet-700 dark:text-violet-300",
+    hoverCard: "hover:border-violet-200 dark:hover:border-violet-700/60",
+  },
+  {
+    level: "C1",
+    name: "Advanced",
+    iconBg: "bg-orange-100 dark:bg-orange-900/40",
+    iconText: "text-orange-700 dark:text-orange-300",
+    hoverCard: "hover:border-orange-200 dark:hover:border-orange-700/60",
+  },
+  {
+    level: "C2",
+    name: "Proficiency",
+    iconBg: "bg-rose-100 dark:bg-rose-900/40",
+    iconText: "text-rose-700 dark:text-rose-300",
+    hoverCard: "hover:border-rose-200 dark:hover:border-rose-700/60",
+  },
+];
+
 export default function Dashboard() {
   const { t } = useTranslation();
-  const { data: collections, isLoading: collectionsLoading } = useCollections();
-  const { data: stats, isLoading: statsLoading } = useUserStats();
+  const { data: stats } = useUserStats();
   const { data: dueCount = 0, isLoading: dueLoading } = useDueCount();
 
   useKeyboardShortcuts();
@@ -37,182 +177,197 @@ export default function Dashboard() {
   }, []);
 
   const totalWords = stats?.totalWords || 0;
+  const masteredWords = stats?.masterWords || 0;
   const currentStreak = stats?.currentStreak || 0;
 
   const streakDays = useMemo(() => {
-    const days = [];
     const today = new Date();
     const dayNames = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-
-    for (let i = 6; i >= 0; i--) {
+    return Array.from({ length: 7 }, (_, i) => {
+      const daysAgo = 6 - i;
       const date = new Date(today);
-      date.setDate(today.getDate() - i);
-      days.push({
+      date.setDate(today.getDate() - daysAgo);
+      return {
         day: dayNames[date.getDay()],
         date: date.getDate(),
-        isToday: i === 0,
-        hasActivity: i === 0 || currentStreak > i,
-      });
-    }
-    return days;
+        isToday: daysAgo === 0,
+        hasActivity: daysAgo === 0 || currentStreak > daysAgo,
+      };
+    });
   }, [currentStreak]);
 
-  const cefrLevels = [
-    { level: "A1", name: "Beginner", color: "bg-green-500" },
-    { level: "A2", name: "Elementary", color: "bg-lime-500" },
-    { level: "B1", name: "Intermediate", color: "bg-yellow-500" },
-    { level: "B2", name: "Upper-Intermediate", color: "bg-orange-500" },
-    { level: "C1", name: "Advanced", color: "bg-red-500" },
-    { level: "C2", name: "Proficiency", color: "bg-purple-500" },
+  const statItems = [
+    {
+      label: t("dashboard.new"),
+      value: stats?.newWords || 0,
+      dot: "bg-stone-400",
+    },
+    {
+      label: t("dashboard.learning"),
+      value: stats?.learningWords || 0,
+      dot: "bg-amber-400",
+    },
+    {
+      label: t("dashboard.familiar"),
+      value: stats?.familiarWords || 0,
+      dot: "bg-blue-400",
+    },
+    {
+      label: t("dashboard.master"),
+      value: masteredWords,
+      dot: "bg-emerald-500",
+    },
   ];
 
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-        {/* ROW 1: Progress + Streak + Quick Review */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {/* Progress Card */}
-          <Card className="border rounded-3xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(59,130,246,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <Trophy className="h-5 w-5 text-primary" />
-                {t("dashboard.progress")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-green-500">
-                    {stats?.newWords || 0}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {t("dashboard.new")}
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-yellow-500">
-                    {stats?.learningWords || 0}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {t("dashboard.learning")}
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-orange-500">
-                    {stats?.familiarWords || 0}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {t("dashboard.familiar")}
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-3 text-center border border-gray-100 dark:border-gray-700">
-                  <div className="text-2xl font-bold text-purple-500">
-                    {stats?.masterWords || 0}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {t("dashboard.master")}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 text-center text-sm text-muted-foreground">
-                {t("dashboard.totalWords")}:{" "}
-                <span className="font-semibold text-foreground">
-                  {totalWords}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
+    <div className="p-4 md:p-8 min-h-screen bg-stone-50 dark:bg-background">
+      <div className="max-w-7xl mx-auto space-y-4">
 
-          {/* Streak Calendar Card */}
-          <Card
-            className="border rounded-3xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border-orange-200/60 dark:border-orange-800/30 border-b-[3px] border-b-orange-300 dark:border-b-orange-700 shadow-[0_2px_8px_-2px_rgba(249,115,22,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(249,115,22,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
-            style={{ animationDelay: "100ms" }}
-          >
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <Flame className="h-5 w-5 text-orange-500" />
-                {t("dashboard.streakCalendar")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                {streakDays.map((day, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <span className="text-xs text-muted-foreground mb-1">
-                      {t(`dashboard.${day.day}`)}
-                    </span>
-                    <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-                        day.isToday
-                          ? "ring-2 ring-orange-500 ring-offset-2 dark:ring-offset-gray-900"
-                          : ""
-                      } ${
-                        day.hasActivity
-                          ? "bg-gradient-to-br from-orange-400 to-red-500"
-                          : "bg-gray-200 dark:bg-gray-700"
-                      }`}
-                    >
-                      {day.hasActivity ? (
-                        <Flame className="h-4 w-4 text-white" />
-                      ) : (
-                        <span className="text-xs text-gray-500">
-                          {day.date}
-                        </span>
-                      )}
+        {/* ROW 1: Top 3 panels */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+          {/* PROGRESS — total + donut + 2×2 stats */}
+          <Panel className="p-5">
+            <SectionLabel icon={Trophy}>{t("dashboard.progress")}</SectionLabel>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <div className="text-4xl font-black text-stone-900 dark:text-foreground leading-none">
+                  {totalWords}
+                </div>
+                <div className="text-xs text-stone-400 dark:text-muted-foreground mt-1">
+                  {t("dashboard.totalWords")}
+                </div>
+              </div>
+              <DonutRing value={masteredWords} total={totalWords} size={60} />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {statItems.map((s) => (
+                <div
+                  key={s.label}
+                  className="flex items-center gap-2 p-2.5 rounded-xl bg-stone-50 dark:bg-muted/40"
+                >
+                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${s.dot}`} />
+                  <div>
+                    <div className="text-base font-bold text-stone-800 dark:text-foreground leading-none">
+                      {s.value}
+                    </div>
+                    <div className="text-[11px] text-stone-400 dark:text-muted-foreground mt-0.5">
+                      {s.label}
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="text-center">
-                <span className="text-2xl font-bold text-orange-500">
+                </div>
+              ))}
+            </div>
+          </Panel>
+
+          {/* STREAK — Duolingo energy: số cam to, bars thoáng */}
+          <Panel className="p-5">
+            <SectionLabel icon={Flame}>{t("dashboard.streakCalendar")}</SectionLabel>
+            <div className="flex items-end justify-between mb-5">
+              <div className="flex items-end gap-2">
+                <span
+                  className={`text-5xl font-black leading-none ${
+                    currentStreak > 0
+                      ? "text-orange-500"
+                      : "text-stone-300 dark:text-muted-foreground"
+                  }`}
+                >
                   {currentStreak}
                 </span>
-                <span className="text-sm text-muted-foreground ml-2">
-                  {t("dashboard.dayStreak", { count: currentStreak })}
-                </span>
+                <div className="mb-1">
+                  <div className="text-xl leading-none">{currentStreak > 0 ? "🔥" : "❄️"}</div>
+                  <div className="text-[11px] text-stone-400 dark:text-muted-foreground mt-0.5">
+                    {t("dashboard.dayStreak", { count: currentStreak })}
+                  </div>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
 
-          {/* Quick Review Card */}
-          <Card
-            className="border rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200/60 dark:border-purple-800/30 border-b-[3px] border-b-purple-300 dark:border-b-purple-700 shadow-[0_2px_8px_-2px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(168,85,247,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
-            style={{ animationDelay: "200ms" }}
+            {/* Duolingo-style day circles */}
+            <div className="flex items-center gap-1">
+              {streakDays.map((day, i) => (
+                <div key={i} className="flex flex-col items-center gap-2.5 flex-1">
+                  <div
+                    className={`w-full aspect-square max-w-[36px] mx-auto rounded-full flex items-center justify-center transition-all duration-200 ${
+                      day.hasActivity
+                        ? "bg-gradient-to-b from-orange-400 to-orange-500 shadow-[0_3px_10px_rgba(251,146,60,0.4)]"
+                        : "bg-stone-100 dark:bg-muted/50"
+                    } ${
+                      day.isToday
+                        ? "ring-2 ring-orange-400 ring-offset-2 ring-offset-white dark:ring-offset-card scale-110"
+                        : ""
+                    }`}
+                  >
+                    {day.hasActivity && (
+                      <Flame className="h-4 w-4 text-white drop-shadow-sm" />
+                    )}
+                  </div>
+                  <span
+                    className={`text-[10px] font-medium tabular-nums leading-none ${
+                      day.isToday
+                        ? "text-orange-500 font-semibold"
+                        : "text-stone-300 dark:text-muted-foreground"
+                    }`}
+                  >
+                    {day.date}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Panel>
+
+          {/* QUICK REVIEW — hero khi có words, calm khi done */}
+          <div
+            className={`rounded-2xl border transition-all duration-200 shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 ${
+              dueCount > 0
+                ? "bg-amber-50 dark:bg-amber-950/10 border-amber-200 dark:border-amber-800/40"
+                : "bg-white dark:bg-card border-stone-200 dark:border-border"
+            }`}
           >
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <Zap className="h-5 w-5 text-purple-500" />
-                {t("dashboard.quickRevision")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="text-center py-2">
-                {dueLoading ? (
-                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
-                ) : (
-                  <>
-                    <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-                      {dueCount}
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {dueCount === 0
-                        ? t("dashboard.allCaughtUp")
-                        : t("dashboard.wordsToReview", { count: dueCount })}
+            <div className="p-5 h-full flex flex-col">
+              <SectionLabel icon={Zap}>{t("dashboard.quickRevision")}</SectionLabel>
+
+              {dueLoading ? (
+                <div className="flex-1 flex items-center justify-center">
+                  <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+                </div>
+              ) : dueCount === 0 ? (
+                <div className="flex-1 flex flex-col items-center justify-center gap-3 py-2">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
+                    <CheckCircle2 className="h-7 w-7 text-emerald-500" />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-semibold text-stone-700 dark:text-foreground">
+                      {t("dashboard.allCaughtUp")}
                     </p>
-                  </>
-                )}
-              </div>
+                    <p className="text-xs text-stone-400 dark:text-muted-foreground mt-0.5">
+                      Come back tomorrow!
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex-1 flex flex-col items-center justify-center gap-1 py-2">
+                  <div className="text-6xl font-black text-amber-500 leading-none">
+                    {dueCount}
+                  </div>
+                  <p className="text-sm text-stone-500 dark:text-muted-foreground">
+                    {t("dashboard.wordsToReview", { count: dueCount })}
+                  </p>
+                </div>
+              )}
+
               <Button
-                className="w-full mt-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-2xl disabled:opacity-50"
+                className={`w-full rounded-xl font-semibold mt-3 ${
+                  dueCount > 0
+                    ? "bg-amber-500 hover:bg-amber-600 text-white shadow-[0_2px_8px_rgba(245,158,11,0.35)]"
+                    : ""
+                }`}
                 size="sm"
                 asChild={dueCount > 0}
                 disabled={dueCount === 0}
               >
                 {dueCount > 0 ? (
-                  <Link
-                    href="/flashcards?mode=review"
-                    className="flex items-center gap-2"
-                  >
+                  <Link href="/flashcards?mode=review" className="flex items-center gap-2">
                     <Cards className="h-4 w-4" />
                     {t("dashboard.startFlashcards")}
                   </Link>
@@ -223,111 +378,98 @@ export default function Dashboard() {
                   </span>
                 )}
               </Button>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
 
         {/* ROW 2: Quick Access */}
-        <Card
-          className="border rounded-3xl bg-card border-b-[3px] border-b-gray-200 dark:border-b-gray-700 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
-          style={{ animationDelay: "300ms" }}
-        >
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
-              {t("dashboard.quickAccess")}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <Link href="/collections?addWord=true">
-                <Button
-                  variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
+        <Panel className="p-5">
+          <SectionLabel>{t("dashboard.quickAccess")}</SectionLabel>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            {[
+              {
+                href: "/collections?addWord=true",
+                label: t("dashboard.addWord"),
+                icon: Plus,
+                bg: "bg-emerald-100 dark:bg-emerald-900/30",
+                text: "text-emerald-600 dark:text-emerald-400",
+                hover: "hover:border-emerald-200 dark:hover:border-emerald-800/50 hover:bg-emerald-50 dark:hover:bg-emerald-950/20",
+              },
+              {
+                href: "/flashcards",
+                label: t("dashboard.practiceNow"),
+                icon: Dumbbell,
+                bg: "bg-pink-100 dark:bg-pink-900/30",
+                text: "text-pink-600 dark:text-pink-400",
+                hover: "hover:border-pink-200 dark:hover:border-pink-800/50 hover:bg-pink-50 dark:hover:bg-pink-950/20",
+              },
+              {
+                href: "/reading",
+                label: t("dashboard.readingPractice"),
+                icon: FileText,
+                bg: "bg-amber-100 dark:bg-amber-900/30",
+                text: "text-amber-600 dark:text-amber-400",
+                hover: "hover:border-amber-200 dark:hover:border-amber-800/50 hover:bg-amber-50 dark:hover:bg-amber-950/20",
+              },
+            ].map(({ href, label, icon: Icon, bg, text, hover }) => (
+              <Link key={href} href={href} className="block">
+                <div
+                  className={`h-16 flex items-center gap-3.5 px-4 rounded-xl border border-stone-200 dark:border-border ${hover} transition-all cursor-pointer group`}
                 >
-                  <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Plus className="h-5 w-5 text-green-600 dark:text-green-400" />
+                  <div
+                    className={`w-10 h-10 rounded-2xl ${bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-150`}
+                  >
+                    <Icon className={`${text}`} style={{ width: 20, height: 20 }} />
                   </div>
-                  <span className="text-sm font-medium">
-                    {t("dashboard.addWord")}
+                  <span className="text-sm font-semibold text-stone-700 dark:text-foreground">
+                    {label}
                   </span>
-                </Button>
+                </div>
               </Link>
+            ))}
+          </div>
+        </Panel>
 
-              <Link href="/flashcards">
-                <Button
-                  variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Dumbbell className="h-5 w-5 text-pink-600 dark:text-pink-400" />
-                  </div>
-                  <span className="text-sm font-medium">
-                    {t("dashboard.practiceNow")}
-                  </span>
-                </Button>
-              </Link>
-
-              <Link href="/reading">
-                <Button
-                  variant="outline"
-                  className="h-20 w-full flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed hover:border-primary hover:bg-primary/5 transition-all group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-                  </div>
-                  <span className="text-sm font-medium">
-                    {t("dashboard.readingPractice")}
-                  </span>
-                </Button>
-              </Link>
+        {/* ROW 3: CEFR Vocabulary */}
+        <Panel className="p-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-1.5">
+              <GraduationCap className="h-3 w-3 text-stone-400 dark:text-muted-foreground" />
+              <span className="text-[10px] font-semibold text-stone-400 dark:text-muted-foreground uppercase tracking-widest">
+                {t("dashboard.vocabularySets")}
+              </span>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* ROW 3: Vocabulary Sets (CEFR Levels) */}
-        <Card
-          className="border rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 border-teal-200/60 dark:border-teal-800/30 border-b-[3px] border-b-teal-300 dark:border-b-teal-700 shadow-[0_2px_8px_-2px_rgba(20,184,166,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(20,184,166,0.25)] hover:-translate-y-0.5 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
-          style={{ animationDelay: "400ms" }}
-        >
-          <CardHeader className="flex flex-row items-center justify-between pb-3">
-            <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 text-teal-600" />
-              {t("dashboard.vocabularySets")}
-            </CardTitle>
             <Link href="/vocabulary">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="rounded-2xl hover:bg-teal-100 dark:hover:bg-teal-900/30"
-              >
+              <button className="text-[11px] text-stone-400 dark:text-muted-foreground hover:text-stone-700 dark:hover:text-foreground flex items-center gap-1 transition-colors">
                 {t("dashboard.viewVocabulary")}
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Button>
+                <ArrowRight className="h-3 w-3" />
+              </button>
             </Link>
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-              {cefrLevels.map((level) => (
-                <Link
-                  key={level.level}
-                  href={`/vocabulary/${level.level.toLowerCase()}`}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+            {CEFR_LEVELS.map((level) => (
+              <Link key={level.level} href={`/vocabulary/${level.level.toLowerCase()}`}>
+                <div
+                  className={`group flex flex-col items-center gap-2.5 p-3.5 rounded-xl border border-stone-200 dark:border-border ${level.hoverCard} hover:shadow-sm transition-all cursor-pointer text-center`}
                 >
-                  <div className="group bg-white dark:bg-gray-800/50 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer text-center">
-                    <div
-                      className={`w-12 h-12 rounded-full ${level.color} mx-auto mb-2 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform`}
-                    >
+                  {/* Level icon — square-rounded, level-specific color */}
+                  <div
+                    className={`w-11 h-11 rounded-2xl ${level.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-150`}
+                  >
+                    <span className={`text-sm font-black ${level.iconText}`}>
                       {level.level}
-                    </div>
-                    <div className="text-sm font-semibold text-foreground">
-                      {level.name}
-                    </div>
+                    </span>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                  <span className="text-[11px] font-medium text-stone-500 dark:text-muted-foreground group-hover:text-stone-800 dark:group-hover:text-foreground transition-colors leading-tight">
+                    {level.name}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Panel>
+
       </div>
     </div>
   );

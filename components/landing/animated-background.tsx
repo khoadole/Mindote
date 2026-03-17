@@ -66,9 +66,8 @@ export function AnimatedBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Get particle color based on theme
-      const particleColor = theme === "dark" ? "rgba(255, 255, 255, 0.6)" : "rgba(0, 0, 0, 0.55)";
-      const lineColor = theme === "dark" ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.18)";
+      // Warm stone tones in light mode, soft white in dark
+      const particleColor = theme === "dark" ? "rgba(255, 255, 255, 0.45)" : "rgba(120, 100, 80, 0.35)";
 
       // Update and draw particles
       particlesRef.current.forEach((particle, i) => {
@@ -123,9 +122,9 @@ export function AnimatedBackground() {
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
             const isDark = theme === "dark";
-            ctx.strokeStyle = isDark 
-              ? `rgba(255, 255, 255, ${opacity * 0.2})` 
-              : `rgba(0, 0, 0, ${opacity * 0.2})`;
+            ctx.strokeStyle = isDark
+              ? `rgba(255, 255, 255, ${opacity * 0.15})`
+              : `rgba(120, 100, 80, ${opacity * 0.15})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

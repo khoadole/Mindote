@@ -45,39 +45,33 @@ import { useTranslation } from "@/lib/i18n-provider";
 // Navigation grouped by sections
 const studySection = [
   {
-    name: "Home",
-    href: "/dashboard",
-    icon: Home,
-    color: "text-indigo-400",
-  },
-  {
-    name: "Reading",
+    key: "reading",
     href: "/reading",
     icon: FileText,
     color: "text-amber-400",
     badge: "NEW",
   },
   {
-    name: "Writing",
+    key: "writing",
     href: "/writing",
     icon: PenLine,
     color: "text-purple-400",
     badge: "NEW",
   },
   {
-    name: "Practice",
+    key: "wordPractice",
     icon: Dumbbell,
     color: "text-pink-400",
     isGroup: true,
     children: [
       {
-        name: "Flashcards",
+        key: "flashcards",
         href: "/flashcards",
         icon: Cards,
         color: "text-pink-400",
       },
       {
-        name: "Quiz",
+        key: "quiz",
         href: "/quiz",
         icon: CheckCircle,
         color: "text-green-400",
@@ -86,28 +80,35 @@ const studySection = [
   },
 ];
 
+const homeItem = {
+  key: "home",
+  href: "/dashboard",
+  icon: Home,
+  color: "text-indigo-400",
+};
+
+const testSection = [
+  {
+    key: "exam",
+    href: "/exam",
+    icon: CheckCircle,
+    color: "text-rose-400",
+  },
+];
+
 const librarySection = [
   {
-    name: "Collections",
+    key: "collections",
     href: "/collections",
     icon: Layers,
     color: "text-blue-400",
     badge: "AI",
   },
   {
-    name: "Vocabulary",
+    key: "vocabulary",
     href: "/vocabulary",
     icon: GraduationCap,
     color: "text-teal-400",
-  },
-];
-
-const accountSection = [
-  {
-    name: "Settings",
-    href: "/settings",
-    icon: Settings,
-    color: "text-gray-400",
   },
 ];
 
@@ -121,7 +122,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const { signOut, user } = useAuth();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [practiceExpanded, setPracticeExpanded] = useState(true);
+  const [wordPracticeExpanded, setWordPracticeExpanded] = useState(false);
   const [userPopoverOpen, setUserPopoverOpen] = useState(false);
   const [dictionaryOpen, setDictionaryOpen] = useState(false);
 
@@ -251,18 +252,16 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
   // Render a single nav item
   const renderNavItem = (item: any) => {
-    // Handle grouped items (Practice)
     if (item.isGroup && item.children) {
       const isGroupActive = item.children.some(
         (child: any) => pathname === child.href,
       );
+
       return (
-        <div key={item.name} className="space-y-1">
+        <div key={item.key} className="space-y-1">
           <Button
             variant="ghost"
-            onClick={() =>
-              !isCollapsed && setPracticeExpanded(!practiceExpanded)
-            }
+            onClick={() => !isCollapsed && setWordPracticeExpanded((prev) => !prev)}
             className={cn(
               "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
               isGroupActive
@@ -283,26 +282,26 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             {!isCollapsed && (
               <>
                 <span className="transition-all duration-300 font-medium relative z-10 flex-1 text-left text-[13px]">
-                  {t(`sidebar.${item.name.toLowerCase()}`)}
+                  {t(`sidebar.${item.key}`)}
                 </span>
                 <ChevronDown
                   className={cn(
                     "h-3.5 w-3.5 transition-transform duration-200",
-                    practiceExpanded ? "rotate-0" : "-rotate-90",
+                    wordPracticeExpanded ? "rotate-0" : "-rotate-90",
                   )}
                 />
               </>
             )}
           </Button>
 
-          {/* Children items */}
-          {!isCollapsed && practiceExpanded && (
+          {!isCollapsed && wordPracticeExpanded && (
             <div className="ml-4 space-y-0.5 border-l-2 border-gray-200 dark:border-gray-700/50 pl-4">
               {item.children.map((child: any) => {
                 const isChildActive = pathname === child.href;
+
                 return (
                   <Link
-                    key={child.name}
+                    key={child.key}
                     href={child.href}
                     prefetch={false}
                     onClick={() => onMobileClose?.()}
@@ -322,13 +321,8 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                           isChildActive ? "text-white" : child.color,
                         )}
                       />
-                      <span className="transition-all duration-300 font-medium relative z-10 text-[13px] flex items-center gap-2">
-                        {t(`sidebar.${child.name.toLowerCase()}`)}
-                        {child.badge && (
-                          <span className="px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
-                            {t("sidebar.new")}
-                          </span>
-                        )}
+                      <span className="transition-all duration-300 font-medium relative z-10 text-[13px]">
+                        {t(`sidebar.${child.key}`)}
                       </span>
                       {isChildActive && (
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 animate-shimmer" />
@@ -340,14 +334,14 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             </div>
           )}
 
-          {/* Collapsed state */}
           {isCollapsed && (
             <div className="space-y-1">
               {item.children.map((child: any) => {
                 const isChildActive = pathname === child.href;
+
                 return (
                   <Link
-                    key={child.name}
+                    key={child.key}
                     href={child.href}
                     prefetch={false}
                     onClick={() => onMobileClose?.()}
@@ -377,11 +371,10 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
       );
     }
 
-    // Regular navigation items
     const isActive = pathname === item.href;
     return (
       <Link
-        key={item.name}
+        key={item.key}
         href={item.href!}
         prefetch={false}
         onClick={() => onMobileClose?.()}
@@ -423,7 +416,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
                   "transition-all duration-300 font-medium relative z-10 flex items-center gap-2 text-[13px]",
                 )}
               >
-                {t(`sidebar.${item.name.toLowerCase().replace(/ /g, "")}`)}
+                {t(`sidebar.${item.key}`)}
                 {item.badge === "AI" ? (
                   <span className="flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-bold bg-[#FFD93D] text-gray-900 rounded">
                     <Sparkles className="w-3 h-3" />
@@ -524,10 +517,13 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
         {/* Navigation with Sections */}
         <nav className="flex-1 px-3 overflow-y-auto">
-          {/* STUDY Section */}
-          {renderSectionTitle(t("sidebar.sectionStudy"))}
+          {/* Home (standalone) */}
+          <div className="pt-4 pb-1">{renderNavItem(homeItem)}</div>
+
+          {/* PRACTICE Section */}
+          {renderSectionTitle(t("sidebar.sectionPractice"))}
           <div className="space-y-1">
-            {/* Dictionary Lookup Button — First item */}
+            {/* Dictionary lookup modal */}
             <Button
               variant="ghost"
               onClick={() => setDictionaryOpen(true)}
@@ -554,16 +550,16 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             {studySection.map((item) => renderNavItem(item))}
           </div>
 
+          {/* TEST Section */}
+          {renderSectionTitle(t("sidebar.sectionTest"))}
+          <div className="space-y-1">
+            {testSection.map((item) => renderNavItem(item))}
+          </div>
+
           {/* LIBRARY Section */}
           {renderSectionTitle(t("sidebar.sectionLibrary"))}
           <div className="space-y-1">
             {librarySection.map((item) => renderNavItem(item))}
-          </div>
-
-          {/* ACCOUNT Section */}
-          {renderSectionTitle(t("sidebar.sectionAccount"))}
-          <div className="space-y-1">
-            {accountSection.map((item) => renderNavItem(item))}
           </div>
         </nav>
 
@@ -575,107 +571,122 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
         {/* Bottom Section - User Profile */}
         <div className="p-3 border-t border-sidebar-border">
-          <Popover open={userPopoverOpen} onOpenChange={setUserPopoverOpen}>
-            <PopoverTrigger asChild>
-              <button
-                className={cn(
-                  "w-full flex items-center gap-3 rounded-xl transition-all duration-200",
-                  "hover:bg-blue-50 dark:hover:bg-white/[0.05] cursor-pointer",
-                  isCollapsed ? "justify-center p-2" : "px-3 py-2.5",
-                )}
-              >
-                <Avatar
-                  className={cn(
-                    "border-2 border-primary/20 shrink-0",
-                    isCollapsed ? "h-9 w-9" : "h-9 w-9",
-                  )}
-                >
-                  <AvatarImage
-                    src={getUserAvatarUrl(user) || undefined}
-                    alt={getUserDisplayName(user)}
-                  />
-                  <AvatarFallback className="bg-primary/10 text-primary font-semibold text-xs">
-                    {getUserInitials(user)}
-                  </AvatarFallback>
-                </Avatar>
-                {!isCollapsed && (
-                  <>
-                    <div className="flex-1 min-w-0 text-left">
-                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
-                        {getUserDisplayName(user)}
-                      </p>
-                      {!subscriptionLoading && (
-                        <p className="text-[11px] text-gray-500 dark:text-gray-400 truncate">
-                          {hasActiveSubscription ? "Pro Plan ✦" : "Free Plan"}
-                        </p>
-                      )}
-                    </div>
-                    <ChevronsUpDown className="h-4 w-4 text-gray-400 dark:text-gray-500 shrink-0" />
-                  </>
-                )}
-              </button>
-            </PopoverTrigger>
-            <PopoverContent
-              side="top"
-              align={isCollapsed ? "center" : "start"}
-              sideOffset={8}
-              className="w-64 p-2 rounded-xl shadow-xl"
-            >
-              {/* User info in popover */}
-              <div className="px-3 py-2 mb-1">
-                <p className="text-sm font-semibold text-foreground truncate">
-                  {getUserDisplayName(user)}
-                </p>
-                <p className="text-xs text-muted-foreground truncate">
-                  {user?.email}
-                </p>
-              </div>
-
-              <div className="h-px bg-border mb-1" />
-
-              {/* Upgrade / Premium button */}
-              {!subscriptionLoading && (
+          <div
+            className={cn(
+              "flex items-center",
+              isCollapsed ? "flex-col gap-2" : "gap-2",
+            )}
+          >
+            <Popover open={userPopoverOpen} onOpenChange={setUserPopoverOpen}>
+              <PopoverTrigger asChild>
                 <button
-                  onClick={() => {
-                    setUserPopoverOpen(false);
-                    router.push("/billing");
-                  }}
                   className={cn(
-                    "w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
-                    hasActiveSubscription
-                      ? "text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30"
-                      : "text-primary hover:bg-primary/10",
+                    "flex items-center gap-3 rounded-xl transition-all duration-200",
+                    "hover:bg-blue-50 dark:hover:bg-white/[0.05] cursor-pointer",
+                    isCollapsed ? "justify-center p-2 w-full" : "px-3 py-2.5 flex-1",
                   )}
                 >
-                  {hasActiveSubscription ? (
+                  <Avatar className="border-2 border-primary/20 shrink-0 h-9 w-9">
+                    <AvatarImage
+                      src={getUserAvatarUrl(user) || undefined}
+                      alt={getUserDisplayName(user)}
+                    />
+                    <AvatarFallback className="bg-primary/10 text-primary font-semibold text-xs">
+                      {getUserInitials(user)}
+                    </AvatarFallback>
+                  </Avatar>
+                  {!isCollapsed && (
                     <>
-                      <Crown className="h-4 w-4" />
-                      {t("sidebar.premiumActive")}
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="h-4 w-4" />
-                      {t("sidebar.upgradePlan")}
+                      <div className="flex-1 min-w-0 text-left">
+                        <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
+                          {getUserDisplayName(user)}
+                        </p>
+                        {!subscriptionLoading && (
+                          <p className="text-[11px] text-gray-500 dark:text-gray-400 truncate">
+                            {hasActiveSubscription ? "Pro Plan ✦" : "Free Plan"}
+                          </p>
+                        )}
+                      </div>
+                      <ChevronsUpDown className="h-4 w-4 text-gray-400 dark:text-gray-500 shrink-0" />
                     </>
                   )}
                 </button>
-              )}
-
-              <div className="h-px bg-border my-1" />
-
-              {/* Sign out */}
-              <button
-                onClick={() => {
-                  setUserPopoverOpen(false);
-                  handleSignOut();
-                }}
-                className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+              </PopoverTrigger>
+              <PopoverContent
+                side="top"
+                align={isCollapsed ? "center" : "start"}
+                sideOffset={8}
+                className="w-64 p-2 rounded-xl shadow-xl"
               >
-                <LogOut className="h-4 w-4" />
-                {t("sidebar.signOut")}
-              </button>
-            </PopoverContent>
-          </Popover>
+                {/* User info in popover */}
+                <div className="px-3 py-2 mb-1">
+                  <p className="text-sm font-semibold text-foreground truncate">
+                    {getUserDisplayName(user)}
+                  </p>
+                  <p className="text-xs text-muted-foreground truncate">
+                    {user?.email}
+                  </p>
+                </div>
+
+                <div className="h-px bg-border mb-1" />
+
+                {/* Upgrade / Premium button */}
+                {!subscriptionLoading && (
+                  <button
+                    onClick={() => {
+                      setUserPopoverOpen(false);
+                      router.push("/billing");
+                    }}
+                    className={cn(
+                      "w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                      hasActiveSubscription
+                        ? "text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30"
+                        : "text-primary hover:bg-primary/10",
+                    )}
+                  >
+                    {hasActiveSubscription ? (
+                      <>
+                        <Crown className="h-4 w-4" />
+                        {t("sidebar.premiumActive")}
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="h-4 w-4" />
+                        {t("sidebar.upgradePlan")}
+                      </>
+                    )}
+                  </button>
+                )}
+
+                <div className="h-px bg-border my-1" />
+
+                {/* Sign out */}
+                <button
+                  onClick={() => {
+                    setUserPopoverOpen(false);
+                    handleSignOut();
+                  }}
+                  className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+                >
+                  <LogOut className="h-4 w-4" />
+                  {t("sidebar.signOut")}
+                </button>
+              </PopoverContent>
+            </Popover>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                router.push("/settings");
+                onMobileClose?.();
+              }}
+              className="h-9 w-9 rounded-xl text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-blue-50 dark:hover:bg-white/[0.05]"
+              aria-label={t("sidebar.settings")}
+            >
+              <Settings className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

@@ -20,7 +20,8 @@
     "clearAll": "Bỏ chọn",
     "comingSoon": "Sắp ra mắt",
     "signIn": "Đăng nhập",
-    "upgrade": "Nâng cấp"
+    "upgrade": "Nâng cấp",
+    "featureWillBeUpdated": "Tính năng sẽ được cập nhật."
   },
   "vocabulary": {
     "pageDescription": "Khám phá các bộ từ vựng để mở rộng kỹ năng ngôn ngữ",
@@ -63,7 +64,11 @@
     "dictionary": "Tra từ",
     "sectionStudy": "HỌC TẬP",
     "sectionLibrary": "THƯ VIỆN",
-    "sectionAccount": "TÀI KHOẢN"
+    "sectionAccount": "TÀI KHOẢN",
+    "wordPractice": "Luyện từ",
+    "exam": "Đề thi",
+    "sectionPractice": "LUYỆN TẬP",
+    "sectionTest": "KIỂM TRA"
   },
   "onboarding": {
     "welcome": "Chào mừng đến với Mindote!",
@@ -598,7 +603,9 @@
     "selectWords": "Chọn từ (Tùy chọn)",
     "selected": "đã chọn",
     "selectAtLeast5": "Chọn ít nhất 5 từ hoặc để trống để dùng tất cả",
-    "wordSelectionHint": "Để trống để dùng tất cả từ trong bộ sưu tập (tối đa 30)"
+    "wordSelectionHint": "Để trống để dùng tất cả từ trong bộ sưu tập (tối đa 30)",
+    "tabAi": "Bài đọc với AI",
+    "tabByPart": "Theo dạng bài"
   },
   "youtube": {
     "title": "Ghi chú YouTube",
@@ -907,12 +914,9 @@
     "noFeedback": "Gửi bài để xem nhận xét.",
     "noHistory": "Chưa có lần làm nào cho bài này.",
     "coachNote": "Nhận xét",
-    "strengths": "Điểm mạnh",
-    "improvements": "Điểm cần cải thiện",
     "spellingErrors": "Lỗi chính tả",
     "wordsUsedWell": "Từ bạn dùng tốt:",
     "betterChoices": "Từ thay thế tốt hơn (nhấp đúp để lưu):",
-    "tryAgain": "Làm lại",
     "minWords": "(tối thiểu 10 từ)",
     "limitReachedMessage": "Bạn đã dùng hết 3 lượt đánh giá miễn phí hôm nay. Nâng cấp Premium để không giới hạn.",
     "grammarFocusLabel": "Trọng tâm ngữ pháp",
@@ -929,7 +933,9 @@
     "levelPlaceholder": "Cấp độ",
     "topicPlaceholder": "Chủ đề",
     "filterAllTopics": "Tất cả chủ đề",
-    "clearFilters": "Xóa bộ lọc"
+    "clearFilters": "Xóa bộ lọc",
+    "tabTranslate": "Dịch đoạn văn",
+    "tabByPart": "Theo dạng bài"
   },
   "chat": {
     "title": "Mindote AI",

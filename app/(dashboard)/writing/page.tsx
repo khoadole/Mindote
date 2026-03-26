@@ -5,6 +5,7 @@ import { PenLine, Search, Filter, ChevronLeft, ChevronRight } from "lucide-react
 import { useTranslation } from "@/lib/i18n-provider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -40,6 +41,9 @@ const PAGE_SIZE = 9;
 
 export default function WritingPage() {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState<"translate" | "part">(
+    "translate",
+  );
   const [selectedPassage, setSelectedPassage] =
     useState<WritingPassage | null>(null);
   const [levelFilter, setLevelFilter] = useState<string>("");
@@ -63,7 +67,7 @@ export default function WritingPage() {
     setCurrentPage(1);
   }
 
-  if (selectedPassage) {
+  if (selectedPassage && activeTab === "translate") {
     return (
       <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
         <div className="relative z-10 max-w-5xl mx-auto">
@@ -79,19 +83,37 @@ export default function WritingPage() {
   return (
     <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
       <div className="relative z-10 max-w-5xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="flex items-center gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
-          <div className="flex items-center gap-2">
-            <PenLine className="h-8 w-8 text-purple-500" />
-            <div>
-              <h1 className="text-3xl font-bold">{t("writing.title")}</h1>
-              <p className="text-sm text-muted-foreground mt-0.5">
-                {t("writing.pageSubtitle")}
-              </p>
-            </div>
+        <Tabs
+          value={activeTab}
+          onValueChange={(value) => {
+            const nextTab = value as "translate" | "part";
+            setActiveTab(nextTab);
+            if (nextTab !== "translate") {
+              setSelectedPassage(null);
+            }
+          }}
+          className="animate-in fade-in slide-in-from-top-2 duration-500"
+        >
+          <div className="inline-flex w-fit self-start rounded-xl border border-stone-300 dark:border-border bg-white/60 dark:bg-card/60 p-1">
+            <TabsList className="h-10 bg-transparent p-0">
+              <TabsTrigger value="translate" className="px-4">
+                {t("writing.tabTranslate")}
+              </TabsTrigger>
+              <TabsTrigger value="part" className="px-4">
+                {t("writing.tabByPart")}
+              </TabsTrigger>
+            </TabsList>
           </div>
-        </div>
+        </Tabs>
 
+        {activeTab === "part" ? (
+          <div className="rounded-2xl border border-stone-200 dark:border-border bg-white dark:bg-card p-6">
+            <p className="text-sm text-muted-foreground">
+              {t("common.featureWillBeUpdated")}
+            </p>
+          </div>
+        ) : (
+          <>
         {/* Filters */}
         <div
           className="flex flex-wrap gap-3 animate-in fade-in slide-in-from-top-2 duration-500"
@@ -223,6 +245,8 @@ export default function WritingPage() {
                 </Button>
               </div>
             )}
+          </>
+        )}
           </>
         )}
       </div>

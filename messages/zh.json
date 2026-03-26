@@ -17,7 +17,8 @@
     "viewAll": "查看全部",
     "selectAll": "全选",
     "clearAll": "清除",
-    "comingSoon": "即将推出"
+    "comingSoon": "即将推出",
+    "featureWillBeUpdated": "该功能即将更新。"
   },
   "vocabulary": {
     "pageDescription": "探索词汇集以扩展您的语言技能",
@@ -45,7 +46,12 @@
     "sectionStudy": "学习",
     "sectionLibrary": "资料库",
     "sectionAccount": "账户",
-    "dictionary": "词典"
+    "dictionary": "词典",
+    "writing": "写作",
+    "wordPractice": "词汇练习",
+    "exam": "考试",
+    "sectionPractice": "练习",
+    "sectionTest": "测试"
   },
   "onboarding": {
     "welcome": "欢迎来到Mindote!",
@@ -579,7 +585,9 @@
     "selectWords": "选择单词（可选）",
     "selected": "已选",
     "selectAtLeast5": "至少选择5个单词或留空使用全部",
-    "wordSelectionHint": "留空以使用所有单词（最多30个）"
+    "wordSelectionHint": "留空以使用所有单词（最多30个）",
+    "tabAi": "AI阅读",
+    "tabByPart": "按题型"
   },
   "youtube": {
     "title": "YouTube 笔记",
@@ -798,7 +806,9 @@
     "levelPlaceholder": "级别",
     "topicPlaceholder": "主题",
     "filterAllTopics": "所有主题",
-    "clearFilters": "清除"
+    "clearFilters": "清除",
+    "tabTranslate": "翻译段落",
+    "tabByPart": "按题型"
   },
   "chat": {
     "title": "Mindote AI",

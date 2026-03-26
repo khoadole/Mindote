@@ -17,7 +17,8 @@
     "viewAll": "Ver todo",
     "selectAll": "Seleccionar todo",
     "clearAll": "Borrar todo",
-    "comingSoon": "Próximamente"
+    "comingSoon": "Próximamente",
+    "featureWillBeUpdated": "Esta función se actualizará próximamente."
   },
   "vocabulary": {
     "pageDescription": "Explora conjuntos de vocabulario para ampliar tus habilidades lingüísticas",
@@ -45,7 +46,12 @@
     "sectionStudy": "ESTUDIO",
     "sectionLibrary": "BIBLIOTECA",
     "sectionAccount": "CUENTA",
-    "dictionary": "Diccionario"
+    "dictionary": "Diccionario",
+    "writing": "Escritura",
+    "wordPractice": "Practicar palabras",
+    "exam": "Examen",
+    "sectionPractice": "PRÁCTICA",
+    "sectionTest": "EXAMEN"
   },
   "onboarding": {
     "welcome": "¡Bienvenido a Mindote!",
@@ -572,7 +578,9 @@
     "selectWords": "Seleccionar palabras (Opcional)",
     "selected": "seleccionado",
     "selectAtLeast5": "Selecciona al menos 5 palabras o deja vacío",
-    "wordSelectionHint": "Deja vacío para usar todas las palabras (máx 30)"
+    "wordSelectionHint": "Deja vacío para usar todas las palabras (máx 30)",
+    "tabAi": "Lectura con IA",
+    "tabByPart": "Por tipo de tarea"
   },
   "youtube": {
     "title": "Notas de YouTube",
@@ -791,7 +799,9 @@
     "levelPlaceholder": "Nivel",
     "topicPlaceholder": "Tema",
     "filterAllTopics": "Todos los temas",
-    "clearFilters": "Limpiar"
+    "clearFilters": "Limpiar",
+    "tabTranslate": "Traducir pasaje",
+    "tabByPart": "Por tipo de tarea"
   },
   "chat": {
     "title": "Mindote AI",

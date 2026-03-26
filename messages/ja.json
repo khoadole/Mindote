@@ -17,7 +17,8 @@
     "viewAll": "すべて表示",
     "selectAll": "すべて選択",
     "clearAll": "選択解除",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "featureWillBeUpdated": "この機能はまもなく更新されます。"
   },
   "vocabulary": {
     "pageDescription": "語彙セットを探索して言語スキルを拡張する",
@@ -45,7 +46,12 @@
     "sectionStudy": "学習",
     "sectionLibrary": "ライブラリ",
     "sectionAccount": "アカウント",
-    "dictionary": "辞書"
+    "dictionary": "辞書",
+    "writing": "ライティング",
+    "wordPractice": "単語練習",
+    "exam": "試験",
+    "sectionPractice": "練習",
+    "sectionTest": "テスト"
   },
   "onboarding": {
     "welcome": "Mindoteへようこそ!",
@@ -572,7 +578,9 @@
     "selectWords": "単語を選択（オプション）",
     "selected": "選択済み",
     "selectAtLeast5": "5語以上選択するか、空のままにしてください",
-    "wordSelectionHint": "空のままで全単語を使用（最大30語）"
+    "wordSelectionHint": "空のままで全単語を使用（最大30語）",
+    "tabAi": "AI読解",
+    "tabByPart": "パート別"
   },
   "youtube": {
     "title": "YouTubeノート",
@@ -791,7 +799,9 @@
     "levelPlaceholder": "レベル",
     "topicPlaceholder": "トピック",
     "filterAllTopics": "すべてのトピック",
-    "clearFilters": "クリア"
+    "clearFilters": "クリア",
+    "tabTranslate": "英文翻訳",
+    "tabByPart": "パート別"
   },
   "chat": {
     "title": "Mindote AI",

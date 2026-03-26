@@ -20,7 +20,8 @@
     "clearAll": "Clear All",
     "comingSoon": "Coming Soon",
     "signIn": "Sign In",
-    "upgrade": "Upgrade"
+    "upgrade": "Upgrade",
+    "featureWillBeUpdated": "This feature will be updated soon."
   },
   "vocabulary": {
     "pageDescription": "Explore vocabulary sets to expand your language skills",
@@ -63,7 +64,11 @@
     "dictionary": "Dictionary",
     "sectionStudy": "STUDY",
     "sectionLibrary": "LIBRARY",
-    "sectionAccount": "ACCOUNT"
+    "sectionAccount": "ACCOUNT",
+    "wordPractice": "Word Practice",
+    "exam": "Exam",
+    "sectionPractice": "PRACTICE",
+    "sectionTest": "TEST"
   },
   "onboarding": {
     "welcome": "Welcome to Mindote!",
@@ -614,7 +619,9 @@
     "selectWords": "Select Words (Optional)",
     "selected": "selected",
     "selectAtLeast5": "Select at least 5 words or leave empty to use all",
-    "wordSelectionHint": "Leave empty to use all words from collection (max 30)"
+    "wordSelectionHint": "Leave empty to use all words from collection (max 30)",
+    "tabAi": "AI Reading",
+    "tabByPart": "By Part"
   },
   "youtube": {
     "title": "YouTube Notes",
@@ -925,12 +932,9 @@
     "noFeedback": "Submit your writing to see feedback.",
     "noHistory": "No previous attempts for this passage.",
     "coachNote": "Feedback",
-    "strengths": "Strengths",
-    "improvements": "Improvements",
     "spellingErrors": "Spelling errors",
     "wordsUsedWell": "Words you used well:",
     "betterChoices": "Better word choices (double-click to save):",
-    "tryAgain": "Try Again",
     "minWords": "(min. 10 to evaluate)",
     "freeEvaluationsRemaining_one": "{{count}} free evaluation remaining today",
     "freeEvaluationsRemaining_other": "{{count}} free evaluations remaining today",
@@ -949,7 +953,9 @@
     "levelPlaceholder": "Level",
     "topicPlaceholder": "Topic",
     "filterAllTopics": "All Topics",
-    "clearFilters": "Clear"
+    "clearFilters": "Clear",
+    "tabTranslate": "Translate Passage",
+    "tabByPart": "By Part"
   },
   "chat": {
     "title": "Mindote AI",

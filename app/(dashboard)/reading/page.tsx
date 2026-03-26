@@ -28,17 +28,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BookOpen,
-  ArrowLeft,
   Sparkles,
   Loader2,
   Clock,
@@ -87,8 +80,8 @@ export default function ReadingPage() {
   const [questionType, setQuestionType] = useState<string>("multiple-choice");
   const [contentLanguage, setContentLanguage] =
     useState<string>(DEFAULT_LANGUAGE);
+  const [activeTab, setActiveTab] = useState<"ai" | "part">("ai");
   const [currentPage, setCurrentPage] = useState(1);
-  const [showHowItWorks, setShowHowItWorks] = useState(false);
   const ITEMS_PER_PAGE = 4;
   const MAX_WORDS = 20;
 
@@ -164,70 +157,28 @@ export default function ReadingPage() {
     selectedWordIds.length >= 5 || selectedWordIds.length === 0;
 
   return (
-    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      <div className="relative z-10 p-6 min-h-screen">
+    <div className="px-8 pb-8 pt-4 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+      <div className="relative z-10 px-6 pb-6 pt-2 min-h-screen">
         <div className="max-w-7xl mx-auto space-y-6">
-          {/* Header */}
-          <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-            <Button
-              variant="outline"
-              size="default"
-              onClick={() => router.push("/dashboard")}
-              className="text-base"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              {t("common.back")}
-            </Button>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <BookOpen className="h-8 w-8 text-primary" />
-                <h1 className="text-4xl font-bold">{t("reading.title")}</h1>
-              </div>
-              <Dialog open={showHowItWorks} onOpenChange={setShowHowItWorks}>
-                <DialogTrigger asChild>
-                  <Button variant="outline" size="sm" className="rounded-full">
-                    <Sparkles className="h-4 w-4 mr-2" />
-                    {t("reading.howItWorks")}
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-md">
-                  <DialogHeader>
-                    <DialogTitle className="text-xl font-bold">
-                      {t("reading.howItWorks")}
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-0 pt-2">
-                    {[
-                      {
-                        step: 1,
-                        text: t("reading.chooseCollectionStep", { count: 5 }),
-                      },
-                      { step: 2, text: t("reading.selectDifficultyStep") },
-                      { step: 3, text: t("reading.aiGeneratesStep") },
-                      { step: 4, text: t("reading.readAnswerStep") },
-                      { step: 5, text: t("reading.trackProgressStep") },
-                    ].map((item, index) => (
-                      <div key={item.step} className="flex items-start gap-4">
-                        <div className="flex flex-col items-center">
-                          <div className="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-bold shrink-0">
-                            {item.step}
-                          </div>
-                          {index < 4 && (
-                            <div className="w-0.5 h-6 bg-blue-200 dark:bg-blue-800" />
-                          )}
-                        </div>
-                        <p className="text-base font-medium text-foreground pt-1.5 pb-4">
-                          {item.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </DialogContent>
-              </Dialog>
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as "ai" | "part")}
+            className="animate-in fade-in slide-in-from-top-2 duration-500"
+          >
+            <div className="inline-flex w-fit self-start rounded-xl border border-stone-300 dark:border-border bg-white/60 dark:bg-card/60 p-1">
+              <TabsList className="h-10 bg-transparent p-0">
+                <TabsTrigger value="ai" className="px-4">
+                  {t("reading.tabAi")}
+                </TabsTrigger>
+                <TabsTrigger value="part" className="px-4">
+                  {t("reading.tabByPart")}
+                </TabsTrigger>
+              </TabsList>
             </div>
-          </div>
+          </Tabs>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {activeTab === "ai" ? (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Generation Form */}
             <div className="lg:col-span-1 space-y-6">
               <Card
@@ -679,7 +630,16 @@ export default function ReadingPage() {
                 </CardContent>
               </Card>
             </div>
-          </div>
+            </div>
+          ) : (
+            <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)]">
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  {t("common.featureWillBeUpdated")}
+                </p>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </div>

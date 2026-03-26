@@ -17,7 +17,8 @@
     "viewAll": "Alle anzeigen",
     "selectAll": "Alle auswählen",
     "clearAll": "Auswahl aufheben",
-    "comingSoon": "Demnächst"
+    "comingSoon": "Demnächst",
+    "featureWillBeUpdated": "Diese Funktion wird in Kürze aktualisiert."
   },
   "vocabulary": {
     "pageDescription": "Erkunden Sie Vokabelsätze, um Ihre Sprachkenntnisse zu erweitern",
@@ -45,7 +46,12 @@
     "sectionStudy": "LERNEN",
     "sectionLibrary": "BIBLIOTHEK",
     "sectionAccount": "KONTO",
-    "dictionary": "Wörterbuch"
+    "dictionary": "Wörterbuch",
+    "writing": "Schreiben",
+    "wordPractice": "Wörter üben",
+    "exam": "Prüfung",
+    "sectionPractice": "ÜBUNG",
+    "sectionTest": "TEST"
   },
   "onboarding": {
     "welcome": "Willkommen bei Mindote!",
@@ -571,7 +577,9 @@
     "selectWords": "Wörter auswählen (Optional)",
     "selected": "ausgewählt",
     "selectAtLeast5": "Mindestens 5 Wörter auswählen oder leer lassen",
-    "wordSelectionHint": "Leer lassen um alle Wörter zu verwenden (max 30)"
+    "wordSelectionHint": "Leer lassen um alle Wörter zu verwenden (max 30)",
+    "tabAi": "KI-Lesen",
+    "tabByPart": "Nach Aufgabentyp"
   },
   "youtube": {
     "title": "YouTube-Notizen",
@@ -851,7 +859,9 @@
     "levelPlaceholder": "Niveau",
     "topicPlaceholder": "Thema",
     "filterAllTopics": "Alle Themen",
-    "clearFilters": "Zurücksetzen"
+    "clearFilters": "Zurücksetzen",
+    "tabTranslate": "Text übersetzen",
+    "tabByPart": "Nach Aufgabentyp"
   },
   "chat": {
     "title": "Mindote AI",

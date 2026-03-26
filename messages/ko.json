@@ -17,7 +17,8 @@
     "viewAll": "모두 보기",
     "selectAll": "모두 선택",
     "clearAll": "모두 해제",
-    "comingSoon": "출시 예정"
+    "comingSoon": "출시 예정",
+    "featureWillBeUpdated": "이 기능은 곧 업데이트될 예정입니다."
   },
   "vocabulary": {
     "pageDescription": "어휘 세트를 탐색하여 언어 능력을 확장하세요",
@@ -45,7 +46,12 @@
     "sectionStudy": "학습",
     "sectionLibrary": "라이브러리",
     "sectionAccount": "계정",
-    "dictionary": "사전"
+    "dictionary": "사전",
+    "writing": "쓰기",
+    "wordPractice": "단어 연습",
+    "exam": "시험",
+    "sectionPractice": "연습",
+    "sectionTest": "테스트"
   },
   "onboarding": {
     "welcome": "Mindote에 오신 것을 환영합니다!",
@@ -579,7 +585,9 @@
     "selectWords": "단어 선택 (선택사항)",
     "selected": "선택됨",
     "selectAtLeast5": "5개 이상 선택하거나 비워두세요",
-    "wordSelectionHint": "비워두면 모든 단어 사용 (최대 30개)"
+    "wordSelectionHint": "비워두면 모든 단어 사용 (최대 30개)",
+    "tabAi": "AI 읽기",
+    "tabByPart": "파트별"
   },
   "youtube": {
     "title": "YouTube 노트",
@@ -798,7 +806,9 @@
     "levelPlaceholder": "레벨",
     "topicPlaceholder": "주제",
     "filterAllTopics": "모든 주제",
-    "clearFilters": "지우기"
+    "clearFilters": "지우기",
+    "tabTranslate": "지문 번역",
+    "tabByPart": "파트별"
   },
   "chat": {
     "title": "Mindote AI",

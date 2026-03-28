@@ -957,6 +957,7 @@
     "loadingCalendar": "Đang tải lịch...",
     "loadingFailed": "Không tải được lịch",
     "daysLearnedInMonth": "{{count}} ngày học trong tháng",
+    "streakExplanation": "Streak được tính khi bạn hoàn thành ít nhất 1 bài trong ngày hôm nay.",
     "sun": "CN",
     "mon": "T2",
     "tue": "T3",

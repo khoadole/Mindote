@@ -823,6 +823,7 @@
     "loadingCalendar": "カレンダーを読み込み中...",
     "loadingFailed": "カレンダーを読み込めませんでした",
     "daysLearnedInMonth": "今月の学習日数: {{count}}日",
+    "streakExplanation": "ストリークは、今日少なくとも1つのレッスンを完了した時点で計算されます。",
     "sun": "日",
     "mon": "月",
     "tue": "火",

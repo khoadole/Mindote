@@ -977,6 +977,7 @@
     "loadingCalendar": "Loading calendar...",
     "loadingFailed": "Could not load calendar",
     "daysLearnedInMonth": "{{count}} learning days this month",
+    "streakExplanation": "Streak is calculated when you complete at least 1 lesson today.",
     "sun": "Sun",
     "mon": "Mon",
     "tue": "Tue",

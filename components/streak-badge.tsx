@@ -216,6 +216,12 @@ export function StreakBadge({ currentStreak }: StreakBadgeProps) {
                   </div>
                 </div>
 
+                <div className="p-3 rounded-lg bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-800/30">
+                  <p className="text-sm text-amber-900/70 dark:text-amber-200/70 leading-relaxed">
+                    {t("streak.streakExplanation")}
+                  </p>
+                </div>
+
                 <div className="grid grid-cols-7 gap-2">
                   {weekdays.map((day) => (
                     <div

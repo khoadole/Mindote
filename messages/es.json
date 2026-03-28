@@ -823,6 +823,7 @@
     "loadingCalendar": "Cargando calendario...",
     "loadingFailed": "No se pudo cargar el calendario",
     "daysLearnedInMonth": "{{count}} días de estudio este mes",
+    "streakExplanation": "El streak se calcula cuando completas al menos 1 lección hoy.",
     "sun": "Dom",
     "mon": "Lun",
     "tue": "Mar",

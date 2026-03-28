@@ -830,6 +830,7 @@
     "loadingCalendar": "正在加载日历...",
     "loadingFailed": "无法加载日历",
     "daysLearnedInMonth": "本月学习天数：{{count}}天",
+    "streakExplanation": "当您今天完成至少 1 课程时，连续天数会被计算。",
     "sun": "日",
     "mon": "一",
     "tue": "二",

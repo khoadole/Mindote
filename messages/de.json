@@ -874,5 +874,21 @@
     "errorMessage": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
     "thinking": "Nachdenken...",
     "tooltip": "Mit Mindote AI chatten"
+  },
+  "streak": {
+    "badgeDays": "{{count}} Tage",
+    "tooltipOpen": "Klicken, um den Streak-Kalender zu sehen",
+    "calendarTitle": "Streak-Kalender",
+    "currentStreak": "Aktueller Streak: {{count}} Tage",
+    "loadingCalendar": "Kalender wird geladen...",
+    "loadingFailed": "Kalender konnte nicht geladen werden",
+    "daysLearnedInMonth": "{{count}} Lerntage in diesem Monat",
+    "sun": "So",
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa"
   }
 }

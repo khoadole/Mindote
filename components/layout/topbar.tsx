@@ -22,6 +22,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { StreakBadge } from "@/components/streak-badge";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections } from "@/hooks/use-collections";
 import { useUserStats } from "@/hooks/use-settings";
@@ -262,13 +263,8 @@ export function Topbar({ onMobileMenuClick }: TopbarProps = {}) {
           </div>
 
           {/* Streak Badge */}
-          <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200/50 dark:border-orange-800/30 text-orange-600 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors">
-            <span className="text-lg leading-none">🔥</span>
-            <span className="font-bold text-sm">
-              {currentStreak > 0
-                ? t("dashboard.dayStreak", { count: currentStreak })
-                : t("dashboard.startToday")}
-            </span>
+          <div className="hidden md:flex">
+            <StreakBadge currentStreak={currentStreak} />
           </div>
         </div>
       </div>

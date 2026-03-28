@@ -821,5 +821,21 @@
     "errorMessage": "Algo deu errado. Por favor, tente novamente.",
     "thinking": "Pensando...",
     "tooltip": "Conversar com Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} dias",
+    "tooltipOpen": "Clique para ver o calendário de sequência",
+    "calendarTitle": "Calendário de sequência",
+    "currentStreak": "Sequência atual: {{count}} dias",
+    "loadingCalendar": "Carregando calendário...",
+    "loadingFailed": "Não foi possível carregar o calendário",
+    "daysLearnedInMonth": "{{count}} dias de estudo neste mês",
+    "sun": "Dom",
+    "mon": "Seg",
+    "tue": "Ter",
+    "wed": "Qua",
+    "thu": "Qui",
+    "fri": "Sex",
+    "sat": "Sáb"
   }
 }

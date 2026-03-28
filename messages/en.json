@@ -968,5 +968,21 @@
     "errorMessage": "Something went wrong. Please try again.",
     "thinking": "Thinking...",
     "tooltip": "Chat with Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} days",
+    "tooltipOpen": "Click to view streak calendar",
+    "calendarTitle": "Streak Calendar",
+    "currentStreak": "Current streak: {{count}} days",
+    "loadingCalendar": "Loading calendar...",
+    "loadingFailed": "Could not load calendar",
+    "daysLearnedInMonth": "{{count}} learning days this month",
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
   }
 }

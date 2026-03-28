@@ -948,5 +948,21 @@
     "errorMessage": "Đã xảy ra lỗi. Vui lòng thử lại.",
     "thinking": "Đang xử lý...",
     "tooltip": "Chat với Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} ngày",
+    "tooltipOpen": "Nhấn để xem lịch streak",
+    "calendarTitle": "Lịch streak",
+    "currentStreak": "Chuỗi hiện tại: {{count}} ngày",
+    "loadingCalendar": "Đang tải lịch...",
+    "loadingFailed": "Không tải được lịch",
+    "daysLearnedInMonth": "{{count}} ngày học trong tháng",
+    "sun": "CN",
+    "mon": "T2",
+    "tue": "T3",
+    "wed": "T4",
+    "thu": "T5",
+    "fri": "T6",
+    "sat": "T7"
   }
 }

@@ -814,5 +814,21 @@
     "errorMessage": "Algo salió mal. Por favor, inténtelo de nuevo.",
     "thinking": "Pensando...",
     "tooltip": "Chatear con Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} días",
+    "tooltipOpen": "Haz clic para ver el calendario de racha",
+    "calendarTitle": "Calendario de racha",
+    "currentStreak": "Racha actual: {{count}} días",
+    "loadingCalendar": "Cargando calendario...",
+    "loadingFailed": "No se pudo cargar el calendario",
+    "daysLearnedInMonth": "{{count}} días de estudio este mes",
+    "sun": "Dom",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mié",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Sáb"
   }
 }

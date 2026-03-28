@@ -3,6 +3,7 @@
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
+import { useLastSevenDaysActivity } from "@/hooks/use-activity-logger";
 import { Button } from "@/components/ui/button";
 import {
   Plus,
@@ -108,6 +109,8 @@ export default function Dashboard() {
 
   useKeyboardShortcuts();
 
+  const { data: activityDays } = useLastSevenDaysActivity();
+
   useEffect(() => {
     updateUserStreakAction();
   }, []);
@@ -123,14 +126,25 @@ export default function Dashboard() {
       const daysAgo = 6 - i;
       const date = new Date(today);
       date.setDate(today.getDate() - daysAgo);
+      const dateStr = date.toISOString().split("T")[0]; // YYYY-MM-DD
+
+      // Check if this day has activity from API
+      const activityForDay = activityDays?.find(
+        (day: any) => day.date === dateStr
+      );
+      const hasActivity = activityForDay
+        ? activityForDay.hasActivity
+        : false;
+
       return {
         day: dayNames[date.getDay()],
         date: date.getDate(),
         isToday: daysAgo === 0,
-        hasActivity: daysAgo === 0 || currentStreak > daysAgo,
+        hasActivity,
+        activityCount: activityForDay?.totalEvents || 0,
       };
     });
-  }, [currentStreak]);
+  }, [currentStreak, activityDays]);
 
   const statItems = [
     {

@@ -4,6 +4,7 @@ import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 import { hasActiveSubscription } from "@/app/actions/lemonsqueezy";
 import { logAIUsage } from "@/lib/ai-logger";
+import { logActivity } from "@/lib/activity-logger";
 import type { AIWritingResult } from "@/lib/types";
 
 const openai = new OpenAI({
@@ -236,6 +237,12 @@ Trả về CHỈ JSON hợp lệ, không có định dạng markdown:
         aiResult: aiResult as object,
         score: aiResult.overallScore,
       },
+    });
+
+    // Log learning activity for streak tracking
+    await logActivity({
+      userId,
+      activityType: "writing_attempt",
     });
 
     // Keep only last MAX_ATTEMPTS_PER_PASSAGE attempts per (userId, passageId)

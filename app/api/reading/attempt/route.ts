@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
+import { logActivity } from "@/lib/activity-logger";
 
 interface SubmitAttemptRequest {
   passageId: string;
@@ -59,6 +60,12 @@ export async function POST(request: NextRequest) {
         score,
         answers,
       },
+    });
+
+    // Log learning activity for streak tracking
+    await logActivity({
+      userId,
+      activityType: "reading_attempt",
     });
 
     return NextResponse.json({

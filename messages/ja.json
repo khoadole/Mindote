@@ -814,5 +814,21 @@
     "errorMessage": "エラーが発生しました。もう一度お試しください。",
     "thinking": "考え中...",
     "tooltip": "Mindote AI とチャット"
+  },
+  "streak": {
+    "badgeDays": "{{count}}日",
+    "tooltipOpen": "クリックしてストリークカレンダーを表示",
+    "calendarTitle": "ストリークカレンダー",
+    "currentStreak": "現在の連続日数: {{count}}日",
+    "loadingCalendar": "カレンダーを読み込み中...",
+    "loadingFailed": "カレンダーを読み込めませんでした",
+    "daysLearnedInMonth": "今月の学習日数: {{count}}日",
+    "sun": "日",
+    "mon": "月",
+    "tue": "火",
+    "wed": "水",
+    "thu": "木",
+    "fri": "金",
+    "sat": "土"
   }
 }

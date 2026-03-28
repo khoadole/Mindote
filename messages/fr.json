@@ -813,5 +813,21 @@
     "errorMessage": "Une erreur s'est produite. Veuillez réessayer.",
     "thinking": "Réflexion en cours...",
     "tooltip": "Discuter avec Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} jours",
+    "tooltipOpen": "Cliquez pour voir le calendrier de série",
+    "calendarTitle": "Calendrier de série",
+    "currentStreak": "Série actuelle : {{count}} jours",
+    "loadingCalendar": "Chargement du calendrier...",
+    "loadingFailed": "Impossible de charger le calendrier",
+    "daysLearnedInMonth": "{{count}} jours d’apprentissage ce mois-ci",
+    "sun": "Dim",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam"
   }
 }

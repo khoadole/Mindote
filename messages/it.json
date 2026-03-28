@@ -813,5 +813,21 @@
     "errorMessage": "Qualcosa è andato storto. Per favore riprova.",
     "thinking": "Sto pensando...",
     "tooltip": "Chatta con Mindote AI"
+  },
+  "streak": {
+    "badgeDays": "{{count}} giorni",
+    "tooltipOpen": "Clicca per vedere il calendario della serie",
+    "calendarTitle": "Calendario serie",
+    "currentStreak": "Serie attuale: {{count}} giorni",
+    "loadingCalendar": "Caricamento calendario...",
+    "loadingFailed": "Impossibile caricare il calendario",
+    "daysLearnedInMonth": "{{count}} giorni di studio in questo mese",
+    "sun": "Dom",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Gio",
+    "fri": "Ven",
+    "sat": "Sab"
   }
 }

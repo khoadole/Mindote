@@ -821,5 +821,21 @@
     "errorMessage": "오류가 발생했습니다. 다시 시도해 주세요.",
     "thinking": "생각 중...",
     "tooltip": "Mindote AI와 채팅"
+  },
+  "streak": {
+    "badgeDays": "{{count}}일",
+    "tooltipOpen": "클릭하여 스트릭 캘린더 보기",
+    "calendarTitle": "스트릭 캘린더",
+    "currentStreak": "현재 스트릭: {{count}}일",
+    "loadingCalendar": "캘린더 불러오는 중...",
+    "loadingFailed": "캘린더를 불러올 수 없습니다",
+    "daysLearnedInMonth": "이번 달 학습일: {{count}}일",
+    "sun": "일",
+    "mon": "월",
+    "tue": "화",
+    "wed": "수",
+    "thu": "목",
+    "fri": "금",
+    "sat": "토"
   }
 }

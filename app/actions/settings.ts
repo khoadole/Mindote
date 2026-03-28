@@ -4,10 +4,15 @@ import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
 import { ensureUserExists } from "@/lib/ensure-user";
+import { calculateStreakFromActivity } from "@/lib/activity-logger";
 
 /**
- * Update user's login streak
- * Called when user logs in or visits the dashboard
+ * Update user's learning streak
+ * Called when user visits the dashboard
+ * 
+ * Now based on actual learning activity (reviews, reading, writing, CEFR)
+ * instead of just login dates. Calculates streak by counting consecutive
+ * days with at least one learning activity.
  */
 export async function updateUserStreakAction() {
   try {
@@ -17,7 +22,6 @@ export async function updateUserStreakAction() {
     const user = await prisma.user.findUnique({
       where: { id: userId },
       select: {
-        lastLoginDate: true,
         currentStreak: true,
         longestStreak: true,
       },
@@ -27,40 +31,12 @@ export async function updateUserStreakAction() {
       return { error: "User not found", data: null };
     }
 
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const lastLogin = user.lastLoginDate
-      ? new Date(
-          user.lastLoginDate.getFullYear(),
-          user.lastLoginDate.getMonth(),
-          user.lastLoginDate.getDate()
-        )
-      : null;
-
-    let newStreak = user.currentStreak || 0;
-    let newLongestStreak = user.longestStreak || 0;
-
-    if (!lastLogin) {
-      // First login ever
-      newStreak = 1;
-    } else {
-      const daysDiff = Math.floor(
-        (today.getTime() - lastLogin.getTime()) / (1000 * 60 * 60 * 24)
-      );
-
-      if (daysDiff === 0) {
-        // Same day, no change
-        newStreak = user.currentStreak || 1;
-      } else if (daysDiff === 1) {
-        // Consecutive day, increment streak
-        newStreak = (user.currentStreak || 0) + 1;
-      } else {
-        // Missed a day or more, reset streak
-        newStreak = 1;
-      }
-    }
+    // Calculate streak from daily_activity records
+    // This counts consecutive days with at least one learning activity
+    const newStreak = await calculateStreakFromActivity(userId);
 
     // Update longest streak if current is higher
+    let newLongestStreak = user.longestStreak || 0;
     if (newStreak > newLongestStreak) {
       newLongestStreak = newStreak;
     }
@@ -68,7 +44,6 @@ export async function updateUserStreakAction() {
     await prisma.user.update({
       where: { id: userId },
       data: {
-        lastLoginDate: now,
         currentStreak: newStreak,
         longestStreak: newLongestStreak,
       },

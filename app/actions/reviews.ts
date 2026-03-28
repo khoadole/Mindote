@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
 import { calculateNextReview, type ReviewQuality } from "@/lib/srs";
+import { logActivity } from "@/lib/activity-logger";
 
 // Re-export ReviewQuality for client components
 export type { ReviewQuality };
@@ -161,6 +162,12 @@ export async function submitReview(wordId: string, quality: ReviewQuality) {
         nextReview: srsData.nextReview,
         score: quality === 0 ? Math.max(0, word.score - 1) : word.score + 1,
       },
+    });
+
+    // Log learning activity for streak tracking
+    await logActivity({
+      userId,
+      activityType: "review",
     });
 
     revalidatePath("/dashboard");

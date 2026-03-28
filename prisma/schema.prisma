@@ -18,6 +18,7 @@ model User {
   updatedAt     DateTime       @updatedAt @map("updated_at")
   currentStreak Int            @default(0) @map("current_streak")
   lastLoginDate DateTime?      @map("last_login_date")
+  lastLearningDate DateTime?   @map("last_learning_date")
   longestStreak Int            @default(0) @map("longest_streak")
   collections     Collection[]
   setting         Setting?
@@ -29,6 +30,7 @@ model User {
   writingAttempts WritingAttempt[]
   chatSessions    ChatSession[]
   chatUsages      ChatUsage[]
+  dailyActivity   UserDailyActivity[]
 
   @@index([email])
   @@map("users")
@@ -360,6 +362,39 @@ model WritingAttempt {
   @@index([userId, passageId])
   @@index([userId, completedAt])
   @@map("writing_attempts")
+}
+
+// ============================================
+// ACTIVITY TRACKING TABLES
+// ============================================
+
+model UserDailyActivity {
+  id                    String    @id @default(uuid()) @db.Uuid
+  userId                String    @map("user_id") @db.Uuid
+  activityDate          DateTime  @map("activity_date") @db.Date
+  
+  // Timestamps tracking first and last activity
+  firstActivityAt       DateTime  @default(now()) @map("first_activity_at")
+  lastActivityAt        DateTime  @default(now()) @updatedAt @map("last_activity_at")
+  
+  // Activity counters by type
+  reviewCount           Int       @default(0) @map("review_count")
+  readingAttemptCount   Int       @default(0) @map("reading_attempt_count")
+  writingAttemptCount   Int       @default(0) @map("writing_attempt_count")
+  cefrLearnCount        Int       @default(0) @map("cefr_learn_count")
+  wordCreatedCount      Int       @default(0) @map("word_created_count")
+  
+  totalEvents           Int       @default(1) @map("total_events")
+  
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @default(now()) @updatedAt @map("updated_at")
+  
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, activityDate])
+  @@index([userId, activityDate(sort: Desc)])
+  @@index([activityDate(sort: Desc)])
+  @@map("user_daily_activity")
 }
 
 // ============================================

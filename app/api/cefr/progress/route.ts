@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { getUserId } from "@/lib/server-auth";
+import { logActivity } from "@/lib/activity-logger";
+import { updateUserStreakAction } from "@/app/actions/settings";
 
 // GET: Get user's learning progress for CEFR vocabulary
 export async function GET(request: NextRequest) {
@@ -119,6 +121,25 @@ export async function POST(request: NextRequest) {
           learnedAt: new Date(),
         },
       });
+
+      // Log learning activity for streak tracking
+      try {
+        const activityResult = await logActivity({
+          userId,
+          activityType: "cefr_learn",
+        });
+        console.log("[Activity Logger] CEFR learn logged:", { userId, activityResult });
+
+        // Recalculate streak
+        try {
+          const streakResult = await updateUserStreakAction();
+          console.log("[Streak Update] Streak recalculated:", streakResult);
+        } catch (streakError) {
+          console.warn("[Streak Update] Failed to recalculate streak:", streakError);
+        }
+      } catch (activityError) {
+        console.error("[Activity Logger] Failed to log CEFR learn activity:", activityError);
+      }
 
       return NextResponse.json({ success: true, learned: true });
     }

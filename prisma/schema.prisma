@@ -31,6 +31,7 @@ model User {
   chatSessions    ChatSession[]
   chatUsages      ChatUsage[]
   dailyActivity   UserDailyActivity[]
+  readingPracticeAttempts ReadingPracticeAttempt[]
 
   @@index([email])
   @@map("users")
@@ -138,6 +139,51 @@ model ReadingAttempt {
   @@index([userId, completedAt])
   @@index([completedAt], map: "idx_reading_attempts_completed_at_brin", type: Brin)
   @@map("reading_attempts")
+}
+
+model ReadingPracticePart {
+  id              String                   @id @default(uuid()) @db.Uuid
+  examTitle       String                   @map("exam_title")
+  examCode        String?                  @map("exam_code")
+  partNumber      Int                      @map("part_number")
+  title           String
+  content         String
+  instructions    String?
+  questionBlocks  Json                     @map("question_blocks")
+  totalQuestions  Int                      @default(0) @map("total_questions")
+  estimatedMinutes Int                     @default(20) @map("estimated_minutes")
+  level           String?
+  tags            String[]
+  status          String                   @default("DRAFT")
+  displayOrder    Int                      @default(0) @map("display_order")
+  createdAt       DateTime                 @default(now()) @map("created_at")
+  updatedAt       DateTime                 @updatedAt @map("updated_at")
+  attempts        ReadingPracticeAttempt[]
+
+  @@index([status, partNumber, displayOrder])
+  @@index([examTitle])
+  @@index([createdAt])
+  @@map("reading_practice_parts")
+}
+
+model ReadingPracticeAttempt {
+  id           String              @id @default(uuid()) @db.Uuid
+  userId       String              @map("user_id") @db.Uuid
+  partId       String              @map("part_id") @db.Uuid
+  answers      Json
+  result       Json?
+  correctCount Int                 @map("correct_count")
+  totalCount   Int                 @map("total_count")
+  score        Int
+  completedAt  DateTime            @default(now()) @map("completed_at")
+  updatedAt    DateTime            @updatedAt @map("updated_at")
+
+  user User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  part ReadingPracticePart     @relation(fields: [partId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, partId])
+  @@index([userId, completedAt])
+  @@map("reading_practice_attempts")
 }
 
 model Plan {

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCollections } from "@/hooks/use-collections";
 import { useWords } from "@/hooks/use-words";
 import { useGeneratePassage, useReadingPassages } from "@/hooks/use-reading";
+import { useReadingPracticeList } from "@/hooks/use-reading-practice";
 import {
   DIFFICULTY_LEVELS,
   getCefrCode,
@@ -71,6 +72,8 @@ export default function ReadingPage() {
   const router = useRouter();
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: passages, isLoading: passagesLoading } = useReadingPassages();
+  const { data: readingPracticeParts, isLoading: readingPracticeLoading } =
+    useReadingPracticeList();
   const generateMutation = useGeneratePassage();
 
   const [selectedCollection, setSelectedCollection] = useState<string>("");
@@ -80,7 +83,7 @@ export default function ReadingPage() {
   const [questionType, setQuestionType] = useState<string>("multiple-choice");
   const [contentLanguage, setContentLanguage] =
     useState<string>(DEFAULT_LANGUAGE);
-  const [activeTab, setActiveTab] = useState<"ai" | "part">("ai");
+  const [activeTab, setActiveTab] = useState<"ai" | "part">("part");
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 4;
   const MAX_WORDS = 20;
@@ -167,11 +170,11 @@ export default function ReadingPage() {
           >
             <div className="inline-flex w-fit self-start rounded-xl border border-stone-300 dark:border-border bg-white/60 dark:bg-card/60 p-1">
               <TabsList className="h-10 bg-transparent p-0">
-                <TabsTrigger value="ai" className="px-4">
-                  {t("reading.tabAi")}
-                </TabsTrigger>
                 <TabsTrigger value="part" className="px-4">
                   {t("reading.tabByPart")}
+                </TabsTrigger>
+                <TabsTrigger value="ai" className="px-4">
+                  {t("reading.tabAi")}
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -634,9 +637,56 @@ export default function ReadingPage() {
           ) : (
             <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)]">
               <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  {t("common.featureWillBeUpdated")}
-                </p>
+                {readingPracticeLoading ? (
+                  <div className="py-6 text-center text-muted-foreground text-sm">
+                    {t("common.loading")}
+                  </div>
+                ) : !readingPracticeParts || readingPracticeParts.length === 0 ? (
+                  <div className="py-6 text-center text-muted-foreground text-sm">
+                    No published reading practice yet.
+                  </div>
+                ) : (
+                  <div className="space-y-4 py-4">
+                    {readingPracticeParts.map((part) => (
+                      <Link
+                        key={part.id}
+                        href={`/reading/practice/${part.id}`}
+                        className="block"
+                      >
+                        <div className="group relative overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-background via-background to-muted/20 p-5 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/60 hover:shadow-[0_14px_36px_-16px_rgba(37,99,235,0.35)]">
+                          <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_45%)]" />
+                          <div className="relative flex items-start justify-between gap-4">
+                            <div>
+                              <div className="mb-2 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
+                                Part {part.partNumber}
+                              </div>
+                              <h3 className="font-semibold text-lg leading-tight text-foreground/95">
+                                {part.examTitle}
+                              </h3>
+                              <p className="text-sm text-muted-foreground mt-1.5">
+                                {part.title}
+                              </p>
+                              <p className="text-xs text-muted-foreground mt-3">
+                                {part.totalQuestions} questions • {part.estimatedMinutes} min
+                              </p>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              {part.latestAttempt ? (
+                                <Badge className="bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                                  {part.latestAttempt.correctCount}/{part.latestAttempt.totalCount}
+                                </Badge>
+                              ) : (
+                                <Badge variant="outline" className="text-muted-foreground">
+                                  New
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </CardContent>
             </Card>
           )}

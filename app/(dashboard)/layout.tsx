@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
 import { useRequireAuth } from "@/hooks/use-auth-guard";
@@ -23,7 +24,9 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const isReadingPracticeFocus = pathname?.startsWith("/reading/practice/");
 
   // ⚡ Client-side auth check - cached for 5 minutes
   const { isLoading } = useRequireAuth();
@@ -31,6 +34,14 @@ export default function DashboardLayout({
   // Show loading spinner during initial auth check
   if (isLoading) {
     return <AuthLoadingSpinner />;
+  }
+
+  if (isReadingPracticeFocus) {
+    return (
+      <div className="h-screen bg-background overflow-hidden">
+        <main className="h-full overflow-y-auto">{children}</main>
+      </div>
+    );
   }
 
   return (

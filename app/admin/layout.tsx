@@ -41,6 +41,7 @@ export default function AdminLayout({
 
   const navItems = [
     { label: "Writing Passages", href: "/admin/writing", icon: PenLine },
+    { label: "Reading Practice", href: "/admin/reading", icon: BookOpen },
     { label: "Vocabulary", href: "/admin/vocabulary", icon: BookOpen },
     { label: "Users", href: "/admin/users", icon: Users },
   ];

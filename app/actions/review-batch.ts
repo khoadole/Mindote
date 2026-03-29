@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { getUserId } from "@/lib/server-auth";
 import type { ReviewResult } from "@/lib/srs";
+import { logActivity } from "@/lib/activity-logger";
 
 /**
  * Submit multiple reviews at once (batch update for better performance)
@@ -63,6 +64,12 @@ export async function submitBatchReviews(reviews: ReviewResult[]) {
         });
       })
     );
+
+    // Count this flashcard study batch as one learning activity for streak.
+    await logActivity({
+      userId,
+      activityType: "review",
+    });
 
     revalidatePath("/dashboard");
     revalidatePath("/flashcards");

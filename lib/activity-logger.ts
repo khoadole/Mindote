@@ -218,11 +218,12 @@ export async function getDailyActivityRange(
  * Calculate consecutive day streak from daily activity records
  * 
  * Algorithm:
- * 1. Query daily_activity in DESC order from today backwards
- * 2. Count consecutive days with total_events > 0
- * 3. Stop when gap is found (no activity for that day)
+ * 1. Query daily_activity in DESC order
+ * 2. If user has activity today -> streak starts from today
+ * 3. If no activity today but has activity yesterday -> streak starts from yesterday
+ * 4. Count consecutive days backwards until gap is found
  * 
- * @returns Streak count (0 if no activity today or yesterday breaks chain)
+ * @returns Streak count (keeps yesterday's streak on a new day before first activity)
  */
 export async function calculateStreakFromActivity(
   userId: string,
@@ -248,31 +249,44 @@ export async function calculateStreakFromActivity(
       return 0; // No activity ever
     }
 
+    const normalizeDate = (date: Date) => {
+      const normalized = new Date(date);
+      normalized.setUTCHours(0, 0, 0, 0);
+      return normalized;
+    };
+
+    const toDateKey = (date: Date) => normalizeDate(date).toISOString().split("T")[0];
+    const activeDays = new Set(
+      activities
+        .filter((activity) => activity.totalEvents > 0)
+        .map((activity) => toDateKey(new Date(activity.activityDate)))
+    );
+
+    const today = normalizeDate(TODAY);
+    const yesterday = new Date(today);
+    yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+
+    const todayKey = toDateKey(today);
+    const yesterdayKey = toDateKey(yesterday);
+
+    let currentDate: Date;
+    if (activeDays.has(todayKey)) {
+      currentDate = new Date(today);
+      console.log(`[Streak Calculation] Activity found today (${todayKey}), streak starts from today`);
+    } else if (activeDays.has(yesterdayKey)) {
+      currentDate = new Date(yesterday);
+      console.log(`[Streak Calculation] No activity today, using yesterday (${yesterdayKey}) as streak start`);
+    } else {
+      console.log(`[Streak Calculation] No activity today/yesterday, streak = 0`);
+      return 0;
+    }
+
     let streak = 0;
-    let currentDate = TODAY;
-
-    for (const activity of activities) {
-      const activityDateOnly = new Date(activity.activityDate);
-      activityDateOnly.setUTCHours(0, 0, 0, 0);
-      currentDate.setUTCHours(0, 0, 0, 0);
-
-      const activityDateStr = activityDateOnly.toISOString().split('T')[0];
-      const currentDateStr = currentDate.toISOString().split('T')[0];
-
-      // Check if this activity is on the expected date
-      if (
-        activityDateOnly.getTime() === currentDate.getTime() &&
-        activity.totalEvents > 0
-      ) {
-        streak++;
-        console.log(`[Streak Calculation] Found activity on ${activityDateStr}, streak = ${streak}`);
-        // Move to previous day
-        currentDate.setDate(currentDate.getDate() - 1);
-      } else if (activityDateOnly.getTime() < currentDate.getTime()) {
-        // Gap found - activity doesn't exist for current day
-        console.log(`[Streak Calculation] Gap found: expected ${currentDateStr} but got ${activityDateStr}, stopping at streak=${streak}`);
-        break;
-      }
+    while (activeDays.has(toDateKey(currentDate))) {
+      streak++;
+      const currentKey = toDateKey(currentDate);
+      console.log(`[Streak Calculation] Found activity on ${currentKey}, streak = ${streak}`);
+      currentDate.setUTCDate(currentDate.getUTCDate() - 1);
     }
 
     console.log(`[Streak Calculation] Final streak value: ${streak}`);

@@ -18,8 +18,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useMemo } from "react";
-import { updateUserStreakAction } from "@/app/actions/settings";
+import { useMemo } from "react";
 import { useTranslation } from "@/lib/i18n-provider";
 
 // Card wrapper — ấm, Claude-style
@@ -110,10 +109,6 @@ export default function Dashboard() {
   useKeyboardShortcuts();
 
   const { data: activityDays } = useLastSevenDaysActivity();
-
-  useEffect(() => {
-    updateUserStreakAction();
-  }, []);
 
   const totalWords = stats?.totalWords || 0;
   const masteredWords = stats?.masterWords || 0;

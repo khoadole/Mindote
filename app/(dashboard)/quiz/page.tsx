@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useAllWords } from "@/hooks/use-words";
 import { useCollections, useCollection } from "@/hooks/use-collections";
+import { logQuizActivityAction } from "@/app/actions/reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -53,6 +55,7 @@ const QuizPlayer = dynamic(
 export default function QuizPage() {
   const { t } = useTranslation();
   const router = useRouter();
+  const queryClient = useQueryClient();
   const searchParams = useSearchParams();
   const collectionParam = searchParams.get("collection"); // specific collection ID
 
@@ -130,11 +133,14 @@ export default function QuizPage() {
     setIsQuizzing(true);
   };
 
-  const handleQuizComplete = (results: {
+  const handleQuizComplete = async (results: {
     score: number;
     total: number;
     questions: any[];
   }) => {
+    await logQuizActivityAction();
+    await queryClient.invalidateQueries({ queryKey: ["user-stats"] });
+
     const percentage = Math.round((results.score / results.total) * 100);
     toast({
       title: t("quiz.quizComplete"),

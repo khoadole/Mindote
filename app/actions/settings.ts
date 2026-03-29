@@ -196,7 +196,7 @@ export async function getUserStatsAction() {
       master_words: BigInt(0),
     };
 
-    // Get user streak data
+    // Get persisted streak data
     const user = await prisma.user.findUnique({
       where: { id: userId },
       select: {
@@ -205,6 +205,28 @@ export async function getUserStatsAction() {
         lastLoginDate: true,
       },
     });
+
+    // Always derive current streak from actual daily activity so next-day login
+    // does not show stale streak when user has not learned yet.
+    const calculatedCurrentStreak = await calculateStreakFromActivity(userId);
+    const calculatedLongestStreak = Math.max(
+      user?.longestStreak || 0,
+      calculatedCurrentStreak
+    );
+
+    if (
+      user &&
+      (user.currentStreak !== calculatedCurrentStreak ||
+        user.longestStreak !== calculatedLongestStreak)
+    ) {
+      await prisma.user.update({
+        where: { id: userId },
+        data: {
+          currentStreak: calculatedCurrentStreak,
+          longestStreak: calculatedLongestStreak,
+        },
+      });
+    }
 
     return {
       data: {
@@ -218,8 +240,8 @@ export async function getUserStatsAction() {
         familiarWords: Number(stats.familiar_words),
         masterWords: Number(stats.master_words),
         // Streak data
-        currentStreak: user?.currentStreak || 0,
-        longestStreak: user?.longestStreak || 0,
+        currentStreak: calculatedCurrentStreak,
+        longestStreak: calculatedLongestStreak,
         lastLoginDate: user?.lastLoginDate,
       },
       error: null,

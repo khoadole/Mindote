@@ -181,6 +181,28 @@ export async function submitReview(wordId: string, quality: ReviewQuality) {
 }
 
 /**
+ * Log quiz completion as learning activity for streak tracking.
+ */
+export async function logQuizActivityAction() {
+  try {
+    const userId = await getUserId();
+
+    await logActivity({
+      userId,
+      activityType: "review",
+    });
+
+    revalidatePath("/dashboard");
+    revalidatePath("/quiz");
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error logging quiz activity:", error);
+    return { success: false, error: "Failed to log quiz activity" };
+  }
+}
+
+/**
  * Get due words by collection
  * ✅ OPTIMIZED: Fixed N+1 query, added pagination
  */

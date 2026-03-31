@@ -22,6 +22,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -41,6 +42,7 @@ import {
   ChevronLeft,
   ChevronRight,
   CheckSquare,
+  Search,
   Square,
 } from "lucide-react";
 import Link from "next/link";
@@ -72,8 +74,20 @@ export default function ReadingPage() {
   const router = useRouter();
   const { data: collections, isLoading: collectionsLoading } = useCollections();
   const { data: passages, isLoading: passagesLoading } = useReadingPassages();
+  const [practiceSearch, setPracticeSearch] = useState("");
+  const [debouncedPracticeSearch, setDebouncedPracticeSearch] = useState("");
+  const [practiceSort, setPracticeSort] = useState<
+    "part_asc" | "part_desc" | "updated_desc" | "updated_asc"
+  >("part_asc");
+  const [practicePartFilter, setPracticePartFilter] = useState<
+    "all" | 1 | 2 | 3
+  >("all");
   const { data: readingPracticeParts, isLoading: readingPracticeLoading } =
-    useReadingPracticeList();
+    useReadingPracticeList({
+      search: debouncedPracticeSearch,
+      sort: practiceSort,
+      part: practicePartFilter,
+    });
   const generateMutation = useGeneratePassage();
 
   const [selectedCollection, setSelectedCollection] = useState<string>("");
@@ -96,6 +110,14 @@ export default function ReadingPage() {
   useEffect(() => {
     setSelectedWordIds([]);
   }, [selectedCollection]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedPracticeSearch(practiceSearch.trim());
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [practiceSearch]);
 
   const hasCollections = collections && collections.length > 0;
   const selectedCollectionData = collections?.find(
@@ -636,37 +658,100 @@ export default function ReadingPage() {
             </div>
           ) : (
             <Card className="border border-blue-200/60 dark:border-blue-800/30 border-b-[3px] border-b-blue-300 dark:border-b-blue-700 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)]">
-              <CardContent>
+              <CardContent className="space-y-4">
+                <div className="flex flex-col gap-3 pt-4 md:flex-row md:items-center">
+                  <div className="relative w-full md:flex-1">
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      value={practiceSearch}
+                      onChange={(e) => setPracticeSearch(e.target.value)}
+                      placeholder={t("reading.searchPassages")}
+                      className="pl-9"
+                    />
+                  </div>
+
+                  <Select
+                    value={String(practicePartFilter)}
+                    onValueChange={(value) =>
+                      setPracticePartFilter(
+                        value === "all" ? "all" : (Number(value) as 1 | 2 | 3),
+                      )
+                    }
+                  >
+                    <SelectTrigger className="w-full md:w-[140px]">
+                      <SelectValue placeholder="Part" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All parts</SelectItem>
+                      <SelectItem value="1">Part 1</SelectItem>
+                      <SelectItem value="2">Part 2</SelectItem>
+                      <SelectItem value="3">Part 3</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select
+                    value={practiceSort}
+                    onValueChange={(value) =>
+                      setPracticeSort(
+                        value as
+                          | "part_asc"
+                          | "part_desc"
+                          | "updated_desc"
+                          | "updated_asc",
+                      )
+                    }
+                  >
+                    <SelectTrigger className="w-full md:w-[190px]">
+                      <SelectValue placeholder={t("collections.sort")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="part_asc">Part 1 -&gt; Part 3</SelectItem>
+                      <SelectItem value="part_desc">Part 3 -&gt; Part 1</SelectItem>
+                      <SelectItem value="updated_desc">Recently updated</SelectItem>
+                      <SelectItem value="updated_asc">Least recently updated</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {!readingPracticeLoading && (
+                  <div className="text-xs text-muted-foreground">
+                    {readingPracticeParts?.length || 0} result
+                    {(readingPracticeParts?.length || 0) === 1 ? "" : "s"}
+                  </div>
+                )}
+
                 {readingPracticeLoading ? (
                   <div className="py-6 text-center text-muted-foreground text-sm">
                     {t("common.loading")}
                   </div>
                 ) : !readingPracticeParts || readingPracticeParts.length === 0 ? (
                   <div className="py-6 text-center text-muted-foreground text-sm">
-                    No published reading practice yet.
+                    {practiceSearch || practicePartFilter !== "all"
+                      ? "No reading practice matches your filters."
+                      : "No published reading practice yet."}
                   </div>
                 ) : (
-                  <div className="space-y-4 py-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
                     {readingPracticeParts.map((part) => (
                       <Link
                         key={part.id}
                         href={`/reading/practice/${part.id}`}
                         className="block"
                       >
-                        <div className="group relative overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-background via-background to-muted/20 p-5 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/60 hover:shadow-[0_14px_36px_-16px_rgba(37,99,235,0.35)]">
+                        <div className="group relative overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-background via-background to-muted/20 p-4 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/60 hover:shadow-[0_14px_28px_-16px_rgba(37,99,235,0.35)]">
                           <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_45%)]" />
                           <div className="relative flex items-start justify-between gap-4">
                             <div>
                               <div className="mb-2 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
                                 Part {part.partNumber}
                               </div>
-                              <h3 className="font-semibold text-lg leading-tight text-foreground/95">
+                              <h3 className="font-semibold text-base leading-tight text-foreground/95 line-clamp-2">
                                 {part.examTitle}
                               </h3>
-                              <p className="text-sm text-muted-foreground mt-1.5">
+                              <p className="text-sm text-muted-foreground mt-1.5 line-clamp-2">
                                 {part.title}
                               </p>
-                              <p className="text-xs text-muted-foreground mt-3">
+                              <p className="text-xs text-muted-foreground mt-2.5">
                                 {part.totalQuestions} questions • {part.estimatedMinutes} min
                               </p>
                             </div>

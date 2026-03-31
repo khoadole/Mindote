@@ -2,21 +2,70 @@ import { NextResponse } from "next/server";
 import { getUserId } from "@/lib/server-auth";
 import prisma from "@/lib/prisma";
 
-export async function GET() {
+type ReadingSort = "part_asc" | "part_desc" | "updated_desc" | "updated_asc";
+
+const SORT_OPTIONS: Record<ReadingSort, Array<Record<string, "asc" | "desc">>> = {
+  part_asc: [
+    { partNumber: "asc" },
+    { displayOrder: "asc" },
+    { examTitle: "asc" },
+    { createdAt: "desc" },
+  ],
+  part_desc: [
+    { partNumber: "desc" },
+    { displayOrder: "asc" },
+    { examTitle: "asc" },
+    { createdAt: "desc" },
+  ],
+  updated_desc: [
+    { updatedAt: "desc" },
+    { partNumber: "asc" },
+    { displayOrder: "asc" },
+  ],
+  updated_asc: [
+    { updatedAt: "asc" },
+    { partNumber: "asc" },
+    { displayOrder: "asc" },
+  ],
+};
+
+export async function GET(request: Request) {
   try {
     const userId = await getUserId();
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { searchParams } = new URL(request.url);
+    const rawSearch = searchParams.get("search")?.trim() || "";
+    const rawSort = (searchParams.get("sort") || "part_asc") as ReadingSort;
+    const rawPart = searchParams.get("part");
+
+    const sort = SORT_OPTIONS[rawSort] ? rawSort : "part_asc";
+
+    let parsedPart: 1 | 2 | 3 | null = null;
+    if (rawPart) {
+      const candidate = Number(rawPart);
+      if ([1, 2, 3].includes(candidate)) {
+        parsedPart = candidate as 1 | 2 | 3;
+      }
+    }
+
     const parts = await prisma.readingPracticePart.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: [
-        { displayOrder: "asc" },
-        { examTitle: "asc" },
-        { partNumber: "asc" },
-        { createdAt: "desc" },
-      ],
+      where: {
+        status: "PUBLISHED",
+        ...(parsedPart ? { partNumber: parsedPart } : {}),
+        ...(rawSearch
+          ? {
+              OR: [
+                { examTitle: { contains: rawSearch, mode: "insensitive" } },
+                { title: { contains: rawSearch, mode: "insensitive" } },
+                { examCode: { contains: rawSearch, mode: "insensitive" } },
+              ],
+            }
+          : {}),
+      },
+      orderBy: SORT_OPTIONS[sort],
       select: {
         id: true,
         examTitle: true,

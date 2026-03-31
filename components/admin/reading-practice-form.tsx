@@ -117,6 +117,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   if (type === "true-false-not-given") {
     return {
       id,
+      itemType: "question",
       prompt: "",
       options: ["TRUE", "FALSE", "NOT GIVEN"],
       correctAnswer: "TRUE",
@@ -127,6 +128,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   if (type === "yes-no-not-given") {
     return {
       id,
+      itemType: "question",
       prompt: "",
       options: ["YES", "NO", "NOT GIVEN"],
       correctAnswer: "YES",
@@ -137,6 +139,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   if (type === "multiple-choice-single") {
     return {
       id,
+      itemType: "question",
       prompt: "",
       options: ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4"],
       correctAnswer: "A",
@@ -147,6 +150,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   if (type === "multiple-choice-multi") {
     return {
       id,
+      itemType: "question",
       prompt: "",
       options: [
         "A. Option 1",
@@ -163,6 +167,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   if (MATCHING_TYPES.includes(type)) {
     return {
       id,
+      itemType: "question",
       prompt: "",
       correctAnswer: { "1": "A" },
       explanation: "",
@@ -171,6 +176,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
 
   return {
     id,
+    itemType: "question",
     prompt: "",
     correctAnswer: "",
     acceptableAnswers: [],
@@ -178,12 +184,42 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
   };
 }
 
+function getDefaultSubtitle(): ReadingPracticeQuestion {
+  return {
+    id: buildId("sub"),
+    itemType: "subtitle",
+    prompt: "New subtitle",
+    correctAnswer: "",
+  };
+}
+
+function getDefaultInstructionByType(type: ReadingPracticeQuestionType): string {
+  if (type === "true-false-not-given") {
+    return [
+      "Do the following statements agree with the information given in this Passage?",
+      "In the following statements below, choose",
+      "**TRUE**                   if the statement agrees with the information",
+      "**FALSE**                  if the statement contradicts the information",
+      "**NOT GIVEN**         if it is impossible to say what the writer thinks about this",
+    ].join("\n");
+  }
+
+  if (type === "fill-in-the-blank") {
+    return [
+      "Complete the notes below.",
+      "Choose **ONE WORD AND/OR A NUMBER** from the passage for each answer.",
+    ].join("\n");
+  }
+
+  return "";
+}
+
 function getDefaultBlock(type: ReadingPracticeQuestionType): ReadingPracticeBlock {
   return {
     id: buildId("block"),
     type,
     title: "",
-    instruction: "",
+    instruction: getDefaultInstructionByType(type),
     questions: [getDefaultQuestion(type)],
   };
 }
@@ -233,6 +269,9 @@ export function ReadingPracticeForm({
   const [examCode, setExamCode] = useState(initialValues?.examCode || "");
   const [partNumber, setPartNumber] = useState(initialValues?.partNumber || 1);
   const [title, setTitle] = useState(initialValues?.title || "");
+  const [passageSubtitle, setPassageSubtitle] = useState(
+    initialValues?.passageSubtitle || ""
+  );
   const [content, setContent] = useState(initialValues?.content || "");
   const [instructions, setInstructions] = useState(initialValues?.instructions || "");
   const [estimatedMinutes, setEstimatedMinutes] = useState(
@@ -267,9 +306,13 @@ export function ReadingPracticeForm({
     setBlocks((prev) =>
       prev.map((block) => {
         if (block.id !== blockId) return block;
+        const defaultInstruction = getDefaultInstructionByType(nextType);
         return {
           ...block,
           type: nextType,
+          instruction: block.instruction?.trim()
+            ? block.instruction
+            : defaultInstruction,
           questions: block.questions.map((question) => ({
             ...getDefaultQuestion(nextType),
             id: question.id,
@@ -287,6 +330,37 @@ export function ReadingPracticeForm({
         return {
           ...block,
           questions: [...block.questions, getDefaultQuestion(block.type)],
+        };
+      })
+    );
+  }
+
+  function addSubtitle(blockId: string) {
+    setBlocks((prev) =>
+      prev.map((block) => {
+        if (block.id !== blockId) return block;
+        return {
+          ...block,
+          questions: [...block.questions, getDefaultSubtitle()],
+        };
+      })
+    );
+  }
+
+  function addSubtitleAbove(blockId: string, questionId: string) {
+    setBlocks((prev) =>
+      prev.map((block) => {
+        if (block.id !== blockId) return block;
+        const index = block.questions.findIndex((q) => q.id === questionId);
+        if (index < 0) return block;
+
+        const subtitle = getDefaultSubtitle();
+        const nextQuestions = [...block.questions];
+        nextQuestions.splice(index, 0, subtitle);
+
+        return {
+          ...block,
+          questions: nextQuestions,
         };
       })
     );
@@ -381,6 +455,7 @@ export function ReadingPracticeForm({
       examCode: examCode || null,
       partNumber,
       title,
+      passageSubtitle: passageSubtitle || null,
       content,
       instructions: instructions || null,
       estimatedMinutes,
@@ -463,6 +538,16 @@ export function ReadingPracticeForm({
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Part 1 - Urban Energy"
           required
+        />
+      </div>
+
+      <div className="space-y-1.5">
+        <Label htmlFor="passageSubtitle">Passage Subtitle (optional)</Label>
+        <Input
+          id="passageSubtitle"
+          value={passageSubtitle}
+          onChange={(e) => setPassageSubtitle(e.target.value)}
+          placeholder="The kakapo"
         />
       </div>
 
@@ -570,183 +655,253 @@ export function ReadingPracticeForm({
 
               <div className="space-y-1.5">
                 <Label>Instruction</Label>
-                <Input
+                <Textarea
+                  rows={4}
                   value={block.instruction || ""}
                   onChange={(e) =>
                     updateBlock(block.id, { instruction: e.target.value })
                   }
-                  placeholder="Write instruction for this question block"
+                  placeholder={"Write instruction for this question block\nYou can use multiple lines here."}
                 />
               </div>
 
+              {INLINE_BLANK_TYPES.includes(block.type) && (
+                <div className="space-y-1.5">
+                  <Label>Section Title (centered, optional)</Label>
+                  <Input
+                    value={block.sectionTitle || ""}
+                    onChange={(e) =>
+                      updateBlock(block.id, { sectionTitle: e.target.value })
+                    }
+                    placeholder="New Zealand's kakapo"
+                  />
+                </div>
+              )}
+
               <div className="space-y-3">
-                {block.questions.map((question, questionIndex) => (
+                {(() => {
+                  let subtitleCount = 0;
+                  let questionCount = 0;
+
+                  return block.questions.map((question) => {
+                    if (question.itemType === "subtitle") {
+                      subtitleCount += 1;
+                    } else {
+                      questionCount += 1;
+                    }
+
+                    return (
                   <div key={question.id} className="rounded-md border p-3 space-y-3 bg-muted/20">
                     <div className="flex items-center justify-between">
-                      <div className="text-sm font-medium">Question {questionIndex + 1}</div>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => removeQuestion(block.id, question.id)}
-                        disabled={block.questions.length <= 1}
-                      >
-                        <Trash2 className="h-4 w-4 mr-1" />
-                        Remove
-                      </Button>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <Label>Prompt</Label>
-                      <Textarea
-                        rows={2}
-                        value={question.prompt}
-                        onChange={(e) =>
-                          updateQuestion(block.id, question.id, { prompt: e.target.value })
-                        }
-                        placeholder="Enter question prompt"
-                      />
-                      {INLINE_BLANK_TYPES.includes(block.type) && (
-                        <p className="text-xs text-muted-foreground">
-                          For inline blank display, add a placeholder in prompt like "____" or
-                          "[blank]" where the input should appear.
-                        </p>
-                      )}
-                    </div>
-
-                    {OPTION_TYPES.includes(block.type) &&
-                      block.type !== "true-false-not-given" &&
-                      block.type !== "yes-no-not-given" && (
-                      <div className="space-y-1.5">
-                        <Label>Options (one option per line)</Label>
-                        <Textarea
-                          rows={4}
-                          value={(question.options || []).join("\n")}
-                          onChange={(e) =>
-                            updateQuestion(block.id, question.id, {
-                              options: e.target.value
-                                .split("\n")
-                                .map((v) => v.trim())
-                                .filter(Boolean),
-                            })
-                          }
-                          placeholder="A. ...\nB. ...\nC. ..."
-                        />
+                      <div className="text-sm font-medium">
+                        {question.itemType === "subtitle"
+                          ? `Sub Title ${subtitleCount}`
+                          : `Question ${questionCount}`}
                       </div>
-                    )}
-
-                    {(block.type === "true-false-not-given" ||
-                      block.type === "yes-no-not-given") && (
-                      <div className="space-y-1.5">
-                        <Label>Options</Label>
-                        <Input
-                          value={
-                            block.type === "true-false-not-given"
-                              ? "TRUE / FALSE / NOT GIVEN"
-                              : "YES / NO / NOT GIVEN"
-                          }
-                          readOnly
-                        />
-                      </div>
-                    )}
-
-                    {(block.type === "true-false-not-given" ||
-                      block.type === "yes-no-not-given") ? (
-                      <div className="space-y-1.5">
-                        <Label>Correct Answer</Label>
-                        <Select
-                          value={String(question.correctAnswer || "")}
-                          onValueChange={(value) =>
-                            updateQuestion(block.id, question.id, { correctAnswer: value })
-                          }
+                      <div className="flex items-center gap-2">
+                        {question.itemType !== "subtitle" && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => addSubtitleAbove(block.id, question.id)}
+                          >
+                            <Plus className="h-4 w-4 mr-1" />
+                            Add Sub Title Above
+                          </Button>
+                        )}
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => removeQuestion(block.id, question.id)}
+                          disabled={block.questions.length <= 1}
                         >
-                          <SelectTrigger className="max-w-[280px]">
-                            <SelectValue placeholder="Select correct answer" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {(block.type === "true-false-not-given"
-                              ? ["TRUE", "FALSE", "NOT GIVEN"]
-                              : ["YES", "NO", "NOT GIVEN"]
-                            ).map((option) => (
-                              <SelectItem key={option} value={option}>
-                                {option}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                          <Trash2 className="h-4 w-4 mr-1" />
+                          Remove
+                        </Button>
+                      </div>
+                    </div>
+
+                    {question.itemType === "subtitle" ? (
+                      <div className="space-y-1.5">
+                        <Label>Sub Title</Label>
+                        <Input
+                          value={question.prompt}
+                          onChange={(e) =>
+                            updateQuestion(block.id, question.id, { prompt: e.target.value })
+                          }
+                          placeholder="A type of parrot:"
+                        />
                       </div>
                     ) : (
-                      <div className="space-y-1.5">
-                        <Label>
-                          Correct Answer
-                          {block.type === "multiple-choice-multi"
-                            ? " (comma-separated, e.g. A, C)"
-                            : MATCHING_TYPES.includes(block.type)
-                              ? " (one pair per line: key: value)"
-                              : ""}
-                        </Label>
-                        <Textarea
-                          rows={MATCHING_TYPES.includes(block.type) ? 4 : 2}
-                          value={correctAnswerToEditorText(question)}
-                          onChange={(e) =>
-                            updateQuestion(block.id, question.id, {
-                              correctAnswer: parseCorrectAnswer(block.type, e.target.value),
-                            })
-                          }
-                          placeholder={
-                            MATCHING_TYPES.includes(block.type)
-                              ? "1: A\n2: C"
-                              : block.type === "multiple-choice-multi"
-                                ? "A, C"
-                                : "Correct answer"
-                          }
-                        />
-                      </div>
-                    )}
+                      <>
+                        <div className="space-y-1.5">
+                          <Label>Prompt</Label>
+                          <Textarea
+                            rows={2}
+                            value={question.prompt}
+                            onChange={(e) =>
+                              updateQuestion(block.id, question.id, { prompt: e.target.value })
+                            }
+                            placeholder="Enter question prompt"
+                          />
+                          {INLINE_BLANK_TYPES.includes(block.type) && (
+                            <p className="text-xs text-muted-foreground">
+                              For inline blank display, add a placeholder in prompt like "____" or
+                              "[blank]" where the input should appear.
+                            </p>
+                          )}
+                        </div>
 
-                    {!OPTION_TYPES.includes(block.type) && (
-                      <div className="space-y-1.5">
-                        <Label>Acceptable Answers (comma-separated, optional)</Label>
-                        <Input
-                          value={(question.acceptableAnswers || []).join(", ")}
-                          onChange={(e) =>
-                            updateQuestion(block.id, question.id, {
-                              acceptableAnswers: e.target.value
-                                .split(",")
-                                .map((v) => v.trim())
-                                .filter(Boolean),
-                            })
-                          }
-                          placeholder="synonym 1, synonym 2"
-                        />
-                      </div>
-                    )}
+                        {OPTION_TYPES.includes(block.type) &&
+                          block.type !== "true-false-not-given" &&
+                          block.type !== "yes-no-not-given" && (
+                          <div className="space-y-1.5">
+                            <Label>Options (one option per line)</Label>
+                            <Textarea
+                              rows={4}
+                              value={(question.options || []).join("\n")}
+                              onChange={(e) =>
+                                updateQuestion(block.id, question.id, {
+                                  options: e.target.value
+                                    .split("\n")
+                                    .map((v) => v.trim())
+                                    .filter(Boolean),
+                                })
+                              }
+                              placeholder="A. ...\nB. ...\nC. ..."
+                            />
+                          </div>
+                        )}
 
-                    <div className="space-y-1.5">
-                      <Label>Explanation (optional)</Label>
-                      <Textarea
-                        rows={2}
-                        value={question.explanation || ""}
-                        onChange={(e) =>
-                          updateQuestion(block.id, question.id, {
-                            explanation: e.target.value,
-                          })
-                        }
-                        placeholder="Why this answer is correct"
-                      />
-                    </div>
+                        {(block.type === "true-false-not-given" ||
+                          block.type === "yes-no-not-given") && (
+                          <div className="space-y-1.5">
+                            <Label>Options</Label>
+                            <Input
+                              value={
+                                block.type === "true-false-not-given"
+                                  ? "TRUE / FALSE / NOT GIVEN"
+                                  : "YES / NO / NOT GIVEN"
+                              }
+                              readOnly
+                            />
+                          </div>
+                        )}
+
+                        {(block.type === "true-false-not-given" ||
+                          block.type === "yes-no-not-given") ? (
+                          <div className="space-y-1.5">
+                            <Label>Correct Answer</Label>
+                            <Select
+                              value={String(question.correctAnswer || "")}
+                              onValueChange={(value) =>
+                                updateQuestion(block.id, question.id, { correctAnswer: value })
+                              }
+                            >
+                              <SelectTrigger className="max-w-[280px]">
+                                <SelectValue placeholder="Select correct answer" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {(block.type === "true-false-not-given"
+                                  ? ["TRUE", "FALSE", "NOT GIVEN"]
+                                  : ["YES", "NO", "NOT GIVEN"]
+                                ).map((option) => (
+                                  <SelectItem key={option} value={option}>
+                                    {option}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        ) : (
+                          <div className="space-y-1.5">
+                            <Label>
+                              Correct Answer
+                              {block.type === "multiple-choice-multi"
+                                ? " (comma-separated, e.g. A, C)"
+                                : MATCHING_TYPES.includes(block.type)
+                                  ? " (one pair per line: key: value)"
+                                  : ""}
+                            </Label>
+                            <Textarea
+                              rows={MATCHING_TYPES.includes(block.type) ? 4 : 2}
+                              value={correctAnswerToEditorText(question)}
+                              onChange={(e) =>
+                                updateQuestion(block.id, question.id, {
+                                  correctAnswer: parseCorrectAnswer(block.type, e.target.value),
+                                })
+                              }
+                              placeholder={
+                                MATCHING_TYPES.includes(block.type)
+                                  ? "1: A\n2: C"
+                                  : block.type === "multiple-choice-multi"
+                                    ? "A, C"
+                                    : "Correct answer"
+                              }
+                            />
+                          </div>
+                        )}
+
+                        {!OPTION_TYPES.includes(block.type) && (
+                          <div className="space-y-1.5">
+                            <Label>Acceptable Answers (comma-separated, optional)</Label>
+                            <Input
+                              value={(question.acceptableAnswers || []).join(", ")}
+                              onChange={(e) =>
+                                updateQuestion(block.id, question.id, {
+                                  acceptableAnswers: e.target.value
+                                    .split(",")
+                                    .map((v) => v.trim())
+                                    .filter(Boolean),
+                                })
+                              }
+                              placeholder="synonym 1, synonym 2"
+                            />
+                          </div>
+                        )}
+
+                        <div className="space-y-1.5">
+                          <Label>Explanation (optional)</Label>
+                          <Textarea
+                            rows={2}
+                            value={question.explanation || ""}
+                            onChange={(e) =>
+                              updateQuestion(block.id, question.id, {
+                                explanation: e.target.value,
+                              })
+                            }
+                            placeholder="Why this answer is correct"
+                          />
+                        </div>
+                      </>
+                    )}
                   </div>
-                ))}
+                    );
+                  });
+                })()}
 
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => addQuestion(block.id)}
-                >
-                  <Plus className="h-4 w-4 mr-1" />
-                  Add Question
-                </Button>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => addQuestion(block.id)}
+                  >
+                    <Plus className="h-4 w-4 mr-1" />
+                    Add Question
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => addSubtitle(block.id)}
+                  >
+                    <Plus className="h-4 w-4 mr-1" />
+                    Add Sub Title
+                  </Button>
+                </div>
               </div>
             </div>
           ))}

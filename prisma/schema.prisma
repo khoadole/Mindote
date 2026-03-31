@@ -147,6 +147,7 @@ model ReadingPracticePart {
   examCode        String?                  @map("exam_code")
   partNumber      Int                      @map("part_number")
   title           String
+  passageSubtitle String?                  @map("passage_subtitle")
   content         String
   instructions    String?
   questionBlocks  Json                     @map("question_blocks")

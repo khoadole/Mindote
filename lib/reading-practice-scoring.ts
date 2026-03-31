@@ -125,6 +125,10 @@ export function scoreReadingPracticeAttempt(
 
   for (const block of blocks) {
     for (const question of block.questions) {
+      if (question.itemType === "subtitle") {
+        continue;
+      }
+
       const userAnswer = userAnswers[question.id];
       const isCorrect = isQuestionCorrect(block.type, question, userAnswer);
 

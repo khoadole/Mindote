@@ -10,6 +10,7 @@ export interface ReadingPracticePart {
   examCode?: string | null;
   partNumber: number;
   title: string;
+  passageSubtitle?: string | null;
   content: string;
   instructions?: string | null;
   questionBlocks: ReadingPracticeBlock[];
@@ -49,11 +50,52 @@ export interface SubmitReadingPracticeResult {
   }>;
 }
 
-export function useReadingPracticeList() {
+export interface ReadingPracticeAttemptHistoryItem {
+  id: string;
+  score: number;
+  correctCount: number;
+  totalCount: number;
+  result?: {
+    breakdown?: Array<{
+      questionId: string;
+      isCorrect: boolean;
+      userAnswer: unknown;
+      correctAnswer: unknown;
+      explanation?: string;
+    }>;
+  } | null;
+  completedAt: string;
+  updatedAt: string;
+}
+
+export interface ReadingPracticeListParams {
+  search?: string;
+  sort?: "part_asc" | "part_desc" | "updated_desc" | "updated_asc";
+  part?: number | "all";
+}
+
+export function useReadingPracticeList(params?: ReadingPracticeListParams) {
   return useQuery<ReadingPracticePart[]>({
-    queryKey: ["reading-practice-list"],
+    queryKey: ["reading-practice-list", params],
     queryFn: async () => {
-      const response = await fetch("/api/reading/practice");
+      const query = new URLSearchParams();
+
+      if (params?.search?.trim()) {
+        query.set("search", params.search.trim());
+      }
+
+      if (params?.sort) {
+        query.set("sort", params.sort);
+      }
+
+      if (params?.part && params.part !== "all") {
+        query.set("part", String(params.part));
+      }
+
+      const queryString = query.toString();
+      const response = await fetch(
+        queryString ? `/api/reading/practice?${queryString}` : "/api/reading/practice"
+      );
       if (!response.ok) throw new Error("Failed to fetch reading practice list");
       const data = await response.json();
       return data.data || [];
@@ -77,6 +119,23 @@ export function useReadingPracticeDetail(partId: string | null) {
     },
     enabled: !!partId,
     staleTime: 60 * 1000,
+  });
+}
+
+export function useReadingPracticeAttemptHistory(partId: string | null) {
+  return useQuery<ReadingPracticeAttemptHistoryItem[]>({
+    queryKey: ["reading-practice-history", partId],
+    queryFn: async () => {
+      if (!partId) return [];
+      const response = await fetch(`/api/reading/practice/${partId}/history`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch reading practice history");
+      }
+      const data = await response.json();
+      return data.data || [];
+    },
+    enabled: !!partId,
+    staleTime: 30 * 1000,
   });
 }
 

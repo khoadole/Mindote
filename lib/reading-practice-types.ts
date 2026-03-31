@@ -14,6 +14,7 @@ export type ReadingPracticeQuestionType =
 
 export interface ReadingPracticeQuestion {
   id: string;
+  itemType?: "question" | "subtitle";
   prompt: string;
   options?: string[];
   // Can be string, string[] or map depending on question type
@@ -27,6 +28,7 @@ export interface ReadingPracticeBlock {
   id: string;
   type: ReadingPracticeQuestionType;
   title?: string;
+  sectionTitle?: string;
   instruction?: string;
   questions: ReadingPracticeQuestion[];
 }
@@ -102,6 +104,8 @@ export function validateAndNormalizeReadingBlocks(
     const normalizedQuestions: ReadingPracticeQuestion[] = (block.questions || []).map(
       (rawQuestion, questionIndex) => {
         const question = (rawQuestion || {}) as Partial<ReadingPracticeQuestion>;
+        const itemType =
+          question.itemType === "subtitle" ? "subtitle" : "question";
         const questionId =
           typeof question.id === "string" && question.id.trim()
             ? question.id.trim()
@@ -113,7 +117,10 @@ export function validateAndNormalizeReadingBlocks(
           );
         }
 
-        if (question.correctAnswer === undefined || question.correctAnswer === null) {
+        if (
+          itemType !== "subtitle" &&
+          (question.correctAnswer === undefined || question.correctAnswer === null)
+        ) {
           errors.push(
             `Block ${blockIndex + 1}, question ${questionIndex + 1}: correctAnswer is required`
           );
@@ -121,11 +128,12 @@ export function validateAndNormalizeReadingBlocks(
 
         return {
           id: questionId,
+          itemType,
           prompt: typeof question.prompt === "string" ? question.prompt : "",
           options: Array.isArray(question.options)
             ? question.options.filter((v) => typeof v === "string")
             : undefined,
-          correctAnswer: question.correctAnswer,
+          correctAnswer: itemType === "subtitle" ? "" : question.correctAnswer,
           acceptableAnswers: Array.isArray(question.acceptableAnswers)
             ? question.acceptableAnswers.filter((v) => typeof v === "string")
             : undefined,
@@ -140,6 +148,8 @@ export function validateAndNormalizeReadingBlocks(
       id: blockId,
       type: (block.type as ReadingPracticeQuestionType) || "multiple-choice-single",
       title: typeof block.title === "string" ? block.title : undefined,
+      sectionTitle:
+        typeof block.sectionTitle === "string" ? block.sectionTitle : undefined,
       instruction:
         typeof block.instruction === "string" ? block.instruction : undefined,
       questions: normalizedQuestions,
@@ -147,7 +157,8 @@ export function validateAndNormalizeReadingBlocks(
   });
 
   const totalQuestions = normalizedBlocks.reduce(
-    (sum, block) => sum + block.questions.length,
+    (sum, block) =>
+      sum + block.questions.filter((question) => question.itemType !== "subtitle").length,
     0
   );
 

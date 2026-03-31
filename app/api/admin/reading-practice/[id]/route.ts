@@ -79,6 +79,9 @@ export async function PUT(
       data.partNumber = partNumber;
     }
     if (body.title !== undefined) data.title = body.title;
+    if (body.passageSubtitle !== undefined) {
+      data.passageSubtitle = body.passageSubtitle || null;
+    }
     if (body.content !== undefined) data.content = body.content;
     if (body.instructions !== undefined) data.instructions = body.instructions || null;
     if (body.estimatedMinutes !== undefined) {

@@ -82,6 +82,9 @@ export async function PUT(
     if (body.passageSubtitle !== undefined) {
       data.passageSubtitle = body.passageSubtitle || null;
     }
+    if (body.passageSubSubtitle !== undefined) {
+      data.passageSubSubtitle = body.passageSubSubtitle || null;
+    }
     if (body.content !== undefined) data.content = body.content;
     if (body.instructions !== undefined) data.instructions = body.instructions || null;
     if (body.estimatedMinutes !== undefined) {

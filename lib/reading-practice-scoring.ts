@@ -2,6 +2,7 @@ import type {
   ReadingPracticeBlock,
   ReadingPracticeQuestion,
 } from "@/lib/reading-practice-types";
+import { countReadingPracticeQuestionUnits } from "@/lib/reading-practice-types";
 
 export interface ReadingPracticeQuestionResult {
   blockId: string;
@@ -9,7 +10,7 @@ export interface ReadingPracticeQuestionResult {
   isCorrect: boolean;
   userAnswer: unknown;
   correctAnswer: unknown;
-  explanation?: string;
+  explanation?: string | string[];
 }
 
 export interface ReadingPracticeScoreResult {
@@ -52,6 +53,23 @@ function compareArraySet(userAnswer: unknown, correctAnswer: unknown): boolean {
   for (const answer of correctSet) {
     if (!userSet.has(answer)) return false;
   }
+  return true;
+}
+
+function compareArrayByOrder(
+  userAnswer: unknown,
+  correctAnswer: unknown,
+  caseSensitive: boolean
+): boolean {
+  if (!Array.isArray(userAnswer) || !Array.isArray(correctAnswer)) return false;
+  if (userAnswer.length !== correctAnswer.length) return false;
+
+  for (let i = 0; i < correctAnswer.length; i += 1) {
+    const user = normalizeText(String(userAnswer[i] ?? ""), caseSensitive);
+    const correct = normalizeText(String(correctAnswer[i] ?? ""), caseSensitive);
+    if (user !== correct) return false;
+  }
+
   return true;
 }
 
@@ -105,10 +123,11 @@ function isQuestionCorrect(
     case "summary-completion":
     case "diagram-label-completion":
       if (Array.isArray(question.correctAnswer)) {
-        if (Array.isArray(userAnswer)) {
-          return compareArraySet(userAnswer, question.correctAnswer);
-        }
-        return false;
+        return compareArrayByOrder(
+          userAnswer,
+          question.correctAnswer,
+          Boolean(question.caseSensitive)
+        );
       }
       return compareStringAnswer(userAnswer, question);
 
@@ -122,6 +141,8 @@ export function scoreReadingPracticeAttempt(
   userAnswers: Record<string, unknown>
 ): ReadingPracticeScoreResult {
   const breakdown: ReadingPracticeQuestionResult[] = [];
+  let totalCount = 0;
+  let correctCount = 0;
 
   for (const block of blocks) {
     for (const question of block.questions) {
@@ -129,8 +150,30 @@ export function scoreReadingPracticeAttempt(
         continue;
       }
 
+      const questionTotalCount = countReadingPracticeQuestionUnits(question, block.type);
+      if (questionTotalCount === 0) {
+        continue;
+      }
+
       const userAnswer = userAnswers[question.id];
       const isCorrect = isQuestionCorrect(block.type, question, userAnswer);
+
+      let questionCorrectCount = isCorrect ? questionTotalCount : 0;
+
+      if (Array.isArray(question.correctAnswer)) {
+        const expected = question.correctAnswer;
+        const given = Array.isArray(userAnswer) ? userAnswer : [];
+        const caseSensitive = Boolean(question.caseSensitive);
+
+        questionCorrectCount = expected.reduce((sum, correctItem, index) => {
+          const userItem = normalizeText(String(given[index] ?? ""), caseSensitive);
+          const correctValue = normalizeText(String(correctItem ?? ""), caseSensitive);
+          return userItem === correctValue ? sum + 1 : sum;
+        }, 0);
+      }
+
+      totalCount += questionTotalCount;
+      correctCount += questionCorrectCount;
 
       breakdown.push({
         blockId: block.id,
@@ -143,8 +186,6 @@ export function scoreReadingPracticeAttempt(
     }
   }
 
-  const totalCount = breakdown.length;
-  const correctCount = breakdown.filter((item) => item.isCorrect).length;
   const score = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
 
   return {

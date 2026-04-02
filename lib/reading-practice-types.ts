@@ -21,7 +21,7 @@ export interface ReadingPracticeQuestion {
   correctAnswer: unknown;
   acceptableAnswers?: string[];
   caseSensitive?: boolean;
-  explanation?: string;
+  explanation?: string | string[];
 }
 
 export interface ReadingPracticeBlock {
@@ -30,6 +30,7 @@ export interface ReadingPracticeBlock {
   title?: string;
   sectionTitle?: string;
   instruction?: string;
+  matchingOptions?: string[];
   questions: ReadingPracticeQuestion[];
 }
 
@@ -53,6 +54,39 @@ export interface ReadingPracticeValidationResult {
   errors: string[];
   normalizedBlocks: ReadingPracticeBlock[];
   totalQuestions: number;
+}
+
+const INLINE_BLANK_TYPES: Set<ReadingPracticeQuestionType> = new Set([
+  "fill-in-the-blank",
+  "sentence-completion",
+  "summary-completion",
+  "diagram-label-completion",
+]);
+
+function countInlineBlankPlaceholders(prompt: string): number {
+  const matches = prompt.match(/\[blank\]|__+/gi);
+  return matches ? matches.length : 0;
+}
+
+export function countReadingPracticeQuestionUnits(
+  question: Pick<
+    ReadingPracticeQuestion,
+    "itemType" | "correctAnswer" | "prompt"
+  >,
+  blockType?: ReadingPracticeQuestionType
+): number {
+  if (question.itemType === "subtitle") return 0;
+
+  if (blockType && INLINE_BLANK_TYPES.has(blockType)) {
+    const inlineBlankCount = countInlineBlankPlaceholders(question.prompt || "");
+    if (inlineBlankCount === 0) return 0;
+  }
+
+  if (Array.isArray(question.correctAnswer)) {
+    return question.correctAnswer.length > 0 ? question.correctAnswer.length : 1;
+  }
+
+  return 1;
 }
 
 const SUPPORTED_TYPES: ReadingPracticeQuestionType[] = [
@@ -138,8 +172,11 @@ export function validateAndNormalizeReadingBlocks(
             ? question.acceptableAnswers.filter((v) => typeof v === "string")
             : undefined,
           caseSensitive: Boolean(question.caseSensitive),
-          explanation:
-            typeof question.explanation === "string" ? question.explanation : undefined,
+          explanation: Array.isArray(question.explanation)
+            ? question.explanation.filter((v) => typeof v === "string")
+            : typeof question.explanation === "string"
+              ? question.explanation
+              : undefined,
         };
       }
     );
@@ -152,13 +189,23 @@ export function validateAndNormalizeReadingBlocks(
         typeof block.sectionTitle === "string" ? block.sectionTitle : undefined,
       instruction:
         typeof block.instruction === "string" ? block.instruction : undefined,
+      matchingOptions: Array.isArray(block.matchingOptions)
+        ? block.matchingOptions
+            .map((v) => (typeof v === "string" ? v.trim() : ""))
+            .filter(Boolean)
+        : undefined,
       questions: normalizedQuestions,
     };
   });
 
   const totalQuestions = normalizedBlocks.reduce(
     (sum, block) =>
-      sum + block.questions.filter((question) => question.itemType !== "subtitle").length,
+      sum +
+      block.questions.reduce(
+        (blockSum, question) =>
+          blockSum + countReadingPracticeQuestionUnits(question, block.type),
+        0
+      ),
     0
   );
 

@@ -11,6 +11,7 @@ export interface ReadingPracticePart {
   partNumber: number;
   title: string;
   passageSubtitle?: string | null;
+  passageSubSubtitle?: string | null;
   content: string;
   instructions?: string | null;
   questionBlocks: ReadingPracticeBlock[];
@@ -46,7 +47,7 @@ export interface SubmitReadingPracticeResult {
     isCorrect: boolean;
     userAnswer: unknown;
     correctAnswer: unknown;
-    explanation?: string;
+    explanation?: string | string[];
   }>;
 }
 
@@ -61,7 +62,7 @@ export interface ReadingPracticeAttemptHistoryItem {
       isCorrect: boolean;
       userAnswer: unknown;
       correctAnswer: unknown;
-      explanation?: string;
+      explanation?: string | string[];
     }>;
   } | null;
   completedAt: string;

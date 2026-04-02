@@ -170,7 +170,7 @@ export function QuizPlayer({
         <div className="space-y-4">
           <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-2 flex-wrap">
-              <h2 className="text-2xl font-bold break-all px-4">
+              <h2 className="text-xl font-bold break-all px-4">
                 {currentQuestion.word.term}
               </h2>
               {currentQuestion.word.partOfSpeech && (
@@ -182,13 +182,13 @@ export function QuizPlayer({
               )}
             </div>
             {currentQuestion.word.phonetic && (
-              <p className="text-muted-foreground break-all px-4">
+              <p className="text-sm text-muted-foreground break-all px-4">
                 {currentQuestion.word.phonetic}
               </p>
             )}
           </div>
 
-          <p className="text-center text-lg mb-6">
+          <p className="text-center text-base mb-6">
             {t("quizPlayer.whatDoesWordMean")}
           </p>
 
@@ -221,13 +221,13 @@ export function QuizPlayer({
       return (
         <div className="space-y-4">
           <div className="text-center space-y-2">
-            <p className="text-lg mb-6">{t("quizPlayer.fillInBlankPrompt")}</p>
-            <div className="text-xl font-medium p-4 bg-muted rounded-lg break-all whitespace-pre-wrap">
-              {maskedSentence}
-            </div>
+            <p className="text-sm text-muted-foreground mb-2">{t("quizPlayer.fillInBlankPrompt")}</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="text-base font-medium px-2">
+              {maskedSentence}
+            </div>
             <Input
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
@@ -239,18 +239,19 @@ export function QuizPlayer({
                   handleAnswer(userAnswer);
                 }
               }}
+              className="flex-1 min-w-[150px]"
             />
-
-            {!showFeedback && (
-              <Button
-                onClick={() => handleAnswer(userAnswer)}
-                disabled={!userAnswer.trim()}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
-              >
-                {t("quizPlayer.submitAnswer")}
-              </Button>
-            )}
           </div>
+
+          {!showFeedback && (
+            <Button
+              onClick={() => handleAnswer(userAnswer)}
+              disabled={!userAnswer.trim()}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
+            >
+              {t("quizPlayer.submitAnswer")}
+            </Button>
+          )}
         </div>
       );
     }
@@ -279,7 +280,7 @@ export function QuizPlayer({
         {/* Question Card */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+            <CardTitle className="flex items-center justify-between text-lg">
               <span>{t("quizPlayer.quizQuestion")}</span>
               <Badge variant="secondary">
                 {mode === "multiple-choice"

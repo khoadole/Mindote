@@ -34,6 +34,8 @@ import type {
   ReadingPracticeBlock,
   ReadingPracticeQuestion,
 } from "@/lib/reading-practice-types";
+import { countReadingPracticeQuestionUnits } from "@/lib/reading-practice-types";
+import { useTranslation } from "@/lib/i18n-provider";
 
 function escapeHtml(input: string): string {
   return input
@@ -105,6 +107,60 @@ function optionKey(option: string): string {
   return match?.[1] || option;
 }
 
+function getMatchingChoices(block: ReadingPracticeBlock): Array<{ value: string; label: string }> {
+  const seen = new Set<string>();
+  const choices: Array<{ value: string; label: string }> = [];
+
+  if (Array.isArray(block.matchingOptions) && block.matchingOptions.length > 0) {
+    for (const option of block.matchingOptions) {
+      const text = String(option || "").trim();
+      if (!text || seen.has(text.toLowerCase())) continue;
+      seen.add(text.toLowerCase());
+      choices.push({ value: text, label: text });
+    }
+
+    if (choices.length > 0) {
+      return choices;
+    }
+  }
+
+  for (const question of block.questions) {
+    if (question.itemType === "subtitle") continue;
+
+    if (Array.isArray(question.options)) {
+      for (const option of question.options) {
+        const value = optionKey(String(option).trim());
+        if (!value || seen.has(value.toLowerCase())) continue;
+        seen.add(value.toLowerCase());
+        choices.push({ value, label: option });
+      }
+    }
+  }
+
+  if (choices.length > 0) return choices;
+
+  for (const question of block.questions) {
+    if (question.itemType === "subtitle") continue;
+
+    if (question.correctAnswer && typeof question.correctAnswer === "object" && !Array.isArray(question.correctAnswer)) {
+      for (const value of Object.values(question.correctAnswer as Record<string, unknown>)) {
+        const text = String(value || "").trim();
+        if (!text || seen.has(text.toLowerCase())) continue;
+        seen.add(text.toLowerCase());
+        choices.push({ value: text, label: text });
+      }
+      continue;
+    }
+
+    const text = String(question.correctAnswer || "").trim();
+    if (!text || seen.has(text.toLowerCase())) continue;
+    seen.add(text.toLowerCase());
+    choices.push({ value: text, label: text });
+  }
+
+  return choices;
+}
+
 function escapeRegex(input: string): string {
   return input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -117,6 +173,20 @@ function stripMarkdown(input: string): string {
     .replace(/_(.+?)_/g, "$1")
     .replace(/`(.+?)`/g, "$1")
     .trim();
+}
+
+function normalizeExplanation(explanation?: string | string[]): string[] {
+  if (Array.isArray(explanation)) {
+    return explanation
+      .map((item) => String(item || "").trim())
+      .filter(Boolean);
+  }
+
+  if (typeof explanation === "string" && explanation.trim()) {
+    return [explanation.trim()];
+  }
+
+  return [];
 }
 
 function findExplanationRange(
@@ -172,7 +242,55 @@ function isInlineBlankType(type: ReadingPracticeBlock["type"]): boolean {
   );
 }
 
+function countAnsweredUnitsForQuestion(
+  question: ReadingPracticeQuestion,
+  blockType: ReadingPracticeBlock["type"],
+  answerValue: unknown
+): number {
+  const unitCount = countReadingPracticeQuestionUnits(question, blockType);
+  if (unitCount === 0) return 0;
+
+  if (Array.isArray(question.correctAnswer)) {
+    const values = Array.isArray(answerValue) ? answerValue : [];
+    return values
+      .slice(0, unitCount)
+      .filter((item) => String(item ?? "").trim().length > 0).length;
+  }
+
+  if (answerValue && typeof answerValue === "object") {
+    return Object.values(answerValue as Record<string, unknown>).some((item) =>
+      String(item ?? "").trim()
+    )
+      ? 1
+      : 0;
+  }
+
+  return String(answerValue ?? "").trim().length > 0 ? 1 : 0;
+}
+
+function parseInlineBlankPrompt(prompt: string): {
+  segments: string[];
+  tokens: string[];
+} {
+  const placeholderRegex = /(?:\d+\s*(?:\[blank\]|__+)|\[blank\]|__+)/gi;
+  const tokens: string[] = [];
+  const segments: string[] = [];
+
+  let lastIndex = 0;
+  for (const match of prompt.matchAll(placeholderRegex)) {
+    const index = match.index ?? 0;
+    segments.push(prompt.slice(lastIndex, index));
+    tokens.push(match[0]);
+    lastIndex = index + match[0].length;
+  }
+
+  segments.push(prompt.slice(lastIndex));
+
+  return { segments, tokens };
+}
+
 export default function ReadingPracticeDetailPage() {
+  const { t } = useTranslation();
   const params = useParams();
   const router = useRouter();
   const id = params?.id as string;
@@ -244,24 +362,49 @@ export default function ReadingPracticeDetailPage() {
     return (
       part?.questionBlocks?.reduce(
         (sum, b) =>
-          sum + b.questions.filter((question) => question.itemType !== "subtitle").length,
+          sum +
+          b.questions.reduce(
+            (blockSum, question) =>
+              blockSum + countReadingPracticeQuestionUnits(question, b.type),
+            0
+          ),
         0
       ) || 0
     );
   }, [part]);
 
   const answeredCount = useMemo(() => {
-    return Object.keys(answers).filter((key) => {
-      const value = answers[key];
-      if (Array.isArray(value)) return value.length > 0;
-      if (value && typeof value === "object") {
-        return Object.values(value as Record<string, unknown>).some((v) =>
-          String(v || "").trim()
-        );
+    if (!part?.questionBlocks) return 0;
+
+    return part.questionBlocks.reduce((sum, block) => {
+      return (
+        sum +
+        block.questions.reduce(
+          (blockSum, question) =>
+            blockSum + countAnsweredUnitsForQuestion(question, block.type, answers[question.id]),
+          0
+        )
+      );
+    }, 0);
+  }, [answers, part]);
+
+  const questionStartById = useMemo(() => {
+    const starts = new Map<string, number>();
+    if (!part?.questionBlocks) return starts;
+
+    let cursor = 1;
+    for (const block of part.questionBlocks) {
+      for (const question of block.questions) {
+        const unitCount = countReadingPracticeQuestionUnits(question, block.type);
+        if (unitCount === 0) continue;
+
+        starts.set(question.id, cursor);
+        cursor += unitCount;
       }
-      return String(value || "").trim().length > 0;
-    }).length;
-  }, [answers]);
+    }
+
+    return starts;
+  }, [part]);
 
   const questionMetaById = useMemo(() => {
     const meta = new Map<string, { number: number; prompt: string }>();
@@ -270,10 +413,13 @@ export default function ReadingPracticeDetailPage() {
     let number = 0;
     for (const block of part.questionBlocks) {
       for (const question of block.questions) {
-        if (question.itemType === "subtitle") continue;
-        number += 1;
+        const unitCount = countReadingPracticeQuestionUnits(question, block.type);
+        if (unitCount === 0) continue;
+
+        const questionStart = number + 1;
+        number += unitCount;
         meta.set(question.id, {
-          number,
+          number: questionStart,
           prompt: stripMarkdown(question.prompt || "").replace(/\s+/g, " ").trim(),
         });
       }
@@ -412,10 +558,11 @@ export default function ReadingPracticeDetailPage() {
     setHighlightAction(null);
   };
 
-  const highlightExplanationLocation = (explanation?: string) => {
-    if (!part?.content || !explanation) return;
+  const highlightExplanationLocation = (explanation?: string | string[]) => {
+    const mergedExplanation = normalizeExplanation(explanation).join(" ");
+    if (!part?.content || !mergedExplanation) return;
 
-    const range = findExplanationRange(part.content, explanation);
+    const range = findExplanationRange(part.content, mergedExplanation);
     if (!range) return;
 
     setHighlightRanges((prev) =>
@@ -450,9 +597,12 @@ export default function ReadingPracticeDetailPage() {
   const renderAnswerFeedback = (result?: {
     isCorrect?: boolean;
     correctAnswer?: unknown;
-    explanation?: string;
+    explanation?: string | string[];
   }) => {
     if (!result) return null;
+
+    const explanationItems = normalizeExplanation(result.explanation);
+    const hasExplanation = explanationItems.length > 0;
 
     return (
       <div
@@ -464,32 +614,36 @@ export default function ReadingPracticeDetailPage() {
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-semibold tracking-wide">
-            {result.isCorrect ? "Correct" : "Incorrect"}
+            {result.isCorrect ? t("common.correct") : t("common.incorrect")}
           </p>
-          {result.explanation && (
+          {hasExplanation && (
             <Button
               type="button"
               size="sm"
               className="h-7 rounded-full border border-white/20 bg-white/10 px-3 text-xs font-semibold text-white hover:bg-white/20"
               onClick={() => highlightExplanationLocation(result.explanation)}
             >
-              Location
+              {t("reading.location")}
             </Button>
           )}
         </div>
         {!result.isCorrect && (
           <p className="mt-1 text-rose-200/95">
-            Correct answer: {formatCorrectAnswer(result.correctAnswer)}
+            {t("reading.correctAnswer")}: {formatCorrectAnswer(result.correctAnswer)}
           </p>
         )}
-        {result.explanation && (
+        {hasExplanation && (
           <div className="mt-2 space-y-1">
             <p className="text-xs uppercase tracking-wide text-foreground/70">
-              Explanation:
+              {t("reading.explanation")}
             </p>
-            <p className="whitespace-pre-wrap leading-relaxed text-foreground/90">
-              {result.explanation}
-            </p>
+            <div className="space-y-1">
+              {explanationItems.map((item, index) => (
+                <p key={`exp_${index}`} className="whitespace-pre-wrap leading-relaxed text-foreground/90">
+                  {explanationItems.length > 1 ? `${index + 1}. ${item}` : item}
+                </p>
+              ))}
+            </div>
           </div>
         )}
       </div>
@@ -642,6 +796,88 @@ export default function ReadingPracticeDetailPage() {
       );
     }
 
+    if (
+      block.type === "matching-headings" ||
+      block.type === "matching-information" ||
+      block.type === "matching-features"
+    ) {
+      const choices = getMatchingChoices(block);
+
+      if (choices.length === 0) {
+        return (
+          <Input
+            value={typeof value === "string" ? value : ""}
+            onChange={(e) =>
+              setAnswers((prev) => ({ ...prev, [question.id]: e.target.value }))
+            }
+            placeholder="No matching options configured"
+          />
+        );
+      }
+
+      if (
+        question.correctAnswer &&
+        typeof question.correctAnswer === "object" &&
+        !Array.isArray(question.correctAnswer)
+      ) {
+        const mapValue =
+          value && typeof value === "object" && !Array.isArray(value)
+            ? (value as Record<string, string>)
+            : {};
+
+        return (
+          <div className="space-y-2">
+            {Object.keys(question.correctAnswer as Record<string, unknown>).map((key) => (
+              <div key={key} className="grid grid-cols-[160px_1fr] gap-2 items-center">
+                <Label>{key}</Label>
+                <Select
+                  value={mapValue[key] || ""}
+                  onValueChange={(next) => {
+                    const nextMap = { ...mapValue, [key]: next };
+                    setAnswers((prev) => ({ ...prev, [question.id]: nextMap }));
+                  }}
+                >
+                  <SelectTrigger className="max-w-[320px]">
+                    <SelectValue placeholder="Choose answer" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {choices.map((choice) => (
+                      <SelectItem
+                        key={`${question.id}_${key}_${choice.value}`}
+                        value={choice.value}
+                      >
+                        {choice.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            ))}
+          </div>
+        );
+      }
+
+      return (
+        <Select
+          value={typeof value === "string" ? value : ""}
+          onValueChange={(next) =>
+            setAnswers((prev) => ({ ...prev, [question.id]: next }))
+          }
+        >
+          <SelectTrigger className="max-w-[320px]">
+            <SelectValue placeholder="Choose answer" />
+          </SelectTrigger>
+          <SelectContent>
+            {choices.map((choice) => (
+              <SelectItem key={`${question.id}_${choice.value}`} value={choice.value}>
+                {choice.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      );
+    }
+
     if (question.correctAnswer && typeof question.correctAnswer === "object" && !Array.isArray(question.correctAnswer)) {
       const mapValue = (value as Record<string, string>) || {};
       return (
@@ -696,68 +932,68 @@ export default function ReadingPracticeDetailPage() {
   const renderInlineBlankQuestion = (
     block: ReadingPracticeBlock,
     question: ReadingPracticeQuestion,
-    questionNumber: number
+    questionStartNumber: number
   ) => {
     const value = answers[question.id];
-    const inputValue = typeof value === "string" ? value : "";
-
     const prompt = question.prompt || "";
-    const numberedPlaceholderMatch = prompt.match(/(\d+)\s*(\[blank\]|__+)/i);
-    const placeholderMatch = prompt.match(/(__+|\[blank\])/i);
+    const { segments, tokens } = parseInlineBlankPrompt(prompt);
+    const hasAnyPlaceholder = tokens.length > 0;
+    const isPassageBlank = tokens.length > 1;
+    const arrayValue = Array.isArray(value) ? value.map((v) => String(v || "")) : [];
+    const singleValue = typeof value === "string" ? value : "";
 
-    const renderBlankInput = (numberText?: string) => (
-      <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-2 py-1 ml-2">
-        {numberText && (
+    const renderBlankInput = (index: number, token?: string) => (
+      <span className="inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-2 py-1 mx-1 align-middle">
+        {isPassageBlank && (
           <span className="text-green-600 dark:text-green-400 font-semibold text-sm pl-1">
-            {numberText}
+            {token?.match(/^(\d+)/)?.[1] || questionStartNumber + index}
           </span>
         )}
         <Input
-          value={inputValue}
-          onChange={(e) =>
-            setAnswers((prev) => ({ ...prev, [question.id]: e.target.value }))
-          }
+          value={isPassageBlank ? String(arrayValue[index] || "") : singleValue}
+          onChange={(e) => {
+            if (isPassageBlank) {
+              const next = Array.from({ length: tokens.length }, (_, idx) =>
+                idx === index
+                  ? e.target.value
+                  : String(arrayValue[idx] || "")
+              );
+              setAnswers((prev) => ({ ...prev, [question.id]: next }));
+              return;
+            }
+
+            setAnswers((prev) => ({ ...prev, [question.id]: e.target.value }));
+          }}
           className="w-40 h-8 border-0 bg-transparent px-2 shadow-none focus-visible:ring-0"
           placeholder="Type answer"
           autoComplete="off"
         />
-      </div>
+      </span>
     );
 
     return (
       <div className="space-y-3 border rounded-lg p-4" key={question.id}>
-        <div className="flex flex-wrap items-center gap-2 text-base leading-relaxed">
-          {!numberedPlaceholderMatch && (
+        <div className="text-base leading-relaxed break-words">
+          {!isPassageBlank && !/^\d+\s*(\[blank\]|__+)/i.test(prompt) && (
             <span className="font-semibold text-green-600 dark:text-green-400">
-              {questionNumber}.
+              {questionStartNumber}.{" "}
             </span>
           )}
 
-          {numberedPlaceholderMatch ? (
-            <>
-              <span>{prompt.slice(0, numberedPlaceholderMatch.index)}</span>
-              {renderBlankInput(numberedPlaceholderMatch[1])}
-              <span>
-                {prompt.slice(
-                  (numberedPlaceholderMatch.index || 0) + numberedPlaceholderMatch[0].length
-                )}
+          {hasAnyPlaceholder ? (
+            segments.map((segment, idx) => (
+              <span key={`${question.id}_seg_${idx}`}>
+                {segment}
+                {idx < tokens.length ? renderBlankInput(idx, tokens[idx]) : null}
               </span>
-            </>
-          ) : placeholderMatch ? (
-            <>
-              <span>{prompt.slice(0, placeholderMatch.index)}</span>
-              {renderBlankInput()}
-              <span>
-                {prompt.slice(
-                  (placeholderMatch.index || 0) + placeholderMatch[0].length
-                )}
-              </span>
-            </>
+            ))
           ) : (
-            <>
+            <div className="space-y-3">
               <span>{prompt}</span>
-              {renderBlankInput()}
-            </>
+              <div className="pt-1">
+                {renderQuestionInput(block, question)}
+              </div>
+            </div>
           )}
         </div>
 
@@ -780,8 +1016,11 @@ export default function ReadingPracticeDetailPage() {
   if (!part) {
     return (
       <div className="p-8 text-center">
-        <p className="text-muted-foreground mb-4">Reading practice not found.</p>
-        <Button onClick={() => router.push("/reading")}>Back to Reading</Button>
+        <p className="text-muted-foreground mb-4">{t("reading.readingPracticeNotFound")}</p>
+        <p className="text-muted-foreground/80 mb-4 text-sm">
+          {t("reading.readingPracticeNotFoundDesc")}
+        </p>
+        <Button onClick={() => router.push("/reading")}>{t("reading.backToReading")}</Button>
       </div>
     );
   }
@@ -797,7 +1036,7 @@ export default function ReadingPracticeDetailPage() {
           <div className="flex items-center gap-4">
             <Button variant="outline" onClick={() => router.push("/reading")}> 
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+              {t("common.back")}
             </Button>
             <div>
               <h1 className="text-2xl font-bold">
@@ -818,13 +1057,13 @@ export default function ReadingPracticeDetailPage() {
               }
             >
               <History className="h-4 w-4 mr-2" />
-              History
+              {t("reading.history")}
             </Button>
 
             {!submittedResult && (
               <>
                 <p className="text-sm text-muted-foreground">
-                  Answered: {answeredCount}/{totalQuestions}
+                  {t("reading.answered")}: {answeredCount}/{totalQuestions}
                 </p>
                 <Button
                   onClick={handleSubmit}
@@ -833,7 +1072,7 @@ export default function ReadingPracticeDetailPage() {
                   {submitMutation.isPending && (
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                   )}
-                  Submit answers
+                  {t("reading.submitAnswers")}
                 </Button>
               </>
             )}
@@ -843,7 +1082,7 @@ export default function ReadingPracticeDetailPage() {
         <Dialog open={historyOpen} onOpenChange={setHistoryOpen}>
           <DialogContent className="max-w-2xl border-cyan-500/25 bg-slate-950 text-slate-100">
             <DialogHeader>
-              <DialogTitle className="text-xl">Attempt History</DialogTitle>
+              <DialogTitle className="text-xl">{t("reading.attemptHistory")}</DialogTitle>
             </DialogHeader>
 
             <div className="max-h-[65vh] overflow-y-auto space-y-3 pr-1">
@@ -858,7 +1097,7 @@ export default function ReadingPracticeDetailPage() {
                 >
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="text-sm font-semibold text-slate-200">
-                      Attempt {attemptHistory.length - index}
+                      {t("reading.attempt", { count: attemptHistory.length - index })}
                     </p>
                     <div className="flex items-center gap-2">
                       <Badge className="bg-cyan-600/25 text-cyan-200 border border-cyan-500/35">
@@ -872,13 +1111,13 @@ export default function ReadingPracticeDetailPage() {
                           setHistoryOpen(false);
                         }}
                       >
-                        Review
+                        {t("reading.review")}
                       </Button>
                     </div>
                   </div>
 
                   <p className="mt-2 text-slate-100">
-                    {attempt.correctCount}/{attempt.totalCount} correct
+                    {attempt.correctCount}/{attempt.totalCount}
                   </p>
                   <p className="text-xs text-slate-400 mt-1">
                     {new Date(attempt.completedAt).toLocaleString()}
@@ -889,7 +1128,7 @@ export default function ReadingPracticeDetailPage() {
                     if (wrongItems.length === 0) {
                       return (
                         <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-emerald-300">
-                          No wrong answers
+                          {t("reading.noWrongAnswers")}
                         </p>
                       );
                     }
@@ -897,7 +1136,7 @@ export default function ReadingPracticeDetailPage() {
                     return (
                       <div className="mt-3 rounded-lg border border-rose-500/25 bg-rose-500/8 p-3">
                         <p className="text-xs font-semibold uppercase tracking-wide text-rose-300">
-                          Wrong questions ({wrongItems.length})
+                          {t("reading.wrongQuestions", { count: wrongItems.length })}
                         </p>
                         <div className="mt-2 space-y-2">
                           {wrongItems.map((item) => (
@@ -906,11 +1145,11 @@ export default function ReadingPracticeDetailPage() {
                               className="rounded-md border border-white/10 bg-slate-950/70 px-3 py-2"
                             >
                               <p className="text-sm text-slate-100">
-                                {item.questionNumber ? `Question ${item.questionNumber}` : "Question"}
+                                {item.questionNumber ? `${t("reading.question")} ${item.questionNumber}` : t("reading.question")}
                                 {item.prompt ? `: ${item.prompt}` : ""}
                               </p>
                               <p className="mt-1 text-xs text-rose-200/95">
-                                Correct answer: {formatCorrectAnswer(item.correctAnswer)}
+                                {t("reading.correctAnswer")}: {formatCorrectAnswer(item.correctAnswer)}
                               </p>
                             </div>
                           ))}
@@ -923,7 +1162,7 @@ export default function ReadingPracticeDetailPage() {
 
               {!historyLoading && attemptHistory.length === 0 && !part?.latestAttempt && (
                 <div className="rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-sm text-slate-400">
-                  No attempt history yet.
+                  {t("reading.noAttemptHistoryYet")}
                 </div>
               )}
             </div>
@@ -945,9 +1184,12 @@ export default function ReadingPracticeDetailPage() {
                     {part.passageSubtitle && (
                       <p className="text-sm text-muted-foreground">{part.passageSubtitle}</p>
                     )}
+                    {part.passageSubSubtitle && (
+                      <p className="text-xs text-muted-foreground/80">{part.passageSubSubtitle}</p>
+                    )}
                   </div>
                   <Badge variant="secondary" className="whitespace-nowrap">
-                    {part.totalQuestions} questions • {part.estimatedMinutes} min
+                    {totalQuestions} {t("reading.questions")} • {t("reading.minutes", { count: part.estimatedMinutes })}
                   </Badge>
                 </div>
               </CardHeader>
@@ -1039,33 +1281,53 @@ export default function ReadingPracticeDetailPage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {(() => {
-                    let questionNumber = 0;
-
                     return block.questions.map((question) => {
                     if (question.itemType === "subtitle") {
                       return (
-                        <div
-                          key={question.id}
-                          className="pt-1 text-xl font-semibold leading-snug text-foreground whitespace-pre-wrap"
-                          dangerouslySetInnerHTML={{
-                            __html: markdownToSafeHtml(question.prompt),
-                          }}
-                        >
+                        <div key={question.id} className="space-y-1">
+                          <div
+                            className="pt-1 text-xl font-semibold leading-snug text-foreground whitespace-pre-wrap"
+                            dangerouslySetInnerHTML={{
+                              __html: markdownToSafeHtml(question.prompt),
+                            }}
+                          >
+                          </div>
+                          {question.explanation && (
+                            <p className="text-base font-medium leading-snug text-foreground whitespace-pre-wrap">
+                              {Array.isArray(question.explanation)
+                                ? question.explanation.filter(Boolean).join("\n")
+                                : question.explanation}
+                            </p>
+                          )}
                         </div>
                       );
                     }
 
-                    questionNumber += 1;
+                    const questionStartNumber = questionStartById.get(question.id) || 1;
                     const result = breakdownMap.get(question.id);
 
                     if (isInlineBlankType(block.type)) {
-                      return renderInlineBlankQuestion(block, question, questionNumber);
+                      if (!parseInlineBlankPrompt(question.prompt || "").tokens.length) {
+                        return (
+                          <div key={question.id} className="space-y-2 border rounded-lg p-4 bg-muted/20">
+                            <div className="font-medium whitespace-pre-wrap">
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: markdownToSafeHtml(question.prompt),
+                                }}
+                              />
+                            </div>
+                          </div>
+                        );
+                      }
+
+                        return renderInlineBlankQuestion(block, question, questionStartNumber);
                     }
 
                     return (
                       <div key={question.id} className="space-y-3 border rounded-lg p-4">
                         <div className="font-medium whitespace-pre-wrap">
-                          <span>{questionNumber}. </span>
+                          <span>{questionStartNumber}. </span>
                           <span
                             dangerouslySetInnerHTML={{
                               __html: markdownToSafeHtml(question.prompt),
@@ -1089,7 +1351,9 @@ export default function ReadingPracticeDetailPage() {
                   <p className="text-2xl font-bold mb-2">
                     {submittedResult.correctCount}/{submittedResult.totalCount}
                   </p>
-                  <p className="text-muted-foreground">Score: {submittedResult.score}%</p>
+                  <p className="text-muted-foreground">
+                    {t("reading.score")} {submittedResult.score}%
+                  </p>
                 </CardContent>
               </Card>
             )}

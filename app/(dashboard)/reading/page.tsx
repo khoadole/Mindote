@@ -713,13 +713,6 @@ export default function ReadingPage() {
                   </Select>
                 </div>
 
-                {!readingPracticeLoading && (
-                  <div className="text-xs text-muted-foreground">
-                    {readingPracticeParts?.length || 0} result
-                    {(readingPracticeParts?.length || 0) === 1 ? "" : "s"}
-                  </div>
-                )}
-
                 {readingPracticeLoading ? (
                   <div className="py-6 text-center text-muted-foreground text-sm">
                     {t("common.loading")}
@@ -752,7 +745,9 @@ export default function ReadingPage() {
                                 {part.title}
                               </p>
                               <p className="text-xs text-muted-foreground mt-2.5">
-                                {part.totalQuestions} questions • {part.estimatedMinutes} min
+                                {part.totalQuestions} {t("reading.questions")} • {t("reading.minutes", {
+                                  count: part.estimatedMinutes,
+                                })}
                               </p>
                             </div>
                             <div className="flex items-center gap-2">
@@ -762,7 +757,7 @@ export default function ReadingPage() {
                                 </Badge>
                               ) : (
                                 <Badge variant="outline" className="text-muted-foreground">
-                                  New
+                                  {t("reading.new")}
                                 </Badge>
                               )}
                             </div>

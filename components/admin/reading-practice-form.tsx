@@ -78,8 +78,6 @@ const BLOCK_TYPE_OPTIONS: Array<{
   { value: "multiple-choice-single", label: "Multiple Choice (Single)" },
   { value: "multiple-choice-multi", label: "Multiple Choice (Multi)" },
   { value: "matching-headings", label: "Matching Headings" },
-  { value: "matching-information", label: "Matching Information" },
-  { value: "matching-features", label: "Matching Features" },
   { value: "fill-in-the-blank", label: "Fill in the blank" },
   { value: "short-answer", label: "Short Answer" },
   { value: "sentence-completion", label: "Sentence Completion" },
@@ -169,7 +167,7 @@ function getDefaultQuestion(type: ReadingPracticeQuestionType): ReadingPracticeQ
       id,
       itemType: "question",
       prompt: "",
-      correctAnswer: { "1": "A" },
+      correctAnswer: "A",
       explanation: "",
     };
   }
@@ -189,6 +187,7 @@ function getDefaultSubtitle(): ReadingPracticeQuestion {
     id: buildId("sub"),
     itemType: "subtitle",
     prompt: "New subtitle",
+    explanation: "",
     correctAnswer: "",
   };
 }
@@ -200,6 +199,16 @@ function getDefaultInstructionByType(type: ReadingPracticeQuestionType): string 
       "In the following statements below, choose",
       "**TRUE**                   if the statement agrees with the information",
       "**FALSE**                  if the statement contradicts the information",
+      "**NOT GIVEN**         if it is impossible to say what the writer thinks about this",
+    ].join("\n");
+  }
+
+  if (type === "yes-no-not-given") {
+    return [
+      "Do the following statements agree with the information given in this Passage?",
+      "In the following statements below, choose",
+      "**YES**                   if the statement agrees with the information",
+      "**NO**                  if the statement contradicts the information",
       "**NOT GIVEN**         if it is impossible to say what the writer thinks about this",
     ].join("\n");
   }
@@ -220,8 +229,23 @@ function getDefaultBlock(type: ReadingPracticeQuestionType): ReadingPracticeBloc
     type,
     title: "",
     instruction: getDefaultInstructionByType(type),
+    matchingOptions: MATCHING_TYPES.includes(type)
+      ? ["A", "B", "C", "D", "E"]
+      : undefined,
     questions: [getDefaultQuestion(type)],
   };
+}
+
+function parseMatchingOptionsText(text: string): string[] {
+  return text
+    .split(/[\n,\/]+/)
+    .map((v) => v.trim())
+    .filter(Boolean);
+}
+
+function countInlineBlankPlaceholders(prompt: string): number {
+  const matches = prompt.match(/\[blank\]|__+/gi);
+  return matches ? matches.length : 0;
 }
 
 function safeBlocks(input: unknown): ReadingPracticeBlock[] {
@@ -272,6 +296,9 @@ export function ReadingPracticeForm({
   const [passageSubtitle, setPassageSubtitle] = useState(
     initialValues?.passageSubtitle || ""
   );
+  const [passageSubSubtitle, setPassageSubSubtitle] = useState(
+    initialValues?.passageSubSubtitle || ""
+  );
   const [content, setContent] = useState(initialValues?.content || "");
   const [instructions, setInstructions] = useState(initialValues?.instructions || "");
   const [estimatedMinutes, setEstimatedMinutes] = useState(
@@ -286,7 +313,15 @@ export function ReadingPracticeForm({
   const [blocks, setBlocks] = useState<ReadingPracticeBlock[]>(() =>
     safeBlocks(initialValues?.questionBlocks)
   );
+  const [matchingOptionsDraft, setMatchingOptionsDraft] = useState<Record<string, string>>({});
   const [advancedMode, setAdvancedMode] = useState(false);
+
+  function getMatchingOptionsInputValue(block: ReadingPracticeBlock): string {
+    if (matchingOptionsDraft[block.id] !== undefined) {
+      return matchingOptionsDraft[block.id];
+    }
+    return (block.matchingOptions || []).join("/");
+  }
 
   function addBlock(type: ReadingPracticeQuestionType) {
     setBlocks((prev) => [...prev, getDefaultBlock(type)]);
@@ -307,12 +342,18 @@ export function ReadingPracticeForm({
       prev.map((block) => {
         if (block.id !== blockId) return block;
         const defaultInstruction = getDefaultInstructionByType(nextType);
+        const nextMatchingOptions = MATCHING_TYPES.includes(nextType)
+          ? block.matchingOptions && block.matchingOptions.length > 0
+            ? block.matchingOptions
+            : ["A", "B", "C", "D", "E"]
+          : undefined;
         return {
           ...block,
           type: nextType,
           instruction: block.instruction?.trim()
             ? block.instruction
             : defaultInstruction,
+          matchingOptions: nextMatchingOptions,
           questions: block.questions.map((question) => ({
             ...getDefaultQuestion(nextType),
             id: question.id,
@@ -357,6 +398,24 @@ export function ReadingPracticeForm({
         const subtitle = getDefaultSubtitle();
         const nextQuestions = [...block.questions];
         nextQuestions.splice(index, 0, subtitle);
+
+        return {
+          ...block,
+          questions: nextQuestions,
+        };
+      })
+    );
+  }
+
+  function addQuestionAbove(blockId: string, questionId: string) {
+    setBlocks((prev) =>
+      prev.map((block) => {
+        if (block.id !== blockId) return block;
+        const index = block.questions.findIndex((question) => question.id === questionId);
+        if (index < 0) return block;
+
+        const nextQuestions = [...block.questions];
+        nextQuestions.splice(index, 0, getDefaultQuestion(block.type));
 
         return {
           ...block,
@@ -450,12 +509,25 @@ export function ReadingPracticeForm({
       return;
     }
 
+    const finalizedBlocks = blocks.map((block) => {
+      if (!MATCHING_TYPES.includes(block.type)) return block;
+
+      const draftText = matchingOptionsDraft[block.id];
+      if (draftText === undefined) return block;
+
+      return {
+        ...block,
+        matchingOptions: parseMatchingOptionsText(draftText),
+      };
+    });
+
     await onSubmit({
       examTitle,
       examCode: examCode || null,
       partNumber,
       title,
       passageSubtitle: passageSubtitle || null,
+      passageSubSubtitle: passageSubSubtitle || null,
       content,
       instructions: instructions || null,
       estimatedMinutes,
@@ -466,7 +538,7 @@ export function ReadingPracticeForm({
         .map((v) => v.trim())
         .filter(Boolean),
       status: isPublished ? "PUBLISHED" : "DRAFT",
-      questionBlocks: blocks,
+      questionBlocks: finalizedBlocks,
     });
   }
 
@@ -548,6 +620,16 @@ export function ReadingPracticeForm({
           value={passageSubtitle}
           onChange={(e) => setPassageSubtitle(e.target.value)}
           placeholder="The kakapo"
+        />
+      </div>
+
+      <div className="space-y-1.5">
+        <Label htmlFor="passageSubSubtitle">Passage Sub-Subtitle (optional)</Label>
+        <Input
+          id="passageSubSubtitle"
+          value={passageSubSubtitle}
+          onChange={(e) => setPassageSubSubtitle(e.target.value)}
+          placeholder="Additional description"
         />
       </div>
 
@@ -678,6 +760,30 @@ export function ReadingPracticeForm({
                 </div>
               )}
 
+              {MATCHING_TYPES.includes(block.type) && (
+                <div className="space-y-1.5">
+                  <Label>Heading Keys/Options (setup once for whole block)</Label>
+                  <Input
+                    value={getMatchingOptionsInputValue(block)}
+                    onChange={(e) =>
+                      setMatchingOptionsDraft((prev) => ({
+                        ...prev,
+                        [block.id]: e.target.value,
+                      }))
+                    }
+                    onBlur={(e) =>
+                      updateBlock(block.id, {
+                        matchingOptions: parseMatchingOptionsText(e.target.value),
+                      })
+                    }
+                    placeholder="A/B/C/D/E"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Use slash, comma or newline. Example: A/B/C/D/E
+                  </p>
+                </div>
+              )}
+
               <div className="space-y-3">
                 {(() => {
                   let subtitleCount = 0;
@@ -704,10 +810,16 @@ export function ReadingPracticeForm({
                             type="button"
                             variant="ghost"
                             size="sm"
-                            onClick={() => addSubtitleAbove(block.id, question.id)}
+                            onClick={() =>
+                              INLINE_BLANK_TYPES.includes(block.type)
+                                ? addQuestionAbove(block.id, question.id)
+                                : addSubtitleAbove(block.id, question.id)
+                            }
                           >
                             <Plus className="h-4 w-4 mr-1" />
-                            Add Sub Title Above
+                            {INLINE_BLANK_TYPES.includes(block.type)
+                              ? "Add Extra Question Above"
+                              : "Add Sub Title Above"}
                           </Button>
                         )}
                         <Button
@@ -724,18 +836,37 @@ export function ReadingPracticeForm({
                     </div>
 
                     {question.itemType === "subtitle" ? (
-                      <div className="space-y-1.5">
-                        <Label>Sub Title</Label>
-                        <Input
-                          value={question.prompt}
-                          onChange={(e) =>
-                            updateQuestion(block.id, question.id, { prompt: e.target.value })
-                          }
-                          placeholder="A type of parrot:"
-                        />
+                      <div className="space-y-3">
+                        <div className="space-y-1.5">
+                          <Label>Sub Title</Label>
+                          <Input
+                            value={question.prompt}
+                            onChange={(e) =>
+                              updateQuestion(block.id, question.id, { prompt: e.target.value })
+                            }
+                            placeholder="A type of parrot:"
+                          />
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label>Sub-Subtitle (optional)</Label>
+                          <Input
+                            value={question.explanation || ""}
+                            onChange={(e) =>
+                              updateQuestion(block.id, question.id, { explanation: e.target.value })
+                            }
+                            placeholder="Additional description"
+                          />
+                        </div>
                       </div>
                     ) : (
                       <>
+                        {(() => {
+                          const blankCount = countInlineBlankPlaceholders(question.prompt || "");
+                          const isMultiInlineBlank =
+                            INLINE_BLANK_TYPES.includes(block.type) && blankCount > 1;
+
+                          return (
+                            <>
                         <div className="space-y-1.5">
                           <Label>Prompt</Label>
                           <Textarea
@@ -749,7 +880,8 @@ export function ReadingPracticeForm({
                           {INLINE_BLANK_TYPES.includes(block.type) && (
                             <p className="text-xs text-muted-foreground">
                               For inline blank display, add a placeholder in prompt like "____" or
-                              "[blank]" where the input should appear.
+                              "[blank]" where the input should appear. If there is no placeholder,
+                              this item will be treated as an extra question.
                             </p>
                           )}
                         </div>
@@ -815,18 +947,102 @@ export function ReadingPracticeForm({
                               </SelectContent>
                             </Select>
                           </div>
+                        ) : MATCHING_TYPES.includes(block.type) ? (
+                          <div className="space-y-1.5">
+                            <Label>Correct Answer</Label>
+                            <Select
+                              value={
+                                typeof question.correctAnswer === "string"
+                                  ? question.correctAnswer
+                                  : question.correctAnswer &&
+                                      typeof question.correctAnswer === "object" &&
+                                      !Array.isArray(question.correctAnswer)
+                                    ? String(
+                                        Object.values(
+                                          question.correctAnswer as Record<string, unknown>
+                                        )[0] || ""
+                                      )
+                                    : ""
+                              }
+                              onValueChange={(value) =>
+                                updateQuestion(block.id, question.id, { correctAnswer: value })
+                              }
+                            >
+                              <SelectTrigger className="max-w-[280px]">
+                                <SelectValue placeholder="Select correct answer" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {(block.matchingOptions || []).map((option) => (
+                                  <SelectItem key={`${question.id}_${option}`} value={option}>
+                                    {option}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        ) : INLINE_BLANK_TYPES.includes(block.type) ? (
+                          (() => {
+                            if (blankCount <= 1) {
+                              return (
+                                <div className="space-y-1.5">
+                                  <Label>Correct Answer</Label>
+                                  <Input
+                                    value={
+                                      typeof question.correctAnswer === "string"
+                                        ? question.correctAnswer
+                                        : Array.isArray(question.correctAnswer)
+                                          ? String(question.correctAnswer[0] || "")
+                                          : ""
+                                    }
+                                    onChange={(e) =>
+                                      updateQuestion(block.id, question.id, {
+                                        correctAnswer: e.target.value,
+                                      })
+                                    }
+                                    placeholder="Correct answer"
+                                  />
+                                </div>
+                              );
+                            }
+
+                            const answerList = Array.isArray(question.correctAnswer)
+                              ? question.correctAnswer.map((v) => String(v || ""))
+                              : Array.from({ length: blankCount }, (_, idx) =>
+                                  idx === 0 && typeof question.correctAnswer === "string"
+                                    ? question.correctAnswer
+                                    : ""
+                                );
+
+                            return (
+                              <div className="space-y-2">
+                                <Label>Correct Answers (one per blank)</Label>
+                                {Array.from({ length: blankCount }).map((_, idx) => (
+                                  <Input
+                                    key={`${question.id}_blank_${idx}`}
+                                    value={answerList[idx] || ""}
+                                    onChange={(e) => {
+                                      const next = [...answerList];
+                                      next[idx] = e.target.value;
+                                      updateQuestion(block.id, question.id, {
+                                        correctAnswer: next,
+                                      });
+                                    }}
+                                    placeholder={`Blank ${idx + 1} answer`}
+                                  />
+                                ))}
+                              </div>
+                            );
+                          })()
                         ) : (
                           <div className="space-y-1.5">
                             <Label>
                               Correct Answer
                               {block.type === "multiple-choice-multi"
                                 ? " (comma-separated, e.g. A, C)"
-                                : MATCHING_TYPES.includes(block.type)
-                                  ? " (one pair per line: key: value)"
                                   : ""}
                             </Label>
                             <Textarea
-                              rows={MATCHING_TYPES.includes(block.type) ? 4 : 2}
+                              rows={2}
                               value={correctAnswerToEditorText(question)}
                               onChange={(e) =>
                                 updateQuestion(block.id, question.id, {
@@ -834,9 +1050,7 @@ export function ReadingPracticeForm({
                                 })
                               }
                               placeholder={
-                                MATCHING_TYPES.includes(block.type)
-                                  ? "1: A\n2: C"
-                                  : block.type === "multiple-choice-multi"
+                                block.type === "multiple-choice-multi"
                                     ? "A, C"
                                     : "Correct answer"
                               }
@@ -844,7 +1058,8 @@ export function ReadingPracticeForm({
                           </div>
                         )}
 
-                        {!OPTION_TYPES.includes(block.type) && (
+                        {!OPTION_TYPES.includes(block.type) &&
+                          !MATCHING_TYPES.includes(block.type) && (
                           <div className="space-y-1.5">
                             <Label>Acceptable Answers (comma-separated, optional)</Label>
                             <Input
@@ -857,24 +1072,63 @@ export function ReadingPracticeForm({
                                     .filter(Boolean),
                                 })
                               }
-                              placeholder="synonym 1, synonym 2"
+                              placeholder={INLINE_BLANK_TYPES.includes(block.type) ? "hair, hairs" : "synonym 1, synonym 2"}
                             />
                           </div>
                         )}
 
-                        <div className="space-y-1.5">
-                          <Label>Explanation (optional)</Label>
-                          <Textarea
-                            rows={2}
-                            value={question.explanation || ""}
-                            onChange={(e) =>
-                              updateQuestion(block.id, question.id, {
-                                explanation: e.target.value,
-                              })
-                            }
-                            placeholder="Why this answer is correct"
-                          />
-                        </div>
+                        {isMultiInlineBlank ? (
+                          <div className="space-y-2">
+                            <Label>Explanation per blank (optional)</Label>
+                            {Array.from({ length: blankCount }).map((_, idx) => {
+                              const explanationList = Array.isArray(question.explanation)
+                                ? question.explanation.map((v) => String(v || ""))
+                                : Array.from({ length: blankCount }, (_, innerIdx) =>
+                                    innerIdx === 0 && typeof question.explanation === "string"
+                                      ? question.explanation
+                                      : ""
+                                  );
+
+                              return (
+                                <Input
+                                  key={`${question.id}_exp_${idx}`}
+                                  value={explanationList[idx] || ""}
+                                  onChange={(e) => {
+                                    const next = [...explanationList];
+                                    next[idx] = e.target.value;
+                                    updateQuestion(block.id, question.id, {
+                                      explanation: next,
+                                    });
+                                  }}
+                                  placeholder={`Blank ${idx + 1} explanation`}
+                                />
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <div className="space-y-1.5">
+                            <Label>Explanation (optional)</Label>
+                            <Textarea
+                              rows={2}
+                              value={
+                                typeof question.explanation === "string"
+                                  ? question.explanation
+                                  : Array.isArray(question.explanation)
+                                    ? String(question.explanation[0] || "")
+                                    : ""
+                              }
+                              onChange={(e) =>
+                                updateQuestion(block.id, question.id, {
+                                  explanation: e.target.value,
+                                })
+                              }
+                              placeholder="Why this answer is correct"
+                            />
+                          </div>
+                        )}
+                            </>
+                          );
+                        })()}
                       </>
                     )}
                   </div>
@@ -890,7 +1144,7 @@ export function ReadingPracticeForm({
                     onClick={() => addQuestion(block.id)}
                   >
                     <Plus className="h-4 w-4 mr-1" />
-                    Add Question
+                    {INLINE_BLANK_TYPES.includes(block.type) ? "Add Extra Question" : "Add Question"}
                   </Button>
                   <Button
                     type="button"

@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const IDLE_FRAMES = [
-  "/mascot/idle/idle_1.jpg",
-  "/mascot/idle/idle_2.jpg",
-  "/mascot/idle/idle_3.jpg",
-  "/mascot/idle/idle_4.jpg",
+  "/mascot/idle/idle_1.png",
+  "/mascot/idle/idle_2.png",
+  "/mascot/idle/idle_3.png",
+  "/mascot/idle/idle_4.png",
 ] as const;
 
 interface ChatbotMascotProps {

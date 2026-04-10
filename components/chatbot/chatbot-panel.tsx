@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import Image from "next/image";
 import {
   useChatSessions,
   useChatSession,
@@ -15,6 +14,7 @@ import {
 import { ChatbotSessionList } from "./chatbot-session-list";
 import { ChatbotMessages, ChatbotMessagesSkeleton } from "./chatbot-messages";
 import { ChatbotInput } from "./chatbot-input";
+import { ChatbotMascot } from "./chatbot-mascot";
 
 interface ChatbotPanelProps {
   activeSessionId: string | null;
@@ -74,13 +74,7 @@ export function ChatbotPanel({ activeSessionId, onSelectSession, onClose }: Chat
     <div className="fixed bottom-20 right-4 z-[60] flex h-[560px] w-[680px] flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl max-md:inset-0 max-md:bottom-0 max-md:right-0 max-md:h-full max-md:w-full max-md:rounded-none">
       {/* Header */}
       <div className="flex items-center gap-2.5 border-b px-4 py-2.5">
-        <Image
-          src="/chatbot_logo.png"
-          alt="Mindote AI"
-          width={28}
-          height={28}
-          className="rounded-full"
-        />
+        <ChatbotMascot size={28} className="rounded-full" />
         <div className="flex flex-col">
           <span className="text-sm font-semibold">Mindote AI</span>
           <span className="text-[10px] text-muted-foreground">English Learning Assistant</span>

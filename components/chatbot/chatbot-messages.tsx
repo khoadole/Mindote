@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useEffect, Fragment } from "react";
-import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { ChatMessage } from "@/hooks/use-chat";
+import { ChatbotMascot } from "./chatbot-mascot";
 
 function renderInlineMarkdown(text: string) {
   const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g);
@@ -100,13 +100,7 @@ export function ChatbotMessages({ messages, isSending, pendingUserMessage }: Cha
   if (messages.length === 0 && !isSending && !pendingUserMessage) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center text-muted-foreground">
-        <Image
-          src="/chatbot_logo.png"
-          alt="Mindote AI"
-          width={56}
-          height={56}
-          className="rounded-full opacity-60"
-        />
+        <ChatbotMascot size={56} className="rounded-full opacity-80" />
         <p className="text-sm">
           Hỏi về từ vựng, ngữ pháp, tiến độ học tập, hoặc hỗ trợ tài khoản Mindote.
         </p>
@@ -124,13 +118,7 @@ export function ChatbotMessages({ messages, isSending, pendingUserMessage }: Cha
           >
             {msg.role === "assistant" && (
               <div className="mt-1 shrink-0">
-                <Image
-                  src="/chatbot_logo.png"
-                  alt="Mindote AI"
-                  width={28}
-                  height={28}
-                  className="rounded-full"
-                />
+                <ChatbotMascot size={28} className="rounded-full" animated={false} />
               </div>
             )}
             <div
@@ -157,13 +145,7 @@ export function ChatbotMessages({ messages, isSending, pendingUserMessage }: Cha
         {isSending && (
           <div className="flex gap-2">
             <div className="mt-1 shrink-0">
-              <Image
-                src="/chatbot_logo.png"
-                alt="Mindote AI"
-                width={28}
-                height={28}
-                className="rounded-full"
-              />
+              <ChatbotMascot size={28} className="rounded-full" />
             </div>
             <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-sm bg-muted px-4 py-3">
               <span className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.3s]" />

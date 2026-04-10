@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { X } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useTranslation } from "@/lib/i18n-provider";
+import { ChatbotMascot } from "./chatbot-mascot";
 
 interface ChatbotFabProps {
   isOpen: boolean;
@@ -25,8 +25,8 @@ export function ChatbotFab({ isOpen, onClick, highlight = false }: ChatbotFabPro
         <TooltipTrigger asChild>
           <button
             onClick={onClick}
-            className={`relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-blue-500 shadow-lg transition-all duration-200 hover:scale-110 hover:bg-blue-600 hover:shadow-xl active:scale-95 ${
-              highlight ? "animate-pulse ring-4 ring-blue-200 dark:ring-blue-900/70" : ""
+            className={`relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-transparent shadow-none transition-all duration-200 hover:scale-105 active:scale-95 ${
+              highlight ? "animate-pulse" : ""
             }`}
             aria-label={t("chat.tooltip")}
           >
@@ -37,15 +37,9 @@ export function ChatbotFab({ isOpen, onClick, highlight = false }: ChatbotFabPro
             )}
 
             {isOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-blue-600 dark:text-blue-300" />
             ) : (
-              <Image
-                src="/chatbot_logo.png"
-                alt="Mindote AI"
-                width={36}
-                height={36}
-                className="rounded-full object-cover"
-              />
+              <ChatbotMascot size={60} className="rounded-full" />
             )}
           </button>
         </TooltipTrigger>

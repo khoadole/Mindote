@@ -731,7 +731,7 @@ export default function ReadingPage() {
                         href={`/reading/practice/${part.id}`}
                         className="block"
                       >
-                        <div className="group relative overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-background via-background to-muted/20 p-4 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/60 hover:shadow-[0_14px_28px_-16px_rgba(37,99,235,0.35)]">
+                        <div className="micro-card group relative overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-background via-background to-muted/20 p-4 shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)] transition-colors duration-300 hover:border-blue-400/60">
                           <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_45%)]" />
                           <div className="relative flex items-start justify-between gap-4">
                             <div>

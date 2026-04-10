@@ -129,7 +129,7 @@ export default function VocabularyPage() {
                 className="group block"
               >
                 <div
-                  className="h-full bg-white dark:bg-card rounded-2xl border border-stone-200 dark:border-border overflow-hidden hover:-translate-y-0.5 transition-all duration-200 shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)] flex"
+                  className="micro-card h-full bg-white dark:bg-card rounded-2xl border border-stone-200 dark:border-border overflow-hidden transition-colors duration-200 shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] flex"
                   style={{ borderLeft: `3px solid ${cfg.accentColor}` }}
                 >
                   <div className="p-5 flex flex-col gap-4 flex-1">
@@ -185,7 +185,7 @@ export default function VocabularyPage() {
 
                     {/* CTA */}
                     <div
-                      className="text-center text-sm font-semibold py-2.5 rounded-xl transition-colors"
+                      className="micro-press text-center text-sm font-semibold py-2.5 rounded-xl transition-colors"
                       style={{
                         backgroundColor: isDone
                           ? "transparent"

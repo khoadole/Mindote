@@ -311,13 +311,13 @@ export default function CollectionsPage() {
                     style={{ animationDelay: `${index * 40}ms` }}
                   >
                     <div
-                      className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-border/60 border-b-[3px] hover:-translate-y-0.5 transition-all duration-200"
+                      className="micro-card flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-border/60 border-b-[3px] transition-all duration-200"
                       style={{
                         borderBottomColor: color,
                         boxShadow: `0 2px 8px -2px ${color}20, 0 1px 3px -1px rgba(0,0,0,0.05)`,
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.boxShadow = `0 4px 16px -4px ${color}35, 0 2px 6px -2px rgba(0,0,0,0.08)`;
+                        e.currentTarget.style.boxShadow = `0 14px 32px -14px ${color}46, 0 10px 22px -18px rgba(0,0,0,0.32)`;
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.boxShadow = `0 2px 8px -2px ${color}20, 0 1px 3px -1px rgba(0,0,0,0.05)`;
@@ -371,7 +371,7 @@ export default function CollectionsPage() {
                       </div>
 
                       <div className="px-5 pb-5">
-                        <div className="w-full py-2.5 text-center text-sm font-medium text-blue-500 dark:text-blue-400 border border-blue-200/70 dark:border-blue-800 rounded-lg group-hover:bg-blue-50/40 dark:group-hover:bg-blue-900/20 transition-colors">
+                        <div className="micro-press w-full py-2.5 text-center text-sm font-medium text-blue-500 dark:text-blue-400 border border-blue-200/70 dark:border-blue-800 rounded-lg group-hover:bg-blue-50/40 dark:group-hover:bg-blue-900/20 transition-colors">
                           Chi tiết
                         </div>
                       </div>

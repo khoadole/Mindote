@@ -240,6 +240,85 @@
 
 /* Custom Animations & Effects */
 @layer utilities {
+  /* Reusable micro-interactions */
+  .micro-card {
+    transform-origin: center;
+    will-change: transform, box-shadow;
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .micro-card:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 16px 34px -18px rgba(15, 23, 42, 0.35),
+        0 8px 20px -14px rgba(37, 99, 235, 0.3);
+    }
+  }
+
+  .dark .micro-card:hover {
+    box-shadow:
+      0 20px 38px -20px oklch(0 0 0 / 0.72),
+      0 10px 24px -16px oklch(0.72 0.2 250 / 0.35);
+  }
+
+  .micro-press {
+    position: relative;
+    overflow: hidden;
+    transform-origin: center;
+    transition:
+      transform 120ms ease,
+      box-shadow 200ms ease,
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  .micro-press::after {
+    content: "";
+    position: absolute;
+    inset: -45%;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.22);
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.26) 0%,
+      rgba(59, 130, 246, 0) 62%
+    );
+    transition:
+      transform 320ms ease,
+      opacity 360ms ease;
+  }
+
+  .micro-press:active,
+  .group:active .micro-press {
+    transform: scale(0.95);
+  }
+
+  .micro-press:active::after,
+  .group:active .micro-press::after {
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 0ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .micro-card,
+    .micro-press,
+    .micro-press::after {
+      transition: none;
+    }
+
+    .micro-card:hover,
+    .micro-press:active,
+    .group:active .micro-press {
+      transform: none;
+    }
+  }
+
   /* Vibrant gradient backgrounds for light mode - White text friendly */
   .gradient-purple-vibrant {
     background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);

@@ -68,7 +68,11 @@ export function ChatbotInput({
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
           onInput={handleInput}
-          placeholder={limitReached ? "Đã hết lượt hôm nay..." : "Hỏi về từ vựng, ngữ pháp..."}
+          placeholder={
+            limitReached
+              ? "Đã hết lượt hôm nay..."
+              : "Hỏi về từ vựng, ngữ pháp, tiến độ học hoặc tài khoản..."
+          }
           disabled={isSending || limitReached}
           rows={1}
           maxLength={500}

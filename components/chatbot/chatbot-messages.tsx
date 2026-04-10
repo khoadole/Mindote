@@ -108,7 +108,7 @@ export function ChatbotMessages({ messages, isSending, pendingUserMessage }: Cha
           className="rounded-full opacity-60"
         />
         <p className="text-sm">
-          Hỏi tôi về từ vựng, ngữ pháp, hay bất kỳ điều gì liên quan đến tiếng Anh!
+          Hỏi về từ vựng, ngữ pháp, tiến độ học tập, hoặc hỗ trợ tài khoản Mindote.
         </p>
       </div>
     );

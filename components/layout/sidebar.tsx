@@ -35,6 +35,7 @@ import {
   ChevronsUpDown,
   BookOpenText,
   PenLine,
+  User,
 } from "lucide-react";
 import { DictionaryModal } from "@/components/modals/dictionary-modal";
 
@@ -620,15 +621,36 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
               >
                 {/* User info in popover */}
                 <div className="px-3 py-2 mb-1">
-                  <p className="text-sm font-semibold text-foreground truncate">
-                    {getUserDisplayName(user)}
-                  </p>
+                  <button
+                    onClick={() => {
+                      setUserPopoverOpen(false);
+                      router.push("/profile");
+                      onMobileClose?.();
+                    }}
+                    className="w-full text-left cursor-pointer"
+                  >
+                    <p className="text-sm font-semibold text-foreground truncate hover:text-primary transition-colors">
+                      {getUserDisplayName(user)}
+                    </p>
+                  </button>
                   <p className="text-xs text-muted-foreground truncate">
                     {user?.email}
                   </p>
                 </div>
 
                 <div className="h-px bg-border mb-1" />
+
+                <button
+                  onClick={() => {
+                    setUserPopoverOpen(false);
+                    router.push("/profile");
+                    onMobileClose?.();
+                  }}
+                  className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted/70 transition-colors"
+                >
+                  <User className="h-4 w-4" />
+                  View profile
+                </button>
 
                 {/* Upgrade / Premium button */}
                 {!subscriptionLoading && (

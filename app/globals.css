@@ -193,6 +193,12 @@
       border-color 0.3s ease;
   }
 
+  button,
+  [role="button"],
+  a[href] {
+    cursor: pointer;
+  }
+
   /* Ensure sidebar always has proper background */
   [class*="sidebar"] {
     background-color: oklch(1 0 0);

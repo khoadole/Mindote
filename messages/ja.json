@@ -182,7 +182,21 @@
     "lookupQuery": "「{{query}}」を調べる",
     "lookupHint": "定義と発音つきの辞書結果を開く",
     "addQuery": "「{{query}}」を追加",
-    "addHint": "追加フォームに入力し、コレクションを選択"
+    "addHint": "追加フォームに入力し、コレクションを選択",
+    "trySearches": "例:",
+    "reviewToday": "今日の復習",
+    "dueWordsToday": "今日は{{count}}語が復習対象です",
+    "noDueWordsToday": "今日は復習対象の単語はありません",
+    "reviewTodayHint": "今日の復習を終えて、記憶を保ち、ストリークを守りましょう。",
+    "reviewDoneHint": "今日は完了です。新しい単語を追加するか、少し追加で練習できます。",
+    "startReview": "復習を始める",
+    "learningProgress": "学習の進捗",
+    "totalSavedWords": "保存した単語",
+    "progressBreakdown": "ステージ別",
+    "studyCalendar": "学習カレンダー",
+    "streakEmptyHint": "今日はまだ学習していません。5分だけ復習してストリークを始めましょう。",
+    "streakActiveHint": "いいペースです。今日も短い学習を続けましょう。",
+    "studyNow": "今すぐ学習"
   },
   "collections": {
     "title": "コレクション",

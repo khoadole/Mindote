@@ -199,7 +199,21 @@
     "lookupQuery": "Look up \"{{query}}\"",
     "lookupHint": "Open dictionary results with definitions and pronunciation",
     "addQuery": "Add \"{{query}}\"",
-    "addHint": "Prefill the add-word form and choose a collection"
+    "addHint": "Prefill the add-word form and choose a collection",
+    "trySearches": "Try:",
+    "reviewToday": "Review Today",
+    "dueWordsToday": "{{count}} words due today",
+    "noDueWordsToday": "No words due today",
+    "reviewTodayHint": "Finish today's review to keep your memory fresh and protect your streak.",
+    "reviewDoneHint": "You are caught up. Add a new word or practice anyway if you want a little extra.",
+    "startReview": "Start review",
+    "learningProgress": "Learning Progress",
+    "totalSavedWords": "saved words",
+    "progressBreakdown": "Stage breakdown",
+    "studyCalendar": "Study Calendar",
+    "streakEmptyHint": "You have not studied today yet. Review for five minutes to start a streak.",
+    "streakActiveHint": "Nice rhythm. Keep one small session going today.",
+    "studyNow": "Study now"
   },
   "collections": {
     "title": "Collections",

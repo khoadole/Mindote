@@ -1,23 +1,17 @@
 "use client";
 
+import type React from "react";
+import { useMemo } from "react";
+import Link from "next/link";
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
 import { useLastSevenDaysActivity } from "@/hooks/use-activity-logger";
 import { Button } from "@/components/ui/button";
 import { WordCommandSearch } from "@/components/dashboard/word-command-search";
-import {
-  Candy as Cards,
-  Flame,
-  Zap,
-  Trophy,
-  CheckCircle2,
-} from "lucide-react";
-import Link from "next/link";
-import { useMemo } from "react";
+import { Candy as Cards, CheckCircle2, Flame, Trophy, Zap } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
 
-// Card wrapper — ấm, Claude-style
 function Panel({
   children,
   className = "",
@@ -27,14 +21,13 @@ function Panel({
 }) {
   return (
     <div
-      className={`bg-white dark:bg-card rounded-2xl border border-stone-200 dark:border-border shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 transition-all duration-200 ${className}`}
+      className={`rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-border dark:bg-card ${className}`}
     >
       {children}
     </div>
   );
 }
 
-// Section label — Claude editorial style
 function SectionLabel({
   icon: Icon,
   children,
@@ -43,11 +36,42 @@ function SectionLabel({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-1.5 mb-4">
-      {Icon && <Icon className="h-3 w-3 text-stone-400 dark:text-muted-foreground" />}
-      <span className="text-[10px] font-semibold text-stone-400 dark:text-muted-foreground uppercase tracking-widest">
+    <div className="mb-4 flex items-center gap-1.5">
+      {Icon && (
+        <Icon className="h-3 w-3 text-stone-400 dark:text-muted-foreground" />
+      )}
+      <span className="text-[10px] font-semibold uppercase tracking-widest text-stone-400 dark:text-muted-foreground">
         {children}
       </span>
+    </div>
+  );
+}
+
+function ProgressRow({
+  label,
+  value,
+  percent,
+  barClassName,
+}: {
+  label: string;
+  value: number;
+  percent: number;
+  barClassName: string;
+}) {
+  return (
+    <div className="space-y-1.5">
+      <div className="flex items-center justify-between gap-3 text-sm">
+        <span className="text-muted-foreground">{label}</span>
+        <span className="font-semibold tabular-nums text-foreground">
+          {value}
+        </span>
+      </div>
+      <div className="h-2 overflow-hidden rounded-full bg-stone-100 dark:bg-muted">
+        <div
+          className={`h-full rounded-full transition-all duration-500 ${barClassName}`}
+          style={{ width: `${percent}%` }}
+        />
+      </div>
     </div>
   );
 }
@@ -68,214 +92,205 @@ export default function Dashboard() {
   const streakDays = useMemo(() => {
     const today = new Date();
     const dayNames = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
     return Array.from({ length: 7 }, (_, i) => {
       const daysAgo = 6 - i;
       const date = new Date(today);
       date.setDate(today.getDate() - daysAgo);
-      const dateStr = date.toISOString().split("T")[0]; // YYYY-MM-DD
-
-      // Check if this day has activity from API
+      const dateStr = date.toISOString().split("T")[0];
       const activityForDay = activityDays?.find(
-        (day: any) => day.date === dateStr
+        (day: any) => day.date === dateStr,
       );
-      const hasActivity = activityForDay
-        ? activityForDay.hasActivity
-        : false;
 
       return {
         day: dayNames[date.getDay()],
         date: date.getDate(),
         isToday: daysAgo === 0,
-        hasActivity,
-        activityCount: activityForDay?.totalEvents || 0,
+        hasActivity: activityForDay ? activityForDay.hasActivity : false,
       };
     });
-  }, [currentStreak, activityDays]);
+  }, [activityDays]);
 
-  const statItems = [
+  const progressItems = [
     {
       label: t("dashboard.new"),
       value: stats?.newWords || 0,
-      dot: "bg-stone-400",
+      barClassName: "bg-stone-400",
     },
     {
       label: t("dashboard.learning"),
       value: stats?.learningWords || 0,
-      dot: "bg-amber-400",
+      barClassName: "bg-amber-500",
     },
     {
       label: t("dashboard.familiar"),
       value: stats?.familiarWords || 0,
-      dot: "bg-blue-400",
+      barClassName: "bg-blue-500",
     },
     {
       label: t("dashboard.master"),
       value: masteredWords,
-      dot: "bg-emerald-500",
+      barClassName: "bg-emerald-500",
     },
-  ];
+  ].map((item) => ({
+    ...item,
+    percent:
+      totalWords > 0 ? Math.round((item.value / totalWords) * 100) : 0,
+  }));
+
+  const studyHref = "/collections";
 
   return (
     <div className="min-h-screen bg-stone-50 p-4 dark:bg-background md:p-8">
-      <div className="max-w-7xl mx-auto space-y-5">
+      <div className="mx-auto max-w-6xl space-y-4">
         <WordCommandSearch />
 
-        {/* Top 3 panels */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-
-          {/* PROGRESS — total + 2×2 stats */}
-          <Panel className="p-5">
-            <SectionLabel icon={Trophy}>{t("dashboard.progress")}</SectionLabel>
-            <div className="mb-4">
-              <div className="text-4xl font-black text-stone-900 dark:text-foreground leading-none">
-                {totalWords}
-              </div>
-              <div className="text-xs text-stone-400 dark:text-muted-foreground mt-1">
-                {t("dashboard.totalWords")}
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {statItems.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex items-center gap-2 p-2.5 rounded-xl bg-stone-50 dark:bg-muted/40"
-                >
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${s.dot}`} />
-                  <div>
-                    <div className="text-base font-bold text-stone-800 dark:text-foreground leading-none">
-                      {s.value}
-                    </div>
-                    <div className="text-[11px] text-stone-400 dark:text-muted-foreground mt-0.5">
-                      {s.label}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Panel>
-
-          {/* STREAK — Duolingo energy: số cam to, bars thoáng */}
-          <Panel className="p-5">
-            <SectionLabel icon={Flame}>{t("dashboard.streakCalendar")}</SectionLabel>
-            <div className="flex items-end justify-between mb-5">
-              <div className="flex items-end gap-2">
-                <span
-                  className={`text-5xl font-black leading-none ${
-                    currentStreak > 0
-                      ? "text-orange-500"
-                      : "text-stone-300 dark:text-muted-foreground"
-                  }`}
-                >
-                  {currentStreak}
-                </span>
-                <div className="mb-1">
-                  <div className="text-xl leading-none">{currentStreak > 0 ? "🔥" : "❄️"}</div>
-                  <div className="text-[11px] text-stone-400 dark:text-muted-foreground mt-0.5">
-                    {t("dashboard.dayStreak", { count: currentStreak })}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Duolingo-style day circles */}
-            <div className="flex items-center gap-1">
-              {streakDays.map((day, i) => (
-                <div key={i} className="flex flex-col items-center gap-2.5 flex-1">
-                  <div
-                    className={`w-full aspect-square max-w-[36px] mx-auto rounded-full flex items-center justify-center transition-all duration-200 ${
-                      day.hasActivity
-                        ? "bg-gradient-to-b from-orange-400 to-orange-500 shadow-[0_3px_10px_rgba(251,146,60,0.4)]"
-                        : "bg-stone-100 dark:bg-muted/50"
-                    } ${
-                      day.isToday
-                        ? "ring-2 ring-orange-400 ring-offset-2 ring-offset-white dark:ring-offset-card scale-110"
-                        : ""
-                    }`}
-                  >
-                    {day.hasActivity && (
-                      <Flame className="h-4 w-4 text-white drop-shadow-sm" />
-                    )}
-                  </div>
-                  <span
-                    className={`text-[10px] font-medium tabular-nums leading-none ${
-                      day.isToday
-                        ? "text-orange-500 font-semibold"
-                        : "text-stone-300 dark:text-muted-foreground"
-                    }`}
-                  >
-                    {day.date}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Panel>
-
-          {/* QUICK REVIEW — hero khi có words, calm khi done */}
-          <div
-            className={`rounded-2xl border transition-all duration-200 shadow-[0_1px_4px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 ${
-              dueCount > 0
-                ? "bg-amber-50 dark:bg-amber-950/10 border-amber-200 dark:border-amber-800/40"
-                : "bg-white dark:bg-card border-stone-200 dark:border-border"
-            }`}
-          >
-            <div className="p-5 h-full flex flex-col">
-              <SectionLabel icon={Zap}>{t("dashboard.quickRevision")}</SectionLabel>
-
-              {dueLoading ? (
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-                </div>
-              ) : dueCount === 0 ? (
-                <div className="flex-1 flex flex-col items-center justify-center gap-3 py-2">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
-                    <CheckCircle2 className="h-7 w-7 text-emerald-500" />
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm font-semibold text-stone-700 dark:text-foreground">
-                      {t("dashboard.allCaughtUp")}
-                    </p>
-                    <p className="text-xs text-stone-400 dark:text-muted-foreground mt-0.5">
-                      Come back tomorrow!
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex-1 flex flex-col items-center justify-center gap-1 py-2">
-                  <div className="text-6xl font-black text-amber-500 leading-none">
-                    {dueCount}
-                  </div>
-                  <p className="text-sm text-stone-500 dark:text-muted-foreground">
-                    {t("dashboard.wordsToReview", { count: dueCount })}
+        <Panel className="p-5 md:p-6">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+            <div>
+              <SectionLabel icon={Zap}>{t("dashboard.reviewToday")}</SectionLabel>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-normal text-foreground md:text-3xl">
+                    {dueCount > 0
+                      ? t("dashboard.dueWordsToday", { count: dueCount })
+                      : t("dashboard.noDueWordsToday")}
+                  </h2>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                    {dueCount > 0
+                      ? t("dashboard.reviewTodayHint")
+                      : t("dashboard.reviewDoneHint")}
                   </p>
                 </div>
-              )}
 
-              <Button
-                className={`w-full rounded-xl font-semibold mt-3 ${
-                  dueCount > 0
-                    ? "bg-amber-500 hover:bg-amber-600 text-white shadow-[0_2px_8px_rgba(245,158,11,0.35)]"
-                    : ""
+                {dueLoading ? (
+                  <div className="flex h-10 items-center gap-2 text-sm text-muted-foreground">
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-amber-500 border-t-transparent" />
+                    {t("dashboard.searchingWords")}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 dark:border-border dark:bg-background/50">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">
+                  {t("dashboard.wordsToReview", { count: dueCount })}
+                </span>
+                {dueCount === 0 ? (
+                  <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                ) : (
+                  <Cards className="h-5 w-5 text-amber-500" />
+                )}
+              </div>
+              <div
+                className={`mb-4 text-4xl font-black leading-none tabular-nums ${
+                  dueCount > 0 ? "text-amber-500" : "text-foreground"
                 }`}
-                size="sm"
+              >
+                {dueCount}
+              </div>
+              <Button
+                className="h-11 w-full rounded-xl bg-amber-500 font-semibold text-white shadow-sm hover:bg-amber-600"
                 asChild={dueCount > 0}
-                disabled={dueCount === 0}
+                disabled={dueCount === 0 || dueLoading}
               >
                 {dueCount > 0 ? (
                   <Link href="/flashcards?mode=review" className="flex items-center gap-2">
                     <Cards className="h-4 w-4" />
-                    {t("dashboard.startFlashcards")}
+                    {t("dashboard.startReview")}
                   </Link>
                 ) : (
                   <span className="flex items-center gap-2">
                     <Cards className="h-4 w-4" />
-                    {t("dashboard.startFlashcards")}
+                    {t("dashboard.startReview")}
                   </span>
                 )}
               </Button>
             </div>
           </div>
-        </div>
+        </Panel>
 
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <Panel className="p-5">
+            <SectionLabel icon={Trophy}>{t("dashboard.learningProgress")}</SectionLabel>
+            <div className="mb-6 flex items-end justify-between gap-4">
+              <div>
+                <div className="text-4xl font-black leading-none text-foreground">
+                  {totalWords}
+                </div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {t("dashboard.totalSavedWords")}
+                </div>
+              </div>
+              <div className="text-right text-xs text-muted-foreground">
+                {t("dashboard.progressBreakdown")}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {progressItems.map((item) => (
+                <ProgressRow
+                  key={item.label}
+                  label={item.label}
+                  value={item.value}
+                  percent={item.percent}
+                  barClassName={item.barClassName}
+                />
+              ))}
+            </div>
+          </Panel>
+
+          <Panel className="p-5">
+            <SectionLabel icon={Flame}>{t("dashboard.studyCalendar")}</SectionLabel>
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div>
+                <div className="flex items-end gap-2">
+                  <span
+                    className={`text-4xl font-black leading-none tabular-nums ${
+                      currentStreak > 0 ? "text-amber-500" : "text-foreground"
+                    }`}
+                  >
+                    {currentStreak}
+                  </span>
+                  <span className="pb-1 text-sm text-muted-foreground">
+                    {t("dashboard.dayStreak", { count: currentStreak })}
+                  </span>
+                </div>
+                <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
+                  {currentStreak > 0
+                    ? t("dashboard.streakActiveHint")
+                    : t("dashboard.streakEmptyHint")}
+                </p>
+              </div>
+              <Button variant="outline" size="sm" className="rounded-xl" asChild>
+                <Link href={studyHref}>{t("dashboard.studyNow")}</Link>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-7 gap-2">
+              {streakDays.map((day) => (
+                <div key={`${day.day}-${day.date}`} className="text-center">
+                  <div
+                    className={`mx-auto flex aspect-square max-w-10 items-center justify-center rounded-full border transition-colors ${
+                      day.hasActivity
+                        ? "border-amber-500 bg-amber-500 text-white"
+                        : "border-border bg-muted/40 text-muted-foreground"
+                    } ${day.isToday ? "ring-1 ring-amber-400 ring-offset-2 ring-offset-background" : ""}`}
+                  >
+                    {day.hasActivity ? (
+                      <Flame className="h-4 w-4" />
+                    ) : (
+                      <span className="text-xs font-semibold tabular-nums">
+                        {day.date}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </div>
       </div>
     </div>
   );

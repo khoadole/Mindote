@@ -182,7 +182,21 @@
     "lookupQuery": "Consulta \"{{query}}\"",
     "lookupHint": "Apri risultati del dizionario con definizioni e pronuncia",
     "addQuery": "Aggiungi \"{{query}}\"",
-    "addHint": "Precompila il modulo e scegli una raccolta"
+    "addHint": "Precompila il modulo e scegli una raccolta",
+    "trySearches": "Prova:",
+    "reviewToday": "Ripasso di oggi",
+    "dueWordsToday": "{{count}} parole da ripassare oggi",
+    "noDueWordsToday": "Nessuna parola da ripassare oggi",
+    "reviewTodayHint": "Completa il ripasso di oggi per mantenere fresca la memoria e proteggere la serie.",
+    "reviewDoneHint": "Sei in pari. Aggiungi una nuova parola o fai un po' di pratica extra.",
+    "startReview": "Inizia ripasso",
+    "learningProgress": "Progressi di apprendimento",
+    "totalSavedWords": "parole salvate",
+    "progressBreakdown": "Per fase",
+    "studyCalendar": "Calendario di studio",
+    "streakEmptyHint": "Non hai ancora studiato oggi. Ripassa cinque minuti per iniziare una serie.",
+    "streakActiveHint": "Ottimo ritmo. Mantieni una breve sessione oggi.",
+    "studyNow": "Studia ora"
   },
   "collections": {
     "title": "Collezioni",

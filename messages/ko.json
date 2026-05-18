@@ -182,7 +182,21 @@
     "lookupQuery": "\"{{query}}\" 뜻 찾기",
     "lookupHint": "정의와 발음이 포함된 사전 결과 열기",
     "addQuery": "\"{{query}}\" 추가",
-    "addHint": "추가 폼을 채우고 컬렉션 선택"
+    "addHint": "추가 폼을 채우고 컬렉션 선택",
+    "trySearches": "예시:",
+    "reviewToday": "오늘의 복습",
+    "dueWordsToday": "오늘 복습할 단어 {{count}}개",
+    "noDueWordsToday": "오늘 복습할 단어가 없습니다",
+    "reviewTodayHint": "오늘 복습을 끝내 기억을 유지하고 스트릭을 지키세요.",
+    "reviewDoneHint": "오늘 할 일은 끝났습니다. 새 단어를 추가하거나 조금 더 연습해 보세요.",
+    "startReview": "복습 시작",
+    "learningProgress": "학습 진행도",
+    "totalSavedWords": "저장한 단어",
+    "progressBreakdown": "단계별 보기",
+    "studyCalendar": "학습 캘린더",
+    "streakEmptyHint": "오늘 아직 공부하지 않았습니다. 5분만 복습해서 스트릭을 시작하세요.",
+    "streakActiveHint": "좋은 리듬입니다. 오늘 짧은 세션을 이어가세요.",
+    "studyNow": "지금 학습"
   },
   "landing": {
     "aiPowered": "AI 기반 어휘 학습",

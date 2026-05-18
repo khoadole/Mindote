@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { useKeyboardShortcuts } from "@/lib/keyboard-shortcuts";
 import { useAllWords } from "@/hooks/use-words";
-import { useCollections, useCollection } from "@/hooks/use-collections";
+import { useCollections } from "@/hooks/use-collections";
 import { logQuizActivityAction } from "@/app/actions/reviews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,10 +20,10 @@ import {
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import { WordPracticeTabs } from "@/components/dashboard/word-practice-tabs";
 import {
   CheckCircle,
   Play,
-  ArrowLeft,
   Target,
   Edit,
   Loader2,
@@ -65,7 +65,6 @@ export default function QuizPage() {
   const { data: words = [], isLoading: wordsLoading } = useAllWords();
   const { data: collections = [], isLoading: collectionsLoading } =
     useCollections();
-  const { data: specificCollection } = useCollection(collectionParam || "");
   const { toast } = useToast();
 
   const [selectedScope, setSelectedScope] = useState<string>(
@@ -187,34 +186,7 @@ export default function QuizPage() {
       {/* Content - positioned above background */}
       <div className="relative z-10 p-6 min-h-screen">
         <div className="max-w-4xl mx-auto space-y-6">
-          {/* Header */}
-          <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">
-            <Button
-              variant="outline"
-              size="default"
-              onClick={() => {
-                if (collectionParam) {
-                  router.push(`/collections/${collectionParam}`);
-                } else {
-                  router.push("/dashboard");
-                }
-              }}
-              className="text-base"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              {t("common.back")}
-            </Button>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-bold">
-                {collectionParam && specificCollection
-                  ? t("quiz.quizWithCollection", {
-                      name: specificCollection.name,
-                    })
-                  : t("quiz.title")}
-              </h1>
-            </div>
-          </div>
+          <WordPracticeTabs active="quiz" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Settings */}

@@ -59,7 +59,10 @@ export function WordCommandSearch() {
     () => (isSettledQuery ? words : []),
     [isSettledQuery, words],
   );
-  const visibleWords = useMemo(() => displayedWords.slice(0, 6), [displayedWords]);
+  const visibleWords = useMemo(
+    () => displayedWords.slice(0, 6),
+    [displayedWords],
+  );
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -110,16 +113,18 @@ export function WordCommandSearch() {
   }, [selectedIndex]);
 
   const openAddWord = (term = trimmedQuery) => {
-    if (!term.trim()) return;
-    setAddTerm(term.trim());
+    const nextTerm = term.trim();
+    if (!nextTerm) return;
+    setAddTerm(nextTerm);
     setAddOpen(true);
     setIsOpen(false);
     setSelectedIndex(-1);
   };
 
   const openDictionary = (term = trimmedQuery) => {
-    if (!term.trim()) return;
-    setDictionaryQuery(term.trim());
+    const nextTerm = term.trim();
+    if (!nextTerm) return;
+    setDictionaryQuery(nextTerm);
     setDictionaryOpen(true);
     setIsOpen(false);
     setSelectedIndex(-1);
@@ -195,25 +200,19 @@ export function WordCommandSearch() {
 
   return (
     <>
-      <section className="mx-auto flex min-h-[220px] w-full max-w-3xl flex-col items-center justify-center text-center md:min-h-[260px]">
+      <section className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center">
         <div className="mb-6 space-y-2">
-          <h1 className="text-2xl font-bold tracking-normal text-stone-900 dark:text-foreground md:text-4xl">
+          <h1 className="text-3xl font-bold tracking-normal text-stone-900 dark:text-foreground md:text-5xl">
             {t("dashboard.wordCommandTitle")}
           </h1>
-          <p className="mx-auto max-w-xl text-sm leading-6 text-muted-foreground md:text-base">
+          <p className="mx-auto max-w-2xl text-sm leading-6 text-muted-foreground md:text-base">
             {t("dashboard.wordCommandSubtitle")}
           </p>
         </div>
 
         <div ref={rootRef} className="relative w-full">
-          <div
-            className={cn(
-              "relative flex h-16 items-center rounded-2xl border bg-white dark:bg-card",
-              "border-stone-200 dark:border-border shadow-[0_12px_38px_rgba(15,23,42,0.08)]",
-              "transition-all duration-200 focus-within:border-primary/45 focus-within:shadow-[0_16px_48px_rgba(59,130,246,0.14)]",
-            )}
-          >
-            <Search className="absolute left-5 h-5 w-5 text-stone-400 dark:text-muted-foreground" />
+          <div className="relative flex h-14 items-center rounded-full border border-stone-200 bg-white px-5 shadow-[0_14px_40px_rgba(15,23,42,0.08)] transition-all duration-200 focus-within:border-primary/40 focus-within:shadow-[0_16px_46px_rgba(59,130,246,0.14)] dark:border-border dark:bg-[#121212] md:h-16 md:px-6">
+            <Search className="h-5 w-5 shrink-0 text-stone-400 dark:text-muted-foreground" />
             <input
               ref={inputRef}
               value={query}
@@ -221,39 +220,44 @@ export function WordCommandSearch() {
               onFocus={() => trimmedQuery && setIsOpen(true)}
               onKeyDown={handleKeyDown}
               placeholder={t("dashboard.wordCommandPlaceholder")}
-              className="h-full w-full bg-transparent pl-14 pr-14 text-base font-medium text-stone-900 outline-none placeholder:text-stone-400 dark:text-foreground dark:placeholder:text-muted-foreground md:text-lg"
+              className="h-full min-w-0 flex-1 bg-transparent px-4 text-base font-medium text-stone-900 outline-none placeholder:text-stone-400 dark:text-foreground dark:placeholder:text-muted-foreground md:text-lg"
               aria-label={t("dashboard.wordCommandPlaceholder")}
             />
-            {query ? (
-              <button
-                type="button"
-                onClick={clearQuery}
-                className="absolute right-4 flex h-9 w-9 items-center justify-center rounded-xl text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-700 dark:hover:bg-muted dark:hover:text-foreground"
-                aria-label="Clear search"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            ) : null}
+            <div className="flex shrink-0 items-center gap-2">
+              {isSearching ? (
+                <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+              ) : null}
+              {query ? (
+                <button
+                  type="button"
+                  onClick={clearQuery}
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-700 dark:hover:bg-white/10 dark:hover:text-foreground"
+                  aria-label="Clear search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              ) : null}
+            </div>
           </div>
 
           {isOpen && trimmedQuery ? (
             <div
               ref={listRef}
-              className="absolute left-0 right-0 top-full z-40 mt-3 max-h-[420px] overflow-y-auto rounded-2xl border border-stone-200 bg-white p-2 shadow-2xl shadow-slate-900/10 dark:border-border dark:bg-card"
+              className="absolute left-0 right-0 top-full z-40 mt-3 max-h-[420px] overflow-y-auto rounded-3xl border border-stone-200 bg-white p-2 text-left shadow-2xl shadow-slate-900/10 dark:border-border dark:bg-card"
             >
-              <div className="px-3 py-2 text-[10px] font-semibold uppercase tracking-widest text-stone-400 dark:text-muted-foreground">
+              <div className="px-4 py-2 text-[10px] font-semibold uppercase tracking-widest text-stone-400 dark:text-muted-foreground">
                 {t("dashboard.inYourWords")}
               </div>
 
               {isSearching ? (
-                <div className="flex items-center gap-2 px-3 py-3 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground">
                   <Loader2 className="h-4 w-4 animate-spin" />
                   {t("dashboard.searchingWords")}
                 </div>
               ) : null}
 
               {!isSearching && !hasResults ? (
-                <div className="px-3 py-3 text-sm text-muted-foreground">
+                <div className="px-4 py-3 text-sm text-muted-foreground">
                   {t("dashboard.noSavedWordsFound")}
                 </div>
               ) : null}
@@ -265,7 +269,7 @@ export function WordCommandSearch() {
                   data-index={index}
                   onClick={() => handleSelect({ type: "word", word })}
                   className={cn(
-                    "flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left transition-colors",
+                    "flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-colors",
                     selectedIndex === index
                       ? "bg-primary/10"
                       : "hover:bg-stone-50 dark:hover:bg-muted/60",
@@ -295,7 +299,10 @@ export function WordCommandSearch() {
                       {word.definition}
                     </p>
                   </div>
-                  <Badge variant="secondary" className="max-w-[140px] shrink-0 truncate text-xs">
+                  <Badge
+                    variant="secondary"
+                    className="max-w-[140px] shrink-0 truncate text-xs"
+                  >
                     {word.collectionName}
                   </Badge>
                   <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
@@ -303,7 +310,7 @@ export function WordCommandSearch() {
               ))}
 
               <div className="mt-2 border-t border-stone-100 pt-2 dark:border-border">
-                <div className="px-3 py-2 text-[10px] font-semibold uppercase tracking-widest text-stone-400 dark:text-muted-foreground">
+                <div className="px-4 py-2 text-[10px] font-semibold uppercase tracking-widest text-stone-400 dark:text-muted-foreground">
                   {t("dashboard.actions")}
                 </div>
                 {items.slice(visibleWords.length).map((item, localIndex) => {
@@ -317,7 +324,7 @@ export function WordCommandSearch() {
                       data-index={index}
                       onClick={() => handleSelect(item)}
                       className={cn(
-                        "flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left transition-colors",
+                        "flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-colors",
                         selectedIndex === index
                           ? "bg-primary/10"
                           : "hover:bg-stone-50 dark:hover:bg-muted/60",
@@ -358,6 +365,24 @@ export function WordCommandSearch() {
               </div>
             </div>
           ) : null}
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
+          <span>{t("dashboard.trySearches")}</span>
+          {["abandon", "take off", "sustainable"].map((term) => (
+            <button
+              key={term}
+              type="button"
+              onClick={() => {
+                setQuery(term);
+                setIsOpen(true);
+                inputRef.current?.focus();
+              }}
+              className="rounded-full border border-border px-3 py-1 text-foreground/80 transition-colors hover:border-primary/40 hover:bg-primary/5"
+            >
+              {term}
+            </button>
+          ))}
         </div>
       </section>
 

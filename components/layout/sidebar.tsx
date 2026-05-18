@@ -20,24 +20,20 @@ import {
 import {
   Home,
   Layers,
-  Candy as Cards,
   CheckCircle,
   Settings,
   X,
   Sparkles,
   ChevronRight,
-  ChevronDown,
   FileText,
   Crown,
   GraduationCap,
   Dumbbell,
   LogOut,
   ChevronsUpDown,
-  BookOpenText,
   PenLine,
   User,
 } from "lucide-react";
-import { DictionaryModal } from "@/components/modals/dictionary-modal";
 
 import { useAuth } from "@/lib/auth";
 import { getUserSubscriptions } from "@/app/actions/lemonsqueezy";
@@ -61,23 +57,10 @@ const studySection = [
   },
   {
     key: "wordPractice",
+    href: "/flashcards",
     icon: Dumbbell,
     color: "text-pink-400",
-    isGroup: true,
-    children: [
-      {
-        key: "flashcards",
-        href: "/flashcards",
-        icon: Cards,
-        color: "text-pink-400",
-      },
-      {
-        key: "quiz",
-        href: "/quiz",
-        icon: CheckCircle,
-        color: "text-green-400",
-      },
-    ],
+    activeHrefs: ["/flashcards", "/quiz"],
   },
 ];
 
@@ -123,9 +106,7 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
   const { signOut, user } = useAuth();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [wordPracticeExpanded, setWordPracticeExpanded] = useState(false);
   const [userPopoverOpen, setUserPopoverOpen] = useState(false);
-  const [dictionaryOpen, setDictionaryOpen] = useState(false);
 
   // ✅ Initialize from cache immediately to avoid blocking render
   const [hasActiveSubscription, setHasActiveSubscription] = useState(() => {
@@ -253,126 +234,9 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
 
   // Render a single nav item
   const renderNavItem = (item: any) => {
-    if (item.isGroup && item.children) {
-      const isGroupActive = item.children.some(
-        (child: any) => pathname === child.href,
-      );
-
-      return (
-        <div key={item.key} className="space-y-1">
-          <Button
-            variant="ghost"
-            onClick={() => !isCollapsed && setWordPracticeExpanded((prev) => !prev)}
-            className={cn(
-              "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
-              isGroupActive
-                ? "bg-[#3B82F6]/10 text-[#3B82F6]"
-                : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
-              isCollapsed
-                ? "justify-center h-11 w-11 p-0"
-                : "justify-start h-11 pl-6",
-            )}
-          >
-            <item.icon
-              className={cn(
-                "h-[18px] w-[18px] transition-all duration-300 relative z-10",
-                isGroupActive ? "text-[#3B82F6]" : item.color,
-                !isCollapsed && "mr-3",
-              )}
-            />
-            {!isCollapsed && (
-              <>
-                <span className="transition-all duration-300 font-medium relative z-10 flex-1 text-left text-[13px]">
-                  {t(`sidebar.${item.key}`)}
-                </span>
-                <ChevronDown
-                  className={cn(
-                    "h-3.5 w-3.5 transition-transform duration-200",
-                    wordPracticeExpanded ? "rotate-0" : "-rotate-90",
-                  )}
-                />
-              </>
-            )}
-          </Button>
-
-          {!isCollapsed && wordPracticeExpanded && (
-            <div className="ml-4 space-y-0.5 border-l-2 border-gray-200 dark:border-gray-700/50 pl-4">
-              {item.children.map((child: any) => {
-                const isChildActive = pathname === child.href;
-
-                return (
-                  <Link
-                    key={child.key}
-                    href={child.href}
-                    prefetch={false}
-                    onClick={() => onMobileClose?.()}
-                  >
-                    <Button
-                      variant="ghost"
-                      className={cn(
-                        "w-full transition-all duration-300 rounded-xl relative overflow-hidden justify-start h-10 pl-4",
-                        isChildActive
-                          ? "bg-[#3B82F6] text-white shadow-lg shadow-[#3B82F6]/30 hover:bg-[#3B82F6] hover:text-white"
-                          : "hover:bg-blue-50 dark:hover:bg-white/[0.03] hover:translate-x-1 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
-                      )}
-                    >
-                      <child.icon
-                        className={cn(
-                          "h-4 w-4 transition-all duration-300 relative z-10 mr-2",
-                          isChildActive ? "text-white" : child.color,
-                        )}
-                      />
-                      <span className="transition-all duration-300 font-medium relative z-10 text-[13px]">
-                        {t(`sidebar.${child.key}`)}
-                      </span>
-                      {isChildActive && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 animate-shimmer" />
-                      )}
-                    </Button>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
-
-          {isCollapsed && (
-            <div className="space-y-1">
-              {item.children.map((child: any) => {
-                const isChildActive = pathname === child.href;
-
-                return (
-                  <Link
-                    key={child.key}
-                    href={child.href}
-                    prefetch={false}
-                    onClick={() => onMobileClose?.()}
-                  >
-                    <Button
-                      variant="ghost"
-                      className={cn(
-                        "transition-all duration-300 rounded-xl relative overflow-hidden justify-center h-10 w-10 p-0",
-                        isChildActive
-                          ? "bg-[#3B82F6] text-white shadow-lg shadow-[#3B82F6]/30 hover:bg-[#3B82F6] hover:text-white"
-                          : "hover:bg-blue-50 dark:hover:bg-white/[0.03] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200",
-                      )}
-                    >
-                      <child.icon
-                        className={cn(
-                          "h-4 w-4 transition-all duration-300",
-                          isChildActive ? "text-white" : child.color,
-                        )}
-                      />
-                    </Button>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      );
-    }
-
-    const isActive = pathname === item.href;
+    const isActive =
+      pathname === item.href ||
+      item.activeHrefs?.some((href: string) => pathname === href);
     return (
       <Link
         key={item.key}
@@ -524,30 +388,6 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
           {/* PRACTICE Section */}
           {renderSectionTitle(t("sidebar.sectionPractice"))}
           <div className="space-y-1">
-            {/* Dictionary lookup modal */}
-            <Button
-              variant="ghost"
-              onClick={() => setDictionaryOpen(true)}
-              className={cn(
-                "w-full transition-all duration-300 rounded-xl relative overflow-hidden",
-                "hover:bg-violet-500/10 dark:hover:bg-violet-500/10 text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-300",
-                isCollapsed
-                  ? "justify-center h-11 w-11 p-0"
-                  : "justify-start h-11 pl-6",
-              )}
-            >
-              <BookOpenText
-                className={cn(
-                  "h-[18px] w-[18px] transition-all duration-300 relative z-10 text-violet-400",
-                  !isCollapsed && "mr-3",
-                )}
-              />
-              {!isCollapsed && (
-                <span className="transition-all duration-300 font-medium relative z-10 text-[13px]">
-                  {t("sidebar.dictionary")}
-                </span>
-              )}
-            </Button>
             {studySection.map((item) => renderNavItem(item))}
           </div>
 
@@ -563,12 +403,6 @@ export function Sidebar({ className, onMobileClose }: SidebarProps) {
             {librarySection.map((item) => renderNavItem(item))}
           </div>
         </nav>
-
-        {/* Dictionary Modal */}
-        <DictionaryModal
-          open={dictionaryOpen}
-          onOpenChange={setDictionaryOpen}
-        />
 
         {/* Bottom Section - User Profile */}
         <div className="p-3 border-t border-sidebar-border">

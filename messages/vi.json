@@ -199,7 +199,21 @@
     "lookupQuery": "Tra \"{{query}}\"",
     "lookupHint": "Mở kết quả từ điển với định nghĩa và phát âm",
     "addQuery": "Thêm \"{{query}}\"",
-    "addHint": "Điền sẵn form thêm từ và chọn bộ sưu tập"
+    "addHint": "Điền sẵn form thêm từ và chọn bộ sưu tập",
+    "trySearches": "Thử:",
+    "reviewToday": "Ôn tập hôm nay",
+    "dueWordsToday": "{{count}} từ đến hạn hôm nay",
+    "noDueWordsToday": "Hôm nay chưa có từ đến hạn",
+    "reviewTodayHint": "Hoàn thành phần ôn hôm nay để giữ trí nhớ mới và bảo vệ streak của bạn.",
+    "reviewDoneHint": "Bạn đã ôn xong. Có thể thêm từ mới hoặc luyện thêm nếu muốn.",
+    "startReview": "Bắt đầu ôn tập",
+    "learningProgress": "Tiến độ học tập",
+    "totalSavedWords": "từ đã lưu",
+    "progressBreakdown": "Theo giai đoạn",
+    "studyCalendar": "Lịch học",
+    "streakEmptyHint": "Bạn chưa học hôm nay. Ôn 5 phút để bắt đầu streak.",
+    "streakActiveHint": "Nhịp học đang tốt. Duy trì thêm một phiên ngắn hôm nay.",
+    "studyNow": "Học ngay"
   },
   "landing": {
     "aiPowered": "Học từ vựng với AI",

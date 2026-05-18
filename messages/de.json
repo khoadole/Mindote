@@ -182,7 +182,21 @@
     "lookupQuery": "\"{{query}}\" nachschlagen",
     "lookupHint": "Öffne Wörterbuchergebnisse mit Definitionen und Aussprache",
     "addQuery": "\"{{query}}\" hinzufügen",
-    "addHint": "Fülle das Formular vor und wähle eine Sammlung"
+    "addHint": "Fülle das Formular vor und wähle eine Sammlung",
+    "trySearches": "Probiere:",
+    "reviewToday": "Heute wiederholen",
+    "dueWordsToday": "{{count}} Wörter sind heute fällig",
+    "noDueWordsToday": "Heute sind keine Wörter fällig",
+    "reviewTodayHint": "Schließe die heutige Wiederholung ab, um dein Gedächtnis frisch zu halten und deinen Streak zu schützen.",
+    "reviewDoneHint": "Du bist auf dem aktuellen Stand. Füge ein neues Wort hinzu oder übe extra.",
+    "startReview": "Wiederholung starten",
+    "learningProgress": "Lernfortschritt",
+    "totalSavedWords": "gespeicherte Wörter",
+    "progressBreakdown": "Nach Lernstufe",
+    "studyCalendar": "Lernkalender",
+    "streakEmptyHint": "Du hast heute noch nicht gelernt. Wiederhole fünf Minuten, um einen Streak zu starten.",
+    "streakActiveHint": "Guter Rhythmus. Halte heute eine kurze Session durch.",
+    "studyNow": "Jetzt lernen"
   },
   "collections": {
     "title": "Sammlungen",

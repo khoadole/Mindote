@@ -182,7 +182,21 @@
     "lookupQuery": "Consultar \"{{query}}\"",
     "lookupHint": "Abra resultados do dicionário com definições e pronúncia",
     "addQuery": "Adicionar \"{{query}}\"",
-    "addHint": "Preencha o formulário e escolha uma coleção"
+    "addHint": "Preencha o formulário e escolha uma coleção",
+    "trySearches": "Experimente:",
+    "reviewToday": "Revisão de hoje",
+    "dueWordsToday": "{{count}} palavras para revisar hoje",
+    "noDueWordsToday": "Nenhuma palavra para revisar hoje",
+    "reviewTodayHint": "Conclua a revisão de hoje para manter a memória fresca e proteger sua sequência.",
+    "reviewDoneHint": "Você está em dia. Adicione uma palavra nova ou pratique um pouco mais.",
+    "startReview": "Iniciar revisão",
+    "learningProgress": "Progresso de aprendizado",
+    "totalSavedWords": "palavras salvas",
+    "progressBreakdown": "Por etapa",
+    "studyCalendar": "Calendário de estudo",
+    "streakEmptyHint": "Você ainda não estudou hoje. Revise por cinco minutos para iniciar uma sequência.",
+    "streakActiveHint": "Bom ritmo. Mantenha uma sessão curta hoje.",
+    "studyNow": "Estudar agora"
   },
   "landing": {
     "aiPowered": "Aprendizado de Vocabulário com IA",

@@ -182,7 +182,21 @@
     "lookupQuery": "查询“{{query}}”",
     "lookupHint": "打开包含释义和发音的词典结果",
     "addQuery": "添加“{{query}}”",
-    "addHint": "预填添加表单并选择一个收藏集"
+    "addHint": "预填添加表单并选择一个收藏集",
+    "trySearches": "试试：",
+    "reviewToday": "今日复习",
+    "dueWordsToday": "今天有 {{count}} 个单词需要复习",
+    "noDueWordsToday": "今天没有到期复习的单词",
+    "reviewTodayHint": "完成今天的复习，让记忆保持新鲜并守住连续学习。",
+    "reviewDoneHint": "你已经完成今天的复习。可以添加新单词，或再练习一会儿。",
+    "startReview": "开始复习",
+    "learningProgress": "学习进度",
+    "totalSavedWords": "已保存单词",
+    "progressBreakdown": "按阶段",
+    "studyCalendar": "学习日历",
+    "streakEmptyHint": "你今天还没有学习。复习五分钟，开始连续学习。",
+    "streakActiveHint": "节奏不错。今天再保持一个短学习时段。",
+    "studyNow": "现在学习"
   },
   "landing": {
     "aiPowered": "AI 驱动的词汇学习",

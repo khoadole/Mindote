@@ -171,7 +171,18 @@
     "fri": "Vie",
     "sat": "Sáb",
     "sun": "Dom",
-    "totalWords": "Palabras totales"
+    "totalWords": "Palabras totales",
+    "wordCommandTitle": "¿Qué palabra quieres trabajar hoy?",
+    "wordCommandSubtitle": "Busca tus palabras guardadas, consulta significados o añade una nueva.",
+    "wordCommandPlaceholder": "Buscar, consultar o añadir una palabra...",
+    "inYourWords": "En tus palabras",
+    "searchingWords": "Buscando palabras...",
+    "noSavedWordsFound": "No se encontraron palabras guardadas",
+    "actions": "Acciones",
+    "lookupQuery": "Consultar \"{{query}}\"",
+    "lookupHint": "Abre resultados del diccionario con definiciones y pronunciación",
+    "addQuery": "Añadir \"{{query}}\"",
+    "addHint": "Rellena el formulario y elige una colección"
   },
   "collections": {
     "title": "Colecciones",

@@ -171,7 +171,18 @@
     "fri": "Ven",
     "sat": "Sam",
     "sun": "Dim",
-    "totalWords": "Total des mots"
+    "totalWords": "Total des mots",
+    "wordCommandTitle": "Quel mot veux-tu travailler aujourd'hui ?",
+    "wordCommandSubtitle": "Recherche tes mots enregistrés, consulte les définitions ou ajoute un nouveau mot.",
+    "wordCommandPlaceholder": "Rechercher, consulter ou ajouter un mot...",
+    "inYourWords": "Dans tes mots",
+    "searchingWords": "Recherche de mots...",
+    "noSavedWordsFound": "Aucun mot enregistré trouvé",
+    "actions": "Actions",
+    "lookupQuery": "Consulter \"{{query}}\"",
+    "lookupHint": "Ouvre les résultats du dictionnaire avec définitions et prononciation",
+    "addQuery": "Ajouter \"{{query}}\"",
+    "addHint": "Préremplit le formulaire et choisis une collection"
   },
   "collections": {
     "title": "Collections",

@@ -5,15 +5,11 @@ import { useUserStats } from "@/hooks/use-settings";
 import { useDueCount } from "@/hooks/use-reviews";
 import { useLastSevenDaysActivity } from "@/hooks/use-activity-logger";
 import { Button } from "@/components/ui/button";
+import { WordCommandSearch } from "@/components/dashboard/word-command-search";
 import {
-  Plus,
   Candy as Cards,
   Flame,
   Zap,
-  GraduationCap,
-  ArrowRight,
-  FileText,
-  Dumbbell,
   Trophy,
   CheckCircle2,
 } from "lucide-react";
@@ -55,51 +51,6 @@ function SectionLabel({
     </div>
   );
 }
-
-const CEFR_LEVELS = [
-  {
-    level: "A1",
-    name: "Beginner",
-    iconBg: "bg-teal-100 dark:bg-teal-900/40",
-    iconText: "text-teal-700 dark:text-teal-300",
-    hoverCard: "hover:border-teal-200 dark:hover:border-teal-700/60",
-  },
-  {
-    level: "A2",
-    name: "Elementary",
-    iconBg: "bg-cyan-100 dark:bg-cyan-900/40",
-    iconText: "text-cyan-700 dark:text-cyan-300",
-    hoverCard: "hover:border-cyan-200 dark:hover:border-cyan-700/60",
-  },
-  {
-    level: "B1",
-    name: "Intermediate",
-    iconBg: "bg-blue-100 dark:bg-blue-900/40",
-    iconText: "text-blue-700 dark:text-blue-300",
-    hoverCard: "hover:border-blue-200 dark:hover:border-blue-700/60",
-  },
-  {
-    level: "B2",
-    name: "Upper-Int.",
-    iconBg: "bg-violet-100 dark:bg-violet-900/40",
-    iconText: "text-violet-700 dark:text-violet-300",
-    hoverCard: "hover:border-violet-200 dark:hover:border-violet-700/60",
-  },
-  {
-    level: "C1",
-    name: "Advanced",
-    iconBg: "bg-orange-100 dark:bg-orange-900/40",
-    iconText: "text-orange-700 dark:text-orange-300",
-    hoverCard: "hover:border-orange-200 dark:hover:border-orange-700/60",
-  },
-  {
-    level: "C2",
-    name: "Proficiency",
-    iconBg: "bg-rose-100 dark:bg-rose-900/40",
-    iconText: "text-rose-700 dark:text-rose-300",
-    hoverCard: "hover:border-rose-200 dark:hover:border-rose-700/60",
-  },
-];
 
 export default function Dashboard() {
   const { t } = useTranslation();
@@ -165,10 +116,11 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="p-4 md:p-8 min-h-screen bg-stone-50 dark:bg-background">
-      <div className="max-w-7xl mx-auto space-y-4">
+    <div className="min-h-screen bg-stone-50 p-4 dark:bg-background md:p-8">
+      <div className="max-w-7xl mx-auto space-y-5">
+        <WordCommandSearch />
 
-        {/* ROW 1: Top 3 panels */}
+        {/* Top 3 panels */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
           {/* PROGRESS — total + 2×2 stats */}
@@ -323,94 +275,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-        {/* ROW 2: Quick Access */}
-        <Panel className="p-5">
-          <SectionLabel>{t("dashboard.quickAccess")}</SectionLabel>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            {[
-              {
-                href: "/collections?addWord=true",
-                label: t("dashboard.addWord"),
-                icon: Plus,
-                bg: "bg-emerald-100 dark:bg-emerald-900/30",
-                text: "text-emerald-600 dark:text-emerald-400",
-                hover: "hover:border-emerald-200 dark:hover:border-emerald-800/50 hover:bg-emerald-50 dark:hover:bg-emerald-950/20",
-              },
-              {
-                href: "/flashcards",
-                label: t("dashboard.practiceNow"),
-                icon: Dumbbell,
-                bg: "bg-pink-100 dark:bg-pink-900/30",
-                text: "text-pink-600 dark:text-pink-400",
-                hover: "hover:border-pink-200 dark:hover:border-pink-800/50 hover:bg-pink-50 dark:hover:bg-pink-950/20",
-              },
-              {
-                href: "/reading",
-                label: t("dashboard.readingPractice"),
-                icon: FileText,
-                bg: "bg-amber-100 dark:bg-amber-900/30",
-                text: "text-amber-600 dark:text-amber-400",
-                hover: "hover:border-amber-200 dark:hover:border-amber-800/50 hover:bg-amber-50 dark:hover:bg-amber-950/20",
-              },
-            ].map(({ href, label, icon: Icon, bg, text, hover }) => (
-              <Link key={href} href={href} className="block">
-                <div
-                  className={`h-16 flex items-center gap-3.5 px-4 rounded-xl border border-stone-200 dark:border-border ${hover} transition-all cursor-pointer group`}
-                >
-                  <div
-                    className={`w-10 h-10 rounded-2xl ${bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-150`}
-                  >
-                    <Icon className={`${text}`} style={{ width: 20, height: 20 }} />
-                  </div>
-                  <span className="text-sm font-semibold text-stone-700 dark:text-foreground">
-                    {label}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Panel>
-
-        {/* ROW 3: CEFR Vocabulary */}
-        <Panel className="p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-1.5">
-              <GraduationCap className="h-3 w-3 text-stone-400 dark:text-muted-foreground" />
-              <span className="text-[10px] font-semibold text-stone-400 dark:text-muted-foreground uppercase tracking-widest">
-                {t("dashboard.vocabularySets")}
-              </span>
-            </div>
-            <Link href="/vocabulary">
-              <button className="text-[11px] text-stone-400 dark:text-muted-foreground hover:text-stone-700 dark:hover:text-foreground flex items-center gap-1 transition-colors">
-                {t("dashboard.viewVocabulary")}
-                <ArrowRight className="h-3 w-3" />
-              </button>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
-            {CEFR_LEVELS.map((level) => (
-              <Link key={level.level} href={`/vocabulary/${level.level.toLowerCase()}`}>
-                <div
-                  className={`group flex flex-col items-center gap-2.5 p-3.5 rounded-xl border border-stone-200 dark:border-border ${level.hoverCard} hover:shadow-sm transition-all cursor-pointer text-center`}
-                >
-                  {/* Level icon — square-rounded, level-specific color */}
-                  <div
-                    className={`w-11 h-11 rounded-2xl ${level.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-150`}
-                  >
-                    <span className={`text-sm font-black ${level.iconText}`}>
-                      {level.level}
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-medium text-stone-500 dark:text-muted-foreground group-hover:text-stone-800 dark:group-hover:text-foreground transition-colors leading-tight">
-                    {level.name}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Panel>
 
       </div>
     </div>

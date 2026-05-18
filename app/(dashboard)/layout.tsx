@@ -4,10 +4,11 @@ import type React from "react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/layout/sidebar";
-import { Topbar } from "@/components/layout/topbar";
+import { Button } from "@/components/ui/button";
 import { useRequireAuth } from "@/hooks/use-auth-guard";
 import { AuthLoadingSpinner } from "@/components/auth-loading";
 import { ChatbotWidget } from "@/components/chatbot/chatbot-widget";
+import { Menu } from "lucide-react";
 
 /**
  * ⚡ PERFORMANCE OPTIMIZED: Dashboard Layout
@@ -73,8 +74,16 @@ export default function DashboardLayout({
 
       {/* Main Content Container - Bo tròn riêng */}
       <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background shadow-none md:shadow-sm md:border md:border-border">
-        <Topbar onMobileMenuClick={() => setIsMobileSidebarOpen(true)} />
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="fixed left-4 top-4 z-30 h-10 w-10 rounded-xl bg-background/85 p-0 shadow-sm backdrop-blur md:hidden"
+          aria-label="Open navigation"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+        <main className="flex-1 overflow-y-auto pt-14 md:pt-0">{children}</main>
       </div>
 
       {/* Floating Chatbot Widget */}

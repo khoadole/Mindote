@@ -171,7 +171,18 @@
     "fri": "Fr",
     "sat": "Sa",
     "sun": "So",
-    "totalWords": "Gesamtwörter"
+    "totalWords": "Gesamtwörter",
+    "wordCommandTitle": "An welchem Wort arbeitest du heute?",
+    "wordCommandSubtitle": "Suche gespeicherte Wörter, schlage Bedeutungen nach oder füge ein neues Wort hinzu.",
+    "wordCommandPlaceholder": "Wort suchen, nachschlagen oder hinzufügen...",
+    "inYourWords": "In deinen Wörtern",
+    "searchingWords": "Wörter werden gesucht...",
+    "noSavedWordsFound": "Keine gespeicherten Wörter gefunden",
+    "actions": "Aktionen",
+    "lookupQuery": "\"{{query}}\" nachschlagen",
+    "lookupHint": "Öffne Wörterbuchergebnisse mit Definitionen und Aussprache",
+    "addQuery": "\"{{query}}\" hinzufügen",
+    "addHint": "Fülle das Formular vor und wähle eine Sammlung"
   },
   "collections": {
     "title": "Sammlungen",

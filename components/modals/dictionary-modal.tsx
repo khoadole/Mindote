@@ -41,26 +41,55 @@ const POS_COLORS: Record<string, string> = {
 interface DictionaryModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  initialQuery?: string;
+  autoSearchOnOpen?: boolean;
 }
 
-export function DictionaryModal({ open, onOpenChange }: DictionaryModalProps) {
+export function DictionaryModal({
+  open,
+  onOpenChange,
+  initialQuery = "",
+  autoSearchOnOpen = false,
+}: DictionaryModalProps) {
   const { t, language } = useTranslation();
   const { query, setQuery, entries, isLoading, error, search, reset } =
     useDictionary(language);
   const inputRef = useRef<HTMLInputElement>(null);
   const [playingAudio, setPlayingAudio] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const appliedInitialQueryRef = useRef<string | null>(null);
+  const searchedInitialQueryRef = useRef<string | null>(null);
 
   // Focus input when modal opens
   useEffect(() => {
     if (open) {
+      const trimmedInitialQuery = initialQuery.trim();
+
+      if (
+        trimmedInitialQuery &&
+        appliedInitialQueryRef.current !== trimmedInitialQuery
+      ) {
+        appliedInitialQueryRef.current = trimmedInitialQuery;
+        setQuery(trimmedInitialQuery);
+
+        if (
+          autoSearchOnOpen &&
+          searchedInitialQueryRef.current !== trimmedInitialQuery
+        ) {
+          searchedInitialQueryRef.current = trimmedInitialQuery;
+          void search(trimmedInitialQuery);
+        }
+      }
+
       // Small delay to ensure the dialog is rendered
       const timer = setTimeout(() => inputRef.current?.focus(), 100);
       return () => clearTimeout(timer);
     } else {
+      appliedInitialQueryRef.current = null;
+      searchedInitialQueryRef.current = null;
       reset();
     }
-  }, [open, reset]);
+  }, [open, initialQuery, autoSearchOnOpen, reset, search, setQuery]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {

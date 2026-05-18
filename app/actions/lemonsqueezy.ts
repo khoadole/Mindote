@@ -14,7 +14,7 @@ import {
 import { revalidatePath, unstable_noStore } from "next/cache";
 import prisma from "@/lib/prisma";
 import { configureLemonSqueezy, getAppURL } from "@/lib/lemonsqueezy";
-import { getUserId } from "@/lib/server-auth";
+import { getUserId, getUserIdOrNull } from "@/lib/server-auth";
 import { webhookHasData, webhookHasMeta } from "@/lib/typeguards";
 
 /**
@@ -158,10 +158,10 @@ export async function getUserSubscriptions() {
   // Bypass Next.js cache to always fetch fresh data
   unstable_noStore();
   
-  const userId = await getUserId();
+  const userId = await getUserIdOrNull();
 
   if (!userId) {
-    throw new Error("User not authenticated");
+    return [];
   }
 
   const subscriptions = await prisma.subscription.findMany({
@@ -629,7 +629,7 @@ export async function changePlan(subscriptionId: string, newVariantId: number) {
  *        stays "active" in the DB until we check the date.
  */
 export async function hasActiveSubscription() {
-  const userId = await getUserId();
+  const userId = await getUserIdOrNull();
 
   if (!userId) {
     return false;

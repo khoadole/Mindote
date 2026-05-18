@@ -188,7 +188,18 @@
     "fri": "T6",
     "sat": "T7",
     "sun": "CN",
-    "totalWords": "Tổng số từ"
+    "totalWords": "Tổng số từ",
+    "wordCommandTitle": "Hôm nay bạn muốn học từ nào?",
+    "wordCommandSubtitle": "Tìm trong bộ từ đã lưu, tra nghĩa hoặc thêm từ mới.",
+    "wordCommandPlaceholder": "Tìm, tra cứu hoặc thêm từ...",
+    "inYourWords": "Trong từ của bạn",
+    "searchingWords": "Đang tìm từ...",
+    "noSavedWordsFound": "Chưa có từ đã lưu phù hợp",
+    "actions": "Thao tác",
+    "lookupQuery": "Tra \"{{query}}\"",
+    "lookupHint": "Mở kết quả từ điển với định nghĩa và phát âm",
+    "addQuery": "Thêm \"{{query}}\"",
+    "addHint": "Điền sẵn form thêm từ và chọn bộ sưu tập"
   },
   "landing": {
     "aiPowered": "Học từ vựng với AI",

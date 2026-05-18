@@ -188,7 +188,18 @@
     "fri": "Fri",
     "sat": "Sat",
     "sun": "Sun",
-    "totalWords": "Total Words"
+    "totalWords": "Total Words",
+    "wordCommandTitle": "What word are you working on today?",
+    "wordCommandSubtitle": "Search your saved words, look up meanings, or add something new.",
+    "wordCommandPlaceholder": "Search, look up, or add a word...",
+    "inYourWords": "In your words",
+    "searchingWords": "Searching words...",
+    "noSavedWordsFound": "No saved words found",
+    "actions": "Actions",
+    "lookupQuery": "Look up \"{{query}}\"",
+    "lookupHint": "Open dictionary results with definitions and pronunciation",
+    "addQuery": "Add \"{{query}}\"",
+    "addHint": "Prefill the add-word form and choose a collection"
   },
   "collections": {
     "title": "Collections",

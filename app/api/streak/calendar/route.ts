@@ -22,13 +22,13 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { getUserId } from "@/lib/server-auth";
+import { getUserIdOrNull } from "@/lib/server-auth";
 import { getDailyActivityRange } from "@/lib/activity-logger";
 import { prisma } from "@/lib/prisma";
 
 export async function GET(request: NextRequest) {
   try {
-    const userId = await getUserId();
+    const userId = await getUserIdOrNull();
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

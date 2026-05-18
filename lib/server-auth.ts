@@ -2,6 +2,34 @@ import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import { cache } from "react";
 
+function getUserIdFromAuthCookieValue(cookieValue: string): string | null {
+  let tokenToParse = cookieValue;
+
+  if (cookieValue.startsWith("base64-")) {
+    const base64Data = cookieValue.substring(7);
+    const sessionJson = atob(base64Data);
+    const sessionObject = JSON.parse(sessionJson);
+
+    if (sessionObject.access_token) {
+      tokenToParse = sessionObject.access_token;
+    }
+  }
+
+  const parts = tokenToParse.split(".");
+
+  if (parts.length !== 3) {
+    return null;
+  }
+
+  const payload = JSON.parse(atob(parts[1]));
+
+  if (payload.sub && payload.exp && payload.exp > Date.now() / 1000) {
+    return payload.sub;
+  }
+
+  return null;
+}
+
 /**
  * Create Supabase client for Server Components
  * Cached per request to reuse the same client instance
@@ -77,6 +105,7 @@ export const getUserId = cache(async (): Promise<string> => {
 
   // ✅ FIX: Supabase splits large JWT tokens into chunks (.0, .1, .2, etc)
   // We need to find and combine them
+  let foundAuthCookie = false;
   const baseCookieName = allCookies
     .find((c) => c.name.match(/sb-.+-auth-token\.\d+$/))
     ?.name.replace(/\.\d+$/, "");
@@ -96,34 +125,14 @@ export const getUserId = cache(async (): Promise<string> => {
     }
 
     if (chunks.length > 0) {
+      foundAuthCookie = true;
       const fullToken = chunks.join("");
 
       try {
-        // ✅ FIX: Supabase stores base64-encoded session object, not raw JWT
-        // Format: "base64-<base64_encoded_session_json>"
-        let tokenToParse = fullToken;
+        const parsedUserId = getUserIdFromAuthCookieValue(fullToken);
 
-        if (fullToken.startsWith("base64-")) {
-          const base64Data = fullToken.substring(7); // Remove 'base64-' prefix
-          const sessionJson = atob(base64Data);
-          const sessionObject = JSON.parse(sessionJson);
-
-          // Extract access_token from session object
-          if (sessionObject.access_token) {
-            tokenToParse = sessionObject.access_token;
-          }
-        }
-
-        // Now parse the actual JWT
-        const parts = tokenToParse.split(".");
-
-        if (parts.length === 3) {
-          const payload = JSON.parse(atob(parts[1]));
-
-          // Verify token not expired and has sub (user ID)
-          if (payload.sub && payload.exp && payload.exp > Date.now() / 1000) {
-            return payload.sub;
-          }
+        if (parsedUserId) {
+          return parsedUserId;
         }
       } catch (e) {
         // Only log errors in development
@@ -147,18 +156,24 @@ export const getUserId = cache(async (): Promise<string> => {
     );
 
     if (authCookie?.value) {
+      foundAuthCookie = true;
       try {
-        const parts = authCookie.value.split(".");
-        if (parts.length === 3) {
-          const payload = JSON.parse(atob(parts[1]));
-          if (payload.sub && payload.exp && payload.exp > Date.now() / 1000) {
-            return payload.sub;
-          }
+        const parsedUserId = getUserIdFromAuthCookieValue(authCookie.value);
+
+        if (parsedUserId) {
+          return parsedUserId;
         }
       } catch (e) {
         // Silently fail and fall through to slow path
       }
     }
+  }
+
+  if (!foundAuthCookie) {
+    if (isDev) {
+      console.log(`[getUserId] No Supabase auth cookie found`);
+    }
+    throw new Error("Unauthorized");
   }
 
   // Slow path fallback: Call Supabase API (~400ms network call)

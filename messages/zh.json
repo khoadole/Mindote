@@ -171,7 +171,18 @@
     "fri": "周五",
     "sat": "周六",
     "sun": "周日",
-    "totalWords": "总单词数"
+    "totalWords": "总单词数",
+    "wordCommandTitle": "今天想学习哪个单词？",
+    "wordCommandSubtitle": "搜索已保存的单词，查询释义，或添加新单词。",
+    "wordCommandPlaceholder": "搜索、查询或添加单词...",
+    "inYourWords": "你的单词",
+    "searchingWords": "正在搜索单词...",
+    "noSavedWordsFound": "没有找到已保存的单词",
+    "actions": "操作",
+    "lookupQuery": "查询“{{query}}”",
+    "lookupHint": "打开包含释义和发音的词典结果",
+    "addQuery": "添加“{{query}}”",
+    "addHint": "预填添加表单并选择一个收藏集"
   },
   "landing": {
     "aiPowered": "AI 驱动的词汇学习",

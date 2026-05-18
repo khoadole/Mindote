@@ -171,7 +171,18 @@
     "fri": "Ven",
     "sat": "Sab",
     "sun": "Dom",
-    "totalWords": "Parole totali"
+    "totalWords": "Parole totali",
+    "wordCommandTitle": "Su quale parola vuoi lavorare oggi?",
+    "wordCommandSubtitle": "Cerca tra le parole salvate, consulta i significati o aggiungine una nuova.",
+    "wordCommandPlaceholder": "Cerca, consulta o aggiungi una parola...",
+    "inYourWords": "Nelle tue parole",
+    "searchingWords": "Ricerca parole...",
+    "noSavedWordsFound": "Nessuna parola salvata trovata",
+    "actions": "Azioni",
+    "lookupQuery": "Consulta \"{{query}}\"",
+    "lookupHint": "Apri risultati del dizionario con definizioni e pronuncia",
+    "addQuery": "Aggiungi \"{{query}}\"",
+    "addHint": "Precompila il modulo e scegli una raccolta"
   },
   "collections": {
     "title": "Collezioni",

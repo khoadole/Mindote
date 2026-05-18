@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Open_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -48,12 +48,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Mindote Team" }],
   creator: "Mindote",
   publisher: "Mindote",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   robots: {
     index: true,
     follow: true,
@@ -102,6 +96,13 @@ export const metadata: Metadata = {
     images: ["/mindote_full.jpg"],
     creator: "@mindote_app",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

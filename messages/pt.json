@@ -171,7 +171,18 @@
     "fri": "Sex",
     "sat": "Sáb",
     "sun": "Dom",
-    "totalWords": "Total de palavras"
+    "totalWords": "Total de palavras",
+    "wordCommandTitle": "Qual palavra você quer estudar hoje?",
+    "wordCommandSubtitle": "Pesquise suas palavras salvas, consulte significados ou adicione uma nova.",
+    "wordCommandPlaceholder": "Pesquisar, consultar ou adicionar uma palavra...",
+    "inYourWords": "Nas suas palavras",
+    "searchingWords": "Pesquisando palavras...",
+    "noSavedWordsFound": "Nenhuma palavra salva encontrada",
+    "actions": "Ações",
+    "lookupQuery": "Consultar \"{{query}}\"",
+    "lookupHint": "Abra resultados do dicionário com definições e pronúncia",
+    "addQuery": "Adicionar \"{{query}}\"",
+    "addHint": "Preencha o formulário e escolha uma coleção"
   },
   "landing": {
     "aiPowered": "Aprendizado de Vocabulário com IA",

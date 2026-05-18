@@ -171,7 +171,18 @@
     "fri": "금",
     "sat": "토",
     "sun": "일",
-    "totalWords": "총 단어 수"
+    "totalWords": "총 단어 수",
+    "wordCommandTitle": "오늘은 어떤 단어를 공부할까요?",
+    "wordCommandSubtitle": "저장한 단어를 검색하고, 뜻을 찾아보거나 새 단어를 추가하세요.",
+    "wordCommandPlaceholder": "단어 검색, 뜻 찾기 또는 추가...",
+    "inYourWords": "내 단어",
+    "searchingWords": "단어 검색 중...",
+    "noSavedWordsFound": "저장된 단어를 찾을 수 없습니다",
+    "actions": "작업",
+    "lookupQuery": "\"{{query}}\" 뜻 찾기",
+    "lookupHint": "정의와 발음이 포함된 사전 결과 열기",
+    "addQuery": "\"{{query}}\" 추가",
+    "addHint": "추가 폼을 채우고 컬렉션 선택"
   },
   "landing": {
     "aiPowered": "AI 기반 어휘 학습",

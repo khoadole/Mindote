@@ -171,7 +171,18 @@
     "fri": "金",
     "sat": "土",
     "sun": "日",
-    "totalWords": "合計単語数"
+    "totalWords": "合計単語数",
+    "wordCommandTitle": "今日はどの単語を学びますか？",
+    "wordCommandSubtitle": "保存した単語を検索し、意味を調べ、新しい単語を追加できます。",
+    "wordCommandPlaceholder": "単語を検索・調べる・追加...",
+    "inYourWords": "保存した単語",
+    "searchingWords": "単語を検索中...",
+    "noSavedWordsFound": "保存済みの単語は見つかりません",
+    "actions": "アクション",
+    "lookupQuery": "「{{query}}」を調べる",
+    "lookupHint": "定義と発音つきの辞書結果を開く",
+    "addQuery": "「{{query}}」を追加",
+    "addHint": "追加フォームに入力し、コレクションを選択"
   },
   "collections": {
     "title": "コレクション",

@@ -50,6 +50,7 @@ export function useLastSevenDaysActivity(): StreakActivityData {
         if (response.error) {
           setError(response.error);
           setData(null);
+          setLoading(false);
           return;
         }
 

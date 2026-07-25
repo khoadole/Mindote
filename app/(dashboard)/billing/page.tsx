@@ -13,7 +13,7 @@ export default function BillingPage() {
   const [paymentTab, setPaymentTab] = useState<"international" | "vietnam">("international");
 
   return (
-    <div className="container max-w-6xl mx-auto py-8 px-4 bg-white dark:bg-background min-h-screen">
+    <div className="container max-w-6xl mx-auto py-8 px-4 bg-white dark:bg-background min-h-full">
       <div className="space-y-4">
         {/* Current Subscription */}
         <Suspense fallback={<SubscriptionSkeleton />}>

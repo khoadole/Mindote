@@ -258,7 +258,7 @@ export function QuizPlayer({
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-8 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
       {/* Content - positioned above background */}
       <div className="relative z-10 max-w-2xl mx-auto space-y-6 py-8">
         {/* Progress */}

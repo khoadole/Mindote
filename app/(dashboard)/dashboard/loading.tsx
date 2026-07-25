@@ -14,7 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
  */
 export default function DashboardLoading() {
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen animate-in fade-in duration-300">
+    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-full animate-in fade-in duration-300">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Main Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

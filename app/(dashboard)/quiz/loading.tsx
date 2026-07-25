@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
  */
 export default function QuizLoading() {
   return (
-    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-screen animate-in fade-in duration-300">
+    <div className="p-4 md:p-8 bg-white dark:bg-background min-h-full animate-in fade-in duration-300">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">

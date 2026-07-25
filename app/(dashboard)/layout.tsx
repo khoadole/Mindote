@@ -40,7 +40,7 @@ export default function DashboardLayout({
   if (isReadingPracticeFocus) {
     return (
       <div className="h-screen bg-background overflow-hidden">
-        <main className="h-full overflow-y-auto">{children}</main>
+        <main className="h-full min-h-0 overflow-y-auto">{children}</main>
       </div>
     );
   }
@@ -73,7 +73,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Main Content Container - Bo tròn riêng */}
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background shadow-none md:shadow-sm md:border md:border-border">
+      <div className="flex-1 min-h-0 flex flex-col overflow-hidden relative z-10 rounded-none md:rounded-3xl bg-background shadow-none md:shadow-sm md:border md:border-border">
         <Button
           variant="ghost"
           size="sm"
@@ -83,7 +83,7 @@ export default function DashboardLayout({
         >
           <Menu className="h-5 w-5" />
         </Button>
-        <main className="flex-1 overflow-y-auto pt-14 md:pt-0">{children}</main>
+        <main className="min-h-0 flex-1 overflow-y-auto pt-14 md:pt-0">{children}</main>
       </div>
 
       {/* Floating Chatbot Widget */}

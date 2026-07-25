@@ -102,7 +102,7 @@ export default function VocabularyPage() {
   }
 
   return (
-    <div className="p-4 md:p-8 min-h-screen bg-stone-50 dark:bg-background">
+    <div className="p-4 md:p-8 min-h-full bg-stone-50 dark:bg-background">
       <div className="max-w-5xl mx-auto space-y-6">
 
         {/* Header */}

@@ -172,7 +172,7 @@ export default function LevelPage() {
   const progressPercent = getProgressPercentage(learnedCount, totalWords);
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen">
+    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-full">
       <div className="max-w-3xl mx-auto space-y-6">
         {/* Back Link */}
         <Link

@@ -136,7 +136,7 @@ export default function CollectionsPage() {
   );
 
   return (
-    <div className="p-4 md:p-8 bg-gray-50/70 dark:bg-background min-h-screen transition-all duration-300">
+    <div className="p-4 md:p-8 bg-gray-50/70 dark:bg-background min-h-full transition-all duration-300">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="animate-in fade-in slide-in-from-top-4">

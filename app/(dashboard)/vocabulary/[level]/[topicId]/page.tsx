@@ -225,7 +225,7 @@ export default function TopicWordsPage() {
 
   if (!topic) {
     return (
-      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen">
+      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-full">
         <p className="text-center text-gray-500 dark:text-gray-400">
           Topic not found.
         </p>
@@ -236,7 +236,7 @@ export default function TopicWordsPage() {
   // Show locked state
   if (isLocked) {
     return (
-      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen">
+      <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-full">
         <div className="max-w-3xl mx-auto space-y-6">
           <Link
             href={`/vocabulary/${level.toLowerCase()}`}
@@ -268,7 +268,7 @@ export default function TopicWordsPage() {
   }
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-screen">
+    <div className="p-4 md:p-8 bg-slate-50 dark:bg-background min-h-full">
       <div className="max-w-3xl mx-auto space-y-5">
         {/* Back Link */}
         <Link

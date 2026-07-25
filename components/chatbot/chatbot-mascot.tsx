@@ -33,9 +33,7 @@ export function ChatbotMascot({
   minDelayMs = 300,
   maxDelayMs = 700,
 }: ChatbotMascotProps) {
-  const [frameIndex, setFrameIndex] = useState(() =>
-    animated ? Math.floor(Math.random() * IDLE_FRAMES.length) : 0
-  );
+  const [frameIndex, setFrameIndex] = useState(0);
 
   useEffect(() => {
     if (!animated) {

@@ -141,7 +141,7 @@ export default function Dashboard() {
   const studyHref = "/collections";
 
   return (
-    <div className="min-h-screen bg-stone-50 p-4 dark:bg-background md:p-8">
+    <div className="min-h-full bg-stone-50 p-4 dark:bg-background md:p-8">
       <div className="mx-auto max-w-6xl space-y-4">
         <WordCommandSearch />
 

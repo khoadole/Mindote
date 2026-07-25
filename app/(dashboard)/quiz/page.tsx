@@ -41,7 +41,7 @@ const QuizPlayer = dynamic(
     loading: () => {
       const { t } = useTranslation();
       return (
-        <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background">
+        <div className="p-6 flex items-center justify-center min-h-full bg-white dark:bg-background">
           <div className="flex items-center gap-2">
             <Loader2 className="h-6 w-6 animate-spin" />
             <span>{t("common.loading")}</span>
@@ -159,7 +159,7 @@ export default function QuizPage() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
+      <div className="p-6 flex items-center justify-center min-h-full bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>{t("common.loading")}</span>
@@ -170,7 +170,7 @@ export default function QuizPage() {
 
   if (isQuizzing) {
     return (
-      <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+      <div className="p-8 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
         <QuizPlayer
           words={validQuizWords as any}
           mode={questionType}
@@ -182,9 +182,9 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-8 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
       {/* Content - positioned above background */}
-      <div className="relative z-10 p-6 min-h-screen">
+      <div className="relative z-10 p-6 min-h-full">
         <div className="max-w-4xl mx-auto space-y-6">
           <WordPracticeTabs active="quiz" />
 

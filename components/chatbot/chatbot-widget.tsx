@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sparkles } from "lucide-react";
 import { useTranslation } from "@/lib/i18n-provider";
 import { ChatbotFab } from "./chatbot-fab";
 import { ChatbotPanel } from "./chatbot-panel";
+import { ChatbotMascot } from "./chatbot-mascot";
 
 const CHATBOT_NUDGE_KEY = "mindote-chatbot-nudge-seen-v1";
 
@@ -48,9 +48,7 @@ export function ChatbotWidget() {
           aria-label="Open Mindote AI assistant"
         >
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-500">
-              <Sparkles className="h-4 w-4" />
-            </div>
+            <ChatbotMascot size={32} className="shrink-0 rounded-full" />
             <div>
               <p className="text-xs font-semibold text-foreground">
                 {t("chat.title")}

@@ -58,7 +58,7 @@ export default function SettingsPage() {
   // Don't block the UI if settings is just disabled (user not logged in)
   if (settingsLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
+      <div className="p-6 flex items-center justify-center min-h-full bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>{t("settings.loadingSettings")}</span>
@@ -103,7 +103,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-6 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
       <div className="max-w-6xl mx-auto space-y-6 relative z-10">
         {/* Header */}
         <div className="flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-500">

@@ -34,7 +34,7 @@ const FlashcardPlayer = dynamic(
     loading: () => {
       const { t } = useTranslation();
       return (
-        <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background">
+        <div className="p-6 flex items-center justify-center min-h-full bg-white dark:bg-background">
           {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> - REMOVED for pure white */}
           <div className="flex items-center gap-2">
             <Loader2 className="h-6 w-6 animate-spin" />
@@ -164,7 +164,7 @@ export default function FlashcardsPage() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-screen bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
+      <div className="p-6 flex items-center justify-center min-h-full bg-white dark:bg-background relative overflow-hidden transition-all duration-300">
         <div className="flex items-center gap-2 relative z-10">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span>{t("flashcards.loadingFlashcards")}</span>
@@ -186,7 +186,7 @@ export default function FlashcardsPage() {
   }
 
   return (
-    <div className="p-8 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-8 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
       {/* Minimal gradient background - Light mode only - REMOVED for pure white */}
       {/* <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50" /> */}
 
@@ -224,7 +224,7 @@ export default function FlashcardsPage() {
       </div>
 
       {/* Content - positioned above background */}
-      <div className="relative z-10 p-6 min-h-screen">
+      <div className="relative z-10 p-6 min-h-full">
         <div className="max-w-4xl mx-auto space-y-6">
           <WordPracticeTabs active="flashcards" />
 

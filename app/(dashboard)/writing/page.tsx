@@ -69,7 +69,7 @@ export default function WritingPage() {
 
   if (selectedPassage && activeTab === "translate") {
     return (
-      <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+      <div className="p-6 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
         <div className="relative z-10 max-w-5xl mx-auto">
           <WritingWorkspace
             passage={selectedPassage}
@@ -81,7 +81,7 @@ export default function WritingPage() {
   }
 
   return (
-    <div className="p-6 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
+    <div className="p-6 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
       <div className="relative z-10 max-w-5xl mx-auto space-y-6">
         <Tabs
           value={activeTab}

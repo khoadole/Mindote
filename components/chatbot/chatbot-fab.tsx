@@ -1,8 +1,9 @@
 "use client";
 
-import { Sparkles, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useTranslation } from "@/lib/i18n-provider";
+import { ChatbotMascot } from "./chatbot-mascot";
 
 interface ChatbotFabProps {
   isOpen: boolean;
@@ -26,7 +27,7 @@ export function ChatbotFab({ isOpen, onClick, highlight = false }: ChatbotFabPro
             {isOpen ? (
               <X className="h-4 w-4 text-muted-foreground" />
             ) : (
-              <Sparkles className="h-4 w-4 text-amber-500" />
+              <ChatbotMascot size={28} className="rounded-full" />
             )}
             <span className="hidden sm:inline">{t("chat.title")}</span>
           </button>

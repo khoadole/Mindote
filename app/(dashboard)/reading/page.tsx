@@ -182,8 +182,8 @@ export default function ReadingPage() {
     selectedWordIds.length >= 5 || selectedWordIds.length === 0;
 
   return (
-    <div className="px-8 pb-8 pt-4 bg-white dark:bg-background min-h-screen relative overflow-hidden transition-all duration-300">
-      <div className="relative z-10 px-6 pb-6 pt-2 min-h-screen">
+    <div className="px-8 pb-8 pt-4 bg-white dark:bg-background min-h-full relative overflow-hidden transition-all duration-300">
+      <div className="relative z-10 px-6 pb-6 pt-2 min-h-full">
         <div className="max-w-7xl mx-auto space-y-6">
           <Tabs
             value={activeTab}
